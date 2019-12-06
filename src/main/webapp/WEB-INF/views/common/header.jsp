@@ -27,7 +27,7 @@
                   
                      <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.jsp">3D디자인 리스트</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="about-us.jsp">견적 리스트</a></li>
+                        <li class="nav-item"><a class="nav-link" href="auctionList.do">견적 리스트</a></li>
                         <li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
                         <li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
                               <li class="nav-item"><a class="nav-link" href="blog.jsp">쇼핑몰</a></li>
