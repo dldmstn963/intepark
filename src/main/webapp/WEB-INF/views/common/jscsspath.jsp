@@ -32,7 +32,7 @@
         <script src="/intepark/resources/js/mail-script.js"></script>
         <script src="/intepark/resources/js/theme.js"></script>
         <script src="/intepark/resources/vendors/jquery-ui/jquery-ui.js"></script>
-        
+        <!-- contact js -->
         <script src="js/jquery.form.js"></script>
         <script src="js/jquery.validate.min.js"></script>
         <script src="js/contact.js"></script>

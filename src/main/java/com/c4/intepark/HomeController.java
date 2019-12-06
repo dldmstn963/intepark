@@ -40,7 +40,7 @@ public class HomeController {
 	public String main(Model model) {
 		logger.info("Welcome main!");
 
-		return "main";
+		return "TemplateFolder/main";
 	}
 	
 	@RequestMapping("auctionList.do")
