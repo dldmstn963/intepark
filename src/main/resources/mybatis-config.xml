@@ -8,6 +8,7 @@
 		<typeAlias type="com.kh.first.test.model.vo.CryptoUser" alias="CUser" />
 		<typeAlias type="com.kh.first.notice.model.vo.Notice" alias="Notice" />
 		<typeAlias type="com.kh.first.board.model.vo.Board" alias="Board" /> -->
+		<typeAlias type="com.c4.intepark.constructors.vo.Constructors" alias="Constructors"/>
 	</typeAliases>
 	
 	<mappers>
@@ -15,5 +16,6 @@
 		<mapper resource="mappers/board-mapper.xml" />
 		<mapper resource="mappers/notice-mapper.xml" />
 		<mapper resource="mappers/test-mapper.xml"/> -->
+		<mapper resource="mappers/constructors-mapper.xml"/>
 	</mappers>
 </configuration>
