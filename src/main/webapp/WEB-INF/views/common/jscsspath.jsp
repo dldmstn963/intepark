@@ -31,3 +31,11 @@
         <script src="/intepark/resources/js/jquery.ajaxchimp.min.js"></script>
         <script src="/intepark/resources/js/mail-script.js"></script>
         <script src="/intepark/resources/js/theme.js"></script>
+        <script src="/intepark/resources/vendors/jquery-ui/jquery-ui.js"></script>
+        
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/contact.js"></script>
+        <!--gmaps Js-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <script src="js/gmaps.min.js"></script>
