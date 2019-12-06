@@ -39,7 +39,6 @@ public class HomeController {
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String main(Model model) {
 		logger.info("Welcome main!");
-
 		return "main";
 	}
 }
