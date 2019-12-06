@@ -42,4 +42,10 @@ public class HomeController {
 
 		return "main";
 	}
+	
+	@RequestMapping("auctionList.do")
+	public String auctionList() {
+		
+		return "auctionList";
+	}
 }
