@@ -7,7 +7,6 @@
 <%@ include file="common/jscsspath.jsp" %>
 </head>
 <body>
-        
         <!--================Header Menu Area =================-->
        	<jsp:include page="common/header.jsp" />
         <!--================Header Menu Area =================-->
