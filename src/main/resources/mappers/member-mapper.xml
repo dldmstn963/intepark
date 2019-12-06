@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+
+	<!-- <resultMap id="resultMember" type="Member">
+		<id property="userId" column="userid" />
+		<result property="userPwd" column="userpwd" />
+		<result property="userName" column="username" />
+		<result property="age" column="age" />
+		<result property="gender" column="gender" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="hobby" column="hobby" />
+		<result property="etc" column="etc" />
+		<result property="enrollDate" column="enroll_date" />
+		<result property="lastModified" column="lastmodified" />
+	</resultMap>
+	
+	<resultMap id="resultList" type="Member">
+		<result property="userId" column="userid" />
+		<result property="userPwd" column="userpwd" />
+		<result property="userName" column="username" />
+		<result property="age" column="age" />
+		<result property="gender" column="gender" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="hobby" column="hobby" />
+		<result property="etc" column="etc" />
+		<result property="enrollDate" column="enroll_date" />
+		<result property="lastModified" column="lastmodified" />
+	</resultMap>
+	
+	<select id="loginCheck" parameterType="Member" resultMap="resultMember">
+		select * from member where userid = #{ userId } and userpwd = #{userPwd}
+	</select>
+	
+	<select id="selectOne" parameterType="string" resultMap="resultMember">
+		select * from member where userid = #{value}
+	</select>
+	
+	<insert id="insertMember" parameterType="Member">
+		insert into member values (#{userId}, #{userPwd}, #{userName}, #{gender}, 
+		#{age}, #{phone}, #{email}, #{hobby}, #{etc}, default, sysdate)
+	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+		update member 
+		set userpwd = #{userPwd}, email = #{email}, phone = #{phone},
+			etc = #{etc}, hobby = #{hobby}, lastmodified = sysdate 
+		where userid = #{userId}
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+		delete from member where userid = #{value}
+	</delete>
+	
+	<select id="selectList" resultMap="resultList">
+		select * from member
+	</select>
+
+	<select id="selectCheckId" parameterType="String" resultType="_int">
+		select count(userid) from member where userid = #{value}
+	</select> -->
+</mapper>
+
+
+
+
+
+
+
+

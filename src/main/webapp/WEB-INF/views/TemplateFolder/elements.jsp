@@ -4,12 +4,12 @@
 <html lang="en">
     <head>
         <title>Real State Multi</title>
-        <%@ include file="common/jscsspath.jsp" %>
+        <%@ include file="../common/jscsspath.jsp" %>
     </head>
     <body>
         
         <!--================Header Menu Area =================-->
-		<jsp:include page="common/header.jsp" />
+		<jsp:include page="../common/header.jsp" />
         <!--================Header Menu Area =================-->
         
         <!--================Home Banner Area =================-->
@@ -557,7 +557,7 @@
 			<!-- End Align Area -->
         
         <!--================ start footer Area  =================-->	
-<jsp:include page="common/footer.jsp" />
+<jsp:include page="../common/footer.jsp" />
 		<!--================ End footer Area  =================-->
 		    
     </body>
