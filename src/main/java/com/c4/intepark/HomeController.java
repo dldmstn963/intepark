@@ -33,14 +33,12 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		System.out.println("aaaa");
 		return "home";
 	}
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String main(Model model) {
 		logger.info("Welcome main!");
-		System.out.println("advadv");
 		return "TemplateFolder/main";
 	}
 	
