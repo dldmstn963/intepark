@@ -1,9 +1,11 @@
 package com.c4.intepark.constructors.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,10 +21,27 @@ public class ConstructorsController {
 	public ConstructorsController() {}
 	
 	@RequestMapping(value="conslogCheck6.do", method=RequestMethod.POST)
-	public void consLoginMethod(Constructors cons, HttpSession session) {
-		System.out.println(cons);
-		Constructors loginCons= consService.loginCheck(cons);
-		System.out.println(loginCons);
+	public String consLoginMethod(Constructors cons, HttpSession session,
+			Model model) {
+		
+	Constructors loginCons= consService.loginCheck(cons);
+	String view = "main";
+	if(loginCons != null) {
+		session.setAttribute("loginCons", loginCons);
+	}else {
+		model.addAttribute("message", "아이디 / 암호를 확인하여 주세요.");
+		view = "member/login";
+	}
+	return view;
+
+	}
+	@RequestMapping("logout.do")
+	public String logoutMethod(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		return "main";
 	}
 	
 

@@ -9,6 +9,7 @@
 		<typeAlias type="com.kh.first.notice.model.vo.Notice" alias="Notice" />
 		<typeAlias type="com.kh.first.board.model.vo.Board" alias="Board" /> -->
 		<typeAlias type="com.c4.intepark.constructors.vo.Constructors" alias="Constructors"/>
+		<typeAlias type="com.c4.intepark.inteuser.vo.InteUser" alias="InteUser" />
 	</typeAliases>
 	
 	<mappers>
@@ -17,5 +18,6 @@
 		<mapper resource="mappers/notice-mapper.xml" />
 		<mapper resource="mappers/test-mapper.xml"/> -->
 		<mapper resource="mappers/constructors-mapper.xml"/>
+		<mapper resource="mappers/inteUser-mapper.xml" />
 	</mappers>
 </configuration>
