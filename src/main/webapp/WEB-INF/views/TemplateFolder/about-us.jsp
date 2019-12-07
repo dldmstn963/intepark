@@ -35,7 +35,7 @@
         		<div class="row welcome_inner">
         			<div class="col-lg-6">
         				<div class="welcome_img">
-        					<img class="img-fluid" src="img/welcome-1.jpg" alt="">
+        					<img class="img-fluid" src="/intepark/resources/img/welcome-1.jpg" alt="">
         				</div>
         			</div>
         			<div class="col-lg-6">
@@ -135,7 +135,7 @@
         				<div class="testi_slider owl-carousel">
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-1.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-1.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -143,7 +143,7 @@
 							</div>
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-2.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-2.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -151,7 +151,7 @@
 							</div>
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-1.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-1.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -159,7 +159,7 @@
 							</div>
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-2.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-2.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -167,7 +167,7 @@
 							</div>
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-1.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-1.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -175,7 +175,7 @@
 							</div>
 							<div class="item">
 								<div class="testi_item">
-									<img src="img/testimonials/testi-2.png" alt="">
+									<img src="/intepark/resources/img/testimonials/testi-2.png" alt="">
 									<p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving great heights so far as its</p>
 									<h4>Cordelia Barton</h4>
 									<h6>CEO at Google</h6>
@@ -197,19 +197,19 @@
         		</div>
         		<div class="clients_slider owl-carousel">
         			<div class="item">
-        				<img src="img/clients-logo/c-logo-1.png" alt="">
+        				<img src="/intepark/resources/img/clients-logo/c-logo-1.png" alt="">
         			</div>
         			<div class="item">
-        				<img src="img/clients-logo/c-logo-2.png" alt="">
+        				<img src="/intepark/resources/img/clients-logo/c-logo-2.png" alt="">
         			</div>
         			<div class="item">
-        				<img src="img/clients-logo/c-logo-3.png" alt="">
+        				<img src="/intepark/resources/img/clients-logo/c-logo-3.png" alt="">
         			</div>
         			<div class="item">
-        				<img src="img/clients-logo/c-logo-4.png" alt="">
+        				<img src="/intepark/resources/img/clients-logo/c-logo-4.png" alt="">
         			</div>
         			<div class="item">
-        				<img src="img/clients-logo/c-logo-5.png" alt="">
+        				<img src="/intepark/resources/img/clients-logo/c-logo-5.png" alt="">
         			</div>
         		</div>
         	</div>

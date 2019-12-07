@@ -1,0 +1,1502 @@
+---------------------------계정 관련----------------------------------
+
+-- 사용자 계정 생성
+--CREATE USER intepark IDENTIFIED BY intepark;
+
+-- 계정 생성 확인
+--SELECT USERNAME FROM ALL_USERS;
+
+-- 계정 비밀번호 변경
+-- ALTER USER intepark IDENTIFIED BY [NEW PASSWORD];
+
+-- 데이터베이스 접속 권한
+--GRANT CREATE SESSION TO intepark;
+
+--테이블생성 권한
+--GRANT CREATE TABLE TO intepark;
+
+-- 뷰 생성권한
+--GRANT CREATE VIEW TO intepark;
+
+-- 시퀀스 생성 권한
+--GRANT CREATE SEQUENCE TO intepark;
+
+-- 계정에 삭제하기
+--drop user 사용자계정 cascade;
+
+-- 권한 묶여 한꺼번에 주기
+-- GRANT CREATE user, CREATE table, CREATE sequence, CREATE view, CREATE session to intepark ;
+
+-- connect(접속을 하기 위한 권한) resource(모든 권한을 묶어 놓은 Role)
+--GRANT CONNECT, RESOURCE TO intepark;
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+-------이영수
+--시공사
+DROP TABLE constructors CASCADE CONSTRAINTS;
+
+CREATE TABLE constructors (
+	consid	VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
+	conspwd	VARCHAR2(60)		NOT NULL,
+	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
+	consname	VARCHAR2(30)		NOT NULL,
+	phone	VARCHAR2(50)		NULL,
+	email	VARCHAR2(50)		NOT NULL,
+	address	VARCHAR2(200)		NULL,
+	companyname	VARCHAR2(100)		NOT NULL,
+	consarea	VARCHAR2(100)		NOT NULL,
+	asdate	VARCHAR2(20)		NULL,
+	career	VARCHAR2(20)		NULL,
+	consintroduction	VARCHAR2(200)		NULL,
+	pfintroduction	VARCHAR2(4000)		NULL,
+	profileoriginalimg	VARCHAR2(100)		NULL,
+	profilerenameimg	VARCHAR2(100)		NULL,
+	blicenceoriginalimg	VARCHAR2(100)		NULL,
+	blicencerenameimg	VARCHAR2(100)		NULL,
+	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','S','Y')),
+	withdrawdate	DATE	DEFAULT SYSDATE	NULL,
+	withdrawcause	VARCHAR2(200)		NULL
+);
+
+insert into constructors values ('con1', 'con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
+'인테리아','바닥,천장','1년','2~5년','간지작살',null,null,null,null,null,'Y',null,null);
+insert into constructors values ('con2', 'con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
+'인테킹','종합','6개월','10년이상','나도간지작살',null,null,null,null,null,'Y',null,null);
+
+--delete from constructors where consid='con1';
+
+COMMENT ON COLUMN constructors.consid IS '아이디';
+COMMENT ON COLUMN constructors.conspwd IS '비밀번호';
+COMMENT ON COLUMN constructors.enrolldate IS '가입날짜';
+COMMENT ON COLUMN constructors.consname IS '이름';
+COMMENT ON COLUMN constructors.phone IS '전화번호';
+COMMENT ON COLUMN constructors.email IS '이메일';
+COMMENT ON COLUMN constructors.address IS '주소';
+COMMENT ON COLUMN constructors.companyname IS '상호명';
+COMMENT ON COLUMN constructors.consarea IS '시공분야';
+COMMENT ON COLUMN constructors.asdate IS 'A/S기간';
+COMMENT ON COLUMN constructors.career IS '경력';
+COMMENT ON COLUMN constructors.consintroduction IS '업체 소개';
+COMMENT ON COLUMN constructors.pfintroduction IS '소개글';
+COMMENT ON COLUMN constructors.profileoriginalimg IS '프로필사진 원본 이름';
+COMMENT ON COLUMN constructors.profilerenameimg IS '프로필사진 저장된  이름';
+COMMENT ON COLUMN constructors.blicenceoriginalimg IS '사업자등록증 원본 이미지 이름';
+COMMENT ON COLUMN constructors.blicencerenameimg IS '사업자등록증 저장된 이미지이름';
+COMMENT ON COLUMN constructors.memberstate IS '정지여부';
+COMMENT ON COLUMN constructors.withdrawdate IS '탈퇴날짜';
+COMMENT ON COLUMN constructors.withdrawcause IS '탈퇴사유';
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--유저+관리자
+DROP TABLE inteuser CASCADE CONSTRAINTS;
+
+CREATE TABLE inteuser (
+	userid	VARCHAR2(15) CONSTRAINT PK_INTEUSER PRIMARY KEY,
+	userpwd	CHAR(32)		NOT NULL,
+	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
+	username	VARCHAR2(30)		NOT NULL,
+	phone	VARCHAR2(50)		NULL,
+	email	VARCHAR2(50)		NOT NULL,
+	address	VARCHAR2(200)		NULL,
+	memberstate	CHAR(1)	DEFAULT 'A'	CHECK(memberstate IN('A','S','Y')),
+	withdrawdate	DATE		NULL,
+	withdrawcause	VARCHAR2(200)		NULL
+);
+
+insert into inteuser values('admin','admin',sysdate,'관리자','080-509-4949','d@d', null,'Y',null,null);
+insert into inteuser values('user1','user1',sysdate,'고객1','010-1343-1441','a@a', null,default,null,null);
+insert into inteuser values('user2','user2',sysdate,'고객2','010-3431-4411','b@b', '서울시 강남구','Y',null,null);
+
+--delete from inteuser where userid='user1';
+
+COMMENT ON COLUMN inteuser.userid IS '아이디';
+COMMENT ON COLUMN inteuser.userpwd IS '정지여부';
+COMMENT ON COLUMN inteuser.enrolldate IS '가입날짜';
+COMMENT ON COLUMN inteuser.username IS '이름';
+COMMENT ON COLUMN inteuser.phone IS '전화번호';
+COMMENT ON COLUMN inteuser.email IS '이메일';
+COMMENT ON COLUMN inteuser.address IS '주소';
+COMMENT ON COLUMN inteuser.memberstate IS '정지여부';
+COMMENT ON COLUMN inteuser.withdrawdate IS '탈퇴날짜';
+COMMENT ON COLUMN inteuser.withdrawcause IS '탈퇴사유';
+
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--시공사 정지회원
+DROP TABLE constructorstop CASCADE CONSTRAINTS;
+
+CREATE TABLE constructorstop (
+	cstopcause	VARCHAR2(100)		NULL,
+	cstopdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	cstopterm	NUMBER		NULL,
+	consid	VARCHAR2(15)	REFERENCES constructors(consid) on delete cascade
+);
+
+COMMENT ON COLUMN constructorstop.cstopcause IS '정지사유';
+COMMENT ON COLUMN constructorstop.cstopdate IS '정지날짜';
+COMMENT ON COLUMN constructorstop.cstopterm IS '정지기한';
+COMMENT ON COLUMN constructorstop.consid IS '아이디';
+
+DROP TABLE userstop CASCADE CONSTRAINTS;
+
+CREATE TABLE userstop (
+	ustopcause	VARCHAR2(100)		NULL,
+	ustopdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	ustopterm	NUMBER		NULL,
+	userid	VARCHAR2(15) REFERENCES inteuser(userid)  on delete cascade
+);
+
+COMMENT ON COLUMN userstop.ustopcause IS '정지사유';
+COMMENT ON COLUMN userstop.ustopdate IS '정지날짜';
+COMMENT ON COLUMN userstop.ustopterm IS '정지기한';
+COMMENT ON COLUMN userstop.userid IS '아이디';
+
+
+----------------------------------------------------------------------------
+--로그
+DROP TABLE constructorlog CASCADE CONSTRAINTS;
+
+CREATE TABLE constructorlog (
+	clogdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	cipaddress	VARCHAR2(40)		NOT NULL,
+	consid	VARCHAR2(15) REFERENCES constructors(consid) on delete cascade
+);
+
+COMMENT ON COLUMN constructorlog.clogdate IS '로그날짜';
+COMMENT ON COLUMN constructorlog.cipaddress IS 'ip';
+COMMENT ON COLUMN constructorlog.consid IS '아이디';
+
+DROP TABLE userlog CASCADE CONSTRAINTS;
+
+CREATE TABLE userlog (
+	ulogdate	DATE	DEFAULT SYSDATE	NULL,
+	uipaddress	VARCHAR2(40) NULL,
+	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+);
+
+COMMENT ON COLUMN userlog.ulogdate IS '로그날짜';
+COMMENT ON COLUMN userlog.uipaddress IS 'ip';
+COMMENT ON COLUMN userlog.userid IS '아이디';
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+--album
+DROP TABLE album CASCADE CONSTRAINTS;
+DROP SEQUENCE ALBUM_SEQ;
+CREATE SEQUENCE "INTEPARK"."ALBUM_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+DROP SEQUENCE ALBUMREPLY_SEQ;
+CREATE SEQUENCE "INTEPARK"."ALBUMREPLY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+DROP SEQUENCE ALBUMIMGS_SEQ;
+CREATE SEQUENCE "INTEPARK"."ALBUMIMGS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
+
+
+CREATE TABLE album (
+	albumnum	NUMBER PRIMARY KEY,
+	albumtitle	VARCHAR(100)		NOT NULL,
+	albumdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	albumcontents	VARCHAR(4000)		NOT NULL,
+	albumreadcount	NUMBER	DEFAULT 0	NULL,
+	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+);
+
+INSERT INTO album VALUES(ALBUM_SEQ.NEXTVAL,'여길봐',SYSDATE,'ㅋㅋㅋ',DEFAULT,'user1');
+
+COMMENT ON COLUMN album.albumnum IS '글번호';
+COMMENT ON COLUMN album.albumtitle IS '제목';
+COMMENT ON COLUMN album.albumdate IS '작성일';
+COMMENT ON COLUMN album.albumcontents IS '내용';
+COMMENT ON COLUMN album.albumreadcount IS '조회수';
+COMMENT ON COLUMN album.userid IS '고객아이디';
+
+
+DROP TABLE albumreply CASCADE CONSTRAINTS;
+
+CREATE TABLE albumreply (
+	albumreplyoriginalno	NUMBER PRIMARY KEY,
+	albumreplygroupno	NUMBER NOT NULL,
+	albumreplygrouporder	NUMBER	DEFAULT 0	NOT NULL,
+	albumreplygrouplayer	NUMBER	DEFAULT 0	NOT NULL,
+	albumreplydate	DATE	DEFAULT SYSDATE	NOT NULL,
+	albumreplycontents	VARCHAR2(500)		NOT NULL,
+	albumnum	NUMBER REFERENCES album(albumnum) on delete cascade,
+	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+);
+
+COMMENT ON COLUMN albumreply.albumreplyoriginalno IS '댓글번호';
+COMMENT ON COLUMN albumreply.albumreplygroupno IS '댓글그룹';
+COMMENT ON COLUMN albumreply.albumreplygrouporder IS '그룹내순서';
+COMMENT ON COLUMN albumreply.albumreplygrouplayer IS '계층별 댓글순위';
+COMMENT ON COLUMN albumreply.albumreplydate IS '댓글작성시간';
+COMMENT ON COLUMN albumreply.albumreplycontents IS '댓글내용';
+COMMENT ON COLUMN albumreply.albumnum IS '글번호';
+COMMENT ON COLUMN albumreply.userid IS '고객아이디';
+
+
+DROP TABLE albumimgs CASCADE CONSTRAINTS;
+
+CREATE TABLE albumimgs (
+	albumimgnum	NUMBER	 PRIMARY KEY,
+	albumoriginalimgname	VARCHAR2(100)		NULL,
+	albumrenameimgname	VARCHAR2(100)		NULL,
+	albumnum NUMBER REFERENCES album(albumnum) on delete cascade
+);
+
+COMMENT ON COLUMN albumimgs.albumimgnum IS '이미지번호';
+COMMENT ON COLUMN albumimgs.albumoriginalimgname IS '원본이미지이름';
+COMMENT ON COLUMN albumimgs.albumrenameimgname IS '서버에저장할이미지이름';
+COMMENT ON COLUMN albumimgs.albumnum IS '글번호';
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+-------김봉수
+--공지사항 자료검색, 파일첨부 구현 테이블
+DROP TABLE NOTICE CASCADE CONSTRAINTS;
+
+CREATE TABLE NOTICE (--총 컬럼 8개
+	NOTICENO	NUMBER	 PRIMARY KEY,	--공지사항번호
+	NOTICETITLE	VARCHAR2(1000)		NOT NULL,	--공지사항 제목
+	NOTICECONTENT	VARCHAR2(4000)	NOT NULL, --공지사항 내용
+	NOTICECOUNT NUMBER	DEFAULT 0	NOT NULL,--공지사항조회수
+	NOTICEDATE	DATE	DEFAULT SYSDATE	NULL,--공지사항작성일
+	NOTICEWRITER	varchar2(30)	REFERENCES inteuser (userid) on delete cascade, --공지사항작성자
+	NOTICEORIGINALFILENAME  VARCHAR2(100)	NULL,--공지사항원본파일
+	NOTICERENAMEFILENAME	VARCHAR2(100)	NULL,--공지사항바뀐파일
+  WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
+);
+
+
+
+COMMENT ON COLUMN NOTICE.NOTICENO IS '공지사항번호';
+COMMENT ON COLUMN NOTICE.NOTICETITLE IS '공지사항제목';
+COMMENT ON COLUMN NOTICE.NOTICECONTENT IS '공지사항내용';
+COMMENT ON COLUMN NOTICE.NOTICECOUNT IS '공지사항조회수';
+COMMENT ON COLUMN NOTICE.NOTICEDATE IS '공지사항작성일';
+COMMENT ON COLUMN NOTICE.NOTICEWRITER IS '공지사항작성자';
+COMMENT ON COLUMN NOTICE.NOTICEORIGINALFILENAME IS '공지사항원본파일첨부명';
+COMMENT ON COLUMN NOTICE.NOTICERENAMEFILENAME IS '공지사항바뀐파일첨부명';
+COMMENT ON COLUMN NOTICE.WRITERNAME IS '작성자이름';
+
+--공지사항 게시글 번호에 대한 시퀀스 객체 생성
+DROP SEQUENCE NOTICE_SEQ;
+
+CREATE SEQUENCE NOTICE_SEQ
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+--1대1 문의사항 제약조건 생성불가로 인한 테이블 생성 불가... 왜레키가 테이블레벨에서는 설정이 되고 컬럼래벨에서는 설정이 된다
+DROP TABLE QUERY CASCADE CONSTRAINTS;
+
+CREATE TABLE QUERY (  --컬럼은 총 10개
+	QUERYNO 	NUMBER	  PRIMARY KEY, --1대1 문의 번호
+	QUERYTITLE 	VARCHAR2(1000)		NOT NULL, --1대1문의 제목
+	QUERYCONTENT	VARCHAR2(4000)		NOT NULL, --1대1문의 내용
+	QUERYCOUNT	NUMBER	 DEFAULT 0	NOT NULL, --1대1문의 조회
+	QUERYDATE 	DATE	DEFAULT SYSDATE	NULL, --1대1문의 날짜
+	QUERYWRITER 	VARCHAR2(30) REFERENCES inteuser,--1대1문의작성자
+	QUERYREF 	NUMBER		NULL, --1대1문의 참조원글 번호
+	QUERYREPLYREF 	NUMBER		NULL, --1대1문의 참조댓글번호
+	QUERYREPLYLEV	 NUMBER	DEFAULT 1	NOT NULL,--1대1문의댓글단계
+	QUERYREPLYSEQ 	NUMBER  	DEFAULT 1	NOT NULL,--1대1문의댓글순번
+  WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
+  --CONSTRAINTS FK_QUERY FOREIGN KEY(QUERYWRITER) REFERENCES inteuser (userid) ON DELETE CASCADE
+  
+);
+
+COMMENT ON COLUMN QUERY.QUERYNO IS '1대1문의번호';
+COMMENT ON COLUMN QUERY.QUERYTITLE IS '1대1문의제목';
+COMMENT ON COLUMN QUERY.QUERYCONTENT IS '1대1문의내용';
+COMMENT ON COLUMN QUERY.QUERYCOUNT IS '1대1문의조회수';
+COMMENT ON COLUMN QUERY.QUERYDATE IS '1대1문의작성일';
+COMMENT ON COLUMN QUERY.QUERYWRITER IS '1대1문의작성자';
+COMMENT ON COLUMN QUERY.QUERYREF IS '1대1문의참조원글번호';
+COMMENT ON COLUMN QUERY.QUERYREPLYREF IS '1대1문의참조댓글번호';
+COMMENT ON COLUMN QUERY.QUERYREPLYLEV IS '1대1문의댓글단계';
+COMMENT ON COLUMN QUERY.QUERYREPLYSEQ IS '1대1문의댓글순번';
+COMMENT ON COLUMN QUERY.WRITERNAME IS '작성자이름';
+
+--1대1문의 게시글 번호에 대한 시퀀스 객체 생성
+DROP SEQUENCE QUERY_SEQ;
+
+CREATE SEQUENCE QUERY_SEQ
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+--1대1문의 첨부파일(파일처리전용테이블)
+DROP TABLE QUERYAttachFile CASCADE CONSTRAINTS;
+
+CREATE TABLE QUERYAttachFile ( --컬럼은 총 4개
+	QUERYATTACHFILENO	  NUMBER	 PRIMARY KEY, --1대1문의첨부파일번호
+	QUERYORIGINALFILENAME 	VARCHAR2(100)		NULL, --1대1문의원본파일첨부명
+	QUERYRENAMEFILENAME 	VARCHAR2(100)		NULL, --1대1문의바뀐파일첨부명
+	QUERYNO 	NUMBER		REFERENCES QUERY (QUERYNO) ON DELETE CASCADE  --1대1문의 번호
+  
+);
+
+COMMENT ON COLUMN QUERYAttachFile.QUERYATTACHFILENO IS '1대1문의첨부파일번호';
+COMMENT ON COLUMN QUERYAttachFile.QUERYORIGINALFILENAME IS '1대1문의원본파일첨부명';
+COMMENT ON COLUMN QUERYAttachFile.QUERYRENAMEFILENAME IS '1대1문의바뀐파일첨부명';
+COMMENT ON COLUMN QUERYAttachFile.QUERYNO IS '1대1문의번호';
+
+
+--자주묻는질문 
+DROP TABLE FAQ CASCADE CONSTRAINTS;
+
+CREATE TABLE FAQ (
+	FAQNO 	NUMBER	 PRIMARY KEY, --자주묻는질문
+	FAQTITLE 	VARCHAR2(1000)		NOT NULL, --자주묻는질문제목
+	FAQCONTENT 	VARCHAR2(4000)		NOT NULL, --자주묻는질문내용
+	FAQWRITER 	varchar2(30)	REFERENCES inteuser (userid) ON DELETE CASCADE, --자주묻는질문작성자
+	FAQDATE 	DATE	DEFAULT SYSDATE	NOT NULL, --자주묻는질문작성일
+  WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
+);
+
+COMMENT ON COLUMN FAQ.FAQNO IS '자주묻는질문번호';
+COMMENT ON COLUMN FAQ.FAQTITLE IS '자주묻는질문제목';
+COMMENT ON COLUMN FAQ.FAQCONTENT IS '자주묻는질문내용';
+COMMENT ON COLUMN FAQ.FAQWRITER IS '자주묻는질문작성자';
+COMMENT ON COLUMN FAQ.FAQDATE IS '자주묻는질문작성일';
+COMMENT ON COLUMN FAQ.WRITERNAME IS '작성자이름';
+
+--자주묻는질문 게시글 번호에 대한 시퀀스 객체 생성 
+DROP SEQUENCE FAQ_SEQ;
+
+CREATE SEQUENCE FAQ_SEQ
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+
+
+-------------------------------------------------------------샘플모음
+
+--공지사항 샘플
+INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL, '공지사항 게시글 테스트', '많은 이용 부탁드립니다.', 
+DEFAULT, SYSDATE, 'admin', NULL, NULL, (SELECT username FROM INTEUSER WHERE userid = 'admin'));
+
+INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL, '인테파크 공지사항입니다.', '평일간 인테파크 상담 및 질의 시간은 09:00~18:00까지입니다.', 
+DEFAULT, SYSDATE, 'admin', NULL, NULL, (SELECT username FROM INTEUSER WHERE userid = 'admin'));
+
+
+--1대1 문의 샘플
+INSERT INTO QUERY VALUES(QUERY_SEQ.NEXTVAL, '1대1문의 게시글 테스트', '여기는 1대1문의 게시판입니다.', 
+DEFAULT, SYSDATE, 'admin', NULL, NULL, 1, 1, (SELECT username FROM INTEUSER WHERE userid = 'admin'));
+
+INSERT INTO QUERY VALUES(QUERY_SEQ.NEXTVAL, '1대1문의 게시글 테스트2', '여기는 1대1문의 게시판입니다2.', 
+DEFAULT, SYSDATE, 'admin', NULL, NULL, 1, 1, (SELECT username FROM INTEUSER WHERE userid = 'admin'));
+
+--1대1문의 첨부파일 샘플
+INSERT INTO QUERYATTACHFILE VALUES(0, NULL, NULL, 1);
+INSERT INTO QUERYATTACHFILE VALUES(1, NULL, NULL, 2);
+
+--자주묻는질문
+INSERT INTO FAQ VALUES(FAQ_SEQ.NEXTVAL, '자주묻는 질문입니다.', 
+'인테파크 자주묻는질문 입니다 많은 이용 부탁드립니다.', 'admin', SYSDATE, '관리자');
+
+INSERT INTO FAQ VALUES(FAQ_SEQ.NEXTVAL, '광고가 노출되는  브라우저 알림 메시지를 안보이게 할 수 있나요?', 
+'크롬 브라우저 이용시 화면 하단에 작은 팝업창으로 인테파크의 인테리어 정보를 안내하고 있습니다.', 'admin', SYSDATE, '관리자');
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------
+-------이은수
+DROP TABLE DELIVERYLIST CASCADE CONSTRAINTS;
+
+CREATE TABLE DELIVERYLIST (
+	DLVYNUM	NUMBER		NOT NULL,
+	ADDRESSEE	varchar2(100)		NULL,
+	ADDRESS	varchar2(1000)		NULL,
+	PHONE	NUMBER		NULL,
+	DLVYNAME	varchar2(100)	DEFAULT '무제'	NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN DELIVERYLIST.DLVYNUM IS '배송지 번호';
+
+COMMENT ON COLUMN DELIVERYLIST.ADDRESSEE IS '수취인';
+
+COMMENT ON COLUMN DELIVERYLIST.ADDRESS IS '주소';
+
+COMMENT ON COLUMN DELIVERYLIST.PHONE IS '전화번호';
+
+COMMENT ON COLUMN DELIVERYLIST.DLVYNAME IS '배송지 제목';
+
+COMMENT ON COLUMN DELIVERYLIST.userid IS '아이디';
+-------------------------------------------------------------------------------------
+DROP TABLE REQUEST CASCADE CONSTRAINTS;
+
+CREATE TABLE REQUEST (
+	REQUESTNUM	NUMBER		NOT NULL,
+	REQUESTCN	varchar2(2000)		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN REQUEST.REQUESTNUM IS '요청 사항 번호';
+
+COMMENT ON COLUMN REQUEST.REQUESTCN IS '요청사항 내용';
+
+COMMENT ON COLUMN REQUEST.userid IS '아이디';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODS CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODS (
+	GOODSNUM	number		NOT NULL,
+	CATEGORYNUM	NUMBER		NOT NULL,
+	GOODSNAME	varchar2(1000)		NULL,
+	PRICE	NUMBER		NULL,
+	INVENTORY	NUMBER	DEFAULT 9999	NULL,
+	FREEDLVY	varchar2(10)	DEFAULT 'N'	NULL,
+	THUMBNAIL	varchar2(1000)		NULL,
+	COMMENTS	varchar2(4000)		NULL,
+	DESCRIPTION	varchar2(4000)		NULL,
+	MAXIMUM	NUMBER	DEFAULT 99	NULL,
+	consid	varchar2(15)		NOT NULL,
+	GOODSDATE	DATE	DEFAULT SYSDATE	NULL
+);
+
+COMMENT ON COLUMN GOODS.GOODSNUM IS '상품 번호';
+
+COMMENT ON COLUMN GOODS.CATEGORYNUM IS '카테고리 번호';
+
+COMMENT ON COLUMN GOODS.GOODSNAME IS '상품 이름';
+
+COMMENT ON COLUMN GOODS.PRICE IS '상품 가격';
+
+COMMENT ON COLUMN GOODS.INVENTORY IS '상품 재고';
+
+COMMENT ON COLUMN GOODS.FREEDLVY IS '무료 배송 여부';
+
+COMMENT ON COLUMN GOODS.THUMBNAIL IS '상품 썸네일';
+
+COMMENT ON COLUMN GOODS.COMMENTs IS '상품 주석';
+
+COMMENT ON COLUMN GOODS.DESCRIPTION IS '상품 상세 설명';
+
+COMMENT ON COLUMN GOODS.MAXIMUM IS '최대 구매 수량';
+
+COMMENT ON COLUMN GOODS.consid IS '판매자 아이디';
+
+COMMENT ON COLUMN GOODS.GOODSDATE IS '상품 등록 날짜';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSINQUIRY CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSINQUIRY (
+	INQUIRYNUM	NUMBER		NOT NULL,
+	INQUIRYCN	varchar2(4000)		NULL,
+	INQUIRYTYPE	NUMBER		NULL,
+	INQUIRYTITLE	varchar2(300)		NULL,
+	SECRETAT	varchar2(15)	DEFAULT 'N'	NULL,
+	INQUIRYDATE	DATE	DEFAULT SYSDATE	NULL,
+	ANSWERSTTUS	varchar2(100)	DEFAULT '답변접수'	NULL,
+	userid	varchar2(15)		NOT NULL,
+	GOODSNUM	number		NOT NULL
+);
+
+COMMENT ON COLUMN GOODSINQUIRY.INQUIRYNUM IS '문의 번호';
+
+COMMENT ON COLUMN GOODSINQUIRY.INQUIRYCN IS '문의 내용';
+
+COMMENT ON COLUMN GOODSINQUIRY.INQUIRYTYPE IS '문의 종류';
+
+COMMENT ON COLUMN GOODSINQUIRY.INQUIRYTITLE IS '문의 제목';
+
+COMMENT ON COLUMN GOODSINQUIRY.SECRETAT IS '문의 비밀글 여부';
+
+COMMENT ON COLUMN GOODSINQUIRY.INQUIRYDATE IS '문의 등록 날짜';
+
+COMMENT ON COLUMN GOODSINQUIRY.ANSWERSTTUS IS '답변 상태';
+
+COMMENT ON COLUMN GOODSINQUIRY.userid IS '아이디';
+
+COMMENT ON COLUMN GOODSINQUIRY.GOODSNUM IS '상품 번호';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSREVIEW CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSREVIEW (
+	REVIEWNUM	NUMBER		NOT NULL,
+	REVIEWDATE	DATE	DEFAULT SYSDATE	NULL,
+	REVIEWCN	varchar2(4000)		NULL,
+	REVIEWSCORE	NUMBER		NULL,
+	userid	varchar2(15)		NOT NULL,
+	GOODSNUM	number		NOT NULL
+);
+
+COMMENT ON COLUMN GOODSREVIEW.REVIEWNUM IS '상품평 번호';
+
+COMMENT ON COLUMN GOODSREVIEW.REVIEWDATE IS '상품평 날짜';
+
+COMMENT ON COLUMN GOODSREVIEW.REVIEWCN IS '상품평 내용';
+
+COMMENT ON COLUMN GOODSREVIEW.REVIEWSCORE IS '상품 별점';
+
+COMMENT ON COLUMN GOODSREVIEW.userid IS '고객 아이디';
+
+COMMENT ON COLUMN GOODSREVIEW.GOODSNUM IS '상품 번호';
+-------------------------------------------------------------------------------------
+DROP TABLE ORDERs CASCADE CONSTRAINTS;
+
+CREATE TABLE ORDERs (
+	ORDERNUM	NUMBER		NOT NULL,
+	ORDERDATE	DATE		NULL,
+	ORDERPRICE	NUMBER		NULL,
+	ORDERSTATUS	varchar2(100)		NULL,
+	userid	varchar2(15)		NOT NULL,
+	DLVYNUM	NUMBER		NOT NULL,
+	REQUESTNUM	NUMBER		NOT NULL
+);
+
+COMMENT ON COLUMN ORDERs.ORDERNUM IS '주문 번호';
+
+COMMENT ON COLUMN ORDERs.ORDERDATE IS '주문 날짜';
+
+COMMENT ON COLUMN ORDERs.ORDERPRICE IS '주문 가격';
+
+COMMENT ON COLUMN ORDERs.ORDERSTATUS IS '주문 상태';
+
+COMMENT ON COLUMN ORDERs.userid IS '유저 아이디';
+
+COMMENT ON COLUMN ORDERs.DLVYNUM IS '배송지 번호';
+
+COMMENT ON COLUMN ORDERs.REQUESTNUM IS '요청 사항 번호';
+-------------------------------------------------------------------------------------
+DROP TABLE SHBASKET CASCADE CONSTRAINTS;
+
+CREATE TABLE SHBASKET (
+	SHBASKETNUM	NUMBER		NOT NULL,
+	quantity	NUMBER		NULL,
+	GOODSNUM	number		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN SHBASKET.SHBASKETNUM IS '장바구니 번호';
+
+COMMENT ON COLUMN SHBASKET.quantity IS '수량';
+
+COMMENT ON COLUMN SHBASKET.GOODSNUM IS '상품 번호';
+
+COMMENT ON COLUMN SHBASKET.userid IS '아이디';
+-------------------------------------------------------------------------------------
+DROP TABLE CATEGORY CASCADE CONSTRAINTS;
+
+CREATE TABLE CATEGORY (
+	CATEGORYNUM	NUMBER		NOT NULL,
+	CATEGORYNAME	varchar2(100)		NOT NULL
+);
+
+COMMENT ON COLUMN CATEGORY.CATEGORYNUM IS '카테고리 번호';
+
+COMMENT ON COLUMN CATEGORY.CATEGORYNAME IS '카테고리 이름';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSANSWER CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSANSWER (
+	INQUIRYNUM	NUMBER		NOT NULL,
+	ANSWERCN	varchar2(4000)		NOT NULL,
+	consid	varchar2(15)		NOT NULL,
+	ANSWERDATE	DATE	DEFAULT SYSDATE	NOT NULL
+);
+
+COMMENT ON COLUMN GOODSANSWER.INQUIRYNUM IS '문의 번호';
+
+COMMENT ON COLUMN GOODSANSWER.ANSWERCN IS '답변 내용';
+
+COMMENT ON COLUMN GOODSANSWER.consid IS '아이디';
+
+COMMENT ON COLUMN GOODSANSWER.ANSWERDATE IS '답변 날짜';
+-------------------------------------------------------------------------------------
+DROP TABLE INTRSTSHOP CASCADE CONSTRAINTS;
+
+CREATE TABLE INTRSTSHOP (
+	SHOPNUM	NUMBER		NOT NULL,
+	consid	varchar2(15)		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN INTRSTSHOP.SHOPNUM IS '관심있는 상점 번호';
+
+COMMENT ON COLUMN INTRSTSHOP.consid IS '판매자 아이디';
+
+COMMENT ON COLUMN INTRSTSHOP.userid IS '아이디';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSREVIEWPIC CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSREVIEWPIC (
+	PICNUM	NUMBER		NOT NULL,
+	ORIFILE	varchar2(4000)		NULL,
+	REFILE	varchar2(4000)		NULL,
+	REVIEWNUM	NUMBER		NOT NULL
+);
+
+COMMENT ON COLUMN GOODSREVIEWPIC.PICNUM IS '사진 번호';
+
+COMMENT ON COLUMN GOODSREVIEWPIC.ORIFILE IS '오리지널 파일명';
+
+COMMENT ON COLUMN GOODSREVIEWPIC.REFILE IS '리네임 파일명';
+
+COMMENT ON COLUMN GOODSREVIEWPIC.REVIEWNUM IS '상품평 번호';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSINQUIRYPIC CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSINQUIRYPIC (
+	PICNUM	NUMBER		NOT NULL,
+	ORIFILE	varchar2(4000)		NULL,
+	REFILE	varchar2(4000)		NULL,
+	INQUIRYNUM	NUMBER		NOT NULL,
+	INQAWS	varchar2(15)		NULL
+);
+
+COMMENT ON COLUMN GOODSINQUIRYPIC.PICNUM IS '사진 번호';
+
+COMMENT ON COLUMN GOODSINQUIRYPIC.ORIFILE IS '오리지널 파일명';
+
+COMMENT ON COLUMN GOODSINQUIRYPIC.REFILE IS '리네임 파일명';
+
+COMMENT ON COLUMN GOODSINQUIRYPIC.INQUIRYNUM IS '문의 번호';
+
+COMMENT ON COLUMN GOODSINQUIRYPIC.INQAWS IS '질문사진 OR 답변사진';
+-------------------------------------------------------------------------------------
+DROP TABLE GOODSPIC CASCADE CONSTRAINTS;
+
+CREATE TABLE GOODSPIC (
+	PICNUM	NUMBER		NOT NULL,
+	ORIFILE	varchar2(4000)		NULL,
+	REFILE	varchar2(4000)		NULL,
+	GOODSNUM	number		NOT NULL
+);
+
+COMMENT ON COLUMN GOODSPIC.PICNUM IS '사진 번호';
+
+COMMENT ON COLUMN GOODSPIC.ORIFILE IS '오리지널 파일명';
+
+COMMENT ON COLUMN GOODSPIC.REFILE IS '리네임 파일명';
+
+COMMENT ON COLUMN GOODSPIC.GOODSNUM IS '상품 번호';
+-------------------------------------------------------------------------------------
+DROP TABLE ORDERGOODS CASCADE CONSTRAINTS;
+
+CREATE TABLE ORDERGOODS (
+	ORDERNUM	NUMBER		NOT NULL,
+	ORDERquantity	NUMBER		NULL,
+	GOODSNUM	NUMBER		NOT NULL,
+	GOODSPRICE	NUMBER		NULL
+);
+
+COMMENT ON COLUMN ORDERGOODS.ORDERNUM IS '주문 번호';
+
+COMMENT ON COLUMN ORDERGOODS.ORDERquantity IS '주문 수량';
+
+COMMENT ON COLUMN ORDERGOODS.GOODSNUM IS '상품 번호';
+
+COMMENT ON COLUMN ORDERGOODS.GOODSPRICE IS '상품 가격';
+-------------------------------------------------------------------------------------
+DROP TABLE NONMEMBERORDER CASCADE CONSTRAINTS;
+
+CREATE TABLE NONMEMBERORDER (
+	ORDERNUM	NUMBER		NOT NULL,
+	ORDERDATE	DATE		NULL,
+	ORDERPRICE	NUMBER		NULL,
+	ORDERSTATUS	varchar2(100)		NULL,
+	ADDRESSEE	varchar2(100)		NULL,
+	ADDRESS	varchar2(1000)		NULL,
+	PHONE	NUMBER		NULL,
+	REQUESTCN	varchar2(2000)		NULL,
+  NONMEMPASSWORD VARCHAR2(100) NOT NULL
+);
+
+COMMENT ON COLUMN NONMEMBERORDER.ORDERNUM IS '주문 번호';
+
+COMMENT ON COLUMN NONMEMBERORDER.ORDERDATE IS '주문 날짜';
+
+COMMENT ON COLUMN NONMEMBERORDER.ORDERPRICE IS '주문 가격';
+
+COMMENT ON COLUMN NONMEMBERORDER.ORDERSTATUS IS '주문 상태';
+
+COMMENT ON COLUMN NONMEMBERORDER.ADDRESSEE IS '수취인';
+
+COMMENT ON COLUMN NONMEMBERORDER.ADDRESS IS '주소';
+
+COMMENT ON COLUMN NONMEMBERORDER.PHONE IS '전화번호';
+
+COMMENT ON COLUMN NONMEMBERORDER.REQUESTCN IS '요청사항';
+-------------------------------------------------------------------------------------
+ALTER TABLE DELIVERYLIST ADD CONSTRAINT PK_DELIVERYLIST PRIMARY KEY (
+	DLVYNUM
+);
+
+ALTER TABLE REQUEST ADD CONSTRAINT PK_REQUEST PRIMARY KEY (
+	REQUESTNUM
+);
+ALTER TABLE GOODS ADD CONSTRAINT PK_GOODS PRIMARY KEY (
+	GOODSNUM
+);
+
+ALTER TABLE GOODSINQUIRY ADD CONSTRAINT PK_GOODSINQUIRY PRIMARY KEY (
+	INQUIRYNUM
+);
+
+ALTER TABLE GOODSREVIEW ADD CONSTRAINT PK_GOODSREVIEW PRIMARY KEY (
+	REVIEWNUM
+);
+
+ALTER TABLE ORDERs ADD CONSTRAINT PK_ORDER PRIMARY KEY (
+	ORDERNUM
+);
+
+ALTER TABLE SHBASKET ADD CONSTRAINT PK_SHBASKET PRIMARY KEY (
+	SHBASKETNUM
+);
+ALTER TABLE CATEGORY ADD CONSTRAINT PK_CATEGORY PRIMARY KEY (
+	CATEGORYNUM
+);
+
+ALTER TABLE GOODSANSWER ADD CONSTRAINT PK_GOODSANSWER PRIMARY KEY (
+	INQUIRYNUM
+);
+
+ALTER TABLE INTRSTSHOP ADD CONSTRAINT PK_INTRSTSHOP PRIMARY KEY (
+	SHOPNUM
+);
+ALTER TABLE GOODSREVIEWPIC ADD CONSTRAINT PK_GOODSREVIEWPIC PRIMARY KEY (
+	PICNUM
+);
+
+ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT PK_GOODSINQUIRYPIC PRIMARY KEY (
+	PICNUM
+);
+
+ALTER TABLE GOODSPIC ADD CONSTRAINT PK_GOODSPIC PRIMARY KEY (
+	PICNUM
+);
+
+ALTER TABLE ORDERGOODS ADD CONSTRAINT PK_ORDERGOODS PRIMARY KEY (
+	ORDERNUM
+);
+ALTER TABLE NONMEMBERORDER ADD CONSTRAINT PK_NONMEMBERORDER PRIMARY KEY (
+	ORDERNUM
+);
+------------------------------------------------------------------
+ALTER TABLE DELIVERYLIST ADD CONSTRAINT FK_inteuser_TO_DELIVERYLIST_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+
+ALTER TABLE REQUEST ADD CONSTRAINT FK_inteuser_TO_REQUEST_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODS ADD CONSTRAINT FK_CATEGORY_TO_GOODS_1 FOREIGN KEY (
+	CATEGORYNUM
+)
+REFERENCES CATEGORY (
+	CATEGORYNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODS ADD CONSTRAINT FK_constructors_TO_GOODS_1 FOREIGN KEY (
+	consid
+)
+REFERENCES constructors (
+	consid
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSINQUIRY ADD CONSTRAINT FK_inteuser_TO_GOODSINQUIRY_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSINQUIRY ADD CONSTRAINT FK_GOODS_TO_GOODSINQUIRY_1 FOREIGN KEY (
+	GOODSNUM
+)
+REFERENCES GOODS (
+	GOODSNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSREVIEW ADD CONSTRAINT FK_inteuser_TO_GOODSREVIEW_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSREVIEW ADD CONSTRAINT FK_GOODS_TO_GOODSREVIEW_1 FOREIGN KEY (
+	GOODSNUM
+)
+REFERENCES GOODS (
+	GOODSNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE ORDERs ADD CONSTRAINT FK_inteuser_TO_ORDER_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+
+ALTER TABLE ORDERs ADD CONSTRAINT FK_DELIVERYLIST_TO_ORDER_1 FOREIGN KEY (
+	DLVYNUM
+)
+REFERENCES DELIVERYLIST (
+	DLVYNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE ORDERs ADD CONSTRAINT FK_REQUEST_TO_ORDER_1 FOREIGN KEY (
+	REQUESTNUM
+)
+REFERENCES REQUEST (
+	REQUESTNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE SHBASKET ADD CONSTRAINT FK_GOODS_TO_SHBASKET_1 FOREIGN KEY (
+	GOODSNUM
+)
+REFERENCES GOODS (
+	GOODSNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE SHBASKET ADD CONSTRAINT FK_inteuser_TO_SHBASKET_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+ALTER TABLE GOODSANSWER ADD CONSTRAINT FK_GOODSINQUIRY FOREIGN KEY (
+	INQUIRYNUM
+)
+REFERENCES GOODSINQUIRY (
+	INQUIRYNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSANSWER ADD CONSTRAINT FK_constructors FOREIGN KEY (
+	consid
+)
+REFERENCES constructors (
+	consid
+)ON DELETE CASCADE;
+
+ALTER TABLE INTRSTSHOP ADD CONSTRAINT FK_constructors_1 FOREIGN KEY (
+	consid
+)
+REFERENCES constructors (
+	consid
+)ON DELETE CASCADE;
+
+ALTER TABLE INTRSTSHOP ADD CONSTRAINT FK_inteuser_TO_INTRSTSHOP_1 FOREIGN KEY (
+	userid
+)
+REFERENCES inteuser (
+	userid
+)ON DELETE CASCADE;
+ALTER TABLE GOODSREVIEWPIC ADD CONSTRAINT FK_GOODSREVIEW_1 FOREIGN KEY (
+	REVIEWNUM
+)
+REFERENCES GOODSREVIEW (
+	REVIEWNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT FK_GOODSINQUIRY_1 FOREIGN KEY (
+	INQUIRYNUM
+)
+REFERENCES GOODSINQUIRY (
+	INQUIRYNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE GOODSPIC ADD CONSTRAINT FK_GOODS_TO_GOODSPIC_1 FOREIGN KEY (
+	GOODSNUM
+)
+REFERENCES GOODS (
+	GOODSNUM
+)ON DELETE CASCADE;
+
+ALTER TABLE ORDERGOODS ADD CONSTRAINT FK_GOODS_TO_ORDERGOODS_1 FOREIGN KEY (
+	GOODSNUM
+)
+REFERENCES GOODS (
+	GOODSNUM
+)ON DELETE CASCADE;
+
+insert into CATEGORY values (1, '가구');
+insert into CATEGORY values (2, '침구');
+
+insert into GOODS values (1,1,'스완 수납 화장대',73900,DEFAULT,'N','DD.JPG',NULL,'수납 화장대',DEFAULT,'con1',sysdate);
+insert into GOODS values (2,2,'무브 소프트 세미 극세사 차렵이불',32900,DEFAULT,'Y','AA.JPG','주석시험','극세사 이불',2,'con2',sysdate);
+
+insert into DELIVERYLIST VALUES(1,'이은수','강원도',01043761266,'강릉집','user1');
+insert into REQUEST VALUES(1, '집앞에 두고가주세요', 'user1');
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+-------양호성
+drop sequence AUCTION_SEQ;
+
+CREATE SEQUENCE  "INTEPARK"."AUCTION_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+DROP TABLE auction CASCADE CONSTRAINTS;
+
+CREATE TABLE auction (
+auctionno number NOT NULL PRIMARY KEY,
+auctionsection varchar2(15) NOT NULL,
+interiorsection varchar2(20) NOT NULL,
+title varchar2(50) NOT NULL,
+name varchar2(30) NOT NULL,
+price varchar2(15) NOT NULL,
+phone varchar2(20) NOT NULL,
+startday date,
+address varchar2(100) NOT NULL,
+ofile varchar2(50),
+rfile varchar2(50),
+etc varchar2(500),
+progress varchar2(30) NOT NULL,
+userid VARCHAR2(15)	REFERENCES inteuser(userid) ON DELETE CASCADE
+);
+
+COMMENT ON COLUMN auction.auctionno IS '경매번호';
+COMMENT ON COLUMN auction.auctionsection IS '견적분류';
+COMMENT ON COLUMN auction.interiorsection IS '인테리어분류';
+COMMENT ON COLUMN auction.title IS '제목';
+COMMENT ON COLUMN auction.name IS '이름';
+COMMENT ON COLUMN auction.price IS '희망금액';
+COMMENT ON COLUMN auction.phone IS '휴대폰번호';
+COMMENT ON COLUMN auction.startday IS '공사시작일';
+COMMENT ON COLUMN auction.address IS '시공지주소';
+COMMENT ON COLUMN auction.ofile IS '참고사진원본';
+COMMENT ON COLUMN auction.rfile IS '참고사진사본';
+COMMENT ON COLUMN auction.etc IS '상세정보';
+COMMENT ON COLUMN auction.progress IS '진행현황';
+COMMENT ON COLUMN auction.userid IS '등록자';
+
+insert into auction values (AUCTION_SEQ.NEXTVAL, '일반','샷시','간지작살','양호성','5,000','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용','대기','user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL, '긴급','종합','종합인테리어','허용순 ','500,000','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용','진행','user2');
+-- 견적 참여
+DROP TABLE auctionattend CASCADE CONSTRAINTS;
+
+CREATE TABLE auctionattend (
+auctionno number	REFERENCES auction(auctionno) NOT NULL,
+consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE,
+title varchar2(50) NOT NULL,
+possibledate date NOT NULL,
+price varchar2(15) NOT NULL,
+ofile varchar2(50),
+rfile varchar2(50),
+etc varchar2(500),
+progress varchar2(30) NOT NULL
+);
+
+COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';
+COMMENT ON COLUMN auctionattend.consid IS '아이디';
+COMMENT ON COLUMN auctionattend.title IS '제목';
+COMMENT ON COLUMN auctionattend.possibledate IS '시공가능일';
+COMMENT ON COLUMN auctionattend.price IS '예상금액';
+COMMENT ON COLUMN auctionattend.ofile IS '참고사진원본';
+COMMENT ON COLUMN auctionattend.rfile IS '참고사진사본';
+COMMENT ON COLUMN auctionattend.etc IS '상세정보';
+COMMENT ON COLUMN auctionattend.progress IS '진행현황';
+
+insert into auctionattend values (1, 'con1','간지나고 싸게 해드립니다.',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','진행');
+insert into auctionattend values (2, 'con2','간지나고 싸게 해드립니다.',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','대기');
+
+--포인트
+drop sequence SETPOINT_SEQ;
+
+CREATE SEQUENCE  "INTEPARK"."SETPOINT_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+DROP TABLE setpoint CASCADE CONSTRAINTS;
+
+CREATE TABLE setpoint (
+pointno number NOT NULL PRIMARY KEY ,
+chargeamount varchar2(15) NOT NULL,
+chargepoint varchar2(15) NOT NULL,
+restpoint varchar2(15) NOT NULL,
+consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE NOT NULL
+);
+
+COMMENT ON COLUMN setpoint.pointno IS '충전번호';
+COMMENT ON COLUMN setpoint.consid IS '아이디';
+COMMENT ON COLUMN setpoint.chargeamount IS '충전금액';
+COMMENT ON COLUMN setpoint.chargepoint IS '충전포인트';
+COMMENT ON COLUMN setpoint.restpoint IS '잔여포인트';
+
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'500,000','50,000','50,000', 'con1');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'400,000','40,000','90,000', 'con1');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'1,000,000','100,000','100,000', 'con2');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------
+-------허용순
+drop SEQUENCE calendar_seq;
+
+CREATE SEQUENCE calendar_seq
+START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+NOCYCLE
+NOCACHE;
+
+drop SEQUENCE chatno_seq;
+
+CREATE SEQUENCE chatno_seq
+START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+NOCYCLE
+NOCACHE;
+
+DROP TABLE calendar CASCADE CONSTRAINTS;
+
+CREATE TABLE calendar (
+	cno	VARCHAR2(10BYTE)		NOT NULL,
+	ctitle	varchar2(60)		NOT NULL,
+	ccontent	varchar2(300)		NULL,
+	cstart date		NOT NULL,
+	cend	date		NULL,
+	ccolor	varchar2(15)		NOT NULL,
+	consid varchar2(15) REFERENCES constructors(consid)	 NOT NULL
+);
+
+COMMENT ON COLUMN calendar.cno IS '일정번호';
+
+COMMENT ON COLUMN calendar.ctitle IS '일정제목';
+
+COMMENT ON COLUMN calendar.ccontent IS '일정내용';
+
+COMMENT ON COLUMN calendar.cstart IS '일정시작일';
+
+COMMENT ON COLUMN calendar.cend IS '일정종료일';
+
+COMMENT ON COLUMN calendar.ccolor IS '색상';
+
+COMMENT ON COLUMN calendar.consid IS '시공사';
+
+INSERT INTO calendar VALUES(calendar_seq.nextval, '상담', '상담예정', '19/12/01', '19/12/02', 'red', 'con1');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '문의', '문의예정', '19/12/11', '19/12/12', 'green', 'con2');
+
+DROP TABLE chat CASCADE CONSTRAINTS;
+
+CREATE TABLE chat (
+	chatno	number NOT NULL,
+	consid	varchar2(15) REFERENCES constructors(consid) NOT NULL,
+  userid	varchar2(15) REFERENCES inteuser(userid) NOT NULL,
+  constraint a primary key (chatno, consid, userid)
+);
+
+COMMENT ON COLUMN chat.chatno IS '채팅번호';
+
+COMMENT ON COLUMN chat.consid IS '시공사아이디';
+
+COMMENT ON COLUMN chat.userid IS '고객아이디';
+
+INSERT INTO chat VALUES(chatno_seq.nextval, 'con1', 'user1');
+INSERT INTO chat VALUES(chatno_seq.nextval, 'con2', 'user2');
+
+DROP TABLE chatmessage CASCADE CONSTRAINTS;
+
+CREATE TABLE chatmessage (
+	chatcontent	varchar2(4000)		NOT NULL,
+	chattime	date	DEFAULT sysdate	NOT NULL,
+	chatno	number NOT NULL,
+	consid	 varchar2(15) NULL,
+	userid	varchar2(15) NULL,
+  constraint chatmessage_fk foreign key(chatno, consid, userid) REFERENCES chat
+);
+
+INSERT INTO chatmessage VALUES('상담하고 싶습니다.', default, 1, 'con1', 'user1');
+INSERT INTO chatmessage VALUES('무엇이 알고 싶습니까', default, 2, 'con2', 'user2');
+
+COMMENT ON COLUMN chatmessage.chatcontent IS '채팅내용';
+
+COMMENT ON COLUMN chatmessage.chattime IS '채팅시간';
+
+COMMENT ON COLUMN chatmessage.chatno IS '채팅번호';
+
+COMMENT ON COLUMN chatmessage.consid IS '시공사아이디';
+
+COMMENT ON COLUMN chatmessage.userid IS '고객아이디';
+
+drop view chatmessageview CASCADE CONSTRAINTS;
+
+create view chatmessageview
+as select chatmessage.chatcontent, chatmessage.chattime, chatmessage.chatno, constructors.consname, inteuser.username
+from chatmessage join constructors on (chatmessage.consid = constructors.consid) 
+join inteuser on (chatmessage.userid = inteuser.userid);
+
+DROP TABLE producttype CASCADE CONSTRAINTS;
+
+DROP TABLE product3d CASCADE CONSTRAINTS;
+
+CREATE TABLE producttype (
+   ptypecode   varchar2(30) primary key,
+   ptypename   varchar2(100)      NOT NULL
+);
+
+insert into producttype values('w1', 'wall');
+insert into producttype values('f1', 'floor');
+
+COMMENT ON COLUMN producttype.ptypecode IS '제품타입코드';
+COMMENT ON COLUMN producttype.ptypename IS '제품타입이름';
+
+CREATE TABLE product3d (
+   pcode   varchar2(30)   primary key,
+   pprice   number      NOT NULL,
+   originalimage   varchar2(100)      NULL,
+   renameimage   varchar2(100)      NULL,
+   pname   varchar2(30)      NOT NULL,
+   ptypecode   varchar2(30)   references producttype(ptypecode) NOT NULL
+);
+
+insert into product3d values('a314fb', 10000, 'flower.jpg', '20191201.jpg', 'flower', 'w1');
+insert into product3d values('vds23rv', 25000, 'wood.jpg', '20201121.jpg', 'wood', 'f1');
+
+COMMENT ON COLUMN product3d.pcode IS '제품코드';
+COMMENT ON COLUMN product3d.pprice IS '제품가격';
+COMMENT ON COLUMN product3d.originalimage IS '원본3d이미지';
+COMMENT ON COLUMN product3d.renameimage IS '저장3d이미지';
+COMMENT ON COLUMN product3d.pname IS '제품명';
+COMMENT ON COLUMN product3d.ptypecode IS '제품종류코드';
+drop view chatmessageview CASCADE CONSTRAINTS;
+
+create view chatmessageview
+as select chatmessage.chatcontent, chatmessage.chattime, chatmessage.chatno, constructors.consname, inteuser.username
+from chatmessage join constructors on (chatmessage.consid = constructors.consid) 
+join inteuser on (chatmessage.userid = inteuser.userid);
+
+select * from chatmessageview;
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+-------우수연
+--시공사 상담신청--------------
+
+DROP TABLE request CASCADE CONSTRAINTS;
+
+CREATE TABLE request (
+	reqnum	NUMBER		NOT NULL,
+	reqarea	VARCHAR2(100)		NOT NULL,
+	reqregion	VARCHAR2(100)		NOT NULL,
+	reqbudget	VARCHAR2(100)		NOT NULL,
+	reqname	VARCHAR2(100)		NOT NULL,
+	reqphone	NUMBER		NOT NULL,
+	reqdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	consid	varchar2(15)		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN request.reqnum IS '상담신청 번호';
+
+COMMENT ON COLUMN request.reqarea IS '시공분야';
+
+COMMENT ON COLUMN request.reqregion IS '시공지역';
+
+COMMENT ON COLUMN request.reqbudget IS '시공예산';
+
+COMMENT ON COLUMN request.reqname IS '고객이름';
+
+COMMENT ON COLUMN request.reqphone IS '고객전화번호';
+
+COMMENT ON COLUMN request.reqdate IS '상담신청날짜';
+
+COMMENT ON COLUMN request.consid IS '시공사 아이디';
+
+COMMENT ON COLUMN request.userid IS '고객아이디';
+
+-- 상담신청 번호 시퀀스---------
+DROP SEQUENCE reqnum_seq;
+
+CREATE SEQUENCE reqnum_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
+
+--시공사 상담신청 샘플 데이터---------------------------------------------------------
+
+INSERT INTO request VALUES (reqnum_seq.nextval, '도배, 마루, 장판', '서울특별시 송파구', '1000~2000만원', '우수', 01012345678, default, 'con1', 'user1');
+INSERT INTO request VALUES (reqnum_seq.nextval, '벽지, 타일, 도배', '부산광역시 해운대구', '2000~3000만원', '엘라', 01011112222, default, 'con2', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '마루, 욕실, 주방', '서울특별시 강남구', '3000만원 이상', '히비', 01022223333, default, 'con1', 'user2');
+
+--시공사 포트폴리오--------------
+
+DROP TABLE portfolio CASCADE CONSTRAINTS;
+
+CREATE TABLE portfolio (
+	pfnum	NUMBER		NOT NULL,
+	pftitle	VARCHAR2(30)		NOT NULL,
+	consid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN portfolio.pfnum IS '포트폴리오 글번호';
+
+COMMENT ON COLUMN portfolio.pftitle IS '포트폴리오 제목';
+
+COMMENT ON COLUMN portfolio.consid IS '시공사 아이디';
+-- 포트폴리오 글 번호 시퀀스---------
+DROP SEQUENCE pfnum_seq;
+
+CREATE SEQUENCE pfnum_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
+
+--시공사 포트폴리오 샘플 데이터---------------------------------------------------------
+
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목1', 'con1');
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목2', 'con1');
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목3', 'con1');
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 입니다~1', 'con2');
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 입니다~2', 'con2');
+
+--포트폴리오 첨부파일--------------
+
+DROP TABLE portfoliofile CASCADE CONSTRAINTS;
+
+CREATE TABLE portfoliofile (
+	pfphotonum	NUMBER		NOT NULL,
+	pforiginalname	VARCHAR2(100)		NULL,
+	pfrename	VARCHAR2(100)		NULL,
+	pfcoment	VARCHAR2(30)		NULL,
+	pfnum	NUMBER		NOT NULL
+);
+
+COMMENT ON COLUMN portfoliofile.pfphotonum IS '포트폴리오 사진번호';
+
+COMMENT ON COLUMN portfoliofile.pforiginalname IS '오리지날 파일명';
+
+COMMENT ON COLUMN portfoliofile.pfrename IS '리네임 파일명';
+
+COMMENT ON COLUMN portfoliofile.pfcoment IS '코멘트';
+
+COMMENT ON COLUMN portfoliofile.pfnum IS '포트폴리오 글번호';
+
+-- 포트폴리오 사진 번호 시퀀스---------
+DROP SEQUENCE pfphotonum_seq;
+
+CREATE SEQUENCE pfphotonum_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
+
+--포트폴리오 첨부파일 샘플 데이터---------------------------------------------------------
+
+--샘플 데이터 일부러 안넣음--------
+
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_1', '12345', '리모델링사진입니다.', 1);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '시공사진 입니다.', 1);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '45612', '아이방 사진 입니다.', 2);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '주방사진 입니다.', 3);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '61221', '욕실사진 입니다.', 4);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '41257', '베란다사진 입니다.', 5);
+
+--시공사 리뷰--------------
+
+DROP TABLE review CASCADE CONSTRAINTS;
+
+CREATE TABLE review (
+	rvnum	NUMBER		NOT NULL,
+	rvkind	NUMBER		NOT NULL,
+	rvprice	NUMBER		NOT NULL,
+	rvquality	NUMBER		NOT NULL,
+	rvprofessional	NUMBER		NOT NULL,
+	rvresponsible	NUMBER		NOT NULL,
+	rvperiod	VARCHAR2(100)		NOT NULL,
+	rvregion	VARCHAR2(100)		NOT NULL,
+	rvbuildingtype	VARCHAR2(100)		NOT NULL,
+	rvarea	VARCHAR2(100)		NOT NULL,
+	rvspacious	VARCHAR2(100)		NOT NULL,
+	rvprice2	VARCHAR2(100)		NOT NULL,
+	rvcritique	VARCHAR2(1000)		NOT NULL,
+	rvdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	consid	varchar2(15)		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+);
+
+COMMENT ON COLUMN review.rvnum IS '리뷰번호';
+
+COMMENT ON COLUMN review.rvkind IS '친절도';
+
+COMMENT ON COLUMN review.rvprice IS '시공가격';
+
+COMMENT ON COLUMN review.rvquality IS '퀄리티';
+
+COMMENT ON COLUMN review.rvprofessional IS '전문성';
+
+COMMENT ON COLUMN review.rvresponsible IS '책임감';
+
+COMMENT ON COLUMN review.rvperiod IS '시공시기';
+
+COMMENT ON COLUMN review.rvregion IS '시공지역';
+
+COMMENT ON COLUMN review.rvbuildingtype IS '건물유형';
+
+COMMENT ON COLUMN review.rvarea IS '시공분야';
+
+COMMENT ON COLUMN review.rvspacious IS '시공평수';
+
+COMMENT ON COLUMN review.rvprice2 IS '시공가격';
+
+COMMENT ON COLUMN review.rvcritique IS '총평';
+
+COMMENT ON COLUMN review.rvdate IS '리뷰작성날짜';
+
+COMMENT ON COLUMN review.consid IS '시공사 아이디';
+
+COMMENT ON COLUMN review.userid IS '고객아이디';
+
+-- 리뷰 번호 시퀀스---------
+DROP SEQUENCE rvnum_seq;
+
+CREATE SEQUENCE rvnum_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
+
+--시공사 리뷰 샘플 데이터---------------------------------------------------------
+
+SET DEFINE OFF;
+
+INSERT INTO review VALUES (rvnum_seq.nextval, 5, 4, 5, 3, 5, '2018년 5월', '인천광역시 부평구', '빌라&연립', '도어/샷시', '20평대', '500~1000만원', 
+'상담을 너무 친절하게 해주셔서 어떤 작업을 하는지에 대해서 잘 이해가 되었어요.또 전문가님께서 너무 잘해주셔서 집 분위기가 한층 더 밝아져 기분이 너무 좋아요!',
+default, 'con1', 'user1');
+
+INSERT INTO review VALUES (rvnum_seq.nextval, 3, 4, 4, 5, 4, '2019년 8월', '서울특별시 종로구', '원룸&오피스텔', '타일/욕실', '30평대', '1000~2000만원', 
+'상담도 너무 친절하시고,작업도 꼼꼼하시고 주변이랑 비교하다보니 퀄리티 대비 가격도 최고에요!',
+default, 'con2', 'user2');
+
+--리뷰 첨부파일--------------
+
+DROP TABLE reviewfile CASCADE CONSTRAINTS;
+
+CREATE TABLE reviewfile (
+	rvphotonum	NUMBER		NOT NULL,
+	rvoriginalname	VARCHAR2(100)		NULL,
+	rvrename	VARCHAR2(100)		NULL,
+	rvnum	NUMBER		NOT NULL
+);
+
+COMMENT ON COLUMN reviewfile.rvphotonum IS '리뷰사진번호';
+
+COMMENT ON COLUMN reviewfile.rvoriginalname IS '오리지날 파일명';
+
+COMMENT ON COLUMN reviewfile.rvrename IS '리네임 파일명';
+
+COMMENT ON COLUMN reviewfile.rvnum IS '리뷰번호';
+
+-- 리뷰 사진 번호 시퀀스---------
+DROP SEQUENCE rvphotonum_seq;
+
+CREATE SEQUENCE rvphotonum_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
+
+--리뷰 첨부파일 샘플 데이터---------------------------------------------------------
+
+--샘플 데이터 일부러 안넣음--------
+
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_1', '1234', '1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_2', '2345', '1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_3', '3456', '2');
+
+----------------------------------------------------------------------------------------------------
+
+ALTER TABLE request ADD CONSTRAINT PK_REQUEST PRIMARY KEY (reqnum);
+
+ALTER TABLE portfolio ADD CONSTRAINT PK_PORTFOLIO PRIMARY KEY (pfnum);
+
+ALTER TABLE review ADD CONSTRAINT PK_REVIEW PRIMARY KEY (rvnum);
+
+ALTER TABLE reviewfile ADD CONSTRAINT PK_REVIEWFILE PRIMARY KEY (rvphotonum);
+
+ALTER TABLE portfoliofile ADD CONSTRAINT PK_PORTFOLIOFILE PRIMARY KEY (pfphotonum);
+
+ALTER TABLE request ADD CONSTRAINT FK_cons_TO_request_1 FOREIGN KEY (consid)
+REFERENCES constructors (consid) on delete cascade;
+
+ALTER TABLE request ADD CONSTRAINT FK_inteuser_TO_request_1 FOREIGN KEY (userid)
+REFERENCES inteuser (userid) on delete cascade;
+
+ALTER TABLE portfolio ADD CONSTRAINT FK_cons_TO_portfolio_1 FOREIGN KEY (consid)
+REFERENCES constructors (consid) on delete cascade;
+
+ALTER TABLE review ADD CONSTRAINT FK_cons_TO_review_1 FOREIGN KEY (consid)
+REFERENCES constructors (consid) on delete cascade;
+
+ALTER TABLE review ADD CONSTRAINT FK_inteuser_TO_review_1 FOREIGN KEY (userid)
+REFERENCES inteuser (userid) on delete cascade;
+
+ALTER TABLE reviewfile ADD CONSTRAINT FK_review_TO_reviewfile_1 FOREIGN KEY (rvnum)
+REFERENCES review (rvnum) on delete cascade;
+
+ALTER TABLE portfoliofile ADD CONSTRAINT FK_portfolio_TO_pffile_1 FOREIGN KEY (pfnum)
+REFERENCES portfolio (pfnum) on delete cascade;

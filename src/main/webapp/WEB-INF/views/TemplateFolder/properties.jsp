@@ -41,7 +41,7 @@
 				<div class="col-lg-4">
 					<div class="properties_item">
 						<div class="pp_img">
-							<img class="img-fluid" src="img/properties/pp-1.jpg" alt="">
+							<img class="img-fluid" src="/intepark/resources/img/properties/pp-1.jpg" alt="">
 						</div>
 						<div class="pp_content">
 							<a href="#"><h4>04 Bed Duplex</h4></a>
@@ -61,7 +61,7 @@
 				<div class="col-lg-4">
 					<div class="properties_item">
 						<div class="pp_img">
-							<img class="img-fluid" src="img/properties/pp-2.jpg" alt="">
+							<img class="img-fluid" src="/intepark/resources/img/properties/pp-2.jpg" alt="">
 						</div>
 						<div class="pp_content">
 							<a href="#"><h4>04 Bed Duplex</h4></a>
@@ -81,7 +81,7 @@
 				<div class="col-lg-4">
 					<div class="properties_item">
 						<div class="pp_img">
-							<img class="img-fluid" src="img/properties/pp-3.jpg" alt="">
+							<img class="img-fluid" src="/intepark/resources/img/properties/pp-3.jpg" alt="">
 						</div>
 						<div class="pp_content">
 							<a href="#"><h4>04 Bed Duplex</h4></a>
@@ -182,25 +182,25 @@
 			<div class="row cities_inner">
 				<div class="col-lg-3">
 					<div class="cities_item">
-						<img class="img-fluid" src="img/cities/cities-1.jpg" alt="">
+						<img class="img-fluid" src="/intepark/resources/img/cities/cities-1.jpg" alt="">
 						<a class="main_btn2" href="#">Book Now</a>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="cities_item">
-						<img class="img-fluid" src="img/cities/cities-2.jpg" alt="">
+						<img class="img-fluid" src="/intepark/resources/img/cities/cities-2.jpg" alt="">
 						<a class="main_btn2" href="#">Book Now</a>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="cities_item">
-						<img class="img-fluid" src="img/cities/cities-3.jpg" alt="">
+						<img class="img-fluid" src="/intepark/resources/img/cities/cities-3.jpg" alt="">
 						<a class="main_btn2" href="#">Book Now</a>
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="cities_item">
-						<img class="img-fluid" src="img/cities/cities-4.jpg" alt="">
+						<img class="img-fluid" src="/intepark/resources/img/cities/cities-4.jpg" alt="">
 						<a class="main_btn2" href="#">Book Now</a>
 					</div>
 				</div>
