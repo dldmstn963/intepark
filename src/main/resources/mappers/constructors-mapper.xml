@@ -6,7 +6,7 @@
 
 
 	<select id="loginCheck" parameterType="Constructors" resultType="Constructors">
-		select * from member where consid = #{ consId } and conspwd = #{consPwd}
+		select * from constructors where consid = #{ consid } and conspwd = #{conspwd}
 	</select>
 	
 </mapper>

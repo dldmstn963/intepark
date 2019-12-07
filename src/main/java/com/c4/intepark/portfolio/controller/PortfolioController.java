@@ -8,8 +8,9 @@ import com.c4.intepark.portfolio.model.service.PortfolioService;
 @Controller
 public class PortfolioController {
 	
-	@Autowired
-	private PortfolioService portfolioService;
+	/*
+	 * @Autowired private PortfolioService portfolioService;
+	 */
 	
 	public PortfolioController() {}
 	
