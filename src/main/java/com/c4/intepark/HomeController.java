@@ -40,16 +40,17 @@ public class HomeController {
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String main(Model model) {
 		logger.info("Welcome main!");
-
-
 		return "main";
-
 		
 	}
 	
 	@RequestMapping("auctionList.do")
 	public String auctionList() {
-		
 		return "auctionList";
+	}
+	
+	@RequestMapping("login6.do")
+	public String loginMember() {
+		return "member/login";
 	}
 }
