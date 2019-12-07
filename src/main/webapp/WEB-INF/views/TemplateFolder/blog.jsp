@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
+                            <img src="/intepark/resources/img/blog/cat-post/cat-post-3.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="blog-details.html"><h5>Social Life</h5></a>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
+                            <img src="/intepark/resources/img/blog/cat-post/cat-post-2.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="blog-details.html"><h5>Politics</h5></a>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/blog/cat-post/cat-post-1.jpg" alt="post">
+                            <img src="/intepark/resources/img/blog/cat-post/cat-post-1.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="blog-details.html"><h5>Food</h5></a>
@@ -97,7 +97,7 @@
                                </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
+                                        <img src="/intepark/resources/img/blog/main-blog/m-blog-1.jpg" alt="">
                                         <div class="blog_details">
                                             <a href="single-blog.html"><h2>Astronomy Binoculars A Great Alternative</h2></a>
                                             <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
@@ -125,7 +125,7 @@
                                </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-2.jpg" alt="">
+                                        <img src="/intepark/resources/img/blog/main-blog/m-blog-2.jpg" alt="">
                                         <div class="blog_details">
                                             <a href="single-blog.html"><h2>The Basics Of Buying A Telescope</h2></a>
                                             <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
@@ -153,7 +153,7 @@
                                </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-3.jpg" alt="">
+                                        <img src="/intepark/resources/img/blog/main-blog/m-blog-3.jpg" alt="">
                                         <div class="blog_details">
                                             <a href="single-blog.html"><h2>The Glossary Of Telescopes</h2></a>
                                             <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
@@ -181,7 +181,7 @@
                                </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-4.jpg" alt="">
+                                        <img src="/intepark/resources/img/blog/main-blog/m-blog-4.jpg" alt="">
                                         <div class="blog_details">
                                             <a href="single-blog.html"><h2>The Night Sky</h2></a>
                                             <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
@@ -209,7 +209,7 @@
                                </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-5.jpg" alt="">
+                                        <img src="/intepark/resources/img/blog/main-blog/m-blog-5.jpg" alt="">
                                         <div class="blog_details">
                                             <a href="single-blog.html"><h2>Telescopes 101</h2></a>
                                             <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
@@ -255,7 +255,7 @@
                                 <div class="br"></div>
                             </aside>
                             <aside class="single_sidebar_widget author_widget">
-                                <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                                <img class="author_img rounded-circle" src="/intepark/resources/img/blog/author.png" alt="">
                                 <h4>Charlie Barber</h4>
                                 <p>Senior blog writer</p>
                                 <div class="social_icon">
@@ -270,28 +270,28 @@
                             <aside class="single_sidebar_widget popular_post_widget">
                                 <h3 class="widget_title">Popular Posts</h3>
                                 <div class="media post_item">
-                                    <img src="img/blog/popular-post/post1.jpg" alt="post">
+                                    <img src="/intepark/resources/img/blog/popular-post/post1.jpg" alt="post">
                                     <div class="media-body">
                                         <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
                                         <p>02 Hours ago</p>
                                     </div>
                                 </div>
                                 <div class="media post_item">
-                                    <img src="img/blog/popular-post/post2.jpg" alt="post">
+                                    <img src="/intepark/resources/img/blog/popular-post/post2.jpg" alt="post">
                                     <div class="media-body">
                                         <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
                                         <p>02 Hours ago</p>
                                     </div>
                                 </div>
                                 <div class="media post_item">
-                                    <img src="img/blog/popular-post/post3.jpg" alt="post">
+                                    <img src="/intepark/resources/img/blog/popular-post/post3.jpg" alt="post">
                                     <div class="media-body">
                                         <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
                                         <p>03 Hours ago</p>
                                     </div>
                                 </div>
                                 <div class="media post_item">
-                                    <img src="img/blog/popular-post/post4.jpg" alt="post">
+                                    <img src="/intepark/resources/img/blog/popular-post/post4.jpg" alt="post">
                                     <div class="media-body">
                                         <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
                                         <p>01 Hours ago</p>
@@ -300,7 +300,7 @@
                                 <div class="br"></div>
                             </aside>
                             <aside class="single_sidebar_widget ads_widget">
-                                <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                                <a href="#"><img class="img-fluid" src="/intepark/resources/img/blog/add.jpg" alt=""></a>
                                 <div class="br"></div>
                             </aside>
                             <aside class="single_sidebar_widget post_category_widget">

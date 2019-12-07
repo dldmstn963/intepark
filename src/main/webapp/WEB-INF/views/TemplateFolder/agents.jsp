@@ -36,7 +36,7 @@
         			<div class="col-lg-3 col-sm-6">
         				<div class="team_item">
         					<div class="team_img">
-        						<img class="img-fluid" src="img/team/team-1.jpg" alt="">
+        						<img class="img-fluid" src="/intepark/resources/img/team/team-1.jpg" alt="">
         						<div class="hover">
         							<a href="#"><i class="fa fa-facebook"></i></a>
         							<a href="#"><i class="fa fa-twitter"></i></a>
@@ -52,7 +52,7 @@
         			<div class="col-lg-3 col-sm-6">
         				<div class="team_item">
         					<div class="team_img">
-        						<img class="img-fluid" src="img/team/team-2.jpg" alt="">
+        						<img class="img-fluid" src="/intepark/resources/img/team/team-2.jpg" alt="">
         						<div class="hover">
         							<a href="#"><i class="fa fa-facebook"></i></a>
         							<a href="#"><i class="fa fa-twitter"></i></a>
@@ -68,7 +68,7 @@
         			<div class="col-lg-3 col-sm-6">
         				<div class="team_item">
         					<div class="team_img">
-        						<img class="img-fluid" src="img/team/team-3.jpg" alt="">
+        						<img class="img-fluid" src="/intepark/resources/img/team/team-3.jpg" alt="">
         						<div class="hover">
         							<a href="#"><i class="fa fa-facebook"></i></a>
         							<a href="#"><i class="fa fa-twitter"></i></a>
@@ -84,7 +84,7 @@
         			<div class="col-lg-3 col-sm-6">
         				<div class="team_item">
         					<div class="team_img">
-        						<img class="img-fluid" src="img/team/team-4.jpg" alt="">
+        						<img class="img-fluid" src="/intepark/resources/img/team/team-4.jpg" alt="">
         						<div class="hover">
         							<a href="#"><i class="fa fa-facebook"></i></a>
         							<a href="#"><i class="fa fa-twitter"></i></a>
