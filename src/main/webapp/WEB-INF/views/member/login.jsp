@@ -48,9 +48,7 @@ function viewConsLogin(){
 아이디 : <input type="text" name="consid"><br>
 비밀번호 : <input type="password" name="conspwd">
 <input type="submit" value="로그인">
-<h1>ddd</h1>
-</form> 
-</div>
+</form>
 </div>
 </body>
 </html>

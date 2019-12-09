@@ -90,10 +90,15 @@
 							<div class="collapse navbar-collapse offset"
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
-									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
-									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
+
+									<li class="nav-item"><a class="nav-link" href="index.jsp">견적리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.jsp">업체리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰 관리</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.jsp">일정관리</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.jsp">고객센터</a></li>
+									<li class="nav-item"><a class="nav-link" href="index.jsp">마이페이지</a></li>
+
 			</c:if>
 
 			<c:if
