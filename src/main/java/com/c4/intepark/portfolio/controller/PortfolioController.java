@@ -1,19 +1,26 @@
 package com.c4.intepark.portfolio.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.c4.intepark.portfolio.model.service.PortfolioService;
 
 @Controller
 public class PortfolioController {
+	//로그 처리용 객체 의존성주입 처리함 (종속객체 주입)
+	private static final Logger logger = LoggerFactory.getLogger(PortfolioController.class);
 	
-	/*
-	 * @Autowired private PortfolioService portfolioService;
-	 */
-	
+	//@Autowired 
+	private PortfolioService portfolioService;
+	  
 	public PortfolioController() {}
 	
-	//@RequestMapping("conslist5.do")
+	@RequestMapping("conslist5.do")
+	public String pfListPage(){
+		return "portfolio/portfolioListView";
+	}
 	
 }
