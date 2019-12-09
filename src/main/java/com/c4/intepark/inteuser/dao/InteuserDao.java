@@ -13,6 +13,8 @@ public class InteuserDao {
 	private SqlSessionTemplate sqlSession;
 
 	public InteUser loginCheck(InteUser inteuser) {
+		System.out.println("sqlSession : " + sqlSession);
+		System.out.println("dao loginUser : " + sqlSession.selectOne("inteuserMapper.loginCheck",inteuser));
 		return sqlSession.selectOne("inteuserMapper.loginCheck",inteuser);
 	}
 	

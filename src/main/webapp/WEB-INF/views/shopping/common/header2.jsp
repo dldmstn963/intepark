@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +64,9 @@
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
                 <a href="#" class="btn amado-btn mb-15">베스트</a>
-                <a href="#" class="btn amado-btn mb-15">특가</a>
+               <c:if test="${!empty sessionScope.loginCons }">
+			<a href="moveshop4.do" class="btn amado-btn mb-15">내 물품 관리</a>
+			</c:if>
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">

@@ -42,12 +42,12 @@ function viewConsLogin(){
 </form>
 </div>
 <div id="cons" style="display:none; align:center">
-<h2> 시공사 로그인 </h2>
+<!-- <h2> 시공사 로그인 </h2>
 <form action="conslogCheck6.do" method="post">
 아이디 : <input type="text" name="consid"><br>
 비밀번호 : <input type="password" name="conspwd">
 <input type="submit" value="로그인">
-</form>
+</form> -->
 </div>
 
 </body>
