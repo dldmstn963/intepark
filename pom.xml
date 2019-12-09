@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.c4</groupId>
 	<artifactId>intepark</artifactId>
@@ -15,12 +16,13 @@
 	</properties>
 	
 	<repositories>
-			<repository>
-					<id>oracle</id>
-					<name>oracle jdbc repository</name>
-					<url>https://repo.spring.io/libs-milestone/</url>
-			</repository>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC repository</name>
+			<url>https://repo.spring.io/libs-milestone/</url>
+		</repository>
 	</repositories>
+	
 	
 	<dependencies>
 		<!-- Spring -->
@@ -42,11 +44,25 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
-		<!-- AspectJ -->
+		<!-- AspectJ Runtime -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+		<!-- Aspectj weaver 추가 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${org.aspectj-version}</version>
+		</dependency>
+		
+		<!-- proxy 제어를 위한 cglib 추가 -->
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>2.2</version>
 		</dependency>	
 		
 		<!-- Logging -->
@@ -91,6 +107,15 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
+		 <!-- query와 resultSet을 logging할 수 있는 log4jdbc-remix 라이브러리추가 -->
+		<!-- https://mvnrepository.com/artifact/org.lazyluke/log4jdbc-remix/0.2.7 -->
+		<dependency>
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>0.2.7</version>
+		</dependency>
+		
 
 		<!-- @Inject -->
 		<dependency>
@@ -117,33 +142,26 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-	
-	
-	
-	
-	
-	
-	<!-- 마이바티스 라이브러리 -->
+		
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
-    		<groupId>org.mybatis</groupId>
-    		<artifactId>mybatis</artifactId>
-   		 	<version>3.5.0</version>
-		</dependency>
-			
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-		<dependency>
-    		<groupId>org.mybatis</groupId>
-    		<artifactId>mybatis-spring</artifactId>
-    		<version>2.0.1</version>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.0</version>
 		</dependency>
 		
-		<!-- oracle -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>2.0.0</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
 		<dependency>
 		    <groupId>com.oracle</groupId>
 		    <artifactId>ojdbc6</artifactId>
-		    <version>11.2.0.4.0-atlassian-hosted</version>
+		    <version>11.2.0.4.0-atlassian-hosted</version>		    
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
@@ -204,7 +222,7 @@
 		    <groupId>net.sf.json-lib</groupId>
 		    <artifactId>json-lib-ext-spring</artifactId>
 		    <version>1.0.2</version>
-		</dependency>
+		</dependency>		
 		
 		<!-- JSONObject -->
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
@@ -235,15 +253,7 @@
 		    <artifactId>maven-compiler-plugin</artifactId>
 		    <version>3.7.0</version>
 		</dependency>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 		<!-- Test -->
 		<dependency>
