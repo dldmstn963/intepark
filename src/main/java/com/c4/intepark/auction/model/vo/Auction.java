@@ -2,7 +2,12 @@ package com.c4.intepark.auction.model.vo;
 
 import java.sql.Date;
 
-public class Auction {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Auction implements java.io.Serializable{
+	private static final long serialVersionUID = 2001L;
+	
 private int auctionno;
 private String auctionsection;
 private String interiorsection;
