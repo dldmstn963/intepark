@@ -91,7 +91,7 @@
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
 									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
+									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">시공사</a></li>
 			</c:if>
