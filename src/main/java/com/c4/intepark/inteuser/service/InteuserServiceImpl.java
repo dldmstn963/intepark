@@ -9,6 +9,8 @@ import com.c4.intepark.inteuser.vo.InteUser;
 @Service("userService")
 public class InteuserServiceImpl implements InteuserService{
 	
+	public InteuserServiceImpl() {}
+	
 	@Autowired
 	private InteuserDao userDao;
 

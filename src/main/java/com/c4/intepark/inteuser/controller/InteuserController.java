@@ -17,6 +17,8 @@ public class InteuserController {
 	@Autowired
 	private InteuserService userService;
 	
+	public InteuserController() {}
+	
 	@RequestMapping(value="userlogCheck6.do", method=RequestMethod.POST)
 	public String loginCheck(InteUser inteuser, HttpSession session, Model model) {
 		InteUser loginUser = userService.loginCheck(inteuser);
