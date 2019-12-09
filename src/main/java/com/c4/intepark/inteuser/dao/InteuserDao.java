@@ -11,9 +11,11 @@ public class InteuserDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
+	
+	public InteuserDao() {}
+	
 	public InteUser loginCheck(InteUser inteuser) {
-		return sqlSession.selectOne("inteuserMapper.loginCheck",inteuser);
+		return sqlSession.selectOne("inteuserMapper.loginCheck", inteuser);
 	}
 	
 
