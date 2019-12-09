@@ -1,10 +1,10 @@
-package com.c4.intepark.inteuser.service;
+package com.c4.intepark.inteuser.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.c4.intepark.inteuser.dao.InteuserDao;
-import com.c4.intepark.inteuser.vo.InteUser;
+import com.c4.intepark.inteuser.model.dao.InteuserDao;
+import com.c4.intepark.inteuser.model.vo.InteUser;
 
 @Service("userService")
 public class InteuserServiceImpl implements InteuserService{

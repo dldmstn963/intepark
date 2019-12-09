@@ -1,10 +1,10 @@
-package com.c4.intepark.constructors.dao;
+package com.c4.intepark.constructors.model.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.c4.intepark.constructors.vo.Constructors;
+import com.c4.intepark.constructors.model.vo.Constructors;
 
 @Repository("consDao")
 public class ConstructorsDao {

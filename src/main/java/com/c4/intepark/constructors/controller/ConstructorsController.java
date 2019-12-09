@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.c4.intepark.constructors.service.ConstructorsService;
-import com.c4.intepark.constructors.vo.Constructors;
+import com.c4.intepark.constructors.model.service.ConstructorsService;
+import com.c4.intepark.constructors.model.vo.Constructors;
 
 @Controller
 public class ConstructorsController {

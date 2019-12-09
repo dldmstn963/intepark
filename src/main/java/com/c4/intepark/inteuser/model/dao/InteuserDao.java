@@ -1,10 +1,10 @@
-package com.c4.intepark.inteuser.dao;
+package com.c4.intepark.inteuser.model.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.c4.intepark.inteuser.vo.InteUser;
+import com.c4.intepark.inteuser.model.vo.InteUser;
 
 @Repository("userDao")
 public class InteuserDao {
