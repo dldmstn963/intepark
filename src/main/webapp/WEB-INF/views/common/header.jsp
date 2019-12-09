@@ -95,7 +95,7 @@
 									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">업체리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰 관리</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">일정관리</a></li>
+									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">고객센터</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">마이페이지</a></li>
 
