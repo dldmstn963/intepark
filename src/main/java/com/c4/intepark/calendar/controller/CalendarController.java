@@ -11,7 +11,6 @@ public class CalendarController {
 	
 	  @Autowired 
 	  private CalendarService calendarService;
-	 
 	
 	  public CalendarController() {}
 	  

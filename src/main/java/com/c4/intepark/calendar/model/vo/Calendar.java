@@ -91,6 +91,5 @@ public class Calendar implements java.io.Serializable{
 				+ ", cend=" + cend + ", ccolor=" + ccolor + ", consid=" + consid + "]";
 	}
 	
-	
-	
+		
 }

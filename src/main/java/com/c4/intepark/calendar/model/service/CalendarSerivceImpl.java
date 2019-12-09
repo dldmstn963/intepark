@@ -13,5 +13,4 @@ public class CalendarSerivceImpl implements CalendarService{
 	  private CalendarDao calendarDao;
 	 
 	  
-	
 }
