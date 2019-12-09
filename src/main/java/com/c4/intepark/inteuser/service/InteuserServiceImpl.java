@@ -14,7 +14,6 @@ public class InteuserServiceImpl implements InteuserService{
 
 	@Override
 	public InteUser loginCheck(InteUser inteuser) {
-		System.out.println("service loginUser : " + userDao.loginCheck(inteuser));
 		return userDao.loginCheck(inteuser);
 	}
 
