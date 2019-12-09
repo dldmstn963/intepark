@@ -28,11 +28,12 @@ function viewConsLogin(){
 </script>
 </head>
 <body>
-<div>
-<a href="main.do"><img src="/intepark/resources/img/favicon.ico"></a><br>
+<div style="text-align:center">
+<span><a href="main.do"><img src="/intepark/resources/img/favicon.ico" height="150" width="150"></a><br>
+</span>
 <button onclick="viewUserLogin();">고객 로그인</button>
 <button onclick="viewConsLogin();">시공사 로그인</button><br>
-</div>
+
 <div id="user" style="display:; align:center">
 <h2> 고객 로그인 </h2>
 <form action="userlogCheck6.do" method="post">
@@ -49,6 +50,5 @@ function viewConsLogin(){
 <input type="submit" value="로그인">
 </form>
 </div>
-
 </body>
 </html>
