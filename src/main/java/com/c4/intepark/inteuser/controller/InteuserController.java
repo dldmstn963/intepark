@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.c4.intepark.inteuser.service.InteuserService;
-import com.c4.intepark.inteuser.vo.InteUser;
+import com.c4.intepark.inteuser.model.service.InteuserService;
+import com.c4.intepark.inteuser.model.vo.InteUser;
 
 @Controller
 public class InteuserController {

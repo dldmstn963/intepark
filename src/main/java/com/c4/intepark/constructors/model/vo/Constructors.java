@@ -1,4 +1,4 @@
-package com.c4.intepark.constructors.vo;
+package com.c4.intepark.constructors.model.vo;
 
 import java.sql.Date;
 

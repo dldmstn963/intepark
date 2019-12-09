@@ -1,4 +1,4 @@
-package com.c4.intepark.inteuser.vo;
+package com.c4.intepark.inteuser.model.vo;
 
 import java.sql.Date;
 
