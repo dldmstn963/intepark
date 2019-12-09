@@ -42,7 +42,7 @@ function viewConsLogin(){
 <input style="margin-bottom : 5px; width:250px;" type="password" name="userpwd" placeholder="비밀번호"><br>
 <input type="submit" value="로그인">
 </form>
-<button>일반 회원가입</button>
+<button onclick="location.href='userenroll6.do'">일반 회원가입</button>
 <h4>카카오로 로그인</h4>
 </div>
 
