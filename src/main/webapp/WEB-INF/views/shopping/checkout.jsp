@@ -22,7 +22,7 @@
 </head>
 
 <body>
-       <jsp:include page="header2.jsp" />
+       <jsp:include page="common/header2.jsp" />
 
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
@@ -114,7 +114,7 @@
         </div>
     <!-- ##### Main Content Wrapper End ##### -->
 
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="common/footer.jsp" />
 
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>

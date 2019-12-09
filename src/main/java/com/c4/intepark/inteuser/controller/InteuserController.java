@@ -19,9 +19,10 @@ public class InteuserController {
 	
 	@RequestMapping(value="userlogCheck6.do", method=RequestMethod.POST)
 	public String loginCheck(InteUser inteuser, HttpSession session, Model model) {
-		
+		System.out.println(inteuser);
 		InteUser loginUser = userService.loginCheck(inteuser);
 		String view = "main";
+		System.out.println("controller loginUser : " + loginUser);
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
 		}else {

@@ -61,7 +61,7 @@ CREATE TABLE constructors (
 	profilerenameimg	VARCHAR2(100)		NULL,
 	blicenceoriginalimg	VARCHAR2(100)		NULL,
 	blicencerenameimg	VARCHAR2(100)		NULL,
-	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','S','Y')),
+	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','Y','S','N')),
 	withdrawdate	DATE	DEFAULT SYSDATE	NULL,
 	withdrawcause	VARCHAR2(200)		NULL
 );
@@ -101,13 +101,13 @@ DROP TABLE inteuser CASCADE CONSTRAINTS;
 
 CREATE TABLE inteuser (
 	userid	VARCHAR2(15) CONSTRAINT PK_INTEUSER PRIMARY KEY,
-	userpwd	CHAR(32)		NOT NULL,
+	userpwd	VARCHAR2(60)		NOT NULL,
 	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
 	username	VARCHAR2(30)		NOT NULL,
 	phone	VARCHAR2(50)		NULL,
 	email	VARCHAR2(50)		NOT NULL,
 	address	VARCHAR2(200)		NULL,
-	memberstate	CHAR(1)	DEFAULT 'A'	CHECK(memberstate IN('A','S','Y')),
+	memberstate	CHAR(1)	DEFAULT 'Y'	CHECK(memberstate IN('N','S','Y')),
 	withdrawdate	DATE		NULL,
 	withdrawcause	VARCHAR2(200)		NULL
 );
@@ -162,6 +162,7 @@ COMMENT ON COLUMN userstop.userid IS '아이디';
 
 
 ----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 --로그
 DROP TABLE constructorlog CASCADE CONSTRAINTS;
 
@@ -254,10 +255,6 @@ COMMENT ON COLUMN albumimgs.albumimgnum IS '이미지번호';
 COMMENT ON COLUMN albumimgs.albumoriginalimgname IS '원본이미지이름';
 COMMENT ON COLUMN albumimgs.albumrenameimgname IS '서버에저장할이미지이름';
 COMMENT ON COLUMN albumimgs.albumnum IS '글번호';
-
-
-
-
 
 
 
@@ -1102,7 +1099,7 @@ NOCACHE;
 DROP TABLE calendar CASCADE CONSTRAINTS;
 
 CREATE TABLE calendar (
-	cno	VARCHAR2(10BYTE)		NOT NULL,
+	cno	number	NOT NULL,
 	ctitle	varchar2(60)		NOT NULL,
 	ccontent	varchar2(300)		NULL,
 	cstart date		NOT NULL,
@@ -1500,3 +1497,5 @@ REFERENCES review (rvnum) on delete cascade;
 
 ALTER TABLE portfoliofile ADD CONSTRAINT FK_portfolio_TO_pffile_1 FOREIGN KEY (pfnum)
 REFERENCES portfolio (pfnum) on delete cascade;
+
+commit;
