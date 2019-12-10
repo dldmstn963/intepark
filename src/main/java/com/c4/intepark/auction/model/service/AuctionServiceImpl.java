@@ -8,6 +8,7 @@ import com.c4.intepark.auction.model.dao.AuctionDao;
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService{
 
+
 	@Autowired
 	private AuctionDao auctionDao;
 

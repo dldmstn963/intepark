@@ -8,6 +8,7 @@ import com.c4.intepark.point.model.service.PointService;
 @Controller
 public class PointController {
 
-	@Autowired
-	private PointService pointService;
+	/*
+	 * @Autowired private PointService pointService;
+	 */
 }
