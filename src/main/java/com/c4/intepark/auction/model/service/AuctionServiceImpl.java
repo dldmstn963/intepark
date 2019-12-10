@@ -9,11 +9,11 @@ import com.c4.intepark.auction.model.dao.AuctionDao;
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService{
 
-<<<<<<< HEAD
+
 	/*
 	 * @Autowired private AuctionDao auctionDao;
 	 */
-=======
+
 	@Resource(name="auctionDao")
 	private AuctionDao auctionDao;
 
@@ -23,5 +23,4 @@ public class AuctionServiceImpl implements AuctionService{
 		
 	}
 	
->>>>>>> branch 'master' of https://github.com/dldmstn963/intepark.git
 }
