@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public class AuctionDao {
 	@Autowired
 	private SqlSessionTemplate mybatisSession;
+	
 public AuctionDao() {}
 }
