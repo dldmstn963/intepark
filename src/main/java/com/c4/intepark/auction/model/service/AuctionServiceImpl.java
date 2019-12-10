@@ -1,7 +1,6 @@
 package com.c4.intepark.auction.model.service;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.c4.intepark.auction.model.dao.AuctionDao;
@@ -10,11 +9,7 @@ import com.c4.intepark.auction.model.dao.AuctionDao;
 public class AuctionServiceImpl implements AuctionService{
 
 
-	/*
-	 * @Autowired private AuctionDao auctionDao;
-	 */
-
-	@Resource(name="auctionDao")
+	@Autowired
 	private AuctionDao auctionDao;
 
 	@Override

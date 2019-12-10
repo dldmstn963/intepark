@@ -43,11 +43,6 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("auctionList.do")
-	public String auctionList() {
-		return "auctionList";
-	}
-
 	@RequestMapping("login6.do")
 	public String loginMember() {
 		return "member/login";
