@@ -43,7 +43,7 @@ function viewConsLogin(){
 <input type="submit" value="로그인">
 </form>
 <button onclick="location.href='userenroll6.do'">일반 회원가입</button>
-<h4>카카오로 로그인</h4>
+<h4>카카오로  로그인</h4>
 </div>
 
 <div id="cons" style="display:none;">

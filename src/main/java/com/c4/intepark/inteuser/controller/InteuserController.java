@@ -21,6 +21,7 @@ public class InteuserController {
 	
 	@RequestMapping("userenroll6.do")
 	public String temple1() {
+		System.out.println("dd");
 		return "member/userEnroll";
 	}
 	
