@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="../common/jscsspath.jsp" %>
 <script type="text/javascript">
 window.onload=function(){
    var error = '${requestScope.message}';
