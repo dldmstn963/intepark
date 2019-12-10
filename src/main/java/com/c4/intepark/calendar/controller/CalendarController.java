@@ -15,6 +15,11 @@ public class CalendarController {
 	
 	  public CalendarController() {}
 	  
+	  @RequestMapping("insertCalendar3.do")
+	  public String insertCalendar() {
+		  return "calendar/insertCalendar";
+	  }
+	  
 	  @RequestMapping("calendar3.do")
 	  public String selectCalendar() {
 		  return "calendar/calendarManagement";

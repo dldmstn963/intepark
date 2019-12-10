@@ -17,29 +17,19 @@
 <script src='resources/js/jquery-3.4.1.min.js' ></script>
 
 <script>
-
-		document.addEventListener('DOMContentLoaded', function() {
-			var Calendar = FullCalendar.Calendar;
-		    var Draggable = FullCalendarInteraction.Draggable;
-		 
-		    var containerEl = document.getElementById('external-events');
-		    var calendarEl = document.getElementById('calendar');
-		    var checkbox = document.getElementById('drop-remove');
-		 
-		    // initialize the external events
-		    // -----------------------------------------------------------------
-		 
-		    new Draggable(containerEl, {
-		      itemSelector: '.fc-event',
-		      eventData: function(eventEl) {
-		        return {
-		          title: eventEl.innerText
-		        };
-		      }
-		    });
-		 
-		    // initialize the calendar
-		    // -----------------------------------------------------------------
+	document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+  
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'dayGrid' ],
+      locale: 'ko',
+    });
+  
+    calendar.render();
+  }); 
+  
+	/* document.addEventListener('DOMContentLoaded', function() {
+			var calendarEl = document.getElementById('calendar');
 		 
 		    var calendar = new Calendar(calendarEl, {
 		      plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
@@ -57,65 +47,70 @@
 		          info.draggedEl.parentNode.removeChild(info.draggedEl);
 		        }
 		      },
-		      locale: 'ko'
+		      locale: 'ko',
+		      events: [
+		          {
+		              title : 'evt1',
+		              start : '2019-09-03'
+		          },
+		          {
+		              title    :    'evt2',
+		              start    :    '2019-09-10',
+		              end    :    '2019-09-20'
+		          },
+		          {
+		              title    :    'evt3',
+		              start    :    '2019-09-25T12:30:00',
+		              allDay    :    false
+		          }
+		      ]
 		    });
 		 
 		    calendar.render();
-		  });  
+		  });   */
     	  
 </script>
-<style type="text/css">
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
-}
-#external-events {
-  position: fixed;
-  z-index: 2;
-  top: 20px;
-  left: 20px;
-  width: 150px;
-  padding: 0 10px;
-  border: 1px solid #ccc;
-  background: #eee;
-}
-.demo-topbar + #external-events { /* will get stripped out */
-  top: 60px;
-}
-#external-events .fc-event {
-  margin: 1em 0;
-  cursor: move;
-}
-#calendar-container {
-  position: relative;
-  z-index: 1;
-  margin-left: 200px;
-}
-#calendar {
-  max-width: 900px;
-  margin: 20px auto;
-}
-
-</style>
 <title>업체 일정 관리</title>
+<%@ include file="../common/jscsspath.jsp" %>
 </head>
 <body>
-<div id="external-events">
-    <p>
-      <strong>Draggable Events</strong>
-    </p>
-    <div class="fc-event">My Event 1</div>
-    <div class="fc-event">My Event 2</div>
-    <div class="fc-event">My Event 3</div>
-    <div class="fc-event">My Event 4</div>
-    <div class="fc-event">My Event 5</div>
-    <p>
-      <input type="checkbox" id="drop-remove">
-      <label for="drop-remove">remove after drop</label>
-    </p>
+<jsp:include page="../common/header.jsp" /><br>
+
+<div class="container" style="margin-top: 60px;">
+    <div class="row">
+      <div class="col-lg-12">
+      <%-- <a href="${pageContext.request.contextPath}/WEB-INF/views/calendar/insertCalendar.jsp">일정등록</a> --%>
+      <!-- <a href="insertCalendar3.do" target="_blank">일정등록</a> -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ 	  일정등록
+      </button>
+      <div id='calendar'></div>
+      </div>
+      </div><!-- row 끝 -->
+</div><!-- container 끝 -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">일정등록</h5><br>      
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      제목 : <input type="text" name="ctitle"><br>
+      일시 : <input type="date" name="cstart">-<input type="date" name="cend"><br>
+      내용 : <textarea rows="20" cols="50"></textarea><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
-<div id='calendar'></div>
+</div>
+<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
