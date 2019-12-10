@@ -33,7 +33,14 @@
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="temple4.do">템플릿 페이지<!--3D디자인 리스트--></a></li>
-								<li class="nav-item"><a class="nav-link" href="auctionList.do">견적 리스트</a></li>
+								       <li class="nav-item submenu dropdown">
+                           <a href="auctionList.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">견적리스트</a>
+                           <ul class="dropdown-menu">
+                              <li class="nav-item"><a class="nav-link" href="blog.html">경매신청</a></li>
+                              <li class="nav-item"><a class="nav-link" href="auctionList.do">전체 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="single-blog.html">낙찰리스트</a></li>
+                           </ul>
+                        </li> 
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
 								<li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
 								<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
@@ -62,7 +69,15 @@
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
 									<li class="nav-item"><a class="nav-link" href="index.jsp">3D디자인 리스트</a></li>
-									<li class="nav-item"><a class="nav-link" href="auctionList.do">견적 리스트</a></li>
+										       <li class="nav-item submenu dropdown">
+                           <a href="auctionList.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">견적리스트</a>
+                           <ul class="dropdown-menu">
+                              <li class="nav-item"><a class="nav-link" href="blog.html">경매신청</a></li>
+                              <li class="nav-item"><a class="nav-link" href="blog.html">내 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="single-blog.html">전체 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="single-blog.html">낙찰리스트</a></li>
+                           </ul>
+                        </li> 
 									<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
@@ -91,7 +106,13 @@
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
 
-									<li class="nav-item"><a class="nav-link" href="index.jsp">견적리스트</a></li>
+												       <li class="nav-item submenu dropdown">
+                           <a href="auctionList.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">견적리스트</a>
+                           <ul class="dropdown-menu">
+                              <li class="nav-item"><a class="nav-link" href="blog.html">전체 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="blog.html">낙찰리스트</a></li>
+                           </ul>
+                        </li> 
 									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="conslist5.do">업체리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰 관리</a></li>
