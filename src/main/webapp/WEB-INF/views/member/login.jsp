@@ -5,26 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file="../common/jscsspath.jsp" %>
 <script type="text/javascript">
 window.onload=function(){
-	var error = '${requestScope.message}';
-	if(error != "" && error != null)
-	alert(error);
+   var error = '${requestScope.message}';
+   if(error != "" && error != null)
+   alert(error);
 };
 function viewUserLogin(){
-	var userlog = document.getElementById("user");
-	var conslog = document.getElementById("cons");
-	conslog.style.display="none";
-	userlog.style.display="";
-	return false;
+   var userlog = document.getElementById("user");
+   var conslog = document.getElementById("cons");
+   conslog.style.display="none";
+   userlog.style.display="";
+   return false;
 }
 function viewConsLogin(){
-	var userlog = document.getElementById("user");
-	var conslog = document.getElementById("cons");
-	userlog.style.display="none";
-	conslog.style.display="";
-	return false;
+   var userlog = document.getElementById("user");
+   var conslog = document.getElementById("cons");
+   userlog.style.display="none";
+   conslog.style.display="";
+   return false;
 }
 </script>
 </head>

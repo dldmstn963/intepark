@@ -19,6 +19,11 @@ public class InteuserController {
 	
 	public InteuserController() {}
 	
+	@RequestMapping("userenroll6.do")
+	public String temple1() {
+		return "member/userEnroll";
+	}
+	
 	@RequestMapping(value="userlogCheck6.do", method=RequestMethod.POST)
 	public String loginCheck(InteUser inteuser, HttpSession session, Model model) {
 		InteUser loginUser = userService.loginCheck(inteuser);
