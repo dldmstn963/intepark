@@ -1,133 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>auctionList</title>
-<!--       Bootstrap CSS
-        <link rel="stylesheet" href="/intepark/resources/css/bootstrap.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/linericon/style.css">
-        <link rel="stylesheet" href="/intepark/resources/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="/intepark/resources/vendors/jquery-ui/jquery-ui.css">
-        main css
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <script type="text/javascript" src="/intepark/resources/js/jquery-3.4.1.min.js"></script> -->
         <%@ include file="../common/jscsspath.jsp" %>
         	
      	<style type="text/css">
+  html, body {
+	width: 100%; height: 100%; 
+} 
 	</style>
 </head>
 <body>
    	<jsp:include page="../common/header.jsp" />
+   	<div style="height: 100%; width: 100%">
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- <div class="alert alert-info">
-                Please Wait...</div> -->
-            <div class="alert alert-success" style="display:none;">
-                <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Column heading
-                        </th>
-                        <th>
-                            Column heading
-                        </th>
-                        <th>
-                            Column heading
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="active">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="success">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="warning">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                    <tr class="danger">
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                        <td>
-                            Column content
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th>경매번호</th>
+      <th>분류</th>
+      <th>제목</th>
+       <th>지역</th>
+        <th>시공일자</th>
+         <th>현재현황</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <c:forEach items="${ list }" var="a">
+    <tr>
+      <th scope="row">${ a.auctionno }</th>
+      <td>${a.interiorsection }</td>
+    <td><a href="#">${a.title }</a></td>
+       <td>${a.address }</td>
+        <td>${a.startday }</td>
+         <td>${a.progress }</td>
+    </tr>
+    </c:forEach>        
+  </tbody>
+</table>
+</div>
 </div>
   <jsp:include page="../common/footer.jsp" />
 </body>
