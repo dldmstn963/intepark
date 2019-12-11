@@ -6,11 +6,12 @@
 	<typeAliases>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
-	<!-- 	<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" /> -->
+	<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/constructors-mapper.xml"/>
 		<mapper resource="mappers/inteUser-mapper.xml" />
+		<mapper resource="mappers/auction-mapper.xml" />
 	</mappers>
 </configuration>
