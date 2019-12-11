@@ -8,23 +8,23 @@
 <%@ include file="../common/jscsspath.jsp" %>
 <script type="text/javascript">
 window.onload=function(){
-	var error = '${requestScope.message}';
-	if(error != "" && error != null)
-	alert(error);
+   var error = '${requestScope.message}';
+   if(error != "" && error != null)
+   alert(error);
 };
 function viewUserLogin(){
-	var userlog = document.getElementById("user");
-	var conslog = document.getElementById("cons");
-	conslog.style.display="none";
-	userlog.style.display="";
-	return false;
+   var userlog = document.getElementById("user");
+   var conslog = document.getElementById("cons");
+   conslog.style.display="none";
+   userlog.style.display="";
+   return false;
 }
 function viewConsLogin(){
-	var userlog = document.getElementById("user");
-	var conslog = document.getElementById("cons");
-	userlog.style.display="none";
-	conslog.style.display="";
-	return false;
+   var userlog = document.getElementById("user");
+   var conslog = document.getElementById("cons");
+   userlog.style.display="none";
+   conslog.style.display="";
+   return false;
 }
 </script>
 </head>
@@ -43,7 +43,7 @@ function viewConsLogin(){
 <input type="submit" value="로그인">
 </form>
 <button onclick="location.href='userenroll6.do'">일반 회원가입</button>
-<h4>카카오로 로그인</h4>
+<h4>카카오로  로그인</h4>
 </div>
 
 <div id="cons" style="display:none;">

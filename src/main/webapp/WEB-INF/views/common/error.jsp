@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 오류 발생 : ${requestScope.message }<br> --%>
-확인
+오류 발생 : ${ requestScope.message } <br>
 </body>
 </html>

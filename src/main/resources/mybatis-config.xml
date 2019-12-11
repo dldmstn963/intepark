@@ -4,23 +4,17 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<!-- <typeAlias type="com.kh.first.member.model.vo.Member" alias="Member" />
-		<typeAlias type="com.kh.first.test.model.vo.CryptoUser" alias="CUser" />
-		<typeAlias type="com.kh.first.notice.model.vo.Notice" alias="Notice" />
-		<typeAlias type="com.kh.first.board.model.vo.Board" alias="Board" /> -->
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.calendar.model.vo.Calendar" alias="Calendar" />
-	<!-- 	<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" /> -->
+  	<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
 	</typeAliases>
 	
 	<mappers>
-		<!-- <mapper resource="mappers/member-mapper.xml" />
-		<mapper resource="mappers/board-mapper.xml" />
-		<mapper resource="mappers/notice-mapper.xml" />
-		<mapper resource="mappers/test-mapper.xml"/> -->
 		<mapper resource="mappers/constructors-mapper.xml"/>
 		<mapper resource="mappers/inteUser-mapper.xml" />
 		<mapper resource="mappers/calendar-mapper.xml" />
+		<mapper resource="mappers/auction-mapper.xml" />
+
 	</mappers>
 </configuration>

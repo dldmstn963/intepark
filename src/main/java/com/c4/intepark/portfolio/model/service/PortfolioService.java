@@ -1,5 +1,9 @@
 package com.c4.intepark.portfolio.model.service;
 
-public interface PortfolioService {
+import java.util.ArrayList;
 
+import com.c4.intepark.portfolio.model.vo.PfList;
+
+public interface PortfolioService {
+	ArrayList<PfList> selectList();
 }
