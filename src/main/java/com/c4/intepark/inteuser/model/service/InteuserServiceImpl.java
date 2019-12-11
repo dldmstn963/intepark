@@ -19,4 +19,9 @@ public class InteuserServiceImpl implements InteuserService{
 		return userDao.loginCheck(inteuser);
 	}
 
+	@Override
+	public int insertUser(InteUser inteuser) {
+		return userDao.insertUser(inteuser);
+	}
+
 }

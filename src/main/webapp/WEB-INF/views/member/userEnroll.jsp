@@ -58,22 +58,18 @@
 function idCheck(id){
 	var idc= id.value;
 	var tdid = document.getElementById("idcheck");
-	console.log(idc);
-	var idc1 = idc.charAt(0);
-	var idc2= idc.substr(idc.length-1);
-	
+	var idc1 = idc.charAt(0);	
 	var re = /^[a-zA-Z]+$/;
 	var re2 = /^[a-zA-Z0-9]+$/; 
 
 	if(!re2.test(idc)){
-		id.value="";
-		tdid.innerHTML="<p style='color:red; margin:0;'>영어 숫자만써.</p>";
+		id.value=idc.replace(/[^a-zA-Z0-9]/g,'');
 	}else if(!re.test(idc1)){
-		tdid.innerHTML="<p style='color:red; margin:0;'>아이디는 첫글자는 영문이어야 합니다.</p>";
+		tdid.innerHTML="<p style='color:red; margin:0;'>아이디의 첫글자는 영문이어야 합니다.</p>";
  	}else if(idc.length <6){
 		tdid.innerHTML="<p style='color:red; margin:0;'>아이디는 6글자 이상이여야 합니다.</p>";
  	}else{
- 		tdid.innerText="사용 가능한 아이디입니다. 중복체크를 해주세요.";
+ 		tdid.innerHTML="<p style='color:green; margin:0;'>사용 가능한 아이디입니다. 중복체크를 해주세요.</p>";
  	}
 	return false;
 }
@@ -81,7 +77,37 @@ function idCheck(id){
 function pwdCheck(pwd){
 	var pwdc= pwd.value;
 	var tdpwd = document.getElementById("pwdcheck");
+
+	var repwd1 = /[a-zA-Z]/; //영문이 들어갔는지
+	var repwd2 = /[0-9]/; // 숫자들어갔는지
+	var repwd3 = /[^a-zA-Z0-9]/; //특수문자 들어갔는지.
+
+	if(pwdc.length<8){
+		tdpwd.innerHTML="<p style='color:red; margin:0;'>암호는 8글자 이상이여야 합니다.</p>";
+	}else if(!repwd1.test(pwdc)){	
+		tdpwd.innerHTML="<p style='color:red; margin:0;'>암호에 영문이 반드시 들어가야합니다.</p>";
+	}else if(!repwd2.test(pwdc)){
+		tdpwd.innerHTML="<p style='color:red; margin:0;'>암호에 숫자가 반드시 들어가야합니다.</p>";
+	}else if(!repwd3.test(pwdc)){
+		tdpwd.innerHTML="<p style='color:red; margin:0;'>암호에 특수기호가 반드시 들어가야합니다.</p>";
+	}else{
+		tdpwd.innerHTML="<p style='color:green; margin:0;'>사용 가능한 비밀번호입니다.</p>";
+	}
 	return false;
+}
+
+function pwd2dCheck(pwda, pwdb){//비밀번호 확인
+	var pwdc1 = pwda.value;
+	var pwdc2 = pwdb.value;
+	var td2pwd = document.getElementById("pwdcheck2");
+
+	if(pwdc1!=pwdc2)
+		td2pwd.innerHTML="<p style='color:red; margin:0;'>비밀번호가 일치하지 않습니다.</p>";
+	else
+		td2pwd.innerHTML="<p style='color:green; margin:0;'>비밀번호가 일치합니다.</p>";
+
+	return false;
+			
 }
 </script>
 </head>
@@ -90,26 +116,27 @@ function pwdCheck(pwd){
 <span><a href="main.do"><img src="/intepark/resources/img/favicon.ico" height="150" width="150"></a><br>
 </span>
 <H1>고객 회원가입</H1>
-<form action="">
+<form action="insertUser6.do" method="post">
 <table>
-<tr><th>아이디* : </th><td><input type="text" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" value="아이디 중복체크"></td></tr>
+<tr><th>아이디* : </th><td><input type="text" name="userid" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" value="아이디 중복체크"></td></tr>
 <tr><td colspan="3" id="idcheck"></td></tr>
-<tr><th>비밀번호* : </th><td><input type="password" onkeyup="pwdCheck(this)"></td></tr>
+<tr><th>비밀번호* : </th><td><input type="password" name="userpwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
 <tr><td colspan="3" id="pwdcheck"></td></tr>
-<tr><th>비밀번호 확인* : </th><td><input type="password"></td></tr>
-<tr><td colspan="3" id="idcheck"></td></tr>
-<tr><th>이름* : </th><td><input type="text"></td></tr>
-<tr><th>전화번호* : </th><td><input type="text"></td></tr>
-<tr><th>이메일* : </th><td><input type="text"></td></tr>
-<tr><th>주소 : </th><td><input type="text"></td></tr>
-
-
+<tr><th>비밀번호 확인* : </th><td><input type="password" onkeyup="pwd2dCheck(pwd,this)" maxlength="15" required></td></tr>
+<tr><td colspan="3" id="pwdcheck2"></td></tr>
+<tr><th>이름* : </th><td><input type="text" name="username"></td></tr>
+<tr><th>전화번호* : </th><td><input type="tel" name="phone"></td></tr>
+<tr><th>이메일* : </th><td><input type="email" name="email"></td></tr>
+<tr><th>주소 :
 </table>
-<input type="text" id="sample6_postcode" placeholder="우편번호" readonly>
+<input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" readonly>
 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" id="sample6_address" placeholder="주소" readonly><br>
-<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-<input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
+<input type="text" id="sample6_address" placeholder="주소" name="address2"readonly><br>
+<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3" required>
+<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address4" readonly>
+<br>
+<input type="submit" value="가입하기">
+<input type="reset" value="초기화">
 </form>
 </section>
 </body>

@@ -17,6 +17,13 @@ public class InteuserDao {
 	public InteUser loginCheck(InteUser inteuser) {
 		return sqlSession.selectOne("inteuserMapper.loginCheck", inteuser);
 	}
+
+	public int insertUser(InteUser inteuser) {
+		System.out.println(sqlSession);
+		System.out.println(inteuser);
+		int result = sqlSession.insert("inteuserMapper.insertUser");
+		return result;
+	}
 	
 
 }
