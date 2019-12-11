@@ -1,6 +1,7 @@
 package com.c4.intepark.portfolio.model.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class PortfolioDao {
 	public PortfolioDao() {}
 
 	public ArrayList<PfList> selectList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<PfList> list = mybatisSession.selectList("portfolioMapper.selectList");
+		return (ArrayList<PfList>)list;
 	}
 	
 	

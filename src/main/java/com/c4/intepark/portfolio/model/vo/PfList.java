@@ -10,15 +10,18 @@ public class PfList implements java.io.Serializable {
 	private String consarea;
 	private String profilerenameimg;
 	private String consintroduction;
+	private int pfphotonum;
 	
 	public PfList() {}
 
-	public PfList(String companyname, String consarea, String profilerenameimg, String consintroduction) {
+	public PfList(String companyname, String consarea, String profilerenameimg, String consintroduction,
+			int pfphotonum) {
 		super();
 		this.companyname = companyname;
 		this.consarea = consarea;
 		this.profilerenameimg = profilerenameimg;
 		this.consintroduction = consintroduction;
+		this.pfphotonum = pfphotonum;
 	}
 
 	public String getCompanyname() {
@@ -53,6 +56,14 @@ public class PfList implements java.io.Serializable {
 		this.consintroduction = consintroduction;
 	}
 
+	public int getPfphotonum() {
+		return pfphotonum;
+	}
+
+	public void setPfphotonum(int pfphotonum) {
+		this.pfphotonum = pfphotonum;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -60,8 +71,8 @@ public class PfList implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "PfList [companyname=" + companyname + ", consarea=" + consarea + ", profilerenameimg="
-				+ profilerenameimg + ", consintroduction=" + consintroduction + "]";
+				+ profilerenameimg + ", consintroduction=" + consintroduction + ", pfphotonum=" + pfphotonum + "]";
 	}
-	
+
 	
 }
