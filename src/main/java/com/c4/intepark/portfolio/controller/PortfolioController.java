@@ -24,17 +24,17 @@ public class PortfolioController {
 
 	@RequestMapping("conslist5.do")
 	public String pfList(Model model) {
-		/*
-		 * ArrayList<PfList> list = new portfolioService().selectList();
-		 * RequestDispatcher view = null; if (list.size() > 0) {
-		 * 
-		 * view = request.getRequestDispatcher("views/portfolio/portfolioListView.jsp");
-		 * request.setAttribute("list", list); } else { view =
-		 * request.getRequestDispatcher("views/common/error.jsp");
-		 * request.setAttribute("message", "업체리스트 조회 실패!"); view.forward(request,
-		 * response); }
-		 */
-		return "portfolio/portfolioListView";
+		
+		  ArrayList<PfList> list = portfolioService.selectList();
+		  //System.out.println(list);
+		
+		  if (list.size() > 0) {
+			  model.addAttribute("list", list); 
+			  return "portfolio/portfolioListView";
+		  } else { 
+			  model.addAttribute("message", "업체리스트 조회 실패!");
+			  return "common/error";
+		  }
 	}
 
 }
