@@ -27,61 +27,35 @@
   
     calendar.render();
   }); 
-  
-	/* document.addEventListener('DOMContentLoaded', function() {
-			var calendarEl = document.getElementById('calendar');
-		 
-		    var calendar = new Calendar(calendarEl, {
-		      plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
-		      header: {
-		        left: 'prev,next today',
-		        center: 'title',
-		        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-		      },
-		      editable: true,
-		      droppable: true, // this allows things to be dropped onto the calendar
-		      drop: function(info) {
-		        // is the "remove after drop" checkbox checked?
-		        if (checkbox.checked) {
-		          // if so, remove the element from the "Draggable Events" list
-		          info.draggedEl.parentNode.removeChild(info.draggedEl);
-		        }
-		      },
-		      locale: 'ko',
-		      events: [
-		          {
-		              title : 'evt1',
-		              start : '2019-09-03'
-		          },
-		          {
-		              title    :    'evt2',
-		              start    :    '2019-09-10',
-		              end    :    '2019-09-20'
-		          },
-		          {
-		              title    :    'evt3',
-		              start    :    '2019-09-25T12:30:00',
-		              allDay    :    false
-		          }
-		      ]
-		    });
-		 
-		    calendar.render();
-		  });   */
-    	  
+	  
+	backgroundCh = function(){
+		var sel = document.getElementById('sel');
+		sel.style.backgroundColor = sel.value;
+	};
+
+	function sameDate(){
+	var c1 = document.getElementById("cstart").value;
+	console.log("aaaa");
+	var c2 = document.getElementById("cend");
+	c2.value = c1;
+};	
+	
 </script>
+<style type="text/css">
+  html, body {
+   width: 100%; height: 100%; 
+} 
+
+</style>
 <title>업체 일정 관리</title>
 <%@ include file="../common/jscsspath.jsp" %>
 </head>
 <body>
 <jsp:include page="../common/header.jsp" /><br>
-
 <div class="container" style="margin-top: 60px;">
     <div class="row">
       <div class="col-lg-12">
-      <%-- <a href="${pageContext.request.contextPath}/WEB-INF/views/calendar/insertCalendar.jsp">일정등록</a> --%>
-      <!-- <a href="insertCalendar3.do" target="_blank">일정등록</a> -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <span> ${sessionScope.loginCons.companyname } </span> &nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
  	  일정등록
       </button>
       <div id='calendar'></div>
@@ -99,15 +73,27 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="insertCalendar3.do" method="post">
       <div class="modal-body">
-      제목 : <input type="text" name="ctitle"><br>
-      일시 : <input type="date" name="cstart">-<input type="date" name="cend"><br>
-      내용 : <textarea rows="20" cols="50"></textarea><br>
+      제목 : &nbsp;<input type="text" name="ctitle" style="margin-bottom: 10px;" required><br>
+      일시 : &nbsp;<input type="date" id="cstart" name="cstart" style="margin-bottom: 10px;" required onchange="sameDate();">&nbsp;-&nbsp;
+      <input type="date" id="cend" name="cend"  style="margin-bottom: 10px;"><br>
+      내용 : &nbsp;<textarea rows="10" cols="50" name="ccontent" style="margin-bottom: 10px;"></textarea><br>
+      색상 : &nbsp;
+      <select name="ccolor" id="sel" onchange="backgroundCh();" style="width:100px;">
+      		<option selected value="white">없음</option>
+      		<option value="red" style="background:red; width:100pt;" />
+      		<option value="green" style="background:green;" />
+      		<option value="yellow" style="background:yellow;" />
+      </select>
+      <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <input type="submit" id="submit" value="확인" onclick="return check();">
+        <!-- <button type="button" id="confirm" class="btn btn-primary" data-dismiss="modal">확인</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

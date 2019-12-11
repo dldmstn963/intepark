@@ -9,6 +9,10 @@
 		select * from inteuser where userid = #{ userid } and userpwd = #{userpwd}
 	</select>
 	
+	<insert id="insertUser" parameterType="InteUser">
+		insert into inteuser values(#{ userid }, #{userpwd}, sysdate, #{username}, #{phone}, #{email}, #{address}, default, null, null)
+	</insert>
+	
 </mapper>
 
 
