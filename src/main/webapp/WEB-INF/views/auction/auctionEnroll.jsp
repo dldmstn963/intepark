@@ -123,7 +123,7 @@ form {
   margin-bottom: 23px;
   position: relative; }
 
-input, select {
+input, select ,textarea{
   display: block;
   width: 100%;
   border: 1px solid #ebebeb;
@@ -342,103 +342,86 @@ select {
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="post" class="register-form" id="register-form" action="auctionEnroll2.do" enctype="multipart/form-data">
                                             <div class="form-row">
-                            <label for="gender" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
+                            <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
-                                <label for="male">일반견적</label>
-                                  <input type="radio" name="gender" id="male" checked>
+                                <label for="nomal">일반견적</label>
+                                  <input type="radio" name="auctionsection" id="nomal" checked>
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
-                                <label for="female">긴급견적</label>
-                                 <input type="radio" name="gender" id="female">
+                                <label for="fast">긴급견적</label>
+                                 <input type="radio" name="auctionsection" id="fast">
                                 <span class="check"></span>
                             </div>
                             
                         </div>
                            <div class="form-row">
                             <div class="form-group">
-                                <label for="state">인테리어 분류 :</label>
+                                <label for="interiorsection">인테리어 분류 :</label>
                                 <div class="form-select">
-                                    <select name="state" id="state">
+                                    <select name="interiorsection" id="interiorsection">
                                         <option value=""></option>
-                                        <option value="us">종합</option>
-                                        <option value="uk">샷시</option>
-                                         <option value="uk">타일</option>
-                                          <option value="uk">목공</option>
-                                           <option value="uk">욕실</option>
-                                            <option value="uk">에어컨</option>
+                                        <option value="종합">종합</option>
+                                        <option value="도배">도배</option>
+                                         <option value="장판">장판</option>
+                                          <option value="마루">마루</option>
+                                           <option value="주방">주방</option>
+                                            <option value="욕실">욕실</option>
+                                             <option value="타일">타일</option>
+                                              <option value="페인트">페인트</option>
+                                               <option value="도어">도어</option>
+                                                <option value="샷시">샷시</option>
+                                                 <option value="블라인드">블라인드</option>
+                                                  <option value="설비">설비</option>
+                                                   <option value="조명">조명</option>
+                                                    <option value="기타">기타</option>
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
                                 </div>
                             </div>
+                             <div class="form-group">
+                                <label for="startday">공사시작일 :</label>
+                                <input type="date" name="startday" id="startday" required/>
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">제목 :</label>
+                                <label for="name">이름 :</label>
                                 <input type="text" name="name" id="name" required/>
                             </div>
                             <div class="form-group">
-                                <label for="father_name">이름 :</label>
-                                <input type="text" name="father_name" id="father_name" required/>
+                                <label for="phone">휴대전화번호 :</label>
+                                <input type="tel" name="phone" id="phone" required/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="address">주소 :</label>
-                            <input type="text" name="address" id="address" required/>
-                        </div>
-                        <div class="form-row">
+                            <div class="form-row">
                             <div class="form-group">
-                                <label for="state">휴대폰번호 :</label>
-                                <div class="form-select">
-                                    <select name="state" id="state">
-                                        <option value=""></option>
-                                        <option value="us">America</option>
-                                        <option value="uk">English</option>
-                                    </select>
-                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
+                                <label for="email">이메일 :</label>
+                                <input type="email" name="email" id="email" required/>
                             </div>
                             <div class="form-group">
-                                <label for="city">공사시작일 :</label>
-                                <div class="form-select">
-                                    <select name="city" id="city">
-                                        <option value=""></option>
-                                        <option value="losangeles">Los Angeles</option>
-                                        <option value="washington">Washington</option>
-                                    </select>
-                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
+                                <label for="price">희망금액 :</label>
+                                <input type="text" name="price" id="price" required/>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="birth_date">희망금액 :</label>
-                            <input type="text" name="birth_date" id="birth_date">
+                            <label for="title">제목 :</label>
+                            <input type="text" name="title" id="title">
                         </div>
+                    <div class="form-group">
+                            <label for="upfile">참고사진 :</label>
+                            <input multiple="multiple" type="file" name=upfile id="upfile">
+                        </div> 
                         <div class="form-group">
-                            <label for="pincode">참고사진 :</label>
-                            <input type="text" name="pincode" id="pincode">
-                        </div>
-                        <div class="form-group">
-                            <label for="course">이메일 :</label>
-                            <div class="form-select">
-                                <select name="course" id="course">
-                                    <option value=""></option>
-                                    <option value="computer">Computer Operator & Pragramming Assistant</option>
-                                    <option value="desiger">Designer</option>
-                                    <option value="marketing">Marketing</option>
-                                </select>
-                                <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">기타 상세정보 :</label>
-                            <input type="email" name="email" id="email" />
+                            <label for="etc">기타 상세정보 :</label>
+                            <textarea rows="10" cols="80" name="etc"></textarea>
                         </div>
                         <div class="form-submit">
-                            <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
-                            <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
+                            <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
+                            <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
                         </div>
                     </form>
                 </div>
