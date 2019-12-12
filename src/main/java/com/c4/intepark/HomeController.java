@@ -87,6 +87,56 @@ public class HomeController {
 	public String temple8() {
 		return "TemplateFolder/blog";
 	}
+	
+	@RequestMapping("temple49.do")
+	public String temple9() {
+		return "TemplateFolder/form_advanced";
+	}
+	
+	@RequestMapping("temple441.do")
+	public String temple441() {
+		return "TemplateFolder/form_buttons";
+	}
+	
+	@RequestMapping("temple442.do")
+	public String temple442() {
+		return "TemplateFolder/form_upload";
+	}
+	
+	@RequestMapping("temple443.do")
+	public String temple443() {
+		return "TemplateFolder/form_validation";
+	}
+	
+	@RequestMapping("temple444.do")
+	public String temple444() {
+		return "TemplateFolder/form_wizards";
+	}
+	
+	@RequestMapping("temple445.do")
+	public String temple445() {
+		return "TemplateFolder/form";
+	}
+	
+	@RequestMapping("temple446.do")
+	public String temple446() {
+		return "TemplateFolder/general_elements";
+	}
+	
+	@RequestMapping("temple447.do")
+	public String temple447() {
+		return "TemplateFolder/inbox";
+	}
+	
+	@RequestMapping("temple448.do")
+	public String temple448() {
+		return "TemplateFolder/tables_dynamic";
+	}
+	
+	@RequestMapping("temple449.do")
+	public String temple449() {
+		return "TemplateFolder/tables";
+	}
 
 	@RequestMapping("moveshop4.do")
 	public String moveshop() {
