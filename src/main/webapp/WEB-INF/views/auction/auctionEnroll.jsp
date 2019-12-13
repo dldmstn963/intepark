@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>auctionEnroll</title>
+
 <%@ include file="../common/jscsspath.jsp" %>   	
      	<style type="text/css">
 div{
@@ -328,16 +329,25 @@ select {
   #reset {
     margin-right: 0px;
     margin-bottom: 10px; } 
+    .dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*# sourceMappingURL=style.css.map */
-
-	</style>
+</style>
 <!-- <link rel="stylesheet" href="css/style1.css">  -->
 </head>
 <body>
 
 	<jsp:include page="../common/header.jsp" />
-
+        
+                 
  <div class="main">
         <div class="container">
             <div class="signup-content">
@@ -427,9 +437,9 @@ select {
                 </div>
             </div>
         </div>
-
     </div>
-    
+
   <jsp:include page="../common/footer.jsp" />
 </body>
+  <script src="/intepark/resources/vendors/dropzone/dist/dropzone.js"></script>
 </html>
