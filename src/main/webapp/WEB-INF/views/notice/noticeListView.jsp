@@ -18,7 +18,7 @@
 	$(function(){
 		showDiv();
 
-		$("input[name=item]").on("select", function(){
+		$("input[name=item]").on("change", function(){
 				showDiv();
 			});
 		});
@@ -99,8 +99,8 @@
 <div class="searchbox">
 <div>
 	<h4>검색할 항목을 선택하시오.</h4>
-	<input type="select" name="item" value="title" > 제목 &nbsp; &nbsp; &nbsp; 
-	<input type="select" name="item" value="writer"> 작성자 &nbsp; &nbsp; &nbsp; 
+	<input type="radio" name="item" value="title" > 제목 &nbsp; &nbsp; &nbsp; 
+	<input type="radio" name="item" value="writer"> 작성자 &nbsp; &nbsp; &nbsp; 
 </div>
 <div id="titlediv">
 	<form action="/testm/nsearch" method="post">
