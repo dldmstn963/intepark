@@ -1,5 +1,9 @@
 package com.c4.intepark.inteuser.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +26,13 @@ public class InteuserController {
 	public InteuserController() {}
 	
 	@RequestMapping("userenroll6.do")
-	public String temple1() {
+	public String userEnroll() {
 		return "member/userEnroll";
 	}
 	
 	@RequestMapping(value="userlogCheck6.do", method=RequestMethod.POST)
 	public String loginCheck(InteUser inteuser, HttpSession session, Model model) {
-		InteUser loginUser = userService.loginCheck(inteuser);
+		InteUser loginUser = userService.selectLoginCheck(inteuser);
 		String view = "main";
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
@@ -54,5 +58,36 @@ public class InteuserController {
 			view = "common.error";
 		}
 		return view;
+	}
+	//아이디 중복체크
+	@RequestMapping(value="userIdchk6.do", method=RequestMethod.POST)
+	public void idCheck(@RequestParam("userid") String userid, HttpServletResponse response) throws IOException {
+		
+		int result = userService.selectIdCheck(userid);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(result != 1) 
+			out.append("ok");
+		else 
+			out.append("dup");
+		
+		out.flush();
+		out.close();
+	}
+	
+	//이메일중복체크
+	@RequestMapping(value="userEmailChk6.do", method=RequestMethod.POST)
+	public void emailCheck(@RequestParam("useremail") String useremail, HttpServletResponse response) throws IOException {
+		
+		int result = userService.selectEmailCheck(useremail);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(result != 1) 
+			out.append("ok");
+		else 
+			out.append("dup");
+		
+		out.flush();
+		out.close();
 	}
 }

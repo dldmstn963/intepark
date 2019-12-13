@@ -118,6 +118,7 @@ function dcheckId(){
 		data : { userid : $("#userId").val() },
 		success : function(data){			
 			if(data == "ok"){
+				document.getElementById("idcheck");
 				$("#idcheck").html("<p style='color:green; margin:0;'>사용 가능한 아이디입니다.</p>");
 				$("#userPwd").focus();
 			}else{
@@ -132,63 +133,31 @@ function dcheckId(){
 	return false;	//전송 안 됨.
 }
 
-function dcheckEmail(){
-	$.ajax({
-		url : "userEmailChk6.do",
-		type : "post",
-		data : { useremail : $('#uemail').val()},
-		success : function(data){			
-			if(data == "ok"){
-				$("#emailcheck").html("<p style='color:green; margin:0;'>사용 가능한 이메일입니다.</p>");
-			}else{
-				$("#emailcheck").html("<p style='color:red; margin:0;'>이미 사용중인 이메일입니다.</p>");
-				$("#ueamil").select();
-			}
-		},
-		error : function(jqXHR, textStatus, errorThrown){
-			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
-		}
-		});
-	return false;
-}
-
-function telCheck(event,tel){
-	var utel= tel.value;
-	var code= event.keyCode;
-
-	if(code==8 || code ==46){
-		return false;
-		}
-
-	if(utel.length == 3)
-		tel.value=utel+'-';
-	if(utel.length == 8)
-		tel.value=utel+'-';
-	return false;
-}
-
-function enrollCheck(){
-	return true;
-}
 </script>
 </head>
 <body>
 <section>
 <span><a href="main.do"><img src="/intepark/resources/img/favicon.ico" height="150" width="150"></a><br>
 </span>
-<H1>고객 회원가입</H1>
-<form action="insertUser6.do" method="post" onsubmit="return enrollCheck();">
+<H1>시공사 회원가입</H1>
+<form action="insertUser6.do" method="post">
 <table>
-<tr><th>아이디* : </th><td><input type="text" id="userId" name="userid" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" onclick="dcheckId()" value="아이디 중복체크"></td></tr>
+<tr><th>아이디* : </th><td><input type="text" id="consId" name="consid" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" onclick="dcheckId()" value="아이디 중복체크"></td></tr>
 <tr><td colspan="3" id="idcheck"></td></tr>
-<tr><th>비밀번호* : </th><td><input type="password" id="userPwd" name="userpwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
+<tr><th>비밀번호* : </th><td><input type="password" id="consPwd" name="conspwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
 <tr><td colspan="3" id="pwdcheck"></td></tr>
-<tr><th>비밀번호 확인* : </th><td><input type="password" onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td></tr>
+<tr><th>비밀번호 확인* : </th><td><input type="password" onkeyup="pwd2dCheck(consPwd,this)" maxlength="15" required></td></tr>
 <tr><td colspan="3" id="pwdcheck2"></td></tr>
-<tr><th>이름* : </th><td><input type="text" name="username" maxlength="40" required></td></tr>
-<tr><th>휴대폰번호* : </th><td><input type="tel" name="phone" onkeydown="telCheck(event,this)" maxlength="13" required></td></tr>
-<tr><th>이메일* : </th><td><input type="email" id="uemail" name="email"></td><td><input type="button" onclick="dcheckEmail()" value="이메일 중복체크"></td></tr>
-<tr><td colspan="3" id="emailcheck"></td></tr>
+<tr><th>이름* : </th><td><input type="text" name="consname"></td></tr>
+<tr><th>전화번호* : </th><td><input type="tel" name="phone"></td></tr>
+<tr><th>이메일* : </th><td><input type="email" name="email"></td></tr>
+<tr><th>상호명* : </th><td><input type="text" name="companyname"></td></tr>
+<tr><th>A/S기간* : </th><td><input type="radio" name="asdate"></td></tr>
+<tr><th>경력* : </th><td><input type="radio" name="career"></td></tr>
+<tr><th>시공 분야* : </th><td><input type="text" name="consarea"></td></tr>
+<tr><th>한줄 소개* : </th><td><input type="text" name="consintroduction"></td></tr>
+<tr><th>프로필사진 : </th><td><input type="file" name="profileoriginalimg"></td></tr>
+<tr><th>사업자등록증* : </th><td><input type="file" name="blicenceoriginalimg"></td></tr>
 <tr><th>주소 :</th></tr>
 </table>
 <input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" readonly>

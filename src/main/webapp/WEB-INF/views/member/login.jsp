@@ -53,7 +53,7 @@ function viewConsLogin(){
 <input style="margin-bottom : 5px; width:250px;" type="password" name="conspwd" placeholder="비밀번호"><br>
 <input type="submit" value="로그인">
 </form>
-<button>시공사 회원가입</button>
+<button onclick="location.href='consenroll6.do'">시공사 회원가입</button>
 </div>
 </div>
 </body>
