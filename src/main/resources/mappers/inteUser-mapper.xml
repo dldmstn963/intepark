@@ -5,13 +5,23 @@
 <mapper namespace="inteuserMapper">
 
 
-	<select id="loginCheck" parameterType="InteUser" resultType="InteUser">
+	<select id="selectLoginCheck" parameterType="InteUser" resultType="InteUser">
 		select * from inteuser where userid = #{ userid } and userpwd = #{userpwd}
 	</select>
 	
 	<insert id="insertUser" parameterType="InteUser">
-		insert into inteuser values(#{ userid }, #{userpwd}, sysdate, #{username}, #{phone}, #{email}, #{address}, default, null, null)
+		insert into inteuser values(#{userid}, #{userpwd}, 
+		sysdate, #{username}, #{phone, javaType=String, jdbcType=VARCHAR}, 
+		#{email}, #{address}, default, null, null)
 	</insert>
+	
+	<select id="selectIdCheck" parameterType="String" resultType="_int">
+		select count(userid) from inteuser where userid = #{value}
+	</select>
+	
+		<select id="selectEmailCheck" parameterType="String" resultType="_int">
+		select count(email) from inteuser where email = #{value}
+	</select>
 	
 </mapper>
 

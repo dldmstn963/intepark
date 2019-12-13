@@ -14,15 +14,20 @@ public class InteuserDao {
 	
 	public InteuserDao() {}
 	
-	public InteUser loginCheck(InteUser inteuser) {
-		return sqlSession.selectOne("inteuserMapper.loginCheck", inteuser);
+	public InteUser selectLoginCheck(InteUser inteuser) {
+		return sqlSession.selectOne("inteuserMapper.selectLoginCheck", inteuser);
 	}
 
 	public int insertUser(InteUser inteuser) {
-		System.out.println(sqlSession);
-		System.out.println(inteuser);
-		int result = sqlSession.insert("inteuserMapper.insertUser");
-		return result;
+		return sqlSession.insert("inteuserMapper.insertUser", inteuser);
+	}
+
+	public int selectIdCheck(String userid) {
+		return sqlSession.selectOne("inteuserMapper.selectIdCheck", userid);
+	}
+
+	public int selectEmailCheck(String useremail) {
+		return sqlSession.selectOne("inteuserMapper.selectEmailCheck", useremail);
 	}
 	
 

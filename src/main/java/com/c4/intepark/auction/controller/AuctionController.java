@@ -43,8 +43,12 @@ public String auctionEnrollPage() {
 	return "auction/auctionEnroll";
 }
 
-
+@RequestMapping("auctionEnd2.do")
+public String auctionEndList() {
 	
+	return "auction/auctionEndList";
+}
+
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 
 	 public String auctionEnroll(Auction auction, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		 List<MultipartFile> fileList = mtfRequest.getFiles("upfile");
@@ -57,7 +61,6 @@ public String auctionEnrollPage() {
 				e.printStackTrace();
 		}
 	ofile += mf.getOriginalFilename() + "/";
-
 	}
 	String ofile1 =  ofile.substring(0, ofile.length()-1);
 	auction.setOfile(ofile1);
@@ -65,4 +68,5 @@ public String auctionEnrollPage() {
 	 return "auction/auctionEnroll";
 }
 	
+	 
 }
