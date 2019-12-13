@@ -4,15 +4,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="portfolioMapper">
 
-	<select id="selectList" resultType="pfList">
-		select companyname, consarea, profilerenameimg, consintroduction, max(PFPHOTONUM) as pfphotonum
-		from portfoliofile
-		join PORTFOLIO using(pfnum)
-		join constructors using(consid)
-		where pfnum in(select max(pfnum)
-		                      from portfolio
-		                      group by consid)
-		group by companyname,consarea,profilerenameimg, consintroduction, pfnum
+	<select id="selectList" resultType="Constructors">
+		select companyname, consarea, consintroduction, profilerenameimg
+		from Constructors
 	</select>
 
 	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">

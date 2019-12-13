@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.c4.intepark.portfolio.model.vo.PfList;
+import com.c4.intepark.constructors.model.vo.Constructors;
 
 @Repository("portfolioDao")
 public class PortfolioDao {
@@ -17,9 +17,9 @@ public class PortfolioDao {
 	
 	public PortfolioDao() {}
 
-	public ArrayList<PfList> selectList() {
-		List<PfList> list = mybatisSession.selectList("portfolioMapper.selectList");
-		return (ArrayList<PfList>)list;
+	public ArrayList<Constructors> selectList() {
+		List<Constructors> list = mybatisSession.selectList("portfolioMapper.selectList");
+		return (ArrayList<Constructors>)list;
 	}
 	
 	
