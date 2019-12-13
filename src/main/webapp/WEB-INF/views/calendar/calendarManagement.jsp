@@ -17,35 +17,78 @@
 <script src='resources/js/jquery-3.4.1.min.js' ></script>
 
 <script>
+	/* fullcalendar api 사용해 달력 불러옴 */
 	document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
-  
+    
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'dayGrid' ],
       locale: 'ko',
-    });
-  
+      events:function(info, successCallback, failureCallback) {
+    	  $(function(){
+    		  
+    	  $.ajax({
+      		url : "selectCalendar3.do",
+      		type : "post",
+      		dataType : "json",
+      		success : function(data){
+      			var jsonStr = JSON.stringify(data);
+      			var json = JSON.parse(jsonStr);
+				var events = [];
+				
+      			for(var i in json.list){
+						events.push({id:json.list[i].cno,title:decodeURIComponent(json.list[i].ctitle).replace(/\+/gi, " "),start:json.list[i].cstart,end:json.list[i].cend,color:json.list[i].ccolor,textColor:"white"})
+						console.log(json.list[i].cno);
+		      	}
+      			
+      			successCallback(events);	
+      		},
+      		error : function(jqXHR, textStatus, errorThrown){
+      			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
+      		}
+          });
+    	  });
+      }
+    });  
+    
     calendar.render();
-  }); 
-	  
+
+	}); 
+
+	
+  
+	
+
+	/* 일정등록 색깔 select값 선택된 옵션값과 동일하게 보여줌 */ 
 	backgroundCh = function(){
 		var sel = document.getElementById('sel');
 		sel.style.backgroundColor = sel.value;
 	};
 
+	/* 일정등록 달력 시작 끝 날짜 동일하게 맞춰줌  */
 	function sameDate(){
 	var c1 = document.getElementById("cstart").value;
 	console.log("aaaa");
 	var c2 = document.getElementById("cend");
 	c2.value = c1;
 };	
-	
+
+/* values = "'title':'"+ decodeURIComponent(json.list[i].ctitle).replace(/\+/gi, " ")
+	+ "', 'start':'" + json.list[i].cstart + "', 'end':'" + json.list[i].cend + "'"; 
+	//+ "', 'color':'" + json.list[i].ccolor + "'";
+calendar.addEvent( {values});
+console.log(values);
+}
+}
+calendar.addEvent( {'title':'evt4', 'start':'2019-09-04', 'end':'2019-09-06'});
+calendar.addEvent( {'title':'evt4', 'start':'2019-12-04', 'end':'2019-12-06', 'color':'red'}); */
 </script>
+
 <style type="text/css">
   html, body {
    width: 100%; height: 100%; 
 } 
-
+ 
 </style>
 <title>업체 일정 관리</title>
 <%@ include file="../common/jscsspath.jsp" %>
