@@ -8,7 +8,8 @@
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.portfolio.model.vo.PfList" alias="pfList" />
 		<typeAlias type="com.c4.intepark.calendar.model.vo.Calendar" alias="Calendar" />
-  	<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
+  		<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
+  		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Goods" alias="Goods"/>
 	</typeAliases>
 	
 	<mappers>
@@ -17,5 +18,6 @@
 		<mapper resource="mappers/portfolio-Mapper.xml" />
 		<mapper resource="mappers/calendar-mapper.xml" />
 		<mapper resource="mappers/auction-mapper.xml" />
+		<mapper resource="mappers/goods-mapper.xml"/>
 	</mappers>
 </configuration>
