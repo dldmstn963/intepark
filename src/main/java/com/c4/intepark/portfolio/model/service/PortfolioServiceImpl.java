@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.dao.PortfolioDao;
-import com.c4.intepark.portfolio.model.vo.PfList;
 
 @Service("portfolioService")
 public class PortfolioServiceImpl implements PortfolioService{
@@ -15,7 +15,7 @@ public class PortfolioServiceImpl implements PortfolioService{
 	private PortfolioDao portfolioDao;
 	
 	@Override
-	public ArrayList<PfList> selectList() {
+	public ArrayList<Constructors> selectList() {
 		return portfolioDao.selectList();
 	}
 
