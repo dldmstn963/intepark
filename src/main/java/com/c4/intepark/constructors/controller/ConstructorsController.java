@@ -44,5 +44,9 @@ public class ConstructorsController {
 		return "main";
 	}
 	
+	@RequestMapping("consenroll6.do")
+	public String userEnroll() {
+		return "member/consEnroll";
+	}
 
 }
