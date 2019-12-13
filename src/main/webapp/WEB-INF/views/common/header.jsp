@@ -44,7 +44,7 @@
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
 								<li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
 								<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
-								<li class="nav-item"><a class="nav-link" href="single-blog.jsp">고객센터</a></li>
+								<li class="nav-item"><a class="nav-link" href="nlist.do">고객센터</a></li>
 			</c:if>
 			
 			<!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 -->
@@ -81,7 +81,7 @@
 									<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-blog.jsp">고객센터</a></li>
+									<li class="nav-item"><a class="nav-link" href="noticeListView.jsp">고객센터</a></li>
 									<li class="nav-item"><a class="nav-link" href="elements.jsp">마이페이지</a></li>
 			</c:if>
 			<!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 -->
