@@ -1,0 +1,72 @@
+[14:26:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:26:47][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4617 ms
+[14:26:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:26:50][INFO ][FrameworkServlet.java:546] - Completed initialization in 2709 ms
+[14:26:50][INFO ][HomeController.java:41] - Welcome main!
+[14:26:58][INFO ][HomeController.java:41] - Welcome main!
+[14:26:58][INFO ][HomeController.java:41] - Welcome main!
+[14:27:01][INFO ][HomeController.java:41] - Welcome main!
+[14:36:50][INFO ][HomeController.java:41] - Welcome main!
+[15:15:28][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:15:31][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2809 ms
+[15:15:31][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:15:33][INFO ][FrameworkServlet.java:546] - Completed initialization in 2376 ms
+[15:15:45][INFO ][HomeController.java:41] - Welcome main!
+[15:40:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:40:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2789 ms
+[15:40:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:40:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 2272 ms
+[15:47:53][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:47:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3256 ms
+[15:47:56][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:47:58][INFO ][FrameworkServlet.java:546] - Completed initialization in 2526 ms
+[15:51:31][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:51:33][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2712 ms
+[15:51:33][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:51:36][INFO ][FrameworkServlet.java:546] - Completed initialization in 2341 ms
+[15:56:43][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:56:46][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2747 ms
+[15:56:46][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:56:49][INFO ][FrameworkServlet.java:546] - Completed initialization in 2269 ms
+[15:56:56][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple443.do
+[15:57:01][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple444.do
+[15:57:27][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:57:30][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2930 ms
+[15:57:30][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:57:32][INFO ][FrameworkServlet.java:546] - Completed initialization in 2391 ms
+[15:57:34][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple443.do
+[15:57:36][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple444.do
+[15:57:37][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple443.do
+[15:58:53][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple443.do
+[15:58:54][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/temple444.do
+[15:59:24][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:59:26][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2588 ms
+[15:59:27][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:59:29][INFO ][FrameworkServlet.java:546] - Completed initialization in 2296 ms
+[16:04:53][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:04:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3140 ms
+[16:04:56][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:04:58][INFO ][FrameworkServlet.java:546] - Completed initialization in 2532 ms
+[16:09:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:09:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2672 ms
+[16:09:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:09:16][INFO ][FrameworkServlet.java:546] - Completed initialization in 2310 ms
+[16:16:19][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:16:22][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2656 ms
+[16:16:22][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:16:25][INFO ][FrameworkServlet.java:546] - Completed initialization in 2728 ms
+[16:20:56][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:20:58][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2733 ms
+[16:20:58][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:21:01][INFO ][FrameworkServlet.java:546] - Completed initialization in 2246 ms
+[16:21:07][INFO ][HomeController.java:41] - Welcome main!
+[16:39:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:39:55][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2720 ms
+[16:39:55][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:39:57][INFO ][FrameworkServlet.java:546] - Completed initialization in 2251 ms
+[18:41:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:41:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2629 ms
+[18:41:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:41:44][INFO ][FrameworkServlet.java:546] - Completed initialization in 2236 ms
+[18:42:33][INFO ][HomeController.java:41] - Welcome main!
+[18:43:28][INFO ][HomeController.java:41] - Welcome main!

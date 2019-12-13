@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.service.PortfolioService;
-import com.c4.intepark.portfolio.model.vo.PfList;
 
 @Controller
 public class PortfolioController {
@@ -25,7 +25,7 @@ public class PortfolioController {
 	@RequestMapping("conslist5.do")
 	public String pfList(Model model) {
 		
-		  ArrayList<PfList> list = portfolioService.selectList();
+		  ArrayList<Constructors> list = portfolioService.selectList();
 		  //System.out.println(list);
 		
 		  if (list.size() > 0) {
