@@ -7,5 +7,9 @@
 	<insert id="insertCalendar" parameterType="Calendar">
 	insert into calendar values(calendar_seq.nextval, #{ctitle}, #{ccontent}, #{cstart}, #{cend}, #{ccolor}, #{consid})
 	</insert>
+	
+	<select id="selectCalendar" parameterType="string" resultType="Calendar">
+	select * from calendar where consid=#{consid}
+	</select>
 
 </mapper>
