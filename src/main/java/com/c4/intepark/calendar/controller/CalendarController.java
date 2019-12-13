@@ -1,13 +1,25 @@
 package com.c4.intepark.calendar.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.c4.intepark.calendar.model.service.CalendarService;
 import com.c4.intepark.calendar.model.vo.Calendar;
+import com.c4.intepark.constructors.model.vo.Constructors;
 
 @Controller
 public class CalendarController {
@@ -17,6 +29,11 @@ public class CalendarController {
 	  private CalendarService calendarService;
 	
 	  public CalendarController() {}
+	  
+	  @RequestMapping("calendar3.do")
+	  public String showCalendar() {
+		  return "calendar/calendarManagement";
+	  }
 	  
 	  @RequestMapping(value="insertCalendar3.do", method=RequestMethod.POST)
 	  public String insertCalendar(Calendar calendar, Model model) {
@@ -32,9 +49,44 @@ public class CalendarController {
 		  return viewFileName;
 	  }
 	  
-	  @RequestMapping("calendar3.do")
-	  public String selectCalendar() {
-		  return "calendar/calendarManagement";
+	/* @RequestMapping(value="calendar3.do", method=RequestMethod.POST) */
+	  @PostMapping("selectCalendar3.do")
+	  public void selectCalendar(HttpSession session, HttpServletResponse response) throws IOException {
+		  Constructors cons = (Constructors)session.getAttribute("loginCons");
+		  String consid = cons.getConsid();
+		  
+		  ArrayList<Calendar> list = calendarService.selectCalendar(consid);
+		  System.out.println(list);
+		  
+		  JSONObject sendJson = new JSONObject();
+		  JSONArray jarr = new JSONArray();
+		  
+		  for(Calendar c : list) {
+			  JSONObject job = new JSONObject();
+			  job.put("ctitle", URLEncoder.encode(c.getCtitle(), "UTF-8"));
+			  job.put("cstart", c.getCstart().toString());
+			  job.put("cend", c.getCend().toString());
+			  job.put("ccolor", c.getCcolor());
+			  job.put("cno", c.getCno());
+			  job.put("ccontent", c.getCcontent());
+			  
+			  jarr.add(job);
+		  }
+		  
+		  sendJson.put("list", jarr);
+		  
+		  response.setContentType("application/json; charset=utf-8");
+		  PrintWriter out = response.getWriter();
+		  out.write(sendJson.toJSONString());
+		  out.flush();
+		  out.close();
+		  
+		/*
+		 * String viewFileName = "calendar/calendarManagement"; if(list != null) {
+		 * 
+		 * }else { viewFileName = "common/error"; model.addAttribute("message",
+		 * "일정 출력 실패"); } return viewFileName;
+		 */
 	  }
 	  
 }
