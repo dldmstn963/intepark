@@ -952,6 +952,14 @@ REFERENCES GOODS (
 
 insert into CATEGORY values (1, '가구');
 insert into CATEGORY values (2, '침구');
+insert into CATEGORY values (3, '패브릭');
+   insert into CATEGORY values (4, '홈데코/조명');
+   insert into CATEGORY values (5, '가전');
+   insert into CATEGORY values (6, '수납/정리');
+   insert into CATEGORY values (7, '생활용품');
+   insert into CATEGORY values (8, '주방');
+   insert into CATEGORY values (9, 'DIY셀프시공');
+   insert into CATEGORY values (10, '시공/서비스');
 
 insert into GOODS values (1,1,'스완 수납 화장대',73900,DEFAULT,'N','DD.JPG',NULL,'수납 화장대',DEFAULT,'con1',sysdate);
 insert into GOODS values (2,2,'무브 소프트 세미 극세사 차렵이불',32900,DEFAULT,'Y','AA.JPG','주석시험','극세사 이불',2,'con2',sysdate);
