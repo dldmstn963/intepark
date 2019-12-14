@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/swiper.min.css">
 
 <style type="text/css">
-
   <!-- Demo styles -->
    /*  html, body {
       position: relative;
@@ -50,7 +49,6 @@
       -webkit-align-items: center;
       align-items: center;
     }
-
 </style>
 
 </head>
@@ -59,6 +57,21 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
+
+	<div class="row">
+	<div class="col-lg-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button>지역이야sdgasga</button>&nbsp;&nbsp;
+	<button>시공유형이야</button>
+	</div>
+	<div class="col-lg-5"></div>
+	<div class="col-lg-3" style="text-align:right;">
+	<button>내 상담신청 내역</button>&nbsp;&nbsp;
+	<button>내 업체 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+	</div><!-- row 끝 -->
+	
+	<br><br>
+	
     <div class="row">
     
       <c:forEach items="${ list }" var="ConsVo">
@@ -69,8 +82,8 @@
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
 	    <%-- <c:forEach items="${ list }" var="i"> --%>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" width="300" height="150"></div>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-2.jpg" width="300px" height="150px"></div>
+	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" width="300px" height="200px"></div>
+	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-2.jpg" width="300px" height="200px"></div>
 	     <%--  </c:forEach> --%>
 	    </div>
 	    <!-- Add Pagination -->
@@ -84,19 +97,48 @@
       
       <div class="col-lg-8">
       
-      <div width="100%" height="200px"><!-- 정보 구역 시작 -->
-      <c:if test="${empty ConsVo.profilerenameimg}">
-      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" width="100" height="100">
-      </c:if>
-      <c:if test="${!empty ConsVo.profilerenameimg }">
-      	${ConsVo.profilerenameimg}
-      </c:if>
-      &nbsp;&nbsp; ${ConsVo.companyname} <br>
-      ${ConsVo.consarea} <br>
-      ${ConsVo.consintroduction} <br>
+      <div style="width:100%; height:200px;"><!-- 정보 구역 시작 -->
+      <a href="<c:url value='/pfOne5.do?consid=${ConsVo.consid }'/>" style="color:black;">
       
+      <div class='row'>
+      
+      <div class='col-lg-2' ><!-- 시공사 프로필사진 시작 -->
+	      <c:if test="${empty ConsVo.profilerenameimg}">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" width="100px" height="100px">
+	      </c:if>
+	      <c:if test="${!empty ConsVo.profilerenameimg }">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" width="100px" height="100px">
+	      </c:if>
+      </div><!-- 시공사 프로필사진 끝 -->
+      
+      <div class='col-lg-8' style="margin-top:20px; padding-left:0;"><!-- 시공사 업체명, 분야 시작 -->
+      <span style="font-size:1.5em;">${ConsVo.companyname}</span><br>
+      ${ConsVo.consarea} <br>
+      </div><!-- 시공사 업체명, 분야 끝 -->
+      
+      <div class='col-lg-2' style="margin-top:20px;">
+      <form action="requestWrite5.do" method="post" >
+      <input type="hidden" value="${ConsVo.consid}">
+      <input type="submit" value="상담신청">
+      </form>
+      </div>
+      
+      </div><!-- row 끝 -->
+      
+      <div class='row'>
+      
+      <div class='col-lg-1' ></div>
+      <div class='col-lg-10' style="margin-top:20px;"><!-- 시공사 한줄소개 시작 -->
+      ${ConsVo.consintroduction} <br>
+      </div><!-- 시공사 한줄소개 끝 -->
+      <div class='col-lg-1' ></div>
+      
+      </div><!-- row 끝 -->
+      
+      </a>
       </div><!-- 정보 구역 끝 -->
       <hr>
+      
       </div><!-- col-lg-8 끝 -->
       
       </c:forEach>

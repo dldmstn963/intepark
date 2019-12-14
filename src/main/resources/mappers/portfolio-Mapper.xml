@@ -5,8 +5,14 @@
 <mapper namespace="portfolioMapper">
 
 	<select id="selectList" resultType="Constructors">
-		select companyname, consarea, consintroduction, profilerenameimg
+		select consid, companyname, consarea, consintroduction, profilerenameimg
 		from Constructors
+	</select>
+	
+	<select id="selectRequest" parameterType="string" resultType="Constructors">
+		select *
+		from Constructors
+    	where consid = #{consid}
 	</select>
 
 	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">

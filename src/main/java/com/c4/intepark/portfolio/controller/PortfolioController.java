@@ -2,12 +2,18 @@ package com.c4.intepark.portfolio.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.service.PortfolioService;
@@ -36,5 +42,40 @@ public class PortfolioController {
 			  return "common/error";
 		  }
 	}
-
+	
+	@RequestMapping("pfOne5.do")
+	public ModelAndView pfOne(@RequestParam(value="consid", required=true) String consid, ModelAndView mv) {
+		//System.out.println(consid);
+		
+		Constructors cons = portfolioService.selectRequest(consid);
+		
+		if(cons != null) {
+			mv.addObject("cons", cons);
+			mv.setViewName("portfolio/portfolioDetailView");
+		}else {
+			mv.addObject("message", cons.getCompanyname() + "  시공사 상담신청 조회 실패!");
+			mv.setViewName("common/error");
+		}
+		return mv;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
