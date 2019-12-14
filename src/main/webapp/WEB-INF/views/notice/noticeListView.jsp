@@ -94,32 +94,43 @@
 
 
 
+<form name="form1" method="post" action="list.do">
+
+    <select name="search_option">
+        <option value="user_id"
+<c:if test="${map.search_option == 'user_id'}">selected</c:if>
+   >작성자</option>
+
+        <option value="title" 
+<c:if test="${map.search_option == 'title'}">selected</c:if>
+        >제목</option>
+
+        <option value="content" 
+<c:if test="${map.search_option == 'content'}">selected</c:if>
+        >내용</option>
+
+        <option value="all" 
+<c:if test="${map.search_option == 'all'}">selected</c:if>
+        >작성자+내용+제목</option>
+
+    </select>
+    <input name="keyword" value="${map.keyword}">
+    <input type="submit" value="검색">
+</form>
 
 
-<div class="searchbox">
-<div>
-	<h4>검색할 항목을 선택하시오.</h4>
-	<input type="radio" name="item" value="title" > 제목 &nbsp; &nbsp; &nbsp; 
-	<input type="radio" name="item" value="writer"> 작성자 &nbsp; &nbsp; &nbsp; 
-</div>
-<div id="titlediv">
-	<form action="/testm/nsearch" method="post">
-		<input type="hidden" name="search" value="title">
-		<label>제목을 입력하시오 : 
-		<input type="search" name="keyword"></label>
-		<input type="submit" value="검색">
-	</form>
-</div>
-<div id="writerdiv">
-	<form action="/testm/nsearch" method="post">
-		<input type="hidden" name="search" value="writer">
-		<label>작성자 아이디를 입력하시오 : 
-		<input type="search" name="keyword"></label>
-		<input type="submit" value="검색">
-	</form>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
 </center>
+
 
         
 
