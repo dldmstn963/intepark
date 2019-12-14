@@ -9,5 +9,9 @@ public interface CalendarService {
 	int insertCalendar(Calendar calendar);
 
 	ArrayList<Calendar> selectCalendar(String consid);
+
+	int updateCalendar(Calendar calendar);
+
+	int deleteCalendar(String consid);
 	
 }
