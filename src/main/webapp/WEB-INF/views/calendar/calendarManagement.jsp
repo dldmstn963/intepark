@@ -48,16 +48,17 @@
       		}
           });
     	  });
+      },
+      eventClick:function(event){
+		console.log(event.el);
+		console.log(event.event.title);
       }
+      
     });  
     
     calendar.render();
 
 	}); 
-
-	
-  
-	
 
 	/* 일정등록 색깔 select값 선택된 옵션값과 동일하게 보여줌 */ 
 	backgroundCh = function(){
@@ -73,15 +74,6 @@
 	c2.value = c1;
 };	
 
-/* values = "'title':'"+ decodeURIComponent(json.list[i].ctitle).replace(/\+/gi, " ")
-	+ "', 'start':'" + json.list[i].cstart + "', 'end':'" + json.list[i].cend + "'"; 
-	//+ "', 'color':'" + json.list[i].ccolor + "'";
-calendar.addEvent( {values});
-console.log(values);
-}
-}
-calendar.addEvent( {'title':'evt4', 'start':'2019-09-04', 'end':'2019-09-06'});
-calendar.addEvent( {'title':'evt4', 'start':'2019-12-04', 'end':'2019-12-06', 'color':'red'}); */
 </script>
 
 <style type="text/css">

@@ -11,7 +11,6 @@ import com.c4.intepark.calendar.model.vo.Calendar;
 @Service("calendarService")
 public class CalendarSerivceImpl implements CalendarService{
 
-	
 	  @Autowired 
 	  private CalendarDao calendarDao;
 
@@ -23,6 +22,16 @@ public class CalendarSerivceImpl implements CalendarService{
 	@Override
 	public ArrayList<Calendar> selectCalendar(String consid) {
 		return calendarDao.selectCalendar(consid);
+	}
+
+	@Override
+	public int updateCalendar(Calendar calendar) {
+		return calendarDao.updateCalendar(calendar);
+	}
+
+	@Override
+	public int deleteCalendar(String consid) {
+		return calendarDao.deleteCalendar(consid);
 	}
 	 
 	  

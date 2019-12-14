@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.c4.intepark.calendar.model.service.CalendarService;
 import com.c4.intepark.calendar.model.vo.Calendar;
@@ -49,7 +50,6 @@ public class CalendarController {
 		  return viewFileName;
 	  }
 	  
-	/* @RequestMapping(value="calendar3.do", method=RequestMethod.POST) */
 	  @PostMapping("selectCalendar3.do")
 	  public void selectCalendar(HttpSession session, HttpServletResponse response) throws IOException {
 		  Constructors cons = (Constructors)session.getAttribute("loginCons");
@@ -80,13 +80,29 @@ public class CalendarController {
 		  out.write(sendJson.toJSONString());
 		  out.flush();
 		  out.close();
+ 
+	  }
+	  
+	  @RequestMapping("updateCalendar3.do")
+	  public String updateCalendar(Calendar calendar, Model model) {
+		  int result = calendarService.updateCalendar(calendar);
 		  
-		/*
-		 * String viewFileName = "calendar/calendarManagement"; if(list != null) {
-		 * 
-		 * }else { viewFileName = "common/error"; model.addAttribute("message",
-		 * "일정 출력 실패"); } return viewFileName;
-		 */
+		  String viewFileName = "calendar/calendarManagement"; 
+		  if(result <=0) {
+			  viewFileName = "common/error"; 
+			  model.addAttribute("message", "일정 출력 실패"); } 
+		  return viewFileName;
+	  }
+	  
+	  @RequestMapping("deleteCalendar3.do")
+	  public String deleteCalendar(@RequestParam("consid") String consid, Model model) {
+		  int result = calendarService.deleteCalendar(consid);
+		  
+		  String viewFileName = "calendar/calendarManagement"; 
+		  if(result <=0) {
+			  viewFileName = "common/error"; 
+			  model.addAttribute("message", "일정 출력 실패"); } 
+		  return viewFileName;
 	  }
 	  
 }

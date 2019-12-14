@@ -9,7 +9,17 @@
 	</insert>
 	
 	<select id="selectCalendar" parameterType="string" resultType="Calendar">
-	select * from calendar where consid=#{consid}
+	select * from calendar where consid = #{consid}
 	</select>
+	
+	<update id="updateCalendar" parameterType="Calendar">
+	update calendar 
+	set ctitle = #{ctitle}, ccontent = #{ccontent}, cstart = #{cstart}, cend = #{cend}, ccolor = #{ccolor} 
+	where consid = #{consid}
+	</update>
+	
+	<delete id="deleteCalendar" parameterType="string">
+	delete from calendar where consid = #{consid}
+	</delete>
 
 </mapper>

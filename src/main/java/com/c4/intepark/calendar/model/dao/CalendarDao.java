@@ -26,6 +26,14 @@ public class CalendarDao {
 		List<Calendar> list = session.selectList("calendarMapper.selectCalendar", consid);
 		return (ArrayList<Calendar>)list;
 	}
+
+	public int updateCalendar(Calendar calendar) {
+		return session.update("calendarMapper.updateCalendar", calendar);
+	}
+
+	public int deleteCalendar(String consid) {
+		return session.delete("calendarMapper.deleteCalendar", consid);
+	}
 	
 	
 }
