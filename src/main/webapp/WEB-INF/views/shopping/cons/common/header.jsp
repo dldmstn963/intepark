@@ -41,7 +41,7 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 상품 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">상품 목록</a></li>
+                      <li><a href="movegoodslist4.do">상품 목록</a></li>
                       <li><a href="movegoodsinsert4.do">상품 등록</a></li>
                       <li><a href="typography.html">재고 관리</a></li>
                     </ul>
