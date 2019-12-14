@@ -19,4 +19,10 @@ public class PortfolioServiceImpl implements PortfolioService{
 		return portfolioDao.selectList();
 	}
 
+	@Override
+	public Constructors selectRequest(String consid) {
+		return portfolioDao.selectRequest(consid);
+	}
+
+
 }
