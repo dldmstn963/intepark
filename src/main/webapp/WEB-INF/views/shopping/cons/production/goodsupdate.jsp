@@ -23,7 +23,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>상품 등록</h3>
+                <h3>상품 수정</h3>
               </div>
             </div>
 
@@ -33,7 +33,7 @@
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>상품 등록</h2>
+                    <h2>상품 수정</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -50,23 +50,25 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
+                      <form action="goodsupdate4.do" method="post" enctype="multipart/form-data">
                       	카테고리 <select name="categorynum">
                       			<option value="1">가구</option>
                       			<option value="2">침구</option>
                       			</select><br>
-                      	상품명 <input type="text" name="goodsname"><br>
-                      	가격 <input type="number" name="price"><br>
-                      	재고 <input type="number" name="inventory"><br>
+                      	상품명 <input type="text" name="goodsname" value="${goods.goodsname }"><br>
+                      	가격 <input type="number" name="price" value="${goods.price }"><br>
+                      	재고 <input type="number" name="inventory" value="${goods.inventory }"><br>
                       	무료 배송 여부 <select name="freedlvy">
                       				<option value="N">N</option>
                       				<option value="Y">Y</option>
                       				</select><br>
                       	썸네일 <input type="file" name="file"><br>
-                      	주석<input type="text" name="comments"><br>
-                      	상품 설명<input type="text" name="description"><br>
-                      	최대 구매 수량<input type="number" name="maximum"><br>
+                      	주석<input type="text" name="comments" value="${goods.comments }"><br>
+                      	상품 설명<input type="text" name="description" value="${goods.description }"><br>
+                      	최대 구매 수량<input type="number" name="maximum" value="${goods.maximum }"><br>
                       	<input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
+                      	<input type="hidden" name="goodsnum" value="${goods.goodsnum}">
+                      	<input type="hidden" name="thumbnail" value="${goods.thumbnail}">
                       	<input type="submit" value="등록">
                       </form>
                   </div>

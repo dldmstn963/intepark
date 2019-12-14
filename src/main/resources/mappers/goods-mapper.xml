@@ -22,11 +22,40 @@ default
 )
 </insert>
 
+<select id="listGoods" resultType="Goods" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsList">
+<![CDATA[
+select * 
+from (select rownum rnum, GOODSNUM, 
+THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+from (select * from GOODS 
+where CONSID= #{consid} order by GOODSDATE desc)) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
 
+<select id="listCount" resultType="int">
+select count(*) 
+from goods 
+where consid= #{value}
+</select>
 
+<delete id="deleteGoods" parameterType="int">
+delete from goods 
+where goodsnum = #{goodsnum}
+</delete>
 
+<select id="selectGoods" parameterType="int" resultType="Goods">
+select * from goods 
+where goodsnum = #{value}
+</select>
 
-
+<update id="updateGoods" parameterType="Goods">
+update goods 
+set categorynum = #{categorynum}, goodsname = #{goodsname}, price = #{price},
+inventory = #{inventory}, freedlvy = #{freedlvy}, thumbnail = #{thumbnail}, comments = #{comments},
+description = #{description}, maximum = #{maximum}
+where goodsnum = #{goodsnum}
+</update>
 
 
 
