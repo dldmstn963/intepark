@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 부트스트랩 링크 추가 -->
+<link rel="stylesheet" href="/css/bootstrap.css">
 
  		<!-- ================Header Menu Area ================= -->
        	<jsp:include page="../common/header.jsp" />
@@ -13,8 +15,8 @@
 <%@ include file="../common/jscsspath.jsp" %>
 
 
-<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+	/* 검색기능 */
 	$(function(){
 		showDiv();
 
@@ -36,6 +38,8 @@
 		
 		}
 
+
+
 </script>
 
 <style type="text/css">
@@ -46,21 +50,21 @@
 			margin-lwft : 5px;
 		}
 		
-
 			
 </style>
 
 
 </head>
 <body>
+
 <br><br><br><br><br><br><br><br><br><br>
 
-<h4 align="center">인테파크 공지사항 <%= ((java.util.ArrayList<com.c4.intepark.notice.model.vo.Notice>)request.getAttribute("list")).size() %> 개</h4>
-
-
+<h4 align="center">공지 사항 <%= ((java.util.ArrayList<com.c4.intepark.notice.model.vo.Notice>)request.getAttribute("list")).size() %> 개</h4>
 <br>
-<center>
-<table  width="600" border="2" cellspacing="0" cellpadding="5">
+<div class="container">
+    <div class="row"> 
+<table class="table table-striped table-hover">
+
 <tr>
 	<th>번호</th>
 	<th>제목</th>
@@ -76,7 +80,7 @@
 		<c:param name="no" value="${n.noticeno }" />
 	</c:url>
 	<td><a href="${ ndt }">${ n.noticetitle }</a></td>
-	<td>${ n.noticewriter }</td>
+	<td>${ n.writername }</td>
 	<td align="center">
 		<c:if test="${ !empty n.noticeoriginalfilename and n.noticeoriginalfilename ne 'null' }">
 			◎
@@ -90,10 +94,26 @@
 </tr>
 </c:forEach>
 </table>
-<h3 align="center"><a href="nlist.do">목록 이동</a></h3>
+
+<br>
+
+<div ><a href="nlist.do" class="btn btn-success" style="float:left; margin-left:10px;">목록 이동</a></div> &nbsp;&nbsp;&nbsp;&nbsp;
+
+<!-- 관리자 페이지 시에 추가 -->
+<c:if
+		test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin' }">
+	<!-- 관리자 접속시 글쓰기 추가 -->
+		<div style="float:right; margin-right:150px;">
+		<button onclick="callFunction();" class="btn btn-primary">새 공지사항 등록</button>
+		</div>
+</c:if>
+<br> 
 
 
 
+<br><br><br><br>
+
+<div>
 <form name="form1" method="post" action="list.do">
 
     <select name="search_option">
@@ -117,6 +137,7 @@
     <input name="keyword" value="${map.keyword}">
     <input type="submit" value="검색">
 </form>
+</div>
 
 
 
@@ -126,10 +147,6 @@
 
 
 
-
-
-
-</center>
 
 
         
@@ -137,9 +154,8 @@
 
 
 
-
-
-
+</div>
+</div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!--================ start footer Area  =================-->	
         <jsp:include page="../common/footer.jsp" />
