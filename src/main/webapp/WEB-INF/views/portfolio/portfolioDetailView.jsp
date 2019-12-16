@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>portfolioDetailView</title>
+<%@ include file="../common/jscsspath.jsp" %>
+<!-- ---------------------------------------------------------------------------------------------------------- -->
 </head>
 <body>
 아 짜증 짜증 아아아아아아아아아아아아악!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

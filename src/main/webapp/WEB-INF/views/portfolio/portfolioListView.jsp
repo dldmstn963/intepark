@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>portfolioListView.jsp</title>
+<title>portfolioListView</title>
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 	
@@ -60,7 +60,9 @@
 
 	<div class="row">
 	<div class="col-lg-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<button>지역이야sdgasga</button>&nbsp;&nbsp;
+	  
+	  	<button type="submit" class="btn">지역</button>
+		&nbsp;&nbsp;
 	<button>시공유형이야</button>
 	</div>
 	<div class="col-lg-5"></div>
@@ -82,8 +84,8 @@
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
 	    <%-- <c:forEach items="${ list }" var="i"> --%>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" width="300px" height="200px"></div>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-2.jpg" width="300px" height="200px"></div>
+	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" class="img-circle" width="300px" height="200px"></div>
+	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-2.jpg" class="img-circle" width="300px" height="200px"></div>
 	     <%--  </c:forEach> --%>
 	    </div>
 	    <!-- Add Pagination -->
@@ -104,10 +106,10 @@
       
       <div class='col-lg-2' ><!-- 시공사 프로필사진 시작 -->
 	      <c:if test="${empty ConsVo.profilerenameimg}">
-	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" width="100px" height="100px">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" class="img-circle" width="100px" height="100px">
 	      </c:if>
 	      <c:if test="${!empty ConsVo.profilerenameimg }">
-	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" width="100px" height="100px">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" class="img-circle" width="100px" height="100px">
 	      </c:if>
       </div><!-- 시공사 프로필사진 끝 -->
       
@@ -118,7 +120,7 @@
       
       <div class='col-lg-2' style="margin-top:20px;">
       <form action="requestWrite5.do" method="post" >
-      <input type="hidden" value="${ConsVo.consid}">
+      <input type="hidden" value="${ConsVo.consid}" name="consid">
       <input type="submit" value="상담신청">
       </form>
       </div>

@@ -5,6 +5,8 @@
         <link rel="icon" href="/intepark/resources/img/favicon.ico">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/intepark/resources/css/bootstrap.css">
+        <link rel="stylesheet" href="/intepark/resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/intepark/resources/css/bootstrap-select.min.css">
         <link rel="stylesheet" href="/intepark/resources/vendors/linericon/style.css">
         <link rel="stylesheet" href="/intepark/resources/css/font-awesome.min.css">
         <link rel="stylesheet" href="/intepark/resources/vendors/owl-carousel/owl.carousel.min.css">
@@ -20,7 +22,9 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="/intepark/resources/js/jquery-3.2.1.min.js"></script>
         <script src="/intepark/resources/js/popper.js"></script>
+        <script src="/intepark/resources/js/bootstrap.js"></script>
         <script src="/intepark/resources/js/bootstrap.min.js"></script>
+        <script src="/intepark/resources/js/bootstrap-select.min.js"></script>
         <script src="/intepark/resources/js/stellar.js"></script>
         <script src="/intepark/resources/vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="/intepark/resources/vendors/nice-select/js/jquery.nice-select.min.js"></script>

@@ -9,11 +9,19 @@
 		from Constructors
 	</select>
 	
-	<select id="selectRequest" parameterType="string" resultType="Constructors">
+	<select id="selectOneCons" parameterType="string" resultType="Constructors">
 		select *
 		from Constructors
     	where consid = #{consid}
 	</select>
+	
+	<select id="selectRequest" parameterType="string" resultType="Constructors">
+		select consid, companyname, consarea, profilerenameimg
+		from Constructors
+    	where consid = #{consid}
+	</select>
+	
+	
 
 	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">
 		select * from member where userid = #{ userid } and userpwd = #{userpwd}

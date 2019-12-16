@@ -18,11 +18,18 @@ public class PortfolioServiceImpl implements PortfolioService{
 	public ArrayList<Constructors> selectList() {
 		return portfolioDao.selectList();
 	}
-
+	
+	@Override
+	public Constructors selectOneCons(String consid) {
+		return portfolioDao.selectOneCons(consid);
+	}
+	
 	@Override
 	public Constructors selectRequest(String consid) {
 		return portfolioDao.selectRequest(consid);
 	}
+
+	
 
 
 }
