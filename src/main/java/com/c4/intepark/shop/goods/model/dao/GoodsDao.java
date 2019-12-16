@@ -7,8 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.vo.Goods;
 import com.c4.intepark.shop.goods.model.vo.GoodsList;
+import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
 
 @Repository("goodsDao")
 public class GoodsDao {
@@ -40,6 +42,24 @@ public class GoodsDao {
 
 	public int updateGoods(Goods goods) {
 		return mybatis.update("goodsMapper.updateGoods",goods);
+	}
+
+	public int searchlistCount(GoodsSearch goodsSearch) {
+		return mybatis.selectOne("goodsMapper.goodsSearch",goodsSearch);
+	}
+
+	public ArrayList<Goods> goodsSearchList(GoodsSearch goodsSearch) {
+		List list = mybatis.selectList("goodsMapper.goodsSearchList",goodsSearch);
+		return (ArrayList<Goods>)list; 
+	}
+
+	public int categoryAllListCount() {
+		return mybatis.selectOne("goodsMapper.categoryAllListCount");
+	}
+
+	public ArrayList<Goods> categoryGoodsAllList(Paging p) {
+		List list = mybatis.selectList("goodsMapper.categoryGoodsAllList",p);
+		return (ArrayList<Goods>)list; 
 	}
 	
 }

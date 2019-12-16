@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
+import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.service.GoodsService;
 import com.c4.intepark.shop.goods.model.vo.Goods;
 import com.c4.intepark.shop.goods.model.vo.GoodsList;
+import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
 
 @Controller
 public class GoodsController {
@@ -39,7 +41,51 @@ public class GoodsController {
 	public String movegoodsinsert4() {
 		return "shopping/cons/production/goodsinsert";
 	}
+	
+	@RequestMapping("moveconsshop4.do")
+	public String cons() {
+		return "shopping/cons/production/index";
+	}
+	
+	@RequestMapping("moveshop4.do")
+	public String moveshop() {
+		return "shopping/index";
+	}
+	
+	@RequestMapping("moveproduct4.do")
+	public String moveproduct(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+		logger.info("상품 디테일 : " + goodsnum);
+		
+		Goods goods = goodsService.selectGoods(goodsnum);
+		request.setAttribute("goods", goods);
+		return "shopping/product-details";
+	}
+	
+	@RequestMapping("moveshopcategory4.do")
+	public String moveshopcategory(HttpServletRequest request) {
+		logger.info("샵 카테고리 접속 ");
+		Paging p = new Paging(goodsService.categoryAllListCount());
+		if (request.getParameter("page") != null) {
+			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
+		}
+		ArrayList<Goods> list = goodsService.categoryGoodsAllList(p);
+		request.setAttribute("list", list);
+		request.setAttribute("maxPage", p.getMaxPage());
+		request.setAttribute("currentPage", p.getCurrentPage());
+		request.setAttribute("beginPage", p.getBeginPage());
+		request.setAttribute("endPage", p.getEndPage());
+		return "shopping/shop";
+	}
+	
+	@RequestMapping("moveshbasket4.do")
+	public String moveshbasket() {
+		return "shopping/cart";
+	}
 
+	@RequestMapping("movegoodsinsert.do")
+	public String movegoodsinsert() {
+		return "shopping/cons/production/plain";
+	}
 	// 상품 등록
 	@RequestMapping(value = "goodsinsert4.do", method = RequestMethod.POST)
 	public String goodsinsert(Model model, Goods goods,
@@ -69,41 +115,24 @@ public class GoodsController {
 	public String movegoodslist4(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request,
 			GoodsList goodslist) {
 		logger.info("상품 목록 조회 : " + cons);
-		int currentPage = 1;
-		if (request.getParameter("page") != null) {
-			currentPage = Integer.parseInt(request.getParameter("page"));
-		}
 		String consid = cons.getConsid();
-		int limit = 10;
-		int listCount = goodsService.listCount(consid);
-		int maxPage = listCount / limit;
-		if (listCount % limit > 0) {
-			maxPage++;
+		Paging p = new Paging(goodsService.listCount(consid));
+		if (request.getParameter("page") != null) {
+			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
 		}
-		int beginPage = 0;
-		if (currentPage % limit == 0) {
-			beginPage = currentPage - 9;
-		} else {
-			beginPage = (currentPage / limit) * limit + 1;
-		}
-		int endPage = beginPage + 9;
-		if (endPage > maxPage) {
-			endPage = maxPage;
-		}
-		int startRow = (currentPage * limit) - 9;
-		int endRow = currentPage * limit;
-		goodslist.setStartRow(startRow);
-		goodslist.setEndRow(endRow);
+		goodslist.setStartRow(p.getStartRow());
+		goodslist.setEndRow(p.getEndRow());
 		goodslist.setConsid(consid);
 		ArrayList<Goods> list = goodsService.goodsList(goodslist);
 		request.setAttribute("list", list);
-		request.setAttribute("maxPage", maxPage);
-		request.setAttribute("currentPage", currentPage);
-		request.setAttribute("beginPage", beginPage);
-		request.setAttribute("endPage", endPage);
+		request.setAttribute("maxPage", p.getMaxPage());
+		request.setAttribute("currentPage", p.getCurrentPage());
+		request.setAttribute("beginPage", p.getBeginPage());
+		request.setAttribute("endPage", p.getEndPage());
 		return "shopping/cons/production/goodslist";
 	}
 
+	
 	// 상품 테이블 행 안에 있는 삭제 버튼
 	@RequestMapping(value = "goodsdelete4.do", method = RequestMethod.POST)
 	public void goodsdelete4(@RequestParam("goodsnum") int goodsnum, HttpServletResponse response) throws IOException {
@@ -126,7 +155,10 @@ public class GoodsController {
 		request.setAttribute("goods", goods);
 		return "shopping/cons/production/goodsupdate";
 	}
-
+	
+	
+	
+	// 상품 수정
 	@RequestMapping(value = "goodsupdate4.do", method = RequestMethod.POST)
 	public String goodsupdate4(Goods goods, @RequestParam(name = "file", required = false) MultipartFile file,
 			HttpServletRequest request) {
@@ -144,7 +176,31 @@ public class GoodsController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "shopping/cons/production/goodsinsert";
+		return "redirect:movegoodslist4.do";
 	}
-
+	
+	// 상품 검색
+		@RequestMapping("consgoodssearch4.do")
+		public String consgoodssearch4(@RequestParam(name="goodsname")String goodsname,@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request,
+				GoodsSearch goodsSearch) {
+			logger.info("상품 목록 검색 : " + cons);
+			String consid = cons.getConsid();
+			goodsSearch.setConsid(consid);
+			goodsSearch.setGoodsname(goodsname);
+			Paging p = new Paging(goodsService.searchlistCount(goodsSearch));
+			if (request.getParameter("page") != null) {
+				p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
+			}
+			goodsSearch.setStartRow(p.getStartRow());
+			goodsSearch.setEndRow(p.getEndRow());
+			goodsSearch.setConsid(consid);
+			ArrayList<Goods> list = goodsService.goodsSearchList(goodsSearch);
+			request.setAttribute("list", list);
+			request.setAttribute("maxPage", p.getMaxPage());
+			request.setAttribute("currentPage", p.getCurrentPage());
+			request.setAttribute("beginPage", p.getBeginPage());
+			request.setAttribute("endPage", p.getEndPage());
+			request.setAttribute("goodsname", goodsname);
+			return "shopping/cons/production/consgoodsSearchlist";
+		}
 }

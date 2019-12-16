@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 <%@ include file="common/shopjscss.jsp"%>
@@ -11,7 +11,9 @@
 </head>
 
 <body>
-	<jsp:include page="common/header2.jsp" />
+<div class="main-content-wrapper d-flex clearfix">
+
+	<jsp:include page="common/header.jsp" />
 	<!-- Product Details Area Start -->
 	<div class="single-product-area section-padding-100 clearfix">
 		<div class="container-fluid">
@@ -87,9 +89,9 @@
 						<!-- Product Meta Data -->
 						<div class="product-meta-data">
 							<div class="line"></div>
-							<p class="product-price">18,000원</p>
+							<p class="product-price">${goods.price }원</p>
 							<a href="product-details.html">
-								<h6>하얀 의자</h6>
+								<h6>${goods.goodsname }</h6>
 							</a>
 							<!-- Ratings & Review -->
 							<div
@@ -144,6 +146,16 @@
 	</div>
 	<!-- Product Details Area End -->
 	</div>
+<div align="center">
+<table border="1px solid black">
+<tr>
+<td>사진</td>
+<td>내용</td>
+<td>작성자</td>
+<td>등록일</td>
+</tr>
+</table>
+</div>
 	<!-- ##### Main Content Wrapper End ##### -->
 
 	<jsp:include page="common/footer.jsp" />
