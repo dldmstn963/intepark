@@ -68,7 +68,7 @@ public class CalendarController {
 			  job.put("cend", c.getCend().toString());
 			  job.put("ccolor", c.getCcolor());
 			  job.put("cno", c.getCno());
-			  job.put("ccontent", c.getCcontent());
+			  job.put("ccontent", URLEncoder.encode(c.getCcontent(), "UTF-8"));
 			  
 			  jarr.add(job);
 		  }
