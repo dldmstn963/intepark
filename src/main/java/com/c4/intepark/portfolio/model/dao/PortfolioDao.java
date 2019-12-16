@@ -21,10 +21,16 @@ public class PortfolioDao {
 		List<Constructors> list = mybatisSession.selectList("portfolioMapper.selectList");
 		return (ArrayList<Constructors>)list;
 	}
-
+	
+	public Constructors selectOneCons(String consid) {
+		return mybatisSession.selectOne("portfolioMapper.selectOneCons", consid);
+	}
+	
 	public Constructors selectRequest(String consid) {
 		return mybatisSession.selectOne("portfolioMapper.selectRequest", consid);
 	}
+
+	
 	
 	
 }

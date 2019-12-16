@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.service.PortfolioService;
+import com.c4.intepark.portfolio.model.vo.Request;
 
 @Controller
 public class PortfolioController {
@@ -32,7 +33,7 @@ public class PortfolioController {
 	public String pfList(Model model) {
 		
 		  ArrayList<Constructors> list = portfolioService.selectList();
-		  //System.out.println(list);
+		  //logger.info(list);
 		
 		  if (list.size() > 0) {
 			  model.addAttribute("list", list); 
@@ -45,19 +46,44 @@ public class PortfolioController {
 	
 	@RequestMapping("pfOne5.do")
 	public ModelAndView pfOne(@RequestParam(value="consid", required=true) String consid, ModelAndView mv) {
-		//System.out.println(consid);
+		//logger.info(consid);
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		
+		if(cons != null) {
+			mv.addObject("cons", cons);
+			mv.setViewName("portfolio/portfolioDetailView");
+		}else {
+			mv.addObject("message", cons.getCompanyname() + "  시공사 상세 조회 실패!");
+			mv.setViewName("common/error");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="requestWrite5.do", method=RequestMethod.POST)
+	public ModelAndView requestWrite(@RequestParam(value="consid", required=true) String consid, ModelAndView mv) {
+		//logger.info(consid);
 		
 		Constructors cons = portfolioService.selectRequest(consid);
 		
 		if(cons != null) {
 			mv.addObject("cons", cons);
-			mv.setViewName("portfolio/portfolioDetailView");
+			mv.setViewName("portfolio/portfolioRequestView");
 		}else {
 			mv.addObject("message", cons.getCompanyname() + "  시공사 상담신청 조회 실패!");
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value="test5.do", method=RequestMethod.POST)
+	public String aa(Request req, Model model) {
+		logger.info(req.toString());
+		
+		return "redirect:conslist5.do";
+	}
+	
+	
 }
 
 
