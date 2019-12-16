@@ -22,7 +22,9 @@
 </head>
 
 <body>
-       <jsp:include page="common/header2.jsp" />
+<div class="main-content-wrapper d-flex clearfix">
+
+       <jsp:include page="common/header.jsp" />
 
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">

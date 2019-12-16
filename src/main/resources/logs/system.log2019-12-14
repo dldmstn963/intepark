@@ -1,0 +1,956 @@
+[14:29:50][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:29:53][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3209 ms
+[14:29:53][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:29:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2806 ms
+[14:30:09][INFO ][HomeController.java:41] - Welcome main!
+[14:31:06][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:31:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3136 ms
+[14:31:09][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:31:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 2523 ms
+[14:31:16][INFO ][HomeController.java:41] - Welcome main!
+[14:37:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:37:40][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3280 ms
+[14:37:40][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:37:42][INFO ][FrameworkServlet.java:546] - Completed initialization in 2372 ms
+[14:57:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:57:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2666 ms
+[14:57:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:57:16][INFO ][FrameworkServlet.java:546] - Completed initialization in 2233 ms
+[14:57:37][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'consid' of type String]
+[14:58:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:58:13][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2713 ms
+[14:58:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:58:16][INFO ][FrameworkServlet.java:546] - Completed initialization in 2261 ms
+[14:58:20][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentConversionNotSupportedException: Failed to convert value of type 'com.c4.intepark.constructors.model.vo.Constructors' to required type 'java.lang.String'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'com.c4.intepark.constructors.model.vo.Constructors' to required type 'java.lang.String': no matching editors or conversion strategy found]
+[14:58:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:58:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3864 ms
+[14:58:56][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:58:58][INFO ][FrameworkServlet.java:546] - Completed initialization in 2295 ms
+[14:59:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[14:59:07][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2535 ms
+[14:59:07][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[14:59:10][INFO ][FrameworkServlet.java:546] - Completed initialization in 2212 ms
+[15:18:07][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:18:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2753 ms
+[15:18:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:18:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 2255 ms
+[15:18:17][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:18:18][ERROR][Slf4jSpyLogDelegator.java:120] - 1. PreparedStatement.execute() select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10;
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:18:18][ERROR][Slf4jSpyLogDelegator.java:139] - 1. PreparedStatement.execute() FAILED! select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10; {FAILED after 19 msec}
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:18:31][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:18:31][ERROR][Slf4jSpyLogDelegator.java:120] - 3. PreparedStatement.execute() select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10;
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:18:31][ERROR][Slf4jSpyLogDelegator.java:139] - 3. PreparedStatement.execute() FAILED! select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10; {FAILED after 2 msec}
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:21:33][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:21:35][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2554 ms
+[15:21:35][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:21:38][INFO ][FrameworkServlet.java:546] - Completed initialization in 2197 ms
+[15:21:45][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:21:46][ERROR][Slf4jSpyLogDelegator.java:120] - 1. PreparedStatement.execute() select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10;
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:21:46][ERROR][Slf4jSpyLogDelegator.java:139] - 1. PreparedStatement.execute() FAILED! select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID='con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10; {FAILED after 15 msec}
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:24)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:23:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:23:08][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2558 ms
+[15:23:08][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:23:10][INFO ][FrameworkServlet.java:546] - Completed initialization in 2187 ms
+[15:23:19][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:23:20][ERROR][Slf4jSpyLogDelegator.java:120] - 1. PreparedStatement.execute() select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID= 'con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10;
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:25)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:23:20][ERROR][Slf4jSpyLogDelegator.java:139] - 1. PreparedStatement.execute() FAILED! select * 
+		from (select rownum rnum, GOODSNUM, 
+				   THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+			  from (select * 
+			  		from GOODS 
+            where CONSID= 'con1'
+			  		order by GOODSDATE desc)) 
+		where rnum >= 1 and rnum <= 10; {FAILED after 21 msec}
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.listGoods(GoodsDao.java:25)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.goodsList(GoodsServiceImpl.java:24)
+	at com.c4.intepark.shop.goods.controller.GoodsController.movegoodslist4(GoodsController.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[15:25:15][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:25:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2564 ms
+[15:25:17][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:25:20][INFO ][FrameworkServlet.java:546] - Completed initialization in 2225 ms
+[15:25:22][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:12:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:12:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2571 ms
+[16:12:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:12:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 2220 ms
+[16:12:57][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[16:13:03][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[16:13:15][INFO ][HomeController.java:41] - Welcome main!
+[16:13:21][INFO ][HomeController.java:41] - Welcome main!
+[16:13:27][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:18:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:18:05][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2614 ms
+[16:18:05][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:18:07][INFO ][FrameworkServlet.java:546] - Completed initialization in 2473 ms
+[16:18:16][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:18:24][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:19:17][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:19:19][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2537 ms
+[16:19:19][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:19:22][INFO ][FrameworkServlet.java:546] - Completed initialization in 2409 ms
+[16:19:32][INFO ][HomeController.java:41] - Welcome main!
+[16:20:38][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:20:41][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2581 ms
+[16:20:41][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:20:43][INFO ][FrameworkServlet.java:546] - Completed initialization in 2223 ms
+[16:20:51][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:21:17][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:21:20][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2964 ms
+[16:21:20][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:21:23][INFO ][FrameworkServlet.java:546] - Completed initialization in 2202 ms
+[16:22:39][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:08][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:23:11][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3102 ms
+[16:23:11][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:23:14][INFO ][FrameworkServlet.java:546] - Completed initialization in 2494 ms
+[16:26:08][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:26:49][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:26:52][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2942 ms
+[16:26:52][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:26:55][INFO ][FrameworkServlet.java:546] - Completed initialization in 2254 ms
+[16:32:04][INFO ][GoodsController.java:57] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:46:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:46:45][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2774 ms
+[16:46:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:46:47][INFO ][FrameworkServlet.java:546] - Completed initialization in 2582 ms
+[16:46:56][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:18][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:55:20][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2753 ms
+[16:55:21][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:55:23][INFO ][FrameworkServlet.java:546] - Completed initialization in 2302 ms
+[16:55:27][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:57:29][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:57:40][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:57:45][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:02:49][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:03:14][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:04:07][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:05:34][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:06:14][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:06:54][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:07:33][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:09:52][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:19:41][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:20:55][INFO ][GoodsController.java:60] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:28:20][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:28:23][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2899 ms
+[17:28:23][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:28:26][INFO ][FrameworkServlet.java:546] - Completed initialization in 2458 ms
+[17:51:47][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:51:50][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3042 ms
+[17:51:50][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:51:52][INFO ][FrameworkServlet.java:546] - Completed initialization in 2508 ms
+[18:18:59][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[18:19:05][INFO ][HomeController.java:41] - Welcome main!
+[18:19:16][INFO ][GoodsController.java:61] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:19:29][INFO ][GoodsController.java:100] - 상품 삭제 : 1
+[18:19:29][INFO ][GoodsController.java:61] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:19:51][INFO ][GoodsController.java:100] - 상품 삭제 : 1
+[18:19:51][INFO ][GoodsController.java:61] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:36:22][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:36:24][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2845 ms
+[18:36:25][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:36:27][INFO ][FrameworkServlet.java:546] - Completed initialization in 2606 ms
+[18:36:51][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:37:00][INFO ][GoodsController.java:102] - 상품 삭제 : 5
+[18:37:00][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:37:04][INFO ][GoodsController.java:102] - 상품 삭제 : 1
+[18:37:04][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:44:38][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:46:33][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:47:18][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:47:21][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2591 ms
+[18:47:21][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:47:23][INFO ][FrameworkServlet.java:546] - Completed initialization in 2220 ms
+[18:47:26][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:47:40][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:49:27][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:49:37][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[18:51:30][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:51:33][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2929 ms
+[18:51:33][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:51:35][INFO ][FrameworkServlet.java:546] - Completed initialization in 2249 ms
+[18:51:38][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:51:52][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[18:59:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:59:05][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3211 ms
+[18:59:05][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:59:07][INFO ][FrameworkServlet.java:546] - Completed initialization in 2435 ms
+[18:59:35][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:59:39][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:59:41][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:00:08][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:00:24][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:01:04][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:01:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:02:02][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2580 ms
+[19:02:02][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:02:04][INFO ][FrameworkServlet.java:546] - Completed initialization in 2230 ms
+[19:02:19][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:03:44][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:03:47][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2750 ms
+[19:03:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:03:49][INFO ][FrameworkServlet.java:546] - Completed initialization in 2232 ms
+[19:03:52][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:03:56][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 3
+[19:04:14][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 7
+[19:04:22][INFO ][GoodsController.java:115] - 상품 수정 페이지 이동: 6
+[19:08:45][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:08:48][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2772 ms
+[19:08:48][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:08:51][INFO ][FrameworkServlet.java:546] - Completed initialization in 2283 ms
+[19:08:54][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 6
+[19:09:20][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:09:23][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2934 ms
+[19:09:23][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:09:26][INFO ][FrameworkServlet.java:546] - Completed initialization in 2568 ms
+[19:09:26][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 6
+[19:43:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:43:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2800 ms
+[19:43:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:43:47][INFO ][FrameworkServlet.java:546] - Completed initialization in 2374 ms
+[19:44:52][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 6
+[19:45:02][INFO ][GoodsController.java:124] - 상품 수정 : Goods [goodsnum=0, categorynum=1, goodsname=수정 테스트, price=312412, inventory=4, freedlvy=N, thumbnail=null, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=, goodsdate=null]
+[19:46:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:46:05][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2562 ms
+[19:46:05][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:46:07][INFO ][FrameworkServlet.java:546] - Completed initialization in 2287 ms
+[19:46:14][INFO ][GoodsController.java:126] - 상품 수정 : Goods [goodsnum=0, categorynum=1, goodsname=수정 테스트, price=312412, inventory=4, freedlvy=N, thumbnail=, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=, goodsdate=null]
+[19:46:22][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[19:46:26][INFO ][HomeController.java:41] - Welcome main!
+[19:46:35][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:46:44][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 7
+[19:46:49][INFO ][GoodsController.java:126] - 상품 수정 : Goods [goodsnum=0, categorynum=1, goodsname=수정 테스트, price=312412, inventory=4, freedlvy=N, thumbnail=, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[19:46:52][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:47:57][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 7
+[19:48:00][INFO ][GoodsController.java:126] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic, price=312412, inventory=4, freedlvy=N, thumbnail=, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[19:48:03][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:50:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:50:40][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2925 ms
+[19:50:40][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:50:43][INFO ][FrameworkServlet.java:546] - Completed initialization in 2384 ms
+[19:50:43][INFO ][GoodsController.java:63] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:50:46][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 7
+[19:50:52][INFO ][GoodsController.java:127] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic, price=312412, inventory=4, freedlvy=N, thumbnail=검정.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[19:52:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:52:07][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2592 ms
+[19:52:07][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:52:10][INFO ][FrameworkServlet.java:546] - Completed initialization in 2468 ms
+[19:52:16][INFO ][GoodsController.java:116] - 상품 수정 페이지 이동: 7
+[19:52:27][INFO ][GoodsController.java:126] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic, price=312412, inventory=4, freedlvy=N, thumbnail=검정.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:00:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:00:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2613 ms
+[20:00:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:00:44][INFO ][FrameworkServlet.java:546] - Completed initialization in 2256 ms
+[20:00:46][INFO ][GoodsController.java:132] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic, price=312412, inventory=4, freedlvy=N, thumbnail=20191214200046542.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:00:49][INFO ][GoodsController.java:65] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:01:00][INFO ][GoodsController.java:118] - 상품 수정 페이지 이동: 7
+[20:01:13][INFO ][GoodsController.java:132] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic22, price=312412, inventory=4, freedlvy=N, thumbnail=20191214200113975.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:01:17][INFO ][GoodsController.java:65] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:03:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:03:54][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2845 ms
+[20:03:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:03:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2216 ms
+[20:03:59][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:04:03][INFO ][GoodsController.java:124] - 상품 수정 페이지 이동: 7
+[20:04:10][INFO ][GoodsController.java:140] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic22, price=312412, inventory=4, freedlvy=N, thumbnail=20191214200410780.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:04:55][INFO ][GoodsController.java:140] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic22, price=312412, inventory=4, freedlvy=N, thumbnail=20191214200455450.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:05:07][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:05:14][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:05:27][INFO ][GoodsController.java:124] - 상품 수정 페이지 이동: 7
+[20:05:32][INFO ][GoodsController.java:140] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic22, price=312412, inventory=4, freedlvy=N, thumbnail=20191214200532773.jpeg, comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[20:06:08][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:07:19][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:08:16][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:08:52][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:13:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:13:55][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3854 ms
+[20:13:55][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:13:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 3408 ms
+[20:14:07][INFO ][HomeController.java:41] - Welcome main!

@@ -138,24 +138,6 @@ public class HomeController {
 		return "TemplateFolder/tables";
 	}
 
-	@RequestMapping("moveshop4.do")
-	public String moveshop() {
-		return "shopping/index";
-	}
 	
-	@RequestMapping("moveproduct4.do")
-	public String moveproduct() {
-		return "shopping/product-details";
-	}
-	
-	@RequestMapping("moveshopcategory4.do")
-	public String moveshopcategory() {
-		return "shopping/shop";
-	}
-	
-	@RequestMapping("moveshbasket4.do")
-	public String moveshbasket() {
-		return "shopping/cart";
-	}
 
 }

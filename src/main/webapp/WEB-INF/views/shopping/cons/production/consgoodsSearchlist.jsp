@@ -104,35 +104,35 @@
 									<div style="display:none;" id="alertbox"></div>
 									
 									<div id="pagebox" align="center">
-									<a href="movegoodslist4.do?page=1">|◁</a>
+									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }">|◁</a>
 									&nbsp;
 									
 									<c:if test="${ (beginPage-10) < 1}">
-									<a href="movegoodslist4.do?page=1">◀◀</a>
+									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }">◀◀</a>
 									</c:if>
 									<c:if test="${ (beginPage-10) > 1}">
-									<a href="movegoodslist4.do?page=${beginPage-10 }">◀◀</a>
+									<a href="consgoodssearch4.do?page=${beginPage-10 }&goodsname=${goodsname }">◀◀</a>
 									</c:if>
 									&nbsp;
 									
 									<c:forEach var="p" begin="${beginPage }" end="${endPage }">
 									<c:if test="${p == currentPage }">
-									<a href="movegoodslist4.do?page=${p }"><font color="red"><b>${p }</b></font></a>
+									<a href="consgoodssearch4.do?page=${p }&goodsname=${goodsname }"><font color="red"><b>${p }</b></font></a>
 									</c:if >
 									<c:if test="${p != currentPage }">
-									<a href="movegoodslist4.do?page=${p }">${p }</a>
+									<a href="consgoodssearch4.do?page=${p }&goodsname=${goodsname }">${p }</a>
 									</c:if>
 									</c:forEach>
 									&nbsp;
 									<c:if test="${(endPage+10) > maxPage }">
-									<a href="movegoodslist4.do?page=${maxPage }">▶▶</a>
+									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }">▶▶</a>
 									</c:if>
 									<c:if test="${(endPage+10) < maxPage }">
-									<a href="movegoodslist4.do?page=${endPage + 10 }">▶▶</a>
+									<a href="consgoodssearch4.do?page=${endPage + 10 }&goodsname=${goodsname }">▶▶</a>
 									</c:if>
 									&nbsp; 
 									
-									<a href="movegoodslist4.do?page=${maxPage }">▷|</a>
+									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }">▷|</a>
 									</div>
 									
 								</div>
