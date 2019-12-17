@@ -38,9 +38,22 @@
 				var events = [];
 				
       			for(var i in json.list){
-						events.push({id:json.list[i].cno,title:decodeURIComponent(json.list[i].ctitle).replace(/\+/gi, " "),start:json.list[i].cstart,end:json.list[i].cend,color:json.list[i].ccolor,textColor:"white"})
+          			var sdate = new Date(json.list[i].cstart);
+          			var edate = new Date(json.list[i].cend);
+          			if(sdate != edate){
+						edate.setDate(edate.getDate() + 1);
+          			} 
+						events.push({id:json.list[i].cno,
+											title:decodeURIComponent(json.list[i].ctitle).replace(/\+/gi, " "),
+											start:sdate,
+											end:edate,
+											color:json.list[i].ccolor,
+											textColor:"white",
+											allDay:true})
 						console.log(json.list[i].cno);
+						if(json.list[i].ccontent != null){
 						myMap.set(json.list[i].cno, decodeURIComponent(json.list[i].ccontent).replace(/\+/gi, " "));
+						}
 		      	}		      	     			
       			successCallback(events);	
       		},
@@ -53,21 +66,24 @@
       eventClick:function(event){
           $("#myModal").modal();
     	  var sdate = new Date(event.event.start);
+    	  var edate = new Date(event.event.end);
+    
+    	  if(sdate != edate){
+			edate.setDate(edate.getDate() - 1);
+          }
+          
     	  sdate = getFormatDate(sdate);
     	  console.log(sdate);
-    	  
-    	  var edate = new Date(event.event.end);
     	  edate = getFormatDate(edate);
-    	  if(event.event.end == null){
-         	  edate = sdate
-    	  }
     	  console.log(edate);
-     	  
+    	  
+    	console.log(edate);     	  
   		console.log(event);
   		console.log(event.event.title);
   		console.log(event.event.start);
   		console.log(event.event.color);
   		console.log(event.event.id);
+  		console.log(event.event.end);
   		var a = Number(event.event.id);
   		
   		
@@ -114,19 +130,22 @@
 	c2.value = c1;
 };	
 
-/* window.onload = function(){
-	$("#cend").val() - $("#cstart").val()
-} */
-	/* submit시 끝날짜가 시작날짜보다 작은지 확인 */
-	/* function check(){
+	window.onload = function(){
+	var date = document.getElementById("cstart").value;
+	console.log(date);
+}
+	 /* submit시 끝날짜가 시작날짜보다 작은지 확인 */
+		function check(){
 		var flag = true;
-		if(){
-			alert("끝날짜는 시작날짜보다 클 수 없습니다.");
-			falg=false;
+		var start = document.getElementById("cstart").value;
+		var end = document.getElementById("cend").value;
+		if(start>end){
+			alert("시작일은 마감일보다 클 수 없습니다.");
+			flag = false;
 		}
-		
+				
 		return flag;
-	}; */
+	};  
 
 </script>
 
@@ -169,11 +188,11 @@
                     
                     <div class="modal-body">
 
-                        <form action="insertCalendar3.do" method="post">
+      <form action="updateCalendar3.do" method="post">
       <div class="modal-body">
       제목 : &nbsp;<input type="text" id="fctitle" name="ctitle" style="margin-bottom: 10px;" required><br>
       일시 : &nbsp;<input type="date" id="fcstart" name="cstart" style="margin-bottom: 10px;" required onchange="sameDate();">&nbsp;-&nbsp;
-      <input type="date" id="fcend" name="fcend"  style="margin-bottom: 10px;"><br>
+      <input type="date" id="fcend" name="cend"  style="margin-bottom: 10px;"><br>
       내용 : &nbsp;<textarea rows="10" cols="50" id="fccontent" name="ccontent" style="margin-bottom: 10px;"></textarea><br>
       색상 : &nbsp;
       <select name="ccolor" id="fccolor" class="sel" onchange="backgroundCh1();" style="width:100px;">
@@ -182,12 +201,13 @@
       		<option value="green" style="background:green;" />
       		<option value="blue" style="background:blue;" />
       </select>
-      <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
+      <input type="hidden" id="cno">
       </div>
       <div class="modal-footer">
-      <input type="submit" id="submit" value="확인" onclick="return check();">
+      <input type="submit" value="수정" onclick="return check();">
+      <a href="deleteCalendar3.do?cno">삭제</a>
         <!-- <button type="button" id="confirm" class="btn btn-primary" data-dismiss="modal">확인</button> -->
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
       </form>
                 </div>
@@ -221,7 +241,7 @@
       <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
       </div>
       <div class="modal-footer">
-      <input type="submit" id="submit" value="확인" onclick="return check();">
+      <input type="submit" value="확인" onclick="return check();">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
       </div>
       </form>
