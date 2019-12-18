@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="albumMapper">
+
+<select id ="selectAllListCount" resultType="int">
+	select count(*) from album
+</select>
+
+<select id="selectList" resultType="Album" parameterType="com.c4.intepark.common.CommonPage">
+<![CDATA[
+select *
+from (select rownum rnum, albumnum, albumtitle, albumdate, albumcontents, albumreadcount, userid
+from (select * from album 
+        order by albumnum asc))
+where rnum >= #{startList} and rnum < #{endList}
+		]]>
+</select>
+
+
+
+
+
+</mapper>
+
+
+
+
