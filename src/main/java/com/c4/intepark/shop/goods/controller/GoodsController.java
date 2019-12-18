@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.service.GoodsService;
@@ -48,7 +52,15 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("moveshop4.do")
-	public String moveshop() {
+	public String moveshop(HttpServletRequest request) {
+		logger.info("쇼핑몰 메인 페이지 ");
+		Random ran = new Random();
+		Paging p = new Paging();
+		int r = ran.nextInt(goodsService.categoryAllListCount()-9)+1;
+		p.setStartRow(r);
+		p.setEndRow(r+8);
+		ArrayList<Goods> list = goodsService.shopMainGoods(p);
+		request.setAttribute("list", list);
 		return "shopping/index";
 	}
 	
@@ -203,4 +215,6 @@ public class GoodsController {
 			request.setAttribute("goodsname", goodsname);
 			return "shopping/cons/production/consgoodsSearchlist";
 		}
+		
+		 
 }

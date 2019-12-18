@@ -8,7 +8,6 @@
     <title>인테파크</title>
 
   </head>
-
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -69,6 +68,28 @@
                       	<input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
                       	<input type="submit" value="등록">
                       </form>
+                      <br>
+
+                
+                
+                
+                
+                
+                  
+                  
+                  
+
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
                   </div>
                 </div>
               </div>
@@ -80,5 +101,6 @@
     </div>
 	
 	<%@ include file="/WEB-INF/views/shopping/cons/common/jscsspath.jsp"%>
+	
   </body>
 </html>
