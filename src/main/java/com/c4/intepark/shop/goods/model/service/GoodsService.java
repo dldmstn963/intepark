@@ -27,4 +27,6 @@ public interface GoodsService {
 	public int categoryAllListCount();
 
 	public ArrayList<Goods> categoryGoodsAllList(Paging p);
+
+	public ArrayList<Goods> shopMainGoods(Paging p);
 }

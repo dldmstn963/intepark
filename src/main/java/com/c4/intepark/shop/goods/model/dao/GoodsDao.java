@@ -61,5 +61,10 @@ public class GoodsDao {
 		List list = mybatis.selectList("goodsMapper.categoryGoodsAllList",p);
 		return (ArrayList<Goods>)list; 
 	}
+
+	public ArrayList<Goods> shopMainGoods(Paging p) {
+		List list = mybatis.selectList("goodsMapper.shopMainGoods",p);
+		return (ArrayList<Goods>)list; 
+	}
 	
 }

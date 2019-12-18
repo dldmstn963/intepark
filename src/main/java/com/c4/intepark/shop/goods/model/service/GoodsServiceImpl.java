@@ -74,6 +74,12 @@ public class GoodsServiceImpl implements GoodsService{
 	public ArrayList<Goods> categoryGoodsAllList(Paging p) {
 		return goodsDao.categoryGoodsAllList(p);
 	}
+
+
+	@Override
+	public ArrayList<Goods> shopMainGoods(Paging p) {
+		return goodsDao.shopMainGoods(p);
+	}
 	
 	
 }
