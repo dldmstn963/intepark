@@ -63,6 +63,7 @@
           });
     	  });
       },
+      /* 일정클릭시 해당 이벤트 값 넣어서 출력 */
       eventClick:function(event){
           $("#myModal").modal();
     	  var sdate = new Date(event.event.start);
@@ -73,19 +74,7 @@
           }
           
     	  sdate = getFormatDate(sdate);
-    	  console.log(sdate);
-    	  edate = getFormatDate(edate);
-    	  console.log(edate);
-    	  
-    	console.log(edate);     	  
-  		console.log(event);
-  		console.log(event.event.title);
-  		console.log(event.event.start);
-  		console.log(event.event.color);
-  		console.log(event.event.id);
-  		console.log(event.event.end);
-  		var a = Number(event.event.id);
-  		
+    	  edate = getFormatDate(edate); 		
   		
   		$("#eventModal").css("display", "block");
   		$("#fctitle").val(event.event.title);
@@ -93,7 +82,7 @@
   		$("#fcend").val(edate);
   		$("#fccolor").val(event.event.backgroundColor).css('backgroundColor', event.event.backgroundColor);
   		$("#fccontent").val(myMap.get(Number(event.event.id)));
-  		console.log(myMap.get(a));
+  		$("#cno").val(event.event.id);
         }
      	
     });  
@@ -112,11 +101,12 @@
 	    return  year + '-' + month + '-' + day;
 	}
 
-	/* 일정등록 색깔 select값 선택된 옵션값과 동일하게 보여줌 */ 
+	/* 일정등록 or 수정 색깔 select값 선택된 옵션값과 동일하게 보여줌 */ 
 	backgroundCh = function(){
 		var sel = document.getElementById('sel');
 		sel.style.backgroundColor = sel.value;
 	};
+	
 	backgroundCh1 = function(){
 		var sel = document.getElementById('fccolor');
 		sel.style.backgroundColor = sel.value;
@@ -125,27 +115,46 @@
 	/* 일정등록 달력 시작 끝 날짜 동일하게 맞춰줌  */
 	function sameDate(){
 	var c1 = document.getElementById("cstart").value;
-	console.log("aaaa");
 	var c2 = document.getElementById("cend");
+	c2.value = c1;
+	
+	function sameDate1(){
+	var c1 = document.getElementById("fcstart").value;
+	var c2 = document.getElementById("fcend");
 	c2.value = c1;
 };	
 
-	window.onload = function(){
-	var date = document.getElementById("cstart").value;
-	console.log(date);
-}
-	 /* submit시 끝날짜가 시작날짜보다 작은지 확인 */
-		function check(){
-		var flag = true;
-		var start = document.getElementById("cstart").value;
-		var end = document.getElementById("cend").value;
-		if(start>end){
-			alert("시작일은 마감일보다 클 수 없습니다.");
-			flag = false;
-		}
+	 /* 일정등록 submit시 끝날짜가 시작날짜보다 작은지 확인 */
+	function check(){
+	var flag = true;
+	var start = document.getElementById("cstart").value;
+	var end = document.getElementById("cend").value;
+	if(start>end){
+		alert("시작일은 마감일보다 클 수 없습니다.");
+		flag = false;
+	}
 				
 		return flag;
 	};  
+
+	function check1(){
+	var flag = true;
+	var start = document.getElementById("fcstart").value;
+	var end = document.getElementById("fcend").value;
+	if(start>end){
+		alert("시작일은 마감일보다 클 수 없습니다.");
+		flag = false;
+	}
+				
+		return flag;
+	};
+
+	/* 일정삭제시 */
+	function sendNo(){
+		var cno = document.getElementById("cno").value;
+		console.log(cno);
+		location.href = "deleteCalendar3.do?cno="+cno;
+		}
 
 </script>
 
@@ -166,7 +175,7 @@
 <div class="container" style="margin-top: 60px;">
     <div class="row">
       <div class="col-lg-12">
-      <span> ${sessionScope.loginCons.companyname } </span> &nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <span> ${sessionScope.loginCons.companyname } / ${sessionScope.loginCons.consid} </span> &nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
  	  일정등록
       </button>
       <div id="read">확인</div>
@@ -191,7 +200,7 @@
       <form action="updateCalendar3.do" method="post">
       <div class="modal-body">
       제목 : &nbsp;<input type="text" id="fctitle" name="ctitle" style="margin-bottom: 10px;" required><br>
-      일시 : &nbsp;<input type="date" id="fcstart" name="cstart" style="margin-bottom: 10px;" required onchange="sameDate();">&nbsp;-&nbsp;
+      일시 : &nbsp;<input type="date" id="fcstart" name="cstart" style="margin-bottom: 10px;" required onchange="sameDate1();">&nbsp;-&nbsp;
       <input type="date" id="fcend" name="cend"  style="margin-bottom: 10px;"><br>
       내용 : &nbsp;<textarea rows="10" cols="50" id="fccontent" name="ccontent" style="margin-bottom: 10px;"></textarea><br>
       색상 : &nbsp;
@@ -201,11 +210,12 @@
       		<option value="green" style="background:green;" />
       		<option value="blue" style="background:blue;" />
       </select>
-      <input type="hidden" id="cno">
+      <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
+      <input type="hidden" id="cno" name="cno">
       </div>
       <div class="modal-footer">
-      <input type="submit" value="수정" onclick="return check();">
-      <a href="deleteCalendar3.do?cno">삭제</a>
+      <input class="btn btn-primary" type="submit" value="수정" onclick="return check1();">
+      <a class="btn btn-primary" onclick="sendNo();" style="color:white;">삭제</a>
         <!-- <button type="button" id="confirm" class="btn btn-primary" data-dismiss="modal">확인</button> -->
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
