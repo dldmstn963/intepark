@@ -352,6 +352,12 @@ $(document).ready(function (e){
 
     var files = e.target.files;
     var arr =Array.prototype.slice.call(files);
+
+	if(arr.length >= 4){
+			alert("안되요 많아요");
+			  $("#upfile").val("");
+			  return false;
+		}
     
     //업로드 가능 파일인지 체크
     for(var i=0;i<files.length;i++){
@@ -432,12 +438,12 @@ $(document).ready(function (e){
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
                                 <label for="nomal">일반견적</label>
-                                  <input type="radio" name="auctionsection" id="nomal" checked>
+                                  <input type="radio" name="auctionsection" id="nomal" value="nomal" checked>
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
                                 <label for="fast">긴급견적</label>
-                                 <input type="radio" name="auctionsection" id="fast">
+                                 <input type="radio" name="auctionsection" id="fast" value="fast">
                                 <span class="check"></span>
                             </div>
                             
@@ -471,6 +477,10 @@ $(document).ready(function (e){
                                 <input type="date" name="startday" id="startday" required/>
                             </div>
                         </div>
+                         <div class="form-group">
+                            <label for="title">주소 :</label>
+                            <input type="text" name="address" id="address">
+                        </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">이름 :</label>
@@ -498,7 +508,7 @@ $(document).ready(function (e){
                         </div>
                     <div class="form-group">
                             <label for="upfile">참고사진 :</label>
-                                 <input type="file" name="upfile" id="upfile" multiple>
+                                 <input type="file" name="upfile" id="upfile" multiple >
         						<div id="preview"></div>
                         </div> 
                         <div class="form-group">
@@ -506,6 +516,7 @@ $(document).ready(function (e){
                             <textarea rows="10" cols="80" name="etc"></textarea>
                         </div>
                         <div class="form-submit">
+                     <input type="hidden" value="${loginUser.userid }"  name="userid" id="userid">  
                             <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
                             <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
                         </div>

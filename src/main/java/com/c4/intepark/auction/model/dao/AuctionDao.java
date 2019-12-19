@@ -21,4 +21,10 @@ public ArrayList<Auction> selectList(){
 	List<Auction> list = mybatisSession.selectList("auctionMapper.selectList");
 	return (ArrayList<Auction>)list;
 }
+
+
+public int auctionEnroll(Auction auction) {
+	// TODO Auto-generated method stub
+	return mybatisSession.insert("auctionMapper.auctionEnroll", auction);
+}
 }
