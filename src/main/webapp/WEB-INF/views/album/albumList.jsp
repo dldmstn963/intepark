@@ -16,6 +16,7 @@
       <h1 align="center"> 인테리어 사진첩 </h1><br>
       
         	<div class="container">
+        	
         		<div class="row feature_inner">
         			<div class="col-lg-4 col-md-6">
         				<div class="feature_item">
@@ -25,6 +26,7 @@
         				</div>
         			</div>
         		</div>
+        		
         	</div>
         </section>
 </body>
