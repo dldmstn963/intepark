@@ -531,5 +531,6 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/shopping/cons/common/jscsspath.jsp"%>
+	
 </body>
 </html>

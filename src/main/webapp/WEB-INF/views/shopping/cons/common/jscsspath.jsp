@@ -17,8 +17,7 @@
     <!-- bootstrap-daterangepicker -->
     <link href="/intepark/resources/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     
-    <!-- Custom Theme Style -->
-    <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
+   
     
     <!-- bootstrap-datetimepicker -->
     <link href="/intepark/resources/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
@@ -66,13 +65,17 @@
     <link href="/intepark/resources/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="/intepark/resources/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+     <!-- Custom Theme Style -->
+    <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
     
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+    <!-- jQuery -->
+    <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+     <script src="/intepark/resources/vendors/moment/min/moment.min.js"></script>
+     
     <!-- bootstrap-datetimepicker -->    
     <script src="/intepark/resources/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     
-    <!-- jQuery -->
-    <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
     
     <!-- Bootstrap -->
     <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -105,11 +108,10 @@
     <script src="/intepark/resources/vendors/DateJS/build/date.js"></script>
     
     <!-- bootstrap-daterangepicker -->
-    <script src="/intepark/resources/vendors/moment/min/moment.min.js"></script>
+   
     <script src="/intepark/resources/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     
-    <!-- Custom Theme Scripts -->
-    <script src="/intepark/resources/build/js/custom.min.js"></script>
+    
     
     <!-- Ion.RangeSlider -->
     <script src="/intepark/resources/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
@@ -188,3 +190,6 @@
     <script src="/intepark/resources/vendors/jszip/dist/jszip.min.js"></script>
     <script src="/intepark/resources/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="/intepark/resources/vendors/pdfmake/build/vfs_fonts.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/intepark/resources/build/js/custom.min.js"></script>

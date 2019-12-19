@@ -85,6 +85,16 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
+<select id="shopMainGoods" resultType="Goods" parameterType="com.c4.intepark.shop.Paging">
+<![CDATA[
+select * 
+from (select rownum rnum, GOODSNUM, 
+THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+from (select * from GOODS order by GOODSnum desc)) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
+
 <select id="categoryAllListCount" resultType="int">
 select count(*) 
 from goods 
