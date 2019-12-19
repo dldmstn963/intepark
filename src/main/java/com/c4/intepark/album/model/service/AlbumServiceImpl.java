@@ -1,6 +1,7 @@
 package com.c4.intepark.album.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,13 @@ public class AlbumServiceImpl implements AlbumService{
 	private AlbumDao albumDao;
 	
 	@Override
-	public int selectAllListCount() {
-		return albumDao.selectAllListCount();
+	public ArrayList<Album> selectList(CommonPage commonPage) {
+		return albumDao.selectList(commonPage);
 	}
 
 	@Override
-	public ArrayList<Album> selectList(CommonPage commonPage) {
-		return albumDao.selectList(commonPage);
+	public int selectAllListCount(HashMap<String, Object> map) {
+		return albumDao.selectAllListCount(map);
 	}
 
 }
