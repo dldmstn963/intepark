@@ -14,6 +14,7 @@ private String interiorsection;
 private String title;
 private String name;
 private String price;
+private String email;
 private String phone;
 private java.sql.Date startday;
 private String address;
@@ -26,8 +27,8 @@ private String userid;
 public Auction() {}
 
 public Auction(int auctionno, String auctionsection, String interiorsection, String title, String name, String price,
-		String phone, Date startday, String address, String ofile, String rfile, String etc, String progress,
-		String userid) {
+		String email, String phone, Date startday, String address, String ofile, String rfile, String etc,
+		String progress, String userid) {
 	super();
 	this.auctionno = auctionno;
 	this.auctionsection = auctionsection;
@@ -35,6 +36,7 @@ public Auction(int auctionno, String auctionsection, String interiorsection, Str
 	this.title = title;
 	this.name = name;
 	this.price = price;
+	this.email = email;
 	this.phone = phone;
 	this.startday = startday;
 	this.address = address;
@@ -43,14 +45,6 @@ public Auction(int auctionno, String auctionsection, String interiorsection, Str
 	this.etc = etc;
 	this.progress = progress;
 	this.userid = userid;
-}
-
-@Override
-public String toString() {
-	return "Auction [auctionno=" + auctionno + ", auctionsection=" + auctionsection + ", interiorsection="
-			+ interiorsection + ", title=" + title + ", name=" + name + ", price=" + price + ", phone=" + phone
-			+ ", startday=" + startday + ", address=" + address + ", ofile=" + ofile + ", rfile=" + rfile + ", etc="
-			+ etc + ", progress=" + progress + ", userid=" + userid + "]";
 }
 
 public int getAuctionno() {
@@ -99,6 +93,14 @@ public String getPrice() {
 
 public void setPrice(String price) {
 	this.price = price;
+}
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
 }
 
 public String getPhone() {
@@ -163,6 +165,18 @@ public String getUserid() {
 
 public void setUserid(String userid) {
 	this.userid = userid;
+}
+
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
+
+@Override
+public String toString() {
+	return "Auction [auctionno=" + auctionno + ", auctionsection=" + auctionsection + ", interiorsection="
+			+ interiorsection + ", title=" + title + ", name=" + name + ", price=" + price + ", email=" + email
+			+ ", phone=" + phone + ", startday=" + startday + ", address=" + address + ", ofile=" + ofile + ", rfile="
+			+ rfile + ", etc=" + etc + ", progress=" + progress + ", userid=" + userid + "]";
 }
 
 }

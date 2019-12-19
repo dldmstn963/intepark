@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.c4.intepark.auction.model.service.AuctionService;
 import com.c4.intepark.auction.model.vo.Auction;
@@ -60,7 +61,10 @@ public String auctionEndList() {
 	String ofile = "";	
 	String rfile = "";	
 	
+
 	for (MultipartFile mf : fileList) {
+	
+		if(mf.getSize() != 0) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
 		String originalFileName = null;
 		String renameFileName = null;
 		try {
@@ -98,14 +102,21 @@ public String auctionEndList() {
 		}	
 	ofile += originalFileName + "/";
 	rfile += renameFileName + "/";
-	}
 	
-	String ofile1 =  ofile.substring(0, ofile.length()-1);
-	String rfile1 =  rfile.substring(0, ofile.length()-1);
+	 String ofile1 = ofile.substring(0, ofile.length()-1);
+	 String rfile1 = rfile.substring(0, rfile.length()-1);
+	
+
 	auction.setOfile(ofile1);
 	auction.setRfile(rfile1);
-	logger.info("auction : " + auction); 
-	 return "auction/auctionEnroll";
+	}
+		}
+
+	int result = auctionService.auctionEnroll(auction); 
+		
+	logger.info("auction : " + auction);
+
+	 return "redirect:main.do";
 }
 	
 	 

@@ -22,4 +22,9 @@ public class AuctionServiceImpl implements AuctionService{
 		
 	}
 	
+	public int auctionEnroll(Auction auction) {
+		
+		return auctionDao.auctionEnroll(auction);
+	}
+	
 }
