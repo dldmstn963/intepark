@@ -1,8 +1,5 @@
 package com.c4.intepark.common;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class CommonPage {
 	
 	private int listCount; //전체 페이지 갯수
@@ -14,6 +11,8 @@ public class CommonPage {
 	private int endPage;//목록의 마지막페이지 ex) 10
 	private int startList;//페이지조회시작#{StartList}
 	private int endList;//페이지조회마지막#{endList}
+	private String stitle;
+	private String userid;
 	
 	public CommonPage() {}
 	
@@ -48,7 +47,7 @@ public class CommonPage {
 	}
 
 	public CommonPage(int listCount, int listSize, int pageSize, int currentPage, int maxPage, int beginPage,
-			int endPage, int startList, int endList) {
+			int endPage, int startList, int endList, String stitle, String userid) {
 		super();
 		this.listCount = listCount;
 		this.listSize = listSize;
@@ -59,9 +58,9 @@ public class CommonPage {
 		this.endPage = endPage;
 		this.startList = startList;
 		this.endList = endList;
+		this.stitle = stitle;
+		this.userid = userid;
 	}
-	
-	
 
 	public int getListCount() {
 		return listCount;
@@ -135,13 +134,30 @@ public class CommonPage {
 		this.endList = endList;
 	}
 
+	public String getStitle() {
+		return stitle;
+	}
+
+	public void setStitle(String stitle) {
+		this.stitle = stitle;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 	@Override
 	public String toString() {
 		return "CommonPage [listCount=" + listCount + ", listSize=" + listSize + ", pageSize=" + pageSize
 				+ ", currentPage=" + currentPage + ", maxPage=" + maxPage + ", beginPage=" + beginPage + ", endPage="
-				+ endPage + ", startList=" + startList + ", endList=" + endList + "]";
+				+ endPage + ", startList=" + startList + ", endList=" + endList + ", stitle=" + stitle + ", userid="
+				+ userid + "]";
 	}
-	
+
 	
 	
 

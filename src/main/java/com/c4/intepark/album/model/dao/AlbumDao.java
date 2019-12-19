@@ -1,6 +1,7 @@
 package com.c4.intepark.album.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,8 +17,8 @@ public class AlbumDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public int selectAllListCount() {
-		return sqlSession.selectOne("albumMapper.selectAllListCount");
+	public int selectAllListCount(HashMap<String, Object> map) {
+		return sqlSession.selectOne("albumMapper.selectAllListCount", map);
 	}
 
 	public ArrayList<Album> selectList(CommonPage commonPage) {
