@@ -31,8 +31,8 @@ public class CalendarDao {
 		return session.update("calendarMapper.updateCalendar", calendar);
 	}
 
-	public int deleteCalendar(String consid) {
-		return session.delete("calendarMapper.deleteCalendar", consid);
+	public int deleteCalendar(String cno) {
+		return session.delete("calendarMapper.deleteCalendar", cno);
 	}
 	
 	

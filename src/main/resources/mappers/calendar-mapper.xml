@@ -15,11 +15,11 @@
 	<update id="updateCalendar" parameterType="Calendar">
 	update calendar 
 	set ctitle = #{ctitle}, ccontent = #{ccontent}, cstart = #{cstart}, cend = #{cend}, ccolor = #{ccolor} 
-	where consid = #{consid}
+	where consid = #{consid} and cno = #{cno}
 	</update>
 	
 	<delete id="deleteCalendar" parameterType="string">
-	delete from calendar where consid = #{consid}
+	delete from calendar where cno = #{cno}
 	</delete>
 
 </mapper>

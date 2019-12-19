@@ -87,6 +87,7 @@ public class CalendarController {
 	  
 	  @RequestMapping("updateCalendar3.do")
 	  public String updateCalendar(Calendar calendar, Model model) {
+		  System.out.println(calendar);
 		  int result = calendarService.updateCalendar(calendar);
 		  
 		  String viewFileName = "calendar/calendarManagement"; 
@@ -97,13 +98,15 @@ public class CalendarController {
 	  }
 	  
 	  @RequestMapping("deleteCalendar3.do")
-	  public String deleteCalendar(@RequestParam("consid") String consid, Model model) {
-		  int result = calendarService.deleteCalendar(consid);
+	  public String deleteCalendar(@RequestParam("cno") String cno, Model model) {
+		  int result = calendarService.deleteCalendar(cno);
 		  
 		  String viewFileName = "calendar/calendarManagement"; 
-		  if(result <=0) {
-			  viewFileName = "common/error"; 
-			  model.addAttribute("message", "일정 출력 실패"); } 
+		  System.out.println("확인" + cno);
+		/*
+		 * if(result <=0) { viewFileName = "common/error"; model.addAttribute("message",
+		 * "일정 출력 실패"); }
+		 */
 		  return viewFileName;
 	  }
 	  
