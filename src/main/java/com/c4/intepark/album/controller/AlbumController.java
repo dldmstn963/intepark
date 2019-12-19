@@ -19,9 +19,10 @@ public class AlbumController {
 	@RequestMapping("albumlist6.do")
 	public String albumListPage() {
 		int listCount = albumService.selectAllListCount();
-		CommonPage commonPage= new CommonPage(6,10,listCount,3);
+		CommonPage commonPage= new CommonPage(6,10,listCount,4);
 		ArrayList<Album> albumList = albumService.selectList(commonPage);
-		
+
+	
 		return "album/albumList";
 	}
 	
