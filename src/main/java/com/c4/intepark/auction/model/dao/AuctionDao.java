@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.NonAuction;
 
 @Repository("auctionDao")
 public class AuctionDao {
@@ -27,4 +28,9 @@ public int auctionEnroll(Auction auction) {
 	// TODO Auto-generated method stub
 	return mybatisSession.insert("auctionMapper.auctionEnroll", auction);
 }
+public int nonAuctionEnroll(NonAuction nonauction) {
+	// TODO Auto-generated method stub
+	return mybatisSession.insert("auctionMapper.nonAuctionEnroll", nonauction);
+}
+
 }

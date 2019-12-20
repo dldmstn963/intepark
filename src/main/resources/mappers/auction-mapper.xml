@@ -14,6 +14,11 @@
 		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc}, default, #{userid})
 	</insert>
 	
+	<insert id="nonAuctionEnroll" parameterType="NonAuction" >
+	insert into nonauction values (AUCTION_SEQ.NEXTVAL, #{auctionsection}, #{interiorsection}, #{title}, #{name}, 
+		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc},${password}, default)
+	</insert>
+	
 </mapper>
 
 

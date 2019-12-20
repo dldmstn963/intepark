@@ -433,7 +433,7 @@ $(document).ready(function (e){
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <form method="post" class="register-form" id="register-form" action="auctionEnroll2.do" enctype="multipart/form-data">
+                    <form method="post" class="register-form" id="register-form" action="nonAuctionEnroll2.do" enctype="multipart/form-data">
                                             <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
@@ -515,11 +515,14 @@ $(document).ready(function (e){
                             <label for="etc">기타 상세정보 :</label>
                             <textarea rows="10" cols="80" name="etc"></textarea>
                         </div>
-                        <div class="form-submit">
-                    
-                        <input type="hidden" value="${loginUser.userid}"  name="userid" id="userid">
-                    
+                        <div class="form-row">
                        
+                            <div class="form-group">
+                                <label for="password">비밀번호 설정 :</label>
+                                <input type="password" name="password" id="password" required/>
+                            </div>
+                        </div>
+                        <div class="form-submit">
                             <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
                             <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
                         </div>
