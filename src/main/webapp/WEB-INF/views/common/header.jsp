@@ -36,7 +36,7 @@
 								       <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu">
-                              <li class="nav-item"><a class="nav-link" href="auction2.do">경매신청</a></li>
+                              <li class="nav-item"><a class="nav-link" href="nonAuction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionEnd2.do">낙찰리스트</a></li>
                            </ul>

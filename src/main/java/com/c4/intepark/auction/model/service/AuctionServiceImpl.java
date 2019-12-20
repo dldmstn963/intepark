@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.c4.intepark.auction.model.dao.AuctionDao;
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.NonAuction;
 
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService{
@@ -25,6 +26,11 @@ public class AuctionServiceImpl implements AuctionService{
 	public int auctionEnroll(Auction auction) {
 		
 		return auctionDao.auctionEnroll(auction);
+	}
+	
+	public int nonAuctionEnroll(NonAuction nonauction) {
+		
+		return auctionDao.nonAuctionEnroll(nonauction);
 	}
 	
 }
