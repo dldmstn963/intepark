@@ -33,4 +33,9 @@ public int nonAuctionEnroll(NonAuction nonauction) {
 	return mybatisSession.insert("auctionMapper.nonAuctionEnroll", nonauction);
 }
 
+public ArrayList<NonAuction> NonAuctionList() {
+	List<NonAuction> list2 = mybatisSession.selectList("auctionMapper.NonAuctionList");
+	return (ArrayList<NonAuction>)list2;
+}
+
 }

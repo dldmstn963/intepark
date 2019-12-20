@@ -37,7 +37,9 @@ public AuctionController() {}
 public String auctionList(HttpServletRequest request,HttpServletResponse response) {
 	
 	ArrayList<Auction> list = auctionService.auctionList();
+	ArrayList<NonAuction> list2 = auctionService.NonAuctionList();
 	request.setAttribute("list", list);
+	request.setAttribute("list2", list2);
 	return "auction/auctionList";
 }
 

@@ -6,9 +6,12 @@
 
 
 	<select id="selectList" parameterType="Auction" resultType="Auction">
-		select * from auction 
+		select * from auction order by auctionno desc
 	</select>
 	
+	<select id="NonAuctionList" parameterType="NonAuction" resultType="NonAuction">
+		select * from nonauction order by auctionno desc
+	</select>
 	<insert id="auctionEnroll" parameterType="Auction" >
 	insert into auction values (AUCTION_SEQ.NEXTVAL, #{auctionsection}, #{interiorsection}, #{title}, #{name}, 
 		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc}, default, #{userid})
