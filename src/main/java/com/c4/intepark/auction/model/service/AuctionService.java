@@ -10,4 +10,5 @@ public interface AuctionService {
 ArrayList<Auction> auctionList();
 int auctionEnroll(Auction auction);
 int nonAuctionEnroll(NonAuction nonauction);
+ArrayList<NonAuction> NonAuctionList();
 }

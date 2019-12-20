@@ -22,15 +22,20 @@ public class AuctionServiceImpl implements AuctionService{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	@Override
 	public int auctionEnroll(Auction auction) {
 		
 		return auctionDao.auctionEnroll(auction);
 	}
-	
+	@Override
 	public int nonAuctionEnroll(NonAuction nonauction) {
 		
 		return auctionDao.nonAuctionEnroll(nonauction);
+	}
+	@Override
+	public ArrayList<NonAuction> NonAuctionList(){
+		
+		return (ArrayList<NonAuction>)auctionDao.NonAuctionList();
 	}
 	
 }
