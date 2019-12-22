@@ -14,11 +14,11 @@
     <title>인테파크</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="/intepark/resources/img/core-img/favicon.ico">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
-	<link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="/intepark/resources/css/core-style.css">
+	<link rel="stylesheet" href="/intepark/resources/css/font.css">
 </head>
 
 <body>
@@ -102,7 +102,7 @@
                                 <!-- Paypal -->
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="paypal">
-                                    <label class="custom-control-label" for="paypal">페이팔 <img class="ml-15" src="img/core-img/paypal.png" alt=""></label>
+                                    <label class="custom-control-label" for="paypal">페이팔 <img class="ml-15" src="/intepark/resources/img/core-img/paypal.png" alt=""></label>
                                 </div>
                             </div>
 
@@ -119,15 +119,15 @@
 	<jsp:include page="common/footer.jsp" />
 
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="/intepark/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
+    <script src="/intepark/resources/js/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/intepark/resources/js/bootstrap.min.js"></script>
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    <script src="/intepark/resources/js/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="/intepark/resources/js/active.js"></script>
 
 </body>
 

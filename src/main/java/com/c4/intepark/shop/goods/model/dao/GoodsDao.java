@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.vo.Goods;
 import com.c4.intepark.shop.goods.model.vo.GoodsList;
+import com.c4.intepark.shop.goods.model.vo.GoodsPic;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
+import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
 
 @Repository("goodsDao")
 public class GoodsDao {
@@ -65,6 +67,28 @@ public class GoodsDao {
 	public ArrayList<Goods> shopMainGoods(Paging p) {
 		List list = mybatis.selectList("goodsMapper.shopMainGoods",p);
 		return (ArrayList<Goods>)list; 
+	}
+
+	public int selectGoodsNum(Goods goods) {
+		return mybatis.selectOne("goodsMapper.selectGoodsNum",goods);
+	}
+
+	public int insertGoodsPic(GoodsPic gp) {
+		return mybatis.insert("goodsMapper.insertGoodsPic",gp);
+	}
+
+	public ArrayList<GoodsPic> selectGoodsPic(int goodsnum) {
+		List list = mybatis.selectList("goodsMapper.selectGoodsPic",goodsnum);
+		return (ArrayList<GoodsPic>)list; 
+	}
+
+	public int goodsReviewAllListCount(int goodsnum) {
+		return mybatis.selectOne("goodsMapper.goodsReviewAllListCount",goodsnum);
+	}
+
+	public ArrayList<GoodsReview> selectGoodsReview(GoodsSearch goodsSearch) {
+		List list = mybatis.selectList("goodsMapper.selectGoodsReview",goodsSearch);
+		return (ArrayList<GoodsReview>)list; 
 	}
 	
 }
