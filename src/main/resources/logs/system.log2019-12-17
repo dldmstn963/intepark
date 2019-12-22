@@ -1,0 +1,107 @@
+[15:37:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:37:11][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 8524 ms
+[15:37:11][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:37:18][INFO ][FrameworkServlet.java:546] - Completed initialization in 7198 ms
+[15:37:19][INFO ][HomeController.java:41] - Welcome main!
+[15:38:08][INFO ][GoodsController.java:66] - 샵 카테고리 접속 
+[15:38:13][INFO ][GoodsController.java:66] - 샵 카테고리 접속 
+[15:53:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:53:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2771 ms
+[15:53:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:53:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 2435 ms
+[15:53:53][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:54:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3126 ms
+[15:54:43][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:54:45][INFO ][FrameworkServlet.java:546] - Completed initialization in 2681 ms
+[15:54:45][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:49][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:50][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:51][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:52][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:53][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:59][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:54:59][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:00][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:00][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:01][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:01][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:02][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:02][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:03][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:03][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:03][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:04][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:04][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:05][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:05][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:05][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:06][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:06][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:06][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:07][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:08][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[15:55:10][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:03:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:03:39][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2785 ms
+[16:03:39][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:03:42][INFO ][FrameworkServlet.java:546] - Completed initialization in 2768 ms
+[16:05:48][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:05:59][INFO ][HomeController.java:41] - Welcome main!
+[16:06:01][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:07:14][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:07:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2676 ms
+[16:07:17][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:07:19][INFO ][FrameworkServlet.java:546] - Completed initialization in 2372 ms
+[16:07:23][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:08:21][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:08:48][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:09:09][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[16:09:10][INFO ][GoodsController.java:75] - 샵 카테고리 접속 
+[16:09:37][INFO ][GoodsController.java:66] - 상품 디테일 : 33
+[16:11:35][INFO ][GoodsController.java:126] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:33:06][INFO ][HomeController.java:41] - Welcome main!
+[16:53:12][INFO ][HomeController.java:41] - Welcome main!
+[16:53:32][INFO ][AuctionController.java:67] - auction : Auction [auctionno=0, auctionsection=null, interiorsection=null, title=null, name=null, price=null, phone=null, startday=null, address=null, ofile=850 (1).jpg, rfile=null, etc=null, progress=null, userid=null]
+[16:54:02][WARN ][DispatcherServlet.java:1248] - No mapping for GET /intepark/auctionEnd.do
+[16:55:00][INFO ][GoodsController.java:53] - 쇼핑몰 메인 페이지 
+[17:37:21][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:37:25][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3267 ms
+[17:37:25][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:37:27][INFO ][FrameworkServlet.java:546] - Completed initialization in 2657 ms
+[17:37:50][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:37:53][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2991 ms
+[17:37:53][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:37:55][INFO ][FrameworkServlet.java:546] - Completed initialization in 2710 ms
+[17:38:04][INFO ][GoodsController.java:222] - 업로드 실행 : 
+[17:38:04][INFO ][GoodsController.java:222] - 업로드 실행 : 
+[17:38:04][INFO ][GoodsController.java:222] - 업로드 실행 : 
+[17:38:20][INFO ][GoodsController.java:222] - 업로드 실행 : 
+[17:52:07][INFO ][GoodsController.java:222] - 업로드 실행 : 
+[17:52:10][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 3 errors
+Field error in object 'goods' on field 'inventory': rejected value []; codes [typeMismatch.goods.inventory,typeMismatch.inventory,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.inventory,inventory]; arguments []; default message [inventory]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'inventory'; nested exception is java.lang.NumberFormatException: For input string: ""]
+Field error in object 'goods' on field 'maximum': rejected value []; codes [typeMismatch.goods.maximum,typeMismatch.maximum,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.maximum,maximum]; arguments []; default message [maximum]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'maximum'; nested exception is java.lang.NumberFormatException: For input string: ""]
+Field error in object 'goods' on field 'price': rejected value []; codes [typeMismatch.goods.price,typeMismatch.price,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.price,price]; arguments []; default message [price]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'price'; nested exception is java.lang.NumberFormatException: For input string: ""]]
+[17:55:00][INFO ][HomeController.java:41] - Welcome main!
+[17:55:07][INFO ][HomeController.java:41] - Welcome main!
+[17:55:18][INFO ][HomeController.java:41] - Welcome main!
+[17:55:41][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:55:43][INFO ][HomeController.java:41] - Welcome main!
+[17:55:46][INFO ][GoodsController.java:78] - 샵 카테고리 접속 
+[17:55:49][INFO ][HomeController.java:41] - Welcome main!
+[17:55:56][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:03:22][INFO ][GoodsController.java:129] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:18:32][INFO ][HomeController.java:41] - Welcome main!
+[18:18:35][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:18:38][INFO ][GoodsController.java:78] - 샵 카테고리 접속 
+[18:18:41][INFO ][GoodsController.java:69] - 상품 디테일 : 33
+[18:38:48][INFO ][GoodsController.java:129] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:02:19][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:02:22][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2970 ms
+[19:02:23][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:02:25][INFO ][FrameworkServlet.java:546] - Completed initialization in 2902 ms
