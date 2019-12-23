@@ -1,0 +1,59 @@
+package com.c4.intepark.review.model.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.c4.intepark.portfolio.model.vo.Portfolio;
+import com.c4.intepark.review.model.vo.Review;
+
+@Repository("reviewDao")
+public class ReviewDao {
+	
+	@Autowired
+	private SqlSessionTemplate mybatisSession;
+	
+	public ReviewDao() {}
+
+	public ArrayList<Review> selectrvList() {
+		List<Review> list = mybatisSession.selectList("reviewMapper.selectrvList");
+		return (ArrayList<Review>)list;
+	}
+
+	public Review selectrvOne(int rvnum) {
+		return mybatisSession.selectOne("reviewMapper.selectrvOne", rvnum);
+	}
+
+	public int insertReview(Portfolio portfolio) {
+		return mybatisSession.insert("reviewMapper.insertReview", portfolio);
+	}
+
+	public int updateReview(Portfolio portfolio) {
+		// TODO Auto-generated method stub
+		return mybatisSession.update("reviewMapper.updateReview", portfolio);
+	}
+
+	public int deleteReview(int rvnum) {
+		return mybatisSession.delete("reviewMapper.deleteReview", rvnum);
+	}
+
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

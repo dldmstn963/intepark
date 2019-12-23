@@ -21,6 +21,7 @@
                 <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="/intepark/resources/js/jquery-3.2.1.min.js"></script>
+        <script src="/intepark/resources/js/jquery-3.4.1.min.js"></script>
         <script src="/intepark/resources/js/popper.js"></script>
         <script src="/intepark/resources/js/bootstrap.js"></script>
         <script src="/intepark/resources/js/bootstrap.min.js"></script>

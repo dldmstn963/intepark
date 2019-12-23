@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 public class Portfolio implements java.io.Serializable {
 	private static final long serialVersionUID = 5100L;
 	
-	private int pfnum;
-	private String pftitle;
-	private String consid;
+	private int pfnum;	//포트폴리오 글번호
+	private String pftitle;	//포트폴리오 제목
+	private String consid;	//시공사 아이디
 	
 	public Portfolio() {}
 
