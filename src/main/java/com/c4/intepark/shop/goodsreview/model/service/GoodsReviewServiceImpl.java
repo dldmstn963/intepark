@@ -22,6 +22,16 @@ public class GoodsReviewServiceImpl implements GoodsReviewService{
 	public Goods selectGoods(int goodsnum) {
 		return goodsreviewDao.selectGoods(goodsnum);
 	}
+
+	@Override
+	public int updateGoodsReview(GoodsReview goodsreview) {
+		return goodsreviewDao.updateGoodsReview(goodsreview);
+	}
+
+	@Override
+	public int deleteGoodsReview(GoodsReview goodsreview) {
+		return goodsreviewDao.deleteGoodsReview(goodsreview);
+	}
 	
 	
 }

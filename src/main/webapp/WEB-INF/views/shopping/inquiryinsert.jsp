@@ -33,28 +33,17 @@
                         <div class="checkout_details_area mt-50 clearfix">
 
                             <div class="cart-title">
-                                <h2>리뷰 작성</h2>
+                                <h2>문의사항 작성</h2>
                             </div>
 
-                            <form action="goodsReviewInsert4.do" method="post">
+                            <form action="goodsinquiryInsert4.do" method="post">
                                 <div class="row">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="5" name="reviewscore"> 매우 만족 
-                                    &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="4" name="reviewscore"> 만족
-                                    &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="3" name="reviewscore"> 보통
-                                    &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="2" name="reviewscore"> 불만족
-                                   &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="1" name="reviewscore"> 매우 불만족
-                                    <br><br>
                                     <div class="col-12 mb-3">
-                                       <input type="text" class="form-control" id="company" placeholder="제목" name="reviewtitle">
+                                       <input type="text" class="form-control" id="company" placeholder="제목" name="inquirytitle">
                                     </div>
                                  &nbsp; 
                                     <div class="col-12 mb-3">
-                                        <textarea class="form-control w-100" id="comment" cols="30" rows="10" placeholder="내용" name="reviewcn"></textarea>
+                                        <textarea class="form-control w-100" id="comment" cols="30" rows="10" placeholder="내용" name="inquirycn"></textarea>
                                     </div>
 								<div class="cart-btn mt-100">
                                 <input type="submit" class="btn amado-btn w-100" value="작성하기">
@@ -67,7 +56,7 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cart-summary">
-                            <h5>리뷰 쓸 상품정보</h5>
+                            <h5>문의할 상품 정보</h5>
                             <ul class="summary-table">
                                 <li><img src="/intepark/resources/img/goodthumspic/${goods.thumbnail }"></li>
                                 <li><span>상품 이름 :</span> <span>${goods.goodsname }</span></li>

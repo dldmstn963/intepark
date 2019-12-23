@@ -13,6 +13,7 @@
   		<typeAlias type="com.c4.intepark.notice.model.vo.Notice" alias="Notice"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Goods" alias="Goods"/>
   		<typeAlias type="com.c4.intepark.shop.goodsreview.model.vo.GoodsReview" alias="GoodsReview"/>
+  		<typeAlias type="com.c4.intepark.shop.inquiry.model.vo.Inquiry" alias="GoodsInquiry"/>
 	</typeAliases>
 	
 	<mappers>
@@ -25,5 +26,6 @@
 		<mapper resource="mappers/goods-mapper.xml"/>
 		<mapper resource="mappers/album-mapper.xml"/>
 		<mapper resource="mappers/goodsReview-mapper.xml"/>
+		<mapper resource="mappers/goodsInquiry-mapper.xml"/>
 	</mappers>
 </configuration>

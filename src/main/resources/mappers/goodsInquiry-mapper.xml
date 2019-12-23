@@ -2,23 +2,18 @@
 <!DOCTYPE mapper PUBLIC
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="goodsMapper">
+<mapper namespace="goodsInquirymapper">
 
-<insert id="insertGoods" parameterType="Goods">
-insert into goods values(
-(select max(goodsnum)+1 
-from goods),
-#{categorynum},
-#{goodsname},
-#{price},
-#{inventory},
-#{freedlvy},
-#{thumbnail},
-#{comments},
-#{description},
-#{maximum},
-#{consid},
-default
+<insert id="insertGoodsInquiry" parameterType="GoodsInquiry">
+insert into GOODSINQUIRY values(
+(select max(INQUIRYNUM)+1 
+from GOODSINQUIRY),
+sysdate,
+#{reviewcn},
+#{reviewscore},
+#{userid},
+#{goodsnum},
+#{reviewtitle}
 )
 </insert>
 
@@ -75,17 +70,6 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
-<select id="selectGoodsReview" resultType="GoodsReview" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsSearch">
-<![CDATA[
-select * 
-from (select rownum rnum, REVIEWDATE, 
-REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN
-from (select * from GoodsReview 
-where GOODSNUM= #{goodsnum} order by REVIEWDATE desc)) 
-where rnum >= #{startRow} and rnum <= #{endRow}
-		]]>
-</select>
-
 <select id="categoryGoodsAllList" resultType="Goods" parameterType="com.c4.intepark.shop.Paging">
 <![CDATA[
 select * 
@@ -109,12 +93,6 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 <select id="categoryAllListCount" resultType="int">
 select count(*) 
 from goods 
-</select>
-
-<select id="goodsReviewAllListCount"  parameterType="int" resultType="int">
-select count(*) 
-from GoodsReview
-where goodsnum = ${value}
 </select>
 
 <select id="selectGoodsNum" resultType="int" parameterType="Goods">

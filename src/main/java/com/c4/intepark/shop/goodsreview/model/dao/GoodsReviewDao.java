@@ -21,5 +21,13 @@ public class GoodsReviewDao {
 	public Goods selectGoods(int goodsnum) {
 		return mybatis.selectOne("goodsMapper.selectGoods",goodsnum);
 	}
+
+	public int updateGoodsReview(GoodsReview goodsreview) {
+		return mybatis.insert("goodsReviewmapper.updateGoodsReview",goodsreview);
+	}
+
+	public int deleteGoodsReview(GoodsReview goodsreview) {
+		return mybatis.insert("goodsReviewmapper.deleteGoodsReview",goodsreview);
+	}
 	
 }

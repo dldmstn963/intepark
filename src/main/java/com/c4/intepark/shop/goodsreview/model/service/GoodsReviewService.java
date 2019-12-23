@@ -9,4 +9,8 @@ public interface GoodsReviewService {
 
 	Goods selectGoods(int goodsnum);
 
+	int updateGoodsReview(GoodsReview goodsreview);
+
+	int deleteGoodsReview(GoodsReview goodsreview);
+
 }
