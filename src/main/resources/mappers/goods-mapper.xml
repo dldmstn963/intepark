@@ -75,6 +75,17 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
+<select id="selectGoodsReview" resultType="GoodsReview" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsSearch">
+<![CDATA[
+select * 
+from (select rownum rnum, REVIEWDATE, 
+REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN
+from (select * from GoodsReview 
+where GOODSNUM= #{goodsnum} order by REVIEWDATE desc)) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
+
 <select id="categoryGoodsAllList" resultType="Goods" parameterType="com.c4.intepark.shop.Paging">
 <![CDATA[
 select * 
@@ -100,10 +111,61 @@ select count(*)
 from goods 
 </select>
 
+<select id="goodsReviewAllListCount"  parameterType="int" resultType="int">
+select count(*) 
+from GoodsReview
+where goodsnum = ${value}
+</select>
+
+<select id="selectGoodsNum" resultType="int" parameterType="Goods">
+select goodsnum
+from goods
+where categorynum = #{categorynum} and goodsname = #{goodsname} and price = #{price} and
+inventory = #{inventory} and freedlvy = #{freedlvy} and thumbnail = #{thumbnail} and comments = #{comments} and
+description = #{description} and maximum = #{maximum}
+</select >
+
+<insert id="insertGoodsPic" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsPic">
+insert into 
+GOODSPIC 
+values (
+#{picnum},
+#{orifile},
+#{refile},
+#{goodsnum}
+)
+</insert>
+
+<select id="selectGoodsPic" resultType="com.c4.intepark.shop.goods.model.vo.GoodsPic" parameterType="int">
+select * 
+from goodspic
+where goodsnum= #{value}
+</select>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 </mapper>
 
 

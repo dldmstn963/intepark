@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.c4.intepark.auction.model.service.AuctionService;
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.NonAuction;
 
 @Controller
 public class AuctionController {
@@ -36,7 +37,9 @@ public AuctionController() {}
 public String auctionList(HttpServletRequest request,HttpServletResponse response) {
 	
 	ArrayList<Auction> list = auctionService.auctionList();
+	ArrayList<NonAuction> list2 = auctionService.NonAuctionList();
 	request.setAttribute("list", list);
+	request.setAttribute("list2", list2);
 	return "auction/auctionList";
 }
 
@@ -44,6 +47,12 @@ public String auctionList(HttpServletRequest request,HttpServletResponse respons
 public String auctionEnrollPage() {
 	
 	return "auction/auctionEnroll";
+}
+
+@RequestMapping("nonAuction2.do")
+public String nonAuctionEnrollPage() {
+	
+	return "auction/nonAuctionEnroll";
 }
 
 @RequestMapping("auctionEnd2.do")
@@ -54,13 +63,16 @@ public String auctionEndList() {
 
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 
 	 public String auctionEnroll(Auction auction, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
-
+		 
 		 List<MultipartFile> fileList = mtfRequest.getFiles("upfile");
 		 String savePath = request.getSession().getServletContext().getRealPath("resources/auctionUpFile");
 	String ofile = "";	
 	String rfile = "";	
 	
+
 	for (MultipartFile mf : fileList) {
+	
+		if(mf.getSize() != 0) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
 		String originalFileName = null;
 		String renameFileName = null;
 		try {
@@ -98,15 +110,87 @@ public String auctionEndList() {
 		}	
 	ofile += originalFileName + "/";
 	rfile += renameFileName + "/";
-	}
 	
-	String ofile1 =  ofile.substring(0, ofile.length()-1);
-	String rfile1 =  rfile.substring(0, ofile.length()-1);
+	 String ofile1 = ofile.substring(0, ofile.length()-1);
+	 String rfile1 = rfile.substring(0, rfile.length()-1);
+	
+
 	auction.setOfile(ofile1);
 	auction.setRfile(rfile1);
-	logger.info("auction : " + auction); 
-	 return "auction/auctionEnroll";
+	}
+		}
+
+	int result = auctionService.auctionEnroll(auction); 
+		
+	logger.info("auction : " + auction);
+	
+	 return "redirect:main.do";
 }
 	
+	 @RequestMapping(value="nonAuctionEnroll2.do", method=RequestMethod.POST) 
+	 public String nonAuctionEnroll(NonAuction nonauction, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+		 
+		 List<MultipartFile> fileList = mtfRequest.getFiles("upfile");
+		 String savePath = request.getSession().getServletContext().getRealPath("resources/auctionUpFile");
+	String ofile = "";	
+	String rfile = "";	
+	
+
+	for (MultipartFile mf : fileList) {
+	
+		if(mf.getSize() != 0) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
+		String originalFileName = null;
+		String renameFileName = null;
+		try {
+			mf.transferTo(new File(savePath + "\\" + mf.getOriginalFilename()));
+			originalFileName = mf.getOriginalFilename();
+			if(originalFileName != null) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+				renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))
+						+ "." + originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+				
+				//파일명을 바꾸려면 File 객체의 renameTo() 사용함
+				File originFile = new File(savePath + "\\" + originalFileName);
+				File renameFile = new File(savePath + "\\" + renameFileName);
+				
+				//파일 이름바꾸기 실행함 >> 실패한 경우에는 직접 바꾸기함
+				if(!originFile.renameTo(renameFile)) {
+					//파일 입출력 스트림 생성하고, 원본을 읽어서 바꿀이름 파일에 기록함
+					int read = -1;
+					byte[] buf = new byte[1024];  //한 번에 읽어서 저장할 바이트 배열
+					
+					FileInputStream fin = new FileInputStream(originFile);
+					FileOutputStream fout = new FileOutputStream(renameFile);
+					
+					while((read = fin.read(buf, 0, buf.length)) != -1) {
+						fout.write(buf, 0, read);
+					}
+					
+					fin.close();
+					fout.close();
+					originFile.delete();  //원본 파일 삭제함.
+				}
+			}
+		} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+		}	
+	ofile += originalFileName + "/";
+	rfile += renameFileName + "/";
+	
+	 String ofile1 = ofile.substring(0, ofile.length()-1);
+	 String rfile1 = rfile.substring(0, rfile.length()-1);
+	
+
+	 nonauction.setOfile(ofile1);
+	 nonauction.setRfile(rfile1);
+	}
+		}
+
+	int result = auctionService.nonAuctionEnroll(nonauction);
+		
+	logger.info("nonauction : " + nonauction);
+	
+	 return "redirect:main.do";
+}
 	 
 }

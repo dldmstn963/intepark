@@ -4,7 +4,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-   
+   <!-- Bootstrap -->
+    <link href="/intepark/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/intepark/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/intepark/resources/vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
     <title>인테파크</title>
 
   </head>
@@ -61,6 +69,16 @@
       </div>
     </div>
 	
-	<%@ include file="/WEB-INF/views/shopping/cons/common/jscsspath.jsp"%>
+	 <!-- jQuery -->
+    <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="/intepark/resources/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/intepark/resources/vendors/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/intepark/resources/build/js/custom.min.js"></script>
   </body>
 </html>
