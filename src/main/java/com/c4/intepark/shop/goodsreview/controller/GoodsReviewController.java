@@ -28,7 +28,15 @@ public class GoodsReviewController {
 	private GoodsReviewService goodsreviewService;
 	
 	@RequestMapping("movereviewinsert4.do")
-	public String cons(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+	public String movereviewinsert(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+		logger.info("상품 리뷰창으로 이동 : " + goodsnum);
+		Goods goods = goodsreviewService.selectGoods(goodsnum);
+		request.setAttribute("goods", goods);
+		return "shopping/reviewinsert";
+	}
+	
+	@RequestMapping("movereviewUpdate4.do")
+	public String movereviewUpdate(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
 		logger.info("상품 리뷰창으로 이동 : " + goodsnum);
 		Goods goods = goodsreviewService.selectGoods(goodsnum);
 		request.setAttribute("goods", goods);
@@ -38,6 +46,20 @@ public class GoodsReviewController {
 	@RequestMapping(value="goodsReviewInsert4.do", method=RequestMethod.POST)
 	public String goodsReviewInsert (GoodsReview goodsreview, HttpServletRequest request) {
 		int result = goodsreviewService.insertGoodsReview(goodsreview);
+		logger.info("리뷰 작성 완료 : " + result);
+		return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
+	}
+	
+	@RequestMapping(value="goodsReviewUpdate4.do", method=RequestMethod.POST)
+	public String goodsReviewUpdate (GoodsReview goodsreview, HttpServletRequest request) {
+		int result = goodsreviewService.updateGoodsReview(goodsreview);
+		logger.info("리뷰 작성 완료 : " + result);
+		return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
+	}
+	
+	@RequestMapping(value="goodsReviewDelete4.do", method=RequestMethod.POST)
+	public String goodsReviewDelete (GoodsReview goodsreview, HttpServletRequest request) {
+		int result = goodsreviewService.deleteGoodsReview(goodsreview);
 		logger.info("리뷰 작성 완료 : " + result);
 		return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
 	}

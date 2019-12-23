@@ -82,7 +82,6 @@ public class GoodsController {
 		request.setAttribute("goods", goods);
 		request.setAttribute("goodsreview", goodsreview);
 		request.setAttribute("list", list);
-		System.out.println(goodsreview.indexOf(0));
 		return "shopping/product-details";
 	}
 	

@@ -972,7 +972,7 @@ insert into DELIVERYLIST VALUES(1,'이은수','강원도',01043761266,'강릉집
 insert into REQUEST VALUES(1, '집앞에 두고가주세요', 'user1');
 
 insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',1,'좋아요' );
-
+insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',2);
 
 
 

@@ -187,13 +187,24 @@
 <table border="1px solid black">
 <tr>
 <td>사진</td>
-<td>내용</td>
+<td>제목</td>
 <td>작성자</td>
 <td>등록일</td>
 </tr>
+<c:forEach var="re" items="${ goodsreview}">
+<tr>
+<td></td>
+<td>${re.reviewtitle }</td>
+<td>${re.userid }</td>
+<td>${re.reviewdate }</td>
+</tr>
+</c:forEach>
 </table>
 <br>
-<button onclick="location.href='movereviewinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">리뷰 쓰기</button>
+<button onclick="location.href='movereviewinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">리뷰 작성</button>
+<br>
+<br>
+<button onclick="location.href='moveinquiryinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
 </div>
 	<!-- ##### Main Content Wrapper End ##### -->
 
