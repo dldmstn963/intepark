@@ -46,7 +46,7 @@ public class AlbumController {
 			map.put("no", "no");
 		}
 		listCount = albumService.selectAllListCount(map);
-		
+		//페이징처리 객체 생성
 		CommonPage commonPage= new CommonPage(6,10,listCount,currentPage);
 		if(sOption != null && sOption !="") {
 			if(sOption.equals("title"))
