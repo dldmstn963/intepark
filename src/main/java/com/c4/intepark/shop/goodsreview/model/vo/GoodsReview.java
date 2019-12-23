@@ -14,6 +14,7 @@ public class GoodsReview implements Serializable{
 	private String reviewcn; 
 	private int reviewscore; 
 	private String userid; 
+	private String reviewtitle; 
 	private int goodsnum;
 	public GoodsReview() {
 		super();
@@ -35,6 +36,12 @@ public class GoodsReview implements Serializable{
 	}
 	public Date getReviewdate() {
 		return reviewdate;
+	}
+	public String getReviewtitle() {
+		return reviewtitle;
+	}
+	public void setReviewtitle(String reviewtitle) {
+		this.reviewtitle = reviewtitle;
 	}
 	public void setReviewdate(Date reviewdate) {
 		this.reviewdate = reviewdate;
@@ -66,7 +73,8 @@ public class GoodsReview implements Serializable{
 	@Override
 	public String toString() {
 		return "GoodsReview [reviewnum=" + reviewnum + ", reviewdate=" + reviewdate + ", reviewcn=" + reviewcn
-				+ ", reviewscore=" + reviewscore + ", userid=" + userid + ", goodsnum=" + goodsnum + "]";
+				+ ", reviewscore=" + reviewscore + ", userid=" + userid + ", reviewtitle=" + reviewtitle + ", goodsnum="
+				+ goodsnum + "]";
 	}
 	
 	

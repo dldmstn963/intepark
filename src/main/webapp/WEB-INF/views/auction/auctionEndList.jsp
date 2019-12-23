@@ -8,6 +8,7 @@
   <!-- Material Design Lite -->
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
@@ -63,18 +64,21 @@
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-    <script>
+    <script type="text/javascript">
         Dropzone.options.uploadZone = {
             paramName: 'upfile', // 서버에 보낼 데이터이름.
+    
             autoProcessQueue: false, // 자동업로드 해제.
             maxFilesize: 2, // 2mb
             dictDefaultMessage: '여기에 이미지 파일을 드래그하거나 클릭해서 업로드해주세요!',
             maxFiles: 3, // 보낼 최대 파일 수.
             acceptedFiles: 'image/*', // image만
+    	 addRemoveLinks : true,
 
             init: function (e) {
 
                 var myDropzone = this;
+                
                 console.log(myDropzone.length);
                 $('#submitButton').on("click", function () {
                     if (confirm('정말 업로드하실꺼에요??')) {
@@ -85,7 +89,7 @@
                 });
 
                 myDropzone.on("success", function (file, result) {
-                   /*  console.log(result); */ // 서버 응답 메세지 여러 파일을 올리면 각 파일 성공 시 마다 호출된다.
+                
                     console.log("1");
                 });
 
@@ -98,7 +102,7 @@
                 });
 
             }
-        };
+        }; 
     </script>
 </body>
 </html>

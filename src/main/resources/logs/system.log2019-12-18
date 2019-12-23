@@ -1,0 +1,41 @@
+[20:23:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:23:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4065 ms
+[20:23:09][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:23:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 3691 ms
+[20:23:15][INFO ][HomeController.java:41] - Welcome main!
+[20:24:57][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:25:02][INFO ][GoodsController.java:129] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:31:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:31:54][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2839 ms
+[20:31:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:31:57][INFO ][FrameworkServlet.java:546] - Completed initialization in 2541 ms
+[20:32:06][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 3 errors
+Field error in object 'goods' on field 'inventory': rejected value []; codes [typeMismatch.goods.inventory,typeMismatch.inventory,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.inventory,inventory]; arguments []; default message [inventory]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'inventory'; nested exception is java.lang.NumberFormatException: For input string: ""]
+Field error in object 'goods' on field 'maximum': rejected value []; codes [typeMismatch.goods.maximum,typeMismatch.maximum,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.maximum,maximum]; arguments []; default message [maximum]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'maximum'; nested exception is java.lang.NumberFormatException: For input string: ""]
+Field error in object 'goods' on field 'price': rejected value []; codes [typeMismatch.goods.price,typeMismatch.price,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [goods.price,price]; arguments []; default message [price]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'price'; nested exception is java.lang.NumberFormatException: For input string: ""]]
+[20:42:54][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:42:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2834 ms
+[20:42:57][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:42:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 2487 ms
+[20:43:10][INFO ][HomeController.java:41] - Welcome main!
+[20:47:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:48:02][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2851 ms
+[20:48:02][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:48:05][INFO ][FrameworkServlet.java:546] - Completed initialization in 2488 ms
+[20:48:13][INFO ][HomeController.java:41] - Welcome main!
+[20:59:02][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[21:08:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:08:54][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2820 ms
+[21:08:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:08:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2533 ms
+[21:12:17][INFO ][HomeController.java:41] - Welcome main!
+[21:12:19][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[21:12:21][INFO ][GoodsController.java:78] - 샵 카테고리 접속 
+[21:19:06][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:19:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2914 ms
+[21:19:09][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:19:11][INFO ][FrameworkServlet.java:546] - Completed initialization in 2384 ms
+[21:39:33][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:39:36][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2970 ms
+[21:39:36][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:39:39][INFO ][FrameworkServlet.java:546] - Completed initialization in 2544 ms

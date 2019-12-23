@@ -1,0 +1,456 @@
+[15:44:12][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:44:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4350 ms
+[15:44:17][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:44:21][INFO ][FrameworkServlet.java:546] - Completed initialization in 3902 ms
+[15:44:21][INFO ][HomeController.java:41] - Welcome main!
+[15:44:38][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:44:40][INFO ][GoodsController.java:124] - 상품 수정 페이지 이동: 7
+[15:44:42][INFO ][GoodsController.java:140] - 상품 수정 : Goods [goodsnum=7, categorynum=1, goodsname=ㄴㅇic22, price=312412, inventory=4, freedlvy=N, thumbnail=20191216154442243., comments=ㄴㄹ, description=1ㅂㅈㄷ, maximum=1, consid=con1, goodsdate=null]
+[15:44:42][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:53:37][INFO ][HomeController.java:41] - Welcome main!
+[15:55:54][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[15:56:01][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:01][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:14][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:15][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:18][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:20][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:20][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:21][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:22][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:27][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:32][INFO ][HomeController.java:41] - Welcome main!
+[16:04:39][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:54][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:57][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:04:58][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:02][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:04][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:06][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:06][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:22][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:29][INFO ][GoodsController.java:110] - 상품 삭제 : 7
+[16:05:29][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:32][INFO ][GoodsController.java:110] - 상품 삭제 : 6
+[16:05:32][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:33][INFO ][GoodsController.java:110] - 상품 삭제 : 4
+[16:05:33][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:34][INFO ][GoodsController.java:110] - 상품 삭제 : 3
+[16:05:34][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:05:38][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:18][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:19][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:22][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:23][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:23][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:24][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:24][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:24][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:24][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:26][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:27][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:27][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:32][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:34][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:35][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:35][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:37][INFO ][HomeController.java:41] - Welcome main!
+[16:06:44][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:48][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:51][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:53][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:57][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:06:59][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:09:15][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:09:17][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:09:19][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:09:20][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:32][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:37][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:41][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:44][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:46][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:48][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:49][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:14:50][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:15:12][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:15:16][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:15:18][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:15:19][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:15:50][INFO ][GoodsController.java:53] - 상품등록 실행 : Goods [goodsnum=0, categorynum=1, goodsname=1, price=1234, inventory=1234, freedlvy=N, thumbnail=20191216161550976.jpeg, comments=1234, description=1234, maximum=1, consid=con1, goodsdate=null]
+[16:15:56][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:16:00][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:16:02][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:16:03][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:16:04][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:16:10][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:17:04][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:17:07][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:17:08][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:18:34][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:19:48][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:19:50][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:17][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:18][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:20][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:21][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:39][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:41][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:45][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:46][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:47][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:47][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:20:48][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:04][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:07][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:08][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:14][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:23:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:23:54][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3095 ms
+[16:23:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:23:57][INFO ][FrameworkServlet.java:546] - Completed initialization in 2466 ms
+[16:23:59][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:24:03][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:24:06][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:24:12][INFO ][GoodsController.java:71] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:49:22][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:49:25][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2874 ms
+[16:49:25][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:49:28][INFO ][FrameworkServlet.java:546] - Completed initialization in 2438 ms
+[16:50:34][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:50:40][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:50:44][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:16][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:52:19][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2768 ms
+[16:52:19][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:52:21][INFO ][FrameworkServlet.java:546] - Completed initialization in 2353 ms
+[16:52:25][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:28][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:30][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:39][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:41][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:52:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:52:55][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2839 ms
+[16:52:55][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:52:58][INFO ][FrameworkServlet.java:546] - Completed initialization in 2528 ms
+[16:53:00][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:53:04][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:53:07][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:53:09][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:54:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:54:54][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3323 ms
+[16:54:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:54:57][INFO ][FrameworkServlet.java:546] - Completed initialization in 2600 ms
+[16:55:00][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:04][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:06][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:09][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:11][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:13][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[16:55:16][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:04:32][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:04:35][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3052 ms
+[17:04:35][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:04:38][INFO ][FrameworkServlet.java:546] - Completed initialization in 2483 ms
+[17:04:41][INFO ][HomeController.java:41] - Welcome main!
+[17:04:52][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:05:03][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:06:29][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:06:41][INFO ][GoodsController.java:72] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:41:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:41:08][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3011 ms
+[17:41:08][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:41:11][INFO ][FrameworkServlet.java:546] - Completed initialization in 2534 ms
+[17:41:15][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[17:41:16][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[17:41:17][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[17:41:22][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginCons' of type Constructors]
+[17:41:27][INFO ][HomeController.java:41] - Welcome main!
+[17:41:36][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:41:38][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:47:20][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:47:23][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2792 ms
+[17:47:23][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:47:26][INFO ][FrameworkServlet.java:546] - Completed initialization in 3014 ms
+[17:47:27][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:47:30][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:47:36][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:47:38][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:50:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:50:55][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2721 ms
+[17:50:55][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:50:57][INFO ][FrameworkServlet.java:546] - Completed initialization in 2338 ms
+[17:51:04][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:27][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:30][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:36][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:39][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:41][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:43][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:47][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:50][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:51:54][INFO ][GoodsController.java:73] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:04][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:07][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'goodsname' is not present]
+[17:53:10][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'goodsname' is not present]
+[17:53:12][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:15][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'goodsname' is not present]
+[17:53:42][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:46][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:49][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:51][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:53][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:54][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:53:57][INFO ][GoodsController.java:142] - 상품 목록 검색 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:55:26][INFO ][HomeController.java:41] - Welcome main!
+[19:21:34][INFO ][HomeController.java:41] - Welcome main!
+[19:22:12][INFO ][HomeController.java:41] - Welcome main!
+[19:22:31][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:22:34][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2856 ms
+[19:22:34][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:22:37][INFO ][FrameworkServlet.java:546] - Completed initialization in 2687 ms
+[19:24:00][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:24:03][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2771 ms
+[19:24:03][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:24:05][INFO ][FrameworkServlet.java:546] - Completed initialization in 2518 ms
+[19:35:04][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:35:07][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3112 ms
+[19:35:07][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:35:10][INFO ][FrameworkServlet.java:546] - Completed initialization in 2487 ms
+[19:35:10][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:38:31][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:38:33][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2836 ms
+[19:38:33][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:38:36][INFO ][FrameworkServlet.java:546] - Completed initialization in 2508 ms
+[19:39:04][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:39:07][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2747 ms
+[19:39:07][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:39:09][INFO ][FrameworkServlet.java:546] - Completed initialization in 2478 ms
+[19:39:11][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:39:12][ERROR][Slf4jSpyLogDelegator.java:114] - 2. PreparedStatement.setNull(1, 1111)
+java.sql.SQLException: 부적합한 열 유형: 1111
+	at oracle.jdbc.driver.OracleStatement.getInternalType(OracleStatement.java:3963)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNullCritical(OraclePreparedStatement.java:4596)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNull(OraclePreparedStatement.java:4578)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.setNull(OraclePreparedStatementWrapper.java:1285)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at net.sf.log4jdbc.PreparedStatementSpy.setNull(PreparedStatementSpy.java:251)
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:61)
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:94)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:222)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.categoryGoodsAllList(GoodsDao.java:60)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.categoryGoodsAllList(GoodsServiceImpl.java:74)
+	at com.c4.intepark.shop.goods.controller.GoodsController.moveshopcategory(GoodsController.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:39:12][ERROR][Slf4jSpyLogDelegator.java:116] - 2. PreparedStatement.setNull(1, 1111)
+java.sql.SQLException: 부적합한 열 유형: 1111
+	at oracle.jdbc.driver.OracleStatement.getInternalType(OracleStatement.java:3963)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNullCritical(OraclePreparedStatement.java:4596)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNull(OraclePreparedStatement.java:4578)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.setNull(OraclePreparedStatementWrapper.java:1285)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at net.sf.log4jdbc.PreparedStatementSpy.setNull(PreparedStatementSpy.java:251)
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:61)
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:94)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:222)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.categoryGoodsAllList(GoodsDao.java:60)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.categoryGoodsAllList(GoodsServiceImpl.java:74)
+	at com.c4.intepark.shop.goods.controller.GoodsController.moveshopcategory(GoodsController.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:42:31][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:42:34][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2809 ms
+[19:42:34][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:42:37][INFO ][FrameworkServlet.java:546] - Completed initialization in 2463 ms
+[19:42:42][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:44:25][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:45:08][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:47:16][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:47:58][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:48:33][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:50:00][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:50:06][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:52:26][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:52:29][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:52:31][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:52:34][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:52:54][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:53:08][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:53:11][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:53:14][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:57:05][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:57:08][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:57:12][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:57:14][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[19:57:16][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[20:45:39][INFO ][HomeController.java:41] - Welcome main!
+[20:45:44][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[20:45:46][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[20:47:47][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[20:47:53][INFO ][HomeController.java:41] - Welcome main!
+[20:47:56][INFO ][GoodsController.java:62] - 샵 카테고리 접속 
+[21:24:47][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:24:50][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3028 ms
+[21:24:50][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:24:52][INFO ][FrameworkServlet.java:546] - Completed initialization in 2552 ms
+[21:24:53][INFO ][GoodsController.java:73] - 샵 카테고리 접속 
+[21:25:05][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+[21:25:09][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+[21:25:15][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+[21:25:34][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+[21:25:37][INFO ][GoodsController.java:73] - 샵 카테고리 접속 
+[21:25:39][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:25:44][INFO ][GoodsController.java:57] - 상품 디테일 : 32
+[21:26:22][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:26:42][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:26:44][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:26:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:27:01][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2659 ms
+[21:27:01][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:27:04][INFO ][FrameworkServlet.java:546] - Completed initialization in 2357 ms
+[21:27:08][INFO ][HomeController.java:41] - Welcome main!
+[21:27:19][INFO ][GoodsController.java:66] - 샵 카테고리 접속 
+[21:27:41][INFO ][GoodsController.java:66] - 샵 카테고리 접속 
+[21:32:21][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:32:49][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:33:00][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:33:08][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:34:58][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:02][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:09][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:10][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:11][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:20][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:35:35][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:39:01][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:41:40][INFO ][GoodsController.java:57] - 상품 디테일 : 33
+[21:42:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:42:05][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2730 ms
+[21:42:05][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:42:08][INFO ][FrameworkServlet.java:546] - Completed initialization in 2866 ms
+[21:42:08][INFO ][HomeController.java:41] - Welcome main!
+[21:42:15][INFO ][GoodsController.java:66] - 샵 카테고리 접속 
+[21:48:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:49:03][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3874 ms
+[21:49:03][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:49:06][INFO ][FrameworkServlet.java:546] - Completed initialization in 2776 ms
+[21:49:22][INFO ][HomeController.java:41] - Welcome main!

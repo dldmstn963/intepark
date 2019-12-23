@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,13 +20,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.service.GoodsService;
 import com.c4.intepark.shop.goods.model.vo.Goods;
 import com.c4.intepark.shop.goods.model.vo.GoodsList;
+import com.c4.intepark.shop.goods.model.vo.GoodsPic;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
+import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
 
 @Controller
 public class GoodsController {
@@ -48,16 +52,36 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("moveshop4.do")
-	public String moveshop() {
+	public String moveshop(HttpServletRequest request) {
+		logger.info("쇼핑몰 메인 페이지 ");
+		Random ran = new Random();
+		Paging p = new Paging();
+		int r = ran.nextInt(goodsService.categoryAllListCount()-9)+1;
+		p.setStartRow(r);
+		p.setEndRow(r+8);
+		ArrayList<Goods> list = goodsService.shopMainGoods(p);
+		request.setAttribute("list", list);
 		return "shopping/index";
 	}
 	
 	@RequestMapping("moveproduct4.do")
-	public String moveproduct(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+	public String moveproduct(HttpServletRequest request,
+			@RequestParam(name = "goodsnum", required = false)int goodsnum,
+			GoodsSearch goodsSearch) {
 		logger.info("상품 디테일 : " + goodsnum);
-		
 		Goods goods = goodsService.selectGoods(goodsnum);
+		ArrayList<GoodsPic> list = goodsService.selectGoodsPic(goodsnum);
+		Paging p = new Paging(goodsService.goodsReviewAllListCount(goodsnum));
+		if (request.getParameter("page") != null) {
+			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
+		}
+		goodsSearch.setStartRow(p.getStartRow());
+		goodsSearch.setEndRow(p.getEndRow());
+		goodsSearch.setGoodsnum(goodsnum);
+		ArrayList<GoodsReview> goodsreview = goodsService.selectGoodsReview(goodsSearch);
 		request.setAttribute("goods", goods);
+		request.setAttribute("goodsreview", goodsreview);
+		request.setAttribute("list", list);
 		return "shopping/product-details";
 	}
 	
@@ -89,13 +113,13 @@ public class GoodsController {
 	// 상품 등록
 	@RequestMapping(value = "goodsinsert4.do", method = RequestMethod.POST)
 	public String goodsinsert(Model model, Goods goods,
-			@RequestParam(name = "file", required = false) MultipartFile file, HttpServletRequest request) {
+			 MultipartHttpServletRequest request ) throws IllegalStateException, IOException {
+		MultipartFile file = request.getFile("file");
 		String oriName = file.getOriginalFilename();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 		String reName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + "."
 				+ oriName.substring(oriName.lastIndexOf(".") + 1);
 		goods.setThumbnail(reName);
-		String savePath = request.getSession().getServletContext().getRealPath("resources/img/goodthumspic");
 		logger.info("상품등록 실행 : " + goods);
 		try {
 			int result = goodsService.insertGoods(goods);
@@ -103,11 +127,37 @@ public class GoodsController {
 				model.addAttribute("message", "상품 등록에 실패하였습니다.");
 				return "common/error";
 			}
-			file.transferTo(new File(savePath + "\\" + reName));
+			file.transferTo(new File(request.getSession().getServletContext().getRealPath("resources/img/goodthumspic") + "\\" + reName));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		for(int i = 1; i <= 4; i++) {
+			MultipartFile files = request.getFile("file"+i);
+			String oriName1 = files.getOriginalFilename();
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS"+i);
+			String reName1 = sdf1.format(new java.sql.Date(System.currentTimeMillis())) + "."
+					+ oriName1.substring(oriName1.lastIndexOf(".") + 1);
+			GoodsPic gp = new GoodsPic();
+			gp.setOrifile(oriName1);
+			gp.setRefile(reName1);
+			gp.setGoodsnum(goodsService.selectGoodsNum(goods));
+			gp.setPicnum(i);
+			int result = goodsService.insertGoodsPic(gp);
+			files.transferTo(new File(request.getSession().getServletContext().getRealPath("resources/img/goodsdetailpic") + "\\" + reName1));
+			logger.info("상품 사진 등록 성공 : " + oriName1);
+		}
+		
 		return "shopping/cons/production/goodsinsert";
+	}
+	
+	@RequestMapping(value = "goodsinsert41.do", method = RequestMethod.POST)
+	public String goodsinsert1(@RequestParam(name = "file", required = false) MultipartFile file, HttpServletRequest request, GoodsPic goodspic,Model model) {
+		logger.info(file.getOriginalFilename());
+		
+		
+		return null;
 	}
 
 	// 상품 목록 조회 & 페이징 처리
@@ -203,4 +253,6 @@ public class GoodsController {
 			request.setAttribute("goodsname", goodsname);
 			return "shopping/cons/production/consgoodsSearchlist";
 		}
+		
+		 
 }

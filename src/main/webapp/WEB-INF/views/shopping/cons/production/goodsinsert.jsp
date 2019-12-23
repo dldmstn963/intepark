@@ -4,11 +4,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-   
+   <!-- Bootstrap -->
+    <link href="/intepark/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/intepark/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/intepark/resources/vendors/nprogress/nprogress.css" rel="stylesheet">
+	<link  href="/intepark/resources/css/dropzone.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
     <title>인테파크</title>
 
+	 <style>
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .upload-btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        
+        #fileDragDesc {
+            width: 100%; 
+            height: 100%; 
+            margin-left: auto; 
+            margin-right: auto; 
+            padding: 5px; 
+            text-align: center; 
+            line-height: 300px; 
+            vertical-align:middle;
+        }
+    </style>
+    
   </head>
-
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -65,10 +109,49 @@
                       	썸네일 <input type="file" name="file"><br>
                       	주석<input type="text" name="comments"><br>
                       	상품 설명<input type="text" name="description"><br>
-                      	최대 구매 수량<input type="number" name="maximum"><br>
+                      	최대 구매 수량<input type="number" name="maximum"><br><br>
+                      	파일 상세 사진 : <input type="file" name="file1"><br>
+                      	파일 상세 사진 : <input type="file" name="file2"><br>
+                      	파일 상세 사진 : <input type="file" name="file3"><br>
+                      	파일 상세 사진 : <input type="file" name="file4"><br>
                       	<input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
                       	<input type="submit" value="등록">
                       </form>
+                      <br>
+
+                
+                
+                
+                  
+   
+    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
                   </div>
                 </div>
               </div>
@@ -79,6 +162,17 @@
       </div>
     </div>
 	
-	<%@ include file="/WEB-INF/views/shopping/cons/common/jscsspath.jsp"%>
+	 <!-- jQuery -->
+    <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="/intepark/resources/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/intepark/resources/vendors/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/intepark/resources/build/js/custom.min.js"></script>
+	
   </body>
 </html>

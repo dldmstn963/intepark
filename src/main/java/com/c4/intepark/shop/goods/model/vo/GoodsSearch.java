@@ -12,6 +12,7 @@ public class GoodsSearch implements Serializable{
 	private int endRow;
 	private String consid;
 	private String goodsname;
+	private int goodsnum;
 	public GoodsSearch() {
 		super();
 	}
@@ -38,6 +39,12 @@ public class GoodsSearch implements Serializable{
 	}
 	public void setEndRow(int endRow) {
 		this.endRow = endRow;
+	}
+	public int getGoodsnum() {
+		return goodsnum;
+	}
+	public void setGoodsnum(int goodsnum) {
+		this.goodsnum = goodsnum;
 	}
 	
 	

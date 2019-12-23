@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +38,23 @@
 						<div id="product_details_slider" class="carousel slide"
 							data-ride="carousel">
 							<ol class="carousel-indicators">
-								<li class="active" data-target="#product_details_slider"
+								<c:forEach var="li" items="${list }" varStatus="st" >
+								
+								
+								<c:if test="${st.index == 0 }">
+								<li class="active"  data-target="#product_details_slider" data-slide-to="${st.index}"
+									data-slide-to="0"
+									style="background-image: url(/intepark/resources/img/goodsdetailpic/${li.refile});">
+								</c:if>
+								<c:if test="${st.index != 0 }">
+								<li data-target="#product_details_slider" data-slide-to="${st.index}"
+									data-slide-to="0"
+									style="background-image: url(/intepark/resources/img/goodsdetailpic/${li.refile});">
+								</c:if>
+								
+								
+								</c:forEach>
+								<!-- <li class="active" data-target="#product_details_slider"
 									data-slide-to="0"
 									style="background-image: url(/intepark/resources/img/product-img/pro-big-1.jpg);">
 								</li>
@@ -49,10 +66,30 @@
 								</li>
 								<li data-target="#product_details_slider" data-slide-to="3"
 									style="background-image: url(/intepark/resources/img/product-img/pro-big-4.jpg);">
-								</li>
+								</li> -->
 							</ol>
 							<div class="carousel-inner">
-								<div class="carousel-item active">
+							<c:forEach var="li" items="${list }" varStatus="st" >
+								<c:if test="${st.index == 0 }">
+									<div class="carousel-item active">
+										<a class="gallery_img" href="/intepark/resources/img/goodsdetailpic/${li.refile}">
+										<img class="d-block w-100"
+										src="/intepark/resources/img/goodsdetailpic/${li.refile}"
+										alt="First slide">
+										</a>
+									</div>
+								</c:if>
+								<c:if test="${st.index != 0 }">
+									<div class="carousel-item ">
+										<a class="gallery_img" href="/intepark/resources/img/goodsdetailpic/${li.refile}">
+										<img class="d-block w-100"
+										src="/intepark/resources/img/goodsdetailpic/${li.refile}"
+										alt="First slide">
+										</a>
+									</div>
+								</c:if>
+							</c:forEach>
+								<!-- <div class="carousel-item active">
 									<a class="gallery_img" href="img/product-img/pro-big-1.jpg">
 										<img class="d-block w-100"
 										src="/intepark/resources/img/product-img/pro-big-1.jpg"
@@ -79,7 +116,7 @@
 										src="/intepark/resources/img/product-img/pro-big-4.jpg"
 										alt="Fourth slide">
 									</a>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -114,7 +151,7 @@
 						</div>
 
 						<div class="short_overview my-5">
-							<p>하얀의자 설명입니다.</p>
+							<p>${goods.description }</p>
 						</div>
 
 						<!-- Add to Cart Form -->
@@ -150,11 +187,24 @@
 <table border="1px solid black">
 <tr>
 <td>사진</td>
-<td>내용</td>
+<td>제목</td>
 <td>작성자</td>
 <td>등록일</td>
 </tr>
+<c:forEach var="re" items="${ goodsreview}">
+<tr>
+<td></td>
+<td>${re.reviewtitle }</td>
+<td>${re.userid }</td>
+<td>${re.reviewdate }</td>
+</tr>
+</c:forEach>
 </table>
+<br>
+<button onclick="location.href='movereviewinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">리뷰 작성</button>
+<br>
+<br>
+<button onclick="location.href='moveinquiryinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
 </div>
 	<!-- ##### Main Content Wrapper End ##### -->
 

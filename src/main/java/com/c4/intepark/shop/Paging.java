@@ -80,6 +80,14 @@ public class Paging implements Serializable{
 		return startRow;
 	}
 
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
+
 	public int getEndRow() {
 		return endRow;
 	}
