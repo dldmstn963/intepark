@@ -17,7 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.service.PortfolioService;
-import com.c4.intepark.portfolio.model.vo.Request;
+import com.c4.intepark.portfolio.model.vo.Portfolio;
+import com.c4.intepark.portfolio.model.vo.PortfolioFile;
+import com.c4.intepark.request.model.vo.Request;
 
 @Controller
 public class PortfolioController {
@@ -39,7 +41,7 @@ public class PortfolioController {
 			  model.addAttribute("list", list); 
 			  return "portfolio/portfolioListView";
 		  } else { 
-			  model.addAttribute("message", "업체리스트 조회 실패!");
+			  model.addAttribute("message", "업체 리스트 조회 실패!");
 			  return "common/error";
 		  }
 	}
@@ -54,33 +56,43 @@ public class PortfolioController {
 			mv.addObject("cons", cons);
 			mv.setViewName("portfolio/portfolioDetailView");
 		}else {
-			mv.addObject("message", cons.getCompanyname() + "  시공사 상세 조회 실패!");
+			mv.addObject("message", cons.getCompanyname() + "  업체 상세 조회 실패!");
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
 	
-	@RequestMapping(value="requestWrite5.do", method=RequestMethod.POST)
-	public ModelAndView requestWrite(@RequestParam(value="consid", required=true) String consid, ModelAndView mv) {
-		//logger.info(consid);
+	
+	
+	@RequestMapping(value="insertpf5.do", method=RequestMethod.POST)
+	public String insertportfolio(Portfolio portfolio, PortfolioFile portfolioFile) {
 		
-		Constructors cons = portfolioService.selectRequest(consid);
+		int result = portfolioService.insertportfolio(portfolio);
+		int pfnum = portfolioService.selectpfnum();
+		portfolioFile.setPfnum(pfnum);
+		int result2 = portfolioService.insertportfolioFile(portfolioFile);
 		
-		if(cons != null) {
-			mv.addObject("cons", cons);
-			mv.setViewName("portfolio/portfolioRequestView");
-		}else {
-			mv.addObject("message", cons.getCompanyname() + "  시공사 상담신청 조회 실패!");
-			mv.setViewName("common/error");
-		}
-		return mv;
+		return null;
 	}
 	
-	@RequestMapping(value="test5.do", method=RequestMethod.POST)
-	public String aa(Request req, Model model) {
-		logger.info(req.toString());
+	@RequestMapping(value="updatepf5.do", method=RequestMethod.POST)
+	public String updateportfolio(Portfolio portfolio, PortfolioFile portfolioFile) {
 		
-		return "redirect:conslist5.do";
+		int result = portfolioService.updateportfolio(portfolio);
+		int pfnum = portfolio.getPfnum();
+		//int result2 = portfolioService.updateportfolioFile(pfnum);
+		
+		return null;
+	}
+	
+
+	
+	@RequestMapping(value="deletepf5.do", method=RequestMethod.POST)
+	public String deleteportfolio(@RequestParam(value="reqnum", required=true) String reqnum) {
+		
+		int result = portfolioService.deleteportfolio(reqnum);
+		
+		return null;
 	}
 	
 	

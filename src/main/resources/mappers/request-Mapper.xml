@@ -2,21 +2,15 @@
 <!DOCTYPE mapper PUBLIC
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="portfolioMapper">
-
-	<select id="selectList" resultType="Constructors">
-		select consid, companyname, consarea, consintroduction, profilerenameimg
-		from Constructors
-	</select>
+<mapper namespace="requestMapper">
 	
-	<select id="selectOneCons" parameterType="string" resultType="Constructors">
-		select *
+	<select id="selectRequestForm" parameterType="string" resultType="Constructors">
+		select consid, companyname, consarea, profilerenameimg
 		from Constructors
     	where consid = #{consid}
 	</select>
 	
 	
-	<!-- select pfnum_seq.CURRVAL from dual; resultType="int" -->
 
 	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">
 		select * from member where userid = #{ userid } and userpwd = #{userpwd}

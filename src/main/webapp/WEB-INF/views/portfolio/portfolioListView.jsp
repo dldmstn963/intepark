@@ -118,10 +118,10 @@
       ${ConsVo.consarea} <br>
       </div><!-- 시공사 업체명, 분야 끝 -->
       
-      <div class='col-lg-2' style="margin-top:20px;">
-      <form action="requestWrite5.do" method="post" >
+      <div class='col-lg-2' style="margin-top:15px;">
+      <form action="selectRequestForm5.do" method="post" >
       <input type="hidden" value="${ConsVo.consid}" name="consid">
-      <input type="submit" value="상담신청">
+      <input type="submit" value="상담신청" class="btn">
       </form>
       </div>
       
