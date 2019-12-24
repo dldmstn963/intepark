@@ -10,4 +10,5 @@ public interface AlbumService {
 	
 	int selectAllListCount(HashMap<String, Object> map);
 	ArrayList<Album> selectList(CommonPage commonPage);
+	Album selectOneAlbum(int num);
 }

@@ -25,4 +25,9 @@ public class AlbumServiceImpl implements AlbumService{
 		return albumDao.selectAllListCount(map);
 	}
 
+	@Override
+	public Album selectOneAlbum(int num) {
+		return albumDao.selectOneAlbum(num);
+	}
+
 }

@@ -26,5 +26,9 @@ public class AlbumDao {
 		return (ArrayList<Album>) list;
 	}
 
+	public Album selectOneAlbum(int num) {
+		return sqlSession.selectOne("albumMapper.selectOneAlbum", num);
+	}
+
 
 }

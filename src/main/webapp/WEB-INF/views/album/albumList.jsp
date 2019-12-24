@@ -37,9 +37,11 @@ function albumWrite(){
           	 		<c:forEach var="alist" items="${albumList}">
         				<div class="col-lg-4 col-md-6">
         					<div class="feature_item">
-        						<img style="align:center; margin-left:15px; height:250px; width:250px;" alt="" src="${pageContext.request.contextPath }/resources/img/banner/banner.jpg">
-        						<h4><c:out value="${alist.albumtitle}" /></h4>
-        						<p><c:out value="${alist.albumdate}"></c:out></p>
+        					<p align="right"><c:out value="${alist.albumnum }"/></p>
+        						<a href="albumView.do?anum=${alist.albumnum }&page=${commonPage.currentPage}"><img style="align:center; margin-left:15px; margin-bottom:10px; height:250px; width:250px;" alt="" src="${pageContext.request.contextPath }/resources/img/banner/banner.jpg">
+        						<h4 align="center"><c:out value="${alist.albumtitle}" /></h4></a>
+        						<p align="right"><c:out value="${alist.albumdate}" />&nbsp;&nbsp;&nbsp;&nbsp;
+        						<c:out value="${alist.userid}" /></p>
         					</div>
         				</div>
         			</c:forEach>

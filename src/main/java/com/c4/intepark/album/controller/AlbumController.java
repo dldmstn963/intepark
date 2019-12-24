@@ -61,5 +61,52 @@ public class AlbumController {
 		model.addAttribute("albumList", albumList);
 		return "album/albumList";
 	}
+	@RequestMapping("albumView.do")
+	public String albumViewPage(@RequestParam("anum") int anum,
+		@RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
+		Album album = albumService.selectOneAlbum(anum);
+		
+		model.addAttribute("album", album);
+		model.addAttribute("page", page);
+		return "album/albumView";
+	}
+	
+	@RequestMapping("albumWrite.do")
+	public String albumWrite() {
+		
+		return "main";
+	}
+	
+	@RequestMapping("albumFileUpload.do")
+	public String albumFileUpload() {
+		
+		return "main";
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
