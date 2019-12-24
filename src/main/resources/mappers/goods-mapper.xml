@@ -34,7 +34,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 </select>
 
 
-<select id="selectlistCount" resultType="int">
+<select id="selectlistCount" resultType="int" parameterType="String">
 select count(*) 
 from goods 
 where consid= #{value}
@@ -187,9 +187,22 @@ sysdate,
 )
 </insert>
 
+<select id="selectcategoryListCount" resultType="int" parameterType="int">
+select count(*) 
+from goods 
+where categorynum = #{value}
+</select>
 
-
-
+<select id="selectcategoryGoodsList" resultType="Goods" parameterType="GoodsSearch">
+<![CDATA[
+select * 
+from (select rownum rnum, GOODSNUM, 
+THUMBNAIL,GOODSNAME,PRICE,INVENTORY
+from (select * from GOODS 
+where categorynum= #{goodsnum} order by GOODSnum desc)) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
 
 
 

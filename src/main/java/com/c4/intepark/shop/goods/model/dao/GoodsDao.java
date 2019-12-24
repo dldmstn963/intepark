@@ -16,47 +16,44 @@ import com.c4.intepark.shop.goods.model.vo.Inquiry;
 
 @Repository("goodsDao")
 public class GoodsDao {
-	@Autowired 
+	@Autowired
 	private SqlSessionTemplate mybatis;
-	
-	public GoodsDao() {}
 
-	
-	
-	
-	
+	public GoodsDao() {
+	}
+
 	public int insertGoods(Goods goods) {
-		return mybatis.insert("goodsMapper.insertGoods",goods);
+		return mybatis.insert("goodsMapper.insertGoods", goods);
 	}
 
 	public ArrayList<Goods> selectgoodsList(GoodsSearch goodssearch) {
-		List list = mybatis.selectList("goodsMapper.selectgoodsList",goodssearch);
-		return (ArrayList<Goods>)list; 
+		List list = mybatis.selectList("goodsMapper.selectgoodsList", goodssearch);
+		return (ArrayList<Goods>) list;
 	}
 
 	public int selectlistCount(String consid) {
-		return mybatis.selectOne("goodsMapper.selectlistCount",consid);
+		return mybatis.selectOne("goodsMapper.selectlistCount", consid);
 	}
 
 	public int deleteGoods(int goodsnum) {
-		return mybatis.delete("goodsMapper.deleteGoods",goodsnum);
+		return mybatis.delete("goodsMapper.deleteGoods", goodsnum);
 	}
 
 	public Goods selectGoods(int goodsnum) {
-		return mybatis.selectOne("goodsMapper.selectGoods",goodsnum);
+		return mybatis.selectOne("goodsMapper.selectGoods", goodsnum);
 	}
 
 	public int updateGoods(Goods goods) {
-		return mybatis.update("goodsMapper.updateGoods",goods);
+		return mybatis.update("goodsMapper.updateGoods", goods);
 	}
 
 	public int selectsearchlistCount(GoodsSearch goodsSearch) {
-		return mybatis.selectOne("goodsMapper.selectsearchlistCount",goodsSearch);
+		return mybatis.selectOne("goodsMapper.selectsearchlistCount", goodsSearch);
 	}
 
 	public ArrayList<Goods> selectgoodsSearchList(GoodsSearch goodsSearch) {
-		List list = mybatis.selectList("goodsMapper.selectgoodsSearchList",goodsSearch);
-		return (ArrayList<Goods>)list; 
+		List list = mybatis.selectList("goodsMapper.selectgoodsSearchList", goodsSearch);
+		return (ArrayList<Goods>) list;
 	}
 
 	public int selectcategoryAllListCount() {
@@ -64,52 +61,61 @@ public class GoodsDao {
 	}
 
 	public ArrayList<Goods> selectcategoryGoodsAllList(Paging p) {
-		List list = mybatis.selectList("goodsMapper.selectcategoryGoodsAllList",p);
-		return (ArrayList<Goods>)list; 
+		List list = mybatis.selectList("goodsMapper.selectcategoryGoodsAllList", p);
+		return (ArrayList<Goods>) list;
 	}
 
 	public ArrayList<Goods> selectshopMainGoods(Paging p) {
-		List list = mybatis.selectList("goodsMapper.selectshopMainGoods",p);
-		return (ArrayList<Goods>)list; 
+		List list = mybatis.selectList("goodsMapper.selectshopMainGoods", p);
+		return (ArrayList<Goods>) list;
 	}
 
 	public int selectGoodsNum(Goods goods) {
-		return mybatis.selectOne("goodsMapper.selectGoodsNum",goods);
+		return mybatis.selectOne("goodsMapper.selectGoodsNum", goods);
 	}
 
 	public int insertGoodsPic(GoodsPic gp) {
-		return mybatis.insert("goodsMapper.insertGoodsPic",gp);
+		return mybatis.insert("goodsMapper.insertGoodsPic", gp);
 	}
 
 	public ArrayList<GoodsPic> selectGoodsPic(int goodsnum) {
-		List list = mybatis.selectList("goodsMapper.selectGoodsPic",goodsnum);
-		return (ArrayList<GoodsPic>)list; 
+		List list = mybatis.selectList("goodsMapper.selectGoodsPic", goodsnum);
+		return (ArrayList<GoodsPic>) list;
 	}
 
 	public int selectgoodsReviewAllListCount(int goodsnum) {
-		return mybatis.selectOne("goodsMapper.selectgoodsReviewAllListCount",goodsnum);
+		return mybatis.selectOne("goodsMapper.selectgoodsReviewAllListCount", goodsnum);
 	}
 
 	public ArrayList<GoodsReview> selectGoodsReview(GoodsSearch goodsSearch) {
-		List list = mybatis.selectList("goodsMapper.selectGoodsReview",goodsSearch);
-		return (ArrayList<GoodsReview>)list; 
+		List list = mybatis.selectList("goodsMapper.selectGoodsReview", goodsSearch);
+		return (ArrayList<GoodsReview>) list;
 	}
 
 	public int selectgoodsInquiryAllListCount(int goodsnum) {
-		return mybatis.selectOne("goodsMapper.selectgoodsInquiryAllListCount",goodsnum);
+		return mybatis.selectOne("goodsMapper.selectgoodsInquiryAllListCount", goodsnum);
 	}
 
 	public ArrayList<Inquiry> selectGoodsInquiry(GoodsSearch goodsSearch) {
-		List list = mybatis.selectList("goodsMapper.selectGoodsInquiry",goodsSearch);
-		return (ArrayList<Inquiry>)list; 
+		List list = mybatis.selectList("goodsMapper.selectGoodsInquiry", goodsSearch);
+		return (ArrayList<Inquiry>) list;
 	}
 
 	public int insertGoodsInquiry(Inquiry goodsinquiry) {
-		return mybatis.insert("goodsMapper.insertGoodsInquiry",goodsinquiry);
+		return mybatis.insert("goodsMapper.insertGoodsInquiry", goodsinquiry);
 	}
 
 	public int insertGoodsReview(GoodsReview goodsreview) {
-		return mybatis.insert("goodsMapper.insertGoodsReview",goodsreview);
+		return mybatis.insert("goodsMapper.insertGoodsReview", goodsreview);
 	}
-	
+
+	public int selectcategoryListCount(int categorynum) {
+		return mybatis.selectOne("goodsMapper.selectcategoryListCount", categorynum);
+	}
+
+	public ArrayList<Goods> selectcategoryGoodsList(GoodsSearch goodsSearch) {
+		List list = mybatis.selectList("goodsMapper.selectcategoryGoodsList", goodsSearch);
+		return (ArrayList<Goods>) list;
+	}
+
 }
