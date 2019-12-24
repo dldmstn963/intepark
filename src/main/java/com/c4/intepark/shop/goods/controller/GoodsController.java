@@ -26,10 +26,10 @@ import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.service.GoodsService;
 import com.c4.intepark.shop.goods.model.vo.Goods;
-import com.c4.intepark.shop.goods.model.vo.GoodsList;
 import com.c4.intepark.shop.goods.model.vo.GoodsPic;
+import com.c4.intepark.shop.goods.model.vo.GoodsReview;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
-import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
+import com.c4.intepark.shop.goods.model.vo.Inquiry;
 
 @Controller
 public class GoodsController {
@@ -56,22 +56,26 @@ public class GoodsController {
 		logger.info("쇼핑몰 메인 페이지 ");
 		Random ran = new Random();
 		Paging p = new Paging();
-		int r = ran.nextInt(goodsService.categoryAllListCount()-9)+1;
+		int r = ran.nextInt(goodsService.selectcategoryAllListCount()-9)+1;
 		p.setStartRow(r);
 		p.setEndRow(r+8);
-		ArrayList<Goods> list = goodsService.shopMainGoods(p);
+		ArrayList<Goods> list = goodsService.selectshopMainGoods(p);
 		request.setAttribute("list", list);
 		return "shopping/index";
 	}
 	
+	//상품 상세 조회
 	@RequestMapping("moveproduct4.do")
 	public String moveproduct(HttpServletRequest request,
 			@RequestParam(name = "goodsnum", required = false)int goodsnum,
 			GoodsSearch goodsSearch) {
 		logger.info("상품 디테일 : " + goodsnum);
+		//상품조회
 		Goods goods = goodsService.selectGoods(goodsnum);
+		//상품 사진 조회
 		ArrayList<GoodsPic> list = goodsService.selectGoodsPic(goodsnum);
-		Paging p = new Paging(goodsService.goodsReviewAllListCount(goodsnum));
+		//리뷰 페이징 & 조회
+		Paging p = new Paging(goodsService.selectgoodsReviewAllListCount(goodsnum));
 		if (request.getParameter("page") != null) {
 			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
 		}
@@ -79,8 +83,21 @@ public class GoodsController {
 		goodsSearch.setEndRow(p.getEndRow());
 		goodsSearch.setGoodsnum(goodsnum);
 		ArrayList<GoodsReview> goodsreview = goodsService.selectGoodsReview(goodsSearch);
+
+		Paging p1 = new Paging(goodsService.selectgoodsInquiryAllListCount(goodsnum));
+		if (request.getParameter("page1") != null) {
+			p1.setCurrentPage(Integer.parseInt(request.getParameter("page1")));
+		}
+		goodsSearch.setStartRow(p1.getStartRow());
+		goodsSearch.setEndRow(p1.getEndRow());
+		goodsSearch.setGoodsnum(goodsnum);
+		ArrayList<Inquiry> goodsInquiry = goodsService.selectGoodsInquiry(goodsSearch);
+		
+		
+		
 		request.setAttribute("goods", goods);
 		request.setAttribute("goodsreview", goodsreview);
+		request.setAttribute("goodsInquiry", goodsInquiry);
 		request.setAttribute("list", list);
 		return "shopping/product-details";
 	}
@@ -88,11 +105,11 @@ public class GoodsController {
 	@RequestMapping("moveshopcategory4.do")
 	public String moveshopcategory(HttpServletRequest request) {
 		logger.info("샵 카테고리 접속 ");
-		Paging p = new Paging(goodsService.categoryAllListCount());
+		Paging p = new Paging(goodsService.selectcategoryAllListCount());
 		if (request.getParameter("page") != null) {
 			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
 		}
-		ArrayList<Goods> list = goodsService.categoryGoodsAllList(p);
+		ArrayList<Goods> list = goodsService.selectcategoryGoodsAllList(p);
 		request.setAttribute("list", list);
 		request.setAttribute("maxPage", p.getMaxPage());
 		request.setAttribute("currentPage", p.getCurrentPage());
@@ -163,17 +180,18 @@ public class GoodsController {
 	// 상품 목록 조회 & 페이징 처리
 	@RequestMapping("movegoodslist4.do")
 	public String movegoodslist4(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request,
-			GoodsList goodslist) {
+			GoodsSearch goodssearch) {
 		logger.info("상품 목록 조회 : " + cons);
 		String consid = cons.getConsid();
-		Paging p = new Paging(goodsService.listCount(consid));
+		Paging p = new Paging(goodsService.selectlistCount(consid));
 		if (request.getParameter("page") != null) {
 			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
 		}
-		goodslist.setStartRow(p.getStartRow());
-		goodslist.setEndRow(p.getEndRow());
-		goodslist.setConsid(consid);
-		ArrayList<Goods> list = goodsService.goodsList(goodslist);
+		goodssearch.setStartRow(p.getStartRow());
+		goodssearch.setEndRow(p.getEndRow());
+		goodssearch.setConsid(consid);
+		
+		ArrayList<Goods> list = goodsService.selectgoodsList(goodssearch);
 		request.setAttribute("list", list);
 		request.setAttribute("maxPage", p.getMaxPage());
 		request.setAttribute("currentPage", p.getCurrentPage());
@@ -237,14 +255,14 @@ public class GoodsController {
 			String consid = cons.getConsid();
 			goodsSearch.setConsid(consid);
 			goodsSearch.setGoodsname(goodsname);
-			Paging p = new Paging(goodsService.searchlistCount(goodsSearch));
+			Paging p = new Paging(goodsService.selectsearchlistCount(goodsSearch));
 			if (request.getParameter("page") != null) {
 				p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
 			}
 			goodsSearch.setStartRow(p.getStartRow());
 			goodsSearch.setEndRow(p.getEndRow());
 			goodsSearch.setConsid(consid);
-			ArrayList<Goods> list = goodsService.goodsSearchList(goodsSearch);
+			ArrayList<Goods> list = goodsService.selectgoodsSearchList(goodsSearch);
 			request.setAttribute("list", list);
 			request.setAttribute("maxPage", p.getMaxPage());
 			request.setAttribute("currentPage", p.getCurrentPage());
@@ -254,5 +272,36 @@ public class GoodsController {
 			return "shopping/cons/production/consgoodsSearchlist";
 		}
 		
+		@RequestMapping("movereviewinsert4.do")
+		public String movereviewinsert(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+			logger.info("상품 리뷰창으로 이동 : " + goodsnum);
+			Goods goods = goodsService.selectGoods(goodsnum);
+			request.setAttribute("goods", goods);
+			return "shopping/reviewinsert";
+		}
+		
+		@RequestMapping(value="goodsReviewInsert4.do", method=RequestMethod.POST)
+		public String goodsReviewInsert (GoodsReview goodsreview, HttpServletRequest request) {
+			int result = goodsService.insertGoodsReview(goodsreview);
+			logger.info("리뷰 작성 완료 : " + result);
+			return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
+		}
+		
+		@RequestMapping("moveinquiryinsert4.do")
+		public String moveinquiryinsert4(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
+			logger.info("상품 문의창으로 이동 : " + goodsnum);
+			Goods goods = goodsService.selectGoods(goodsnum);
+			request.setAttribute("goods", goods);
+			return "shopping/inquiryinsert";
+		}
+		
+		@RequestMapping(value="goodsinquiryInsert4.do", method=RequestMethod.POST)
+		public String goodsinquiryInsert (Inquiry goodsinquiry, HttpServletRequest request) {
+			goodsinquiry.setInquirytype(1);
+			goodsinquiry.setSecretat("N");
+			int result = goodsService.insertGoodsInquiry(goodsinquiry);
+			logger.info("리뷰 작성 완료 : " + result);
+			return "redirect:moveproduct4.do?goodsnum="+goodsinquiry.getGoodsnum();
+		}
 		 
 }

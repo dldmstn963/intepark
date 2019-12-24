@@ -13,6 +13,7 @@ public class GoodsSearch implements Serializable{
 	private String consid;
 	private String goodsname;
 	private int goodsnum;
+	
 	public GoodsSearch() {
 		super();
 	}

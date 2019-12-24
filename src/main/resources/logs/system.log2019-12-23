@@ -1,0 +1,63 @@
+[18:53:13][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:53:16][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'GoodsInquiry'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+[18:53:16][ERROR][ContextLoader.java:312] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'GoodsInquiry'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1762)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:830)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:400)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:291)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1412)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1402)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'GoodsInquiry'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:501)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758)
+	... 21 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'GoodsInquiry'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:98)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:498)
+	... 24 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'GoodsInquiry'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:176)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:109)
+	... 26 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.c4.intepark.shop.goodsreview.model.vo.Inquiry
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:169)
+	... 27 more
+[18:55:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:55:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2765 ms
+[18:55:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:55:17][INFO ][FrameworkServlet.java:546] - Completed initialization in 2564 ms
+[18:55:18][INFO ][HomeController.java:41] - Welcome main!
+[20:03:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:03:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2905 ms
+[20:03:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:03:16][INFO ][FrameworkServlet.java:546] - Completed initialization in 2384 ms
+[20:03:20][INFO ][HomeController.java:41] - Welcome main!
+[20:03:34][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[21:48:28][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:48:31][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2831 ms
+[21:48:31][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:48:35][INFO ][FrameworkServlet.java:546] - Completed initialization in 3501 ms
+[21:48:37][INFO ][HomeController.java:41] - Welcome main!

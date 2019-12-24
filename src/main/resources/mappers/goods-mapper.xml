@@ -22,7 +22,7 @@ default
 )
 </insert>
 
-<select id="listGoods" resultType="Goods" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsList">
+<select id="selectgoodsList" resultType="Goods" parameterType="GoodsSearch">
 <![CDATA[
 select * 
 from (select rownum rnum, GOODSNUM, 
@@ -34,7 +34,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 </select>
 
 
-<select id="listCount" resultType="int">
+<select id="selectlistCount" resultType="int">
 select count(*) 
 from goods 
 where consid= #{value}
@@ -58,13 +58,13 @@ description = #{description}, maximum = #{maximum}
 where goodsnum = #{goodsnum}
 </update>
 
-<select id="goodsSearch" resultType="int" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsSearch">
+<select id="selectsearchlistCount" resultType="int" parameterType="GoodsSearch">
 select count(*) 
 from goods 
 where consid= #{consid} and goodsname=#{goodsname}
 </select>
 
-<select id="goodsSearchList" resultType="Goods" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsSearch">
+<select id="selectgoodsSearchList" resultType="Goods" parameterType="GoodsSearch">
 <![CDATA[
 select * 
 from (select rownum rnum, GOODSNUM, 
@@ -75,7 +75,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
-<select id="selectGoodsReview" resultType="GoodsReview" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsSearch">
+<select id="selectGoodsReview" resultType="GoodsReview" parameterType="GoodsSearch">
 <![CDATA[
 select * 
 from (select rownum rnum, REVIEWDATE, 
@@ -86,7 +86,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
-<select id="categoryGoodsAllList" resultType="Goods" parameterType="com.c4.intepark.shop.Paging">
+<select id="selectcategoryGoodsAllList" resultType="Goods" parameterType="Paging">
 <![CDATA[
 select * 
 from (select rownum rnum, GOODSNUM, 
@@ -96,7 +96,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
-<select id="shopMainGoods" resultType="Goods" parameterType="com.c4.intepark.shop.Paging">
+<select id="selectshopMainGoods" resultType="Goods" parameterType="Paging">
 <![CDATA[
 select * 
 from (select rownum rnum, GOODSNUM, 
@@ -106,12 +106,12 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
-<select id="categoryAllListCount" resultType="int">
+<select id="selectcategoryAllListCount" resultType="int">
 select count(*) 
 from goods 
 </select>
 
-<select id="goodsReviewAllListCount"  parameterType="int" resultType="int">
+<select id="selectgoodsReviewAllListCount"  parameterType="int" resultType="int">
 select count(*) 
 from GoodsReview
 where goodsnum = ${value}
@@ -125,7 +125,7 @@ inventory = #{inventory} and freedlvy = #{freedlvy} and thumbnail = #{thumbnail}
 description = #{description} and maximum = #{maximum}
 </select >
 
-<insert id="insertGoodsPic" parameterType="com.c4.intepark.shop.goods.model.vo.GoodsPic">
+<insert id="insertGoodsPic" parameterType="GoodsPic">
 insert into 
 GOODSPIC 
 values (
@@ -136,19 +136,56 @@ values (
 )
 </insert>
 
-<select id="selectGoodsPic" resultType="com.c4.intepark.shop.goods.model.vo.GoodsPic" parameterType="int">
+<select id="selectGoodsPic" resultType="GoodsPic" parameterType="int">
 select * 
 from goodspic
 where goodsnum= #{value}
 </select>
 
+<select id="selectgoodsInquiryAllListCount"  parameterType="int" resultType="int">
+select count(*) 
+from GOODSINQUIRY
+where goodsnum = ${value}
+</select>
 
+<select id="selectGoodsInquiry" resultType="GoodsInquiry" parameterType="GoodsSearch">
+<![CDATA[
+select * 
+from (select rownum rnum, inquirycn, 
+inquirytype,inquirytitle,secretat,inquirydate,answersttus,userid
+from (select * from GoodsInquiry 
+where GOODSNUM= #{goodsnum} order by inquirydate desc)) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
 
+<insert id="insertGoodsInquiry" parameterType="GoodsInquiry">
+insert into GOODSINQUIRY values(
+(select max(INQUIRYNUM)+1 
+from GOODSINQUIRY),
+#{inquirycn},
+#{inquirytype},
+#{inquirytitle},
+#{secretat},
+sysdate,
+default,
+#{userid},
+#{goodsnum}
+)
+</insert>
 
-
-
-
-
+<insert id="insertGoodsReview" parameterType="GoodsReview">
+insert into GoodsReview values(
+(select max(reviewnum)+1 
+from GoodsReview),
+sysdate,
+#{reviewcn},
+#{reviewscore},
+#{userid},
+#{goodsnum},
+#{reviewtitle}
+)
+</insert>
 
 
 

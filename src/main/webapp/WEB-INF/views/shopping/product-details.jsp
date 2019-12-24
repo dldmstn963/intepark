@@ -204,6 +204,24 @@
 <button onclick="location.href='movereviewinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">리뷰 작성</button>
 <br>
 <br>
+
+<table border="1px solid black">
+<tr>
+<td>사진</td>
+<td>제목</td>
+<td>작성자</td>
+<td>등록일</td>
+</tr>
+<c:forEach var="re1" items="${ goodsInquiry}">
+<tr>
+<td></td>
+<td>${re1.inquirytitle }</td>
+<td>${re1.userid }</td>
+<td>${re1.inquirydate }</td>
+</tr>
+</c:forEach>
+</table>
+<br><br>
 <button onclick="location.href='moveinquiryinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
 </div>
 	<!-- ##### Main Content Wrapper End ##### -->

@@ -1,4 +1,4 @@
-package com.c4.intepark.shop.requests.model.vo;
+package com.c4.intepark.shop.orders.model.vo;
 
 import java.io.Serializable;
 

@@ -4,17 +4,20 @@ import java.util.ArrayList;
 
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.vo.Goods;
-import com.c4.intepark.shop.goods.model.vo.GoodsList;
 import com.c4.intepark.shop.goods.model.vo.GoodsPic;
+import com.c4.intepark.shop.goods.model.vo.GoodsReview;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
-import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
+import com.c4.intepark.shop.goods.model.vo.Inquiry;
 
 public interface GoodsService {
+	
+	
+	
 	public int insertGoods(Goods goods);
 
-	public ArrayList<Goods> goodsList(GoodsList goodslist);
-
-	public int listCount(String consid);
+	public int selectlistCount(String consid);
+	
+	public ArrayList<Goods> selectgoodsList(GoodsSearch goodssearch);
 
 	public int deleteGoods(int goodsnum);
 
@@ -22,15 +25,15 @@ public interface GoodsService {
 
 	public int updateGoods(Goods goods);
 	
-	public int searchlistCount(GoodsSearch goodsSearch);
+	public int selectsearchlistCount(GoodsSearch goodsSearch);
 
-	public ArrayList<Goods> goodsSearchList(GoodsSearch goodsSearch);
+	public ArrayList<Goods> selectgoodsSearchList(GoodsSearch goodsSearch);
 
-	public int categoryAllListCount();
+	public int selectcategoryAllListCount();
 
-	public ArrayList<Goods> categoryGoodsAllList(Paging p);
+	public ArrayList<Goods> selectcategoryGoodsAllList(Paging p);
 
-	public ArrayList<Goods> shopMainGoods(Paging p);
+	public ArrayList<Goods> selectshopMainGoods(Paging p);
 
 	public int selectGoodsNum(Goods goods);
 
@@ -38,7 +41,15 @@ public interface GoodsService {
 
 	public ArrayList<GoodsPic> selectGoodsPic(int goodsnum);
 
-	public int goodsReviewAllListCount(int goodsnum);
+	public int selectgoodsReviewAllListCount(int goodsnum);
 
 	public ArrayList<GoodsReview> selectGoodsReview(GoodsSearch goodsSearch);
+
+	public int selectgoodsInquiryAllListCount(int goodsnum);
+
+	public ArrayList<Inquiry> selectGoodsInquiry(GoodsSearch goodsSearch);
+
+	public int insertGoodsReview(GoodsReview goodsreview);
+
+	public int insertGoodsInquiry(Inquiry goodsinquiry);
 }

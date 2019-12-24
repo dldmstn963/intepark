@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.dao.GoodsDao;
 import com.c4.intepark.shop.goods.model.vo.Goods;
-import com.c4.intepark.shop.goods.model.vo.GoodsList;
 import com.c4.intepark.shop.goods.model.vo.GoodsPic;
+import com.c4.intepark.shop.goods.model.vo.GoodsReview;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
-import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
+import com.c4.intepark.shop.goods.model.vo.Inquiry;
 
 @Service("goodsService")
 public class GoodsServiceImpl implements GoodsService{
@@ -19,6 +19,10 @@ public class GoodsServiceImpl implements GoodsService{
 	@Autowired
 	private GoodsDao goodsDao;
 
+	
+	
+	
+	
 	@Override
 	public int insertGoods(Goods goods) {
 		return goodsDao.insertGoods(goods);
@@ -26,13 +30,13 @@ public class GoodsServiceImpl implements GoodsService{
 
 
 	@Override
-	public int listCount(String consid) {
-		return goodsDao.listCount(consid);
+	public int selectlistCount(String consid) {
+		return goodsDao.selectlistCount(consid);
 	}
 
 	@Override
-	public ArrayList<Goods> goodsList(GoodsList goodslist) {
-		return goodsDao.listGoods(goodslist);
+	public ArrayList<Goods> selectgoodsList(GoodsSearch goodssearch) {
+		return goodsDao.selectgoodsList(goodssearch);
 	}
 
 
@@ -55,32 +59,32 @@ public class GoodsServiceImpl implements GoodsService{
 
 
 	@Override
-	public int searchlistCount(GoodsSearch goodsSearch) {
-		return goodsDao.searchlistCount(goodsSearch);
+	public int selectsearchlistCount(GoodsSearch goodsSearch) {
+		return goodsDao.selectsearchlistCount(goodsSearch);
 	}
 
 
 	@Override
-	public ArrayList<Goods> goodsSearchList(GoodsSearch goodsSearch) {
-		return goodsDao.goodsSearchList(goodsSearch);
+	public ArrayList<Goods> selectgoodsSearchList(GoodsSearch goodsSearch) {
+		return goodsDao.selectgoodsSearchList(goodsSearch);
 	}
 
 
 	@Override
-	public int categoryAllListCount() {
-		return goodsDao.categoryAllListCount();
+	public int selectcategoryAllListCount() {
+		return goodsDao.selectcategoryAllListCount();
 	}
 
 
 	@Override
-	public ArrayList<Goods> categoryGoodsAllList(Paging p) {
-		return goodsDao.categoryGoodsAllList(p);
+	public ArrayList<Goods> selectcategoryGoodsAllList(Paging p) {
+		return goodsDao.selectcategoryGoodsAllList(p);
 	}
 
 
 	@Override
-	public ArrayList<Goods> shopMainGoods(Paging p) {
-		return goodsDao.shopMainGoods(p);
+	public ArrayList<Goods> selectshopMainGoods(Paging p) {
+		return goodsDao.selectshopMainGoods(p);
 	}
 
 
@@ -103,8 +107,8 @@ public class GoodsServiceImpl implements GoodsService{
 
 
 	@Override
-	public int goodsReviewAllListCount(int goodsnum) {
-		return goodsDao.goodsReviewAllListCount(goodsnum);
+	public int selectgoodsReviewAllListCount(int goodsnum) {
+		return goodsDao.selectgoodsReviewAllListCount(goodsnum);
 	}
 
 
@@ -113,5 +117,27 @@ public class GoodsServiceImpl implements GoodsService{
 		return goodsDao.selectGoodsReview(goodsSearch);
 	}
 	
+	@Override
+	public int selectgoodsInquiryAllListCount(int goodsnum) {
+		return goodsDao.selectgoodsInquiryAllListCount(goodsnum);
+	}
+
+
+	@Override
+	public ArrayList<Inquiry> selectGoodsInquiry(GoodsSearch goodsSearch) {
+		return goodsDao.selectGoodsInquiry(goodsSearch);
+	}
+
+
+	@Override
+	public int insertGoodsReview(GoodsReview goodsreview) {
+		return goodsDao.insertGoodsReview(goodsreview);
+	}
+
+
+	@Override
+	public int insertGoodsInquiry(Inquiry goodsinquiry) {
+		return goodsDao.insertGoodsInquiry(goodsinquiry);
+	}
 	
 }

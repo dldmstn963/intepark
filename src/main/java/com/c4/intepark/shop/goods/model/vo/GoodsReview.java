@@ -1,4 +1,4 @@
-package com.c4.intepark.shop.goodsreview.model.vo;
+package com.c4.intepark.shop.goods.model.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
