@@ -22,6 +22,13 @@
 		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc},${password}, default)
 	</insert>
 	
+		<select id="nonAuctionDetailView" parameterType="String" resultType="NonAuction">
+		select * from nonauction where auctionno = #{nonauc}
+	</select>
+		<select id="auctionDetailView" parameterType="String" resultType="Auction">
+	select * from auction where auctionno = #{auc}
+	</select>
+	
 </mapper>
 
 

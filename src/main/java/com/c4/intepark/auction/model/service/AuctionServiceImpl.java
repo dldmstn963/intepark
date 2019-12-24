@@ -37,5 +37,25 @@ public class AuctionServiceImpl implements AuctionService{
 		
 		return (ArrayList<NonAuction>)auctionDao.NonAuctionList();
 	}
+	@Override
+	public int auctionUpdate(Auction auction) {
+		return 0;
+		 
+	}
+	@Override
+	public int auctionDelete(Auction auction) {
+		return 0;
+		
+	}
+	@Override
+	public Auction auctionDetailView(String auc) {
 	
+		
+		return  auctionDao.auctionDetailView(auc);
+	}
+	@Override
+	public NonAuction nonAuctionDetailView(String nonauc) {
+		
+		return  auctionDao.nonAuctionDetailView(nonauc);
+	}
 }
