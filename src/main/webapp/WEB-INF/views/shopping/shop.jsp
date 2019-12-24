@@ -14,7 +14,29 @@
 <div class="main-content-wrapper d-flex clearfix">
 
    <jsp:include page="common/header.jsp" />
-<%@ include file="common/categoryheader.jsp" %>
+       <div class="shop_sidebar_area">
+
+            <!-- ##### Single Widget ##### -->
+            <div class="widget catagory mb-50">
+                <!-- Widget Title -->
+                <h6 class="widget-title mb-30">목록</h6>
+
+                <!--  Catagories  -->
+                <div class="catagories-menu">
+                    <ul>
+                        <li class="active"><a href="moveshopcategory4.do">전체</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=1">의자</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=2">침구</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=3">가구</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=4">패브릭</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=5">테이블</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=6">조명</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=7">DIY 셀프 시공</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            
  
 
         <div class="amado_product_area section-padding-100">

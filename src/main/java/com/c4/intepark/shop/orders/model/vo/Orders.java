@@ -16,11 +16,14 @@ public class Orders implements Serializable{
 	private String userid; 
 	private int dlvynum; 
 	private int requestnum;
+	private int orderquantity;
+	private int goodsnum;
+	private int goodsprice;
 	public Orders() {
 		super();
 	}
 	public Orders(int ordernum, Date orderdate, int orderprice, String orderstatus, String userid, int dlvynum,
-			int requestnum) {
+			int requestnum, int orderquantity, int goodsnum, int goodsprice) {
 		super();
 		this.ordernum = ordernum;
 		this.orderdate = orderdate;
@@ -29,6 +32,9 @@ public class Orders implements Serializable{
 		this.userid = userid;
 		this.dlvynum = dlvynum;
 		this.requestnum = requestnum;
+		this.orderquantity = orderquantity;
+		this.goodsnum = goodsnum;
+		this.goodsprice = goodsprice;
 	}
 	public int getOrdernum() {
 		return ordernum;
@@ -72,11 +78,33 @@ public class Orders implements Serializable{
 	public void setRequestnum(int requestnum) {
 		this.requestnum = requestnum;
 	}
+	public int getOrderquantity() {
+		return orderquantity;
+	}
+	public void setOrderquantity(int orderquantity) {
+		this.orderquantity = orderquantity;
+	}
+	public int getGoodsnum() {
+		return goodsnum;
+	}
+	public void setGoodsnum(int goodsnum) {
+		this.goodsnum = goodsnum;
+	}
+	public int getGoodsprice() {
+		return goodsprice;
+	}
+	public void setGoodsprice(int goodsprice) {
+		this.goodsprice = goodsprice;
+	}
 	@Override
 	public String toString() {
 		return "Orders [ordernum=" + ordernum + ", orderdate=" + orderdate + ", orderprice=" + orderprice
 				+ ", orderstatus=" + orderstatus + ", userid=" + userid + ", dlvynum=" + dlvynum + ", requestnum="
-				+ requestnum + "]";
+				+ requestnum + ", orderquantity=" + orderquantity + ", goodsnum=" + goodsnum + ", goodsprice="
+				+ goodsprice + "]";
 	}
+	
+
+
 	
 }

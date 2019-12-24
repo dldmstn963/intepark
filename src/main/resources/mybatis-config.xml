@@ -35,5 +35,6 @@
 		<mapper resource="mappers/request-Mapper.xml"/>
 		<mapper resource="mappers/review-Mapper.xml"/>
 		<mapper resource="mappers/album-mapper.xml"/>
+		<mapper resource="mappers/order-mapper.xml"/>
 	</mappers>
 </configuration>

@@ -139,5 +139,17 @@ public class GoodsServiceImpl implements GoodsService{
 	public int insertGoodsInquiry(Inquiry goodsinquiry) {
 		return goodsDao.insertGoodsInquiry(goodsinquiry);
 	}
+
+
+	@Override
+	public int selectcategoryListCount(int categorynum) {
+		return goodsDao.selectcategoryListCount(categorynum);
+	}
+
+
+	@Override
+	public ArrayList<Goods> selectcategoryGoodsList(GoodsSearch goodsSearch) {
+		return goodsDao.selectcategoryGoodsList(goodsSearch);
+	}
 	
 }

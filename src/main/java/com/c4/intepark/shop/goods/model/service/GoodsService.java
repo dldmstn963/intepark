@@ -52,4 +52,8 @@ public interface GoodsService {
 	public int insertGoodsReview(GoodsReview goodsreview);
 
 	public int insertGoodsInquiry(Inquiry goodsinquiry);
+
+	public int selectcategoryListCount(int categorynum);
+
+	public ArrayList<Goods> selectcategoryGoodsList(GoodsSearch goodsSearch);
 }

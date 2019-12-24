@@ -96,8 +96,13 @@
                   <div class="x_content">
                       <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
                       	카테고리 <select name="categorynum">
-                      			<option value="1">가구</option>
+                      			<option value="1">의자</option>
                       			<option value="2">침구</option>
+                      			<option value="3">가구</option>
+                      			<option value="4">패브릭</option>
+                      			<option value="5">테이블</option>
+                      			<option value="6">조명</option>
+                      			<option value="7">DIY 셀프 시공</option>
                       			</select><br>
                       	상품명 <input type="text" name="goodsname"><br>
                       	가격 <input type="number" name="price"><br>

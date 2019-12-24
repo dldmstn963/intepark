@@ -54,19 +54,6 @@
 								
 								
 								</c:forEach>
-								<!-- <li class="active" data-target="#product_details_slider"
-									data-slide-to="0"
-									style="background-image: url(/intepark/resources/img/product-img/pro-big-1.jpg);">
-								</li>
-								<li data-target="#product_details_slider" data-slide-to="1"
-									style="background-image: url(/intepark/resources/img/product-img/pro-big-2.jpg);">
-								</li>
-								<li data-target="#product_details_slider" data-slide-to="2"
-									style="background-image: url(/intepark/resources/img/product-img/pro-big-3.jpg);">
-								</li>
-								<li data-target="#product_details_slider" data-slide-to="3"
-									style="background-image: url(/intepark/resources/img/product-img/pro-big-4.jpg);">
-								</li> -->
 							</ol>
 							<div class="carousel-inner">
 							<c:forEach var="li" items="${list }" varStatus="st" >
@@ -89,34 +76,6 @@
 									</div>
 								</c:if>
 							</c:forEach>
-								<!-- <div class="carousel-item active">
-									<a class="gallery_img" href="img/product-img/pro-big-1.jpg">
-										<img class="d-block w-100"
-										src="/intepark/resources/img/product-img/pro-big-1.jpg"
-										alt="First slide">
-									</a>
-								</div>
-								<div class="carousel-item">
-									<a class="gallery_img" href="img/product-img/pro-big-2.jpg">
-										<img class="d-block w-100"
-										src="/intepark/resources/img/product-img/pro-big-2.jpg"
-										alt="Second slide">
-									</a>
-								</div>
-								<div class="carousel-item">
-									<a class="gallery_img" href="img/product-img/pro-big-3.jpg">
-										<img class="d-block w-100"
-										src="/intepark/resources/img/product-img/pro-big-3.jpg"
-										alt="Third slide">
-									</a>
-								</div>
-								<div class="carousel-item">
-									<a class="gallery_img" href="img/product-img/pro-big-4.jpg">
-										<img class="d-block w-100"
-										src="/intepark/resources/img/product-img/pro-big-4.jpg"
-										alt="Fourth slide">
-									</a>
-								</div> -->
 							</div>
 						</div>
 					</div>
@@ -155,7 +114,7 @@
 						</div>
 
 						<!-- Add to Cart Form -->
-						<form class="cart clearfix" method="post">
+						<form class="cart clearfix" action="orderinsert4.do" method="post">
 							<div class="cart-btn d-flex mb-50">
 								<p>수량</p>
 								<div class="quantity">
@@ -163,18 +122,22 @@
 										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
 										class="fa fa-caret-down" aria-hidden="true"></i></span> <input
 										type="number" class="qty-text" id="qty" step="1" min="1"
-										max="300" name="quantity" value="1"> <span
+										max="300" name="orderquantity" value="1"> <span
 										class="qty-plus"
 										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
 										class="fa fa-caret-up" aria-hidden="true"></i></span>
 								</div>
 							</div>
+							<input type="hidden" name="userid" value="${loginUser.userid }">
+							<input type="hidden" name="goodsnum" value="${goods.goodsnum }">
+							<input type="hidden" name="goodsprice" value="${goods.price }">
+							
 							<button type="submit" name="addtocart" value="5"
 								class="btn amado-btn">결제 하기</button>
 							<br> <br>
+						</form>
 							<button type="submit" name="addtocart" value="5"
 								class="btn amado-btn">장바구니 담기</button>
-						</form>
 
 					</div>
 				</div>
@@ -205,6 +168,37 @@
 <br>
 <br>
 
+<div align="center">
+<nav aria-label="navigation">
+                            <ul class="pagination justify-content-end mt-50">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=1&page1=${currentPage1}">|◁</a></li>
+                            	<c:if test="${ (beginPage-10) < 1}">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=1&page1=${currentPage1}">◀◀</a></li>
+                            </c:if>
+								<c:if test="${ (beginPage-10) > 1}">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${beginPage-10 }&page1=${currentPage1}">◀◀</a></li>
+								</c:if>
+                            <c:forEach var="p" begin="${beginPage }" end="${endPage }">
+                                <c:if test="${p == currentPage }">
+                                <li class="page-item active"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${p }&page1=${currentPage1}">${p }</a></li>
+                                </c:if >
+                                <c:if test="${p != currentPage }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${p }&page1=${currentPage1}">${p }</a></li>
+                                </c:if >
+                                </c:forEach>
+                                <c:if test="${(endPage+10) > maxPage }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${maxPage }&page1=${currentPage1}">▶▶</a></li>
+                            </c:if>
+                            <c:if test="${(endPage+10) < maxPage }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${endPage + 10 }&page1=${currentPage1}">▶▶</a></li>
+                            </c:if>
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page=${maxPage }&page1=${currentPage1}">▷|</a></li>
+                            </ul>
+                        </nav>
+ </div>
+
+
+
 <table border="1px solid black">
 <tr>
 <td>사진</td>
@@ -221,8 +215,45 @@
 </tr>
 </c:forEach>
 </table>
+
+
+
+
 <br><br>
+
 <button onclick="location.href='moveinquiryinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
+
+
+<div align="center">
+<nav aria-label="navigation">
+                            <ul class="pagination justify-content-end mt-50">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=1&page=${currentPage}">|◁</a></li>
+                            	<c:if test="${ (beginPage1-10) < 1}">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=1&page=${currentPage}">◀◀</a></li>
+                            </c:if>
+								<c:if test="${ (beginPage1-10) > 1}">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${beginPage1 -10 }&page=${currentPage}">◀◀</a></li>
+								</c:if>
+                            <c:forEach var="p" begin="${beginPage1 }" end="${endPage1 }">
+                                <c:if test="${p == currentPage1 }">
+                                <li class="page-item active"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${p }&page=${currentPage}">${p }</a></li>
+                                </c:if >
+                                <c:if test="${p != currentPage1 }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${p }&page=${currentPage}">${p }</a></li>
+                                </c:if >
+                                </c:forEach>
+                                <c:if test="${(endPage1 +10) > maxPage1 }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${maxPage1 }&page=${currentPage}">▶▶</a></li>
+                            </c:if>
+                            <c:if test="${(endPage1 +10) < maxPage1 }">
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${endPage1 + 10 }&page=${currentPage}">▶▶</a></li>
+                            </c:if>
+                                <li class="page-item"><a class="page-link" href="moveproduct4.do?goodsnum=${goods.goodsnum}&page1=${maxPage1 }&page=${currentPage}">▷|</a></li>
+                            </ul>
+                        </nav>
+ </div>
+
+
 </div>
 	<!-- ##### Main Content Wrapper End ##### -->
 

@@ -94,7 +94,15 @@ public class GoodsController {
 		ArrayList<Inquiry> goodsInquiry = goodsService.selectGoodsInquiry(goodsSearch);
 		
 		
+		request.setAttribute("maxPage1", p1.getMaxPage());
+		request.setAttribute("currentPage1", p1.getCurrentPage());
+		request.setAttribute("beginPage1", p1.getBeginPage());
+		request.setAttribute("endPage1", p1.getEndPage());
 		
+		request.setAttribute("maxPage", p.getMaxPage());
+		request.setAttribute("currentPage", p.getCurrentPage());
+		request.setAttribute("beginPage", p.getBeginPage());
+		request.setAttribute("endPage", p.getEndPage());
 		request.setAttribute("goods", goods);
 		request.setAttribute("goodsreview", goodsreview);
 		request.setAttribute("goodsInquiry", goodsInquiry);
@@ -303,5 +311,23 @@ public class GoodsController {
 			logger.info("리뷰 작성 완료 : " + result);
 			return "redirect:moveproduct4.do?goodsnum="+goodsinquiry.getGoodsnum();
 		}
-		 
+		 	
+		@RequestMapping("moveshopcategorysub4.do")
+		public String moveshopcategorysub(HttpServletRequest request,@RequestParam(name = "categorynum", required = false)int categorynum,GoodsSearch goodsSearch) {
+			logger.info("샵 서브 카테고리 접속 ");
+			Paging p = new Paging(goodsService.selectcategoryListCount(categorynum));
+			if (request.getParameter("page") != null) {
+				p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
+			}
+			goodsSearch.setStartRow(p.getStartRow());
+			goodsSearch.setEndRow(p.getEndRow());
+			goodsSearch.setGoodsnum(categorynum);
+			ArrayList<Goods> list = goodsService.selectcategoryGoodsList(goodsSearch);
+			request.setAttribute("list", list);
+			request.setAttribute("maxPage", p.getMaxPage());
+			request.setAttribute("currentPage", p.getCurrentPage());
+			request.setAttribute("beginPage", p.getBeginPage());
+			request.setAttribute("endPage", p.getEndPage());
+			return "shopping/shop";
+		}
 }
