@@ -37,5 +37,22 @@ public ArrayList<NonAuction> NonAuctionList() {
 	List<NonAuction> list2 = mybatisSession.selectList("auctionMapper.NonAuctionList");
 	return (ArrayList<NonAuction>)list2;
 }
+public int auctionUpdate(Auction auction) {
+	return 0;
 
+}
+public int auctionDelte(Auction auction) {
+	return 0;
+	
+}
+
+public NonAuction nonAuctionDetailView(String nonauc) {
+	NonAuction nonauction = mybatisSession.selectOne("auctionMapper.nonAuctionDetailView",nonauc);
+	return nonauction;
+}
+
+public Auction auctionDetailView(String auc) {
+	Auction auction = mybatisSession.selectOne("auctionMapper.auctionDetailView",auc);
+	return auction;
+}
 }

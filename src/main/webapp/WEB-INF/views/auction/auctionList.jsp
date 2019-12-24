@@ -12,11 +12,28 @@
   html, body {
 	width: 100%; height: 100%; 
 }
+
+	/* #menu{
+	display:none;
+	} */
+
 	</style>
+	<script type="text/javascript">
+	function doDisplay(menu){
+	   var con = document.getElementById(menu);
+		console.log(con);
+	    if(con.style.display=='none'){
+	        con.style.display = 'block';
+	    }else{
+	        con.style.display = 'none';
+	    }
+	}
+	</script>
+	
 </head>
 <body>
    	<jsp:include page="../common/header.jsp" />
-   	<div style="height: 50%; width: 100%">
+   	<div>
 <div class="container">
 <table class="table table-hover">
   <thead class="thead-light">
@@ -38,7 +55,13 @@
     <tr>
       <th scope="row">${ a.auctionno }</th>
       <td>${a.interiorsection }</td>
-    <td><a href="#">${a.title }</a></td>
+    <td><a href="javascript:doDisplay('menu${a.auctionno }');">${a.title}</a>
+    <ul id="menu${a.auctionno }" style="display:none;">
+    <li><a href="auctionDetailView2.do?auc=${a.auctionno }">상세보기</a></li>
+    <li><a href="#">수정</a></li>
+    <li><a href="#">삭제</a></li>
+    </ul>
+    </td> 
        <td>${a.address }</td>
         <td>${a.startday }</td>
          <td>${a.progress }</td>
@@ -48,7 +71,7 @@
 </table>
 </div>
 </div>
-   	<div style="height: 50%; width: 100%">
+   	<div>
 <div class="container">
 <table class="table table-hover">
   <thead class="thead-light">
@@ -70,7 +93,13 @@
     <tr>
       <th scope="row">${ b.auctionno }</th>
       <td>${b.interiorsection }</td>
-    <td><a href="#">${b.title }</a></td>
+     <td><a href="javascript:doDisplay('menu${b.auctionno }');">${b.title}</a>
+    <ul id="menu${b.auctionno }" style="display:none;">
+    <li><a href="auctionDetailView2.do?nonauc=${b.auctionno }">상세보기</a></li>
+    <li><a href="#">수정</a></li>
+    <li><a href="#">삭제</a></li>
+    </ul>
+    </td> 
        <td>${b.address }</td>
         <td>${b.startday }</td>
          <td>${b.progress }</td>

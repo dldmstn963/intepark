@@ -38,7 +38,6 @@
                            <ul class="dropdown-menu">
                               <li class="nav-item"><a class="nav-link" href="nonAuction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="auctionEnd2.do">낙찰리스트</a></li>
                            </ul>
                         </li> 
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
@@ -74,7 +73,6 @@
                            <ul class="dropdown-menu">
                               <li class="nav-item"><a class="nav-link" href="auction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="auctionEnd2.do">낙찰리스트</a></li>
                            </ul>
                         </li> 
 									<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>

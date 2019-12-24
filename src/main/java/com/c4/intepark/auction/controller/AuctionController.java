@@ -193,4 +193,40 @@ public String auctionEndList() {
 	 return "redirect:main.do";
 }
 	 
+	 @RequestMapping("auctionDetailView2.do")
+	 public String selectAuctionView(HttpServletRequest request,HttpServletResponse response) {
+		String auc = request.getParameter("auc");
+		String nonauc = request.getParameter("nonauc");
+			logger.info("나는a야 : " + auc);
+			logger.info("나는b야 : " + nonauc);
+			if(auc != null) {
+	Auction auction = auctionService.auctionDetailView(auc);
+		request.setAttribute("auction", auction);
+			}
+			if(nonauc != null) {
+			NonAuction nonauction = auctionService.nonAuctionDetailView(nonauc);
+				request.setAttribute("auction", nonauction);
+			}
+
+		
+			
+			return "auction/auctionDetailView";
+		 
+	
+	 }
+	 
+	 public String auctionUpdate(Auction auction, HttpServletRequest request) {
+		
+		 
+		 return null;
+		 
+	 }
+	 
+ public String auctionDelete(Auction auction, HttpServletRequest request) {
+		
+		 
+		 return null;
+		 
+	 }
+	 
 }
