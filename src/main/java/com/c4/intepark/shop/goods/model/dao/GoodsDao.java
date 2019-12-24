@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.shop.Paging;
 import com.c4.intepark.shop.goods.model.vo.Goods;
-import com.c4.intepark.shop.goods.model.vo.GoodsList;
 import com.c4.intepark.shop.goods.model.vo.GoodsPic;
+import com.c4.intepark.shop.goods.model.vo.GoodsReview;
 import com.c4.intepark.shop.goods.model.vo.GoodsSearch;
-import com.c4.intepark.shop.goodsreview.model.vo.GoodsReview;
+import com.c4.intepark.shop.goods.model.vo.Inquiry;
 
 @Repository("goodsDao")
 public class GoodsDao {
@@ -21,17 +21,21 @@ public class GoodsDao {
 	
 	public GoodsDao() {}
 
+	
+	
+	
+	
 	public int insertGoods(Goods goods) {
 		return mybatis.insert("goodsMapper.insertGoods",goods);
 	}
 
-	public ArrayList<Goods> listGoods(GoodsList goodslist) {
-		List list = mybatis.selectList("goodsMapper.listGoods",goodslist);
+	public ArrayList<Goods> selectgoodsList(GoodsSearch goodssearch) {
+		List list = mybatis.selectList("goodsMapper.selectgoodsList",goodssearch);
 		return (ArrayList<Goods>)list; 
 	}
 
-	public int listCount(String consid) {
-		return mybatis.selectOne("goodsMapper.listCount",consid);
+	public int selectlistCount(String consid) {
+		return mybatis.selectOne("goodsMapper.selectlistCount",consid);
 	}
 
 	public int deleteGoods(int goodsnum) {
@@ -46,26 +50,26 @@ public class GoodsDao {
 		return mybatis.update("goodsMapper.updateGoods",goods);
 	}
 
-	public int searchlistCount(GoodsSearch goodsSearch) {
-		return mybatis.selectOne("goodsMapper.goodsSearch",goodsSearch);
+	public int selectsearchlistCount(GoodsSearch goodsSearch) {
+		return mybatis.selectOne("goodsMapper.selectsearchlistCount",goodsSearch);
 	}
 
-	public ArrayList<Goods> goodsSearchList(GoodsSearch goodsSearch) {
-		List list = mybatis.selectList("goodsMapper.goodsSearchList",goodsSearch);
+	public ArrayList<Goods> selectgoodsSearchList(GoodsSearch goodsSearch) {
+		List list = mybatis.selectList("goodsMapper.selectgoodsSearchList",goodsSearch);
 		return (ArrayList<Goods>)list; 
 	}
 
-	public int categoryAllListCount() {
-		return mybatis.selectOne("goodsMapper.categoryAllListCount");
+	public int selectcategoryAllListCount() {
+		return mybatis.selectOne("goodsMapper.selectcategoryAllListCount");
 	}
 
-	public ArrayList<Goods> categoryGoodsAllList(Paging p) {
-		List list = mybatis.selectList("goodsMapper.categoryGoodsAllList",p);
+	public ArrayList<Goods> selectcategoryGoodsAllList(Paging p) {
+		List list = mybatis.selectList("goodsMapper.selectcategoryGoodsAllList",p);
 		return (ArrayList<Goods>)list; 
 	}
 
-	public ArrayList<Goods> shopMainGoods(Paging p) {
-		List list = mybatis.selectList("goodsMapper.shopMainGoods",p);
+	public ArrayList<Goods> selectshopMainGoods(Paging p) {
+		List list = mybatis.selectList("goodsMapper.selectshopMainGoods",p);
 		return (ArrayList<Goods>)list; 
 	}
 
@@ -82,13 +86,30 @@ public class GoodsDao {
 		return (ArrayList<GoodsPic>)list; 
 	}
 
-	public int goodsReviewAllListCount(int goodsnum) {
-		return mybatis.selectOne("goodsMapper.goodsReviewAllListCount",goodsnum);
+	public int selectgoodsReviewAllListCount(int goodsnum) {
+		return mybatis.selectOne("goodsMapper.selectgoodsReviewAllListCount",goodsnum);
 	}
 
 	public ArrayList<GoodsReview> selectGoodsReview(GoodsSearch goodsSearch) {
 		List list = mybatis.selectList("goodsMapper.selectGoodsReview",goodsSearch);
 		return (ArrayList<GoodsReview>)list; 
+	}
+
+	public int selectgoodsInquiryAllListCount(int goodsnum) {
+		return mybatis.selectOne("goodsMapper.selectgoodsInquiryAllListCount",goodsnum);
+	}
+
+	public ArrayList<Inquiry> selectGoodsInquiry(GoodsSearch goodsSearch) {
+		List list = mybatis.selectList("goodsMapper.selectGoodsInquiry",goodsSearch);
+		return (ArrayList<Inquiry>)list; 
+	}
+
+	public int insertGoodsInquiry(Inquiry goodsinquiry) {
+		return mybatis.insert("goodsMapper.insertGoodsInquiry",goodsinquiry);
+	}
+
+	public int insertGoodsReview(GoodsReview goodsreview) {
+		return mybatis.insert("goodsMapper.insertGoodsReview",goodsreview);
 	}
 	
 }

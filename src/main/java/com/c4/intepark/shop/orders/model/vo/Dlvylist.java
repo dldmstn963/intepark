@@ -1,4 +1,4 @@
-package com.c4.intepark.shop.dlvylist.model.vo;
+package com.c4.intepark.shop.orders.model.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
