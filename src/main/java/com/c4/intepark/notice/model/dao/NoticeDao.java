@@ -29,6 +29,38 @@ public class NoticeDao {
 		return (ArrayList<Notice>)list;
 	}
 
+	public ArrayList<Notice> noticeSearch(String search) {
+		List<Notice> list = mybatisSession.selectList("noticeMapper.searchTitle",search);
+		return (ArrayList<Notice>)list;
+	}
+
+	public Notice selectOne(int noticeno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Notice noticeFileDown(String noticeno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int noticeInsert(Notice notice) {
+		// TODO Auto-generated method stub
+		return (Integer) null;
+	}
+
+	public Notice noticeUpdate(int idx) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int noticeDelete(int noticeno) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+
 	
 
 }
