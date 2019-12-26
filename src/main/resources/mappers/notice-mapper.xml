@@ -5,22 +5,26 @@
 <mapper namespace="noticeMapper">
 
 	
-	<!-- <select id="selectNotice" parameterType="_int" >
+	<select id="selectNotice" parameterType="_int" >
 		select * from notice where noticeno = #{value}
-	</select> -->	
+	</select> 
 	
 	<select id="selectList" resultType="Notice">
 		select * from notice 
 		order by noticeno desc
 	</select>
 	
-	<!-- <select id="searchTitle" parameterType="string" resultMap="resultNotice">
+<!-- 	<select id="getlistCount" resultType="_int">
+		select noticecount(*) from notice
+	</select>
+	
+	<select id="searchTitle" parameterType="string" resultMap="resultNotice">
 		select * from notice 
 		where noticetitle like '%' || #{value} || '%'  
 		order by noticeno desc
-	</select>
+	</select> -->
 	
-	<select id="searchWriter" parameterType="string" resultMap="resultNotice">
+	<!-- <select id="searchWriter" parameterType="string" resultMap="resultNotice">
 		select * from notice 
 		where noticewriter like '%' || #{value} || '%' 
 		order by noticeno desc
@@ -55,8 +59,8 @@
 		    rename_filepath = #{renameFilePath} 
 		    </if>
 		where noticeno = #{noticeNo}							
-	</update>
-	 -->
+	</update> -->
+	 
 
 
 

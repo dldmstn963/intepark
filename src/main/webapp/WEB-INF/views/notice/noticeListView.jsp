@@ -76,7 +76,7 @@
 <c:forEach items="${ list }" var="n">
 <tr>
 	<th>${ n.noticeno }</th>
-	<c:url var="ndt" value="/ndetail">
+	<c:url var="ndt" value="/ndetail.do">
 		<c:param name="no" value="${n.noticeno }" />
 	</c:url>
 	<td><a href="${ ndt }">${ n.noticetitle }</a></td>
@@ -97,7 +97,7 @@
 
 <br>
 
-<div ><a href="nlist.do" class="btn btn-success" style="float:left; margin-left:10px;">목록 이동</a></div> &nbsp;&nbsp;&nbsp;&nbsp;
+<div ><a href="nlist1.do" class="btn btn-success" style="float:left; margin-left:10px;">목록 이동</a></div> &nbsp;&nbsp;&nbsp;&nbsp;
 
 <!-- 관리자 페이지 시에 추가 -->
 <c:if
@@ -108,6 +108,14 @@
 		</div>
 </c:if>
 <br> 
+
+
+
+
+
+
+
+
 
 
 
