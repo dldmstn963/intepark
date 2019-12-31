@@ -434,7 +434,7 @@ $(document).ready(function (e){
             <div class="signup-content">
                 <div class="signup-form">
                     <form method="post" class="register-form" id="register-form" action="nonAuctionEnroll2.do" enctype="multipart/form-data">
-                                            <div class="form-row">
+                               <!--              <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
                                 <label for="nomal">일반견적</label>
@@ -447,7 +447,7 @@ $(document).ready(function (e){
                                 <span class="check"></span>
                             </div>
                             
-                        </div>
+                        </div> -->
                            <div class="form-row">
                             <div class="form-group">
                                 <label for="interiorsection">인테리어 분류 :</label>

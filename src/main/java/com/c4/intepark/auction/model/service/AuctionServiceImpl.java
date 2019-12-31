@@ -43,9 +43,10 @@ public class AuctionServiceImpl implements AuctionService{
 		 
 	}
 	@Override
-	public int auctionDelete(Auction auction) {
-		return 0;
+	public int deleteAuction(String auction){
 		
+		
+		return auctionDao.deleteAuction(auction);
 	}
 	@Override
 	public Auction auctionDetailView(String auc) {

@@ -12,8 +12,8 @@ int auctionEnroll(Auction auction);
 int nonAuctionEnroll(NonAuction nonauction);
 ArrayList<NonAuction> NonAuctionList();
 int auctionUpdate(Auction auction);
-int auctionDelete(Auction auction);
 Auction auctionDetailView(String auc);
 NonAuction nonAuctionDetailView(String nonauc);
+int deleteAuction(String auction);
 
 }

@@ -41,10 +41,6 @@ public int auctionUpdate(Auction auction) {
 	return 0;
 
 }
-public int auctionDelte(Auction auction) {
-	return 0;
-	
-}
 
 public NonAuction nonAuctionDetailView(String nonauc) {
 	NonAuction nonauction = mybatisSession.selectOne("auctionMapper.nonAuctionDetailView",nonauc);
@@ -54,5 +50,10 @@ public NonAuction nonAuctionDetailView(String nonauc) {
 public Auction auctionDetailView(String auc) {
 	Auction auction = mybatisSession.selectOne("auctionMapper.auctionDetailView",auc);
 	return auction;
+}
+
+public int deleteAuction(String auction) {
+
+	return mybatisSession.delete("auctionMapper.deleteAuction", auction);
 }
 }

@@ -28,6 +28,7 @@
 	        con.style.display = 'none';
 	    }
 	}
+
 	</script>
 	
 </head>
@@ -58,8 +59,10 @@
     <td><a href="javascript:doDisplay('menu${a.auctionno }');">${a.title}</a>
     <ul id="menu${a.auctionno }" style="display:none;">
     <li><a href="auctionDetailView2.do?auc=${a.auctionno }">상세보기</a></li>
+    <c:if test="${a.userid eq sessionScope.loginUser.userid }">
     <li><a href="#">수정</a></li>
-    <li><a href="#">삭제</a></li>
+    <li><a href="auctionDelete2.do?auc=${a.auctionno }">삭제</a></li>
+    </c:if>
     </ul>
     </td> 
        <td>${a.address }</td>
@@ -97,7 +100,7 @@
     <ul id="menu${b.auctionno }" style="display:none;">
     <li><a href="auctionDetailView2.do?nonauc=${b.auctionno }">상세보기</a></li>
     <li><a href="#">수정</a></li>
-    <li><a href="#">삭제</a></li>
+    <li><a href = "javascript:popup(${b.password })" target = "_blank">팝업</a>삭제</a></li>
     </ul>
     </td> 
        <td>${b.address }</td>

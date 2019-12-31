@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 		private static final long serialVersionUID = 2004L;
 		
 	private int auctionno;
-	private String auctionsection;
 	private String interiorsection;
 	private String title;
 	private String name;
@@ -25,12 +24,11 @@ import org.springframework.stereotype.Component;
 	private String progress;
 	private String password;
 	public NonAuction() {}
-	public NonAuction(int auctionno, String auctionsection, String interiorsection, String title, String name,
-			String price, String email, String phone, Date startday, String address, String ofile, String rfile,
-			String etc, String progress, String password) {
+	public NonAuction(int auctionno, String interiorsection, String title, String name, String price, String email,
+			String phone, Date startday, String address, String ofile, String rfile, String etc, String progress,
+			String password) {
 		super();
 		this.auctionno = auctionno;
-		this.auctionsection = auctionsection;
 		this.interiorsection = interiorsection;
 		this.title = title;
 		this.name = name;
@@ -45,17 +43,18 @@ import org.springframework.stereotype.Component;
 		this.progress = progress;
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		return "NonAuction [auctionno=" + auctionno + ", interiorsection=" + interiorsection + ", title=" + title
+				+ ", name=" + name + ", price=" + price + ", email=" + email + ", phone=" + phone + ", startday="
+				+ startday + ", address=" + address + ", ofile=" + ofile + ", rfile=" + rfile + ", etc=" + etc
+				+ ", progress=" + progress + ", password=" + password + "]";
+	}
 	public int getAuctionno() {
 		return auctionno;
 	}
 	public void setAuctionno(int auctionno) {
 		this.auctionno = auctionno;
-	}
-	public String getAuctionsection() {
-		return auctionsection;
-	}
-	public void setAuctionsection(String auctionsection) {
-		this.auctionsection = auctionsection;
 	}
 	public String getInteriorsection() {
 		return interiorsection;
@@ -138,13 +137,6 @@ import org.springframework.stereotype.Component;
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	@Override
-	public String toString() {
-		return "NonAuction [auctionno=" + auctionno + ", auctionsection=" + auctionsection + ", interiorsection="
-				+ interiorsection + ", title=" + title + ", name=" + name + ", price=" + price + ", email=" + email
-				+ ", phone=" + phone + ", startday=" + startday + ", address=" + address + ", ofile=" + ofile
-				+ ", rfile=" + rfile + ", etc=" + etc + ", progress=" + progress + ", password=" + password + "]";
-	}
-	
+
 	
 }
