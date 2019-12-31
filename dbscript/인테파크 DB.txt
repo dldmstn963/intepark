@@ -981,27 +981,27 @@ DROP TABLE auction CASCADE CONSTRAINTS;
 
 CREATE TABLE auction (
 auctionno number NOT NULL PRIMARY KEY,
-auctionsection varchar2(15) NOT NULL,
 interiorsection varchar2(20) NOT NULL,
 title varchar2(50) NOT NULL,
 name varchar2(30) NOT NULL,
 price varchar2(15) NOT NULL,
+email varchar2(50) NOT NULL,
 phone varchar2(20) NOT NULL,
 startday date,
 address varchar2(100) NOT NULL,
-ofile varchar2(50),
-rfile varchar2(50),
+ofile varchar2(200),
+rfile varchar2(200),
 etc varchar2(500),
-progress varchar2(30) NOT NULL,
-userid VARCHAR2(15)	REFERENCES inteuser(userid) ON DELETE CASCADE
+progress varchar2(30) DEFAULT '대기' NOT NULL,
+userid VARCHAR2(30)	REFERENCES inteuser(userid) ON DELETE CASCADE
 );
 
 COMMENT ON COLUMN auction.auctionno IS '경매번호';
-COMMENT ON COLUMN auction.auctionsection IS '견적분류';
 COMMENT ON COLUMN auction.interiorsection IS '인테리어분류';
 COMMENT ON COLUMN auction.title IS '제목';
 COMMENT ON COLUMN auction.name IS '이름';
 COMMENT ON COLUMN auction.price IS '희망금액';
+COMMENT ON COLUMN auction.email IS '이메일';
 COMMENT ON COLUMN auction.phone IS '휴대폰번호';
 COMMENT ON COLUMN auction.startday IS '공사시작일';
 COMMENT ON COLUMN auction.address IS '시공지주소';
@@ -1011,13 +1011,54 @@ COMMENT ON COLUMN auction.etc IS '상세정보';
 COMMENT ON COLUMN auction.progress IS '진행현황';
 COMMENT ON COLUMN auction.userid IS '등록자';
 
-insert into auction values (AUCTION_SEQ.NEXTVAL, '일반','샷시','간지작살','양호성','5,000','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용','대기','user1');
-insert into auction values (AUCTION_SEQ.NEXTVAL, '긴급','종합','종합인테리어','허용순 ','500,000','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용','진행','user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'샷시','간지작살','양호성','5,000','yhsto00@naver.com','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용',DEFAULT,'user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용',DEFAULT,'user2');
+
+------------------------------------------------------------
+-------비회원 경매
+
+DROP TABLE nonauction CASCADE CONSTRAINTS;
+
+CREATE TABLE nonauction (
+auctionno number NOT NULL PRIMARY KEY,
+interiorsection varchar2(20) NOT NULL,
+title varchar2(50) NOT NULL,
+name varchar2(30) NOT NULL,
+price varchar2(15) NOT NULL,
+email varchar2(50) NOT NULL,
+phone varchar2(20) NOT NULL,
+startday date,
+address varchar2(100) NOT NULL,
+ofile varchar2(200),
+rfile varchar2(200),
+etc varchar2(500),
+password varchar2(50)  NOT NULL,
+progress varchar2(30) DEFAULT '대기' NOT NULL
+);
+
+COMMENT ON COLUMN nonauction.auctionno IS '경매번호';
+COMMENT ON COLUMN nonauction.interiorsection IS '인테리어분류';
+COMMENT ON COLUMN nonauction.title IS '제목';
+COMMENT ON COLUMN nonauction.name IS '이름';
+COMMENT ON COLUMN nonauction.price IS '희망금액';
+COMMENT ON COLUMN nonauction.email IS '이메일';
+COMMENT ON COLUMN nonauction.phone IS '휴대폰번호';
+COMMENT ON COLUMN nonauction.startday IS '공사시작일';
+COMMENT ON COLUMN nonauction.address IS '시공지주소';
+COMMENT ON COLUMN nonauction.ofile IS '참고사진원본';
+COMMENT ON COLUMN nonauction.rfile IS '참고사진사본';
+COMMENT ON COLUMN nonauction.etc IS '상세정보';
+COMMENT ON COLUMN nonauction.password IS '비밀번호';
+COMMENT ON COLUMN nonauction.progress IS '진행현황';
+
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'샷시','간지작살','양호성','5,000','yhsto00@naver.com','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용','789456',DEFAULT);
+
 -- 견적 참여
 DROP TABLE auctionattend CASCADE CONSTRAINTS;
 
 CREATE TABLE auctionattend (
-auctionno number	REFERENCES auction(auctionno) NOT NULL,
+auctionno number	REFERENCES auction(auctionno) ON DELETE CASCADE,
 consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE,
 title varchar2(50) NOT NULL,
 possibledate date NOT NULL,
@@ -1025,7 +1066,7 @@ price varchar2(15) NOT NULL,
 ofile varchar2(50),
 rfile varchar2(50),
 etc varchar2(500),
-progress varchar2(30) NOT NULL
+progress varchar2(30) NOT NULL,
 );
 
 COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';
@@ -1065,16 +1106,6 @@ COMMENT ON COLUMN setpoint.restpoint IS '잔여포인트';
 insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'500,000','50,000','50,000', 'con1');
 insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'400,000','40,000','90,000', 'con1');
 insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'1,000,000','100,000','100,000', 'con2');
-
-
-
-
-
-
-
-
-
-
 
 
 
