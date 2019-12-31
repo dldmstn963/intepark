@@ -72,7 +72,7 @@ public String auctionEndList() {
 
 	for (MultipartFile mf : fileList) {
 	
-		if(mf.getSize() != 0) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
+		if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
 		String originalFileName = null;
 		String renameFileName = null;
 		try {
@@ -138,7 +138,7 @@ public String auctionEndList() {
 
 	for (MultipartFile mf : fileList) {
 	
-		if(mf.getSize() != 0) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
+		if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
 		String originalFileName = null;
 		String renameFileName = null;
 		try {
@@ -197,11 +197,18 @@ public String auctionEndList() {
 	 public String selectAuctionView(HttpServletRequest request,HttpServletResponse response) {
 		String auc = request.getParameter("auc");
 		String nonauc = request.getParameter("nonauc");
+		
 			logger.info("나는a야 : " + auc);
 			logger.info("나는b야 : " + nonauc);
 			if(auc != null) {
 	Auction auction = auctionService.auctionDetailView(auc);
+	logger.info("auctionfile : " + auction.getRfile());
+	String[] rfile = null;
+	if(auction.getRfile() != null) {
+	rfile = auction.getRfile().split("/");
+	}
 		request.setAttribute("auction", auction);
+		request.setAttribute("rfile", rfile);
 			}
 			if(nonauc != null) {
 			NonAuction nonauction = auctionService.nonAuctionDetailView(nonauc);
@@ -211,8 +218,6 @@ public String auctionEndList() {
 		
 			
 			return "auction/auctionDetailView";
-		 
-	
 	 }
 	 
 	 public String auctionUpdate(Auction auction, HttpServletRequest request) {
@@ -221,12 +226,14 @@ public String auctionEndList() {
 		 return null;
 		 
 	 }
-	 
- public String auctionDelete(Auction auction, HttpServletRequest request) {
+	 @RequestMapping("auctionDelete2.do")
+	 public String deleteAuction(HttpServletRequest request) {
+		String auction = request.getParameter("auc");
+		logger.info("auction : " + auction);
 		
-		 
-		 return null;
-		 
+		int result = auctionService.deleteAuction(auction);
+		
+		 return "redirect:main.do";
 	 }
 	 
 }

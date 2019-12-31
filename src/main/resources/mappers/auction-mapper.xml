@@ -13,12 +13,12 @@
 		select * from nonauction order by auctionno desc
 	</select>
 	<insert id="auctionEnroll" parameterType="Auction" >
-	insert into auction values (AUCTION_SEQ.NEXTVAL, #{auctionsection}, #{interiorsection}, #{title}, #{name}, 
+	insert into auction values (AUCTION_SEQ.NEXTVAL, #{interiorsection}, #{title}, #{name}, 
 		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc}, default, #{userid})
 	</insert>
 	
 	<insert id="nonAuctionEnroll" parameterType="NonAuction" >
-	insert into nonauction values (AUCTION_SEQ.NEXTVAL, #{auctionsection}, #{interiorsection}, #{title}, #{name}, 
+	insert into nonauction values (AUCTION_SEQ.NEXTVAL, #{interiorsection}, #{title}, #{name}, 
 		#{price}, #{email}, #{phone}, #{startday}, #{address},#{ofile},#{rfile}, #{etc},${password}, default)
 	</insert>
 	
@@ -29,6 +29,9 @@
 	select * from auction where auctionno = #{auc}
 	</select>
 	
+	<delete id="deleteAuction" parameterType="String">
+	delete from auction where auctionno = #{auc}
+	</delete>
 </mapper>
 
 

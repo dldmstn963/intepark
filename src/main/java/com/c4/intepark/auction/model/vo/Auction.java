@@ -9,7 +9,6 @@ public class Auction implements java.io.Serializable{
 	private static final long serialVersionUID = 2001L;
 	
 private int auctionno;
-private String auctionsection;
 private String interiorsection;
 private String title;
 private String name;
@@ -26,12 +25,11 @@ private String userid;
 
 public Auction() {}
 
-public Auction(int auctionno, String auctionsection, String interiorsection, String title, String name, String price,
-		String email, String phone, Date startday, String address, String ofile, String rfile, String etc,
-		String progress, String userid) {
+public Auction(int auctionno, String interiorsection, String title, String name, String price, String email,
+		String phone, Date startday, String address, String ofile, String rfile, String etc, String progress,
+		String userid) {
 	super();
 	this.auctionno = auctionno;
-	this.auctionsection = auctionsection;
 	this.interiorsection = interiorsection;
 	this.title = title;
 	this.name = name;
@@ -47,20 +45,20 @@ public Auction(int auctionno, String auctionsection, String interiorsection, Str
 	this.userid = userid;
 }
 
+@Override
+public String toString() {
+	return "Auction [auctionno=" + auctionno + ", interiorsection=" + interiorsection + ", title=" + title + ", name="
+			+ name + ", price=" + price + ", email=" + email + ", phone=" + phone + ", startday=" + startday
+			+ ", address=" + address + ", ofile=" + ofile + ", rfile=" + rfile + ", etc=" + etc + ", progress="
+			+ progress + ", userid=" + userid + "]";
+}
+
 public int getAuctionno() {
 	return auctionno;
 }
 
 public void setAuctionno(int auctionno) {
 	this.auctionno = auctionno;
-}
-
-public String getAuctionsection() {
-	return auctionsection;
-}
-
-public void setAuctionsection(String auctionsection) {
-	this.auctionsection = auctionsection;
 }
 
 public String getInteriorsection() {
@@ -169,14 +167,6 @@ public void setUserid(String userid) {
 
 public static long getSerialversionuid() {
 	return serialVersionUID;
-}
-
-@Override
-public String toString() {
-	return "Auction [auctionno=" + auctionno + ", auctionsection=" + auctionsection + ", interiorsection="
-			+ interiorsection + ", title=" + title + ", name=" + name + ", price=" + price + ", email=" + email
-			+ ", phone=" + phone + ", startday=" + startday + ", address=" + address + ", ofile=" + ofile + ", rfile="
-			+ rfile + ", etc=" + etc + ", progress=" + progress + ", userid=" + userid + "]";
 }
 
 }
