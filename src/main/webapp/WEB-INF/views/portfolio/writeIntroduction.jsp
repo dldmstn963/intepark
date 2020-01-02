@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -17,9 +17,9 @@
 	<div class="row">
 		
 		
-		<div class="col-lg-3" style="height:600px;">
+		<div class="col-lg-3" style="margin-top:100px;">
 		
-		<div class="col-lg-12" style="margin-left:10px; margin-top:100px;">
+		<div class="col-lg-12" style="margin-left:10px;">
 		<c:if test="${empty cons.profilerenameimg}">
 		<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" width="100px" height="100px">
 		</c:if>
@@ -31,7 +31,6 @@
 		<div class="col-lg-12" style="margin-top:15px;"><h3>${cons.companyname }</h3></div>
 		<div class="col-lg-12">${cons.consarea }</div>
 		
-		<div class="col-lg-12" style="margin-top:10px;"><a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;"><h6 style="color:#01A9DB;">리뷰쓰기</h6></a></div>
 		
 		<div class='col-lg-12' style="margin-top:15px;">
 			<div class="form-group">
@@ -75,13 +74,28 @@
 		            <div class="tab-content">
 		              <div class="tab-pane fade show active" id="aa"><!-- 소개글 탭 구역 시작 -->
 		              
-		              <input type="button" value="수정하기" class="btn btn-success btn-sm" style="float:right; margin-top:5px;">
+		              <input type="button" value="수정하기" class="btn btn-success btn-sm">
 		              
+		              <button type="button" class="btn btn-success btn-xs">저장하기</button>
 		              
-		                <div style="overflow: auto; width:100%; padding-top:15px;">${cons.pfintroduction }</div>
-		                <%-- <textarea class="form-control" rows="15">${cons.pfintroduction }</textarea> --%>
-
+		                <div style="overflow: auto; width:100%;">${cons.pfintroduction }</div>
+		                
+		                
+		                
+		                
+		                
+		                
 		              </div><!-- 소개글 탭 구역 끝 -->
+		              
+		              
+		              
+		              
+		              
+		              
+		              
+		              
+		              
+		              
 		              
 		              
 		              
@@ -111,4 +125,4 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 <jsp:include page="../common/footer.jsp" />
 </body>
-</html>
+</html> --%>
