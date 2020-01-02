@@ -32,10 +32,20 @@ public class RequestController {
 		//logger.info(consid);
 		
 		Constructors cons = requestService.selectRequestForm(consid);
+		//logger.info(cons.getConsarea());
+		
+		String str = cons.getConsarea();
+		String[] areas = str.split(",");
+		//System.out.println("분리된 문자 : " + values.length);
+		
+		//for(String s : values) {
+		//	System.out.println(s);
+		//}
 		
 		if(cons != null) {
 			mv.addObject("cons", cons);
-			mv.setViewName("portfolio/portfolioRequestView");
+			mv.addObject("areas", areas);
+			mv.setViewName("request/RequestFormView");
 		}else {
 			mv.addObject("message", cons.getCompanyname() + "  시공사 상담신청 조회 실패!");
 			mv.setViewName("common/error");
@@ -43,17 +53,24 @@ public class RequestController {
 		return mv;
 	}
 	
-	
 	@RequestMapping(value="insertRequest5.do", method=RequestMethod.POST)
 	public String insertRequest(Request req, HttpServletRequest request) {
-		logger.info(req.toString());
+		//logger.info(req.toString());
 		String reqregion2 = request.getParameter("reqregion2");
-		logger.info(reqregion2.toString());
+		//logger.info(reqregion2.toString());
+		if(reqregion2 != null) {
+			String reqregion = req.getReqregion() + " " + reqregion2;
+			req.setReqregion(reqregion);
+		}
 		
 		int result = requestService.insertRequest(req); 
 		
 		return "redirect:conslist5.do";
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="selectReqConsList5.do", method=RequestMethod.POST)
 	public String selectReqConsList(@RequestParam(value="consid", required=true) String consid, HttpServletRequest request) {

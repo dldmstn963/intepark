@@ -2,6 +2,8 @@ package com.c4.intepark.review.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
 import com.c4.intepark.review.model.service.ReviewService;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 
 @Controller
 public class ReviewController {
@@ -28,6 +31,55 @@ public class ReviewController {
 	private ReviewService reviewService;
 	
 	public ReviewController() {}
+	
+	
+	@RequestMapping("selectReviewForm5.do")
+	public String selectReviewForm(@RequestParam(value="consid", required=true) String consid, Model model) {
+		logger.info("아이디 : " + consid);
+		
+		Constructors cons = reviewService.selectReviewForm(consid);
+		
+		if(cons != null) {
+			model.addAttribute("cons", cons);
+			return "review/reviewFormView";
+		}else {
+			model.addAttribute("message", cons.getCompanyname() + "  시공사 리뷰작성 조회 실패!");
+			return "common/error";
+		}
+		
+	}
+	
+	@RequestMapping(value="insertReview5.do", method=RequestMethod.POST)
+	public String insertReview(Review review, ReviewFile reviewFile, HttpServletRequest request) {
+		//logger.info("친절함 : " + review.getRvkind());
+		
+		logger.info(review.toString());
+		String rvperiod2 = request.getParameter("rvperiod2");
+		logger.info("월 값이다 : " + rvperiod2);
+		 // int result = reviewService.insertReview(review); 
+		/*
+		 * int pfnum = reviewService.selectpfnum(); portfolioFile.setPfnum(pfnum); int
+		 * result2 = reviewService.insertportfolioFile(portfolioFile);
+		 */
+		 
+		
+		return "forward:pfOne5.do";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -62,18 +114,7 @@ public class ReviewController {
 	
 	
 	
-	@RequestMapping(value="insertReview5.do", method=RequestMethod.POST)
-	public String insertReview(Portfolio portfolio, PortfolioFile portfolioFile) {
-		
-		  int result = reviewService.insertReview(portfolio); 
-		/*
-		 * int pfnum = reviewService.selectpfnum(); portfolioFile.setPfnum(pfnum); int
-		 * result2 = reviewService.insertportfolioFile(portfolioFile);
-		 */
-		 
-		
-		return null;
-	}
+	
 	
 	@RequestMapping(value="updateReview5.do", method=RequestMethod.POST)
 	public String updateReview(Portfolio portfolio, PortfolioFile portfolioFile) {

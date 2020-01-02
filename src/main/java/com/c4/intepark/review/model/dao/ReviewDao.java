@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.review.model.vo.Review;
 
@@ -17,7 +18,17 @@ public class ReviewDao {
 	private SqlSessionTemplate mybatisSession;
 	
 	public ReviewDao() {}
-
+	
+	public Constructors selectReviewForm(String consid) {
+		return mybatisSession.selectOne("reviewMapper.selectReviewForm", consid);
+	}
+	
+	
+	
+	
+	
+	
+	
 	public ArrayList<Review> selectrvList() {
 		List<Review> list = mybatisSession.selectList("reviewMapper.selectrvList");
 		return (ArrayList<Review>)list;
@@ -39,6 +50,8 @@ public class ReviewDao {
 	public int deleteReview(int rvnum) {
 		return mybatisSession.delete("reviewMapper.deleteReview", rvnum);
 	}
+
+	
 
 	
 	
