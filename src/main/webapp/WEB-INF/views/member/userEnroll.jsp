@@ -70,7 +70,7 @@ function idCheck(id){
  	}else if(idc.length <6){
 		tdid.innerHTML="<p style='color:red; margin:0;'>아이디는 6글자 이상이여야 합니다.</p>";
  	}else{
- 		tdid.innerHTML="<p style='color:green; margin:0;'>사용 가능한 아이디입니다. 중복체크를 해주세요.</p>";
+ 		tdid.innerHTML="<p style='color:blue; margin:0;'>아이디 중복체크를 해주세요.</p>";
  	}
 	return false;
 }
@@ -111,7 +111,24 @@ function pwd2dCheck(pwda, pwdb){//비밀번호 확인
 			
 }
 
+function nameCheck(uName){
+	var uname = uName.value;
+	var userName = document.getElementById("nameCheck");
+	var pattern = /^[가-힣]{2,5}$/;
+
+	if(!pattern.test(uname))
+		userName.innerHTML="<p style='color:red; margin:0;'>2~5글자의 한글만 가능합니다.</p>";
+	else
+		userName.innerHTML="<p style='color:green; margin:0;'>사용 가능한 이름입니다.</p>";
+			
+	return false;
+}
+
 function dcheckId(){
+	var uid = document.getElementById("userId").value;
+	var uidcheck = document.getElementById("idcheck").firstChild.innerText;
+	if(uid.length==0 || uidcheck.substr(0,4) !="아이디 ")
+		return false;
 	$.ajax({
 		url : "userIdchk6.do",
 		type : "post",
@@ -133,6 +150,9 @@ function dcheckId(){
 }
 
 function dcheckEmail(){
+	var uemail = document.getElementById("uemail").value;
+	if(uemail.length==0)
+		return false;
 	$.ajax({
 		url : "userEmailChk6.do",
 		type : "post",
@@ -155,20 +175,74 @@ function dcheckEmail(){
 function telCheck(event,tel){
 	var utel= tel.value;
 	var code= event.keyCode;
-
+	var pattern = /^[\d\-]{12,13}$/;
 	if(code==8 || code ==46){
 		return false;
 		}
+
+	if(!pattern.test(utel))
+		telcheck.innerHTML="<p style='color:red; margin:0;'>11자리의 숫자만 가능합니다</p>";
+	else
+		telcheck.innerHTML="<p style='color:green; margin:0;'>사용 가능한 번호입니다.</p>";
 
 	if(utel.length == 3)
 		tel.value=utel+'-';
 	if(utel.length == 8)
 		tel.value=utel+'-';
+
+	
+	return false;
+}
+
+function eCheck(uemail){
+	var uEmail= uemail.value;
+	var pattern = /^[\w]{2,}@[\w]+(\.[\w-]+){1,3}$/;
+	if(!pattern.test(uEmail))
+		emailcheck.innerHTML="<p style='color:red; margin:0;'>이메일 형식에 맞지 않습니다.</p>";
+	else
+		emailcheck.innerHTML="<p style='color:green; margin:0;'>중복 체크해주세요</p>";
 	return false;
 }
 
 function enrollCheck(){
+	var uid = document.getElementById("idcheck").firstChild.innerText;
+	var upwd = document.getElementById("pwdcheck").firstChild.innerText;
+	var upwd2 = document.getElementById("pwdcheck2").firstChild.innerText;
+	var uname = document.getElementById("nameCheck").firstChild.innerText;
+	var utel = document.getElementById("telcheck").firstChild.innerText;
+	var uemail = document.getElementById("emailcheck").firstChild.innerText;
+
+
+	if(uid!=null && uid.substr(0,6) !="사용 가능한"){
+		document.getElementById("userId").focus();
+		return false;
+	}else if(upwd!=null && upwd.substr(0,6) !="사용 가능한"){
+		document.getElementById("userPwd").focus();
+		return false;
+	}else if(upwd2!=null && upwd2.substr(0,9) !="비밀번호가 일치합"){
+		document.getElementById("userPwd2").focus();
+		return false;
+	}else if(uname!=null && uname.substr(0,6) !="사용 가능한"){
+		document.getElementById("userName").focus();
+		return false;
+	}else if(utel!=null && utel.substr(0,6) !="사용 가능한"){
+		document.getElementById("userPhone").focus();
+		return false;
+	}else if(uemail!=null && uemail.substr(0,6) !="사용 가능한"){
+		document.getElementById("uemail").focus();
+		return false;
+	}
+	
 	return true;
+}
+
+function resetForm(){
+	document.getElementById("userForm").reset();
+	document.getElementById("idcheck").innerHTML="";
+	document.getElementById("pwdcheck").innerHTML="";
+	document.getElementById("pwdcheck2").innerHTML="";
+	document.getElementById("nameCheck").innerHTML="";
+	document.getElementById("emailcheck").innerHTML="";
 }
 </script>
 </head>
@@ -177,28 +251,30 @@ function enrollCheck(){
 <span><a href="main.do"><img src="/intepark/resources/img/favicon.ico" height="150" width="150"></a><br>
 </span>
 <H1>고객 회원가입</H1>
-<form action="insertUser6.do" method="post" onsubmit="return enrollCheck();">
+<form action="insertUser6.do" id="userForm" method="post" onsubmit="return enrollCheck();">
 <table>
 <tr><th>아이디* : </th><td><input type="text" id="userId" name="userid" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" onclick="dcheckId()" value="아이디 중복체크"></td></tr>
 <tr><td colspan="3" id="idcheck"></td></tr>
 <tr><th>비밀번호* : </th><td><input type="password" id="userPwd" name="userpwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
 <tr><td colspan="3" id="pwdcheck"></td></tr>
-<tr><th>비밀번호 확인* : </th><td><input type="password" onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td></tr>
+<tr><th>비밀번호 확인* : </th><td><input type="password" id="userPwd2"onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td></tr>
 <tr><td colspan="3" id="pwdcheck2"></td></tr>
-<tr><th>이름* : </th><td><input type="text" name="username" maxlength="40" required></td></tr>
-<tr><th>휴대폰번호* : </th><td><input type="tel" name="phone" onkeydown="telCheck(event,this)" maxlength="13" required></td></tr>
-<tr><th>이메일* : </th><td><input type="email" id="uemail" name="email"></td><td><input type="button" onclick="dcheckEmail()" value="이메일 중복체크"></td></tr>
+<tr><th>이름* : </th><td><input type="text" name="username" id="userName" maxlength="5" onkeyup="nameCheck(this);" required></td></tr>
+<tr><td colspan="3" id="nameCheck"></td></tr>
+<tr><th>휴대폰번호* : </th><td><input type="tel" name="phone" id="userPhone"onkeydown="telCheck(event,this)" maxlength="13" required></td></tr>
+<tr><td colspan="3" id="telcheck"></td></tr>
+<tr><th>이메일* : </th><td><input type="email" id="uemail" name="email" onkeyup="eCheck(this)" required></td><td><input type="button" onclick="dcheckEmail()" value="이메일 중복체크"></td></tr>
 <tr><td colspan="3" id="emailcheck"></td></tr>
 <tr><th>주소 :</th></tr>
 </table>
 <input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" readonly>
 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 <input type="text" id="sample6_address" placeholder="주소" name="address2"readonly><br>
-<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3" required>
+<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3">
 <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address4" readonly>
 <br>
 <input type="submit" value="가입하기">
-<input type="reset" value="초기화">
+<input type="button" value="초기화" onclick="resetForm();">
 </form>
 </section>
 </body>
