@@ -13,14 +13,14 @@ public class Request implements java.io.Serializable {
 	private String reqregion;	//시공지역
 	private String reqbudget;	//시공예산
 	private String reqname;	//고객이름
-	private int reqphone;	//고객전화번호
+	private String reqphone;	//고객전화번호
 	private java.sql.Date reqdate;		//상담신청날짜
 	private String consid;	//시공사 아이디
 	private String userid;	//고객아이디
 	
 	public Request() {}
 
-	public Request(int reqnum, String reqarea, String reqregion, String reqbudget, String reqname, int reqphone,
+	public Request(int reqnum, String reqarea, String reqregion, String reqbudget, String reqname, String reqphone,
 			Date reqdate, String consid, String userid) {
 		super();
 		this.reqnum = reqnum;
@@ -74,11 +74,11 @@ public class Request implements java.io.Serializable {
 		this.reqname = reqname;
 	}
 
-	public int getReqphone() {
+	public String getReqphone() {
 		return reqphone;
 	}
 
-	public void setReqphone(int reqphone) {
+	public void setReqphone(String reqphone) {
 		this.reqphone = reqphone;
 	}
 

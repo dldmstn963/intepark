@@ -44,26 +44,27 @@
 DROP TABLE constructors CASCADE CONSTRAINTS;
 
 CREATE TABLE constructors (
-   consid   VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
-   conspwd   VARCHAR2(60)      NOT NULL,
-   enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
-   consname   VARCHAR2(30)      NOT NULL,
-   phone   VARCHAR2(50)      NULL,
-   email   VARCHAR2(50)      NOT NULL,
-   address   VARCHAR2(200)      NULL,
-   companyname   VARCHAR2(100)      NOT NULL,
-   consarea   VARCHAR2(100)      NOT NULL,
-   asdate   VARCHAR2(20)      NULL,
-   career   VARCHAR2(20)      NULL,
-   consintroduction   VARCHAR2(500)      NULL,
-   pfintroduction   VARCHAR2(4000)      NULL,
-   profileoriginalimg   VARCHAR2(100)      NULL,
-   profilerenameimg   VARCHAR2(100)      NULL,
-   blicenceoriginalimg   VARCHAR2(100)      NULL,
-   blicencerenameimg   VARCHAR2(100)      NULL,
-   memberstate   CHAR(1)   DEFAULT 'A'    CHECK(memberstate IN('A','Y','S','N')),
-   withdrawdate   DATE   DEFAULT SYSDATE   NULL,
-   withdrawcause   VARCHAR2(200)      NULL
+
+	consid	VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
+	conspwd	VARCHAR2(60)		NOT NULL,
+	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
+	consname	VARCHAR2(30)		NOT NULL,
+	phone	VARCHAR2(50)		NULL,
+	email	VARCHAR2(50)		NOT NULL,
+	address	VARCHAR2(200)		NULL,
+	companyname	VARCHAR2(100)		NOT NULL,
+	consarea	VARCHAR2(100)		NOT NULL,
+	asdate	VARCHAR2(20)		NULL,
+	career	VARCHAR2(20)		NULL,
+	consintroduction	VARCHAR2(500)		NULL,
+	pfintroduction	VARCHAR2(4000)		NULL,
+	profileoriginalimg	VARCHAR2(100)		NULL,
+	profilerenameimg	VARCHAR2(100)		NULL,
+	blicenceoriginalimg	VARCHAR2(100)		NULL,
+	blicencerenameimg	VARCHAR2(100)		NULL,
+	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','Y','S','N')),
+	withdrawdate	DATE	DEFAULT SYSDATE	NULL,
+	withdrawcause	VARCHAR2(200)		NULL
 );
 
 insert into constructors values ('con1', 'con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
@@ -82,8 +83,9 @@ insert into constructors values ('con1', 'con1', sysdate, '시공사1', '010-333
 insert into constructors values ('con2', 'con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
 '인테킹','부엌,욕실,벽지,타일,조명', '6개월','10년이상','카멜레온디자인은 유행에 따라가지 않고 오랜 시간 동안 사랑 받을 수 있는 디자인을 선호 합니다.
 작은 것 하나까지 소중하게 생각합니다.',null,null,'cons_profile_Img2.png',null,null,'Y',null,null);
-insert into constructors values('con3',   'con3',   sysdate, '시공사3',   '010-4444-7777', 'abcd@adb.com', '서울시 송파구',   '인테월드',   '종합,욕실,마루,장판,주방', '1년', '10년이상',   '건축자재도매유통 인테리어 풀하우스 입니다.
-자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null, null, null, 'Y',null, null);   
+
+insert into constructors values('con3',	'con3',	sysdate, '시공사3',	'010-4444-7777', 'abcd@adb.com', '서울시 송파구',	'인테월드',	'종합,욕실,마루,장판,주방', '1년', '10년이상',	'건축자재도매유통 인테리어 풀하우스 입니다.
+자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null, null, null, 'Y',null, null);	
 
 --delete from constructors where consid='con1';
 
@@ -975,7 +977,7 @@ insert into GOODS values (1,1,'스완 수납 화장대',73900,DEFAULT,'N','DD.JP
 insert into GOODS values (2,2,'무브 소프트 세미 극세사 차렵이불',32900,DEFAULT,'Y','AA.JPG','주석시험','극세사 이불',2,'con2',sysdate);
 
 insert into DELIVERYLIST VALUES(1,'이은수','강원도',01043761266,'강릉집','user1');
-insert into REQUEST VALUES(1, '집앞에 두고가주세요', 'user1');
+insert into REQUESTS VALUES(1, '집앞에 두고가주세요', 'user1');
 
 insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',1,'좋아요' );
 insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',2);
@@ -1284,15 +1286,17 @@ select * from chatmessageview;
 DROP TABLE request CASCADE CONSTRAINTS;
 
 CREATE TABLE request (
-   reqnum   NUMBER      NOT NULL,
-   reqarea   VARCHAR2(100)      NOT NULL,
-   reqregion   VARCHAR2(100)      NOT NULL,
-   reqbudget   VARCHAR2(100)      NOT NULL,
-   reqname   VARCHAR2(100)      NOT NULL,
-   reqphone   VARCHAR2(50)      NOT NULL,
-   reqdate   DATE   DEFAULT SYSDATE   NOT NULL,
-   consid   varchar2(15)      NOT NULL,
-   userid   varchar2(15)      NOT NULL
+
+	reqnum	NUMBER		NOT NULL,
+	reqarea	VARCHAR2(100)		NOT NULL,
+	reqregion	VARCHAR2(100)		NOT NULL,
+	reqbudget	VARCHAR2(100)		NOT NULL,
+	reqname	VARCHAR2(100)		NOT NULL,
+	reqphone	VARCHAR2(50)		NOT NULL,
+	reqdate	DATE	DEFAULT SYSDATE	NOT NULL,
+	consid	varchar2(15)		NOT NULL,
+	userid	varchar2(15)		NOT NULL
+
 );
 
 COMMENT ON COLUMN request.reqnum IS '상담신청 번호';

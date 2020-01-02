@@ -10,13 +10,12 @@
     	where consid = #{consid}
 	</select>
 	
+	<insert id="insertRequest" parameterType="Request">
+		insert into request values (reqnum_seq.nextval, #{reqarea}, #{reqregion}, #{reqbudget}, 
+		#{reqname}, #{reqphone}, default, #{consid}, #{userid})
+	</insert>
 	
-
-	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">
-		select * from member where userid = #{ userid } and userpwd = #{userpwd}
-	</select>
-	
-	<select id="selectOne" parameterType="string" resultType="Member">
+	<!-- <select id="selectOne" parameterType="string" resultType="Member">
 		select * from member where userid = #{value}
 	</select>
 	

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.review.model.dao.ReviewDao;
 import com.c4.intepark.review.model.vo.Review;
@@ -14,7 +15,18 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	@Autowired
 	private ReviewDao reviewDao;
+	
+	@Override
+	public Constructors selectReviewForm(String consid) {
+		return reviewDao.selectReviewForm(consid);
+	}
 
+	
+	
+	
+	
+	
+	
 	@Override
 	public ArrayList<Review> selectrvList() {
 		return reviewDao.selectrvList();
@@ -39,6 +51,8 @@ public class ReviewServiceImpl implements ReviewService{
 	public int deleteReview(int rvnum) {
 		return reviewDao.deleteReview(rvnum);
 	}
+
+	
 
 	
 	
