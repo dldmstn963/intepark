@@ -44,32 +44,46 @@
 DROP TABLE constructors CASCADE CONSTRAINTS;
 
 CREATE TABLE constructors (
-	consid	VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
-	conspwd	VARCHAR2(60)		NOT NULL,
-	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
-	consname	VARCHAR2(30)		NOT NULL,
-	phone	VARCHAR2(50)		NULL,
-	email	VARCHAR2(50)		NOT NULL,
-	address	VARCHAR2(200)		NULL,
-	companyname	VARCHAR2(100)		NOT NULL,
-	consarea	VARCHAR2(100)		NOT NULL,
-	asdate	VARCHAR2(20)		NULL,
-	career	VARCHAR2(20)		NULL,
-	consintroduction	VARCHAR2(200)		NULL,
-	pfintroduction	VARCHAR2(4000)		NULL,
-	profileoriginalimg	VARCHAR2(100)		NULL,
-	profilerenameimg	VARCHAR2(100)		NULL,
-	blicenceoriginalimg	VARCHAR2(100)		NULL,
-	blicencerenameimg	VARCHAR2(100)		NULL,
-	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','Y','S','N')),
-	withdrawdate	DATE	DEFAULT SYSDATE	NULL,
-	withdrawcause	VARCHAR2(200)		NULL
+   consid   VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
+   conspwd   VARCHAR2(60)      NOT NULL,
+   enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
+   consname   VARCHAR2(30)      NOT NULL,
+   phone   VARCHAR2(50)      NULL,
+   email   VARCHAR2(50)      NOT NULL,
+   address   VARCHAR2(200)      NULL,
+   companyname   VARCHAR2(100)      NOT NULL,
+   consarea   VARCHAR2(100)      NOT NULL,
+   asdate   VARCHAR2(20)      NULL,
+   career   VARCHAR2(20)      NULL,
+   consintroduction   VARCHAR2(500)      NULL,
+   pfintroduction   VARCHAR2(4000)      NULL,
+   profileoriginalimg   VARCHAR2(100)      NULL,
+   profilerenameimg   VARCHAR2(100)      NULL,
+   blicenceoriginalimg   VARCHAR2(100)      NULL,
+   blicencerenameimg   VARCHAR2(100)      NULL,
+   memberstate   CHAR(1)   DEFAULT 'A'    CHECK(memberstate IN('A','Y','S','N')),
+   withdrawdate   DATE   DEFAULT SYSDATE   NULL,
+   withdrawcause   VARCHAR2(200)      NULL
 );
 
 insert into constructors values ('con1', 'con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
-'인테리아','바닥,천장','1년','2~5년','간지작살',null,null,null,null,null,'Y',null,null);
+'인테리아','종합,바닥,천장,목공,샷시','1년','2~5년','"마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 디자인담다입니다',
+'실내건축면허를 보유한 인테리아 입니다.
+인테리어를 시작하시게 된 계기가 있나요?
+벌써 15년이 넘었네요. 그땐 아파트 수장공사를 하는 회사에 소속되어 있었습니다. 그러던 중 부산에서 마이너스 옵션으로 분양한 아파트를 10분의 다른 고객님과 개인적으로 공사해 드리게 되었습니다. 그 과정에 회사는 사라졌고, 누군가는 마무리를 지어야 하는 상황이었죠. 10집중 똑같은 집은 하나도 없었습니다. 그때는 혼자였고, 매일 미팅, 현장, 미팅, 현장~ 밤늦게 까지 이어졌습니다. 수입자재도 많아 예상치 못한 일이 뻥뻥 터졌었죠. 시간이 가고, 한 집씩 마무리가 되고, 조금 정신을 차리게 되었을 때 깨닫게 되었죠. 제가 보람을 느끼고 있더군요. 기쁘고 만족스럽고 제게 일을 맡겨주신 분들께 감사하고 있더군요. 그 후로 계속 이 일을 하고 있네요
+기억에 남는 시공 사례가 있나요?
+50평대 아파트가 생각나네요. 부분공사를 진행하였는데, 공사기간 중 매일 아침 현장에 가면 고객님께서 깔끔하게 청소를 해두셨습니다. 평균이상으로 깔끔하신 고객 덕에 공사하는 시간보다 정리하는 시간이 더 걸렸던 것 같아요. 공기는 늘고, 인건비도 자꾸 늘어났죠. 그 당시에는 엄청 심각했습니다. 공사하는 만큼 일이 늘어나는 기분이었습니다. 결론은 다행히 해피엔딩입니다. 공사에 만족한 고객님께서 공사가 끝난 후 세 군데나 소개해 주셨죠~ :) 하지만 그 이후로 거주하는 집, 부분공사는 웬만해선 안합니다.
+인테리아만의 차별점이 있나요?
+저희 자랑입니다~:) 고객만족도가 상당히 높아요. 때문에 대부분의 고객님과 아직도 연락을 주고받고 있습니다. 이유는 시행착오를 최소화하기 위해 최소 2주 이상 설계를 진행합니다. 설계과정 중엔 많은 미팅과 고민을 하죠. 특히 주방, 아이 방은 공사 중에도 고객님과 더 많은 커뮤니케이션을 합니다. 그리고 또 한 가지는, 기본에 충실합니다. 집짓기에 기본은 단열이 잘돼 열효율이 좋고, 따뜻하고, 물 안 새는 집을 지향합니다. 이 세 가지에는 돈을 아끼지 않습니다.
+향후 계획이나 목표가 있나요?
+다양한 아이디어와 디자인은 결국 다양한 경험에서 나온다고 생각합니다. 경험을 통해서만 조금 더 심도있는 접근과 장, 단점을 파악할 수 있게 되지요. 시간이 지날수록 기존에 해왔던 방식의 디자인을 고수하는 모습을 제게서 봅니다. 도전과 더 많은 경험이 필요할 때인 것 같습니다. 바쁘다는 핑계로 미뤄왔던 워크샵이나, 킨텍스의 다양한 행사에 참석하여 좀 더 자극을 받아야 할 것 같습니다.
+오늘의집 고객에게 한마디 해주신다면?
+저희는 실내건축면허를 보유한 업체입니다. 모델하우스와 아파트 현장에서 10년 이상 경험한 전문성 있는 인원으로 이루어진 곳이죠. 고객과의 미팅으로 니즈를 파악하고, 설계과정을 통한 계획을 세워 착오 없는 합리적인 예산의 공사를 진행하고 있습니다.',null,'cons_profile_Img.jpg',null,null,'Y',null,null);
 insert into constructors values ('con2', 'con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
-'인테킹','종합','6개월','10년이상','나도간지작살',null,null,null,null,null,'Y',null,null);
+'인테킹','부엌,욕실,벽지,타일,조명', '6개월','10년이상','카멜레온디자인은 유행에 따라가지 않고 오랜 시간 동안 사랑 받을 수 있는 디자인을 선호 합니다.
+작은 것 하나까지 소중하게 생각합니다.',null,null,'cons_profile_Img2.png',null,null,'Y',null,null);
+insert into constructors values('con3',   'con3',   sysdate, '시공사3',   '010-4444-7777', 'abcd@adb.com', '서울시 송파구',   '인테월드',   '종합,욕실,마루,장판,주방', '1년', '10년이상',   '건축자재도매유통 인테리어 풀하우스 입니다.
+자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null, null, null, 'Y',null, null);   
 
 --delete from constructors where consid='con1';
 
@@ -100,16 +114,16 @@ COMMENT ON COLUMN constructors.withdrawcause IS '탈퇴사유';
 DROP TABLE inteuser CASCADE CONSTRAINTS;
 
 CREATE TABLE inteuser (
-	userid	VARCHAR2(15) CONSTRAINT PK_INTEUSER PRIMARY KEY,
-	userpwd	VARCHAR2(60)		NOT NULL,
-	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
-	username	VARCHAR2(30)		NOT NULL,
-	phone	VARCHAR2(50)		NULL,
-	email	VARCHAR2(50)		NOT NULL,
-	address	VARCHAR2(200)		NULL,
-	memberstate	CHAR(1)	DEFAULT 'Y'	CHECK(memberstate IN('N','S','Y')),
-	withdrawdate	DATE		NULL,
-	withdrawcause	VARCHAR2(200)		NULL
+   userid   VARCHAR2(15) CONSTRAINT PK_INTEUSER PRIMARY KEY,
+   userpwd   VARCHAR2(60)      NOT NULL,
+   enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
+   username   VARCHAR2(30)      NOT NULL,
+   phone   VARCHAR2(50)      NULL,
+   email   VARCHAR2(50)      NOT NULL,
+   address   VARCHAR2(200)      NULL,
+   memberstate   CHAR(1)   DEFAULT 'Y'   CHECK(memberstate IN('N','S','Y')),
+   withdrawdate   DATE      NULL,
+   withdrawcause   VARCHAR2(200)      NULL
 );
 
 insert into inteuser values('admin','admin',sysdate,'관리자','080-509-4949','d@d', null,'Y',null,null);
@@ -135,10 +149,10 @@ COMMENT ON COLUMN inteuser.withdrawcause IS '탈퇴사유';
 DROP TABLE constructorstop CASCADE CONSTRAINTS;
 
 CREATE TABLE constructorstop (
-	cstopcause	VARCHAR2(100)		NULL,
-	cstopdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	cstopterm	NUMBER		NULL,
-	consid	VARCHAR2(15)	REFERENCES constructors(consid) on delete cascade
+   cstopcause   VARCHAR2(100)      NULL,
+   cstopdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   cstopterm   NUMBER      NULL,
+   consid   VARCHAR2(15)   REFERENCES constructors(consid) on delete cascade
 );
 
 COMMENT ON COLUMN constructorstop.cstopcause IS '정지사유';
@@ -149,10 +163,10 @@ COMMENT ON COLUMN constructorstop.consid IS '아이디';
 DROP TABLE userstop CASCADE CONSTRAINTS;
 
 CREATE TABLE userstop (
-	ustopcause	VARCHAR2(100)		NULL,
-	ustopdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	ustopterm	NUMBER		NULL,
-	userid	VARCHAR2(15) REFERENCES inteuser(userid)  on delete cascade
+   ustopcause   VARCHAR2(100)      NULL,
+   ustopdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   ustopterm   NUMBER      NULL,
+   userid   VARCHAR2(15) REFERENCES inteuser(userid)  on delete cascade
 );
 
 COMMENT ON COLUMN userstop.ustopcause IS '정지사유';
@@ -167,9 +181,9 @@ COMMENT ON COLUMN userstop.userid IS '아이디';
 DROP TABLE constructorlog CASCADE CONSTRAINTS;
 
 CREATE TABLE constructorlog (
-	clogdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	cipaddress	VARCHAR2(40)		NOT NULL,
-	consid	VARCHAR2(15) REFERENCES constructors(consid) on delete cascade
+   clogdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   cipaddress   VARCHAR2(40)      NOT NULL,
+   consid   VARCHAR2(15) REFERENCES constructors(consid) on delete cascade
 );
 
 COMMENT ON COLUMN constructorlog.clogdate IS '로그날짜';
@@ -179,9 +193,9 @@ COMMENT ON COLUMN constructorlog.consid IS '아이디';
 DROP TABLE userlog CASCADE CONSTRAINTS;
 
 CREATE TABLE userlog (
-	ulogdate	DATE	DEFAULT SYSDATE	NULL,
-	uipaddress	VARCHAR2(40) NULL,
-	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+   ulogdate   DATE   DEFAULT SYSDATE   NULL,
+   uipaddress   VARCHAR2(40) NULL,
+   userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
 );
 
 COMMENT ON COLUMN userlog.ulogdate IS '로그날짜';
@@ -201,12 +215,12 @@ CREATE SEQUENCE "INTEPARK"."ALBUMIMGS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999
 
 
 CREATE TABLE album (
-	albumnum	NUMBER PRIMARY KEY,
-	albumtitle	VARCHAR(100)		NOT NULL,
-	albumdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	albumcontents	VARCHAR(4000)		NOT NULL,
-	albumreadcount	NUMBER	DEFAULT 0	NULL,
-	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+   albumnum   NUMBER PRIMARY KEY,
+   albumtitle   VARCHAR(100)      NOT NULL,
+   albumdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   albumcontents   VARCHAR(4000)      NOT NULL,
+   albumreadcount   NUMBER   DEFAULT 0   NULL,
+   userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
 );
 
 INSERT INTO album VALUES(ALBUM_SEQ.NEXTVAL,'여길봐',SYSDATE,'ㅋㅋㅋ',DEFAULT,'user1');
@@ -222,14 +236,14 @@ COMMENT ON COLUMN album.userid IS '고객아이디';
 DROP TABLE albumreply CASCADE CONSTRAINTS;
 
 CREATE TABLE albumreply (
-	albumreplyoriginalno	NUMBER PRIMARY KEY,
-	albumreplygroupno	NUMBER NOT NULL,
-	albumreplygrouporder	NUMBER	DEFAULT 0	NOT NULL,
-	albumreplygrouplayer	NUMBER	DEFAULT 0	NOT NULL,
-	albumreplydate	DATE	DEFAULT SYSDATE	NOT NULL,
-	albumreplycontents	VARCHAR2(500)		NOT NULL,
-	albumnum	NUMBER REFERENCES album(albumnum) on delete cascade,
-	userid	VARCHAR2(15)	REFERENCES inteuser(userid)  on delete cascade
+   albumreplyoriginalno   NUMBER PRIMARY KEY,
+   albumreplygroupno   NUMBER NOT NULL,
+   albumreplygrouporder   NUMBER   DEFAULT 0   NOT NULL,
+   albumreplygrouplayer   NUMBER   DEFAULT 0   NOT NULL,
+   albumreplydate   DATE   DEFAULT SYSDATE   NOT NULL,
+   albumreplycontents   VARCHAR2(500)      NOT NULL,
+   albumnum   NUMBER REFERENCES album(albumnum) on delete cascade,
+   userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
 );
 
 COMMENT ON COLUMN albumreply.albumreplyoriginalno IS '댓글번호';
@@ -245,16 +259,17 @@ COMMENT ON COLUMN albumreply.userid IS '고객아이디';
 DROP TABLE albumimgs CASCADE CONSTRAINTS;
 
 CREATE TABLE albumimgs (
-	albumimgnum	NUMBER	 PRIMARY KEY,
-	albumoriginalimgname	VARCHAR2(100)		NULL,
-	albumrenameimgname	VARCHAR2(100)		NULL,
-	albumnum NUMBER REFERENCES album(albumnum) on delete cascade
+   albumimgnum   NUMBER    PRIMARY KEY,
+   albumoriginalimgname   VARCHAR2(100)      NULL,
+   albumrenameimgname   VARCHAR2(100)      NULL,
+   albumnum NUMBER REFERENCES album(albumnum) on delete cascade
 );
 
 COMMENT ON COLUMN albumimgs.albumimgnum IS '이미지번호';
 COMMENT ON COLUMN albumimgs.albumoriginalimgname IS '원본이미지이름';
 COMMENT ON COLUMN albumimgs.albumrenameimgname IS '서버에저장할이미지이름';
 COMMENT ON COLUMN albumimgs.albumnum IS '글번호';
+
 
 
 
@@ -1066,7 +1081,7 @@ price varchar2(15) NOT NULL,
 ofile varchar2(50),
 rfile varchar2(50),
 etc varchar2(500),
-progress varchar2(30) NOT NULL,
+progress varchar2(30) NOT NULL
 );
 
 COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';
@@ -1266,19 +1281,18 @@ select * from chatmessageview;
 -------------------------------------------------------------------
 -------우수연
 --시공사 상담신청--------------
-
 DROP TABLE request CASCADE CONSTRAINTS;
 
 CREATE TABLE request (
-	reqnum	NUMBER		NOT NULL,
-	reqarea	VARCHAR2(100)		NOT NULL,
-	reqregion	VARCHAR2(100)		NOT NULL,
-	reqbudget	VARCHAR2(100)		NOT NULL,
-	reqname	VARCHAR2(100)		NOT NULL,
-	reqphone	NUMBER		NOT NULL,
-	reqdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	consid	varchar2(15)		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   reqnum   NUMBER      NOT NULL,
+   reqarea   VARCHAR2(100)      NOT NULL,
+   reqregion   VARCHAR2(100)      NOT NULL,
+   reqbudget   VARCHAR2(100)      NOT NULL,
+   reqname   VARCHAR2(100)      NOT NULL,
+   reqphone   VARCHAR2(50)      NOT NULL,
+   reqdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   consid   varchar2(15)      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN request.reqnum IS '상담신청 번호';
@@ -1310,18 +1324,18 @@ NOCYCLE;
 
 --시공사 상담신청 샘플 데이터---------------------------------------------------------
 
-INSERT INTO request VALUES (reqnum_seq.nextval, '도배, 마루, 장판', '서울특별시 송파구', '1000~2000만원', '우수', 01012345678, default, 'con1', 'user1');
-INSERT INTO request VALUES (reqnum_seq.nextval, '벽지, 타일, 도배', '부산광역시 해운대구', '2000~3000만원', '엘라', 01011112222, default, 'con2', 'user2');
-INSERT INTO request VALUES (reqnum_seq.nextval, '마루, 욕실, 주방', '서울특별시 강남구', '3000만원 이상', '히비', 01022223333, default, 'con1', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '도배,마루,장판', '서울특별시 송파구', '1000~2000만원', '우수', '010-1234-5678', default, 'con1', 'user1');
+INSERT INTO request VALUES (reqnum_seq.nextval, '벽지,타일,도배', '부산광역시 해운대구', '2000~3000만원', '엘라', '010-1111-2222', default, 'con2', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '마루,욕실,주방', '서울특별시 강남구', '3000만원 이상', '히비', '010-2222-3333', default, 'con1', 'user2');
 
 --시공사 포트폴리오--------------
 
 DROP TABLE portfolio CASCADE CONSTRAINTS;
 
 CREATE TABLE portfolio (
-	pfnum	NUMBER		NOT NULL,
-	pftitle	VARCHAR2(30)		NOT NULL,
-	consid	varchar2(15)		NOT NULL
+   pfnum   NUMBER      NOT NULL,
+   pftitle   VARCHAR2(30)      NOT NULL,
+   consid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN portfolio.pfnum IS '포트폴리오 글번호';
@@ -1351,11 +1365,11 @@ INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 입니다~2', 
 DROP TABLE portfoliofile CASCADE CONSTRAINTS;
 
 CREATE TABLE portfoliofile (
-	pfphotonum	NUMBER		NOT NULL,
-	pforiginalname	VARCHAR2(100)		NULL,
-	pfrename	VARCHAR2(100)		NULL,
-	pfcoment	VARCHAR2(30)		NULL,
-	pfnum	NUMBER		NOT NULL
+   pfphotonum   NUMBER      NOT NULL,
+   pforiginalname   VARCHAR2(100)      NULL,
+   pfrename   VARCHAR2(100)      NULL,
+   pfcoment   VARCHAR2(30)      NULL,
+   pfnum   NUMBER      NOT NULL
 );
 
 COMMENT ON COLUMN portfoliofile.pfphotonum IS '포트폴리오 사진번호';
@@ -1393,22 +1407,22 @@ INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '41257', '
 DROP TABLE review CASCADE CONSTRAINTS;
 
 CREATE TABLE review (
-	rvnum	NUMBER		NOT NULL,
-	rvkind	NUMBER		NOT NULL,
-	rvprice	NUMBER		NOT NULL,
-	rvquality	NUMBER		NOT NULL,
-	rvprofessional	NUMBER		NOT NULL,
-	rvresponsible	NUMBER		NOT NULL,
-	rvperiod	VARCHAR2(100)		NOT NULL,
-	rvregion	VARCHAR2(100)		NOT NULL,
-	rvbuildingtype	VARCHAR2(100)		NOT NULL,
-	rvarea	VARCHAR2(100)		NOT NULL,
-	rvspacious	VARCHAR2(100)		NOT NULL,
-	rvprice2	VARCHAR2(100)		NOT NULL,
-	rvcritique	VARCHAR2(1000)		NOT NULL,
-	rvdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	consid	varchar2(15)		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   rvnum   NUMBER      NOT NULL,
+   rvkind   NUMBER      NOT NULL,
+   rvprice   NUMBER      NOT NULL,
+   rvquality   NUMBER      NOT NULL,
+   rvprofessional   NUMBER      NOT NULL,
+   rvresponsible   NUMBER      NOT NULL,
+   rvperiod   VARCHAR2(100)      NOT NULL,
+   rvregion   VARCHAR2(100)      NOT NULL,
+   rvbuildingtype   VARCHAR2(100)      NOT NULL,
+   rvarea   VARCHAR2(100)      NOT NULL,
+   rvspacious   VARCHAR2(100)      NOT NULL,
+   rvprice2   VARCHAR2(100)      NOT NULL,
+   rvcritique   VARCHAR2(1000)      NOT NULL,
+   rvdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   consid   varchar2(15)      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN review.rvnum IS '리뷰번호';
@@ -1469,10 +1483,10 @@ default, 'con2', 'user2');
 DROP TABLE reviewfile CASCADE CONSTRAINTS;
 
 CREATE TABLE reviewfile (
-	rvphotonum	NUMBER		NOT NULL,
-	rvoriginalname	VARCHAR2(100)		NULL,
-	rvrename	VARCHAR2(100)		NULL,
-	rvnum	NUMBER		NOT NULL
+   rvphotonum   NUMBER      NOT NULL,
+   rvoriginalname   VARCHAR2(100)      NULL,
+   rvrename   VARCHAR2(100)      NULL,
+   rvnum   NUMBER      NOT NULL
 );
 
 COMMENT ON COLUMN reviewfile.rvphotonum IS '리뷰사진번호';
@@ -1515,8 +1529,8 @@ ALTER TABLE portfoliofile ADD CONSTRAINT PK_PORTFOLIOFILE PRIMARY KEY (pfphotonu
 ALTER TABLE request ADD CONSTRAINT FK_cons_TO_request_1 FOREIGN KEY (consid)
 REFERENCES constructors (consid) on delete cascade;
 
-ALTER TABLE request ADD CONSTRAINT FK_inteuser_TO_request_1 FOREIGN KEY (userid)
-REFERENCES inteuser (userid) on delete cascade;
+--ALTER TABLE request ADD CONSTRAINT FK_inteuser_TO_request_1 FOREIGN KEY (userid)
+--REFERENCES inteuser (userid) on delete cascade;
 
 ALTER TABLE portfolio ADD CONSTRAINT FK_cons_TO_portfolio_1 FOREIGN KEY (consid)
 REFERENCES constructors (consid) on delete cascade;
@@ -1524,8 +1538,8 @@ REFERENCES constructors (consid) on delete cascade;
 ALTER TABLE review ADD CONSTRAINT FK_cons_TO_review_1 FOREIGN KEY (consid)
 REFERENCES constructors (consid) on delete cascade;
 
-ALTER TABLE review ADD CONSTRAINT FK_inteuser_TO_review_1 FOREIGN KEY (userid)
-REFERENCES inteuser (userid) on delete cascade;
+--ALTER TABLE review ADD CONSTRAINT FK_inteuser_TO_review_1 FOREIGN KEY (userid)
+--REFERENCES inteuser (userid) on delete cascade;
 
 ALTER TABLE reviewfile ADD CONSTRAINT FK_review_TO_reviewfile_1 FOREIGN KEY (rvnum)
 REFERENCES review (rvnum) on delete cascade;
