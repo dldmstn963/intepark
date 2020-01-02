@@ -3,6 +3,7 @@ package com.c4.intepark.auction.model.service;
 import java.util.ArrayList;
 
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
 
 public interface AuctionService {
@@ -15,5 +16,6 @@ int auctionUpdate(Auction auction);
 Auction auctionDetailView(String auc);
 NonAuction nonAuctionDetailView(String nonauc);
 int deleteAuction(String auction);
+ArrayList<AuctionAttend> auctionAttendList(int auction);
 
 }

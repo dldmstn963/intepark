@@ -9,6 +9,10 @@
 		select * from auction order by auctionno desc
 	</select>
 	
+	<select id="selectAttendList" parameterType="_int" resultType="AuctionAttend">
+		select * from auctionattend where auctionno = #{auction} order by auctionno desc
+	</select>
+	
 	<select id="NonAuctionList" parameterType="NonAuction" resultType="NonAuction">
 		select * from nonauction order by auctionno desc
 	</select>

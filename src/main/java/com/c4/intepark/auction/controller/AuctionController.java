@@ -11,17 +11,21 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.c4.intepark.auction.model.service.AuctionService;
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
 
 @Controller
@@ -58,7 +62,7 @@ public String nonAuctionEnrollPage() {
 @RequestMapping("auctionEnd2.do")
 public String auctionEndList() {
 	
-	return "auction/auctionEndList2";
+	return "auction/auctionEndList";
 }
 
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 
@@ -235,5 +239,48 @@ public String auctionEndList() {
 		
 		 return "redirect:main.do";
 	 }
+	/*
+	 * @RequestMapping(value="auctionAttend2.do", method=RequestMethod.POST,
+	 * produces="text/plain; charset=UTF-8") //produces="text/plain; charset=UTF-8"
+	 * 인코딩하기
+	 * 
+	 * @ResponseBody // 리턴하는 json 문자열을 response 객체에 담아서 보내라는 의미의 어노테이션임 public
+	 * String selectAuctionAttend(HttpServletRequest request, HttpServletResponse
+	 * response) { System.out.println("실행됨");
+	 * 
+	 * int auction = Integer.parseInt(request.getParameter("auc"));
+	 * logger.info("실행됨 : " + auction); ArrayList<AuctionAttend> list =
+	 * auctionService.auctionAttendList(auction); logger.info("실행됨 : " +
+	 * list.toString()); // 전송용 json 객체 JSONObject sendJson = new JSONObject(); //
+	 * json 배열 객체 JSONArray jarr = new JSONArray();
+	 * 
+	 * for (AuctionAttend auc : list) { JSONObject job = new JSONObject();
+	 * job.put("auctionno", auc.getAuctionno()); job.put("consid", auc.getConsid());
+	 * job.put("title", auc.getTitle()); job.put("possibledate",
+	 * auc.getPossibledate().toString()); job.put("price", auc.getPrice());
+	 * job.put("ofile", auc.getOfile()); job.put("rfile", auc.getRfile());
+	 * job.put("etc", auc.getEtc()); job.put("progress", auc.getProgress());
+	 * 
+	 * jarr.add(job); } logger.info("실행됨 : " + jarr); sendJson.put("list", jarr);
+	 * 
+	 * return sendJson.toJSONString(); }
+	 */
 	 
+	 @RequestMapping(value="auctionAttend2.do", method=RequestMethod.POST)
+	 public String selectAuctionAttend(HttpServletRequest request, HttpServletResponse response) {
+		 int auction = Integer.parseInt(request.getParameter("auc"));
+		 logger.info("실행됨 : " + auction);
+		 ArrayList<AuctionAttend> list = auctionService.auctionAttendList(auction);
+		 request.setAttribute("list", list);
+		 request.setAttribute("auctionno", auction);
+		 return "auction/auctionAttendList";
+	 }
+	 
+	 @RequestMapping("auctionAttend22.do")
+	 public String auctionAttendlink(HttpServletRequest request) {
+		 int auction = Integer.parseInt(request.getParameter("auc"));
+		 logger.info("실행됨 : " + auction);
+		 request.setAttribute("auctionno", auction);
+		return "auction/auctionAttend";		 
+	 }
 }

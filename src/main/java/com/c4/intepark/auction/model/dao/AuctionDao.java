@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.auction.model.vo.Auction;
+import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
 
 @Repository("auctionDao")
@@ -55,5 +56,11 @@ public Auction auctionDetailView(String auc) {
 public int deleteAuction(String auction) {
 
 	return mybatisSession.delete("auctionMapper.deleteAuction", auction);
+}
+
+public ArrayList<AuctionAttend> auctionAttendList(int auction) {
+	List<AuctionAttend> list = mybatisSession.selectList("auctionMapper.selectAttendList", auction);
+	
+	return (ArrayList<AuctionAttend>)list;
 }
 }
