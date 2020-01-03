@@ -4,10 +4,40 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orderMapper">
 
+<select id="selectDlvyList" resultType="Dlvylist" parameterType="Paging">
+<![CDATA[
+select * 
+from (select rownum rnum, DLVYNUM,ADDRESSEE,ADDRESS,PHONE,DLVYNAME,USERID
+from (select * from DELIVERYLIST 
+where userid= #{memberid} )) 
+where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+</select>
 
 
+<select id="selectDlvylistCount" resultType="int" parameterType="String">
+select count(*) 
+from DELIVERYLIST
+where USERID = #{value}
+</select>
 
+<insert id="insertDlvyList" parameterType="Dlvylist" >
+insert into DELIVERYLIST values(
+DELIVERYLIST_SEQ.nextval,#{addressee},#{address},#{phone},#{dlvyname},#{userid}
+)
+</insert>
 
+<insert id="insertRequests" parameterType="Requests" >
+insert into REQUESTS values(
+REQUESTS_SEQ.nextval,#{requestcn},#{userid}
+)
+</insert>
+
+<insert id="insertOrders" parameterType="Orders" >
+insert into ORDERS values(
+ORDERS_SEQ.nextval,sysdate,#{orderprice},default,#{userid},DELIVERYLIST_SEQ.currval,REQUESTS_SEQ.currval,#{orderquantity},#{goodsnum},#{goodsprice}
+)
+</insert>
 
 
 

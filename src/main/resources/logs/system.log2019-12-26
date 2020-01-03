@@ -1,0 +1,743 @@
+[15:46:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:47:02][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3102 ms
+[15:47:02][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:47:05][INFO ][FrameworkServlet.java:546] - Completed initialization in 2960 ms
+[15:47:05][INFO ][HomeController.java:41] - Welcome main!
+[15:48:31][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[15:48:34][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[15:48:36][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[15:50:22][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:50:25][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2691 ms
+[15:50:25][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:50:27][INFO ][FrameworkServlet.java:546] - Completed initialization in 2331 ms
+[15:50:34][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:06:13][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:06:16][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2723 ms
+[16:06:16][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:06:18][INFO ][FrameworkServlet.java:546] - Completed initialization in 2442 ms
+[16:06:21][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:09:01][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:09:04][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2808 ms
+[16:09:04][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:09:06][INFO ][FrameworkServlet.java:546] - Completed initialization in 2404 ms
+[16:12:15][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[16:12:27][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:12:37][INFO ][OrdersController.java:26] - 결제 창으로 이동
+[16:12:37][INFO ][OrdersController.java:27] - ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂOrders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[16:13:22][INFO ][OrdersController.java:26] - 결제 창으로 이동
+[16:13:22][INFO ][OrdersController.java:27] - ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂOrders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[17:56:20][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:56:22][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2794 ms
+[17:56:23][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:56:25][INFO ][FrameworkServlet.java:546] - Completed initialization in 2370 ms
+[17:56:49][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[17:56:50][ERROR][Slf4jSpyLogDelegator.java:120] - 1. PreparedStatement.execute() select count(*) 
+from DELIVERYLIST
+where user1 = 'user1'
+java.sql.SQLSyntaxErrorException: ORA-00904: "USER1": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.selectDlvylistCount(OrdersDao.java:26)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.selectDlvylistCount(OrdersServiceImpl.java:25)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[17:56:50][ERROR][Slf4jSpyLogDelegator.java:139] - 1. PreparedStatement.execute() FAILED! select count(*) 
+from DELIVERYLIST
+where user1 = 'user1' {FAILED after 20 msec}
+java.sql.SQLSyntaxErrorException: ORA-00904: "USER1": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:886)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1175)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1296)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.selectDlvylistCount(OrdersDao.java:26)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.selectDlvylistCount(OrdersServiceImpl.java:25)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[17:57:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:57:45][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2787 ms
+[17:57:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:57:48][INFO ][FrameworkServlet.java:546] - Completed initialization in 2650 ms
+[17:57:48][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[17:57:53][INFO ][HomeController.java:41] - Welcome main!
+[17:57:55][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:57:56][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[17:57:58][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[17:57:59][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[17:58:54][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:58:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2598 ms
+[17:58:57][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:58:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 2585 ms
+[18:00:01][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[18:00:20][INFO ][HomeController.java:41] - Welcome main!
+[18:00:24][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:00:26][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[18:00:27][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[18:00:28][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[18:03:07][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:03:10][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2669 ms
+[18:03:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:03:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 2415 ms
+[18:03:14][INFO ][HomeController.java:41] - Welcome main!
+[18:03:16][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:03:19][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[18:03:21][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[18:03:25][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[18:11:09][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:11:12][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2637 ms
+[18:11:12][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:11:14][INFO ][FrameworkServlet.java:546] - Completed initialization in 2542 ms
+[18:11:15][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:21:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:21:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2902 ms
+[20:21:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:21:44][INFO ][FrameworkServlet.java:546] - Completed initialization in 2404 ms
+[20:21:48][INFO ][HomeController.java:41] - Welcome main!
+[20:21:53][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:21:54][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[20:21:56][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[20:21:58][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:22:37][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:23:06][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:23:29][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:23:31][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:23:49][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:23:51][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'dlvylist' on field 'phone': rejected value []; codes [typeMismatch.dlvylist.phone,typeMismatch.phone,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [dlvylist.phone,phone]; arguments []; default message [phone]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'phone'; nested exception is java.lang.NumberFormatException: For input string: ""]]
+[20:24:13][INFO ][OrdersController.java:48] - 결제
+[20:24:13][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=0, dlvyname=asdf, userid=user1]
+[20:24:13][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : null
+[20:25:34][INFO ][OrdersController.java:48] - 결제
+[20:25:34][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=0, dlvyname=asdf, userid=user1]
+[20:25:34][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : null
+[20:25:48][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'dlvylist' on field 'phone': rejected value [asdf]; codes [typeMismatch.dlvylist.phone,typeMismatch.phone,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [dlvylist.phone,phone]; arguments []; default message [phone]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'phone'; nested exception is java.lang.NumberFormatException: For input string: "asdf"]]
+[20:26:31][INFO ][OrdersController.java:48] - 결제
+[20:26:31][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=0, dlvyname=asdf, userid=user1]
+[20:26:31][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : null
+[20:26:33][INFO ][OrdersController.java:48] - 결제
+[20:26:33][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=0, dlvyname=asdf, userid=user1]
+[20:26:33][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : null
+[20:26:39][INFO ][OrdersController.java:48] - 결제
+[20:26:39][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=23123, dlvyname=asdf, userid=user1]
+[20:26:39][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : asdf
+[20:27:05][INFO ][OrdersController.java:48] - 결제
+[20:27:05][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=23123, dlvyname=asdf, userid=user1]
+[20:27:05][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : asdf
+[20:27:06][INFO ][OrdersController.java:48] - 결제
+[20:27:06][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=23123, dlvyname=asdf, userid=user1]
+[20:27:06][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : asdf
+[20:27:07][INFO ][OrdersController.java:48] - 결제
+[20:27:07][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asdf, phone=23123, dlvyname=asdf, userid=user1]
+[20:27:07][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : asdf
+[20:29:18][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:29:21][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2770 ms
+[20:29:21][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:29:24][INFO ][FrameworkServlet.java:546] - Completed initialization in 2409 ms
+[20:29:31][INFO ][HomeController.java:41] - Welcome main!
+[20:29:34][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:29:40][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:29:41][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[20:29:42][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[20:29:43][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:30:03][INFO ][OrdersController.java:48] - 결제
+[20:30:03][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asf, phone=11232, dlvyname=asdf, userid=user1]
+[20:30:03][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : asdf
+[20:35:02][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:35:05][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2790 ms
+[20:35:05][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:35:07][INFO ][FrameworkServlet.java:546] - Completed initialization in 2433 ms
+[20:35:13][INFO ][HomeController.java:41] - Welcome main!
+[20:35:15][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:35:17][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[20:35:19][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[20:35:20][INFO ][OrdersController.java:30] - 결제 창으로 이동
+[20:35:32][INFO ][OrdersController.java:48] - 결제
+[20:35:32][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=qwert, address=asdf, phone=1234, dlvyname=asdf, userid=user1]
+[20:35:32][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : qwert
+[20:35:32][ERROR][Slf4jSpyLogDelegator.java:120] - 13. PreparedStatement.execute() insert into goods values(
+DELIVERYLIST_SEQ.nextval,'qwert','asdf',1234,'asdf','user1'
+)
+java.sql.SQLSyntaxErrorException: ORA-00947: not enough values
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.insertDlvyList(OrdersDao.java:30)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.insertDlvyList(OrdersServiceImpl.java:30)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[20:35:32][ERROR][Slf4jSpyLogDelegator.java:139] - 13. PreparedStatement.execute() FAILED! insert into goods values(
+DELIVERYLIST_SEQ.nextval,'qwert','asdf',1234,'asdf','user1'
+) {FAILED after 44 msec}
+java.sql.SQLSyntaxErrorException: ORA-00947: not enough values
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.insertDlvyList(OrdersDao.java:30)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.insertDlvyList(OrdersServiceImpl.java:30)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[20:36:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:36:53][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2678 ms
+[20:36:53][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:36:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2445 ms
+[20:37:26][INFO ][OrdersController.java:48] - 결제
+[20:37:26][INFO ][OrdersController.java:49] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=qwert, address=asdf, phone=1234, dlvyname=asdf, userid=user1]
+[20:37:26][INFO ][OrdersController.java:50] - 요구사항 정보 확인 : qwert
+[20:42:58][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:43:01][WARN ][AbstractApplicationContext.java:557] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/order-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+[20:43:01][ERROR][ContextLoader.java:312] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSession' defined in class path resource [root-context.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/order-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1762)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:830)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:400)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:291)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1412)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1402)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/order-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:501)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758)
+	... 21 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/order-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:98)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:498)
+	... 24 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'mappers/order-mapper.xml'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:122)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:94)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:373)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:119)
+	... 26 more
+Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains value for orderMapper.insertDlvyList. please check mappers/order-mapper.xml and mappers/order-mapper.xml
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:917)
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:874)
+	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:673)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:302)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:109)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:137)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:130)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	... 29 more
+[20:43:44][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:43:47][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2846 ms
+[20:43:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:43:50][INFO ][FrameworkServlet.java:546] - Completed initialization in 2696 ms
+[20:43:51][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[20:43:53][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[20:43:55][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[20:44:15][INFO ][OrdersController.java:49] - 결제
+[20:44:15][INFO ][OrdersController.java:50] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=asdf, address=asfd, phone=123123, dlvyname=asdf, userid=user1]
+[20:44:15][INFO ][OrdersController.java:51] - 요구사항 정보 확인 : Requests [requestnum=0, requestcn=asdf, userid=user1]
+[20:56:14][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:56:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2714 ms
+[20:56:17][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:56:19][INFO ][FrameworkServlet.java:546] - Completed initialization in 2423 ms
+[20:56:26][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[20:56:28][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[20:58:19][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[20:59:19][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[20:59:35][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[20:59:49][INFO ][OrdersController.java:49] - 결제
+[20:59:49][INFO ][OrdersController.java:50] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=받으시는분, address=주소, phone=2120, dlvyname=배송지 이름, userid=user1]
+[20:59:49][INFO ][OrdersController.java:51] - 요구사항 정보 확인 : Requests [requestnum=0, requestcn=요청사항, userid=user1]
+[20:59:49][INFO ][OrdersController.java:52] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=1241, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[20:59:49][ERROR][Slf4jSpyLogDelegator.java:120] - 16. PreparedStatement.execute() insert into REQUESTS values(
+REQUESTS_SEQ.nextval,'요청사항','user1'
+)
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (INTEPARK.PK_REQUESTS) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.insertRequests(OrdersDao.java:36)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.insertRequests(OrdersServiceImpl.java:37)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[20:59:49][ERROR][Slf4jSpyLogDelegator.java:139] - 16. PreparedStatement.execute() FAILED! insert into REQUESTS values(
+REQUESTS_SEQ.nextval,'요청사항','user1'
+) {FAILED after 14 msec}
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (INTEPARK.PK_REQUESTS) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.insertRequests(OrdersDao.java:36)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.insertRequests(OrdersServiceImpl.java:37)
+	at com.c4.intepark.shop.orders.controller.OrdersController.orderinsert(OrdersController.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[21:01:34][INFO ][OrdersController.java:49] - 결제
+[21:01:34][INFO ][OrdersController.java:50] - 배송 정보 확인 : Dlvylist [dlvynum=0, addressee=받으시는분, address=주소, phone=2120, dlvyname=배송지 이름, userid=user1]
+[21:01:34][INFO ][OrdersController.java:51] - 요구사항 정보 확인 : Requests [requestnum=0, requestcn=요청사항, userid=user1]
+[21:01:34][INFO ][OrdersController.java:52] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=1241, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[21:31:11][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[21:31:13][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:33:56][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:33:59][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:34:17][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:34:51][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:35:01][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:35:20][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[21:36:30][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:38:54][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:38:57][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2914 ms
+[21:38:57][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:38:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 2455 ms
+[21:39:11][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:39:15][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[21:39:45][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:39:48][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 2770 ms
+[21:39:48][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:39:51][INFO ][FrameworkServlet.java:546] - Completed initialization in 2466 ms
+[21:39:59][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:40:02][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3240 ms
+[21:40:03][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:40:05][INFO ][FrameworkServlet.java:546] - Completed initialization in 2967 ms
+[21:40:06][INFO ][OrdersController.java:63] - 장바구니 담기
+[21:40:06][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:40:08][INFO ][OrdersController.java:63] - 장바구니 담기
+[21:41:49][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:41:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 7906 ms
+[21:41:57][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:41:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 2792 ms
+[21:42:00][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:42:05][INFO ][OrdersController.java:63] - 장바구니 담기
+[21:42:05][INFO ][OrdersController.java:64] - user1
+[21:42:05][INFO ][OrdersController.java:65] - 43

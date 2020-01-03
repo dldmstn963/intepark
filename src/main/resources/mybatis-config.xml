@@ -23,6 +23,9 @@
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsSearch" alias="GoodsSearch"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsPic" alias="GoodsPic"/>
   		<typeAlias type="com.c4.intepark.shop.Paging" alias="Paging"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Dlvylist" alias="Dlvylist"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Orders" alias="Orders"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Requests" alias="Requests"/>
 	</typeAliases>
 	
 	<mappers>
