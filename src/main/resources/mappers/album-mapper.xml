@@ -25,14 +25,17 @@
 						<if test="userid != null and userid !=''">
 						where userid like '%'||#{userid}||'%'
 						</if>
-                    order by albumnum asc))
+                    order by albumnum desc))
                     <![CDATA[
         where rnum >= #{startList} and rnum <= #{endList}
 					]]>
 </select>
 
-
-
+<select id="selectOneAlbum" resultType="Album" parameterType="int">
+	select albumnum, albumtitle, albumdate, albumcontents, albumreadcount,userid
+	from album
+	where albumnum= #{value}
+</select>
 
 
 </mapper>

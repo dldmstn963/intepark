@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="albumReplyMapper">
+
+
+	<select id="selectReplyList" resultType="AlbumReply" parameterType="int">
+		select ALBUMREPLYORIGINALNO, ALBUMREPLYGROUPNO, ALBUMREPLYGROUPORDER, ALBUMREPLYGROUPLAYER ,to_char(ALBUMREPLYDATE,'yy/mm/dd hh24:mi') as albumreplydate, ALBUMREPLYCONTENTS,ALBUMREPLYDELETE,USERID 
+		from albumreply
+		where albumnum = #{value}
+		order by ALBUMREPLYGROUPNO asc, ALBUMREPLYGROUPORDER asc
+	</select>
+
+
+	<select id="selectReplyCount" resultType="int" parameterType="int">
+		select count(*)
+		from albumreply
+		where albumnum = #{value}
+	</select>
+
+	<insert id="insertAlbumReply" parameterType="AlbumReply">
+		insert into albumreply values(ALBUMREPLY_SEQ.nextval, ALBUMREPLY_SEQ.currval, 0, 0, sysdate, #{albumreplycontents},default,#{albumnum},#{userid})
+	</insert>
+	
+	<select id="selectMinGroupOrder" resultType="int" parameterType="AlbumReply">
+		  select NVL(min(albumreplygrouporder),-1)
+  		  from albumreply
+  		  where ALBUMREPLYGROUPNO=#{albumreplygroupno} and albumnum=#{albumnum} 
+  		   <![CDATA[ 
+  		        and albumreplygrouporder > #{albumreplygrouporder} 
+  		        and albumreplygrouplayer <= #{albumreplygrouplayer}	
+  		    ]]>
+	</select>
+	
+	<select id="selectMaxGroupOrder" resultType="int" parameterType="AlbumReply">
+		    select max(albumreplygrouporder)+1
+    		 from albumreply
+  			 where ALBUMREPLYGROUPNO=#{albumreplygroupno} and albumnum=#{albumnum} 
+	</select>
+	
+	<update id="updateReply" parameterType="AlbumReply">
+		update albumreply set albumreplygrouporder = albumreplygrouporder+1
+		 <![CDATA[ 
+		where albumnum=#{albumnum} and albumreplygroupno=#{albumreplygroupno} and albumreplygrouporder >= #{albumreplygrouporder}
+		]]>
+	</update>
+	
+	<insert id="insertRReply" parameterType="AlbumReply">
+		insert into albumreply values(ALBUMREPLY_SEQ.nextval, #{albumreplygroupno},
+		 #{albumreplygrouporder}, #{albumreplygrouplayer}+1, sysdate, #{albumreplycontents},default,#{albumnum},#{userid})
+	</insert>
+	
+	<update id="updateReplyDelete" parameterType="int">
+		update albumreply set ALBUMREPLYDELETE='Y' where ALBUMREPLYORIGINALNO = #{value}
+	</update>
+	
+	<update id="updateReplyContents" parameterType="AlbumReply">
+		update albumreply set ALBUMREPLYCONTENTS=#{albumreplycontents} where ALBUMREPLYORIGINALNO = #{albumreplyoriginalno}
+	</update>
+
+</mapper>
+
+
+
+

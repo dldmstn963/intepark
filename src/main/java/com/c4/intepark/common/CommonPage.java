@@ -1,7 +1,10 @@
 package com.c4.intepark.common;
 
-public class CommonPage {
-	
+import org.springframework.stereotype.Component;
+
+@Component
+public class CommonPage implements java.io.Serializable{
+	private static final long serialVersionUID = 6543L;
 	private int listCount; //전체 페이지 갯수
 	private int listSize; //페이지당 목록수
 	private int pageSize; //페이지바의 페이지 갯수
@@ -11,8 +14,13 @@ public class CommonPage {
 	private int endPage;//목록의 마지막페이지 ex) 10
 	private int startList;//페이지조회시작#{StartList}
 	private int endList;//페이지조회마지막#{endList}
+	private String selectoption;
+	private String searchtext;
 	private String stitle;
 	private String userid;
+	private String username;
+	private String startdate;
+	private String enddate;
 	
 	public CommonPage() {}
 	
@@ -150,15 +158,57 @@ public class CommonPage {
 		this.userid = userid;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+	
+
+	public String getSelectoption() {
+		return selectoption;
+	}
+
+	public void setSelectoption(String selectoption) {
+		this.selectoption = selectoption;
+	}
+
+	public String getSearchtext() {
+		return searchtext;
+	}
+
+	public void setSearchtext(String searchtext) {
+		this.searchtext = searchtext;
+	}
+
 	@Override
 	public String toString() {
 		return "CommonPage [listCount=" + listCount + ", listSize=" + listSize + ", pageSize=" + pageSize
 				+ ", currentPage=" + currentPage + ", maxPage=" + maxPage + ", beginPage=" + beginPage + ", endPage="
-				+ endPage + ", startList=" + startList + ", endList=" + endList + ", stitle=" + stitle + ", userid="
-				+ userid + "]";
+				+ endPage + ", startList=" + startList + ", endList=" + endList + ", selectoption=" + selectoption
+				+ ", searchtext=" + searchtext + ", stitle=" + stitle + ", userid=" + userid + ", username=" + username
+				+ ", startdate=" + startdate + ", enddate=" + enddate + "]";
 	}
 
-	
+
 	
 
 }
