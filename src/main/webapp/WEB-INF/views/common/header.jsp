@@ -104,13 +104,8 @@
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
 
-												       <li class="nav-item submenu dropdown">
-                           <a href="auctionList.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">견적리스트</a>
-                           <ul class="dropdown-menu">
-                              <li class="nav-item"><a class="nav-link" href="blog.html">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="blog.html">낙찰리스트</a></li>
-                           </ul>
-                        </li> 
+							
+                        <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="conslist5.do">업체리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>

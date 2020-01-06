@@ -65,4 +65,15 @@ public class AuctionServiceImpl implements AuctionService{
 		
 		return (ArrayList<AuctionAttend>)auctionDao.auctionAttendList(auction);
 	}
+	@Override
+	public int auctionAttendEnroll(AuctionAttend att) {
+		
+		return auctionDao.auctionAttendEnroll(att);
+	}
+	
+	@Override
+	public AuctionAttend auctionAttendDetail(AuctionAttend att) {
+		
+		return auctionDao.auctionAttendDetail(att);
+	}
 }

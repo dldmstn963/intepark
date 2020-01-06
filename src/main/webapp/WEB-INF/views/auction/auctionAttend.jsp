@@ -422,7 +422,12 @@ $(document).ready(function (e){
 });
 
 </script>
-
+<script type="text/javascript">
+function fileReset()
+{
+	 $('#preview').empty();
+}
+</script>
 </head>
 <body>
 
@@ -456,11 +461,11 @@ $(document).ready(function (e){
                            <div class="form-row">
                              <div class="form-group">
                                 <label for="startday">시공가능일 :</label>
-                                <input type="date" name="startday" id="startday" required/>
+                                <input type="date" name="possibledate" id="possibledate" required/>
                             </div>
                                 <div class="form-group">
                                 <label for="startday">예상 금액 :</label>
-                                <input type="text" name="startday" id="startday" required/>
+                                <input type="text" name="price" id="price" required/>
                             </div>
                         </div>
                       
@@ -478,10 +483,12 @@ $(document).ready(function (e){
                         </div>
                         <div class="form-submit">
                     
-                        <input type="hidden" value="${loginCons.consname}"  name="userid" id="userid">
-                    
+                        <input type="hidden" value="${loginCons.consname}"  name="consname" id="consname">
+                        <input type="hidden" value="${loginCons.consid}"  name="consid" id="consid">
+                    	<input type="hidden" value="${auctionno }" name="auctionno">
+                    	<input type="hidden" value="${loginCons.phone }" name="phone">
                        
-                            <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
+                            <input type="reset" value="작성취소" class="submit" name="reset" id="reset" onclick="fileReset();" />
                             <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
                         </div>
                     </form>
