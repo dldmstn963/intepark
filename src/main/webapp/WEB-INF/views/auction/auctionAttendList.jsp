@@ -16,6 +16,28 @@
 	} */
 
 	</style>
+		<script type="text/javascript">
+	function doDisplay(menu){
+	   var con = document.getElementById(menu);
+		console.log(con);
+	    if(con.style.display=='none'){
+	        con.style.display = 'block';
+	    }else{
+	        con.style.display = 'none';
+	    }
+	}
+	
+    function popup(auctionno,consname){
+    	console.log(auctionno);
+    	console.log(consname);
+        var url = "auctionAttendPop2.do?auctionno="+auctionno+"&consname="+consname;
+        var name = "popup test";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+ window.open(url, name, option);
+    }
+	
+	</script>
+	
 <%@ include file="../common/jscsspath.jsp" %>
 </head>
 <body>
@@ -37,7 +59,14 @@
   <tbody>
   <c:forEach items="${ list }" var="a">
     <tr>
-      <th scope="row">${ a.consname }</th>
+      <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
+        <ul id="menu${a.consname }" style="display:none;">
+    <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
+    <li>채팅</li>
+    <li><a href="#">수정</a></li>
+    <li>삭제</li>
+    </ul>
+    </th>
       <td>${a.title }</td>
     <td>${a.phone}</td> 
        <td>${a.possibledate}</td>
@@ -49,8 +78,8 @@
 </table>
 </div>
 
-<div>
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;">회원가입</button>
+<div style="text-align: center;">
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;">경매참가</button>
 </div>
  	  <jsp:include page="../common/footer.jsp" />
 </body>

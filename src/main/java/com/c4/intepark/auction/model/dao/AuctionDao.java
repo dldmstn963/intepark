@@ -63,4 +63,13 @@ public ArrayList<AuctionAttend> auctionAttendList(int auction) {
 	
 	return (ArrayList<AuctionAttend>)list;
 }
+
+public int auctionAttendEnroll(AuctionAttend att) {
+	return mybatisSession.insert("auctionMapper.auctionAttendEnroll", att);
+}
+
+public AuctionAttend auctionAttendDetail(AuctionAttend att) {
+	AuctionAttend auctionAttend = mybatisSession.selectOne("auctionMapper.auctionAttendDetail",att);
+	return auctionAttend;
+}
 }

@@ -36,6 +36,13 @@
 	<delete id="deleteAuction" parameterType="String">
 	delete from auction where auctionno = #{auc}
 	</delete>
+	<insert id="auctionAttendEnroll" parameterType="AuctionAttend" >
+	insert into auctionattend values (#{auctionno},#{consid},#{consname},#{title},#{phone},
+	#{possibledate},#{price},#{ofile},#{rfile},#{etc},default)
+	</insert>
+	<select id="auctionAttendDetail" parameterType="AuctionAttend" resultType="AuctionAttend">
+	select * from auctionattend where auctionno = #{auctionno} and consname = #{consname}
+	</select>
 </mapper>
 
 

@@ -55,7 +55,6 @@ $("#test2").on("click", function(){
 </script> -->
 <script type="text/javascript">
 function erchk() {
-	alert("버튼1을 누르셨습니다.");
 	$("#frm").submit();
 }
 </script>
