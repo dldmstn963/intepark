@@ -117,6 +117,7 @@
 	var c1 = document.getElementById("cstart").value;
 	var c2 = document.getElementById("cend");
 	c2.value = c1;
+	};
 	
 	function sameDate1(){
 	var c1 = document.getElementById("fcstart").value;
