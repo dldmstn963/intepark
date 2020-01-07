@@ -22,8 +22,8 @@ public class AlbumServiceImpl implements AlbumService{
 	}
 
 	@Override
-	public int selectAllListCount(HashMap<String, Object> map) {
-		return albumDao.selectAllListCount(map);
+	public int selectAllListCount(CommonPage commonPage) {
+		return albumDao.selectAllListCount(commonPage);
 	}
 
 	@Override

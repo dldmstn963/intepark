@@ -30,32 +30,11 @@ public class AlbumController {
 	public String albumListPage(@RequestParam(value="page", required=false, defaultValue="1") int currentPage,
 			CommonPage cpage, Model model) {
 		//전체페이지 수찾기(검색포함)
-		int listCount=0;
-		System.out.println(cpage.toString());
-		HashMap<String,Object> map = new HashMap<String,Object>();
-		String sOption = cpage.getSelectoption();
-		String sText = cpage.getSearchtext();
-		if(sOption != null && sOption !="") {
-			if(sOption.equals("title"))
-				map.put("stitle", sText);
-			else
-				map.put("userid", sText);
-		}else {
-			map.put("no", "no");
-		}
-		listCount = albumService.selectAllListCount(map);
-		//페이징처리 객체 생성
-		CommonPage commonPage= new CommonPage(6,10,listCount,currentPage);
-		if(sOption != null && sOption !="") {
-			if(sOption.equals("title"))
-				commonPage.setStitle(sText);
-			else
-				commonPage.setUserid(sText);
-		}
-		ArrayList<Album> albumList = albumService.selectList(commonPage);
-		model.addAttribute("selectoption", sOption);
-		model.addAttribute("searchtext", sText);
-		model.addAttribute("commonPage", commonPage);
+		int listCount=0;		
+		listCount = albumService.selectAllListCount(cpage);
+		cpage.pageUpdate(6, 10, listCount, currentPage);
+		ArrayList<Album> albumList = albumService.selectList(cpage);
+		model.addAttribute("commonPage", cpage);
 		model.addAttribute("albumList", albumList);
 		return "album/albumList";
 	}

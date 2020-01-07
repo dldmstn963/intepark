@@ -48,29 +48,29 @@ function albumWrite(){
         		</div>
         	</div><br><br>
         		<nav class="blog-pagination justify-content-center d-flex">
-					<a href="albumlist6.do?page=1&selectoption=${selectoption}&searchtext=${searchtext}">|◁</a>&nbsp;
+					<a href="albumlist6.do?page=1&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">|◁</a>&nbsp;
 						<c:if test="${(commonPage.beginPage-commonPage.pageSize)<= 1}">
-							<a href="albumlist6.do?page=1&selectoption=${selectoption}&searchtext=${searchtext}">◀◀</a>
+							<a href="albumlist6.do?page=1&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">◀◀</a>
 						</c:if>
 						<c:if test="${ (commonPage.beginPage-commonPage.pageSize) > 1}">
-							<a href="albumlist6.do?page=${commonPage.beginPage-commonPage.pageSize}&selectoption=${selectoption}&searchtext=${searchtext}">◀◀</a>
+							<a href="albumlist6.do?page=${commonPage.beginPage-commonPage.pageSize}&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">◀◀</a>
 						</c:if>&nbsp;
 						<ul class="pagination">
 						<c:forEach var="p" begin="${commonPage.beginPage }" end="${commonPage.endPage }">
 							<c:if test="${p == commonPage.currentPage }">
-								<li class="page-item active"><a href="albumlist6.do?page=${p}&selectoption=${selectoption}&searchtext=${searchtext}" class="page-link">${p}</a></li>
+								<li class="page-item active"><a href="albumlist6.do?page=${p}&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}" class="page-link">${p}</a></li>
 							</c:if >
 							<c:if test="${p != commonPage.currentPage }">
-								<li class="page-item"><a href="albumlist6.do?page=${p }&selectoption=${selectoption}&searchtext=${searchtext}"  class="page-link">${p}</a></li>
+								<li class="page-item"><a href="albumlist6.do?page=${p }&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}"  class="page-link">${p}</a></li>
 							</c:if>
 						</c:forEach></ul>&nbsp;
 							<c:if test="${(commonPage.endPage+commonPage.pageSize) > commonPage.maxPage }">
-								<a href="albumlist6.do?page=${commonPage.maxPage }&selectoption=${selectoption}&searchtext=${searchtext}">▶▶</a>
+								<a href="albumlist6.do?page=${commonPage.maxPage }&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">▶▶</a>
 							</c:if>
 							<c:if test="${(commonPage.endPage+commonPage.pageSize) <= commonPage.maxPage }">
-								<a href="albumlist6.do?page=${commonPage.beginPage + commonPage.pageSize}&selectoption=${selectoption}&searchtext=${searchtext}">▶▶</a>
+								<a href="albumlist6.do?page=${commonPage.beginPage + commonPage.pageSize}&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">▶▶</a>
 							</c:if>&nbsp; 
-								<a href="albumlist6.do?page=${commonPage.maxPage }&selectoption=${selectoption}&searchtext=${searchtext}">▷|</a>
+								<a href="albumlist6.do?page=${commonPage.maxPage }&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">▷|</a>
 				</nav>
 				<div style="margin-right:100px;"align="right"> <button onclick="albumWrite();">작성하기</button></div><br>
         </section>

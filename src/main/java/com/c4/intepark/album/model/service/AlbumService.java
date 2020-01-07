@@ -9,7 +9,7 @@ import com.c4.intepark.common.CommonPage;
 
 public interface AlbumService {
 	
-	int selectAllListCount(HashMap<String, Object> map);
+	int selectAllListCount(CommonPage commonPage);
 	ArrayList<Album> selectList(CommonPage commonPage);
 	Album selectOneAlbum(int anum);
 	ArrayList<AlbumReply> selectOneAlbumReply(int anum);

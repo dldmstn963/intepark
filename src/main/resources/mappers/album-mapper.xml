@@ -4,26 +4,26 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="albumMapper">
 
-<select id ="selectAllListCount" parameterType="hashmap" resultType="int">
+<select id ="selectAllListCount" parameterType="CommonPage" resultType="int">
 	select count(*) from album 
-	<if test="stitle != null and stitle !=''">
-		where albumtitle like '%'||#{stitle}||'%'
+	<if test="selectoption != null and selectoption.equals('title')">
+		where albumtitle like '%'||#{searchtext}||'%'
 	</if>
-	<if test="userid != null and userid !=''">
-		where userid like '%'||#{userid}||'%'
+	<if test="selectoption != null and selectoption.equals('uname')">
+		where userid like '%'||#{searchtext}||'%'
 	</if>
 </select>
 
-<select id="selectList" resultType="Album" parameterType="com.c4.intepark.common.CommonPage">
+<select id="selectList" resultType="Album" parameterType="CommonPage">
 	
 		select *
 		from (select rownum rnum, albumnum, albumtitle, albumdate, albumcontents, albumreadcount, userid
 			  from (select * from album
-			  			<if test="stitle != null and stitle !=''">
-						where albumtitle like '%'||#{stitle}||'%'
+			  			<if test="selectoption != null and selectoption.equals('title')">
+						where albumtitle like '%'||#{searchtext}||'%'
 						</if>
-						<if test="userid != null and userid !=''">
-						where userid like '%'||#{userid}||'%'
+						<if test="selectoption != null and selectoption.equals('uname')">
+						where userid like '%'||#{searchtext}||'%'
 						</if>
                     order by albumnum desc))
                     <![CDATA[

@@ -18,8 +18,8 @@ public class AlbumDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public int selectAllListCount(HashMap<String, Object> map) {
-		return sqlSession.selectOne("albumMapper.selectAllListCount", map);
+	public int selectAllListCount(CommonPage commonPage) {
+		return sqlSession.selectOne("albumMapper.selectAllListCount", commonPage);
 	}
 
 	public ArrayList<Album> selectList(CommonPage commonPage) {
