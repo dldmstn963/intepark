@@ -132,13 +132,10 @@
 							<input type="hidden" name="goodsnum" value="${goods.goodsnum }">
 							<input type="hidden" name="goodsprice" value="${goods.price }">
 							
-							<button type="submit" 
-								class="btn amado-btn">결제 하기</button>
+							<input type="submit" value="결제" class="btn amado-btn"><br><br>
+							<input type="submit" value="장바구니" class="btn amado-btn" formaction="shbasketinsert4.do">
 							<br> <br>
 						</form>
-							<button type="submit" name="addtocart" value="5"
-								class="btn amado-btn" onClick="location.href='shbasketinsert4.do?userid=${loginUser.userid }&goodsnum=${goods.goodsnum}'">장바구니 담기</button>
-
 					</div>
 				</div>
 			</div>

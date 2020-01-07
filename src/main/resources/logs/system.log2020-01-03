@@ -1,0 +1,153 @@
+[15:09:26][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:09:34][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 8082 ms
+[15:09:34][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:09:40][INFO ][FrameworkServlet.java:546] - Completed initialization in 5925 ms
+[15:09:41][INFO ][HomeController.java:41] - Welcome main!
+[15:16:34][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[15:16:38][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3299 ms
+[15:16:38][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[15:16:41][INFO ][FrameworkServlet.java:546] - Completed initialization in 3089 ms
+[15:16:46][INFO ][HomeController.java:41] - Welcome main!
+[15:16:50][INFO ][HomeController.java:41] - Welcome main!
+[16:26:13][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:26:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4113 ms
+[16:26:18][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:26:21][INFO ][FrameworkServlet.java:546] - Completed initialization in 3530 ms
+[16:26:48][INFO ][HomeController.java:41] - Welcome main!
+[16:26:55][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:26:56][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:26:57][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[16:26:59][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:30:36][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:30:41][INFO ][OrdersController.java:31] - 결제 창으로 이동
+[16:30:56][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:33:06][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:33:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3406 ms
+[16:33:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:33:14][INFO ][FrameworkServlet.java:546] - Completed initialization in 4049 ms
+[16:33:14][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:33:21][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:33:23][INFO ][OrdersController.java:63] - 장바구니 담기
+[16:33:23][INFO ][OrdersController.java:64] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[16:50:03][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:50:06][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3308 ms
+[16:50:06][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:50:09][INFO ][FrameworkServlet.java:546] - Completed initialization in 2709 ms
+[16:50:29][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:50:32][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:50:34][INFO ][OrdersController.java:64] - 장바구니 담기
+[16:50:34][INFO ][OrdersController.java:65] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[16:50:53][INFO ][OrdersController.java:64] - 장바구니 담기
+[16:50:53][INFO ][OrdersController.java:65] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=5, goodsnum=43, goodsprice=1241]
+[16:52:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:52:45][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3204 ms
+[16:52:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:52:48][INFO ][FrameworkServlet.java:546] - Completed initialization in 3147 ms
+[16:52:49][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:53:09][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:53:11][INFO ][OrdersController.java:67] - 장바구니 담기
+[16:53:11][INFO ][OrdersController.java:68] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[16:53:12][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:53:37][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[16:53:50][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[17:02:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:02:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3495 ms
+[17:02:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:02:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 3196 ms
+[17:02:46][INFO ][HomeController.java:41] - Welcome main!
+[17:02:50][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:02:56][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:17:06][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:17:10][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3527 ms
+[17:17:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:17:13][INFO ][FrameworkServlet.java:546] - Completed initialization in 3408 ms
+[17:17:14][INFO ][HomeController.java:41] - Welcome main!
+[17:58:48][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:58:54][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[17:59:05][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:59:07][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:59:07][INFO ][OrdersController.java:94] - [Shbasket [shbasketnum=2, quantity=1, goodsnum=43, userid=user1], Shbasket [shbasketnum=3, quantity=5, goodsnum=43, userid=user1], Shbasket [shbasketnum=4, quantity=1, goodsnum=43, userid=user1]]
+[18:00:10][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:00:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3459 ms
+[18:00:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:00:18][INFO ][FrameworkServlet.java:546] - Completed initialization in 3539 ms
+[18:00:18][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:00:19][INFO ][OrdersController.java:94] - [Shbasket [shbasketnum=2, quantity=1, goodsnum=43, userid=user1], Shbasket [shbasketnum=3, quantity=5, goodsnum=43, userid=user1], Shbasket [shbasketnum=4, quantity=1, goodsnum=43, userid=user1]]
+[18:00:43][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:00:43][INFO ][OrdersController.java:94] - [Shbasket [shbasketnum=2, quantity=1, goodsnum=43, userid=user1], Shbasket [shbasketnum=3, quantity=5, goodsnum=43, userid=user1], Shbasket [shbasketnum=4, quantity=1, goodsnum=43, userid=user1]]
+[18:02:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:02:45][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3811 ms
+[18:02:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:02:48][INFO ][FrameworkServlet.java:546] - Completed initialization in 3333 ms
+[18:02:48][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:03:44][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:03:47][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3380 ms
+[18:03:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:03:51][INFO ][FrameworkServlet.java:546] - Completed initialization in 3101 ms
+[18:03:51][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:27:44][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:27:50][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6008 ms
+[19:27:50][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:27:55][INFO ][FrameworkServlet.java:546] - Completed initialization in 5391 ms
+[19:27:56][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[19:28:14][INFO ][HomeController.java:41] - Welcome main!
+[19:28:20][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[19:28:23][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:29:35][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:29:40][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4291 ms
+[19:29:40][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:29:43][INFO ][FrameworkServlet.java:546] - Completed initialization in 3079 ms
+[19:29:43][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:00:09][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[20:00:12][INFO ][HomeController.java:41] - Welcome main!
+[20:00:33][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:00:35][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:01:08][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:01:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5803 ms
+[20:01:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:01:19][INFO ][FrameworkServlet.java:546] - Completed initialization in 5069 ms
+[20:01:20][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:01:27][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:01:28][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:01:42][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:14:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:19:19][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:19:27][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 7388 ms
+[20:19:27][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:19:34][INFO ][FrameworkServlet.java:546] - Completed initialization in 6752 ms
+[20:19:40][INFO ][HomeController.java:41] - Welcome main!
+[20:19:43][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:19:47][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:21:04][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:21:11][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 7485 ms
+[20:21:11][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:21:19][INFO ][FrameworkServlet.java:546] - Completed initialization in 7116 ms
+[20:21:19][INFO ][HomeController.java:41] - Welcome main!
+[20:21:19][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:21:34][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[20:21:39][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:21:42][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:24:07][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:41:21][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:41:26][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4999 ms
+[20:41:27][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:41:32][INFO ][FrameworkServlet.java:546] - Completed initialization in 5260 ms
+[20:41:32][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:42:11][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:42:15][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:42:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:42:46][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3592 ms
+[20:42:46][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:42:49][INFO ][FrameworkServlet.java:546] - Completed initialization in 3393 ms
+[20:42:50][INFO ][OrdersController.java:91] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:47:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:47:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6931 ms
+[20:47:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:47:50][INFO ][FrameworkServlet.java:546] - Completed initialization in 5477 ms
+[20:47:50][INFO ][OrdersController.java:90] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:51:31][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:51:37][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5844 ms
+[20:51:37][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:51:44][INFO ][FrameworkServlet.java:546] - Completed initialization in 6339 ms
+[20:51:45][INFO ][OrdersController.java:90] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:51:45][INFO ][OrdersController.java:90] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]

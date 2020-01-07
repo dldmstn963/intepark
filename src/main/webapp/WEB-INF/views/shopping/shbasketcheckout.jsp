@@ -109,12 +109,22 @@
 
                                 </div>
                                <input type="hidden" name="userid" value="${loginUser.userid }">
-                               <input type="hidden" name="goodsnum" value="${orders.goodsnum }">
+                               
+                               <script type="text/javascript">
+                               <c:forEach var="li" items="${goodsnum }" varStatus="st" >
+console.log("${goodsnum[st.index]}");
+console.log("${quantity[st.index]}");
+console.log("${goodsprice[st.index]}");
+</c:forEach>
+                               </script>
+                               
+                               
+                              <%--  <input type="hidden" name="goodsnum" value="${orders.goodsnum }">
 								<input type="hidden" name="goodsprice" value="${orders.goodsprice }">
 								<input type="hidden" name="orderquantity" value="${orders.orderquantity }">
-								<input type="hidden" name="orderprice" value="${orders.orderquantity * orders.goodsprice }">
+								<input type="hidden" name="orderprice" value="${orders.orderquantity * orders.goodsprice }"> --%>
 								
-                               <input type="submit">
+                               <input type="submit" value="결제">
                             </form>
                         </div>
                     </div>
@@ -122,7 +132,7 @@
                         <div class="cart-summary">
                             <h5>전체 합계</h5>
                             <ul class="summary-table">
-                                <li><span>상품 금액:</span> <span>${orders.goodsprice * orders.orderquantity}원 </span></li>
+                                <li><span>상품 금액:</span> <span>${orderprice}원 </span></li>
                                 <li><span>배송비:</span> <span>2,500원</span></li>
                                 <li><span>전체 주문 금액:</span> <span>26,500원</span></li>
                             </ul>
