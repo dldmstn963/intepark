@@ -31,7 +31,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>상품 목록</h3>
+							<h3>주문 목록</h3>
 						</div>
 					</div>
 
@@ -41,7 +41,7 @@
 						<div class="col-md-12 col-sm-12  ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>상품 목록</h2>
+									<h2>주문 목록</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i
 												class="fa fa-chevron-up"></i></a></li>
@@ -59,29 +59,31 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-								<form action="consgoodssearch4.do">
+								<form action="consgoodssearch4.do" align="center">
 								제품명 검색 : <input type="text" name="goodsname"> &nbsp; <input type="submit" value="검색">
 								</form>
 								<br>
 									<table border="1px solid black" align="center">
 										<tr>
 											<td><input type="checkbox"></td>
-											<td>상품 코드</td>
-											<td>썸네일</td>
-											<td>상품명</td>
-											<td>상품 가격</td>
-											<td>재고</td>
+											<td>주문 일</td>
+											<td>주문 코드</td>
+											<td>주문자 명</td>
+											<td>주문 금액</td>
+											<td>주문 수량</td>
+											<td>주문 상태</td>
 											<td>기능</td>
 										</tr>
 										<c:forEach var="li" items="${list }">
 											<tr>
 												<td><input type="checkbox" id="checkbox"
 													name="checkbox" value="${li.goodsnum }"></td>
-												<td>${li.goodsnum }</td>
-												<td><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" width="100" height="100"></td>
-												<td>${li.goodsname }</td>
-												<td>${li.price }</td>
-												<td>${li.inventory }</td>
+												<td>${li.orderdate }</td>
+												<td>${li.ordernum }</td>
+												<td>${li.userid }</td>
+												<td>${li.orderprice }</td>
+												<td>${li.orderquantity }</td>
+												<td></td>
 													<c:url var="moveupdategoods" value="moveupdategoods4.do">
 													<c:param name="goodsnum" value="${li.goodsnum}"/>
 													</c:url>
