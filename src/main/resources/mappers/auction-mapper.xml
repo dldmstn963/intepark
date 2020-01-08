@@ -43,6 +43,13 @@
 	<select id="auctionAttendDetail" parameterType="AuctionAttend" resultType="AuctionAttend">
 	select * from auctionattend where auctionno = #{auctionno} and consname = #{consname}
 	</select>
+	<delete id="auctionAttendDelete" parameterType="AuctionAttend">
+	delete from auctionattend where auctionno = #{auctionno} and consname = #{consname}
+	</delete>
+	
+	<delete id="deleteNonAuction" parameterType="_int">
+	delete from nonauction where auctionno = #{auctionno}
+	</delete>
 </mapper>
 
 

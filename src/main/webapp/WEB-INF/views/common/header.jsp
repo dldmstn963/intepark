@@ -66,7 +66,7 @@ ws.onclose = function(event){
                            </ul>
                         </li> 
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
-								<li class="nav-item"><a class="nav-link" href="agents.jsp">인테리어 게시판</a></li>
+								<li class="nav-item"><a class="nav-link" href="albumlist6.do">인테리어 게시판</a></li>
 								<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 								<li class="nav-item"><a class="nav-link" href="nlist1.do">고객센터</a></li>
 			</c:if>
@@ -100,7 +100,7 @@ ws.onclose = function(event){
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
                            </ul>
                         </li> 
-									<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="albumlist6.do">인테리어 게시판</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="noticeListView.jsp">고객센터</a></li>
@@ -131,7 +131,7 @@ ws.onclose = function(event){
 							
                         <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
-									<li class="nav-item"><a class="nav-link" href="conslist5.do">업체리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">고객센터</a></li>
@@ -163,7 +163,21 @@ ws.onclose = function(event){
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
-								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
+								 <li class="nav-item submenu dropdown"><a class="nav-link" href="#" role="button" aria-haspopup="true" data-toggle="dropdown">고객 관리</a>
+									 <ul class="dropdown-menu">
+                            			  <li class="nav-item"><a class="nav-link" href="userList6.do">전체 고객</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="stopUser6.do">정지 고객</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="dropUser6.do">탈퇴 고객</a></li>
+									 </ul>
+								</li>
+								<li class="nav-item submenu dropdown"><a class="nav-link" href="#" role="button" aria-haspopup="true" data-toggle="dropdown">시공사 관리</a>
+									 <ul class="dropdown-menu">
+                            			  <li class="nav-item"><a class="nav-link" href="consList6.do">전체 시공사</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="enrollCons6.do">시공사 가입</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="stopCons6.do">정지 시공사</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="dropCons6.do">탈퇴 시공사</a></li>
+									 </ul>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 			</c:if>

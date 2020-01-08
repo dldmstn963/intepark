@@ -59,7 +59,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-								<form action="consgoodssearch4.do" align="center">
+								<form action="consgoodssearch4.do">
 								제품명 검색 : <input type="text" name="goodsname"> &nbsp; <input type="submit" value="검색">
 								</form>
 								<br>

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
+import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.RvAvg;
 
 @Repository("portfolioDao")
 public class PortfolioDao {
@@ -24,10 +26,41 @@ public class PortfolioDao {
 		return (ArrayList<Constructors>)list;
 	}
 	
+	public ArrayList<RvAvg> selectAllReview() {
+		List<RvAvg> list = mybatisSession.selectList("portfolioMapper.selectAllReview");
+		return (ArrayList<RvAvg>)list;
+	}
+	
 	public Constructors selectOneCons(String consid) {
 		return mybatisSession.selectOne("portfolioMapper.selectOneCons", consid);
 	}
-
+	
+	public RvAvg selectReview(String consid) {
+		return mybatisSession.selectOne("portfolioMapper.selectReview", consid);
+	}
+	
+	public ArrayList<Review> selectConsReviewList(String consid) {
+		List<Review>review = mybatisSession.selectList("portfolioMapper.selectConsReviewList", consid);
+		return (ArrayList<Review>)review;
+	}
+	
+	public int updateIntroduction(Constructors cons) {
+		return mybatisSession.update("portfolioMapper.updateIntroduction", cons);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int insertportfolio(Portfolio portfolio) {
 		return mybatisSession.insert("portfolioMapper.insertportfolio", portfolio);
 	}
@@ -47,6 +80,13 @@ public class PortfolioDao {
 	public int deleteportfolio(String reqnum) {
 		return mybatisSession.delete("portfolioMapper.deleteportfolio", reqnum);
 	}
+
+	
+
+	
+
+	
+
 	
 	
 	

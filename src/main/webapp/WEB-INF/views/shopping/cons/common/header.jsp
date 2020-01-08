@@ -35,7 +35,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> 주문 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">주문 목록</a></li>
+                      <li><a href="moveConsOrderList4.do">주문 목록</a></li>
                       <li><a href="form_advanced.html">취소 목록</a></li>
                     </ul>
                   </li>

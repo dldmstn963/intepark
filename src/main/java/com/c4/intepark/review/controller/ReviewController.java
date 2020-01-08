@@ -35,7 +35,7 @@ public class ReviewController {
 	
 	@RequestMapping("selectReviewForm5.do")
 	public String selectReviewForm(@RequestParam(value="consid", required=true) String consid, Model model) {
-		logger.info("아이디 : " + consid);
+		//logger.info("아이디 : " + consid);
 		
 		Constructors cons = reviewService.selectReviewForm(consid);
 		
@@ -50,13 +50,34 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="insertReview5.do", method=RequestMethod.POST)
-	public String insertReview(Review review, ReviewFile reviewFile, HttpServletRequest request) {
-		//logger.info("친절함 : " + review.getRvkind());
+	public String insertReview(Review rv, ReviewFile rvFile, HttpServletRequest request) {
+		//logger.info(review.toString());
 		
-		logger.info(review.toString());
-		String rvperiod2 = request.getParameter("rvperiod2");
-		logger.info("월 값이다 : " + rvperiod2);
-		 // int result = reviewService.insertReview(review); 
+		int rvkind = rv.getRvkind();
+		int rvprice = rv.getRvprice();
+		int rvquality = rv.getRvquality();
+		int rvprofessional = rv.getRvprofessional();
+		int rvresponsible = rv.getRvresponsible();
+		
+		double rvavg = (rvkind+rvprice+rvquality+rvprofessional+rvresponsible)/5.0;
+		rv.setRvavg(rvavg);	//리뷰평균점수
+		
+		
+		String rvperiod2 = request.getParameter("rvperiod2");	//월 값
+		String rvperiod = rv.getRvperiod() + " " + rvperiod2;
+		rv.setRvperiod(rvperiod);
+		
+		String rvregion2 = request.getParameter("rvregion2"); //구 값
+		if(rvregion2 != null) {
+			String rvregion = rv.getRvregion() + " " + rvregion2;
+			rv.setRvregion(rvregion);
+		}
+		
+		int result = reviewService.insertReview(rv);
+		
+		
+
+		
 		/*
 		 * int pfnum = reviewService.selectpfnum(); portfolioFile.setPfnum(pfnum); int
 		 * result2 = reviewService.insertportfolioFile(portfolioFile);
@@ -65,6 +86,18 @@ public class ReviewController {
 		
 		return "forward:pfOne5.do";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -36,22 +36,43 @@
                             <div class="cart-title">
                                 <h2>주문 결제</h2>
                             </div>
+                            
 
+
+
+
+
+
+
+                           
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             <form action="orderinsert4.do" method="post">
                                 <div class="row">
                                   <div class="col-12 mb-3">
-                                        <select class="w-100" id="country">
-                                        <option value="usa">주소록</option>
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                        <option value="fra">France</option>
-                                        <option value="ind">India</option>
-                                        <option value="aus">Australia</option>
-                                        <option value="bra">Brazil</option>
-                                        <option value="cana">Canada</option>
+                                        <select class="w-100" id="country" name="dlvynum">
+                                        <c:if test="${!empty list}">
+                                        <option value="">주소록</option>
+                                        </c:if>
+                                        <option value="0">직접 입력</option>
+                                        <c:forEach var="li" items="${list }">
+                                        <option value="${li.dlvynum }">
+                                        ${li.dlvyname }/
+                                        ${li.addressee }/
+                                        ${li.address }/
+                                        ${li.phone }
+                                        </option>
+                                        </c:forEach>
                                     </select>
                                     </div>
+                                    <div id="divylist" class="col-12 mb-3">
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control" id="company" placeholder="배송지 이름" value="" name="dlvyname">
                                     </div>
@@ -65,10 +86,26 @@
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control mb-3" id="street_address" placeholder="주소" value="" name="address">
                                     </div>
+                                    </div>
+                               
                                     
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항" value="" name="requestcn">
+                                        <select class="w-100" id="country2" name="requestnum">
+                                        <option value="">배송시 요청사항 목록</option>
+                                       <option value="0">직접 입력</option>
+                                        <c:forEach var="li" items="${list2 }">
+                                        <option value="${li.requestnum }">
+                                        ${li.requestcn }
+                                        </option>
+                                        </c:forEach>
+                                    </select>
                                     </div>
+                                    <div class="col-12 mb-3" id="requests"><input type="text" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항 입력" value="" name="requestcn"></div>
+                                    
+                                    
+                                   <!--  <div class="col-12 mb-3">
+                                        <input type="text" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항" value="" name="requestcn">
+                                    </div> -->
 
                                 </div>
                                <input type="hidden" name="userid" value="${loginUser.userid }">
@@ -125,7 +162,42 @@
     <script src="/intepark/resources/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/intepark/resources/js/active.js"></script>
+	
+	 <script type="text/javascript">
+$(function(){
+	if(${!empty list}){
+		$('#divylist').hide();
+	}	
+$('#country').change(function(){
+	if(this.value==0){
+$('#divylist').show();
+		};
+});
 
+$('#country').change(function(){
+	if(this.value!=0){
+	$('#divylist').hide();
+		};
+	});
+
+if(${!empty list2}){
+	$('#requests').hide();
+}	
+$('#country2').change(function(){
+if(this.value==0){
+$('#requests').show();
+	};
+});
+
+$('#country2').change(function(){
+	if(this.value!=0){
+	$('#requests').hide();
+		};
+	});
+
+});
+                            </script>
+	
 </body>
 
 </html>

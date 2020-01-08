@@ -23,6 +23,20 @@ public class ReviewDao {
 		return mybatisSession.selectOne("reviewMapper.selectReviewForm", consid);
 	}
 	
+	public int insertReview(Review rv) {
+		return mybatisSession.insert("reviewMapper.insertReview", rv);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -38,9 +52,6 @@ public class ReviewDao {
 		return mybatisSession.selectOne("reviewMapper.selectrvOne", rvnum);
 	}
 
-	public int insertReview(Portfolio portfolio) {
-		return mybatisSession.insert("reviewMapper.insertReview", portfolio);
-	}
 
 	public int updateReview(Portfolio portfolio) {
 		// TODO Auto-generated method stub

@@ -59,25 +59,56 @@
 <div class="container">
 
 	<div class="row">
+	
+	
 	<div class="col-lg-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  
 	  	<button type="submit" class="btn">지역</button>
 		&nbsp;&nbsp;
 	<button>시공유형이야</button>
-	</div>
-	<div class="col-lg-5"></div>
-	<div class="col-lg-3" style="text-align:right;">
-	<button>내 상담신청 내역</button>&nbsp;&nbsp;
-	<button>내 업체 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>
-	</div><!-- row 끝 -->
+	</div><!-- 4 끝 -->
 	
+
+	<div class="col-lg-5"></div>
+	
+	
+	<div class="col-lg-3" style="text-align:right;">
+	<div style="display:inline-block;">
+		<button class="btn btn-success btn-sm" style="font:small-caption;">내 상담신청 내역</button>&nbsp;&nbsp;
+	</div>
+	
+	<c:if test="${!empty sessionScope.loginCons }">
+		<div style="display:inline-block;">	
+			<form action="pfOne5.do" method="post" >
+		    	<input type="hidden" value="${sessionScope.loginCons.consid}" name="consid">
+				<button class="btn btn-success btn-sm" style="font:small-caption;">내 업체 보기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+			</form>
+		</div>
+	</c:if>
+				
+	</div><!-- 3 끝 -->
+	
+	
+	</div><!-- row 끝 -->
 	<br><br>
+	
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
     <div class="row">
     
       <c:forEach items="${ list }" var="ConsVo">
-      
+      	<c:if test="${ConsVo.consid ne sessionScope.loginCons.consid}"><!-- 로그인한 시공사 제외하고 출력 -->
+      	
       <div class="col-lg-4">
       
       <!-- Swiper -->
@@ -104,47 +135,51 @@
       <div style="width:100%; height:200px;"><!-- 정보 구역 시작 -->
       <a href="<c:url value='/pfOne5.do?consid=${ConsVo.consid }'/>" style="color:black;">
       
-      <div class='row'>
+      <div class="row">
+      <div class="col-lg-9" style="padding-left:40px; padding-top:13px;"><!-- 9 시작 (시공사 프로필사진, 업체명, 분야, 리뷰, 상담신청 버튼) -->
       
-      <div class='col-lg-2' ><!-- 시공사 프로필사진 시작 -->
 	      <c:if test="${empty ConsVo.profilerenameimg}">
-	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" class="img-circle" width="100px" height="100px">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" class="img-circle" style="float:left; width:100px; height:100px;">
 	      </c:if>
 	      <c:if test="${!empty ConsVo.profilerenameimg }">
-	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" class="img-circle" width="100px" height="100px">
+	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" class="img-circle" style="float:left; width:100px; height:100px;">
 	      </c:if>
-      </div><!-- 시공사 프로필사진 끝 -->
+	      
+	      <div style="display:inline-block; height:80px; margin-left:13px; margin-top:15px;">
+	      	<span style="font-size:1.5em;">${ConsVo.companyname}</span><br>
+	      	&nbsp;${ConsVo.consarea}&nbsp;&nbsp;&nbsp;
+	      			<c:forEach items="${ rv }" var="rv">
+	      					<c:if test="${ConsVo.consid eq rv.consid}">
+	      							<span><img src="${pageContext.request.contextPath }/resources/img/woosoo/star_img.png" width="17px" height="17px">
+	      									<strong>${rv.rvavg }</strong>&nbsp;&nbsp;리뷰&nbsp;${rv.count }
+	      							</span>		
+	      					</c:if>
+	      			</c:forEach>
+	      </div>	
+	
+      </div><!-- 9 끝 (시공사 프로필사진, 업체명, 분야, 리뷰, 상담신청 버튼) -->
       
-      <div class='col-lg-8' style="margin-top:20px; padding-left:0;"><!-- 시공사 업체명, 분야 시작 -->
-      <span style="font-size:1.5em;">${ConsVo.companyname}</span><br>
-      ${ConsVo.consarea} <br>
-      </div><!-- 시공사 업체명, 분야 끝 -->
-      
-      <div class='col-lg-2' style="margin-top:15px;">
-      <form action="selectRequestForm5.do" method="post" >
-      <input type="hidden" value="${ConsVo.consid}" name="consid">
-      <input type="submit" value="상담신청" class="btn">
-      </form>
+      <div class="col-lg-3" style="padding-top:13px;">
+	      <form action="selectRequestForm5.do" method="post" >
+	      <input type="hidden" value="${ConsVo.consid}" name="consid">
+	      <input type="submit" value="상담신청" class="btn">
+	      </form>
       </div>
       
       </div><!-- row 끝 -->
       
-      <div class='row'>
-      
-      <div class='col-lg-1' ></div>
-      <div class='col-lg-10' style="margin-top:20px;"><!-- 시공사 한줄소개 시작 -->
+      <div class="col-lg-12" style="margin-top:20px; padding-left:20px; padding-right:50px;"><!-- 시공사 한줄소개 시작 -->
       ${ConsVo.consintroduction} <br>
       </div><!-- 시공사 한줄소개 끝 -->
-      <div class='col-lg-1' ></div>
       
-      </div><!-- row 끝 -->
       
       </a>
+      
       </div><!-- 정보 구역 끝 -->
       <hr>
       
       </div><!-- col-lg-8 끝 -->
-      
+      	</c:if>
       </c:forEach>
       
       </div><!-- row 끝 -->

@@ -4,9 +4,11 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.c4.intepark.common.CommonPage" alias="CommonPage"/>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.album.model.vo.Album" alias="Album" />
+		<typeAlias type="com.c4.intepark.album.model.vo.AlbumReply" alias="AlbumReply" />
 		<typeAlias type="com.c4.intepark.calendar.model.vo.Calendar" alias="Calendar" />
   		<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
   		<typeAlias type="com.c4.intepark.auction.model.vo.NonAuction" alias="NonAuction" />
@@ -18,6 +20,7 @@
   		<typeAlias type="com.c4.intepark.request.model.vo.Request" alias="Request"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.Review" alias="Review"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.ReviewFile" alias="ReviewFile"/>
+  		<typeAlias type="com.c4.intepark.review.model.vo.RvAvg" alias="RvAvg"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsReview" alias="GoodsReview"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Inquiry" alias="GoodsInquiry"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsSearch" alias="GoodsSearch"/>
@@ -28,6 +31,9 @@
   		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Requests" alias="Requests"/>
   		<typeAlias type="com.c4.intepark.chat.model.vo.Chat" alias="Chat"/>
   		<typeAlias type="com.c4.intepark.chat.model.vo.ChatMessage" alias="ChatMessage"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Shbasket" alias="Shbasket"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.AllOrders" alias="AllOrders"/>
+
 	</typeAliases>
 	
 	<mappers>
@@ -41,6 +47,7 @@
 		<mapper resource="mappers/request-Mapper.xml"/>
 		<mapper resource="mappers/review-Mapper.xml"/>
 		<mapper resource="mappers/album-mapper.xml"/>
+		<mapper resource="mappers/albumReply-mapper.xml"/>
 		<mapper resource="mappers/order-mapper.xml"/>
 		<mapper resource="mappers/chat-mapper.xml"/>
 	</mappers>

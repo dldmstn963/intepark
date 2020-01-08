@@ -9,11 +9,35 @@
 		from Constructors
 	</select>
 	
+	<select id="selectAllReview" resultType="RvAvg">
+		select Round(avg(rvavg),1) as rvavg, Count(rvavg) as count, consid
+		from review
+		group by consid
+	</select>
+	
 	<select id="selectOneCons" parameterType="string" resultType="Constructors">
 		select *
 		from Constructors
     	where consid = #{consid}
 	</select>
+	
+	<select id="selectReview" parameterType="string" resultType="RvAvg">
+		select Round(avg(rvavg), 1) as rvavg, Count(rvavg) as count
+		from review
+		where consid = #{consid}
+	</select>
+	
+	<select id="selectConsReviewList" parameterType="string" resultType="Review">
+		select *
+		from review
+		where consid = #{consid}
+	</select>
+	
+	<update id="updateIntroduction" parameterType="Constructors">
+		update constructors set pfintroduction = #{pfintroduction} where consid = #{consid}
+	</update>
+	
+	
 	
 	
 	<!-- select pfnum_seq.CURRVAL from dual; resultType="int" -->

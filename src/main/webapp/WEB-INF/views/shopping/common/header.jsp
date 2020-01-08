@@ -70,7 +70,7 @@
 		</div>
 		<!-- Cart Menu -->
 		<div class="cart-fav-search mb-100">
-			<a href="moveshbasket4.do" class="cart-nav"><img
+			<a href="moveshbasket42.do" class="cart-nav"><img
 				src="/intepark/resources/img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
 			<a href="product-details.jsp" class="fav-nav"><img
 				src="/intepark/resources/img/core-img/favorites.png" alt="">

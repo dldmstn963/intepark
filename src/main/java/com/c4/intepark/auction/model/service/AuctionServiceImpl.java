@@ -76,4 +76,14 @@ public class AuctionServiceImpl implements AuctionService{
 		
 		return auctionDao.auctionAttendDetail(att);
 	}
+	@Override
+	public int auctionAttendDelete(AuctionAttend auction) {
+		
+		return auctionDao.auctionAttendDelete(auction);
+	}
+	@Override
+	public int deleteNonAuction(int auctionno) {
+		
+		return auctionDao.deleteNonAuction(auctionno);
+	}
 }
