@@ -37,11 +37,14 @@ holder.ondrop = function (e) {
 
   var file = e.dataTransfer.files[0],
       reader = new FileReader();
+  console.log(file); //파일객체
   reader.onload = function (event) {
     console.log(event.target);
+    console.log(event.target.result); //파일정보를 div안에 넣는다.
     holder.style.background = 'url(' + event.target.result + ') no-repeat center';
   };
-  console.log(file);
+
+  console.log(event.target.result);
   reader.readAsDataURL(file);
 
   return false;
