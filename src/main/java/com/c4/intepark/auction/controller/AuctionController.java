@@ -358,9 +358,52 @@ public String auctionEndList() {
 			auction.setConsname(consname);
 			
 			AuctionAttend auctionAttend = auctionService.auctionAttendDetail(auction);
+			String[] rfile = null;
+			if(auctionAttend.getRfile() != null) {
+			rfile = auctionAttend.getRfile().split("/");
+			}
 			request.setAttribute("att", auctionAttend);
-			 
+			if(rfile != null) {
+			request.setAttribute("rfile", rfile);
+			}
 			 return "auction/auctionAttendPop";
 		 }
-		 
+		
+		@RequestMapping("auctionAttendDelete2.do")
+		public String deleteAuctionAttend(HttpServletRequest request,AuctionAttend auction) {
+			 int auctionno = Integer.parseInt(request.getParameter("auctionno"));
+			 String consname = request.getParameter("consname");
+			 auction.setAuctionno(auctionno);
+				auction.setConsname(consname);
+				logger.info(auctionno +  " ," + consname);
+				int result = auctionService.auctionAttendDelete(auction);
+		
+				return "redirect:main.do";
+		}
+			@RequestMapping("img2.do")
+			public String imgpop(HttpServletRequest request) {
+				String img = request.getParameter("img");
+				request.setAttribute("img", img);
+				
+				logger.info(img);
+				
+				return "auction/imgpop";
+			}
+	
+				@RequestMapping("nonAuctionCheck2.do")
+				public String selectnonAuctionCheck(HttpServletRequest request) {
+					String password = request.getParameter("password");
+					request.setAttribute("password", password);
+					
+					return "auction/passwordCheck";
+				}
+				
+					@RequestMapping(value="nonAuctionDelete2.do", method=RequestMethod.POST)
+					public String deleteNonAuction(HttpServletRequest request) {
+						 int auctionno = Integer.parseInt(request.getParameter("nonauc"));
+						 int result = auctionService.deleteNonAuction(auctionno);
+						logger.info("실행됨" + auctionno);
+						
+						return "redirect:main.do";
+					}
 }

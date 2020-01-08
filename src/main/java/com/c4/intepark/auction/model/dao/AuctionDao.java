@@ -72,4 +72,13 @@ public AuctionAttend auctionAttendDetail(AuctionAttend att) {
 	AuctionAttend auctionAttend = mybatisSession.selectOne("auctionMapper.auctionAttendDetail",att);
 	return auctionAttend;
 }
+
+public int auctionAttendDelete(AuctionAttend auction) {
+	
+	return mybatisSession.delete("auctionMapper.auctionAttendDelete", auction);
+}
+
+public int deleteNonAuction(int auctionno) {
+	return mybatisSession.delete("auctionMapper.deleteNonAuction", auctionno);
+}
 }

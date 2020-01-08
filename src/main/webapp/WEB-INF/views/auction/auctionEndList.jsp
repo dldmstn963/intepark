@@ -5,104 +5,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <!-- Material Design Lite -->
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    
-    <!-- Material Design icon font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
- <style>
-        .demo-card-wide.mdl-card {
-            width: 512px;
-        }
-
-        .demo-card-wide>.mdl-card__title {
-            color: #fff;
-            height: 176px;
-            background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
-        }
-
-        .demo-card-wide>.mdl-card__menu {
-            color: #fff;
-        }
-
-        body {
-            padding: 20px;
-            background: #fafafa;
-            position: relative;
-        }
-
-        .dropzone {
-            background: white;
-            border-radius: 5px;
-            border: 2px dashed rgb(0, 135, 247);
-            border-image: none;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
- <!-- Wide card with share menu button -->
-  
-     
-        <div class="mdl-card__supporting-text">
-            <form action="auctionEnroll2.do" class="dropzone" id="uploadZone" enctype="multipart/form-data">
-                <div class="fallback">
-                        <input type="file" id="upfile" name="upfile" multiple="multiple">
-                </div>
-                
-            </form>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-            <button id="submitButton" class="mdl-button mdl-js-button mdl-button--accent">
-                업로드
-            </button>
-        </div>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-    <script type="text/javascript">
-        Dropzone.options.uploadZone = {
-            paramName: 'upfile', // 서버에 보낼 데이터이름.
-    
-            autoProcessQueue: false, // 자동업로드 해제.
-            maxFilesize: 2, // 2mb
-            dictDefaultMessage: '여기에 이미지 파일을 드래그하거나 클릭해서 업로드해주세요!',
-            maxFiles: 3, // 보낼 최대 파일 수.
-            acceptedFiles: 'image/*', // image만
-    	 addRemoveLinks : true,
 
-            init: function (e) {
+<div style="text-align:center; margin:0 0 100px 0; background:#555; line-height:80px;">
+	<a style="color:#fff; font-weight:bold; font-family:tahoma; font-size:20pt;" href="https://ktsmemo.cafe24.com/s/jquery/82" target="_blank">https://ktsmemo.cafe24.com/s/jquery/82</a>
+</div>
 
-                var myDropzone = this;
-                
-                console.log(myDropzone.length);
-                $('#submitButton').on("click", function () {
-                    if (confirm('정말 업로드하실꺼에요??')) {
-                        myDropzone.processQueue(); // 드랍존 프로세스 ㄱㄱ
-                    } else {
-                        return;
-                    }
-                });
 
-                myDropzone.on("success", function (file, result) {
-                
-                    console.log("1");
-                });
+<!-- 예제 시작 -->
 
-                myDropzone.on("error", function (file, errorMessage, xhr) {
-                    // 실패 시 서버 응답은 여기서 캐치.
+<table id="preset" style="display:none;">
+	<tr name="tr_attach_file">
+		<th>첨부파일</th>
+		<td>
+			<input type="file" name="attachFile" />
+		</td>
+	</tr>
+</table>
 
-                    if (xhr) {
-                        console.log(xhr.response);
-                    }
-                });
+<form name="form1" method="post" action="">
+<table cellpadding="5" cellspacing="0" border="1">
+	<tr>
+		<th>제목</th>
+		<td>.</td>
+	</tr>
+	<tr>
+		<th>내용</th>
+		<td>.</td>
+	</tr>
+	<tr name="tr_attach_file">
+		<th>첨부파일</th>
+		<td>
+			<input type="file" name="attachFile" /> <button type="button" onclick="addFile()">추가</button>
+		</td>
+	</tr>
+	<!-- 추가 버튼을 누르면 위 숨겨진 테이블의 tr 을 가져다가 추가할 겁니닷 -->
+</table>
+</form>
 
-            }
-        }; 
-    </script>
+<script>
+
+	function addFile(){
+		$('[name=form1] [name=tr_attach_file]:last').after( $('#preset tr').clone() );
+		// $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
+		// form1 안에 이름이 tr_attach_file 인것 중 마지막 것 다음에 추가합니다.
+		// 이렇게 하면 실행때 마다 동적으로 하나씩 추가됩니다.
+	}
+
+</script>
+
 </body>
 </html>

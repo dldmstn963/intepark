@@ -1,4 +1,3 @@
-
 ---------------------------계정 관련----------------------------------
 
 -- 사용자 계정 생성
@@ -619,19 +618,6 @@ COMMENT ON COLUMN ORDERs.ORDERquantity IS '주문 수량';
 COMMENT ON COLUMN ORDERs.GOODSNUM IS '상품 번호';
 
 COMMENT ON COLUMN ORDERs.GOODSPRICE IS '상품 가격';
-
-DROP SEQUENCE DELIVERYLIST_SEQ;
-CREATE SEQUENCE INTEPARK.DELIVERYLIST_SEQ;
-
-DROP SEQUENCE REQUESTS_SEQ;
-CREATE SEQUENCE INTEPARK.REQUESTS_SEQ;
-
-DROP SEQUENCE ORDERS_SEQ;
-CREATE SEQUENCE INTEPARK.ORDERS_SEQ;
-
-DROP SEQUENCE SHBASKET_SEQ;
-CREATE SEQUENCE INTEPARK.SHBASKET_SEQ;
-
 -------------------------------------------------------------------------------------
 DROP TABLE SHBASKET CASCADE CONSTRAINTS;
 
@@ -910,7 +896,7 @@ REFERENCES DELIVERYLIST (
 ALTER TABLE ORDERs ADD CONSTRAINT FK_REQUEST_TO_ORDER_1 FOREIGN KEY (
 	REQUESTNUM
 )
-REFERENCES REQUESTs (
+REFERENCES REQUEST (
 	REQUESTNUM
 )ON DELETE CASCADE;
 
@@ -1627,18 +1613,22 @@ DROP TABLE auctionattend CASCADE CONSTRAINTS;
 CREATE TABLE auctionattend (
 auctionno number	REFERENCES auction(auctionno) ON DELETE CASCADE,
 consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE,
+consname varchar2(100),
 title varchar2(50) NOT NULL,
+phone varchar2(50),
 possibledate date NOT NULL,
 price varchar2(15) NOT NULL,
-ofile varchar2(50),
-rfile varchar2(50),
+ofile varchar2(500),
+rfile varchar2(500),
 etc varchar2(500),
-progress varchar2(30) NOT NULL
+progress varchar2(30) DEFAULT '대기' NOT NULL
 );
 
 COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';
 COMMENT ON COLUMN auctionattend.consid IS '아이디';
+COMMENT ON COLUMN auctionattend.consname IS '이름';
 COMMENT ON COLUMN auctionattend.title IS '제목';
+COMMENT ON COLUMN auctionattend.phone IS '전화번호';
 COMMENT ON COLUMN auctionattend.possibledate IS '시공가능일';
 COMMENT ON COLUMN auctionattend.price IS '예상금액';
 COMMENT ON COLUMN auctionattend.ofile IS '참고사진원본';
@@ -1646,8 +1636,8 @@ COMMENT ON COLUMN auctionattend.rfile IS '참고사진사본';
 COMMENT ON COLUMN auctionattend.etc IS '상세정보';
 COMMENT ON COLUMN auctionattend.progress IS '진행현황';
 
-insert into auctionattend values (1, 'con1','간지나고 싸게 해드립니다.',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','진행');
-insert into auctionattend values (2, 'con2','간지나고 싸게 해드립니다.',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','대기');
+insert into auctionattend values (1, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','진행');
+insert into auctionattend values (2, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','대기');
 
 --포인트
 drop sequence SETPOINT_SEQ;
@@ -2100,6 +2090,5 @@ REFERENCES review (rvnum) on delete cascade;
 
 ALTER TABLE portfoliofile ADD CONSTRAINT FK_portfolio_TO_pffile_1 FOREIGN KEY (pfnum)
 REFERENCES portfolio (pfnum) on delete cascade;
-
 
 commit;
