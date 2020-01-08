@@ -8,7 +8,53 @@
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%@ include file="../common/jscsspath.jsp" %>
+<style type="text/css">
+#holder { 
+  border: 2px dashed #ccc; 
+  width: 150px; 
+  height: 150px; 
+}
+#holder.hover { 
+  border: 5px dashed #333; 
+}
+</style>
 <script type="text/javascript">
+window.onload=function(){ //파일첨부 시작
+	var holder = document.getElementById('holder'),
+    state = document.getElementById('status');
+    proimg = document.getElementById('proimg');
+    proimgname = document.getElementById('proimgname');
+
+if (typeof window.FileReader === 'undefined') {
+  state.className = 'no6';
+} else {
+  state.className = 'ok6';
+  state.innerHTML = '<br><br>프로필<br>사진을 올려주세요';
+}
+ 
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+
+  var file = e.dataTransfer.files[0],
+      reader = new FileReader();
+  reader.onload = function (event) {
+	  proimg.style.display="";
+	  proimg.src=event.target.result;
+	  state.style.display="none";
+	  proimgname.innerText=file.name;
+  };
+  console.log(file);
+  console.log(event.target);
+  console.log(event.target.result);
+  reader.readAsDataURL(file);
+
+  return false;
+};
+
+}//파일첨부 끝
 	function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -282,8 +328,10 @@ function resetForm(){
 						</td></tr>
 <tr><th>시공 분야* : </th><td><input type="text" name="consarea"></td></tr>
 <tr><th>한줄 소개* : </th><td><input type="text" name="consintroduction"></td></tr>
-<tr><th>프로필사진 : </th><td><input type="file" name="profileoriginalimg"></td></tr>
-<tr><th>사업자등록증* : </th><td><input type="file" name="blicenceoriginalimg"></td></tr>
+<tr><th>프로필사진 : </th><td><div style="display:inline-block;"id="holder"><img style="display:none;  height:146px; width:146px" id="proimg"src="" alt=""><p id="status" align="center"></p>
+ 							</div><p id="proimgname"></p></tr>
+<!-- <tr><th>사업자등록증* : </th><td><div id="holder"><Br><br><p id="status" align="center">사업자등록증<br>이미지를 올려주세요</p>
+ 							</div></td></tr> -->
 <tr><th>주소 :</th><th><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></th></tr>
 <tr><td></td><td><input type="text" class="form-control has-feedback-left" id="sample6_postcode" placeholder="우편번호" name="address1" readonly></td>
     <td><input type="text" class="form-control has-feedback-left" id="sample6_address" placeholder="주소" name="address2"readonly></td></tr>

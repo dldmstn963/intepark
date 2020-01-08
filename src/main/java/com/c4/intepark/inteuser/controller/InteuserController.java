@@ -30,6 +30,11 @@ public class InteuserController {
 		return "member/userEnroll";
 	}
 	
+	@RequestMapping("userMypage.do")
+	public String userMypage() {
+		return "member/userMypage";
+	}
+	
 	@RequestMapping(value="userlogCheck6.do", method=RequestMethod.POST)
 	public String loginCheck(InteUser inteuser, HttpSession session, Model model) {
 		InteUser loginUser = userService.selectLoginCheck(inteuser);
