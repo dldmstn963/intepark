@@ -1,0 +1,556 @@
+[17:54:52][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:54:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3646 ms
+[17:54:56][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:55:00][INFO ][FrameworkServlet.java:546] - Completed initialization in 3285 ms
+[17:55:00][INFO ][HomeController.java:41] - Welcome main!
+[17:55:12][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:55:26][INFO ][GoodsController.java:192] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:55:33][INFO ][OrdersController.java:112] - 주문 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[17:55:36][INFO ][HomeController.java:41] - Welcome main!
+[17:55:38][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:55:39][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[17:55:53][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[17:55:55][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[17:56:26][INFO ][OrdersController.java:40] - 결제 창으로 이동
+[17:56:30][INFO ][HomeController.java:41] - Welcome main!
+[17:56:37][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[17:56:38][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[17:56:39][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[17:56:42][INFO ][OrdersController.java:84] - 장바구니 담기
+[17:56:42][INFO ][OrdersController.java:85] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=43, goodsprice=1241]
+[17:56:43][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[17:56:44][INFO ][OrdersController.java:40] - 결제 창으로 이동
+[17:57:02][INFO ][OrdersController.java:53] - 결제
+[17:57:02][INFO ][OrdersController.java:54] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=1241, orderstatus=null, userid=user1, dlvynum=1, requestnum=2, orderquantity=1, goodsnum=43, goodsprice=1241]
+[18:53:36][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[18:53:42][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[18:53:45][INFO ][HomeController.java:41] - Welcome main!
+[18:53:49][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:53:50][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:53:50][INFO ][OrdersController.java:105] - 
+[18:53:55][INFO ][OrdersController.java:127] - 장바구니 삭제 : 21
+[18:53:55][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[18:53:55][INFO ][OrdersController.java:105] - 
+[19:03:50][INFO ][HomeController.java:41] - Welcome main!
+[19:03:57][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[19:04:00][INFO ][GoodsController.java:192] - 상품 목록 조회 : Constructors [consid=con1, conspwd=con1, enrolldate=2019-12-09, consname=시공사1, phone=010-3333-4444, email=d@d.com, address=경기도 수원, companyname=인테리아, consarea=바닥,천장, asdate=1년, career=2~5년, consintroduction=간지작살, pfintroduction=null, profileoriginalimg=null, profilerenameimg=null, blicenceoriginalimg=null, blicencerenameimg=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:05:12][INFO ][HomeController.java:41] - Welcome main!
+[19:05:18][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[19:05:20][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:05:20][INFO ][OrdersController.java:105] - 
+[19:09:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:09:56][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4460 ms
+[19:09:56][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:09:59][INFO ][FrameworkServlet.java:546] - Completed initialization in 3380 ms
+[19:10:00][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:10:01][INFO ][OrdersController.java:105] - 
+[19:13:09][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:13:09][INFO ][OrdersController.java:105] - 
+[19:13:31][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:13:31][INFO ][OrdersController.java:105] - 
+[19:15:30][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:15:34][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3845 ms
+[19:15:34][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:15:37][INFO ][FrameworkServlet.java:546] - Completed initialization in 3167 ms
+[19:15:38][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:15:39][INFO ][OrdersController.java:105] - 
+[19:24:29][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:24:29][INFO ][OrdersController.java:105] - 
+[19:24:38][INFO ][OrdersController.java:127] - 장바구니 삭제 : 4
+[19:24:38][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:24:38][INFO ][OrdersController.java:105] - 
+[19:30:40][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:30:43][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3232 ms
+[19:30:43][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:30:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 3024 ms
+[19:31:12][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:31:13][INFO ][OrdersController.java:105] - 
+[19:31:15][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:31:15][ERROR][Slf4jSpyLogDelegator.java:120] - 2. PreparedStatement.execute() UPDATE shbasket
+SET quantity = 3
+WHERE shbasketnum = 3;
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:294)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.updateShbasket(OrdersDao.java:66)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.updateShbasket(OrdersServiceImpl.java:69)
+	at com.c4.intepark.shop.orders.controller.OrdersController.updateshbasket4(OrdersController.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:31:15][ERROR][Slf4jSpyLogDelegator.java:139] - 2. PreparedStatement.execute() FAILED! UPDATE shbasket
+SET quantity = 3
+WHERE shbasketnum = 3; {FAILED after 12 msec}
+java.sql.SQLSyntaxErrorException: ORA-00911: invalid character
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy8.update(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:294)
+	at com.c4.intepark.shop.orders.model.dao.OrdersDao.updateShbasket(OrdersDao.java:66)
+	at com.c4.intepark.shop.orders.model.service.OrdersServiceImpl.updateShbasket(OrdersServiceImpl.java:69)
+	at com.c4.intepark.shop.orders.controller.OrdersController.updateshbasket4(OrdersController.java:141)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:31:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:31:45][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3167 ms
+[19:31:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:31:48][INFO ][FrameworkServlet.java:546] - Completed initialization in 2919 ms
+[19:43:04][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:05][INFO ][OrdersController.java:105] - 
+[19:43:10][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:43:14][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:14][INFO ][OrdersController.java:105] - 
+[19:43:15][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:15][INFO ][OrdersController.java:105] - 
+[19:43:15][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:15][INFO ][OrdersController.java:105] - 
+[19:43:16][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:16][INFO ][OrdersController.java:105] - 
+[19:43:17][INFO ][OrdersController.java:140] - 장바구니 수정 : 2
+[19:43:19][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:19][INFO ][OrdersController.java:105] - 
+[19:43:20][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:43:20][INFO ][OrdersController.java:105] - 
+[19:43:54][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:43:57][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3631 ms
+[19:43:58][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:44:01][INFO ][FrameworkServlet.java:546] - Completed initialization in 3123 ms
+[19:44:01][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:44:02][INFO ][OrdersController.java:105] - 
+[19:44:05][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[19:44:23][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:44:26][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3151 ms
+[19:44:27][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:44:30][INFO ][FrameworkServlet.java:546] - Completed initialization in 2917 ms
+[19:45:01][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:45:04][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3675 ms
+[19:45:04][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:45:08][INFO ][FrameworkServlet.java:546] - Completed initialization in 4041 ms
+[19:45:09][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:45:10][INFO ][OrdersController.java:105] - 
+[19:45:14][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:15][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:16][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:16][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:17][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:18][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:25][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:26][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:27][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:28][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:29][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:29][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:29][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:29][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:29][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:30][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:31][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:32][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:33][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:34][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:34][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:34][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:45:34][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:46:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:46:09][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3283 ms
+[19:46:09][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:46:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 3076 ms
+[19:46:12][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:46:13][INFO ][OrdersController.java:105] - 
+[19:46:16][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:46:17][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:46:17][INFO ][OrdersController.java:105] - 
+[19:46:19][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:46:19][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:46:19][INFO ][OrdersController.java:105] - 
+[19:46:21][INFO ][OrdersController.java:140] - 장바구니 수정 : 3
+[19:46:22][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:46:22][INFO ][OrdersController.java:105] - 
+[19:48:22][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:48:22][INFO ][OrdersController.java:105] - 
+[19:48:31][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:48:31][INFO ][OrdersController.java:105] - 
+[19:48:49][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:48:49][INFO ][OrdersController.java:105] - 
+[19:52:41][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:52:41][INFO ][OrdersController.java:105] - 
+[19:52:46][INFO ][HomeController.java:41] - Welcome main!
+[19:52:52][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[19:52:53][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[19:52:56][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:52:56][INFO ][OrdersController.java:105] - 
+[19:53:03][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:53:03][INFO ][OrdersController.java:105] - 
+[19:54:10][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:54:10][INFO ][OrdersController.java:105] - 
+[19:54:17][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:54:17][INFO ][OrdersController.java:105] - 
+[19:54:41][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:54:41][INFO ][OrdersController.java:105] - 
+[19:55:26][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:55:26][INFO ][OrdersController.java:105] - 
+[19:58:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:58:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3220 ms
+[19:58:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:58:45][INFO ][FrameworkServlet.java:546] - Completed initialization in 2980 ms
+[19:58:49][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:58:50][INFO ][OrdersController.java:105] - 
+[19:58:54][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+[19:59:17][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:59:21][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3652 ms
+[19:59:21][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:59:24][INFO ][FrameworkServlet.java:546] - Completed initialization in 3274 ms
+[19:59:25][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[19:59:26][INFO ][OrdersController.java:105] - 
+[19:59:28][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[19:59:37][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:00:30][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:00:30][INFO ][OrdersController.java:105] - 
+[20:00:33][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:11:09][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:11:11][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:11:11][INFO ][OrdersController.java:105] - 
+[20:11:12][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:11:12][INFO ][OrdersController.java:105] - 
+[20:11:13][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:11:20][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:11:20][INFO ][OrdersController.java:105] - 
+[20:11:21][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:11:21][INFO ][OrdersController.java:105] - 
+[20:11:22][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:11:28][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:12:13][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:12:13][INFO ][OrdersController.java:105] - 
+[20:12:53][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:12:53][INFO ][OrdersController.java:105] - 
+[20:12:57][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:12:57][INFO ][OrdersController.java:105] - 
+[20:12:58][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:12:58][INFO ][OrdersController.java:105] - 
+[20:12:59][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:13:34][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:13:34][INFO ][OrdersController.java:105] - 
+[20:13:37][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:13:37][INFO ][OrdersController.java:105] - 
+[20:15:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:15:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3403 ms
+[20:15:45][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:15:48][INFO ][FrameworkServlet.java:546] - Completed initialization in 3085 ms
+[20:15:48][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:15:49][INFO ][OrdersController.java:105] - 
+[20:15:52][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:16:38][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:22:43][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:22:47][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3818 ms
+[20:22:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:22:51][INFO ][FrameworkServlet.java:546] - Completed initialization in 3692 ms
+[20:22:52][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:22:53][INFO ][OrdersController.java:105] - 
+[20:22:58][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:22:58][INFO ][OrdersController.java:105] - 
+[20:23:05][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:23:05][INFO ][OrdersController.java:105] - 
+[20:23:08][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:25:13][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:25:17][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3715 ms
+[20:25:17][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:25:20][INFO ][FrameworkServlet.java:546] - Completed initialization in 3021 ms
+[20:25:20][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:25:21][INFO ][OrdersController.java:105] - 
+[20:25:24][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:39:08][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:39:12][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3751 ms
+[20:39:12][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:39:16][INFO ][FrameworkServlet.java:546] - Completed initialization in 3368 ms
+[20:39:16][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:39:18][INFO ][OrdersController.java:105] - 
+[20:41:36][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[20:46:00][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:46:04][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3898 ms
+[20:46:04][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:46:08][INFO ][FrameworkServlet.java:546] - Completed initialization in 3442 ms
+[20:46:08][INFO ][OrdersController.java:104] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:46:09][INFO ][OrdersController.java:106] - 
+[20:46:21][INFO ][OrdersController.java:155] - 장바구니 결제 창으로 이동
+[20:48:35][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[20:48:40][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4554 ms
+[20:48:40][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[20:48:43][INFO ][FrameworkServlet.java:546] - Completed initialization in 3138 ms
+[20:48:44][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:48:45][INFO ][OrdersController.java:105] - 
+[20:49:18][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[20:49:18][INFO ][OrdersController.java:105] - 
+[20:49:26][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:05:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:05:43][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3710 ms
+[21:05:43][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:05:47][INFO ][FrameworkServlet.java:546] - Completed initialization in 3402 ms
+[21:05:47][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:05:48][INFO ][OrdersController.java:105] - 
+[21:05:51][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:18:20][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:18:23][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3502 ms
+[21:18:24][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:18:27][INFO ][FrameworkServlet.java:546] - Completed initialization in 3426 ms
+[21:18:27][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:18:29][INFO ][OrdersController.java:105] - 
+[21:19:03][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:20:15][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:20:50][INFO ][OrdersController.java:140] - 장바구니 수정 : 2
+[21:20:51][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:20:51][INFO ][OrdersController.java:105] - 
+[21:20:52][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:23:42][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:23:46][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 4124 ms
+[21:23:47][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:23:50][INFO ][FrameworkServlet.java:546] - Completed initialization in 3444 ms
+[21:23:50][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:23:50][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:23:52][INFO ][OrdersController.java:105] - 
+[21:23:55][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:23:55][INFO ][OrdersController.java:105] - 
+[21:23:57][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:23:57][INFO ][OrdersController.java:105] - 
+[21:23:58][INFO ][HomeController.java:41] - Welcome main!
+[21:24:04][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[21:24:05][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[21:24:08][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[21:24:12][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:24:12][INFO ][OrdersController.java:105] - 
+[21:24:14][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:27:18][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:27:22][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3862 ms
+[21:27:22][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:27:25][INFO ][FrameworkServlet.java:546] - Completed initialization in 3115 ms
+[21:27:26][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:27:27][INFO ][OrdersController.java:105] - 
+[21:27:30][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:27:36][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:28:11][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:28:14][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3159 ms
+[21:28:14][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:28:17][INFO ][FrameworkServlet.java:546] - Completed initialization in 2901 ms
+[21:29:44][INFO ][OrdersController.java:103] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=user1, enrolldate=2019-12-09, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=Y, withdrawdate=null, withdrawcause=null]
+[21:29:45][INFO ][OrdersController.java:105] - 
+[21:29:46][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:30:22][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:30:25][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3312 ms
+[21:30:26][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:30:29][INFO ][FrameworkServlet.java:546] - Completed initialization in 3303 ms
+[21:30:29][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:34:33][INFO ][OrdersController.java:154] - 장바구니 결제 창으로 이동
+[21:37:51][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:37:55][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3714 ms
+[21:37:55][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:38:01][INFO ][FrameworkServlet.java:546] - Completed initialization in 5652 ms
+[21:38:05][INFO ][HomeController.java:41] - Welcome main!
+[21:38:09][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 

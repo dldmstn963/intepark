@@ -25,13 +25,16 @@
                 <div class="catagories-menu">
                     <ul>
                         <li class="active"><a href="moveshopcategory4.do">전체</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=1">의자</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=1">가구</a></li>
                         <li><a href="moveshopcategorysub4.do?categorynum=2">침구</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=3">가구</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=4">패브릭</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=5">테이블</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=6">조명</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=7">DIY 셀프 시공</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=3">패브릭</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=4">홈데코/조명</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=5">가전</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=6">수납/정리</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=7">생활 용품</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=8">주방</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=9">DIY 셀프시공</a></li>
+                        <li><a href="moveshopcategorysub4.do?categorynum=10">시공/서비스</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +50,6 @@
                         <div class="product-topbar d-xl-flex align-items-end justify-content-between">
                             <!-- Total Products -->
                             <div class="total-products">
-                                <p>전체 25개 중 1~8번</p>
                                 <!-- 리스트 썸네일 선택 <div class="view d-flex">
                                     <a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a>
                                     <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
