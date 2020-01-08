@@ -1,9 +1,13 @@
 package com.c4.intepark.inteuser.model.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 
 @Repository("userDao")
@@ -28,6 +32,15 @@ public class InteuserDao {
 
 	public int selectEmailCheck(String useremail) {
 		return sqlSession.selectOne("inteuserMapper.selectEmailCheck", useremail);
+	}
+
+	public int selectAllListCount(CommonPage cpage) {
+		return sqlSession.selectOne("inteuserMapper.selectAllListCount", cpage);
+	}
+
+	public ArrayList<InteUser> selectAllList(CommonPage cpage) {
+		List<InteUser> list = sqlSession.selectList("inteuserMapper.selectAllList", cpage);
+		return (ArrayList<InteUser>)list;
 	}
 	
 

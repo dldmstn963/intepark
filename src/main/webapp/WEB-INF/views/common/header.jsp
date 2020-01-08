@@ -104,7 +104,7 @@ ws.onclose = function(event){
 									<li class="nav-item"><a class="nav-link" href="albumlist6.do">인테리어 게시판</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="noticeListView.jsp">고객센터</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements.jsp">마이페이지</a></li>
+									<li class="nav-item"><a class="nav-link" href="userMypage.do">마이페이지</a></li>
 			</c:if>
 			<!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 -->
 			<c:if test="${!empty sessionScope.loginCons }">
@@ -135,7 +135,7 @@ ws.onclose = function(event){
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">고객센터</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">마이페이지</a></li>
+									<li class="nav-item"><a class="nav-link" href="consMypage.do">마이페이지</a></li>
 
 			</c:if>
 
