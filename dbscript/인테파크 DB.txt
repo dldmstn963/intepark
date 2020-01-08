@@ -45,47 +45,42 @@ DROP TABLE constructors CASCADE CONSTRAINTS;
 
 CREATE TABLE constructors (
 
-	consid	VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
-	conspwd	VARCHAR2(60)		NOT NULL,
-	enrolldate	DATE	DEFAULT SYSDATE	NOT NULL,
-	consname	VARCHAR2(30)		NOT NULL,
-	phone	VARCHAR2(50)		NULL,
-	email	VARCHAR2(50)		NOT NULL,
-	address	VARCHAR2(200)		NULL,
-	companyname	VARCHAR2(100)		NOT NULL,
-	consarea	VARCHAR2(100)		NOT NULL,
-	asdate	VARCHAR2(20)		NULL,
-	career	VARCHAR2(20)		NULL,
-	consintroduction	VARCHAR2(500)		NULL,
-	pfintroduction	VARCHAR2(4000)		NULL,
-	profileoriginalimg	VARCHAR2(100)		NULL,
-	profilerenameimg	VARCHAR2(100)		NULL,
-	blicenceoriginalimg	VARCHAR2(100)		NULL,
-	blicencerenameimg	VARCHAR2(100)		NULL,
-	memberstate	CHAR(1)	DEFAULT 'A'	 CHECK(memberstate IN('A','Y','S','N')),
-	withdrawdate	DATE	DEFAULT SYSDATE	NULL,
-	withdrawcause	VARCHAR2(200)		NULL
+   consid   VARCHAR2(15) CONSTRAINT PK_CONSTRUCTOR PRIMARY KEY,
+   conspwd   VARCHAR2(60)      NOT NULL,
+   enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
+   consname   VARCHAR2(30)      NOT NULL,
+   phone   VARCHAR2(50)      NULL,
+   email   VARCHAR2(50)      NOT NULL,
+   address   VARCHAR2(200)      NULL,
+   companyname   VARCHAR2(100)      NOT NULL,
+   consarea   VARCHAR2(100)      NOT NULL,
+   asdate   VARCHAR2(20)      NULL,
+   career   VARCHAR2(20)      NULL,
+   consintroduction   VARCHAR2(500)      NULL,
+   pfintroduction   CLOB      NULL,
+   profileoriginalimg   VARCHAR2(100)      NULL,
+   profilerenameimg   VARCHAR2(100)      NULL,
+   blicenceoriginalimg   VARCHAR2(100)      NULL,
+   blicencerenameimg   VARCHAR2(100)      NULL,
+   memberstate   CHAR(1)   DEFAULT 'A'    CHECK(memberstate IN('A','Y','S','N')),
+   withdrawdate   DATE   DEFAULT SYSDATE   NULL,
+   withdrawcause   VARCHAR2(200)      NULL
 );
 
 insert into constructors values ('con1', 'con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
-'인테리아','종합,바닥,천장,목공,샷시','1년','2~5년','"마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 디자인담다입니다',
-'실내건축면허를 보유한 인테리아 입니다.
-인테리어를 시작하시게 된 계기가 있나요?
-벌써 15년이 넘었네요. 그땐 아파트 수장공사를 하는 회사에 소속되어 있었습니다. 그러던 중 부산에서 마이너스 옵션으로 분양한 아파트를 10분의 다른 고객님과 개인적으로 공사해 드리게 되었습니다. 그 과정에 회사는 사라졌고, 누군가는 마무리를 지어야 하는 상황이었죠. 10집중 똑같은 집은 하나도 없었습니다. 그때는 혼자였고, 매일 미팅, 현장, 미팅, 현장~ 밤늦게 까지 이어졌습니다. 수입자재도 많아 예상치 못한 일이 뻥뻥 터졌었죠. 시간이 가고, 한 집씩 마무리가 되고, 조금 정신을 차리게 되었을 때 깨닫게 되었죠. 제가 보람을 느끼고 있더군요. 기쁘고 만족스럽고 제게 일을 맡겨주신 분들께 감사하고 있더군요. 그 후로 계속 이 일을 하고 있네요
-기억에 남는 시공 사례가 있나요?
-50평대 아파트가 생각나네요. 부분공사를 진행하였는데, 공사기간 중 매일 아침 현장에 가면 고객님께서 깔끔하게 청소를 해두셨습니다. 평균이상으로 깔끔하신 고객 덕에 공사하는 시간보다 정리하는 시간이 더 걸렸던 것 같아요. 공기는 늘고, 인건비도 자꾸 늘어났죠. 그 당시에는 엄청 심각했습니다. 공사하는 만큼 일이 늘어나는 기분이었습니다. 결론은 다행히 해피엔딩입니다. 공사에 만족한 고객님께서 공사가 끝난 후 세 군데나 소개해 주셨죠~ :) 하지만 그 이후로 거주하는 집, 부분공사는 웬만해선 안합니다.
-인테리아만의 차별점이 있나요?
-저희 자랑입니다~:) 고객만족도가 상당히 높아요. 때문에 대부분의 고객님과 아직도 연락을 주고받고 있습니다. 이유는 시행착오를 최소화하기 위해 최소 2주 이상 설계를 진행합니다. 설계과정 중엔 많은 미팅과 고민을 하죠. 특히 주방, 아이 방은 공사 중에도 고객님과 더 많은 커뮤니케이션을 합니다. 그리고 또 한 가지는, 기본에 충실합니다. 집짓기에 기본은 단열이 잘돼 열효율이 좋고, 따뜻하고, 물 안 새는 집을 지향합니다. 이 세 가지에는 돈을 아끼지 않습니다.
-향후 계획이나 목표가 있나요?
-다양한 아이디어와 디자인은 결국 다양한 경험에서 나온다고 생각합니다. 경험을 통해서만 조금 더 심도있는 접근과 장, 단점을 파악할 수 있게 되지요. 시간이 지날수록 기존에 해왔던 방식의 디자인을 고수하는 모습을 제게서 봅니다. 도전과 더 많은 경험이 필요할 때인 것 같습니다. 바쁘다는 핑계로 미뤄왔던 워크샵이나, 킨텍스의 다양한 행사에 참석하여 좀 더 자극을 받아야 할 것 같습니다.
-오늘의집 고객에게 한마디 해주신다면?
-저희는 실내건축면허를 보유한 업체입니다. 모델하우스와 아파트 현장에서 10년 이상 경험한 전문성 있는 인원으로 이루어진 곳이죠. 고객과의 미팅으로 니즈를 파악하고, 설계과정을 통한 계획을 세워 착오 없는 합리적인 예산의 공사를 진행하고 있습니다.',null,'cons_profile_Img.jpg',null,null,'Y',null,null);
-insert into constructors values ('con2', 'con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
-'인테킹','부엌,욕실,벽지,타일,조명', '6개월','10년이상','카멜레온디자인은 유행에 따라가지 않고 오랜 시간 동안 사랑 받을 수 있는 디자인을 선호 합니다.
-작은 것 하나까지 소중하게 생각합니다.',null,null,'cons_profile_Img2.png',null,null,'Y',null,null);
+'인테리아','바닥,천장,목공,샷시','1년','2~5년',
+'마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 인테리아 입니다',
+null,null,'cons_profile_Img.jpg',null,null,'Y',null,null);
 
-insert into constructors values('con3',	'con3',	sysdate, '시공사3',	'010-4444-7777', 'abcd@adb.com', '서울시 송파구',	'인테월드',	'종합,욕실,마루,장판,주방', '1년', '10년이상',	'건축자재도매유통 인테리어 풀하우스 입니다.
-자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null, null, null, 'Y',null, null);	
+insert into constructors values ('con2', 'con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
+'인테킹','부엌,욕실,벽지,타일,조명', '6개월','10년이상',
+'인테킹 디자인은 유행에 따라가지 않고 오랜 시간 동안 사랑 받을 수 있는 디자인을 선호 합니다.작은 것 하나까지 소중하게 생각합니다.',
+null,null,'cons_profile_Img2.png',null,null,'Y',null,null);
+
+insert into constructors values('con3',   'con3',   sysdate, '시공사3',   '010-4444-7777', 'abcd@adb.com', '서울시 송파구',
+'인테월드', '종합,마루,장판', '1년', '10년이상', 
+'건축자재도매유통 인테월드 시공사 입니다. 자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', 
+null, null, null, null, null, 'Y',null, null);   
 
 --delete from constructors where consid='con1';
 
@@ -131,6 +126,7 @@ CREATE TABLE inteuser (
 insert into inteuser values('admin','admin',sysdate,'관리자','080-509-4949','d@d', null,'Y',null,null);
 insert into inteuser values('user1','user1',sysdate,'고객1','010-1343-1441','a@a', null,default,null,null);
 insert into inteuser values('user2','user2',sysdate,'고객2','010-3431-4411','b@b', '서울시 강남구','Y',null,null);
+insert into inteuser values('user3','user3',sysdate,'고객3','010-3548-4591','c@c', '세종특별자치시','Y',null,null);
 
 --delete from inteuser where userid='user1';
 
@@ -244,6 +240,7 @@ CREATE TABLE albumreply (
    albumreplygrouplayer   NUMBER   DEFAULT 0   NOT NULL,
    albumreplydate   DATE   DEFAULT SYSDATE   NOT NULL,
    albumreplycontents   VARCHAR2(500)      NOT NULL,
+   albumreplydelete char(1)   DEFAULT 'N' CHECK(albumreplydelete IN ('Y','N')) not null,
    albumnum   NUMBER REFERENCES album(albumnum) on delete cascade,
    userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
 );
@@ -254,6 +251,7 @@ COMMENT ON COLUMN albumreply.albumreplygrouporder IS '그룹내순서';
 COMMENT ON COLUMN albumreply.albumreplygrouplayer IS '계층별 댓글순위';
 COMMENT ON COLUMN albumreply.albumreplydate IS '댓글작성시간';
 COMMENT ON COLUMN albumreply.albumreplycontents IS '댓글내용';
+COMMENT ON COLUMN albumreply.albumreplydelete IS '삭제여부';
 COMMENT ON COLUMN albumreply.albumnum IS '글번호';
 COMMENT ON COLUMN albumreply.userid IS '고객아이디';
 
@@ -284,14 +282,14 @@ COMMENT ON COLUMN albumimgs.albumnum IS '글번호';
 DROP TABLE NOTICE CASCADE CONSTRAINTS;
 
 CREATE TABLE NOTICE (--총 컬럼 8개
-	NOTICENO	NUMBER	 PRIMARY KEY,	--공지사항번호
-	NOTICETITLE	VARCHAR2(1000)		NOT NULL,	--공지사항 제목
-	NOTICECONTENT	VARCHAR2(4000)	NOT NULL, --공지사항 내용
-	NOTICECOUNT NUMBER	DEFAULT 0	NOT NULL,--공지사항조회수
-	NOTICEDATE	DATE	DEFAULT SYSDATE	NULL,--공지사항작성일
-	NOTICEWRITER	varchar2(30)	REFERENCES inteuser (userid) on delete cascade, --공지사항작성자
-	NOTICEORIGINALFILENAME  VARCHAR2(100)	NULL,--공지사항원본파일
-	NOTICERENAMEFILENAME	VARCHAR2(100)	NULL,--공지사항바뀐파일
+   NOTICENO   NUMBER    PRIMARY KEY,   --공지사항번호
+   NOTICETITLE   VARCHAR2(1000)      NOT NULL,   --공지사항 제목
+   NOTICECONTENT   VARCHAR2(4000)   NOT NULL, --공지사항 내용
+   NOTICECOUNT NUMBER   DEFAULT 0   NOT NULL,--공지사항조회수
+   NOTICEDATE   DATE   DEFAULT SYSDATE   NULL,--공지사항작성일
+   NOTICEWRITER   varchar2(30)   REFERENCES inteuser (userid) on delete cascade, --공지사항작성자
+   NOTICEORIGINALFILENAME  VARCHAR2(100)   NULL,--공지사항원본파일
+   NOTICERENAMEFILENAME   VARCHAR2(100)   NULL,--공지사항바뀐파일
   WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
 );
 
@@ -321,16 +319,16 @@ NOCACHE;
 DROP TABLE QUERY CASCADE CONSTRAINTS;
 
 CREATE TABLE QUERY (  --컬럼은 총 10개
-	QUERYNO 	NUMBER	  PRIMARY KEY, --1대1 문의 번호
-	QUERYTITLE 	VARCHAR2(1000)		NOT NULL, --1대1문의 제목
-	QUERYCONTENT	VARCHAR2(4000)		NOT NULL, --1대1문의 내용
-	QUERYCOUNT	NUMBER	 DEFAULT 0	NOT NULL, --1대1문의 조회
-	QUERYDATE 	DATE	DEFAULT SYSDATE	NULL, --1대1문의 날짜
-	QUERYWRITER 	VARCHAR2(30) REFERENCES inteuser,--1대1문의작성자
-	QUERYREF 	NUMBER		NULL, --1대1문의 참조원글 번호
-	QUERYREPLYREF 	NUMBER		NULL, --1대1문의 참조댓글번호
-	QUERYREPLYLEV	 NUMBER	DEFAULT 1	NOT NULL,--1대1문의댓글단계
-	QUERYREPLYSEQ 	NUMBER  	DEFAULT 1	NOT NULL,--1대1문의댓글순번
+   QUERYNO    NUMBER     PRIMARY KEY, --1대1 문의 번호
+   QUERYTITLE    VARCHAR2(1000)      NOT NULL, --1대1문의 제목
+   QUERYCONTENT   VARCHAR2(4000)      NOT NULL, --1대1문의 내용
+   QUERYCOUNT   NUMBER    DEFAULT 0   NOT NULL, --1대1문의 조회
+   QUERYDATE    DATE   DEFAULT SYSDATE   NULL, --1대1문의 날짜
+   QUERYWRITER    VARCHAR2(30) REFERENCES inteuser,--1대1문의작성자
+   QUERYREF    NUMBER      NULL, --1대1문의 참조원글 번호
+   QUERYREPLYREF    NUMBER      NULL, --1대1문의 참조댓글번호
+   QUERYREPLYLEV    NUMBER   DEFAULT 1   NOT NULL,--1대1문의댓글단계
+   QUERYREPLYSEQ    NUMBER     DEFAULT 1   NOT NULL,--1대1문의댓글순번
   WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
   --CONSTRAINTS FK_QUERY FOREIGN KEY(QUERYWRITER) REFERENCES inteuser (userid) ON DELETE CASCADE
   
@@ -362,10 +360,10 @@ NOCACHE;
 DROP TABLE QUERYAttachFile CASCADE CONSTRAINTS;
 
 CREATE TABLE QUERYAttachFile ( --컬럼은 총 4개
-	QUERYATTACHFILENO	  NUMBER	 PRIMARY KEY, --1대1문의첨부파일번호
-	QUERYORIGINALFILENAME 	VARCHAR2(100)		NULL, --1대1문의원본파일첨부명
-	QUERYRENAMEFILENAME 	VARCHAR2(100)		NULL, --1대1문의바뀐파일첨부명
-	QUERYNO 	NUMBER		REFERENCES QUERY (QUERYNO) ON DELETE CASCADE  --1대1문의 번호
+   QUERYATTACHFILENO     NUMBER    PRIMARY KEY, --1대1문의첨부파일번호
+   QUERYORIGINALFILENAME    VARCHAR2(100)      NULL, --1대1문의원본파일첨부명
+   QUERYRENAMEFILENAME    VARCHAR2(100)      NULL, --1대1문의바뀐파일첨부명
+   QUERYNO    NUMBER      REFERENCES QUERY (QUERYNO) ON DELETE CASCADE  --1대1문의 번호
   
 );
 
@@ -379,11 +377,11 @@ COMMENT ON COLUMN QUERYAttachFile.QUERYNO IS '1대1문의번호';
 DROP TABLE FAQ CASCADE CONSTRAINTS;
 
 CREATE TABLE FAQ (
-	FAQNO 	NUMBER	 PRIMARY KEY, --자주묻는질문
-	FAQTITLE 	VARCHAR2(1000)		NOT NULL, --자주묻는질문제목
-	FAQCONTENT 	VARCHAR2(4000)		NOT NULL, --자주묻는질문내용
-	FAQWRITER 	varchar2(30)	REFERENCES inteuser (userid) ON DELETE CASCADE, --자주묻는질문작성자
-	FAQDATE 	DATE	DEFAULT SYSDATE	NOT NULL, --자주묻는질문작성일
+   FAQNO    NUMBER    PRIMARY KEY, --자주묻는질문
+   FAQTITLE    VARCHAR2(1000)      NOT NULL, --자주묻는질문제목
+   FAQCONTENT    VARCHAR2(4000)      NOT NULL, --자주묻는질문내용
+   FAQWRITER    varchar2(30)   REFERENCES inteuser (userid) ON DELETE CASCADE, --자주묻는질문작성자
+   FAQDATE    DATE   DEFAULT SYSDATE   NOT NULL, --자주묻는질문작성일
   WRITERNAME VARCHAR2(30) --관리자 작성자이름 가져오는 컬럼
 );
 
@@ -450,12 +448,12 @@ INSERT INTO FAQ VALUES(FAQ_SEQ.NEXTVAL, '광고가 노출되는  브라우저 �
 DROP TABLE DELIVERYLIST CASCADE CONSTRAINTS;
 
 CREATE TABLE DELIVERYLIST (
-	DLVYNUM	NUMBER		NOT NULL,
-	ADDRESSEE	varchar2(100)		NULL,
-	ADDRESS	varchar2(1000)		NULL,
-	PHONE	NUMBER		NULL,
-	DLVYNAME	varchar2(100)	DEFAULT '무제'	NULL,
-	userid	varchar2(15)		NOT NULL
+   DLVYNUM   NUMBER      NOT NULL,
+   ADDRESSEE   varchar2(100)      NULL,
+   ADDRESS   varchar2(1000)      NULL,
+   PHONE   NUMBER      NULL,
+   DLVYNAME   varchar2(100)   DEFAULT '무제'   NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN DELIVERYLIST.DLVYNUM IS '배송지 번호';
@@ -473,9 +471,9 @@ COMMENT ON COLUMN DELIVERYLIST.userid IS '아이디';
 DROP TABLE REQUESTS CASCADE CONSTRAINTS;
 
 CREATE TABLE REQUESTS (
-	REQUESTNUM	NUMBER		NOT NULL,
-	REQUESTCN	varchar2(2000)		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   REQUESTNUM   NUMBER      NOT NULL,
+   REQUESTCN   varchar2(2000)      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN REQUESTS.REQUESTNUM IS '요청 사항 번호';
@@ -487,18 +485,18 @@ COMMENT ON COLUMN REQUESTS.userid IS '아이디';
 DROP TABLE GOODS CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODS (
-	GOODSNUM	number		NOT NULL,
-	CATEGORYNUM	NUMBER		NOT NULL,
-	GOODSNAME	varchar2(1000)		NULL,
-	PRICE	NUMBER		NULL,
-	INVENTORY	NUMBER	DEFAULT 9999	NULL,
-	FREEDLVY	varchar2(10)	DEFAULT 'N'	NULL,
-	THUMBNAIL	varchar2(1000)		NULL,
-	COMMENTS	varchar2(4000)		NULL,
-	DESCRIPTION	varchar2(4000)		NULL,
-	MAXIMUM	NUMBER	DEFAULT 99	NULL,
-	consid	varchar2(15)		NOT NULL,
-	GOODSDATE	DATE	DEFAULT SYSDATE	NULL
+   GOODSNUM   number      NOT NULL,
+   CATEGORYNUM   NUMBER      NOT NULL,
+   GOODSNAME   varchar2(1000)      NULL,
+   PRICE   NUMBER      NULL,
+   INVENTORY   NUMBER   DEFAULT 9999   NULL,
+   FREEDLVY   varchar2(10)   DEFAULT 'N'   NULL,
+   THUMBNAIL   varchar2(1000)      NULL,
+   COMMENTS   varchar2(4000)      NULL,
+   DESCRIPTION   varchar2(4000)      NULL,
+   MAXIMUM   NUMBER   DEFAULT 99   NULL,
+   consid   varchar2(15)      NOT NULL,
+   GOODSDATE   DATE   DEFAULT SYSDATE   NULL
 );
 
 COMMENT ON COLUMN GOODS.GOODSNUM IS '상품 번호';
@@ -528,15 +526,15 @@ COMMENT ON COLUMN GOODS.GOODSDATE IS '상품 등록 날짜';
 DROP TABLE GOODSINQUIRY CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSINQUIRY (
-	INQUIRYNUM	NUMBER		NOT NULL,
-	INQUIRYCN	varchar2(4000)		NULL,
-	INQUIRYTYPE	NUMBER		NULL,
-	INQUIRYTITLE	varchar2(300)		NULL,
-	SECRETAT	varchar2(15)	DEFAULT 'N'	NULL,
-	INQUIRYDATE	DATE	DEFAULT SYSDATE	NULL,
-	ANSWERSTTUS	varchar2(100)	DEFAULT '답변접수'	NULL,
-	userid	varchar2(15)		NOT NULL,
-	GOODSNUM	number		NOT NULL
+   INQUIRYNUM   NUMBER      NOT NULL,
+   INQUIRYCN   varchar2(4000)      NULL,
+   INQUIRYTYPE   NUMBER      NULL,
+   INQUIRYTITLE   varchar2(300)      NULL,
+   SECRETAT   varchar2(15)   DEFAULT 'N'   NULL,
+   INQUIRYDATE   DATE   DEFAULT SYSDATE   NULL,
+   ANSWERSTTUS   varchar2(100)   DEFAULT '답변접수'   NULL,
+   userid   varchar2(15)      NOT NULL,
+   GOODSNUM   number      NOT NULL
 );
 
 COMMENT ON COLUMN GOODSINQUIRY.INQUIRYNUM IS '문의 번호';
@@ -560,13 +558,13 @@ COMMENT ON COLUMN GOODSINQUIRY.GOODSNUM IS '상품 번호';
 DROP TABLE GOODSREVIEW CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSREVIEW (
-	REVIEWNUM	NUMBER		NOT NULL,
-	REVIEWDATE	DATE	DEFAULT SYSDATE	NULL,
-	REVIEWCN	varchar2(4000)		NULL,
-	REVIEWSCORE	NUMBER		NULL,
-	userid	varchar2(15)		NOT NULL,
-	GOODSNUM	number		NOT NULL,
-	reviewTITLE	VARCHAR2(4000) 	NOT NULL
+   REVIEWNUM   NUMBER      NOT NULL,
+   REVIEWDATE   DATE   DEFAULT SYSDATE   NULL,
+   REVIEWCN   varchar2(4000)      NULL,
+   REVIEWSCORE   NUMBER      NULL,
+   userid   varchar2(15)      NOT NULL,
+   GOODSNUM   number      NOT NULL,
+   reviewTITLE   VARCHAR2(4000)    NOT NULL
 );
 
 COMMENT ON COLUMN GOODSREVIEW.REVIEWNUM IS '상품평 번호';
@@ -587,16 +585,16 @@ COMMENT ON COLUMN GOODSREVIEW.reviewTITLE IS '상품평 제목';
 DROP TABLE ORDERs CASCADE CONSTRAINTS;
 
 CREATE TABLE ORDERs (
-	ORDERNUM	NUMBER		NOT NULL,
-	ORDERDATE	DATE		NULL,
-	ORDERPRICE	NUMBER		NULL,
-	ORDERSTATUS	varchar2(100)		NULL,
-	userid	varchar2(15)		NOT NULL,
-	DLVYNUM	NUMBER		NOT NULL,
-	REQUESTNUM	NUMBER		NOT NULL,
-	ORDERquantity	NUMBER		NULL,
-	GOODSNUM	NUMBER		NOT NULL,
-	GOODSPRICE	NUMBER		NULL
+   ORDERNUM   NUMBER      NOT NULL,
+   ORDERDATE   DATE      NULL,
+   ORDERPRICE   NUMBER      NULL,
+   ORDERSTATUS   varchar2(100)      NULL,
+   userid   varchar2(15)      NOT NULL,
+   DLVYNUM   NUMBER      NOT NULL,
+   REQUESTNUM   NUMBER      NOT NULL,
+   ORDERquantity   NUMBER      NULL,
+   GOODSNUM   NUMBER      NOT NULL,
+   GOODSPRICE   NUMBER      NULL
 );
 
 COMMENT ON COLUMN ORDERs.ORDERNUM IS '주문 번호';
@@ -622,10 +620,10 @@ COMMENT ON COLUMN ORDERs.GOODSPRICE IS '상품 가격';
 DROP TABLE SHBASKET CASCADE CONSTRAINTS;
 
 CREATE TABLE SHBASKET (
-	SHBASKETNUM	NUMBER		NOT NULL,
-	quantity	NUMBER		NULL,
-	GOODSNUM	number		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   SHBASKETNUM   NUMBER      NOT NULL,
+   quantity   NUMBER      NULL,
+   GOODSNUM   number      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN SHBASKET.SHBASKETNUM IS '장바구니 번호';
@@ -639,8 +637,8 @@ COMMENT ON COLUMN SHBASKET.userid IS '아이디';
 DROP TABLE CATEGORY CASCADE CONSTRAINTS;
 
 CREATE TABLE CATEGORY (
-	CATEGORYNUM	NUMBER		NOT NULL,
-	CATEGORYNAME	varchar2(100)		NOT NULL
+   CATEGORYNUM   NUMBER      NOT NULL,
+   CATEGORYNAME   varchar2(100)      NOT NULL
 );
 
 COMMENT ON COLUMN CATEGORY.CATEGORYNUM IS '카테고리 번호';
@@ -650,10 +648,10 @@ COMMENT ON COLUMN CATEGORY.CATEGORYNAME IS '카테고리 이름';
 DROP TABLE GOODSANSWER CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSANSWER (
-	INQUIRYNUM	NUMBER		NOT NULL,
-	ANSWERCN	varchar2(4000)		NOT NULL,
-	consid	varchar2(15)		NOT NULL,
-	ANSWERDATE	DATE	DEFAULT SYSDATE	NOT NULL
+   INQUIRYNUM   NUMBER      NOT NULL,
+   ANSWERCN   varchar2(4000)      NOT NULL,
+   consid   varchar2(15)      NOT NULL,
+   ANSWERDATE   DATE   DEFAULT SYSDATE   NOT NULL
 );
 
 COMMENT ON COLUMN GOODSANSWER.INQUIRYNUM IS '문의 번호';
@@ -667,9 +665,9 @@ COMMENT ON COLUMN GOODSANSWER.ANSWERDATE IS '답변 날짜';
 DROP TABLE INTRSTSHOP CASCADE CONSTRAINTS;
 
 CREATE TABLE INTRSTSHOP (
-	SHOPNUM	NUMBER		NOT NULL,
-	consid	varchar2(15)		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   SHOPNUM   NUMBER      NOT NULL,
+   consid   varchar2(15)      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 );
 
 COMMENT ON COLUMN INTRSTSHOP.SHOPNUM IS '관심있는 상점 번호';
@@ -681,10 +679,10 @@ COMMENT ON COLUMN INTRSTSHOP.userid IS '아이디';
 DROP TABLE GOODSREVIEWPIC CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSREVIEWPIC (
-	PICNUM	NUMBER		NOT NULL,
-	ORIFILE	varchar2(4000)		NULL,
-	REFILE	varchar2(4000)		NULL,
-	REVIEWNUM	NUMBER		NOT NULL
+   PICNUM   NUMBER      NOT NULL,
+   ORIFILE   varchar2(4000)      NULL,
+   REFILE   varchar2(4000)      NULL,
+   REVIEWNUM   NUMBER      NOT NULL
 );
 
 COMMENT ON COLUMN GOODSREVIEWPIC.PICNUM IS '사진 번호';
@@ -698,11 +696,11 @@ COMMENT ON COLUMN GOODSREVIEWPIC.REVIEWNUM IS '상품평 번호';
 DROP TABLE GOODSINQUIRYPIC CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSINQUIRYPIC (
-	PICNUM	NUMBER		NOT NULL,
-	ORIFILE	varchar2(4000)		NULL,
-	REFILE	varchar2(4000)		NULL,
-	INQUIRYNUM	NUMBER		NOT NULL,
-	INQAWS	varchar2(15)		NULL
+   PICNUM   NUMBER      NOT NULL,
+   ORIFILE   varchar2(4000)      NULL,
+   REFILE   varchar2(4000)      NULL,
+   INQUIRYNUM   NUMBER      NOT NULL,
+   INQAWS   varchar2(15)      NULL
 );
 
 COMMENT ON COLUMN GOODSINQUIRYPIC.PICNUM IS '사진 번호';
@@ -718,10 +716,10 @@ COMMENT ON COLUMN GOODSINQUIRYPIC.INQAWS IS '질문사진 OR 답변사진';
 DROP TABLE GOODSPIC CASCADE CONSTRAINTS;
 
 CREATE TABLE GOODSPIC (
-	PICNUM	NUMBER		NOT NULL,
-	ORIFILE	varchar2(4000)		NULL,
-	REFILE	varchar2(4000)		NULL,
-	GOODSNUM	number		NOT NULL
+   PICNUM   NUMBER      NOT NULL,
+   ORIFILE   varchar2(4000)      NULL,
+   REFILE   varchar2(4000)      NULL,
+   GOODSNUM   number      NOT NULL
 );
 
 COMMENT ON COLUMN GOODSPIC.PICNUM IS '사진 번호';
@@ -736,14 +734,14 @@ COMMENT ON COLUMN GOODSPIC.GOODSNUM IS '상품 번호';
 DROP TABLE NONMEMBERORDER CASCADE CONSTRAINTS;
 
 CREATE TABLE NONMEMBERORDER (
-	ORDERNUM	NUMBER		NOT NULL,
-	ORDERDATE	DATE		NULL,
-	ORDERPRICE	NUMBER		NULL,
-	ORDERSTATUS	varchar2(100)		NULL,
-	ADDRESSEE	varchar2(100)		NULL,
-	ADDRESS	varchar2(1000)		NULL,
-	PHONE	NUMBER		NULL,
-	REQUESTCN	varchar2(2000)		NULL,
+   ORDERNUM   NUMBER      NOT NULL,
+   ORDERDATE   DATE      NULL,
+   ORDERPRICE   NUMBER      NULL,
+   ORDERSTATUS   varchar2(100)      NULL,
+   ADDRESSEE   varchar2(100)      NULL,
+   ADDRESS   varchar2(1000)      NULL,
+   PHONE   NUMBER      NULL,
+   REQUESTCN   varchar2(2000)      NULL,
   NONMEMPASSWORD VARCHAR2(100) NOT NULL
 );
 
@@ -764,201 +762,201 @@ COMMENT ON COLUMN NONMEMBERORDER.PHONE IS '전화번호';
 COMMENT ON COLUMN NONMEMBERORDER.REQUESTCN IS '요청사항';
 -------------------------------------------------------------------------------------
 ALTER TABLE DELIVERYLIST ADD CONSTRAINT PK_DELIVERYLIST PRIMARY KEY (
-	DLVYNUM
+   DLVYNUM
 );
 
 ALTER TABLE REQUESTS ADD CONSTRAINT PK_REQUESTS PRIMARY KEY (
-	REQUESTNUM
+   REQUESTNUM
 );
 ALTER TABLE GOODS ADD CONSTRAINT PK_GOODS PRIMARY KEY (
-	GOODSNUM
+   GOODSNUM
 );
 
 ALTER TABLE GOODSINQUIRY ADD CONSTRAINT PK_GOODSINQUIRY PRIMARY KEY (
-	INQUIRYNUM
+   INQUIRYNUM
 );
 
 ALTER TABLE GOODSREVIEW ADD CONSTRAINT PK_GOODSREVIEW PRIMARY KEY (
-	REVIEWNUM
+   REVIEWNUM
 );
 
 ALTER TABLE ORDERs ADD CONSTRAINT PK_ORDER PRIMARY KEY (
-	ORDERNUM
+   ORDERNUM
 );
 
 ALTER TABLE SHBASKET ADD CONSTRAINT PK_SHBASKET PRIMARY KEY (
-	SHBASKETNUM
+   SHBASKETNUM
 );
 ALTER TABLE CATEGORY ADD CONSTRAINT PK_CATEGORY PRIMARY KEY (
-	CATEGORYNUM
+   CATEGORYNUM
 );
 
 ALTER TABLE GOODSANSWER ADD CONSTRAINT PK_GOODSANSWER PRIMARY KEY (
-	INQUIRYNUM
+   INQUIRYNUM
 );
 
 ALTER TABLE INTRSTSHOP ADD CONSTRAINT PK_INTRSTSHOP PRIMARY KEY (
-	SHOPNUM
+   SHOPNUM
 );
 ALTER TABLE GOODSREVIEWPIC ADD CONSTRAINT PK_GOODSREVIEWPIC PRIMARY KEY (
-	PICNUM
+   PICNUM
 );
 
 ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT PK_GOODSINQUIRYPIC PRIMARY KEY (
-	PICNUM
+   PICNUM
 );
 
 ALTER TABLE GOODSPIC ADD CONSTRAINT PK_GOODSPIC PRIMARY KEY (
-	PICNUM
+   PICNUM
 );
 
 
 ALTER TABLE NONMEMBERORDER ADD CONSTRAINT PK_NONMEMBERORDER PRIMARY KEY (
-	ORDERNUM
+   ORDERNUM
 );
 ------------------------------------------------------------------
 ALTER TABLE ORDERs ADD CONSTRAINT FK_GOODS_TO_ORDERGOODS_1 FOREIGN KEY (
-	GOODSNUM
+   GOODSNUM
 )REFERENCES GOODS (
-	GOODSNUM
+   GOODSNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE DELIVERYLIST ADD CONSTRAINT FK_inteuser_TO_DELIVERYLIST_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 
 ALTER TABLE REQUEST ADD CONSTRAINT FK_inteuser_TO_REQUEST_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODS ADD CONSTRAINT FK_CATEGORY_TO_GOODS_1 FOREIGN KEY (
-	CATEGORYNUM
+   CATEGORYNUM
 )
 REFERENCES CATEGORY (
-	CATEGORYNUM
+   CATEGORYNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODS ADD CONSTRAINT FK_constructors_TO_GOODS_1 FOREIGN KEY (
-	consid
+   consid
 )
 REFERENCES constructors (
-	consid
+   consid
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSINQUIRY ADD CONSTRAINT FK_inteuser_TO_GOODSINQUIRY_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSINQUIRY ADD CONSTRAINT FK_GOODS_TO_GOODSINQUIRY_1 FOREIGN KEY (
-	GOODSNUM
+   GOODSNUM
 )
 REFERENCES GOODS (
-	GOODSNUM
+   GOODSNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSREVIEW ADD CONSTRAINT FK_inteuser_TO_GOODSREVIEW_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSREVIEW ADD CONSTRAINT FK_GOODS_TO_GOODSREVIEW_1 FOREIGN KEY (
-	GOODSNUM
+   GOODSNUM
 )
 REFERENCES GOODS (
-	GOODSNUM
+   GOODSNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE ORDERs ADD CONSTRAINT FK_inteuser_TO_ORDER_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 
 ALTER TABLE ORDERs ADD CONSTRAINT FK_DELIVERYLIST_TO_ORDER_1 FOREIGN KEY (
-	DLVYNUM
+   DLVYNUM
 )
 REFERENCES DELIVERYLIST (
-	DLVYNUM
+   DLVYNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE ORDERs ADD CONSTRAINT FK_REQUEST_TO_ORDER_1 FOREIGN KEY (
-	REQUESTNUM
+   REQUESTNUM
 )
 REFERENCES REQUEST (
-	REQUESTNUM
+   REQUESTNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE SHBASKET ADD CONSTRAINT FK_GOODS_TO_SHBASKET_1 FOREIGN KEY (
-	GOODSNUM
+   GOODSNUM
 )
 REFERENCES GOODS (
-	GOODSNUM
+   GOODSNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE SHBASKET ADD CONSTRAINT FK_inteuser_TO_SHBASKET_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 ALTER TABLE GOODSANSWER ADD CONSTRAINT FK_GOODSINQUIRY FOREIGN KEY (
-	INQUIRYNUM
+   INQUIRYNUM
 )
 REFERENCES GOODSINQUIRY (
-	INQUIRYNUM
+   INQUIRYNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSANSWER ADD CONSTRAINT FK_constructors FOREIGN KEY (
-	consid
+   consid
 )
 REFERENCES constructors (
-	consid
+   consid
 )ON DELETE CASCADE;
 
 ALTER TABLE INTRSTSHOP ADD CONSTRAINT FK_constructors_1 FOREIGN KEY (
-	consid
+   consid
 )
 REFERENCES constructors (
-	consid
+   consid
 )ON DELETE CASCADE;
 
 ALTER TABLE INTRSTSHOP ADD CONSTRAINT FK_inteuser_TO_INTRSTSHOP_1 FOREIGN KEY (
-	userid
+   userid
 )
 REFERENCES inteuser (
-	userid
+   userid
 )ON DELETE CASCADE;
 ALTER TABLE GOODSREVIEWPIC ADD CONSTRAINT FK_GOODSREVIEW_1 FOREIGN KEY (
-	REVIEWNUM
+   REVIEWNUM
 )
 REFERENCES GOODSREVIEW (
-	REVIEWNUM
+   REVIEWNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT FK_GOODSINQUIRY_1 FOREIGN KEY (
-	INQUIRYNUM
+   INQUIRYNUM
 )
 REFERENCES GOODSINQUIRY (
-	INQUIRYNUM
+   INQUIRYNUM
 )ON DELETE CASCADE;
 
 ALTER TABLE GOODSPIC ADD CONSTRAINT FK_GOODS_TO_GOODSPIC_1 FOREIGN KEY (
-	GOODSNUM
+   GOODSNUM
 )
 REFERENCES GOODS (
-	GOODSNUM
+   GOODSNUM
 )ON DELETE CASCADE;
 
 insert into CATEGORY values (1, '가구');
@@ -1546,7 +1544,7 @@ ofile varchar2(200),
 rfile varchar2(200),
 etc varchar2(500),
 progress varchar2(30) DEFAULT '대기' NOT NULL,
-userid VARCHAR2(30)	REFERENCES inteuser(userid) ON DELETE CASCADE
+userid VARCHAR2(30)   REFERENCES inteuser(userid) ON DELETE CASCADE
 );
 
 COMMENT ON COLUMN auction.auctionno IS '경매번호';
@@ -1651,7 +1649,7 @@ pointno number NOT NULL PRIMARY KEY ,
 chargeamount varchar2(15) NOT NULL,
 chargepoint varchar2(15) NOT NULL,
 restpoint varchar2(15) NOT NULL,
-consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE NOT NULL
+consid VARCHAR2(15)   REFERENCES constructors(consid) ON DELETE CASCADE NOT NULL
 );
 
 COMMENT ON COLUMN setpoint.pointno IS '충전번호';
@@ -1691,13 +1689,13 @@ NOCACHE;
 DROP TABLE calendar CASCADE CONSTRAINTS;
 
 CREATE TABLE calendar (
-	cno	number	NOT NULL,
-	ctitle	varchar2(60)		NOT NULL,
-	ccontent	varchar2(300)		NULL,
-	cstart date		NOT NULL,
-	cend	date		NULL,
-	ccolor	varchar2(15)		NOT NULL,
-	consid varchar2(15) REFERENCES constructors(consid)	 NOT NULL
+   cno   number   NOT NULL,
+   ctitle   varchar2(60)      NOT NULL,
+   ccontent   varchar2(300)      NULL,
+   cstart date      NOT NULL,
+   cend   date      NULL,
+   ccolor   varchar2(15)      NOT NULL,
+   consid varchar2(15) REFERENCES constructors(consid)    NOT NULL
 );
 
 COMMENT ON COLUMN calendar.cno IS '일정번호';
@@ -1720,9 +1718,9 @@ INSERT INTO calendar VALUES(calendar_seq.nextval, '문의', '문의예정', '19/
 DROP TABLE chat CASCADE CONSTRAINTS;
 
 CREATE TABLE chat (
-	chatno	number NOT NULL,
-	consid	varchar2(15) REFERENCES constructors(consid) NOT NULL,
-  userid	varchar2(15) REFERENCES inteuser(userid) NOT NULL,
+   chatno   number NOT NULL,
+   consid   varchar2(15) REFERENCES constructors(consid) NOT NULL,
+  userid   varchar2(15) REFERENCES inteuser(userid) NOT NULL,
   constraint a primary key (chatno, consid, userid)
 );
 
@@ -1738,11 +1736,11 @@ INSERT INTO chat VALUES(chatno_seq.nextval, 'con2', 'user2');
 DROP TABLE chatmessage CASCADE CONSTRAINTS;
 
 CREATE TABLE chatmessage (
-	chatcontent	varchar2(4000)		NOT NULL,
-	chattime	date	DEFAULT sysdate	NOT NULL,
-	chatno	number NOT NULL,
-	consid	 varchar2(15) NULL,
-	userid	varchar2(15) NULL,
+   chatcontent   varchar2(4000)      NOT NULL,
+   chattime   date   DEFAULT sysdate   NOT NULL,
+   chatno   number NOT NULL,
+   consid    varchar2(15) NULL,
+   userid   varchar2(15) NULL,
   constraint chatmessage_fk foreign key(chatno, consid, userid) REFERENCES chat
 );
 
@@ -1827,15 +1825,15 @@ DROP TABLE request CASCADE CONSTRAINTS;
 
 CREATE TABLE request (
 
-	reqnum	NUMBER		NOT NULL,
-	reqarea	VARCHAR2(100)		NOT NULL,
-	reqregion	VARCHAR2(100)		NOT NULL,
-	reqbudget	VARCHAR2(100)		NOT NULL,
-	reqname	VARCHAR2(100)		NOT NULL,
-	reqphone	VARCHAR2(50)		NOT NULL,
-	reqdate	DATE	DEFAULT SYSDATE	NOT NULL,
-	consid	varchar2(15)		NOT NULL,
-	userid	varchar2(15)		NOT NULL
+   reqnum   NUMBER      NOT NULL,
+   reqarea   VARCHAR2(100)      NOT NULL,
+   reqregion   VARCHAR2(100)      NOT NULL,
+   reqbudget   VARCHAR2(100)      NOT NULL,
+   reqname   VARCHAR2(100)      NOT NULL,
+   reqphone   VARCHAR2(50)      NOT NULL,
+   reqdate   DATE   DEFAULT SYSDATE   NOT NULL,
+   consid   varchar2(15)      NOT NULL,
+   userid   varchar2(15)      NOT NULL
 
 );
 
@@ -1868,9 +1866,9 @@ NOCYCLE;
 
 --시공사 상담신청 샘플 데이터---------------------------------------------------------
 
-INSERT INTO request VALUES (reqnum_seq.nextval, '도배,마루,장판', '서울특별시 송파구', '1000~2000만원', '우수', '010-1234-5678', default, 'con1', 'user1');
-INSERT INTO request VALUES (reqnum_seq.nextval, '벽지,타일,도배', '부산광역시 해운대구', '2000~3000만원', '엘라', '010-1111-2222', default, 'con2', 'user2');
-INSERT INTO request VALUES (reqnum_seq.nextval, '마루,욕실,주방', '서울특별시 강남구', '3000만원 이상', '히비', '010-2222-3333', default, 'con1', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '바닥,천장,샷시', '서울특별시 송파구', '1000~2000만원', '우수', '010-1234-5678', default, 'con1', 'user1');
+INSERT INTO request VALUES (reqnum_seq.nextval, '부엌,욕실,타일', '부산광역시 해운대구', '2000~3000만원', '엘라', '010-1111-2222', default, 'con2', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '천장,목공', '서울특별시 강남구', '3000만원 이상', '히비', '010-2222-3333', default, 'con1', 'user2');
 
 --시공사 포트폴리오--------------
 
@@ -1941,10 +1939,10 @@ NOCYCLE;
 
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_1', '12345', '리모델링사진입니다.', 1);
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '시공사진 입니다.', 1);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '45612', '아이방 사진 입니다.', 2);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '주방사진 입니다.', 3);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '45612', '욕실사진 입니다.', 2);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '마루사진 입니다.', 3);
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '61221', '욕실사진 입니다.', 4);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '41257', '베란다사진 입니다.', 5);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '41257', '시공완료 사진 입니다.', 5);
 
 --시공사 리뷰--------------
 
@@ -1957,6 +1955,7 @@ CREATE TABLE review (
    rvquality   NUMBER      NOT NULL,
    rvprofessional   NUMBER      NOT NULL,
    rvresponsible   NUMBER      NOT NULL,
+   rvavg   NUMBER      NOT NULL, 
    rvperiod   VARCHAR2(100)      NOT NULL,
    rvregion   VARCHAR2(100)      NOT NULL,
    rvbuildingtype   VARCHAR2(100)      NOT NULL,
@@ -1980,6 +1979,8 @@ COMMENT ON COLUMN review.rvquality IS '퀄리티';
 COMMENT ON COLUMN review.rvprofessional IS '전문성';
 
 COMMENT ON COLUMN review.rvresponsible IS '책임감';
+
+COMMENT ON COLUMN review.rvavg IS '리뷰 평균점수';
 
 COMMENT ON COLUMN review.rvperiod IS '시공시기';
 
@@ -2014,13 +2015,17 @@ NOCYCLE;
 
 SET DEFINE OFF;
 
-INSERT INTO review VALUES (rvnum_seq.nextval, 5, 4, 5, 3, 5, '2018년 5월', '인천광역시 부평구', '빌라&연립', '도어/샷시', '20평대', '500~1000만원', 
+INSERT INTO review VALUES (rvnum_seq.nextval, 3, 3, 3, 3, 3, 3, '2018년 5월', '인천광역시 부평구', '빌라&연립', '도어&샷시', '20평대', '500~1000만원', 
 '상담을 너무 친절하게 해주셔서 어떤 작업을 하는지에 대해서 잘 이해가 되었어요.또 전문가님께서 너무 잘해주셔서 집 분위기가 한층 더 밝아져 기분이 너무 좋아요!',
 default, 'con1', 'user1');
 
-INSERT INTO review VALUES (rvnum_seq.nextval, 3, 4, 4, 5, 4, '2019년 8월', '서울특별시 종로구', '원룸&오피스텔', '타일/욕실', '30평대', '1000~2000만원', 
+INSERT INTO review VALUES (rvnum_seq.nextval, 3, 4, 4, 5, 4, 4, '2019년 8월', '서울특별시 종로구', '원룸&오피스텔', '타일&욕실', '30평대', '1000~2000만원', 
 '상담도 너무 친절하시고,작업도 꼼꼼하시고 주변이랑 비교하다보니 퀄리티 대비 가격도 최고에요!',
 default, 'con2', 'user2');
+
+INSERT INTO review VALUES (rvnum_seq.nextval, 5, 5, 5, 5, 5, 5, '2019년 11월', '세종특별자치시', '빌라&연립', '전기&조명', '20평대', '500~1000만원', 
+'방산시장 3군데 전화 하였고, 가격이 괜찮아서 방문 하지도 않고 결정 했습니다. 원하는 장판 사진으로 주고 받았고 작업 완료 후 확인해보니 실리콘 처리까지 말끔히 되어 있습니다. 아주 만족합니다.',
+default, 'con2', 'user3');
 
 --리뷰 첨부파일--------------
 
@@ -2090,5 +2095,36 @@ REFERENCES review (rvnum) on delete cascade;
 
 ALTER TABLE portfoliofile ADD CONSTRAINT FK_portfolio_TO_pffile_1 FOREIGN KEY (pfnum)
 REFERENCES portfolio (pfnum) on delete cascade;
+
+
+--------------------------------------------소개글 CLOB 설정-------------------------------------
+-- 1. 시공사 테이블에 새로운 CLOB 컬럼을 추가
+-- ALTER TABLE [테이블명] ADD ([임시컬럼명] CLOB);
+ALTER TABLE CONSTRUCTORS ADD (CONS_INTRO_CLOB CLOB);
+-- 2. 기존의 컬럼을 새로운 CLOB 컬럼에 복사한다.
+-- UPDATE [테이블명] SET [임시컬럼명] = [기존컬럼명];
+-- [임시컬럼] 에 [기존컬럼]에 있던 값을 복사
+UPDATE CONSTRUCTORS SET CONS_INTRO_CLOB = PFINTRODUCTION;
+-- 3. [기존컬럼]을 삭제
+--ALTER TABLE [테이블명] DROP COLUMN [기존컬럼명];
+ALTER TABLE CONSTRUCTORS DROP COLUMN PFINTRODUCTION;
+-- 4. [임시컬럼명]을 [기존컬럼명]으로 바꾼다.
+ALTER TABLE CONSTRUCTORS RENAME COLUMN CONS_INTRO_CLOB TO PFINTRODUCTION;
+
+COMMENT ON COLUMN constructors.pfintroduction IS '소개글';
+
+
+UPDATE constructors
+   SET pfintroduction = TO_CLOB('<h2 style="-webkit-tap-highlight-color: transparent; margin: 15px 0px; padding: 0px; font-size: 17px; line-height: 28px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">인테리어를 시작하시게 된 계기가 있을까요?</h2><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><span style="color: rgb(255, 0, 0);">저희 </span><span style="color: rgb(255, 0, 0);">인테리아는</span><span style="color: rgb(255, 0, 0);">&nbsp;잘못된 관행으로 고객의 신뢰를 잃어가고 있는 인테리어 시장을 변화시키고자 합니다</span>.</p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p><h2 style="-webkit-tap-highlight-color: transparent; margin: 15px 0px; padding: 0px; font-size: 17px; line-height: 28px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">가장 기억에 남는 에피소드가 있을까요?</h2><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><span style="color: rgb(0, 158, 37);">30년 정도 된 빌라 리모델링 프로젝트가 생각이 나네요. 건물 자체가 노후되어 시공 전 보수가 필요한 부분이 한두 군데가 아니었죠. 고객분께서는 하루라도 빨리 시공하시는 것을 원하셨지만, 10년 이상 거주하실 보금자리기에 고객분을 설득하여 꼼꼼한 현장답사 후 필요한 보수공사와 함께 리모델링을 진행했습니다. 처음엔 떨떠름하셨던 고객분도 시공완료된 공간을 보시고는 오래된 빌라라 걱정했는데 하자도 없고 새집처럼 너무 깔끔하다고 만족해하셔서 저희도 흡족했던 현장이었던 것 같아요.') 
+                     || TO_CLOB('</span></p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p><h2 style="-webkit-tap-highlight-color: transparent; margin: 15px 0px; padding: 0px; font-size: 17px; line-height: 28px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">고객님들을 위해 특별히 신경 쓰는 부분이 있나요?</h2><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><span style="color: rgb(0, 117, 200);">저희 </span><span style="color: rgb(0, 117, 200);">인테리아</span><span style="color: rgb(0, 117, 200);">는 투명한 원가견적과 전담 프로젝트 매니저를 통한 철저한 시공이 특징입니다. 특히 자체개발한 견적시스템에서 모든 공정별로 자재 및 비용이 투명하게 보여지는 원가견적은 미팅시 고객분들께서 매우 만족해하시는 부분이기도 해요. 그리고 가장 중요시 생각하는 포인트는 신뢰를 바탕으로한 고객의 만족으로 이를 위해 고객별로 최적화된 프로젝트 매니저 매칭 및 고객소통방을 통한 시공과정 데일리 공유 등을 진행하고 있습니다.</span></p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p><h2 style="-webkit-tap-highlight-color: transparent; margin: 15px 0px; padding: 0px; font-size: 17px; line-height: 28px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">향후 계획이나 목표가 있으신가요?</h2><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">') 
+                     || TO_CLOB('<span style="color: rgb(120, 32, 185);">저희는 투명한 원가견적과 철저한 시공으로 믿을 수 있는 인테리어 시장을 만들어가고자 합니다. 고객 한 분 한 분의 소중한 공간을 최선을 다해 시공하다보면 언젠가는 가장 믿을 수 있는 인테리어 브랜드가 될 수 있지 않을까 싶어요.</span></p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p><h2 style="-webkit-tap-highlight-color: transparent; margin: 15px 0px; padding: 0px; font-size: 17px; line-height: 28px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"="">인테파크 고객에게 한마디</h2><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><span style="color: rgb(239, 0, 124);">인테파크 고객분들은 주도적이고 합리적인 인테리어 소비를 하시는 분들이라 생각해요. 이에 저희 </span><span style="color: rgb(239, 0, 124);">인테리아</span><span style="color: rgb(239, 0, 124);"> 고객분들의 니즈를 충족할 수 있는 투명하고 합리적인 인테리어 서비스를 제공해드릴 것을 약속합니다. </span><span style="color: rgb(239, 0, 124);">인테리아</span><span style="color: rgb(239, 0, 124);">의 트러스트 리모델링으로 고객님의 소중한 공간을 즐거움을 향유할 수 있는 특별한 공간으로 바꿔보세요.</span></p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p><p style="-webkit-tap-highlight-color: transparent; margin-bottom: 15px; line-height: 24px; font-size: 15px; color: rgb(66, 66, 66); font-family: " noto="" sans="" kr",="" "apple="" sd="" gothic="" neo",="" "맑은="" 고딕",="" "malgun="" gothic",="" sans-serif;="" letter-spacing:="" -0.4px;="" background-color:="" rgb(255,="" 255,="" 255);"=""><br></p>')
+ WHERE consid = 'con1';
+ 
+UPDATE constructors
+   SET pfintroduction = TO_CLOB('<p><span style="font-size: 18pt; color: rgb(239, 0, 124); font-family: Arial;">펭하- 펭러뷰- 펭바-</span></p><p><span style="color: rgb(255, 108, 0); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="font-size: 18pt; color: rgb(239, 0, 124); font-family: Arial;">&nbsp;</span></p><p><span style="color: rgb(255, 239, 0); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(0, 158, 37); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(0, 117, 200); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(58, 50, 195); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(120, 32, 185); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(233, 125, 129); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">펭하- 펭러뷰- 펭바-</span><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;">&nbsp;</span></p><p><span style="color: rgb(239, 0, 124); font-family: Arial; font-size: 24px;"><br></span></p>')
+WHERE consid = 'con2';
+
+
+
 
 commit;

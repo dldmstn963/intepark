@@ -9,6 +9,52 @@
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 
+
+
+<!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+ <style>
+        .demo-card-wide.mdl-card {
+            width: 512px;
+        }
+
+        .demo-card-wide>.mdl-card__title {
+            color: #fff;
+            height: 176px;
+            background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+        }
+
+        .demo-card-wide>.mdl-card__menu {
+            color: #fff;
+        }
+
+        body {
+            padding: 20px;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .dropzone {
+            background: white;
+            border-radius: 5px;
+            border: 2px dashed rgb(0, 135, 247);
+            border-image: none;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+
+
+
+
+
 <style type="text/css">
 #ok {
 	color:white;
@@ -68,7 +114,7 @@ span {
 	<br><br>
 	<div class="row">
 		<div class="col-lg-3"></div>
-		<div class="col-lg-6">
+		<div class="col-lg-7">
 	
 	
 			
@@ -294,12 +340,12 @@ span {
 				<p style="font-weight:bold;">인테리어 시공 전문가님의 서비스와 작업물 전반에 대하여 간단한 총평을 부탁드립니다. (최소 60자)</p>
 				<span id="rvcritique_keyup" tabindex="0"></span>
 				<textarea name="rvcritique" id="rvcritique" style="min-height:120px;"placeholder="처음 상담부터 친절하셨고, 작업도 꼼꼼하게 해주셨어요. 주변 사람들과 비교해보니 퀄리티 대비 가격도 합리적인 편이었습니다. 5개월 정도 지났는데 현재까지 하자는 없고, A/S도 약속해 주셔서 걱정 없이 지내고 있습니다. 주변에 엄청 추천하고 있어요!"  class="form-control text-area-input"></textarea>
-				
+				<span style="color:#aaa; float:right;" id="counter">(0 / 최대 300자)</span>
 				<br><br><br>	
 				
 			<!-- -------------------------------------------------------------------------------------------------------------------- -->	
 			
-				<h4><strong style="color:black;">시공 사진</strong>&nbsp;(선택)</h4>
+				<!-- <h4><strong style="color:black;">시공 사진</strong>&nbsp;(선택)</h4>
 				<p style="font-weight:bold;">시공 전/후 이미지 혹은 완성 이미지를 공유해주세요! (최대 5장)</p>
 				<span id="rvoriginalname_keyup" tabindex="0"></span>
 				
@@ -307,7 +353,7 @@ span {
 					<div class="photo-input-wrap expert-review-form__photo-input">
 						<ul class="photo-input">
 							<li class="photo-input__upload">
-								<!-- <button class="photo-input__upload__button" type="button">
+								<button class="photo-input__upload__button" type="button">
 									<span class="content">
 										<svg class="icon" width="24" height="24" preserveAspectRatio="xMidYMid meet">
 											<path fill="#424242" fill-rule="nonzero" d="M6 4.9l1.2-3c.1-.3.4-.6.8-.6h8c.4 0 .7.3.8.6l1.2 3h5.1c.5 0 .9.4.9.9v16c0 .5-.4.9-.9.9H1a.9.9 0 0 1-.9-1v-16c0-.4.4-.8.9-.8h5zM12 19a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z">
@@ -315,20 +361,16 @@ span {
 										</svg>
 											<div>사진 올리기</div>
 									</span>
-								</button> -->
+								</button>
 								<input type="file">
 							</li>
 							
 							
-							
-							
-							
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				
-				
-				
+
 				
 				<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	
 				
@@ -342,13 +384,176 @@ span {
 			
 			
 			
-			</div><!-- 6 div 끝 -->
-		<div class="col-lg-3"></div>
+			
+			
+			<!-- <div>
+				<h2><b>이미지 미리보기</b></h2>
+				<div class="input_wrap">
+					<a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>
+					<input type="file" id="input_imgs" multiple/>
+				</div>
+			</div>
+			
+			<div>
+				<div class="imgs_wrap">
+					<img id="img"/>
+				</div>
+			</div>
+			
+			<a href="javascript:" class="my_button" onclick="submitAction();">업로드</a>
+			
+			<br><br><br> -->
+			
+			
+			
+			
+			 <!-- Wide card with share menu button -->
+  
+     
+        <div class="mdl-card__supporting-text">
+            <form action="auctionEnroll2.do" class="dropzone" id="uploadZone" enctype="multipart/form-data">
+                <div class="fallback">
+                        <input type="file" id="upfile" name="upfile" multiple="multiple">
+                </div>
+                
+            </form>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <button id="submitButton" class="mdl-button mdl-js-button mdl-button--accent">
+                업로드
+            </button>
+        </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    <script type="text/javascript">
+        Dropzone.options.uploadZone = {
+            paramName: 'upfile', // 서버에 보낼 데이터이름.
+    
+            autoProcessQueue: false, // 자동업로드 해제.
+            maxFilesize: 2, // 2mb
+            dictDefaultMessage: '여기에 이미지 파일을 드래그하거나 클릭해서 업로드해주세요!',
+            maxFiles: 3, // 보낼 최대 파일 수.
+            acceptedFiles: 'image/*', // image만
+    	 addRemoveLinks : true,
+
+            init: function (e) {
+
+                var myDropzone = this;
+                
+                console.log(myDropzone.length);
+                $('#submitButton').on("click", function () {
+                    if (confirm('정말 업로드하실꺼에요??')) {
+                        myDropzone.processQueue(); // 드랍존 프로세스 ㄱㄱ
+                    } else {
+                        return;
+                    }
+                });
+
+                myDropzone.on("success", function (file, result) {
+                
+                    console.log("1");
+                });
+
+                myDropzone.on("error", function (file, errorMessage, xhr) {
+                    // 실패 시 서버 응답은 여기서 캐치.
+
+                    if (xhr) {
+                        console.log(xhr.response);
+                    }
+                });
+
+            }
+        }; 
+    </script>
+			
+			
+			
+			
+			
+			
+			
+			
+			</div><!-- 7 div 끝 -->
+		<div class="col-lg-2"></div>
 	</div><!-- row 끝 -->
 	
 </div><!-- container 끝 -->
 
 <script type="text/javascript">
+
+/* 
+//1. 다중 파일 선택시 미리보기
+//이미지 정보들을 담을 배열
+var sel_files = [];
+$(document).ready(function() {
+$("#input_imgs").on("change", handleImgFileSelect);
+});
+function fileUploadAction() {
+console.log("fileUploadAction");
+$("#input_imgs").trigger('click');
+}
+function handleImgFileSelect(e) {
+// 이미지 정보들을 초기화
+sel_files = [];
+$(".imgs_wrap").empty();
+var files = e.target.files;
+var filesArr = Array.prototype.slice.call(files);
+var index = 0;
+filesArr.forEach(function(f) {
+if(!f.type.match("image.*")) {
+alert("확장자는 이미지 확장자만 가능합니다.");
+return;
+}
+sel_files.push(f);
+var reader = new FileReader();
+reader.onload = function(e) {
+var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+$(".imgs_wrap").append(html);
+index++;
+}
+reader.readAsDataURL(f);
+
+});
+}
+
+//2. 다중 파일 미리보기에서 특정 이미지만 삭제하기
+function deleteImageAction(index) {
+	 console.log("index : "+index);
+	 sel_files.splice(index, 1);
+	 var img_id = "#img_id_"+index;
+	 $(img_id).remove();
+	 console.log(sel_files);
+	 } 
+
+//3. 다중 파일 POST 전송
+function submitAction() {
+ var data = new FormData();
+ for(var i=0, len=sel_files.length; i<len; i++) {
+ var name = "image_"+i;
+ data.append(name, sel_files[i]);
+ }
+ data.append("image_count", sel_files.length);
+
+ var xhr = new XMLHttpRequest();
+ xhr.open("POST","./study01_af.php");
+ xhr.onload = function(e) {
+ if(this.status == 200) {
+ console.log("Result : "+e.currentTarget.responseText);
+ }
+ }
+ xhr.send(data);
+ }
+
+ */
+
+
+
+
+
+
+
+
 
 //친절도---------------------------------------------------------------------------------------------------------
 $('.starRev1 span').click(function(){
@@ -368,6 +573,7 @@ $('.starRev1 span').click(function(){
 	if(rvkind != 0){
 		$("#rvkind_keyup").html("");
 	}
+	return false;
 });	
 	
 //시공가격---------------------------------------------------------------------------------------------------------	
@@ -386,6 +592,7 @@ $('.starRev2 span').click(function(){
 	if(rvprice != 0){
 		$("#rvprice_keyup").html("");
 	}
+	return false;
 });	
 
 //퀄리티---------------------------------------------------------------------------------------------------------
@@ -404,6 +611,7 @@ $('.starRev3 span').click(function(){
 	if(rvquality != 0){
 		$("#rvquality_keyup").html("");
 	}
+	return false;
 });		
 
 //전문성---------------------------------------------------------------------------------------------------------
@@ -422,6 +630,7 @@ $('.starRev4 span').click(function(){
 	if(rvprofessional != 0){
 		$("#rvprofessional_keyup").html("");
 	}
+	return false;
 });
 
 //책임감---------------------------------------------------------------------------------------------------------
@@ -440,6 +649,7 @@ $('.starRev5 span').click(function(){
 	if(rvresponsible != 0){
 		$("#rvresponsible_keyup").html("");
 	}
+	return false;
 });	
 
 //시공 시기---------------------------------------------------------------------------------------------------------	
@@ -457,6 +667,7 @@ $("#rvperiod2").change(function(){
 	if(rvperiod2 != 0){
 		$("#rvperiod_keyup").html("");
 	}
+	return false;
 });	
 
 //시공 지역---------------------------------------------------------------------------------------------------------
@@ -796,7 +1007,8 @@ function sub_change1()
 	  //frm.rvregion2.options[0].text =  '';
 	  frm.rvregion2.options[1].text =  '제주시';
 	  frm.rvregion2.options[2].text =  '서귀포시';
-	}								
+	}
+	 return false;								
 }
 //시 span 값없애기
 $("#rvregion").change(function(){
@@ -805,6 +1017,7 @@ $("#rvregion").change(function(){
 	if(rvregion.length != 0){
 		$("#rvregion_keyup").html("");
 	}
+	return false;
 });
 //구 span 값없애기
 $("#rvregion2").change(function(){
@@ -813,6 +1026,7 @@ $("#rvregion2").change(function(){
 	if(rvregion2.length != 0 /* || ($("#rvregion").val() == "세종특별자치시") */){
 		$("#rvregion2_keyup").html("");
 	}
+	return false;
 });
 
 //건물 유형---------------------------------------------------------------------------------------------------------
@@ -822,6 +1036,7 @@ $("#rvbuildingtype").change(function(){
 	if(rvbuildingtype.length != 0){
 		$("#rvbuildingtype_keyup").html("");
 	}
+	return false;
 });
 
 //시공 분야---------------------------------------------------------------------------------------------------------
@@ -831,6 +1046,7 @@ $("#rvarea").change(function(){
 	if(rvarea.length != 0){
 		$("#rvarea_keyup").html("");
 	}
+	return false;
 });
 
 //시공 평수---------------------------------------------------------------------------------------------------------
@@ -840,6 +1056,7 @@ $("#rvspacious").change(function(){
 	if(rvspacious.length != 0){
 		$("#rvspacious_keyup").html("");
 	}
+	return false;
 });
 
 //시공 가격---------------------------------------------------------------------------------------------------------
@@ -849,6 +1066,7 @@ $("#rvprice2").change(function(){
 	if(rvprice2.length != 0){
 		$("#rvprice2_keyup").html("");
 	}
+	return false;
 });
 
 //총평---------------------------------------------------------------------------------------------------------
@@ -871,7 +1089,22 @@ $('#rvcritique').focusout(function(){
 		}
 });
 
-	//신청하기 버튼 누를때---------------------------------------------------------------------------------------------------
+//총평 textarea 글자제한
+$('#rvcritique').keyup(function (e){
+    var rvcritique = $(this).val();
+    $('#counter').html("(" + rvcritique.length + " / 최대 300자)");    //글자수 실시간 카운팅
+
+    if (rvcritique.length > 300){
+        alert("최대 300자까지 입력 가능합니다.");
+        $(this).val(rvcritique.substring(0, 300));
+        $('#counter').html("(300 / 최대 300자)");
+    }
+    return false;
+});
+
+
+
+	//완료 버튼 누를때---------------------------------------------------------------------------------------------------
 	function reviewCheck(){
 		var rvkind = $("#rvkind").val();	//친절도
 		var rvprice = $("#rvprice").val();	//시공가격
