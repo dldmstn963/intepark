@@ -2,6 +2,7 @@ package com.c4.intepark.inteuser.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.service.InteuserService;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 
@@ -94,5 +96,18 @@ public class InteuserController {
 		
 		out.flush();
 		out.close();
+	}
+	//관리자 유저관리리스트.
+	@RequestMapping("userList6.do")
+	public String userList(@RequestParam(value = "page", required = false, defaultValue = "1") int currentPage,
+			CommonPage cpage, Model model) {
+		// 전체페이지 수찾기(검색포함)
+		int listCount = 0;
+		listCount = userService.selectAllListCount(cpage);
+		cpage.pageUpdate(6, 10, listCount, currentPage);
+		ArrayList<InteUser> albumList = userService.selectAllList(cpage);
+		model.addAttribute("commonPage", cpage);
+		model.addAttribute("uesrAllList", albumList);
+		return "member/adminUserList";
 	}
 }

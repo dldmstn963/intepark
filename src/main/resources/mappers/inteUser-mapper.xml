@@ -19,8 +19,22 @@
 		select count(userid) from inteuser where userid = #{value}
 	</select>
 	
-		<select id="selectEmailCheck" parameterType="String" resultType="_int">
+	<select id="selectEmailCheck" parameterType="String" resultType="_int">
 		select count(email) from inteuser where email = #{value}
+	</select>
+	
+	<select id="selectAllListCount" parameterType="CommonPage" resultType="_int">
+		select count(*) from inteuser 
+	</select>
+	
+	<select id="selectAllList" parameterType="CommonPage" resultType="InteUser">
+				select *
+		from (select rownum rnum, userid, username, phone, email, address, memberstate, enrolldate
+			  from (select * from inteuser
+                    order by enrolldate desc))
+                    <![CDATA[
+        where rnum >= #{startList} and rnum <= #{endList}
+					]]>
 	</select>
 	
 </mapper>

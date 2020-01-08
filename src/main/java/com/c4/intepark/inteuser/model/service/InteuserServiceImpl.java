@@ -1,8 +1,11 @@
 package com.c4.intepark.inteuser.model.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.dao.InteuserDao;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 
@@ -32,6 +35,16 @@ public class InteuserServiceImpl implements InteuserService{
 	@Override
 	public int selectEmailCheck(String useremail) {
 		return userDao.selectEmailCheck(useremail);
+	}
+
+	@Override
+	public int selectAllListCount(CommonPage cpage) {
+		return userDao.selectAllListCount(cpage);
+	}
+
+	@Override
+	public ArrayList<InteUser> selectAllList(CommonPage cpage) {
+		return userDao.selectAllList(cpage);
 	}
 
 }

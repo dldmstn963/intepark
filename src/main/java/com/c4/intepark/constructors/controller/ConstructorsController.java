@@ -19,6 +19,11 @@ public class ConstructorsController {
 	private ConstructorsService consService;
 	
 	public ConstructorsController() {}
+	@RequestMapping("consMypage.do")
+	public String consMypage() {
+		
+		return "member/consMypage";
+	}
 	
 	@RequestMapping(value="conslogCheck6.do", method=RequestMethod.POST)
 	public String consLoginMethod(Constructors cons, HttpSession session,

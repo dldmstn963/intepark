@@ -20,11 +20,6 @@ public class MemberController {
 	private MemberService memberService;
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	@RequestMapping("userList6.do")
-	public String userList(@RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
-		//ArrayList<User> userList = memberService.selectUserList();
-		return "member/adminUserList";
-	}
 	
 	@RequestMapping("stopUser6.do")
 	public String stopUser() {	
