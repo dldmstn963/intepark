@@ -26,6 +26,8 @@
   		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Dlvylist" alias="Dlvylist"/>
   		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Orders" alias="Orders"/>
   		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Requests" alias="Requests"/>
+  		<typeAlias type="com.c4.intepark.chat.model.vo.Chat" alias="Chat"/>
+  		<typeAlias type="com.c4.intepark.chat.model.vo.ChatMessage" alias="ChatMessage"/>
 	</typeAliases>
 	
 	<mappers>
@@ -40,5 +42,6 @@
 		<mapper resource="mappers/review-Mapper.xml"/>
 		<mapper resource="mappers/album-mapper.xml"/>
 		<mapper resource="mappers/order-mapper.xml"/>
+		<mapper resource="mappers/chat-mapper.xml"/>
 	</mappers>
 </configuration>

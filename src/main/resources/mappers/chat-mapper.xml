@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chatMapper">
+
+	<insert id="insertChat" parameterType="Chat">
+	insert into chat values(chatno_seq.nextval, #{consid}, #{userid})
+	</insert>
+
+	<insert id="insertChatMessage" parameterType="ChatMessage">
+	<!-- insert into chatmessage values(#{chatcontent}, sysdate, #{chatno}, #{consid}, #{userid}) -->
+	<if test="userid !=null and consid == null">
+	insert into chatmessage values(#{chatcontent}, sysdate, #{chatno}, null, #{userid})
+	</if>
+	<if test="userid ==null and consid != null">
+	insert into chatmessage values(#{chatcontent}, sysdate, #{chatno}, #{consid}, null)
+	</if>	
+	</insert>
+	
+	<select id="selectChatNo" resultType="_int">
+	select max(chatno) from chat
+	</select>
+	
+	<select id="selectChatMsg" parameterType="_int" resultType="ChatMessage">
+	select * from chatmessage where chatno=#{chatno} order by chattime
+	</select>
+	
+</mapper>

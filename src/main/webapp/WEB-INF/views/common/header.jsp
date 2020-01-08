@@ -6,6 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>인테파크</title>
+<script >
+var ws;
+
+if(ws == undefined && window.sessionStorage){
+ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
+
+
+/* 서버로 메세지 보낼때 */
+ws.onopen = function(){
+
+	};
+
+/* 서버로부터 받은 메세지 보내주기 */
+ws.onmessage = function(message){
+	
+		console.log("성공" + message.data);		
+	};
+
+/* 서버 닫힐때 */
+ws.onclose = function(event){
+
+	};
+}
+</script>
 </head>
 <body>
 
