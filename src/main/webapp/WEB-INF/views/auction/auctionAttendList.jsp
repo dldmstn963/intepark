@@ -33,6 +33,12 @@
         var option = "width = 500, height = 500, top = 100, left = 200, location = no"
  window.open(url, name, option);
     }
+
+    function invite(data){
+		ws.send("invite/" + data);
+		console.log(data);
+    }
+
 	
 	</script>
 	
@@ -56,11 +62,12 @@
   </thead>
   <tbody>
   <c:forEach items="${ list }" var="a">
+  <input type="hidden" id="id+${a }" value ="${a.consid }">
     <tr>
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
-    <li>채팅</li>
+    <li><a href = "javascript:invite('${a.consid }');">채팅</a></li>
     <li><a href="#">수정</a></li>
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
     </ul>

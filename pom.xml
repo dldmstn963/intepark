@@ -263,6 +263,14 @@
 		    <version>3.7.0</version>
 		</dependency>
 		
+		<!-- Spring web Socket(웹소켓) -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-websocket</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
 	
 		<!-- Test -->
 		<dependency>
