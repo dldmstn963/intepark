@@ -36,7 +36,7 @@
 
 
 
-
+SET DEFINE OFF;
 
 --------------------------------------------------------------------------------------------
 -------이영수
@@ -894,7 +894,7 @@ REFERENCES DELIVERYLIST (
 ALTER TABLE ORDERs ADD CONSTRAINT FK_REQUEST_TO_ORDER_1 FOREIGN KEY (
    REQUESTNUM
 )
-REFERENCES REQUEST (
+REFERENCES REQUESTS (
    REQUESTNUM
 )ON DELETE CASCADE;
 
