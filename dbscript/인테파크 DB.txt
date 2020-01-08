@@ -240,6 +240,7 @@ CREATE TABLE albumreply (
    albumreplygrouplayer   NUMBER   DEFAULT 0   NOT NULL,
    albumreplydate   DATE   DEFAULT SYSDATE   NOT NULL,
    albumreplycontents   VARCHAR2(500)      NOT NULL,
+   albumreplydelete char(1)   DEFAULT 'N' CHECK(albumreplydelete IN ('Y','N')) not null,
    albumnum   NUMBER REFERENCES album(albumnum) on delete cascade,
    userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
 );
@@ -250,6 +251,7 @@ COMMENT ON COLUMN albumreply.albumreplygrouporder IS '그룹내순서';
 COMMENT ON COLUMN albumreply.albumreplygrouplayer IS '계층별 댓글순위';
 COMMENT ON COLUMN albumreply.albumreplydate IS '댓글작성시간';
 COMMENT ON COLUMN albumreply.albumreplycontents IS '댓글내용';
+COMMENT ON COLUMN albumreply.albumreplydelete IS '삭제여부';
 COMMENT ON COLUMN albumreply.albumnum IS '글번호';
 COMMENT ON COLUMN albumreply.userid IS '고객아이디';
 
@@ -581,7 +583,6 @@ COMMENT ON COLUMN GOODSREVIEW.reviewTITLE IS '상품평 제목';
 
 -------------------------------------------------------------------------------------
 DROP TABLE ORDERs CASCADE CONSTRAINTS;
-DROP TABLE ORDERGOODS CASCADE CONSTRAINTS;
 
 CREATE TABLE ORDERs (
    ORDERNUM   NUMBER      NOT NULL,
@@ -969,14 +970,551 @@ insert into CATEGORY values (3, '패브릭');
    insert into CATEGORY values (9, 'DIY셀프시공');
    insert into CATEGORY values (10, '시공/서비스');
 
-insert into GOODS values (1,1,'스완 수납 화장대',73900,DEFAULT,'N','DD.JPG',NULL,'수납 화장대',DEFAULT,'con1',sysdate);
-insert into GOODS values (2,2,'무브 소프트 세미 극세사 차렵이불',32900,DEFAULT,'Y','AA.JPG','주석시험','극세사 이불',2,'con2',sysdate);
+insert into GOODS values (
+1,
+1,
+'아이언 행거형 드레스룸',
+78900,
+default,default,
+'850_(1).JPG',
+null,null,default,'con1',sysdate);
 
-insert into DELIVERYLIST VALUES(1,'이은수','강원도',01043761266,'강릉집','user1');
+insert into GOODS values (
+2,
+1,
+'매직 파티션',
+32000,
+default,default,
+'850_(2).JPG',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+3,
+1,
+'매직 파티션2',
+31000,
+default,default,
+'8503.JPG',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+4,
+1,
+'브라운 침대',
+138900,
+default,default,
+'850 (21).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+5,
+1,
+'블루 폭신 침대',
+168900,
+default,default,
+'850 (20).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+6,
+1,
+'화이트 그레이 침대',
+168000,
+default,default,
+'850 (19).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+7,
+1,
+'거실용 탁자',
+63900,
+default,default,
+'850 (18).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+8,
+1,
+'탁자밑',
+57900,
+default,default,
+'850 (17).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+9,
+1,
+'긴탁자',
+98900,
+default,default,
+'850 (16).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+10,
+1,
+'서랍장',
+18900,
+default,default,
+'850 (15).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+13,
+1,
+'아이언 행거형 드레스룸',
+78900,
+default,default,
+'850_(1).JPG',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+12,
+1,
+'매직 파티션',
+32000,
+default,default,
+'850_(2).JPG',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+11,
+1,
+'매직 파티션2',
+31000,
+default,default,
+'8503.JPG',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+16,
+1,
+'브라운 침대',
+138900,
+default,default,
+'850 (21).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+17,
+1,
+'블루 폭신 침대',
+168900,
+default,default,
+'850 (20).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+14,
+1,
+'화이트 그레이 침대',
+168000,
+default,default,
+'850 (19).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+15,
+1,
+'거실용 탁자',
+63900,
+default,default,
+'850 (18).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+20,
+1,
+'탁자밑',
+57900,
+default,default,
+'850 (17).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+19,
+1,
+'긴탁자',
+98900,
+default,default,
+'850 (16).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+18,
+1,
+'서랍장',
+18900,
+default,default,
+'850 (15).jpg',
+null,null,default,'con1',sysdate);
+
+
+
+insert into GOODS values (
+21,
+2,
+'박나래 기절베개 호텔식베개',
+17900,
+default,default,
+'850 (1).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+22,
+2,
+'무브 소프트 세미 극세사 차렵이불',
+32900,
+default,default,
+'850 (2).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+23,
+2,
+'보이드 호텔식 베딩 모음전',
+16900,
+default,default,
+'850 (3).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+24,
+2,
+'프리미엄 고밀도 호텔식 요토퍼',
+29900,
+default,default,
+'850 (4).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+25,
+2,
+'스테이 프리미엄 차렵이불',
+24900,
+default,default,
+'850 (5).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+26,
+2,
+'한파대비 최고중량 구스이불',
+69900,
+default,default,
+'850 (6).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+27,
+2,
+'자가발열토퍼 S/SS/Q',
+36900,
+default,default,
+'850 (7).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+28,
+2,
+'모노 멜란지 침구세트',
+34900,
+default,default,
+'850 (8).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+29,
+2,
+'WP워터쉴드 방수매트리스커버',
+10900,
+default,default,
+'850 (9).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+31,
+2,
+'데일리 프리미엄 차렵이불',
+24900,
+default,default,
+'850.jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+30,
+2,
+'박나래 기절베개 호텔식베개',
+17900,
+default,default,
+'850 (1).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+33,
+2,
+'무브 소프트 세미 극세사 차렵이불',
+32900,
+default,default,
+'850 (2).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+34,
+2,
+'보이드 호텔식 베딩 모음전',
+16900,
+default,default,
+'850 (3).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+32,
+2,
+'프리미엄 고밀도 호텔식 요토퍼',
+29900,
+default,default,
+'850 (4).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+36,
+2,
+'스테이 프리미엄 차렵이불',
+24900,
+default,default,
+'850 (5).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+39,
+2,
+'한파대비 최고중량 구스이불',
+69900,
+default,default,
+'850 (6).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+38,
+2,
+'자가발열토퍼 S/SS/Q',
+36900,
+default,default,
+'850 (7).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+37,
+2,
+'모노 멜란지 침구세트',
+34900,
+default,default,
+'850 (8).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+35,
+2,
+'WP워터쉴드 방수매트리스커버',
+10900,
+default,default,
+'850 (9).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+40,
+3,
+'스위티 샤기카페트(사각/원형)',
+14900,
+default,default,
+'1280.jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+41,
+3,
+'바디필로우(U자형)',
+18900,
+default,default,
+'850 (10).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+42,
+3,
+'터치미 극세사 러그',
+12900,
+default,default,
+'850 (11).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+43,
+3,
+'냉기&우풍차단 3중직 암막커튼',
+17900,
+default,default,
+'850 (12).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+44,
+3,
+'인기 시폰커튼/린넨커튼/암막커튼',
+23900,
+default,default,
+'850 (13).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+45,
+3,
+'선데이 러그 7size',
+19900,
+default,default,
+'850 (14).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+46,
+3,
+'맞춤 차르르 차로롬커튼',
+17900,
+default,default,
+'850 (22).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+47,
+3,
+'디망쉬 암막+속지커튼 4장세트 ',
+16900,
+default,default,
+'850 (23).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+48,
+3,
+'냉기&우풍차단 3중직 암막커튼',
+34900,
+default,default,
+'850 (24).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+49,
+3,
+'터치미 극세사 러그',
+12900,
+default,default,
+'850 (25).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+53,
+3,
+'스위티 샤기카페트(사각/원형)',
+14900,
+default,default,
+'1280.jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+52,
+3,
+'바디필로우(U자형)',
+18900,
+default,default,
+'850 (10).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+51,
+3,
+'터치미 극세사 러그',
+12900,
+default,default,
+'850 (11).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+50,
+3,
+'냉기&우풍차단 3중직 암막커튼',
+17900,
+default,default,
+'850 (12).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+55,
+3,
+'인기 시폰커튼/린넨커튼/암막커튼',
+23900,
+default,default,
+'850 (13).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+54,
+3,
+'선데이 러그 7size',
+19900,
+default,default,
+'850 (14).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+58,
+3,
+'맞춤 차르르 차로롬커튼',
+17900,
+default,default,
+'850 (22).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+57,
+3,
+'디망쉬 암막+속지커튼 4장세트 ',
+16900,
+default,default,
+'850 (23).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+56,
+3,
+'냉기&우풍차단 3중직 암막커튼',
+34900,
+default,default,
+'850 (24).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODS values (
+59,
+3,
+'터치미 극세사 러그',
+12900,
+default,default,
+'850 (25).jpg',
+null,null,default,'con1',sysdate);
+
+insert into GOODSPIC values(1,null,'85029.jpg',59);
+insert into GOODSPIC values(2,null,'85028.jpg',59);
+insert into GOODSPIC values(3,null,'85027.jpg',59);
+insert into GOODSPIC values(4,null,'85026.jpg',59);
+
+
+insert into DELIVERYLIST VALUES(1,'이은수','강원도 강릉시 노암동 남산현대 아파트 102동 - 404호',01043761266,'강릉집','user1');
 insert into REQUESTS VALUES(1, '집앞에 두고가주세요', 'user1');
 
-insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',1,'좋아요' );
-insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',2);
+
+insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',59,'좋아요' );
+insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',59);
 
 
 
@@ -1071,17 +1609,17 @@ insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어'
 DROP TABLE auctionattend CASCADE CONSTRAINTS;
 
 CREATE TABLE auctionattend (
-auctionno number   REFERENCES auction(auctionno) ON DELETE CASCADE,
-consid VARCHAR2(15)   REFERENCES constructors(consid) ON DELETE CASCADE,
+auctionno number	REFERENCES auction(auctionno) ON DELETE CASCADE,
+consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE,
 consname varchar2(100),
 title varchar2(50) NOT NULL,
 phone varchar2(50),
 possibledate date NOT NULL,
 price varchar2(15) NOT NULL,
-ofile varchar2(50),
-rfile varchar2(50),
+ofile varchar2(500),
+rfile varchar2(500),
 etc varchar2(500),
-progress varchar2(30) NOT NULL
+progress varchar2(30) DEFAULT '대기' NOT NULL
 );
 
 COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';

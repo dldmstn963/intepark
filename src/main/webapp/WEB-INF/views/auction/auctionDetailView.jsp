@@ -55,7 +55,6 @@ $("#test2").on("click", function(){
 </script> -->
 <script type="text/javascript">
 function erchk() {
-	alert("버튼1을 누르셨습니다.");
 	$("#frm").submit();
 }
 </script>
@@ -68,7 +67,7 @@ function erchk() {
 	<jsp:include page="../common/header.jsp" />
 <div class="container">
          
-  <table class="table" >
+  <table class="table">
     <tbody>
       <tr>
   <th style="width: 174px;">제목 : </th>
@@ -129,7 +128,7 @@ function erchk() {
 <div style="text-align: center;">
 <form method="post" action="auctionAttend2.do" id="frm">
 <input type="hidden" name="auc" value="${auction.auctionno }">
-<input type="button" value="경매참여/목록보기" onclick="erchk()" style="background-color: #ffc107;">
+<input type="button" value="경매참여/목록보기" onclick="erchk()" style="background-color: #ffc107;" class="btn">
 </form>
 </div>
 	<jsp:include page="../common/footer.jsp" />

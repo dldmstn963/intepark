@@ -114,7 +114,7 @@
 						</div>
 
 						<!-- Add to Cart Form -->
-						<form class="cart clearfix" action="orderinsert4.do" method="post">
+						<form class="cart clearfix" action="moveorderinsert4.do" method="post">
 							<div class="cart-btn d-flex mb-50">
 								<p>수량</p>
 								<div class="quantity">
@@ -132,13 +132,10 @@
 							<input type="hidden" name="goodsnum" value="${goods.goodsnum }">
 							<input type="hidden" name="goodsprice" value="${goods.price }">
 							
-							<button type="submit" name="addtocart" value="5"
-								class="btn amado-btn">결제 하기</button>
+							<input type="submit" value="결제" class="btn amado-btn"><br><br>
+							<input type="submit" value="장바구니" class="btn amado-btn" formaction="shbasketinsert4.do">
 							<br> <br>
 						</form>
-							<button type="submit" name="addtocart" value="5"
-								class="btn amado-btn">장바구니 담기</button>
-
 					</div>
 				</div>
 			</div>

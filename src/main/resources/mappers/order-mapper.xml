@@ -4,11 +4,98 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orderMapper">
 
+<select id="selectDlvyList" resultType="Dlvylist" parameterType="String">
+select * from DELIVERYLIST 
+where userid= #{userid}
+</select>
 
+<insert id="insertDlvyList" parameterType="Dlvylist" >
+insert into DELIVERYLIST values(
+DELIVERYLIST_SEQ.nextval,#{addressee},#{address},#{phone},#{dlvyname},#{userid}
+)
+</insert>
 
+<insert id="insertRequests" parameterType="Requests" >
+insert into REQUESTS values(
+REQUESTS_SEQ.nextval,#{requestcn},#{userid}
+)
+</insert>
 
+<insert id="insertOrders" parameterType="Orders" >
+insert into ORDERS values(
+ORDERS_SEQ.nextval,sysdate,#{orderprice},'주문 접수',#{userid},
 
+<choose>
+    <when test="dlvynum != 0">
+    #{dlvynum},
+    </when>
+      <when test="dlvynum == 0">
+DELIVERYLIST_SEQ.currval,
+    </when>
+  </choose>
+  
+<choose>
+    <when test="requestnum != 0">
+    #{requestnum},
+    </when>
+    <when test="requestnum == 0">
+REQUESTS_SEQ.currval,
+    </when>
+  </choose>
 
+#{orderquantity},#{goodsnum},#{goodsprice}
+)
+</insert>
+
+<insert id="insertShbasket" parameterType="Shbasket" >
+insert into Shbasket values(
+Shbasket_SEQ.nextval,#{quantity},#{goodsnum},#{userid}
+)
+</insert>
+
+<select id="selectShbasketList" resultType="Shbasket" parameterType="String">
+select * from Shbasket
+NATURAL join goods
+where userid = #{userid}
+</select>
+
+<select id="selectmoveConsOrderList4" resultType="AllOrders" parameterType="String">
+select *
+from orders
+NATURAL join deliverylist
+natural join requests
+natural join goods
+where goodsnum in 
+(select goodsnum
+from goods
+where CONSID=#{consid})
+</select>
+
+<select id="selectRequests" resultType="Requests" parameterType="String">
+select * from Requests 
+where userid= #{userid}
+</select>
+
+<delete id="deleteShbasket" parameterType="int">
+delete from SHBASKET 
+where shbasketnum = #{shbasketnum}
+</delete>
+
+<update id="updateShbasket" parameterType="Shbasket">
+UPDATE shbasket
+SET quantity = ${quantity}
+WHERE shbasketnum = ${shbasketnum}
+</update>
+
+<select id="selectShbasket" resultType="Shbasket" parameterType="int">
+select * from Shbasket
+where shbasketnum = #{value}
+</select>
+
+<select id="selectGoods" resultType="Goods" parameterType="int">
+select * from Goods
+where goodsnum = #{value}
+</select>
 
 
 

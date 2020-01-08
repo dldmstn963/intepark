@@ -17,5 +17,9 @@ Auction auctionDetailView(String auc);
 NonAuction nonAuctionDetailView(String nonauc);
 int deleteAuction(String auction);
 ArrayList<AuctionAttend> auctionAttendList(int auction);
+int auctionAttendEnroll(AuctionAttend att);
+AuctionAttend auctionAttendDetail(AuctionAttend att);
+int auctionAttendDelete(AuctionAttend auction);
+int deleteNonAuction(int auctionno);
 
 }

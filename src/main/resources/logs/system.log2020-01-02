@@ -1,0 +1,30 @@
+[16:29:41][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[16:29:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3225 ms
+[16:29:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[16:29:47][INFO ][FrameworkServlet.java:546] - Completed initialization in 2911 ms
+[16:30:22][INFO ][HomeController.java:41] - Welcome main!
+[16:30:25][INFO ][HomeController.java:41] - Welcome main!
+[16:30:28][INFO ][HomeController.java:41] - Welcome main!
+[16:34:38][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:41][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:41][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:42][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:42][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:43][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:49][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:49][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:50][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:50][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:51][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[16:34:51][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:05:39][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[18:05:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 3544 ms
+[18:05:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[18:05:45][INFO ][FrameworkServlet.java:546] - Completed initialization in 3028 ms
+[18:05:46][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:05:49][INFO ][GoodsController.java:56] - 쇼핑몰 메인 페이지 
+[18:05:51][INFO ][GoodsController.java:115] - 샵 카테고리 접속 
+[18:06:02][INFO ][GoodsController.java:72] - 상품 디테일 : 43
+[18:06:06][INFO ][OrdersController.java:63] - 장바구니 담기
+[18:06:06][INFO ][OrdersController.java:64] - 
+[18:06:06][INFO ][OrdersController.java:65] - 43

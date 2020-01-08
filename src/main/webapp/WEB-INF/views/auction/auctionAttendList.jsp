@@ -16,6 +16,26 @@
 	} */
 
 	</style>
+		<script type="text/javascript">
+	function doDisplay(menu){
+	   var con = document.getElementById(menu);
+		console.log(con);
+	    if(con.style.display=='none'){
+	        con.style.display = 'block';
+	    }else{
+	        con.style.display = 'none';
+	    }
+	}
+	
+    function popup(auctionno,consname){
+        var url = "auctionAttendPop2.do?auctionno="+auctionno+"&consname="+consname;
+        var name = "popup test";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+ window.open(url, name, option);
+    }
+	
+	</script>
+	
 <%@ include file="../common/jscsspath.jsp" %>
 </head>
 <body>
@@ -24,7 +44,7 @@
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
-    <th colspan="6" style="text-align:center;">견적 참여리스트</th>
+    <h4 align="center">견적 참여리스트</h4>
     </tr>
     <tr>
       <th>시공사</th>
@@ -37,7 +57,14 @@
   <tbody>
   <c:forEach items="${ list }" var="a">
     <tr>
-      <th scope="row">${ a.consname }</th>
+      <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
+        <ul id="menu${a.consname }" style="display:none;">
+    <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
+    <li>채팅</li>
+    <li><a href="#">수정</a></li>
+    <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
+    </ul>
+    </th>
       <td>${a.title }</td>
     <td>${a.phone}</td> 
        <td>${a.possibledate}</td>
@@ -49,8 +76,8 @@
 </table>
 </div>
 
-<div>
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;">회원가입</button>
+<div style="text-align: center;">
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
 </div>
  	  <jsp:include page="../common/footer.jsp" />
 </body>

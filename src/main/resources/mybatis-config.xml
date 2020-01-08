@@ -4,9 +4,11 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.c4.intepark.common.CommonPage" alias="CommonPage"/>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.album.model.vo.Album" alias="Album" />
+		<typeAlias type="com.c4.intepark.album.model.vo.AlbumReply" alias="AlbumReply" />
 		<typeAlias type="com.c4.intepark.calendar.model.vo.Calendar" alias="Calendar" />
   		<typeAlias type="com.c4.intepark.auction.model.vo.Auction" alias="Auction" />
   		<typeAlias type="com.c4.intepark.auction.model.vo.NonAuction" alias="NonAuction" />
@@ -24,6 +26,11 @@
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsSearch" alias="GoodsSearch"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsPic" alias="GoodsPic"/>
   		<typeAlias type="com.c4.intepark.shop.Paging" alias="Paging"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Dlvylist" alias="Dlvylist"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Orders" alias="Orders"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Requests" alias="Requests"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.Shbasket" alias="Shbasket"/>
+  		<typeAlias type="com.c4.intepark.shop.orders.model.vo.AllOrders" alias="AllOrders"/>
 	</typeAliases>
 	
 	<mappers>
@@ -37,6 +44,7 @@
 		<mapper resource="mappers/request-Mapper.xml"/>
 		<mapper resource="mappers/review-Mapper.xml"/>
 		<mapper resource="mappers/album-mapper.xml"/>
+		<mapper resource="mappers/albumReply-mapper.xml"/>
 		<mapper resource="mappers/order-mapper.xml"/>
 	</mappers>
 </configuration>

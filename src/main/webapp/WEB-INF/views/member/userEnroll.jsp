@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
+<%@ include file="../common/jscsspath.jsp" %>
 <script type="text/javascript">
 	function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -247,35 +247,34 @@ function resetForm(){
 </script>
 </head>
 <body>
-<section>
+ <div align="center">
 <span><a href="main.do"><img src="/intepark/resources/img/favicon.ico" height="150" width="150"></a><br>
 </span>
-<H1>고객 회원가입</H1>
+<Br>
+<H1><strong>고객 회원가입</strong></H1><br>
 <form action="insertUser6.do" id="userForm" method="post" onsubmit="return enrollCheck();">
-<table>
-<tr><th>아이디* : </th><td><input type="text" id="userId" name="userid" onkeyup="idCheck(this)" maxlength="12" required></td><td><input type="button" onclick="dcheckId()" value="아이디 중복체크"></td></tr>
+<table >
+<tr><th>아이디* : </th><td><input type="text" class="form-control has-feedback-left" id="userId" name="userid" onkeyup="idCheck(this)" maxlength="12" required></td><td>&nbsp;&nbsp;<input class="btn btn-primary" type="button" onclick="dcheckId()" value="아이디 중복체크"></td></tr>
 <tr><td colspan="3" id="idcheck"></td></tr>
-<tr><th>비밀번호* : </th><td><input type="password" id="userPwd" name="userpwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
+<tr><th>비밀번호* : </th><td><input type="password" class="form-control has-feedback-left" id="userPwd" name="userpwd" onkeyup="pwdCheck(this)" maxlength="15" id="pwd" required></td></tr>
 <tr><td colspan="3" id="pwdcheck"></td></tr>
-<tr><th>비밀번호 확인* : </th><td><input type="password" id="userPwd2"onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td></tr>
+<tr><th>비밀번호 확인* : </th><td><input type="password" class="form-control has-feedback-left" id="userPwd2"onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td></tr>
 <tr><td colspan="3" id="pwdcheck2"></td></tr>
-<tr><th>이름* : </th><td><input type="text" name="username" id="userName" maxlength="5" onkeyup="nameCheck(this);" required></td></tr>
+<tr><th>이름* : </th><td><input type="text" name="username" class="form-control has-feedback-left" id="userName" maxlength="5" onkeyup="nameCheck(this);" required></td></tr>
 <tr><td colspan="3" id="nameCheck"></td></tr>
-<tr><th>휴대폰번호* : </th><td><input type="tel" name="phone" id="userPhone"onkeydown="telCheck(event,this)" maxlength="13" required></td></tr>
+<tr><th>휴대폰번호* : </th><td><input type="tel" name="phone"class="form-control has-feedback-left"  id="userPhone"onkeydown="telCheck(event,this)" maxlength="13" required></td></tr>
 <tr><td colspan="3" id="telcheck"></td></tr>
-<tr><th>이메일* : </th><td><input type="email" id="uemail" name="email" onkeyup="eCheck(this)" required></td><td><input type="button" onclick="dcheckEmail()" value="이메일 중복체크"></td></tr>
+<tr><th>이메일* : </th><td><input type="email" class="form-control has-feedback-left" id="uemail" name="email" onkeyup="eCheck(this)" required></td><td>&nbsp;&nbsp;<input type="button" class="btn btn-primary" onclick="dcheckEmail()" value="이메일 중복체크"></td></tr>
 <tr><td colspan="3" id="emailcheck"></td></tr>
-<tr><th>주소 :</th></tr>
+<tr><th>주소 :</th><th><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></th></tr>
+<tr><td></td><td><input type="text" class="form-control has-feedback-left" id="sample6_postcode" placeholder="우편번호" name="address1" readonly></td>
+    <td><input type="text" class="form-control has-feedback-left" id="sample6_address" placeholder="주소" name="address2"readonly></td></tr>
+<tr><td></td><td><input type="text" class="form-control has-feedback-left" id="sample6_detailAddress" placeholder="상세주소" name="address3"></td>
+     <td><input type="text" class="form-control has-feedback-left" id="sample6_extraAddress" placeholder="참고항목" name="address4" readonly>
+     </td></tr>
+<tr><td></td><td style="text-align:center;"><input type="submit" class="btn btn-success" value="가입하기">&nbsp;&nbsp;<input type="button" class="btn btn-danger" value="초기화" onclick="resetForm();"></td><td></td></tr>     
 </table>
-<input type="text" id="sample6_postcode" placeholder="우편번호" name="address1" readonly>
-<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" id="sample6_address" placeholder="주소" name="address2"readonly><br>
-<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="address3">
-<input type="text" id="sample6_extraAddress" placeholder="참고항목" name="address4" readonly>
-<br>
-<input type="submit" value="가입하기">
-<input type="button" value="초기화" onclick="resetForm();">
 </form>
-</section>
+</div>
 </body>
 </html>

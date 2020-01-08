@@ -16,7 +16,16 @@ public class Paging implements Serializable{
 	private int endPage;
 	private int startRow;
 	private int endRow;
+	private String memberid;
 	
+	public String getMemberid() {
+		return memberid;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
 	public Paging() {
 		super();
 	}

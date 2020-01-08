@@ -104,13 +104,8 @@
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
 
-												       <li class="nav-item submenu dropdown">
-                           <a href="auctionList.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">견적리스트</a>
-                           <ul class="dropdown-menu">
-                              <li class="nav-item"><a class="nav-link" href="blog.html">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="blog.html">낙찰리스트</a></li>
-                           </ul>
-                        </li> 
+							
+                        <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
@@ -144,7 +139,21 @@
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
-								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
+								 <li class="nav-item submenu dropdown"><a class="nav-link" href="#" role="button" aria-haspopup="true" data-toggle="dropdown">고객 관리</a>
+									 <ul class="dropdown-menu">
+                            			  <li class="nav-item"><a class="nav-link" href="userList6.do">전체 고객</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="stopUser6.do">정지 고객</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="dropUser6.do">탈퇴 고객</a></li>
+									 </ul>
+								</li>
+								<li class="nav-item submenu dropdown"><a class="nav-link" href="#" role="button" aria-haspopup="true" data-toggle="dropdown">시공사 관리</a>
+									 <ul class="dropdown-menu">
+                            			  <li class="nav-item"><a class="nav-link" href="consList6.do">전체 시공사</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="enrollCons6.do">시공사 가입</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="stopCons6.do">정지 시공사</a></li>
+                              			  <li class="nav-item"><a class="nav-link" href="dropCons6.do">탈퇴 시공사</a></li>
+									 </ul>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 			</c:if>
