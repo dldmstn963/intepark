@@ -28,8 +28,6 @@
 	}
 	
     function popup(auctionno,consname){
-    	console.log(auctionno);
-    	console.log(consname);
         var url = "auctionAttendPop2.do?auctionno="+auctionno+"&consname="+consname;
         var name = "popup test";
         var option = "width = 500, height = 500, top = 100, left = 200, location = no"
@@ -46,7 +44,7 @@
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
-    <th colspan="6" style="text-align:center;">견적 참여리스트</th>
+    <h4 align="center">견적 참여리스트</h4>
     </tr>
     <tr>
       <th>시공사</th>
@@ -64,7 +62,7 @@
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
     <li>채팅</li>
     <li><a href="#">수정</a></li>
-    <li>삭제</li>
+    <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
     </ul>
     </th>
       <td>${a.title }</td>
@@ -79,7 +77,7 @@
 </div>
 
 <div style="text-align: center;">
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;">경매참가</button>
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
 </div>
  	  <jsp:include page="../common/footer.jsp" />
 </body>
