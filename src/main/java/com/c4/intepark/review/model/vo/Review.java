@@ -14,6 +14,7 @@ public class Review implements java.io.Serializable {
 	private int rvquality;		//퀄리티
 	private int rvprofessional;	//전문성
 	private int rvresponsible;	//책임감
+	private double rvavg;		//리뷰평균점수
 	private String rvperiod;	//시공시기
 	private String rvregion;	//시공지역
 	private String rvbuildingtype;	//건물유형
@@ -28,8 +29,8 @@ public class Review implements java.io.Serializable {
 	public Review() {}
 
 	public Review(int rvnum, int rvkind, int rvprice, int rvquality, int rvprofessional, int rvresponsible,
-			String rvperiod, String rvregion, String rvbuildingtype, String rvarea, String rvspacious, String rvprice2,
-			String rvcritique, Date rvdate, String consid, String userid) {
+			double rvavg, String rvperiod, String rvregion, String rvbuildingtype, String rvarea, String rvspacious,
+			String rvprice2, String rvcritique, Date rvdate, String consid, String userid) {
 		super();
 		this.rvnum = rvnum;
 		this.rvkind = rvkind;
@@ -37,6 +38,7 @@ public class Review implements java.io.Serializable {
 		this.rvquality = rvquality;
 		this.rvprofessional = rvprofessional;
 		this.rvresponsible = rvresponsible;
+		this.rvavg = rvavg;
 		this.rvperiod = rvperiod;
 		this.rvregion = rvregion;
 		this.rvbuildingtype = rvbuildingtype;
@@ -95,6 +97,14 @@ public class Review implements java.io.Serializable {
 
 	public void setRvresponsible(int rvresponsible) {
 		this.rvresponsible = rvresponsible;
+	}
+
+	public double getRvavg() {
+		return rvavg;
+	}
+
+	public void setRvavg(double rvavg) {
+		this.rvavg = rvavg;
 	}
 
 	public String getRvperiod() {
@@ -184,11 +194,13 @@ public class Review implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Review [rvnum=" + rvnum + ", rvkind=" + rvkind + ", rvprice=" + rvprice + ", rvquality=" + rvquality
-				+ ", rvprofessional=" + rvprofessional + ", rvresponsible=" + rvresponsible + ", rvperiod=" + rvperiod
-				+ ", rvregion=" + rvregion + ", rvbuildingtype=" + rvbuildingtype + ", rvarea=" + rvarea
-				+ ", rvspacious=" + rvspacious + ", rvprice2=" + rvprice2 + ", rvcritique=" + rvcritique + ", rvdate="
-				+ rvdate + ", consid=" + consid + ", userid=" + userid + "]";
+				+ ", rvprofessional=" + rvprofessional + ", rvresponsible=" + rvresponsible + ", rvavg=" + rvavg
+				+ ", rvperiod=" + rvperiod + ", rvregion=" + rvregion + ", rvbuildingtype=" + rvbuildingtype
+				+ ", rvarea=" + rvarea + ", rvspacious=" + rvspacious + ", rvprice2=" + rvprice2 + ", rvcritique="
+				+ rvcritique + ", rvdate=" + rvdate + ", consid=" + consid + ", userid=" + userid + "]";
 	}
+
+	
 	
 	
 }

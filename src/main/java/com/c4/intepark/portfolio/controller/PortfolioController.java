@@ -1,5 +1,6 @@
 package com.c4.intepark.portfolio.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,8 @@ import com.c4.intepark.portfolio.model.service.PortfolioService;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
 import com.c4.intepark.request.model.vo.Request;
+import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.RvAvg;
 
 @Controller
 public class PortfolioController {
@@ -36,12 +39,14 @@ public class PortfolioController {
 		
 		  ArrayList<Constructors> list = portfolioService.selectList();
 		  //logger.info(list);
-		
+		  ArrayList<RvAvg> rv = portfolioService.selectAllReview();
+		  
 		  if (list.size() > 0) {
-			  model.addAttribute("list", list); 
+			  model.addAttribute("list", list);
+			  model.addAttribute("rv", rv);
 			  return "portfolio/portfolioListView";
 		  } else { 
-			  model.addAttribute("message", "업체 리스트 조회 실패!");
+			  model.addAttribute("message", "시공사 리스트 조회 실패!");
 			  return "common/error";
 		  }
 	}
@@ -51,16 +56,85 @@ public class PortfolioController {
 		//logger.info(consid);
 		
 		Constructors cons = portfolioService.selectOneCons(consid);
-		
+		RvAvg rv = portfolioService.selectReview(consid);
+		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);
+	
 		if(cons != null) {
 			mv.addObject("cons", cons);
+			mv.addObject("rv", rv);
+			mv.addObject("review", review);
 			mv.setViewName("portfolio/portfolioDetailView");
 		}else {
-			mv.addObject("message", cons.getCompanyname() + "  업체 상세 조회 실패!");
+			mv.addObject("message", cons.getCompanyname() + "  시공사 상세 조회 실패!");
 			mv.setViewName("common/error");
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value="writeIntroductionForm5.do", method=RequestMethod.POST)
+	public String writeIntroductionForm(@RequestParam(value="consid", required=true) String consid, Model model) {
+		//System.out.println("출력이다 : " + consid);
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		RvAvg rv = portfolioService.selectReview(consid);
+		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);	//생략가능
+		
+		 if (cons != null) {
+			 model.addAttribute("cons", cons);
+			 model.addAttribute("rv", rv);
+			 model.addAttribute("review", review);	//생략가능
+			 return "portfolio/writeIntroduction";
+		  } else { 
+			 model.addAttribute("message", "소개글 작성페이지 조회 실패!");
+			 return "common/error";
+		  }	
+	}
+	
+	@RequestMapping(value="updateIntroduction5.do", method=RequestMethod.POST)
+	public String updateIntroduction(@RequestParam(value="consid", required=true) String consid, HttpServletRequest request, Model model) {
+		String pfintroduction = request.getParameter("ir1");
+		//logger.info("스마트에디터다 : " + pfintroduction );
+		
+		Constructors cons = new Constructors();
+		cons.setConsid(consid);
+		cons.setPfintroduction(pfintroduction);
+		
+		int result = portfolioService.updateIntroduction(cons);
+		
+		if (result > 0) {
+			 return "forward:pfOne5.do";
+		  } else { 
+			 model.addAttribute("message", "소개글 작성 실패!");
+			 return "common/error";
+		  }	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

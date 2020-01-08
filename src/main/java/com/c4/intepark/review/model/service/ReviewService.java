@@ -9,13 +9,14 @@ import com.c4.intepark.review.model.vo.Review;
 public interface ReviewService {
 	
 	Constructors selectReviewForm(String consid);
+	int insertReview(Review rv);
+	
 	
 	
 	
 	
 	ArrayList<Review> selectrvList();
 	Review selectrvOne(int rvnum);
-	int insertReview(Portfolio portfolio);
 	int updateReview(Portfolio portfolio);
 	int deleteReview(int rvnum);
 	

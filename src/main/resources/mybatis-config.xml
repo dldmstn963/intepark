@@ -18,6 +18,7 @@
   		<typeAlias type="com.c4.intepark.request.model.vo.Request" alias="Request"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.Review" alias="Review"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.ReviewFile" alias="ReviewFile"/>
+  		<typeAlias type="com.c4.intepark.review.model.vo.RvAvg" alias="RvAvg"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsReview" alias="GoodsReview"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Inquiry" alias="GoodsInquiry"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.GoodsSearch" alias="GoodsSearch"/>

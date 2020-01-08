@@ -21,6 +21,16 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.selectReviewForm(consid);
 	}
 
+	@Override
+	public int insertReview(Review rv) {
+		return reviewDao.insertReview(rv);
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -37,10 +47,6 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.selectrvOne(rvnum);
 	}
 
-	@Override
-	public int insertReview(Portfolio portfolio) {
-		return reviewDao.insertReview(portfolio);
-	}
 
 	@Override
 	public int updateReview(Portfolio portfolio) {
@@ -51,6 +57,14 @@ public class ReviewServiceImpl implements ReviewService{
 	public int deleteReview(int rvnum) {
 		return reviewDao.deleteReview(rvnum);
 	}
+
+
+
+
+
+
+
+	
 
 	
 

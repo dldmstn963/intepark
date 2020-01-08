@@ -10,6 +10,15 @@
     	where consid = #{consid}
 	</select>
 	
+	<insert id="insertReview" parameterType="Review">
+		insert into review values (rvnum_seq.nextval, #{rvkind}, #{rvprice}, #{rvquality}, 
+		#{rvprofessional}, #{rvresponsible}, #{rvavg}, #{rvperiod}, #{rvregion}, #{rvbuildingtype}, 
+    	#{rvarea}, #{rvspacious}, #{rvprice2}, #{rvcritique}, default, #{consid}, #{userid})
+	</insert>
+	
+	
+	
+	
 	
 	
 	
