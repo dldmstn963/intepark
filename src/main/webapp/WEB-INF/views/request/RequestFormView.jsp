@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>portfolioRequestView</title>
+<title>RequestFormView</title>
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 
@@ -68,10 +68,10 @@ span {
 			
 			<form action="insertRequest5.do" method="post" onsubmit="return requestCheck();" name="frm">
 			<input type="hidden" name="consid" value="${cons.consid}">
-			<c:if test="${!empty sessionScope.loginCons.consid }">
+			<c:if test="${!empty sessionScope.loginCons }">
 			<input type="hidden" name="userid" value="${sessionScope.loginCons.consid }">
 			</c:if>
-			<c:if test="${!empty sessionScope.loginUser.userid }">
+			<c:if test="${!empty sessionScope.loginUser }">
 			<input type="hidden" name="userid" value="${sessionScope.loginUser.userid }">
 			</c:if>
 			

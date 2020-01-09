@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>인테파크</title>
+
+<style type="text/css">
+.header_area{
+	background:#FFFFFF;
+	position:fixed;
+}
+</style>
+
+
 <script >
 var ws;
 
@@ -30,6 +39,9 @@ ws.onclose = function(event){
 	};
 }
 </script>
+
+
+
 </head>
 <body>
 

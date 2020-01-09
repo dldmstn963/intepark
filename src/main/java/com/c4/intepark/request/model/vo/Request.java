@@ -1,7 +1,5 @@
 package com.c4.intepark.request.model.vo;
 
-import java.sql.Date;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,14 +12,14 @@ public class Request implements java.io.Serializable {
 	private String reqbudget;	//시공예산
 	private String reqname;	//고객이름
 	private String reqphone;	//고객전화번호
-	private java.sql.Date reqdate;		//상담신청날짜
+	private String reqdate;		//상담신청날짜
 	private String consid;	//시공사 아이디
 	private String userid;	//고객아이디
 	
 	public Request() {}
 
 	public Request(int reqnum, String reqarea, String reqregion, String reqbudget, String reqname, String reqphone,
-			Date reqdate, String consid, String userid) {
+			String reqdate, String consid, String userid) {
 		super();
 		this.reqnum = reqnum;
 		this.reqarea = reqarea;
@@ -82,11 +80,11 @@ public class Request implements java.io.Serializable {
 		this.reqphone = reqphone;
 	}
 
-	public java.sql.Date getReqdate() {
+	public String getReqdate() {
 		return reqdate;
 	}
 
-	public void setReqdate(java.sql.Date reqdate) {
+	public void setReqdate(String reqdate) {
 		this.reqdate = reqdate;
 	}
 
@@ -116,6 +114,9 @@ public class Request implements java.io.Serializable {
 				+ reqbudget + ", reqname=" + reqname + ", reqphone=" + reqphone + ", reqdate=" + reqdate + ", consid="
 				+ consid + ", userid=" + userid + "]";
 	}
+
+	
+
 	
 	
 }
