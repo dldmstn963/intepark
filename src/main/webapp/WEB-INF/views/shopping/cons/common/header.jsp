@@ -3,7 +3,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"> <span>인테파크 쇼핑몰 관리</span></a>
+              <a href="moveconsshop4.do" class="site_title"> <span>인테파크 쇼핑몰 관리</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -26,12 +26,7 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> 메인 화면 <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="movegoodsinsert.do">상품 등록</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                  <li><a href="moveconsshop4.do"><i class="fa fa-home"></i> 메인 화면 </a>
                   </li>
                   <li><a><i class="fa fa-edit"></i> 주문 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -48,7 +43,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> 리뷰 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">리뷰 목록</a></li>
+                      <li><a href="moveconsReviewList4.do">리뷰 목록</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 통계 관리 <span class="fa fa-chevron-down"></span></a>
@@ -58,7 +53,7 @@
                   </li>
                   <li><a><i class="fa fa-clone"></i> 문의 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">문의 목록</a></li>
+                      <li><a href="moveconsInquiryList4.do">문의 목록</a></li>
                     </ul>
                   </li>
                 </ul>

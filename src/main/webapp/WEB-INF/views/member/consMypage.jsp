@@ -33,24 +33,48 @@
 								<table class="table" style="text-align: center;">
 									<tr>
 										<th width="150px">이름</th>
-										<td>${sessionScope.loginUser.username}</td>
+										<td>${sessionScope.loginCons.consname}</td>
 									</tr>
 									<tr>
 										<th>휴대폰번호</th>
-										<td>${sessionScope.loginUser.phone}</td>
+										<td>${sessionScope.loginCons.phone}</td>
 									</tr>
 									<tr>
 										<th>이메일</th>
-										<td>${sessionScope.loginUser.email}</td>
+										<td>${sessionScope.loginCons.email}</td>
 									</tr>
 									<tr>
 										<th>주소</th>
-										<td>${sessionScope.loginUser.address}</td>
+										<td>${sessionScope.loginCons.address}</td>
 									</tr>
 									<tr>
-										<th>가입날짜</th>
-										<td>${sessionScope.loginUser.enrolldate}</td>
+										<th>상호명</th>
+										<td>${sessionScope.loginCons.companyname}</td>
 									</tr>
+									<tr>
+										<th>시공분야</th>
+										<td>${sessionScope.loginCons.consarea}</td>
+									</tr>
+									<tr>
+										<th>A/S기간</th>
+										<td>${sessionScope.loginCons.asdate}</td>
+									</tr>																		
+									<tr>
+										<th>경력</th>
+										<td>${sessionScope.loginCons.career}</td>
+									</tr>
+									<tr>
+										<th>업체소개</th>
+										<td>${sessionScope.loginCons.consintroduction}</td>
+									</tr>
+									<tr>
+										<th>프로필 사진</th>
+										<td>${sessionScope.loginCons.address}</td>
+									</tr>
+									<tr>
+										<th>사업자 등록증</th>
+										<td>${sessionScope.loginCons.address}</td>
+									</tr>																											
 								</table>
 							</div>
 						</div>

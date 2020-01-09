@@ -20,41 +20,7 @@ public class MemberController {
 	private MemberService memberService;
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	@RequestMapping("userList6.do")
-	public String userList(@RequestParam(value="page", required=false, defaultValue="1") int page, Model model) {
-		//ArrayList<User> userList = memberService.selectUserList();
-		return "member/adminUserList";
-	}
 	
-	@RequestMapping("stopUser6.do")
-	public String stopUser() {	
-		return "member/adminStopUser";
-	}
-	
-	@RequestMapping("dropUser6.do")
-	public String dropUser() {	
-		return "member/adminDropUser";
-	}
-	
-	@RequestMapping("consList6.do")
-	public String consList() {	
-		return "member/adminConsList";
-	}
-	
-	@RequestMapping("enrollCons6.do")
-	public String enrollCons() {	
-		return "member/adminEnrollCons";
-	}
-	
-	@RequestMapping("stopCons6.do")
-	public String stopCons() {	
-		return "member/adminStopCons";
-	}
-	
-	@RequestMapping("dropCons6.do")
-	public String dropCons() {	
-		return "member/adminDropCons";
-	}
 	
 	
 	

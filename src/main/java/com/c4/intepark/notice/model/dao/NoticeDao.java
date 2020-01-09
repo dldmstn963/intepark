@@ -2,6 +2,7 @@ package com.c4.intepark.notice.model.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.notice.model.vo.Notice;
+import com.c4.intepark.notice.model.vo.NoticePage;
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.notice.model.service.NoticeService;
 
 @Repository("noticeDao")
@@ -23,42 +26,24 @@ public class NoticeDao {
 	
 	public NoticeDao() {}
 	
-	public ArrayList<Notice> selectAll(){
-		
-		List<Notice> list = mybatisSession.selectList("noticeMapper.selectList");
-		return (ArrayList<Notice>)list;
-	}
-
+	
 	public ArrayList<Notice> noticeSearch(String search) {
 		List<Notice> list = mybatisSession.selectList("noticeMapper.searchTitle",search);
 		return (ArrayList<Notice>)list;
 	}
 
-	public Notice selectOne(int noticeno) {
+	public int getListCount() {
 		// TODO Auto-generated method stub
-		return null;
+		return mybatisSession.selectOne("noticeMapper.getListCount");
 	}
 
-	public Notice noticeFileDown(String noticeno) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Notice> selectList(NoticePage noticePage) {
+		
+		List<Notice> list = mybatisSession.selectList("noticeMapper.selectList",noticePage);
+		return (ArrayList<Notice>)list;
 	}
 
-	public int noticeInsert(Notice notice) {
-		// TODO Auto-generated method stub
-		return (Integer) null;
-	}
 
-	public Notice noticeUpdate(int idx) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int noticeDelete(int noticeno) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	
 
 	
