@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>portfolioDetailView</title>
+<title>writeIntroduction</title>
 
 <style type="text/css">
 span.star-prototype, span.star-prototype > * {
@@ -45,27 +45,41 @@ span.star-prototype > * {
 		<div class="col-lg-12">${cons.consarea }</div><!-- 업체시공분야 -->
 		
 		<div class="col-lg-12" style="margin-top:3px;">
-			<c:if test="${rv.count != 0}"><!-- 별점이 있을때 -->
-					<span class="star-prototype">${rv.rvavg }</span>&nbsp; ${rv.count }개&nbsp;
-							<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
-									<h6 style="color:#01A9DB; display:inline"><strong>리뷰쓰기</strong></h6></a>
-			</c:if>
+		
+			<span class="star-prototype">${rv.rvavg }</span>&nbsp; <c:if test="${rv.count != 0 }">${rv.count }개&nbsp;</c:if>
 			
-			<c:if test="${rv.count == 0}"><!-- 별점이 없을때 -->
-				<span class="star-prototype">${rv.rvavg }</span>&nbsp;
-							<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
-									<h6 style="color:#01A9DB; display:inline"><strong>첫리뷰쓰기</strong></h6></a>
-			</c:if>
+				<c:if test="${rv.count != 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 있으면서 해당시공사가 아닐경우 -->
+						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
+							<h6 style="color:#01A9DB; display:inline"><strong>리뷰쓰기</strong></h6></a>
+				</c:if>
+			
+				<c:if test="${rv.count == 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 없으면서 해당시공사가 아닐경우 -->
+						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
+							<h6 style="color:#01A9DB; display:inline"><strong>첫리뷰쓰기</strong></h6></a>
+				</c:if>
 		</div>
 		
-		<div class='col-lg-12' style="margin-top:7px;">
-			<div class="form-group">
-      		<form action="selectRequestForm5.do" method="post" >
-      		<input type="hidden" value="${cons.consid}" name="consid">
-      		<input type="submit" value="상담신청" class="form-control btn-primary">
-      		</form>
-      		</div>
-		</div><!-- 상담신청 버튼 div 12 끝 -->
+		<c:if test="${cons.consid eq sessionScope.loginCons.consid }"><!-- 해당 시공사 로그인시 -->
+			<div class='col-lg-12' style="margin-top:7px;">
+				<div class="form-group">
+	      		<form action="selectRequestList5.do" method="post" >
+	      		<input type="hidden" value="${cons.consid}" name="consid">
+	      		<input type="submit" value="상담신청 내역조회" class="form-control btn-primary">
+	      		</form>
+	      		</div>
+			</div>
+		</c:if>
+		
+		<c:if test="${cons.consid ne sessionScope.loginCons.consid }"><!-- 해당 시공사가 아닐경우 -->
+			<div class='col-lg-12' style="margin-top:7px;">
+				<div class="form-group">
+	      		<form action="selectRequestForm5.do" method="post" >
+	      		<input type="hidden" value="${cons.consid}" name="consid">
+	      		<input type="submit" value="상담신청" class="form-control btn-primary">
+	      		</form>
+	      		</div>
+			</div>
+		</c:if>
 		
 		<div class="col-lg-12"><strong>주소</strong>&nbsp;&nbsp;&nbsp;${cons.address }</div>
 		<div class="col-lg-12"><strong>경력</strong>&nbsp;&nbsp;&nbsp;${cons.career }</div>

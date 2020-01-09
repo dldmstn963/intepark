@@ -74,7 +74,9 @@
 	
 	<div class="col-lg-3" style="text-align:right;">
 	<div style="display:inline-block;">
-		<button class="btn btn-success btn-sm" style="font:small-caption;">내 상담신청 내역</button>&nbsp;&nbsp;
+		<form action="test5.do" method="post" >
+			<button class="btn btn-success btn-sm" style="font:small-caption;">내 상담신청 내역</button>&nbsp;&nbsp;
+		</form>	
 	</div>
 	
 	<c:if test="${!empty sessionScope.loginCons }">
