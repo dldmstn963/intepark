@@ -47,4 +47,9 @@ public class InteuserServiceImpl implements InteuserService{
 		return userDao.selectAllList(cpage);
 	}
 
+	@Override
+	public InteUser selectAdUserDetail(String userid) {
+		return userDao.selectAdUserDetail(userid);
+	}
+
 }

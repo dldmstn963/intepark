@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,15 +100,33 @@ public class InteuserController {
 	}
 	//관리자 유저관리리스트.
 	@RequestMapping("userList6.do")
-	public String userList(@RequestParam(value = "page", required = false, defaultValue = "1") int currentPage,
+	public String adUserList(@RequestParam(value = "page", required = false, defaultValue = "1") int currentPage,
 			CommonPage cpage, Model model) {
 		// 전체페이지 수찾기(검색포함)
 		int listCount = 0;
 		listCount = userService.selectAllListCount(cpage);
 		cpage.pageUpdate(6, 10, listCount, currentPage);
-		ArrayList<InteUser> albumList = userService.selectAllList(cpage);
+		ArrayList<InteUser> userList = userService.selectAllList(cpage);
 		model.addAttribute("commonPage", cpage);
-		model.addAttribute("uesrAllList", albumList);
+		model.addAttribute("uesrAllList", userList);
 		return "member/adminUserList";
 	}
+	
+	//관리자 1명유저관리
+	@RequestMapping("userDetailView.do")
+	public String adUserDetailView(@RequestParam("userid") String userid, Model model) {
+		
+		InteUser inteuser = userService.selectAdUserDetail(userid);
+		model.addAttribute("inteUser", inteuser);
+		return "member/adminUserDetail";
+	}
 }
+
+
+
+
+
+
+
+
+

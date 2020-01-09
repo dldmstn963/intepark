@@ -12,4 +12,5 @@ public interface InteuserService {
 	int selectEmailCheck(String useremail);
 	int selectAllListCount(CommonPage cpage);
 	ArrayList<InteUser> selectAllList(CommonPage cpage);
+	InteUser selectAdUserDetail(String userid);
 }

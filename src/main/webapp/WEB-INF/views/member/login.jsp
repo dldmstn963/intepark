@@ -4,10 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
-<title>Custom Login Demo - Kakao JavaScript SDK</title>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp"%>
 <script type="text/javascript">
@@ -16,25 +13,6 @@
 		if (error != "" && error != null)
 			alert(error);
 	};
-	//<![CDATA[
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('f75de983ee0c68ebaa09cc06af9b2993');
-    function loginWithKakao() {
-      // 로그인 창을 띄웁니다.
-      Kakao.Auth.login({
-        success: function(authObj) {
-          alert(JSON.stringify(authObj));
-      
-
-        },
-        fail: function(err) {
-          alert(JSON.stringify(err));
-        }
-      });
-    }
-
-  //]]>
-	
 </script>
 </head>
 <body>
@@ -75,8 +53,8 @@
 							</form>
 							<button class="btn" style="margin-bottom: 5px; width: 100%;"
 								onclick="location.href='userenroll6.do'">일반 회원가입</button>
-							<a id="custom-login-btn" href="javascript:loginWithKakao()">
-							<img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" height="45px" width="100%"/></a>
+							<a href="https://kauth.kakao.com/oauth/authorize?client_id=b85c92c001cadbd03510bbc4f0a84ff5&redirect_uri=http://localhost:8280/intepark/login6.do&response_type=code">
+							<img src="/intepark/resources/img/kakaoLogin.png" height="40px" width="100%"/></a>
 						</div>
 						<!-- 고객로그인 끝 -->
 						<div class="tab-pane fade" id="bb">

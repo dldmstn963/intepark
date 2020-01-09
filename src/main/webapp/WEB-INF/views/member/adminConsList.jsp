@@ -40,12 +40,12 @@ function checkSearch(){
 	<!--================Header Menu Area =================-->
 	<div class="container">
 		<h2 align="center">
-			<strong>고객 관리</strong>
+			<strong>시공사 관리</strong>
 		</h2>
 		<div style="margin-bottom: 3px; text-align: right;">
 			<button onclick="serchDetail();">상세검색</button>
 		</div>
-		<form action="userList6.do" onsubmit="return checkSearch();">
+		<form action="consList6.do" onsubmit="return checkSearch();">
 			<table class="table table-hover">
 				<thead class="thead-light">
 					<tr style="text-align: center;">

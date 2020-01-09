@@ -42,6 +42,10 @@ public class InteuserDao {
 		List<InteUser> list = sqlSession.selectList("inteuserMapper.selectAllList", cpage);
 		return (ArrayList<InteUser>)list;
 	}
+
+	public InteUser selectAdUserDetail(String userid) {
+		return sqlSession.selectOne("inteuserMapper.selectAdUserDetail", userid);
+	}
 	
 
 }
