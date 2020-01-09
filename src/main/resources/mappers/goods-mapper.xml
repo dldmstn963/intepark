@@ -70,7 +70,7 @@ select *
 from (select rownum rnum, GOODSNUM, 
 THUMBNAIL,GOODSNAME,PRICE,INVENTORY
 from (select * from GOODS 
-where CONSID= #{consid} and goodsname=#{goodsname} order by GOODSnum desc)) 
+where CONSID= #{consid} and goodsname like #{goodsname} order by GOODSnum desc)) 
 where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
