@@ -5,6 +5,7 @@
 <html>
 <head>
 <!-- Bootstrap -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link href="/intepark/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="/intepark/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -65,7 +66,7 @@
 								<br>
 									<table border="1px solid black" align="center">
 										<tr>
-											<td><input type="checkbox"></td>
+											<td><input type="checkbox" id="allCheck"></td>
 											<td>상품 코드</td>
 											<td>썸네일</td>
 											<td>상품명</td>
@@ -73,6 +74,29 @@
 											<td>재고</td>
 											<td>기능</td>
 										</tr>
+												<script>
+										function dellist(){
+											var result = confirm('정말 삭제하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"deleteGoodscheck4.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
+										</script>
 										<c:forEach var="li" items="${list }">
 											<tr>
 												<td><input type="checkbox" id="checkbox"
@@ -109,17 +133,18 @@
 											<tr>
 										</c:forEach>
 									</table>
+															<input type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									<div id="pagebox" align="center">
-									<a href="movegoodslist4.do?page=1">|◁</a>
+									<a href="movegoodslist4.do?page=1"><i class="fas fa-angle-double-left"></i></a>
 									&nbsp;
 									
 									<c:if test="${ (beginPage-10) < 1}">
-									<a href="movegoodslist4.do?page=1">◀◀</a>
+									<a href="movegoodslist4.do?page=1"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									<c:if test="${ (beginPage-10) > 1}">
-									<a href="movegoodslist4.do?page=${beginPage-10 }">◀◀</a>
+									<a href="movegoodslist4.do?page=${beginPage-10 }"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									&nbsp;
 									
@@ -133,14 +158,14 @@
 									</c:forEach>
 									&nbsp;
 									<c:if test="${(endPage+10) > maxPage }">
-									<a href="movegoodslist4.do?page=${maxPage }">▶▶</a>
+									<a href="movegoodslist4.do?page=${maxPage }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									<c:if test="${(endPage+10) < maxPage }">
-									<a href="movegoodslist4.do?page=${endPage + 10 }">▶▶</a>
+									<a href="movegoodslist4.do?page=${endPage + 10 }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									&nbsp; 
 									
-									<a href="movegoodslist4.do?page=${maxPage }">▷|</a>
+									<a href="movegoodslist4.do?page=${maxPage }"><i class="fas fa-angle-double-right"></i></a>
 									</div>
 									
 								</div>
@@ -154,6 +179,16 @@
 	</div>
 	 <!-- jQuery -->
     <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+										$(function(){ 
+											$("#allCheck").click(function(){ 
+												if($("#allCheck").prop("checked")) {
+												$("input[type=checkbox]").prop("checked",true); 
+												} else { 
+												$("input[type=checkbox]").prop("checked",false); } 
+												}) 
+											})
+											</script>
     <!-- Bootstrap -->
    <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
