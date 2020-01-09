@@ -24,17 +24,49 @@
 	</select>
 	
 	<select id="selectAllListCount" parameterType="CommonPage" resultType="_int">
-		select count(*) from inteuser 
+		select count(*) from inteuser
+		<trim prefix="WHERE" prefixOverrides="AND">
+		<if test="userid != null and userid !=''">
+		userid like '%'||#{userid}||'%'
+		</if>
+		<if test="username != null and username !=''">
+		and username like '%'||#{username}||'%'
+		</if>
+		<if test="startdate != null and startdate !=''">
+		and enrolldate between #{startdate} and #{enddate}
+		</if>
+		<if test="memberstate != null and memberstate !=''">
+		and memberstate = {stitle}
+		</if>
+		</trim>
 	</select>
 	
 	<select id="selectAllList" parameterType="CommonPage" resultType="InteUser">
 				select *
 		from (select rownum rnum, userid, username, phone, email, address, memberstate, enrolldate
 			  from (select * from inteuser
+			  		<trim prefix="WHERE" prefixOverrides="AND">
+					<if test="userid != null and userid !=''">
+					userid like '%'||#{userid}||'%'
+					</if>
+					<if test="username != null and username !=''">
+					and username like '%'||#{username}||'%'
+					</if>
+					<if test="startdate != null and startdate !=''">
+					and enrolldate between #{startdate} and #{enddate}
+					</if>
+					<if test="memberstate != null and memberstate !=''">
+					and memberstate = {stitle}
+					</if>
+					</trim>
                     order by enrolldate desc))
                     <![CDATA[
         where rnum >= #{startList} and rnum <= #{endList}
 					]]>
+	</select>
+	
+	<select id="selectAdUserDetail" parameterType="String" resultType="InteUser">
+	 	select * from inteuser where userid=#{value}
 	</select>
 	
 </mapper>
