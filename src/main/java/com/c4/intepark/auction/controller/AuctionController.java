@@ -89,7 +89,7 @@ public String nonAuctionEnrollPage() {
 @RequestMapping("auctionEnd2.do")
 public String auctionEndList() {
 	
-	return "auction/auctionEndList";
+	return "point/point";
 }
 
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 

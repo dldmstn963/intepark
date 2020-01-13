@@ -23,8 +23,6 @@ public class Pagination {
 
 	private boolean next;
 
-	
-
 	public int getRangeSize() {
 
 		return rangeSize;
