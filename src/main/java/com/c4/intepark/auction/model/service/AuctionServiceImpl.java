@@ -9,6 +9,8 @@ import com.c4.intepark.auction.model.dao.AuctionDao;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.Pagination;
+import com.c4.intepark.common.Search;
 
 @Service("auctionService")
 public class AuctionServiceImpl implements AuctionService{
@@ -17,9 +19,9 @@ public class AuctionServiceImpl implements AuctionService{
 	private AuctionDao auctionDao;
 
 	@Override
-	public ArrayList<Auction> auctionList() {
+	public ArrayList<Auction> auctionList(Search search) {
 		
-		return (ArrayList<Auction>)auctionDao.selectList();
+		return (ArrayList<Auction>)auctionDao.selectList(search);
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,9 +36,9 @@ public class AuctionServiceImpl implements AuctionService{
 		return auctionDao.nonAuctionEnroll(nonauction);
 	}
 	@Override
-	public ArrayList<NonAuction> NonAuctionList(){
+	public ArrayList<NonAuction> NonAuctionList(Pagination pagination){
 		
-		return (ArrayList<NonAuction>)auctionDao.NonAuctionList();
+		return (ArrayList<NonAuction>)auctionDao.NonAuctionList(pagination);
 	}
 	@Override
 	public int auctionUpdate(Auction auction) {
@@ -85,5 +87,13 @@ public class AuctionServiceImpl implements AuctionService{
 	public int deleteNonAuction(int auctionno) {
 		
 		return auctionDao.deleteNonAuction(auctionno);
+	}
+	@Override
+	public Integer selectAuctionCount(Search search) {
+		return auctionDao.selectAuctionCount(search);
+	}
+	@Override
+	public Integer selectNonAuctionCount(Search search) {
+		return auctionDao.selectNonAuctionCount(search);
 	}
 }

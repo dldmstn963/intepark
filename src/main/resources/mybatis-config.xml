@@ -5,6 +5,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.c4.intepark.common.CommonPage" alias="CommonPage"/>
+		<typeAlias type="com.c4.intepark.common.Pagination" alias="Pagination"/>
+		<typeAlias type="com.c4.intepark.common.Search" alias="Search"/>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.album.model.vo.Album" alias="Album" />
