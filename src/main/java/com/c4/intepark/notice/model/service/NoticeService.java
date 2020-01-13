@@ -17,6 +17,16 @@ public interface NoticeService {
 	int getListCount();
 
 	ArrayList<Notice> selectList(NoticePage noticePage);
+
+
+	void updateReadCount(int noticeno);
+
+
+	Notice selectOne(int noticeno);
+
+
+
+
  
 
 

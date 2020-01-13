@@ -26,14 +26,10 @@ public class NoticeDao {
 	
 	public NoticeDao() {}
 	
-	
-	public ArrayList<Notice> noticeSearch(String search) {
-		List<Notice> list = mybatisSession.selectList("noticeMapper.searchTitle",search);
-		return (ArrayList<Notice>)list;
-	}
+
 
 	public int getListCount() {
-		// TODO Auto-generated method stub
+		
 		return mybatisSession.selectOne("noticeMapper.getListCount");
 	}
 
@@ -41,6 +37,19 @@ public class NoticeDao {
 		
 		List<Notice> list = mybatisSession.selectList("noticeMapper.selectList",noticePage);
 		return (ArrayList<Notice>)list;
+	}
+
+
+	public void updateReadCount(int noticeno) {
+		mybatisSession.update("noticeMapper.updateReadCount",noticeno);
+		
+	}
+
+
+
+	public Notice selectOne(int noticeno) {
+		// TODO Auto-generated method stub
+		return mybatisSession.selectOne("noticeMapper.selectOne",noticeno);
 	}
 
 

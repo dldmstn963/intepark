@@ -23,15 +23,32 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public int getListCount() {
-		// TODO Auto-generated method stub
+		
 		return noticeDao.getListCount();
 	}
 
 	@Override
 	public ArrayList<Notice> selectList(NoticePage noticePage) {
-		// TODO Auto-generated method stub
+		
 		return noticeDao.selectList(noticePage);
 	}
+
+	
+	@Override
+	public void updateReadCount(int noticeno) {
+		
+		noticeDao.updateReadCount(noticeno);
+	}
+
+	@Override
+	public Notice selectOne(int noticeno) {
+		// TODO Auto-generated method stub
+		return noticeDao.selectOne(noticeno);
+	}
+
+	
+
+	
 	
 
 
