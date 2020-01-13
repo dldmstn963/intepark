@@ -5,18 +5,22 @@
 <mapper namespace="inteuserMapper">
 
 
-	<select id="selectLoginCheck" parameterType="InteUser" resultType="InteUser">
-		select * from inteuser where userid = #{ userid } and userpwd = #{userpwd}
+	<select id="selectUserSession" parameterType="String" resultType="InteUser">
+		select * from inteuser where userid = #{value}
 	</select>
 	
+	<insert id="insertLoginId" parameterType="LoginInfo">
+		insert into logininfo values(#{logid},#{logpwd},#{authority},1,'정상',null,null)
+	</insert>
+	
 	<insert id="insertUser" parameterType="InteUser">
-		insert into inteuser values(#{userid}, #{userpwd}, 
-		sysdate, #{username}, #{phone, javaType=String, jdbcType=VARCHAR}, 
-		#{email}, #{address}, default, null, null)
+		insert into inteuser values(#{userid}, sysdate, 
+		#{username}, #{phone, javaType=String, jdbcType=VARCHAR}, 
+		#{email}, #{address})
 	</insert>
 	
 	<select id="selectIdCheck" parameterType="String" resultType="_int">
-		select count(userid) from inteuser where userid = #{value}
+		select count(logid) from logininfo where logid = #{value}
 	</select>
 	
 	<select id="selectEmailCheck" parameterType="String" resultType="_int">

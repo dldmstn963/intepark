@@ -13,8 +13,8 @@
 	<jsp:include page="../common/header.jsp" />
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-6">
 				<div class="col">
 					<ul class="nav nav-tabs">
 						<li class="nav-item"><a class="nav-link active"
@@ -23,6 +23,8 @@
 							href="#bb">개인정보수정</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
 							href="#cc">비밀번호변경</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#dd">탈퇴하기</a></li>
 					</ul>
 
 					<div class="tab-content">
@@ -58,9 +60,9 @@
 						<div class="tab-pane fade" id="bb">
 							<!-- 개인정보수정 -->
 							<br>
-							<form action="insertUser6.do" id="userForm" method="post"
+							<form action="#" id="userForm" method="post"
 								onsubmit="return enrollCheck();">
-								<table style="margin-left: 100px;">
+								<table>
 									<tr style="height: 50px;">
 										<th>이름* :</th>
 										<td><input type="text" name="username"
@@ -128,11 +130,12 @@
 							</form>
 						</div>
 						<!-- 개인정보수정끝 -->
+						<!-- 비밀번호변경 -->
 						<div class="tab-pane fade" id="cc">
 							<br>
-							<form action="insertUser6.do" id="userForm" method="post"
+							<form action="#" id="userForm" method="post"
 								onsubmit="return enrollCheck();">
-								<table style="margin-left: 100px;">
+								<table style="margin-left: 50px;">
 									<tr style="height: 40px;">
 										<th>사용중인 비밀번호* :</th>
 										<td><input type="password"
@@ -171,13 +174,49 @@
 								</table>
 							</form>
 						</div>
+						<!-- 탈퇴하기 -->
+						<div class="tab-pane fade" id="dd">
+							<br>
+							<form action="#" id="userForm" method="post"
+								onsubmit="return enrollCheck();">
+								<table style="margin-left: 50px;">
+									<tr style="height: 45px; margin-bottom:10px;">
+										<th>비밀번호 :</th>
+										<td><input type="password"
+											class="form-control has-feedback-left" id="userPwd"
+											name="userpwd" onkeyup="pwdCheck(this)" maxlength="15"
+											id="pwd" required></td>
+									</tr>
+									<tr style="height: 45px; margin-bottom:10px;">
+										<th>비밀번호 확인 :</th>
+										<td><input type="password"
+											class="form-control has-feedback-left" id="userPwd2"
+											onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td>
+									</tr>
+									<tr style="height: 45px; margin-bottom:10px;">
+										<th>탈퇴 사유 :</th>
+										<td><input type="password"
+											class="form-control has-feedback-left" id="userPwd2"
+											onkeyup="pwd2dCheck(userPwd,this)" maxlength="15" required></td>
+									</tr>
+
+									<tr>
+										<td></td>
+										<td style="text-align: center;"><input type="submit"
+											class="btn btn-danger" value="탈퇴 하기">&nbsp;&nbsp;</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+							<Br>
+						</div>
 					</div>
 					<!-- tab-content  -->
 				</div>
 				<!--col -->
 			</div>
 			<!-- col8 -->
-			<div class="col-lg-2"></div>
+			<div class="col-lg-3"></div>
 		</div>
 	</div>
 	<!-- footer -->

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.vo.InteUser;
+import com.c4.intepark.loginInfo.model.vo.LoginInfo;
 
 @Repository("userDao")
 public class InteuserDao {
@@ -45,6 +46,10 @@ public class InteuserDao {
 
 	public InteUser selectAdUserDetail(String userid) {
 		return sqlSession.selectOne("inteuserMapper.selectAdUserDetail", userid);
+	}
+
+	public int insertLoginId(LoginInfo loginInfo) {
+		return sqlSession.insert("inteuserMapper.insertLoginId", loginInfo);
 	}
 	
 

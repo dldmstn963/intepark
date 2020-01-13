@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.dao.InteuserDao;
 import com.c4.intepark.inteuser.model.vo.InteUser;
+import com.c4.intepark.loginInfo.model.vo.LoginInfo;
 
-@Service("userService")
+@Service("inteUserService")
 public class InteuserServiceImpl implements InteuserService{
 	
 	public InteuserServiceImpl() {}
@@ -50,6 +51,11 @@ public class InteuserServiceImpl implements InteuserService{
 	@Override
 	public InteUser selectAdUserDetail(String userid) {
 		return userDao.selectAdUserDetail(userid);
+	}
+
+	@Override
+	public int insertLoginId(LoginInfo loginInfo) {
+		return userDao.insertLoginId(loginInfo);
 	}
 
 }

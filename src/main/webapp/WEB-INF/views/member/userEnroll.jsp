@@ -151,7 +151,8 @@ function dcheckId(){
 
 function dcheckEmail(){
 	var uemail = document.getElementById("uemail").value;
-	if(uemail.length==0)
+	var uecheck = document.getElementById("emailcheck").firstChild.innerText;
+	if(uemail.length==0 || uecheck.substr(0,2) !="중복")
 		return false;
 	$.ajax({
 		url : "userEmailChk6.do",
@@ -201,6 +202,7 @@ function eCheck(uemail){
 		emailcheck.innerHTML="<p style='color:red; margin:0;'>이메일 형식에 맞지 않습니다.</p>";
 	else
 		emailcheck.innerHTML="<p style='color:green; margin:0;'>중복 체크해주세요</p>";
+
 	return false;
 }
 
@@ -212,7 +214,14 @@ function enrollCheck(){
 	var utel = document.getElementById("telcheck").firstChild.innerText;
 	var uemail = document.getElementById("emailcheck").firstChild.innerText;
 
+	var address = document.getElementById("sample6_postcode").value;
+	var detailaddress = document.getElementById("sample6_detailAddress").value;
 
+ 	if(address !='' && detailaddress ==''){
+		alert("상세주소를 입력해주세요");
+		return false;
+	}
+		
 	if(uid!=null && uid.substr(0,6) !="사용 가능한"){
 		document.getElementById("userId").focus();
 		return false;
