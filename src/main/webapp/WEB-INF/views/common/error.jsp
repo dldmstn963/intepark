@@ -8,5 +8,6 @@
 </head>
 <body>
 오류 발생 : ${ requestScope.message } <br>
+<a href="main.do">홈으로</a>
 </body>
 </html>

@@ -43,11 +43,6 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("login6.do")
-	public String loginMember() {
-		return "member/login";
-	}
-
 	@RequestMapping("temple4.do")
 	public String temple() {
 		return "TemplateFolder/templezip";

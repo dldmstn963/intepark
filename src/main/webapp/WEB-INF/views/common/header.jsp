@@ -86,7 +86,7 @@ ws.onclose = function(event){
 			<!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 -->
 			<c:if test="${!empty sessionScope.loginUser and loginUser.userid ne 'admin'}">
 				<div align="right" style="position: absolute; z-index: 1; top: 10px; right: 10px;">
-					<a href="logout.do"><b style="color: blue;">로그아웃</b></a>
+					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 				</div>	
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container box_1620" style="margin: 300">
@@ -121,7 +121,7 @@ ws.onclose = function(event){
 			<!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 -->
 			<c:if test="${!empty sessionScope.loginCons }">
 				<div align="right" style="position: absolute; z-index: 1; top: 10px; right: 10px;">
-					<a href="logout.do"><b style="color: blue;">로그아웃</b></a>
+					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 				</div>	
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container box_1620" style="margin: 300">
@@ -155,7 +155,7 @@ ws.onclose = function(event){
 				test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin'}">
 				<!-- 관리자 접속시 -->
 				<div align="right" style="position: absolute; z-index: 1; top: 10px; right: 10px;">
-					<a href="logout.do"><b style="color: blue;">로그아웃</b></a>
+					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 				</div>
 				<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620" style="margin: 300">
@@ -174,7 +174,7 @@ ws.onclose = function(event){
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
-								<li class="nav-item"><a class="nav-link" href="userList6.do">고객 관리</a></li>
+								<li class="nav-item"><a class="nav-link" href="admin/userList6.do">고객 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="consList6.do">시공사 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 			</c:if>
