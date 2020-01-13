@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.request.model.vo.Request;
+import com.c4.intepark.review.model.vo.RvAvg;
 
 @Repository("requestDao")
 public class RequestDao {
@@ -25,7 +26,38 @@ public class RequestDao {
 	public int insertRequest(Request req) {
 		return mybatisSession.insert("requestMapper.insertRequest", req);
 	}
+	
+	public Constructors selectOneCons(String consid) {
+		return mybatisSession.selectOne("portfolioMapper.selectOneCons", consid);
+	}
 
+	public RvAvg selectReview(String consid) {
+		return mybatisSession.selectOne("portfolioMapper.selectReview", consid);
+	}
+	
+	public ArrayList<Request> selectRequestList(String consid) {
+		List<Request> reqlist = mybatisSession.selectList("requestMapper.selectRequestList", consid);
+		return (ArrayList<Request>) reqlist;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public ArrayList<Request> selectReqConsList(String consid) {
 		List<Request> list = mybatisSession.selectList("requestMapper.selectReqConsList", consid);
 		return (ArrayList<Request>)list;
@@ -38,6 +70,10 @@ public class RequestDao {
 	public int deleteRequest(String reqnum) {
 		return mybatisSession.delete("requestMapper.insertRequest", reqnum);
 	}
+
+	
+
+	
 }
 
 

@@ -109,7 +109,10 @@ public class PortfolioController {
 		  }	
 	}
 	
-	
+	@RequestMapping(value="test5.do", method=RequestMethod.POST)
+	public String test5() {
+		return "review/test";
+	}
 	
 	
 	

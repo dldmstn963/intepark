@@ -28,7 +28,9 @@
 	</select>
 	
 	<select id="selectConsReviewList" parameterType="string" resultType="Review">
-		select *
+		select rvnum,rvkind,rvprice,rvquality,rvprofessional,rvresponsible,rvavg,
+       			rvperiod,rvregion,rvbuildingtype,rvarea,rvspacious,rvprice2,rvcritique,
+       			to_char(to_date(rvdate,'yyyy/mm/dd'), 'rryy/mm/dd') as rvdate,consid,userid
 		from review
 		where consid = #{consid}
 	</select>

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.request.model.service.RequestService;
 import com.c4.intepark.request.model.vo.Request;
+import com.c4.intepark.review.model.vo.RvAvg;
 
 @Controller
 public class RequestController {
@@ -68,7 +69,29 @@ public class RequestController {
 		return "redirect:conslist5.do";
 	}
 	
-	
+	@RequestMapping(value="selectRequestList5.do", method=RequestMethod.POST)
+	public String selectRequestList(@RequestParam(value="consid", required=true) String consid, Model model) {
+		
+		Constructors cons = requestService.selectOneCons(consid);
+		RvAvg rv = requestService.selectReview(consid);
+		ArrayList<Request> reqlist = requestService.selectRequestList(consid);
+		
+		//for(int i = 0; i <reqlist.size(); i++) {
+		//	String req =reqlist.get(i).getReqdate().toString().replaceAll("-", "/");
+		//	reqlist.get(i).getReqdate().toString().replaceAll("-", "/");
+		//	System.out.println(req);
+		//}
+
+		if(cons != null) {
+			model.addAttribute("cons", cons);
+			model.addAttribute("rv", rv);
+			model.addAttribute("reqlist", reqlist);
+			return "request/RequestListView";
+		}else {
+			model.addAttribute("message", cons.getCompanyname() + "  상담신청 내역 조회 실패!");
+			return("common/error");
+		}
+	}
 	
 	
 	

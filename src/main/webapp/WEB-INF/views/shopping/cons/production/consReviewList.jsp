@@ -32,7 +32,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>상품 목록</h3>
+							<h3>리뷰 목록</h3>
 						</div>
 					</div>
 
@@ -42,7 +42,7 @@
 						<div class="col-md-12 col-sm-12  ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>상품 목록</h2>
+									<h2>리뷰 목록</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i
 												class="fa fa-chevron-up"></i></a></li>
@@ -67,22 +67,47 @@
 									<table border="1px solid black" align="center">
 										<tr>
 											<td><input type="checkbox" id="allCheck"></td>
-											<td>상품 코드</td>
-											<td>썸네일</td>
-											<td>상품명</td>
-											<td>상품 가격</td>
-											<td>재고</td>
+											<td>번호</td>
+											<td>상품</td>
+											<td>상품평</td>
+											<td>선호도</td>
+											<td>글쓴이</td>
+											<td>작성일</td>
 											<td>기능</td>
 										</tr>
+												<script>
+										function dellist(){
+											var result = confirm('정말 삭제하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"deleteReviewcheck4.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
+										</script>
 										<c:forEach var="li" items="${list }">
 											<tr>
 												<td><input type="checkbox" id="checkbox"
-													name="checkbox" value="${li.goodsnum }"></td>
-												<td>${li.goodsnum }</td>
-												<td><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" width="100" height="100"></td>
-												<td>${li.goodsname }</td>
-												<td>${li.price }</td>
-												<td>${li.inventory }</td>
+													name="checkbox" value="${li.reviewnum }"></td>
+												<td>${li.reviewnum }</td>
+												<td><img width="100px" src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product"></td>
+												<td>${li.reviewtitle }</td>
+												<td>${li.reviewscore }</td>
+												<td>${li.userid }</td>
+												<td>${li.reviewdate }</td>
 													<c:url var="moveupdategoods" value="moveupdategoods4.do">
 													<c:param name="goodsnum" value="${li.goodsnum}"/>
 													</c:url>
@@ -110,38 +135,39 @@
 											<tr>
 										</c:forEach>
 									</table>
+															<input type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									<div id="pagebox" align="center">
-									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }"><i class="fas fa-angle-double-left"></i></a>
+									<a href="moveconsReviewList4.do?page=1"><i class="fas fa-angle-double-left"></i></a>
 									&nbsp;
 									
 									<c:if test="${ (beginPage-10) < 1}">
-									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }"><i class="fas fa-angle-left"></i></a>
+									<a href="moveconsReviewList4.do?page=1"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									<c:if test="${ (beginPage-10) > 1}">
-									<a href="consgoodssearch4.do?page=${beginPage-10 }&goodsname=${goodsname }"><i class="fas fa-angle-left"></i></a>
+									<a href="moveconsReviewList4.do?page=${beginPage-10 }"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									&nbsp;
 									
 									<c:forEach var="p" begin="${beginPage }" end="${endPage }">
 									<c:if test="${p == currentPage }">
-									<a href="consgoodssearch4.do?page=${p }&goodsname=${goodsname }"><font color="red"><b>${p }</b></font></a>
+									<a href="moveconsReviewList4.do?page=${p }"><font color="red"><b>${p }</b></font></a>
 									</c:if >
 									<c:if test="${p != currentPage }">
-									<a href="consgoodssearch4.do?page=${p }&goodsname=${goodsname }">${p }</a>
+									<a href="moveconsReviewList4.do?page=${p }">${p }</a>
 									</c:if>
 									</c:forEach>
 									&nbsp;
 									<c:if test="${(endPage+10) > maxPage }">
-									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }"><i class="fas fa-angle-right"></i></a>
+									<a href="moveconsReviewList4.do?page=${maxPage }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									<c:if test="${(endPage+10) < maxPage }">
-									<a href="consgoodssearch4.do?page=${endPage + 10 }&goodsname=${goodsname }"><i class="fas fa-angle-right"></i></a>
+									<a href="moveconsReviewList4.do?page=${endPage + 10 }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									&nbsp; 
 									
-									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }"><i class="fas fa-angle-double-right"></i></a>
+									<a href="moveconsReviewList4.do?page=${maxPage }"><i class="fas fa-angle-double-right"></i></a>
 									</div>
 									
 								</div>

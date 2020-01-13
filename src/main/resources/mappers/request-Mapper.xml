@@ -11,9 +11,17 @@
 	</select>
 	
 	<insert id="insertRequest" parameterType="Request">
-		insert into request values (reqnum_seq.nextval, #{reqarea}, #{reqregion}, #{reqbudget}, 
-		#{reqname}, #{reqphone}, default, #{consid}, #{userid})
+		insert into request values (reqnum_seq.nextval, #{reqarea}, #{reqregion}, #{reqbudget}, #{reqname}, #{reqphone}, default, #{consid}, #{userid})
 	</insert>
+	
+	<select id="selectRequestList" parameterType="string" resultType="Request">
+		select reqarea,reqregion,reqbudget,reqname,reqphone,to_char(to_date(reqdate,'yyyy/mm/dd'), 'rryy/mm/dd') as reqdate,
+				consid,userid,row_number()over (order by reqnum asc) reqnum
+		from request
+		where consid = #{consid}
+		order by reqnum desc
+	</select>
+	
 	
 	<!-- <select id="selectOne" parameterType="string" resultType="Member">
 		select * from member where userid = #{value}

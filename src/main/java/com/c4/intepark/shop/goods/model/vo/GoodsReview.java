@@ -5,6 +5,10 @@ import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Administrator
+ *
+ */
 @Component
 public class GoodsReview implements Serializable{
 	private static final long serialVersionUID = 4006L;
@@ -16,17 +20,43 @@ public class GoodsReview implements Serializable{
 	private String userid; 
 	private String reviewtitle; 
 	private int goodsnum;
-	public GoodsReview() {
-		super();
-	}
-	public GoodsReview(int reviewnum, Date reviewdate, String reviewcn, int reviewscore, String userid, int goodsnum) {
+	private int categorynum;
+	private String goodsname;
+	private int price;
+	private int inventory;
+	private String freedlvy;
+	private String thumbnail;
+	private String comments;
+	private String description;
+	private int maximum;
+	private String consid;
+	private Date goodsdate;
+	public GoodsReview(int reviewnum, Date reviewdate, String reviewcn, int reviewscore, String userid,
+			String reviewtitle, int goodsnum, int categorynum, String goodsname, int price, int inventory,
+			String freedlvy, String thumbnail, String comments, String description, int maximum, String consid,
+			Date goodsdate) {
 		super();
 		this.reviewnum = reviewnum;
 		this.reviewdate = reviewdate;
 		this.reviewcn = reviewcn;
 		this.reviewscore = reviewscore;
 		this.userid = userid;
+		this.reviewtitle = reviewtitle;
 		this.goodsnum = goodsnum;
+		this.categorynum = categorynum;
+		this.goodsname = goodsname;
+		this.price = price;
+		this.inventory = inventory;
+		this.freedlvy = freedlvy;
+		this.thumbnail = thumbnail;
+		this.comments = comments;
+		this.description = description;
+		this.maximum = maximum;
+		this.consid = consid;
+		this.goodsdate = goodsdate;
+	}
+	public GoodsReview() {
+		super();
 	}
 	public int getReviewnum() {
 		return reviewnum;
@@ -36,12 +66,6 @@ public class GoodsReview implements Serializable{
 	}
 	public Date getReviewdate() {
 		return reviewdate;
-	}
-	public String getReviewtitle() {
-		return reviewtitle;
-	}
-	public void setReviewtitle(String reviewtitle) {
-		this.reviewtitle = reviewtitle;
 	}
 	public void setReviewdate(Date reviewdate) {
 		this.reviewdate = reviewdate;
@@ -64,18 +88,96 @@ public class GoodsReview implements Serializable{
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	public String getReviewtitle() {
+		return reviewtitle;
+	}
+	public void setReviewtitle(String reviewtitle) {
+		this.reviewtitle = reviewtitle;
+	}
 	public int getGoodsnum() {
 		return goodsnum;
 	}
 	public void setGoodsnum(int goodsnum) {
 		this.goodsnum = goodsnum;
 	}
+	public int getCategorynum() {
+		return categorynum;
+	}
+	public void setCategorynum(int categorynum) {
+		this.categorynum = categorynum;
+	}
+	public String getGoodsname() {
+		return goodsname;
+	}
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getInventory() {
+		return inventory;
+	}
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
+	public String getFreedlvy() {
+		return freedlvy;
+	}
+	public void setFreedlvy(String freedlvy) {
+		this.freedlvy = freedlvy;
+	}
+	public String getThumbnail() {
+		return thumbnail;
+	}
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getMaximum() {
+		return maximum;
+	}
+	public void setMaximum(int maximum) {
+		this.maximum = maximum;
+	}
+	public String getConsid() {
+		return consid;
+	}
+	public void setConsid(String consid) {
+		this.consid = consid;
+	}
+	public Date getGoodsdate() {
+		return goodsdate;
+	}
+	public void setGoodsdate(Date goodsdate) {
+		this.goodsdate = goodsdate;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public String toString() {
 		return "GoodsReview [reviewnum=" + reviewnum + ", reviewdate=" + reviewdate + ", reviewcn=" + reviewcn
 				+ ", reviewscore=" + reviewscore + ", userid=" + userid + ", reviewtitle=" + reviewtitle + ", goodsnum="
-				+ goodsnum + "]";
-	}
+				+ goodsnum + ", categorynum=" + categorynum + ", goodsname=" + goodsname + ", price=" + price
+				+ ", inventory=" + inventory + ", freedlvy=" + freedlvy + ", thumbnail=" + thumbnail + ", comments="
+				+ comments + ", description=" + description + ", maximum=" + maximum + ", consid=" + consid
+				+ ", goodsdate=" + goodsdate + "]";
+	}	
 	
 	
 }

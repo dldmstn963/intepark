@@ -126,11 +126,6 @@ public class GoodsController {
 		return "shopping/shop";
 	}
 	
-	@RequestMapping("moveshbasket4.do")
-	public String moveshbasket() {
-		return "shopping/cart";
-	}
-
 	@RequestMapping("movegoodsinsert.do")
 	public String movegoodsinsert() {
 		return "shopping/cons/production/plain";
@@ -261,6 +256,7 @@ public class GoodsController {
 				GoodsSearch goodsSearch) {
 			logger.info("상품 목록 검색 : " + cons);
 			String consid = cons.getConsid();
+			goodsname = "%"+goodsname+"%";
 			goodsSearch.setConsid(consid);
 			goodsSearch.setGoodsname(goodsname);
 			Paging p = new Paging(goodsService.selectsearchlistCount(goodsSearch));
