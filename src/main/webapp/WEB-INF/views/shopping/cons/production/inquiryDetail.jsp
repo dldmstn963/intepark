@@ -59,23 +59,16 @@
                   </div>
                   <div class="x_content">
                   
-                   주문자 정보
                   <table border="1px solid black" align="center">
-                  <tr><td>주문자 명</td><td>${user.username }</td></tr>
-                  <tr><td>휴대폰</td><td>${user.phone }</td></tr>
-                  <tr><td>이메일</td><td>${user.email }</td></tr>
-                  <tr><td>주소</td><td>${user.address }</td></tr>
+                  <tr><td>문의 번호</td><td>${inquiry.inquirynum }</td></tr>
+                  <tr><td>문의 타입</td><td>${inquiry.inquirytype }</td></tr>
+                  <tr><td>문의 제목</td><td>${inquiry.inquirytitle }</td></tr>
+                  <tr><td>문의 내용</td><td>${inquiry.inquirycn }</td></tr>
+                  <tr><td>문의 날짜</td><td>${inquiry.inquirydate }</td></tr>
+                  <tr><td>작성자</td><td>${inquiry.userid }</td></tr>
+                  <tr><td>상품 번호</td><td>${inquiry.goodsnum }</td></tr>
                   </table>
                 
-                수취인 정보
-                <table>
-                <table border="1px solid black" align="center">
-                  <tr><td>수취인명</td><td>${all.addressee }</td></tr>
-                  <tr><td>휴대폰</td><td>${all.phone }</td></tr>
-                  <tr><td>주소</td><td>${all.address }</td></tr>
-                  <tr><td>요청사항</td><td>${all.requestcn }</td></tr>
-                  </table>
-                </table>
                 
                 
                   </div>

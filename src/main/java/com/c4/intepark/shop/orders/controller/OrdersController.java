@@ -1,8 +1,12 @@
 package com.c4.intepark.shop.orders.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +18,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.inteuser.model.vo.InteUser;
@@ -320,7 +326,7 @@ public class OrdersController {
 			out.println("<script>alert('삭제 실패!');</script>");
 		}
 	}
-	
+
 	@RequestMapping(value = "updateOrderscheck4.do", method = RequestMethod.POST)
 	public void updateOrderscheck4(HttpServletRequest request, @RequestParam("lists") String checkBox,
 			HttpServletResponse response) throws IOException {
@@ -337,5 +343,76 @@ public class OrdersController {
 		} else {
 			out.println("<script>alert('주문 취소 실패!');</script>");
 		}
+	}
+
+	@RequestMapping("moveinquiryDetail4.do")
+	public String moveinquiryDetail(@RequestParam("inquirynum") int inquirynum, HttpServletRequest request) {
+		logger.info("상품 상세 조회" + inquirynum);
+		System.out.println("----------------------------");
+		Enumeration params = request.getParameterNames();
+		while (params.hasMoreElements()) {
+			String name = (String) params.nextElement();
+			System.out.println(name + " : " + request.getParameter(name));
+		}
+		System.out.println("----------------------------");
+		Inquiry inquiry = ordersService.selectInquiry(inquirynum);
+		request.setAttribute("inquiry", inquiry);
+		return "shopping/cons/production/inquiryDetail";
+	}
+
+	@RequestMapping("dfsfsdfsd4.do")
+	public String dfsfsdfsd4() {
+		return "shopping/cons/production/test";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "fileuptest4.do", method = RequestMethod.POST)
+	public int multiImageUpload(@RequestParam("files") List<MultipartFile> images, HttpServletRequest request)
+			throws IllegalStateException, IOException {
+		logger.info("파일 업로드 실행");
+		long sizeSum = 0;
+		for (MultipartFile image : images) {
+			String originalName = image.getOriginalFilename();
+			// 확장자 검사
+			if (!isValidExtension(originalName)) {
+				return -1;
+			}
+
+			// 용량 검사
+			sizeSum += image.getSize();
+			if (sizeSum >= 10 * 1024 * 1024) {
+				return -2;
+			}
+
+			// TODO 저장..
+			int i = 0;
+			MultipartFile files = image;
+			System.out.println("name     " + originalName);
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS" + i);
+			String reName1 = sdf1.format(new java.sql.Date(System.currentTimeMillis())) + "."
+					+ originalName.substring(originalName.lastIndexOf(".") + 1);
+			files.transferTo(
+					new File(request.getSession().getServletContext().getRealPath("resources/img/goodsreviewpic") + "\\"
+							+ reName1));
+			logger.info("상품 사진 등록 성공 : " + originalName);
+
+			i++;
+		}
+
+		// 실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
+		// 특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
+		return 1;
+	}
+
+	// required above jdk 1.7 - switch(String)
+	private boolean isValidExtension(String originalName) {
+		String originalNameExtension = originalName.substring(originalName.lastIndexOf(".") + 1);
+		switch (originalNameExtension) {
+		case "jpg":
+		case "png":
+		case "gif":
+			return true;
+		}
+		return false;
 	}
 }

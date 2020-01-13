@@ -153,7 +153,11 @@
 </tr>
 <c:forEach var="re" items="${ goodsreview}">
 <tr>
-<td></td>
+<td>
+<c:if test="${re.refile != 'null'}">
+<img src="/intepark/resources/img/goodsreviewpic/${re.refile }" width="100px;">
+</c:if>
+</td>
 <td>${re.reviewtitle }</td>
 <td>${re.userid }</td>
 <td>${re.reviewdate }</td>

@@ -188,7 +188,10 @@ SET ORDERSTATUS = '주문 취소'
 WHERE ORDERNUM = #{ordernum}
 </update>
 
-
+<select id="selectInquiry" resultType="GoodsInquiry" parameterType="int">
+select * from GOODSINQUIRY
+where INQUIRYNUM = #{inquirynum}
+</select>
 
 
 

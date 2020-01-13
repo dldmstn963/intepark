@@ -79,7 +79,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 <![CDATA[
 select * 
 from (select rownum rnum, REVIEWDATE, 
-REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN
+REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN,refile
 from (select * from GoodsReview 
 where GOODSNUM= #{goodsnum} order by REVIEWDATE desc)) 
 where rnum >= #{startRow} and rnum <= #{endRow}
@@ -129,7 +129,7 @@ description = #{description} and maximum = #{maximum}
 insert into 
 GOODSPIC 
 values (
-#{picnum},
+goodsPICnum.nextval,
 #{orifile},
 #{refile},
 #{goodsnum}
@@ -176,14 +176,14 @@ default,
 
 <insert id="insertGoodsReview" parameterType="GoodsReview">
 insert into GoodsReview values(
-(select max(reviewnum)+1 
-from GoodsReview),
+#{reviewnum},
 sysdate,
 #{reviewcn},
 #{reviewscore},
 #{userid},
 #{goodsnum},
-#{reviewtitle}
+#{reviewtitle},
+#{refile}
 )
 </insert>
 
@@ -204,9 +204,21 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
+<insert id="insertReviewPic">
+insert into 
+GOODSREVIEWPIC 
+values (
+goodsreviewPICnum.nextval,
+null,
+#{refile},
+#{goodsnum}
+)
+</insert>
 
-
-
+<select id="selectGoodsReviewNum" resultType="int">
+select goodsreviewnum.nextval
+from dual
+</select>
 
 
 

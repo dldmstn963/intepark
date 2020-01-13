@@ -71,6 +71,7 @@
 											<td>제목</td>
 											<td>작성자</td>
 											<td>작성일</td>
+											<td>상태</td>
 											<td>기능</td>
 										</tr>
 										<script>
@@ -104,11 +105,13 @@
 												<td>${li.inquirytitle }</td>
 												<td>${li.userid }</td>
 												<td>${li.inquirydate }</td>
-													<c:url var="moveupdategoods" value="moveupdategoods4.do">
-													<c:param name="goodsnum" value="${li.goodsnum}"/>
+												<td>${li.answersttus }</td>
+													<c:url var="moveinquiryDetail" value="moveinquiryDetail4.do">
+													<c:param name="inquirynum" value="${li.inquirynum}"/>
 													</c:url>
-												<td><input type="button" value="수정" onclick="location='${moveupdategoods}'"> 
+												<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
 													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
+													<input type="button" value="답변 하기" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');

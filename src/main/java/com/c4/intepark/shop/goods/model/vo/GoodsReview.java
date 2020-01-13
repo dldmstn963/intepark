@@ -31,29 +31,20 @@ public class GoodsReview implements Serializable{
 	private int maximum;
 	private String consid;
 	private Date goodsdate;
-	public GoodsReview(int reviewnum, Date reviewdate, String reviewcn, int reviewscore, String userid,
-			String reviewtitle, int goodsnum, int categorynum, String goodsname, int price, int inventory,
-			String freedlvy, String thumbnail, String comments, String description, int maximum, String consid,
-			Date goodsdate) {
-		super();
-		this.reviewnum = reviewnum;
-		this.reviewdate = reviewdate;
-		this.reviewcn = reviewcn;
-		this.reviewscore = reviewscore;
-		this.userid = userid;
-		this.reviewtitle = reviewtitle;
-		this.goodsnum = goodsnum;
-		this.categorynum = categorynum;
-		this.goodsname = goodsname;
-		this.price = price;
-		this.inventory = inventory;
-		this.freedlvy = freedlvy;
-		this.thumbnail = thumbnail;
-		this.comments = comments;
-		this.description = description;
-		this.maximum = maximum;
-		this.consid = consid;
-		this.goodsdate = goodsdate;
+	private int picnum;
+	private String refile;
+	
+	public int getPicnum() {
+		return picnum;
+	}
+	public void setPicnum(int picnum) {
+		this.picnum = picnum;
+	}
+	public String getRefile() {
+		return refile;
+	}
+	public void setRefile(String refile) {
+		this.refile = refile;
 	}
 	public GoodsReview() {
 		super();

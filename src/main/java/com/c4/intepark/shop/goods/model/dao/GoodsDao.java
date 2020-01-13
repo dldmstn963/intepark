@@ -118,4 +118,12 @@ public class GoodsDao {
 		return (ArrayList<Goods>) list;
 	}
 
+	public int insertReviewPic(GoodsPic gp) {
+		return mybatis.insert("goodsMapper.insertReviewPic", gp);
+	}
+
+	public int selectGoodsReviewNum() {
+		return mybatis.selectOne("goodsMapper.selectGoodsReviewNum");
+	}
+
 }
