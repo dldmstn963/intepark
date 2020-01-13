@@ -99,17 +99,35 @@ public class NoticeController {
 		}	
 		
 		
-	/*
-	 * //02. 게시글 상세보기
-	 * 
-	 * @RequestMapping(value="ndetail2.do", method=RequestMethod.GET) public
-	 * ModelAndView noticeDetail(@RequestParam(value="n", required=false) int
-	 * noticeno , ModelAndView mv) { Notice notice =
-	 * noticeService.selectOne(noticeno);
-	 * 
-	 * //조회수 증가 처리
-	 * 
-	 * 
+	
+	  //02. 게시글 상세보기
+	  @RequestMapping(value="ndetail2.do", method=RequestMethod.GET) 
+	  public String noticeDetail(Model model, HttpServletRequest request) {
+		  System.out.println(request.getParameter("no"));
+		  int noticeno = Integer.parseInt(request.getParameter("no"));
+		  String currentPage = (String)request.getParameter("page");
+		  //리런 후 db정보 보낼 패이지
+		  String view = "notice/noticeDetailView";
+		  
+		  
+		  
+		  Notice notice = noticeService.selectOne(noticeno);
+		  System.out.println("notice 정보 : "+ notice);
+		//조회수 증가 서비스보내기
+		   noticeService.updateReadCount(noticeno);//조회수 1증가 처리 보내기
+		  if (notice != null) {
+			  model.addAttribute("notice", notice);
+			  
+			  model.addAttribute("currentPage", currentPage);
+		}else {
+			model.addAttribute("message", "공지사항 상세보기실패!");
+			view = "common/error";
+		}
+		  return view;
+	  }
+	  
+	  
+	/* 
 	 * //전달할 뷰의 이름 if (notice != null) { mv.addObject("notice", notice);
 	 * mv.setViewName("notice/noticeDetailView"); }else { mv.addObject("message",
 	 * "공지사항 상세보기 실패!"); mv.setViewName("common/error"); }
