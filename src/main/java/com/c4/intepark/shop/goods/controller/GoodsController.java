@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -83,7 +85,6 @@ public class GoodsController {
 		goodsSearch.setEndRow(p.getEndRow());
 		goodsSearch.setGoodsnum(goodsnum);
 		ArrayList<GoodsReview> goodsreview = goodsService.selectGoodsReview(goodsSearch);
-
 		Paging p1 = new Paging(goodsService.selectgoodsInquiryAllListCount(goodsnum));
 		if (request.getParameter("page1") != null) {
 			p1.setCurrentPage(Integer.parseInt(request.getParameter("page1")));
@@ -283,13 +284,7 @@ public class GoodsController {
 			request.setAttribute("goods", goods);
 			return "shopping/reviewinsert";
 		}
-		
-		@RequestMapping(value="goodsReviewInsert4.do", method=RequestMethod.POST)
-		public String goodsReviewInsert (GoodsReview goodsreview, HttpServletRequest request) {
-			int result = goodsService.insertGoodsReview(goodsreview);
-			logger.info("리뷰 작성 완료 : " + result);
-			return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
-		}
+
 		
 		@RequestMapping("moveinquiryinsert4.do")
 		public String moveinquiryinsert4(HttpServletRequest request,@RequestParam(name = "goodsnum", required = false)int goodsnum) {
@@ -326,4 +321,72 @@ public class GoodsController {
 			request.setAttribute("endPage", p.getEndPage());
 			return "shopping/shop";
 		}
+		
+		public static int reviewNum = 0;
+		public static String reviewThum = "null";
+		@ResponseBody
+		@RequestMapping(value = "goodsreviewimgup4.do", method = RequestMethod.POST)
+		public int multiImageUpload(@RequestParam("files") List<MultipartFile> images, HttpServletRequest request)
+				throws IllegalStateException, IOException {
+			logger.info("파일 업로드 실행");
+			long sizeSum = 0;
+			int i = 0;
+			reviewThum = "null";
+			reviewNum = goodsService.selectGoodsReviewNum();
+			for (MultipartFile image : images) {
+				String originalName = image.getOriginalFilename();
+				// 확장자 검사
+				if (!isValidExtension(originalName)) {
+					return -1;
+				}
+
+				// 용량 검사
+				sizeSum += image.getSize();
+				if (sizeSum >= 10 * 1024 * 1024) {
+					return -2;
+				}
+
+				// TODO 저장..
+				MultipartFile files = image;
+				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS" + i);
+				String reName1 = sdf1.format(new java.sql.Date(System.currentTimeMillis())) + "."
+						+ originalName.substring(originalName.lastIndexOf(".") + 1);
+				files.transferTo(
+						new File(request.getSession().getServletContext().getRealPath("resources/img/goodsreviewpic") + "\\"
+								+ reName1));
+				GoodsPic gp = new GoodsPic();
+				gp.setRefile(reName1);
+				gp.setGoodsnum(reviewNum);
+				int result = goodsService.insertReviewPic(gp);
+				++i;
+				reviewThum=reName1;
+			}
+
+			// 실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
+			// 특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
+			return 1;
+		}
+
+		// required above jdk 1.7 - switch(String)
+		private boolean isValidExtension(String originalName) {
+			String originalNameExtension = originalName.substring(originalName.lastIndexOf(".") + 1);
+			switch (originalNameExtension) {
+			case "jpg":
+			case "png":
+			case "gif":
+				return true;
+			}
+			return false;
+		}
+		
+		
+		@RequestMapping(value="goodsReviewInsert4.do", method=RequestMethod.POST)
+		public String goodsReviewInsert (GoodsReview goodsreview, HttpServletRequest request) {
+			goodsreview.setReviewnum(reviewNum);
+			goodsreview.setRefile(reviewThum);
+			int result = goodsService.insertGoodsReview(goodsreview);
+			logger.info("리뷰 작성 완료 : " + result);
+			return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
+		}
+
 }

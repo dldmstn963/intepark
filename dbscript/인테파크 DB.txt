@@ -564,7 +564,8 @@ CREATE TABLE GOODSREVIEW (
    REVIEWSCORE   NUMBER      NULL,
    userid   varchar2(15)      NOT NULL,
    GOODSNUM   number      NOT NULL,
-   reviewTITLE   VARCHAR2(4000)    NOT NULL
+   reviewTITLE   VARCHAR2(4000)    NOT NULL,
+   refile varchar2(4000)
 );
 
 COMMENT ON COLUMN GOODSREVIEW.REVIEWNUM IS '상품평 번호';
@@ -938,12 +939,7 @@ ALTER TABLE INTRSTSHOP ADD CONSTRAINT FK_inteuser_TO_INTRSTSHOP_1 FOREIGN KEY (
 REFERENCES inteuser (
    userid
 )ON DELETE CASCADE;
-ALTER TABLE GOODSREVIEWPIC ADD CONSTRAINT FK_GOODSREVIEW_1 FOREIGN KEY (
-   REVIEWNUM
-)
-REFERENCES GOODSREVIEW (
-   REVIEWNUM
-)ON DELETE CASCADE;
+
 
 ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT FK_GOODSINQUIRY_1 FOREIGN KEY (
    INQUIRYNUM
@@ -1507,27 +1503,19 @@ insert into GOODSPIC values(1,null,'85029.jpg',59);
 insert into GOODSPIC values(2,null,'85028.jpg',59);
 insert into GOODSPIC values(3,null,'85027.jpg',59);
 insert into GOODSPIC values(4,null,'85026.jpg',59);
-
+insert into DELIVERYLIST VALUES(1,'이은수','강원도 강릉시 노암동 남산현대 아파트 102동 - 404호',01043761266,'강릉집','user1');
+insert into REQUESTS VALUES(1, '집앞에 두고가주세요', 'user1');
+insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',59,'좋아요' );
+insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',59);
 insert into ORDERS values(
 ORDERS_SEQ.nextval,sysdate,
 99000,'주문 접수','user1', 1, 1,1,59,12900);
-
-
-
-
-
-
-
-
-
-
-insert into DELIVERYLIST VALUES(1,'이은수','강원도 강릉시 노암동 남산현대 아파트 102동 - 404호',01043761266,'강릉집','user1');
-insert into REQUESTS VALUES(1, '집앞에 두고가주세요', 'user1');
-
-
-insert into GOODSREVIEW values(1, sysdate, '좋아요',5,'user1',59,'좋아요' );
-insert into GOODSINQUIRY values(1,'문의 내용',1,'문의제목','N',sysdate,default,'user1',59);
-
+drop sequence goodsreviewnum;
+CREATE SEQUENCE goodsreviewnum;
+drop sequence goodsreviewPICnum;
+CREATE SEQUENCE goodsreviewPICnum;
+drop sequence goodsPICnum;
+CREATE SEQUENCE goodsPICnum;
 
 
 

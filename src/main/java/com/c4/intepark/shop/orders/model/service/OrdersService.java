@@ -63,5 +63,7 @@ public interface OrdersService {
 
 	int updateOrderscheck(String ordernum);
 
+	Inquiry selectInquiry(int inquirynum);
+
 
 }
