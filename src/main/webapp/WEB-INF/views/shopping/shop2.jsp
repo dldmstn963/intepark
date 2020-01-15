@@ -128,28 +128,28 @@
                         <!-- Pagination -->
                         <nav aria-label="navigation">
                             <ul class="pagination justify-content-end mt-50">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=1">|◁</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=1&categorynum=${categorynum }">|◁</a></li>
                             	<c:if test="${ (beginPage-10) < 1}">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=1">◀◀</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=1&categorynum=${categorynum }">◀◀</a></li>
                             </c:if>
 								<c:if test="${ (beginPage-10) > 1}">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=${beginPage-10 }">◀◀</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=${beginPage-10 }&categorynum=${categorynum }">◀◀</a></li>
 								</c:if>
                             <c:forEach var="p" begin="${beginPage }" end="${endPage }">
                                 <c:if test="${p == currentPage }">
-                                <li class="page-item active"><a class="page-link" href="moveshopcategory4.do?page=${p }">${p }</a></li>
+                                <li class="page-item active"><a class="page-link" href="moveshopcategorysub4.do?page=${p }&categorynum=${categorynum }">${p }</a></li>
                                 </c:if >
                                 <c:if test="${p != currentPage }">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=${p }">${p }</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=${p }&categorynum=${categorynum }">${p }</a></li>
                                 </c:if >
                                 </c:forEach>
                                 <c:if test="${(endPage+10) > maxPage }">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=${maxPage }">▶▶</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=${maxPage }&categorynum=${categorynum }">▶▶</a></li>
                             </c:if>
                             <c:if test="${(endPage+10) < maxPage }">
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=${endPage + 10 }">▶▶</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=${endPage + 10 }&categorynum=${categorynum }">▶▶</a></li>
                             </c:if>
-                                <li class="page-item"><a class="page-link" href="moveshopcategory4.do?page=${maxPage }">▷|</a></li>
+                                <li class="page-item"><a class="page-link" href="moveshopcategorysub4.do?page=${maxPage }&categorynum=${categorynum }">▷|</a></li>
                             </ul>
                         </nav>
                     </div>

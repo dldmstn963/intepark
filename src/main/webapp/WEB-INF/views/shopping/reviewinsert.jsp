@@ -207,10 +207,8 @@
             var form = $('#uploadForm')[0];
             var formData = new FormData(form);
 
-            for (var index = 0; index < Object.keys(files).length; index++) {
-                //formData 공간에 files라는 이름으로 파일을 추가한다.
-                //동일명으로 계속 추가할 수 있다.
-                formData.append('files',files[index]);
+            for (var key in files){      
+                formData.append('files',files[key]);
             }
             var result1="";
             //ajax 통신으로 multipart form을 전송한다.
