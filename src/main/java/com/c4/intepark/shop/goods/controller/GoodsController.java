@@ -319,7 +319,8 @@ public class GoodsController {
 			request.setAttribute("currentPage", p.getCurrentPage());
 			request.setAttribute("beginPage", p.getBeginPage());
 			request.setAttribute("endPage", p.getEndPage());
-			return "shopping/shop";
+			request.setAttribute("categorynum", categorynum);
+			return "shopping/shop2";
 		}
 		
 		public static int reviewNum = 0;

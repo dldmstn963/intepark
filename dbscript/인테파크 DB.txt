@@ -1518,7 +1518,7 @@ insert into GOODSPIC values(101,null,'85027.jpg',59);
 insert into GOODSPIC values(102,null,'85026.jpg',59);
 insert into DELIVERYLIST VALUES(100,'이은수','강원도 강릉시 노암동 남산현대 아파트 102동 - 404호',01043761266,'강릉집','user1');
 insert into REQUESTS VALUES(100, '집앞에 두고가주세요', 'user1');
-insert into GOODSREVIEW values(100, sysdate, '좋아요',5,'user1',59,'좋아요' );
+insert into GOODSREVIEW values(100, sysdate, '좋아요',5,'user1',59,'좋아요','202001141630556270.jpg');
 insert into GOODSINQUIRY values(100,'문의 내용',1,'문의제목','N',sysdate,default,'user1',59);
 insert into ORDERS values(
 ORDERS_SEQ.nextval,sysdate,
@@ -1531,8 +1531,8 @@ CREATE SEQUENCE goodsreviewPICnum;
 drop sequence goodsPICnum;
 CREATE SEQUENCE goodsPICnum;
 
-insert into GOODSREVIEWPICvalues(99,null,'202001141630556270.jpg',100);
-insert into GOODSREVIEWPICvalues(100,null,'202001141630556451.jpg',100);
+insert into GOODSREVIEWPIC values(99,null,'202001141630556270.jpg',100);
+insert into GOODSREVIEWPIC values(100,null,'202001141630556451.jpg',100);
 
 
 
