@@ -9,6 +9,7 @@ import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.dao.InteuserDao;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 import com.c4.intepark.loginInfo.model.vo.LoginInfo;
+import com.c4.intepark.loginInfo.model.vo.LoginMemberState;
 
 @Service("inteUserService")
 public class InteuserServiceImpl implements InteuserService{
@@ -49,13 +50,38 @@ public class InteuserServiceImpl implements InteuserService{
 	}
 
 	@Override
-	public InteUser selectAdUserDetail(String userid) {
-		return userDao.selectAdUserDetail(userid);
+	public InteUser selectUserDetail(String userid) {
+		return userDao.selectUserDetail(userid);
 	}
 
 	@Override
 	public int insertLoginId(LoginInfo loginInfo) {
 		return userDao.insertLoginId(loginInfo);
+	}
+
+	@Override
+	public int updateUser(InteUser inteuser) {
+		return userDao.updateUser(inteuser);
+	}
+
+	@Override
+	public int selectUserPwdCheck(LoginInfo loginfo) {
+		return userDao.selectUserPwdCheck(loginfo);
+	}
+
+	@Override
+	public int updateUserPwd(LoginInfo loginfo) {
+		return userDao.updateUserPwd(loginfo);
+	}
+
+	@Override
+	public int updateDeleteUser(LoginMemberState logms) {
+		return userDao.updateDeleteUser(logms);
+	}
+
+	@Override
+	public ArrayList<LoginMemberState> selectUserStopState(String userid) {
+		return userDao.selectUserStopState(userid);
 	}
 
 }

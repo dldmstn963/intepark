@@ -16,7 +16,7 @@
 	<insert id="insertUser" parameterType="InteUser">
 		insert into inteuser values(#{userid}, sysdate, 
 		#{username}, #{phone, javaType=String, jdbcType=VARCHAR}, 
-		#{email}, #{address})
+		#{email}, #{address, javaType=String, jdbcType=VARCHAR})
 	</insert>
 	
 	<select id="selectIdCheck" parameterType="String" resultType="_int">
@@ -29,6 +29,7 @@
 	
 	<select id="selectAllListCount" parameterType="CommonPage" resultType="_int">
 		select count(*) from inteuser
+		join logininfo on(logid=userid) 
 		<trim prefix="WHERE" prefixOverrides="AND">
 		<if test="userid != null and userid !=''">
 		userid like '%'||#{userid}||'%'
@@ -37,10 +38,10 @@
 		and username like '%'||#{username}||'%'
 		</if>
 		<if test="startdate != null and startdate !=''">
-		and enrolldate between #{startdate} and #{enddate}
+		and enrolldate between #{startdate} and to_char(to_date(#{enddate})+1)
 		</if>
 		<if test="memberstate != null and memberstate !=''">
-		and memberstate = {stitle}
+		and memberstate = #{memberstate}
 		</if>
 		</trim>
 	</select>
@@ -49,6 +50,7 @@
 				select *
 		from (select rownum rnum, userid, username, phone, email, address, memberstate, enrolldate
 			  from (select * from inteuser
+			  		join logininfo on(logid=userid)
 			  		<trim prefix="WHERE" prefixOverrides="AND">
 					<if test="userid != null and userid !=''">
 					userid like '%'||#{userid}||'%'
@@ -57,10 +59,10 @@
 					and username like '%'||#{username}||'%'
 					</if>
 					<if test="startdate != null and startdate !=''">
-					and enrolldate between #{startdate} and #{enddate}
+					and enrolldate between #{startdate} and to_char(to_date(#{enddate})+1)
 					</if>
 					<if test="memberstate != null and memberstate !=''">
-					and memberstate = {stitle}
+					and memberstate = #{memberstate}
 					</if>
 					</trim>
                     order by enrolldate desc))
@@ -69,8 +71,36 @@
 					]]>
 	</select>
 	
-	<select id="selectAdUserDetail" parameterType="String" resultType="InteUser">
-	 	select * from inteuser where userid=#{value}
+	<select id="selectUserDetail" parameterType="String" resultType="InteUser">
+	 	select userid, enrolldate, username, phone, email, address, memberstate,withdrawdate,withdrawcause
+		from inteuser 
+		join logininfo on(logid=userid)
+		where userid=#{value}
+	</select>
+	
+	<update id="updateUser" parameterType="InteUser">
+		update inteuser set username=#{username}, phone=#{phone}, email=#{email}, address=#{address}
+		where userid=#{userid}
+	</update>
+	
+	<select id="selectUserPwdCheck" parameterType="LoginInfo" resultType="int">
+		select count(*) from logininfo where logid=#{logid} and logpwd=#{logpwd}
+	</select>
+	
+	<update id="updateUserPwd" parameterType="LoginInfo">
+		update logininfo set logpwd=#{logpwd} 
+		where logid=#{logid}
+	</update>
+	
+	<update id="updateDeleteUser" parameterType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+		update logininfo set enabled=0, memberstate='탈퇴', withdrawdate=sysdate, withdrawcause=#{withdrawcause}
+		where logid=#{logid}
+	</update>
+	
+	<select id="selectUserStopState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+		select stopcause, stopstartdate, stopfinishdate, stopterm
+		from loginstop
+		where logid = #{value}
 	</select>
 	
 </mapper>

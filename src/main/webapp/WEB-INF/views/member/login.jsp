@@ -27,8 +27,8 @@
 	<div class="container">
 
 		<div style="text-align: center">
-			<a href="main.do"><img src="/intepark/resources/img/favicon.ico"
-				height="150" width="150"></a><br>
+			<a href="main.do"><img src="/intepark/resources/img/logo.png"
+				height="150" width="300"></a><br><br>
 		</div>
 		<div class="row">
 			<div class="col-lg-4"></div>
