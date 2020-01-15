@@ -175,5 +175,11 @@ public class GoodsServiceImpl implements GoodsService{
 	public ArrayList<GoodsReview> selectGoodsReviewDetailPic(int reviewnum) {
 		return goodsDao.selectGoodsReviewDetailPic(reviewnum);
 	}
+
+
+	@Override
+	public float selectreviewscore(int goodsnum) {
+		return goodsDao.selectreviewscore(goodsnum);
+	}
 	
 }
