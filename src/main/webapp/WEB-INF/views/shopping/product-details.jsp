@@ -158,7 +158,7 @@
 <img src="/intepark/resources/img/goodsreviewpic/${re.refile }" width="100px;">
 </c:if>
 </td>
-<td>${re.reviewtitle }</td>
+<td><a href="goodsReviewDetail4.do?reviewnum=${re.reviewnum }&goodsnum=${goods.goodsnum}">${re.reviewtitle }</a></td>
 <td>${re.userid }</td>
 <td>${re.reviewdate }</td>
 </tr>

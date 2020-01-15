@@ -193,7 +193,11 @@ select * from GOODSINQUIRY
 where INQUIRYNUM = #{inquirynum}
 </select>
 
-
+<select id="selectMyOrderAll" resultType="AllOrders" parameterType="String">
+select * from ORDERS
+NATURAL join deliverylist natural join requests natural join goods
+where userid = #{value}
+</select>
 
 
 

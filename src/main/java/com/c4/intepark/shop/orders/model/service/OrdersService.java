@@ -65,5 +65,7 @@ public interface OrdersService {
 
 	Inquiry selectInquiry(int inquirynum);
 
+	ArrayList<Orders> selectMyOrderAll(String userId);
+
 
 }

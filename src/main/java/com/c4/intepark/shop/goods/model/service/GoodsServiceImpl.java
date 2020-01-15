@@ -163,5 +163,17 @@ public class GoodsServiceImpl implements GoodsService{
 	public int selectGoodsReviewNum() {
 		return goodsDao.selectGoodsReviewNum();
 	}
+
+
+	@Override
+	public GoodsReview selectGoodsReviewDetail(int reviewnum) {
+		return goodsDao.selectGoodsReviewDetail(reviewnum);
+	}
+
+
+	@Override
+	public ArrayList<GoodsReview> selectGoodsReviewDetailPic(int reviewnum) {
+		return goodsDao.selectGoodsReviewDetailPic(reviewnum);
+	}
 	
 }

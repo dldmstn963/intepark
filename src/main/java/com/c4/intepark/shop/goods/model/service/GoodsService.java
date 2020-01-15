@@ -60,4 +60,8 @@ public interface GoodsService {
 	public int insertReviewPic(GoodsPic gp);
 
 	public int selectGoodsReviewNum();
+
+	public GoodsReview selectGoodsReviewDetail(int reviewnum);
+
+	public ArrayList<GoodsReview>  selectGoodsReviewDetailPic(int reviewnum);
 }

@@ -72,9 +72,9 @@
 		<div class="cart-fav-search mb-100">
 			<a href="moveshbasket42.do" class="cart-nav"><img
 				src="/intepark/resources/img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
-			<a href="product-details.jsp" class="fav-nav"><img
+			<a href="moveMyOrderList4.do" class="fav-nav"><img
 				src="/intepark/resources/img/core-img/favorites.png" alt="">
-				관심있는 상점 </a> <a href="#" class="search-nav"><img
+				나의 쇼핑 정보 </a> <a href="#" class="search-nav"><img
 				src="/intepark/resources/img/core-img/search.png" alt=""> 검색</a>
 		</div>
 		<!-- Social Button -->
