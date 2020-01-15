@@ -32,6 +32,30 @@ span {
     opacity: .5;
     cursor: pointer;
 }
+#preview img {
+    width: 100px;
+    height: 100px;
+}
+#preview p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.preview-box {
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right:10px;
+    
+    display:inline-block;
+}
+#attach{
+	border-radius: 5px;
+}
+.aa{
+	float:right;
+	color:gray;
+}
 </style>
 
 </head>
@@ -71,8 +95,8 @@ span {
 		<div class="col-lg-7">
 	
 	
-			
-		<form action="insertReview5.do" method="post" onsubmit="return reviewCheck();" name="frm">
+		
+		<form action="insertReview5.do" method="post" onsubmit="return reviewCheck();" name="frm" enctype="multipart/form-data">
 			<input type="hidden" name="consid" value="${cons.consid}">
 			<c:if test="${!empty sessionScope.loginCons }">
 			<input type="hidden" name="userid" value="${sessionScope.loginCons.consid }">
@@ -299,67 +323,42 @@ span {
 				
 			<!-- -------------------------------------------------------------------------------------------------------------------- -->	
 			
-				<!-- <h4><strong style="color:black;">시공 사진</strong>&nbsp;(선택)</h4>
-				<p style="font-weight:bold;">시공 전/후 이미지 혹은 완성 이미지를 공유해주세요! (최대 5장)</p>
-				<span id="rvoriginalname_keyup" tabindex="0"></span>
-				
-				<div class="expert-user-form__form-group__input">
-					<div class="photo-input-wrap expert-review-form__photo-input">
-						<ul class="photo-input">
-							<li class="photo-input__upload">
-								<button class="photo-input__upload__button" type="button">
-									<span class="content">
-										<svg class="icon" width="24" height="24" preserveAspectRatio="xMidYMid meet">
-											<path fill="#424242" fill-rule="nonzero" d="M6 4.9l1.2-3c.1-.3.4-.6.8-.6h8c.4 0 .7.3.8.6l1.2 3h5.1c.5 0 .9.4.9.9v16c0 .5-.4.9-.9.9H1a.9.9 0 0 1-.9-1v-16c0-.4.4-.8.9-.8h5zM12 19a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z">
-											</path>
-										</svg>
-											<div>사진 올리기</div>
-									</span>
-								</button>
-								<input type="file">
-							</li>
-							
-							
-						</ul>
-					</div>
-				</div> -->
-				
+			
+			
+			<div class="wrapper">
+        <div class="body" style="display:inline-block;">
+        
+            <!-- 미리보기 영역 -->
+            <div id="preview" style="display:inline-block;"></div>
+            
+            <!-- multipart 업로드시 영역 -->
+            <!-- <form id="uploadForm" style="display: none;" /> -->
+        </div>
+
+        <!-- 첨부 버튼 -->
+        <div id="attach" style="display:inline-block; width:100px; height:100px; border:1px solid;">
+                <label for="uploadInputBox"><i class="fa fa-camera-retro fa-2x" style="padding-left: 33px;padding-top: 28px;"></i><br>&nbsp;&nbsp;&nbsp;사진올리기</label>
+                <input type="file" id="uploadInputBox" name="filedata" multiple style="display: none" />
+        </div>
+        
+        
+</div>
+			
+			
+			
+			
 
 				
-				<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>	
-				
-				
-				
+				<br><br><br>
+
 			<div class="form-group">
 				<input type="submit" value="완료" class="form-control btn" id="ok">
 			</div>
 		</form>
 			<br><br><br>
+			<br><br><br>
 			
 			
-			
-			
-			
-			<!-- <div>
-				<h2><b>이미지 미리보기</b></h2>
-				<div class="input_wrap">
-					<a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>
-					<input type="file" id="input_imgs" multiple/>
-				</div>
-			</div>
-			
-			<div>
-				<div class="imgs_wrap">
-					<img id="img"/>
-				</div>
-			</div>
-			
-			<a href="javascript:" class="my_button" onclick="submitAction();">업로드</a>
-			
-			<br><br><br> -->
-			
-			
-					
 			</div><!-- 7 div 끝 -->
 		<div class="col-lg-2"></div>
 	</div><!-- row 끝 -->
@@ -368,70 +367,97 @@ span {
 
 <script type="text/javascript">
 
-/* 
-//1. 다중 파일 선택시 미리보기
-//이미지 정보들을 담을 배열
-var sel_files = [];
+
+
+//임의의 file object영역
+var files = {};
+var previewIndex = 0;
+
+// image preview 기능 구현
+// input = file object[]
+function addPreview(input) {
+    if (input[0].files) {
+        //파일 선택이 여러개였을 시의 대응
+        for (var fileIndex = 0; fileIndex < input[0].files.length; fileIndex++) {
+            var file = input[0].files[fileIndex];
+
+            if (validation(file.name))
+                continue;
+            setPreviewForm(file);
+            
+        }
+    } else
+        alert('invalid file input'); // 첨부클릭 후 취소시의 대응책은 세우지 않았다.
+}
+
+function setPreviewForm(file, img){
+    var reader = new FileReader();
+    
+    //div id="preview" 내에 동적코드추가.
+    //이 부분을 수정해서 이미지 링크 외 파일명, 사이즈 등의 부가설명을 할 수 있을 것이다.
+    reader.onload = function(img) {
+        var imgNum = previewIndex++;
+        $("#preview").append(
+                "<div class=\"preview-box\" value=\"" + imgNum +"\">" +
+                "<a href=\"#\" class=\"aa\" value=\"" + imgNum + "\" onclick=\"deletePreview(this)\">" +
+                "<i class=\"fa fa-times-circle-o fa-lg\"></i></a>" +
+                "<img class=\"thumbnail\" src=\"" + img.target.result + "\"\/>" +
+                /* "<p>" + file.name + "</p>" + */"</div>"
+        );
+        
+        files[imgNum] = file;            
+    };
+    
+    reader.readAsDataURL(file);
+}
+
+
+//preview 영역에서 삭제 버튼 클릭시 해당 미리보기이미지 영역 삭제
+function deletePreview(obj) {
+    var imgNum = obj.attributes['value'].value;
+    delete files[imgNum];
+    $("#preview .preview-box[value=" + imgNum + "]").remove();
+}
+
+//client-side validation
+//always server-side validation required
+function validation(fileName) {
+    fileName = fileName + "";
+    var fileNameExtensionIndex = fileName.lastIndexOf('.') + 1;
+    var fileNameExtension = fileName.toLowerCase().substring(
+            fileNameExtensionIndex, fileName.length);
+    if (!((fileNameExtension === 'jpg')
+            || (fileNameExtension === 'gif') || (fileNameExtension === 'png'))) {
+        alert('jpg, gif, png 확장자만 업로드 가능합니다.');
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+//submit 등록. 실제로 submit type은 아니다.
+function reviewCheck(){                    
+ 	var form = $('#uploadForm')[0];
+ 	var formData = new FormData(form);
+
+ 	for (var key in files){
+	 	formData.append('files',files[key]);
+	 	/* console.log("오브젝트 : " + Object.keys(files));
+	     console.log("파일즈 : " + files);
+	     console.log("파일즈 인덱스 : " + files[key]);
+	     console.log(Object.keys(files));
+	     console.log(files);
+	     console.log(files[key]); */
+     }
+}
+
+// <input type=file> 태그 기능 구현
 $(document).ready(function() {
-$("#input_imgs").on("change", handleImgFileSelect);
+	$('#attach input[type=file]').change(function() {
+ 	addPreview($(this)); //preview form 추가하기
+	});
 });
-function fileUploadAction() {
-console.log("fileUploadAction");
-$("#input_imgs").trigger('click');
-}
-function handleImgFileSelect(e) {
-// 이미지 정보들을 초기화
-sel_files = [];
-$(".imgs_wrap").empty();
-var files = e.target.files;
-var filesArr = Array.prototype.slice.call(files);
-var index = 0;
-filesArr.forEach(function(f) {
-if(!f.type.match("image.*")) {
-alert("확장자는 이미지 확장자만 가능합니다.");
-return;
-}
-sel_files.push(f);
-var reader = new FileReader();
-reader.onload = function(e) {
-var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
-$(".imgs_wrap").append(html);
-index++;
-}
-reader.readAsDataURL(f);
-
-});
-}
-
-//2. 다중 파일 미리보기에서 특정 이미지만 삭제하기
-function deleteImageAction(index) {
-	 console.log("index : "+index);
-	 sel_files.splice(index, 1);
-	 var img_id = "#img_id_"+index;
-	 $(img_id).remove();
-	 console.log(sel_files);
-	 } 
-
-//3. 다중 파일 POST 전송
-function submitAction() {
- var data = new FormData();
- for(var i=0, len=sel_files.length; i<len; i++) {
- var name = "image_"+i;
- data.append(name, sel_files[i]);
- }
- data.append("image_count", sel_files.length);
-
- var xhr = new XMLHttpRequest();
- xhr.open("POST","./study01_af.php");
- xhr.onload = function(e) {
- if(this.status == 200) {
- console.log("Result : "+e.currentTarget.responseText);
- }
- }
- xhr.send(data);
- }
-
- */
 
 
 
