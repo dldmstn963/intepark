@@ -135,4 +135,8 @@ public class GoodsDao {
 				return (ArrayList<GoodsReview>) list;
 	}
 
+	public float selectreviewscore(int goodsnum) {
+		return mybatis.selectOne("goodsMapper.selectreviewscore",goodsnum);
+	}
+
 }

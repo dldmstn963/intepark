@@ -93,15 +93,13 @@
 							<div
 								class="ratings-review mb-15 d-flex align-items-center justify-content-between">
 								<div class="ratings">
-									<i class="fa fa-star" aria-hidden="true"></i> <i
-										class="fa fa-star" aria-hidden="true"></i> <i
-										class="fa fa-star" aria-hidden="true"></i> <i
-										class="fa fa-star" aria-hidden="true"></i> <i
-										class="fa fa-star" aria-hidden="true"></i>
+								<c:forEach begin="1" end="${reviewscore }">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									</c:forEach> 
 								</div>
-								<div class="review">
+								<!-- <div class="review">
 									<a href="#">평점 주기</a>
-								</div>
+								</div> -->
 							</div>
 							<!-- Avaiable -->
 							<p class="avaibility">

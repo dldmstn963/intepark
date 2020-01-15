@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -57,7 +58,7 @@
                             </div>
                             <!-- Sorting -->
                             <div class="product-sorting d-flex">
-                                <div class="sort-by-date d-flex align-items-center mr-15">
+                                <!-- <div class="sort-by-date d-flex align-items-center mr-15">
                                     <p>정렬 : </p>
                                     <form action="#" method="get">
                                         <select name="select" id="sortBydate">
@@ -66,7 +67,7 @@
                                             <option value="value">Popular</option>
                                         </select>
                                     </form>
-                                </div>
+                                </div> -->
                                 <!-- 뷰수 설정<div class="view-product d-flex align-items-center">
                                     <p>View</p>
                                     <form action="#" method="get">
@@ -98,20 +99,20 @@
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
-                                    <p class="product-price">${li.price } 원</p>
+                                    <p class="product-price"><fmt:formatNumber value="${li.price }" groupingUsed="true"/> 원</p>
                                     <a href="moveproduct4.do?goodsnum=${li.goodsnum }">
                                         <h6>${li.goodsname }</h6>
                                     </a>
                                 </div>
                                 <!-- Ratings & Cart -->
                                 <div class="ratings-cart text-right">
-                                    <div class="ratings">
+                                    <!-- <div class="ratings">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
+                                    </div> -->
                                     <div class="cart">
                                         <a href="shbasketinsert42.do?goodsnum=${li.goodsnum }" data-toggle="tooltip" data-placement="left" title="장바구니 담기"><img src="/intepark/resources/img/core-img/cart.png" alt=""></a>
                                     </div>

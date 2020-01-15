@@ -93,7 +93,7 @@ public class GoodsController {
 		goodsSearch.setEndRow(p1.getEndRow());
 		goodsSearch.setGoodsnum(goodsnum);
 		ArrayList<Inquiry> goodsInquiry = goodsService.selectGoodsInquiry(goodsSearch);
-		
+		float reviewscore = Math.round(goodsService.selectreviewscore(goodsnum));
 		
 		request.setAttribute("maxPage1", p1.getMaxPage());
 		request.setAttribute("currentPage1", p1.getCurrentPage());
@@ -108,6 +108,7 @@ public class GoodsController {
 		request.setAttribute("goodsreview", goodsreview);
 		request.setAttribute("goodsInquiry", goodsInquiry);
 		request.setAttribute("list", list);
+		request.setAttribute("reviewscore", reviewscore);
 		return "shopping/product-details";
 	}
 	
