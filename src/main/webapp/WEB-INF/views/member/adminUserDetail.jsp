@@ -11,9 +11,7 @@
 .modal-body
 </style>
 <script type="text/javascript">
-	function userStop() {
 
-	}
 </script>
 </head>
 <body>
@@ -29,17 +27,19 @@
 						<strong>고객 관리</strong>
 					</h2>
 					<div style="margin: 7px; text-align: right;">
-						<c:if test="${inteUser.memberstate eq 'Y'}">
+						<c:if test="${inteUser.memberstate eq '정상'}">
 							<button data-target="#layerpop" data-toggle="modal"
-								data-backdrop="static" class="btn" onclick="userStop();">정지</button>
+								data-backdrop="static" class="btn">정지</button>
 
 						&nbsp;
 					</c:if>
-						<c:if test="${inteUser.memberstate eq 'S'}">
+						<c:if test="${inteUser.memberstate eq '정지'}">
 							<button class="btn">정지 해제</button>
 						&nbsp;
 					</c:if>
-						<button class="btn">정지기록</button>
+						<button data-target="#layerpop2" data-toggle="modal"
+								data-backdrop="static" class="btn">정지기록</button>
+
 						&nbsp;
 						<button class="btn">목록</button>
 					</div>
@@ -70,13 +70,7 @@
 						</tr>
 						<tr>
 							<th>현재상태</th>
-							<td><c:if test="${inteUser.memberstate eq 'Y'}">
-						정상
-						</c:if> <c:if test="${inteUser.memberstate eq 'S'}">
-						정지
-						</c:if> <c:if test="${inteUser.memberstate eq 'N'}">
-						탈퇴
-						</c:if></td>
+							<td>${inteUser.memberstate}</td>
 						</tr>
 						<tr>
 							<th>탈퇴날짜</th>
@@ -94,7 +88,7 @@
 		</div>
 	</div>
 
-	<!-- --------------------------------------------------모달 구역---------------------------------------- -->
+	<!-- --------------------------------------------------모달 정지시키기 구역1---------------------------------------- -->
 	<div class="modal fade" id="layerpop" style="padding-top: 20px;">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -119,7 +113,7 @@
 						<table style="text-align: center; width: 100%;">
 							<tr>
 								<th><h4>
-										<strong>정지 대상</strong>
+										<strong>정지 대상(URL,게시판번호)</strong>
 									</h4></th>
 							</tr>
 							<tr>
@@ -161,8 +155,45 @@
 			</div>
 		</div>
 	</div>
-
-
+<!-- --------------------------------------------------모달 구역1끝---------------------------------------- -->
+<!-- --------------------------------------------------모달 정지내역 구역2---------------------------------------- -->
+	<div class="modal fade" id="layerpop2" style="padding-top: 20px;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 닫기(x) 버튼 -->
+					<!-- <button type="button" class="close" data-dismiss="modal">×</button> -->
+					<!-- header title -->
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12" style="text-align: center;">
+								<h2 style="margin-bottom: 0;">
+									<strong>고객 정지내역</strong>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- body -->
+				<div class="modal-body" style="height: 300px;">
+					<form action="#">
+						<table style="text-align: center; width: 100%;">
+							<c:forEach var="ustop" items="${userStop}" varStatus="index">
+								<tr><th>${index.count}.</th><td>사유 : ${ustop.stopcause}</td>
+								<td style="width:300px;">정지 날짜 : ${ustop.stopstartdate}~${ustop.stopfinishdate}</td><td style="width:150px;">정지 기간: ${ustop.stopterm}</td></tr>
+							</c:forEach>
+						</table>
+					</form>
+				</div>
+				<!-- Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+						style="width: 100%;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!--================ start footer Area  =================-->
 	<jsp:include page="../common/footer.jsp" />

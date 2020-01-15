@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 import com.c4.intepark.loginInfo.model.vo.LoginInfo;
+import com.c4.intepark.loginInfo.model.vo.LoginMemberState;
 
 @Repository("userDao")
 public class InteuserDao {
@@ -44,12 +45,33 @@ public class InteuserDao {
 		return (ArrayList<InteUser>)list;
 	}
 
-	public InteUser selectAdUserDetail(String userid) {
-		return sqlSession.selectOne("inteuserMapper.selectAdUserDetail", userid);
+	public InteUser selectUserDetail(String userid) {
+		return sqlSession.selectOne("inteuserMapper.selectUserDetail", userid);
 	}
 
 	public int insertLoginId(LoginInfo loginInfo) {
 		return sqlSession.insert("inteuserMapper.insertLoginId", loginInfo);
+	}
+
+	public int updateUser(InteUser inteuser) {
+		return sqlSession.update("inteuserMapper.updateUser", inteuser);
+	}
+
+	public int selectUserPwdCheck(LoginInfo loginfo) {
+		return sqlSession.selectOne("inteuserMapper.selectUserPwdCheck", loginfo);
+	}
+
+	public int updateUserPwd(LoginInfo loginfo) {
+		return sqlSession.update("inteuserMapper.updateUserPwd", loginfo);
+	}
+
+	public int updateDeleteUser(LoginMemberState logms) {
+		return sqlSession.update("inteuserMapper.updateDeleteUser", logms);
+	}
+
+	public ArrayList<LoginMemberState> selectUserStopState(String userid) {
+		List<LoginMemberState> list = sqlSession.selectList("inteuserMapper.selectUserStopState", userid);
+		return (ArrayList<LoginMemberState>)list;
 	}
 	
 
