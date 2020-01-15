@@ -132,5 +132,10 @@ public class OrdersDao {
 		return mybatis.selectOne("orderMapper.selectInquiry",inquirynum);
 	}
 
+	public ArrayList<Orders> selectMyOrderAll(String userId) {
+		List list = mybatis.selectList("orderMapper.selectMyOrderAll",userId);
+		return (ArrayList<Orders>) list;
+	}
+
 	
 }

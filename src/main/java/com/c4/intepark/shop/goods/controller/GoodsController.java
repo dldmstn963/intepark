@@ -388,5 +388,22 @@ public class GoodsController {
 			logger.info("리뷰 작성 완료 : " + result);
 			return "redirect:moveproduct4.do?goodsnum="+goodsreview.getGoodsnum();
 		}
+		
+		@RequestMapping("goodsReviewDetail4.do")
+		public String goodsReviewDetail (
+				@RequestParam("reviewnum")int reviewnum,
+				@RequestParam("goodsnum")int goodsnum,
+				HttpServletRequest request) {
+			GoodsReview review = goodsService.selectGoodsReviewDetail(reviewnum);
+			ArrayList<GoodsReview> list = goodsService.selectGoodsReviewDetailPic(reviewnum);
+			Goods goods = goodsService.selectGoods(goodsnum);
+			System.out.println("dddddd  *********    " + list.get(0) + list.get(1));
+			request.setAttribute("goods", goods);
+			request.setAttribute("review", review);
+			request.setAttribute("list", list);
+			return "shopping/goodsReviewDetail";
+		}
+		
+		
 
 }

@@ -415,4 +415,14 @@ public class OrdersController {
 		}
 		return false;
 	}
+	
+	@RequestMapping("moveMyOrderList4.do")
+	public String moveMyOrderList(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request) throws IOException {
+		logger.info("나의 쇼핑 정보 : " + user);
+		ArrayList<Orders> list = ordersService.selectMyOrderAll(user.getUserid());
+		System.out.println("dddd                   " + list.get(0));
+		request.setAttribute("list", list);
+		return "shopping/myOrderList";
+	}
+
 }

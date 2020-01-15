@@ -167,8 +167,8 @@ public class GoodsReview implements Serializable{
 				+ goodsnum + ", categorynum=" + categorynum + ", goodsname=" + goodsname + ", price=" + price
 				+ ", inventory=" + inventory + ", freedlvy=" + freedlvy + ", thumbnail=" + thumbnail + ", comments="
 				+ comments + ", description=" + description + ", maximum=" + maximum + ", consid=" + consid
-				+ ", goodsdate=" + goodsdate + "]";
-	}	
+				+ ", goodsdate=" + goodsdate + ", picnum=" + picnum + ", refile=" + refile + "]";
+	}
 	
 	
 }

@@ -79,7 +79,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 <![CDATA[
 select * 
 from (select rownum rnum, REVIEWDATE, 
-REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN,refile
+REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN,refile,REVIEWNUM
 from (select * from GoodsReview 
 where GOODSNUM= #{goodsnum} order by REVIEWDATE desc)) 
 where rnum >= #{startRow} and rnum <= #{endRow}
@@ -220,9 +220,15 @@ select goodsreviewnum.nextval
 from dual
 </select>
 
+<select id="selectGoodsReviewDetail" resultType="GoodsReview" parameterType="int">
+select * from goodsreview
+where reviewnum = #{reviewnum}
+</select>
 
-
-
+<select id="selectGoodsReviewDetailPic" resultType="GoodsReview" parameterType="int">
+select * from goodsreviewpic
+where reviewnum = #{reviewnum}
+</select>
 
 
 

@@ -126,4 +126,13 @@ public class GoodsDao {
 		return mybatis.selectOne("goodsMapper.selectGoodsReviewNum");
 	}
 
+	public GoodsReview selectGoodsReviewDetail(int reviewnum) {
+		return mybatis.selectOne("goodsMapper.selectGoodsReviewDetail",reviewnum);
+	}
+
+	public ArrayList selectGoodsReviewDetailPic(int reviewnum) {
+				List list = mybatis.selectList("goodsMapper.selectGoodsReviewDetailPic",reviewnum);
+				return (ArrayList<GoodsReview>) list;
+	}
+
 }
