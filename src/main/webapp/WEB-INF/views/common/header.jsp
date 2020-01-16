@@ -17,11 +17,14 @@
 
 <script >
 var ws;
+var text;
+var user;
+var cons;
+var chatno;
 
-if(ws == undefined && window.sessionStorage){
-ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
-
-
+if(ws == undefined && sessionStorage){
+	ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
+}
 /* 서버로 메세지 보낼때 */
 ws.onopen = function(){
 
@@ -29,15 +32,75 @@ ws.onopen = function(){
 
 /* 서버로부터 받은 메세지 보내주기 */
 ws.onmessage = function(message){
-	
-		console.log("성공" + message.data);		
+	console.log("성공" + message.data + "님이 상담신청하셨습니다.");
+	console.log(message.data);
+	var msg = message.data.split("/");
+	cons = msg[0];
+	user = msg[1];
+	chatno = msg[2];	
+	test(user,cons,chatno);
 	};
 
 /* 서버 닫힐때 */
 ws.onclose = function(event){
 
 	};
+
+function chatopen(chatno){
+	window.open("chat3.do?chatno="+chatno, "chat"+chatno , "width=450, height=700");
 }
+
+function test(user){
+	console.log("작동확인");
+	
+	text = "<div>"+user+"님이 상담신청 하셨습니다. <br> 수락하시겠습니까?<br>" +
+		"<button class='sel' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
+		"&nbsp;&nbsp;&nbsp;&nbsp;<button class='sel' onclick='refuse(" + chatno + ")'>취소</button></div>" +
+		"<input type='hidden' id='"+chatno+"' value='"+chatno+"'>";
+	$("#alarm").html($("#alarm").html() + text);
+	alarm();
+}
+
+function alarm(){
+	var size = $("#alarm").children().length;
+	console.log(size);
+	if(size > 0){
+		$("#alarm").children("span").remove();
+		console.log(1);
+	}else{
+		$("#alarm").html("<span>현재 메세지가 없습니다.</span>");
+		console.log(2);
+	}
+}
+
+function accept(data){
+	ws.send("accept/" + $("#cons").val() + "/" + data);
+	return data;
+}
+
+function refuse(data){
+	ws.send("refuse/" + $("#cons").val() + "/" + data);
+	return data;
+}
+
+	$(function(){
+	$(document).on("click", ".sel", function(){
+		$(this).closest("div").remove();
+		console.log("성공");
+		alarm();
+		
+		return false;		
+	});
+
+	/* $(document).on("click", "#accept", function(){
+		ws.send("accept/" + $("#cons").val() + "/" + chatno);
+	});
+	$(document).on("click", "#refuse", function(){
+		ws.send("refuse/" + $("#cons").val() + "/" + chatno);
+	});	 */
+});
+
+
 </script>
 
 
@@ -84,7 +147,7 @@ ws.onclose = function(event){
 			</c:if>
 			
 			<!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 --><!-- 고객 접속시 -->
-			<c:if test="${!empty sessionScope.loginUser and loginUser.userid ne 'admin'}">
+			<c:if test="${!empty sessionScope.loginUser and loginUser.userid ne 'admin'}">			
 				<div align="right" style="position: absolute; z-index: 1; top: 10px; right: 10px;">
 					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 				</div>	
@@ -120,8 +183,42 @@ ws.onclose = function(event){
 			</c:if>
 			<!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 --><!-- 시공사 접속시 -->
 			<c:if test="${!empty sessionScope.loginCons }">
+				<input type="hidden" id="cons" value="${sessionScope.loginCons.consid }">
 				<div align="right" style="position: absolute; z-index: 1; top: 10px; right: 10px;">
+
+					
+					<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4">
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">						
+<!--========================================================================================== -->
+
+<!--========================================================================================== -->
+<!--알림 아이콘 -->
+						<!-- Nav Item - Alerts -->
+						<li class="nav-item dropdown no-arrow mx-1"><a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span id="jong" class="badge badge-danger badge-counter">${sessionScope.loginCons.consid }</span>
+						</a> 
+						<!-- Dropdown - Alerts -->
+							<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+								<h6 class="dropdown-header">알림</h6>
+								
+								<!-- <div id="aa">
+								</div> -->
+								
+									<div id="alarm" style="width:240px;">									
+									<span>현재 메세지가 없습니다.</span>
+									</div>
+							</div>
+						</li>
+<!--알림 아이콘 끝-->
+					</ul>
+
+				</nav>
+                	
+					
+
 					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
+
 				</div>	
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container box_1620" style="margin: 300">

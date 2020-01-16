@@ -41,7 +41,7 @@ public class CalendarController {
 		
 		  int result = calendarService.insertCalendar(calendar);
 		  
-		  String viewFileName = "calendar/calendarManagement";
+		  String viewFileName = "redirect:calendar3.do";
 		  if(result <= 0) {
 		  model.addAttribute("message", "일정 등록 실패"); 
 		  viewFileName = "common/error"; 
@@ -90,7 +90,7 @@ public class CalendarController {
 		  System.out.println(calendar);
 		  int result = calendarService.updateCalendar(calendar);
 		  
-		  String viewFileName = "calendar/calendarManagement"; 
+		  String viewFileName = "redirect:calendar3.do"; 
 		  if(result <=0) {
 			  viewFileName = "common/error"; 
 			  model.addAttribute("message", "일정 출력 실패"); } 
@@ -101,7 +101,7 @@ public class CalendarController {
 	  public String deleteCalendar(@RequestParam("cno") String cno, Model model) {
 		  int result = calendarService.deleteCalendar(cno);
 		  
-		  String viewFileName = "calendar/calendarManagement"; 
+		  String viewFileName = "redirect:calendar3.do"; 
 		  System.out.println("확인" + cno);
 		/*
 		 * if(result <=0) { viewFileName = "common/error"; model.addAttribute("message",

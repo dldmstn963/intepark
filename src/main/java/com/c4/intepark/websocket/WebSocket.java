@@ -57,6 +57,9 @@ public class WebSocket extends TextWebSocketHandler {
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		logger.info("연결 끊음");
+		sessionList.remove(session);
+		mapList.remove(session);
+		roomList.remove(session);
 	}
 
 	@Override
@@ -65,6 +68,8 @@ public class WebSocket extends TextWebSocketHandler {
 		String msg[] = message.getPayload().split("/");
 		logger.info(msg[0]);
 		System.out.println(session);
+		String invitemsg = message.getPayload().replaceFirst("invite/", "");
+		System.out.println(message.getPayload());
 		
 		if(msg[0].equals("invite")) {
 			for(WebSocketSession websession : sessionList){ 
@@ -72,16 +77,47 @@ public class WebSocket extends TextWebSocketHandler {
 				System.out.println("세션 출력 시작");
 				System.out.println(session);
 				System.out.println(mapList.get(websession));
-				websession.sendMessage(new TextMessage(msg[1])); 
+				websession.sendMessage(new TextMessage(invitemsg));
 				}
-				
-				} 
+			} 
+		}else if(msg[0].equals("room")) {
+			roomList.put(session, msg[1]);
+		}else if(msg[0].equals("chat")) {
+			String id = roomList.get(session);
+			String idd[] = id.split(",");
+			int chatNo = Integer.parseInt(idd[0]);
+			for(WebSocketSession websession : roomList.keySet()) {
+				if(!id.equals(roomList.get(websession))) {
+					String chn = roomList.get(websession);
+					String[] chnn = chn.split(",");
+					int chatn = Integer.parseInt(chnn[0]);
+					if(chatNo==chatn) {
+						websession.sendMessage(new TextMessage(message.getPayload()));
+					}
+					
+				}
 			}
-		 
-		/*
-		 * roomList if(msg[0].equals())
-		 */
-
+		}else if(msg[0].equals("accept")) {
+			int chatNo = Integer.parseInt(msg[2]);
+			for(WebSocketSession websession : roomList.keySet()) {
+				String chn = roomList.get(websession);
+				String[] chnn = chn.split(",");
+				int chatn = Integer.parseInt(chnn[0]);
+				if(chatNo==chatn) {
+					websession.sendMessage(new TextMessage(message.getPayload()));
+				}
+			}
+		}else if(msg[0].equals("refuse")) {
+			int chatNo = Integer.parseInt(msg[2]);
+			for(WebSocketSession websession : roomList.keySet()) {
+				String chn = roomList.get(websession);
+				String[] chnn = chn.split(",");
+				int chatn = Integer.parseInt(chnn[0]);
+				if(chatNo==chatn) {
+					websession.sendMessage(new TextMessage(message.getPayload()));
+				}
+			}
+		}
 		/*
 		 * for(WebSocketSession websession : sessionList) {
 		 * if(!session.getId().equals(websession.getId())) {

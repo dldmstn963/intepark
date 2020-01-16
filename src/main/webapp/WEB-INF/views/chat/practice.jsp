@@ -5,40 +5,90 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>1:1 채팅 상담</title>
+<style type="text/css">
+	
+	#messages {
+		background: LightSkyBlue;
+		height: 640px;
+		overflow: auto;
+	}
+	
+	.chat_content {
+		background: rgb(255, 255, 102);
+		padding: 10px;
+		border-radius: 10px;
+		display: inline-block;
+		position: relative;
+		margin: 10px;
+		float: right;
+		clear: both;
+	}
+	
+	.chat_content:after {
+		content: '';
+		positon: absolute;
+		right: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 20px solid transparent;
+		border-left-color: rgb(255, 255, 102);
+		border-right: 0;
+		border-top: 0;
+		margin-top: -3.5px;
+		margin-right: -10px;
+	}
+	
+	.other-side {
+		background: white;
+		float: left;
+		clear: both;
+	}
+	
+	.other-side:after {
+		content: '';
+		positon: absolute;
+		right: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 20px solid transparent;
+		border-right-color: white;
+		border-left: 0;
+		border-top: 0;
+		margin-top: -3.5px;
+		margin-right: -10px;
+	}
+</style>
 <script src='resources/js/jquery-3.4.1.min.js' ></script>
 <script >
 $(function(){
 	var messages=document.getElementById("messages");
-
-		/* $.ajax({
-		url :  "insertChat3.do",
-		type : "post",
-		data : {
-			consid : $("#cons").val(),
-			userid : $("#user").val()
-		},
-		success : function(data){
-			$("#chatno").val(data);
-			console.log(data);
-		},
-		error : function(jqXHR, textStatus, errorThrown){
-			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
-		}
-	}); */
+	var messageinput = document.getElementById("messageinput");
+	var chatno = document.getElementById("chatno").value;
+	var sender = document.getElementById("sender").value;
+	var who = sender.split("/");
 	
 	ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
 
 	/* 서버로 메세지 보낼때 */
 	ws.onopen = function(){
-
+		ws.send("room/" + chatno + "," + who[1]);		
 		};
 
 	/* 서버로부터 받은 메세지 보내주기 */
 	ws.onmessage = function(message){
-			console.log(message.data);
 			var cut = message.data.split("/");
-			messages.innerHTML+="<br/>"+cut[2] + " : " + cut[3];			
+			if(cut[0] == "accept"){
+				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 입장하셨습니다.</p><br>";	
+			}else if(cut[0] == "refuse"){
+				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 거절하셨습니다.</p><br>";	
+			}else if(cut[0] == "chat"){
+				messages.innerHTML+="<br/>"+ "<p class='chat_content other-side'>"
+				 + cut[1] + " : " + cut[2] + "</p><br>";	
+			}
+					
 		};
 
 	/* 서버 닫힐때 */
@@ -50,7 +100,7 @@ $(function(){
 		url : "selectMsg3.do",
 		type : "post",
 		dataType : "json",
-		data : {chatno : $("#chatno").val()},
+		data : {chatno : chatno},
 		success : function(data){
 			var jsonStr = JSON.stringify(data);
 			var json = JSON.parse(jsonStr);
@@ -58,9 +108,18 @@ $(function(){
 			var values = "";
 			for(var i in json.list){
 			if(json.list[i].userid == null && json.list[i].consid != null){
-				values += json.list[i].chattime + "<br>" + json.list[i].consid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				if(json.list[i].consid.equals(who[1])){
+					values += json.list[i].consid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				}else{
+					values += json.list[i].consid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				}				
 			}else if(json.list[i].userid != null && json.list[i].consid == null){
-				values += json.list[i].chattime + "<br>" + json.list[i].userid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"			
+				if(json.list[i].userid.equals(who[1])){
+					values += json.list[i].userid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				}else{
+					values += json.list[i].userid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				}
+							
 			}
 			}
 			$("#messages").html(values);
@@ -68,67 +127,59 @@ $(function(){
 		error : function(jqXHR, textStatus, errorThrown){
 			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
 		}
-	});	
+	});				
+});
 
-	$("#send").click(function(){
-		var text = $("#messageinput").val();
-		var room = $("#chatno").val();
-		var id = $("#sender").val();
-		var msg = $("#messages");
-		msg.html(msg.html() + "<br>" + text);
-		
-		var who = $("#sender").val();
-		console.log(who);
-		var id = who.split("/");
-		console.log(id[0] + ", " + id[1]);
-		console.log(typeof id[0]);
-		var a = id[0];
-		var b = id[1];
-		if(id[0] == "user"){
-		console.log(id[0]);
-		}else if(id[0] == "cons"){
-		console.log(id[1]);
+function send(){
+	var who = document.getElementById("sender").value.split("/");
+	
+	$("#messages").html($("#messages").html() + "<p class='chat_content'>" 
+				+ who[1] + " : " + $("#messageinput").val() + "</p><br>");
+	
+	$.ajax({
+		url : "insertChatMsg3.do",
+		type : "post",
+		data : {
+					chatno : Number($("#chatno").val()),
+					chatcontent : $("#messageinput").val(),
+					user : $("#sender").val()
+				},
+		success : function(data){
+			console.log("저장성공");
+		},
+		error : function(jqXHR, textStatus, errorThrown){
+			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
 		}
-		var c = 3;
-		
-		$.ajax({
-			url : "insertChatMsg3.do",
-			type : "post",
-			data : {
-						chatno : $("#chatno").val(),
-						chatcontent : $("#messageinput").val(),
-						user : who
-					},
-			success : function(data){
-				console.log("저장성공");
-			},
-			error : function(jqXHR, textStatus, errorThrown){
-				console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
-			}
 	});
 
-		$("#messageinput").val("");	
-});
-});
+	ws.send("chat/"+ who[1] +"/"+ $("#messageinput").val());
+	
+	$("#messageinput").val("");
+	
+}
+
+function enterKey(){
+	if(window.event.keyCode == 13){
+		send();
+	}
+}
 </script>
 </head>
 <body>
-<h1>채팅</h1>
-<div>
-		<c:if test="${!empty sessionScope.loginUser}">
-		<input type="hidden" id="sender" value="user/${sessionScope.loginUser.userid }">
-		</c:if>
-		<c:if test="${!empty sessionScope.loginCons}">
-		<input type="hidden" id="sender" value="cons/${sessionScope.loginCons.consid }">
-		</c:if>
-		<input type="hidden" id="chatno" value=1>
-        <input type="text" id="messageinput">
-    </div>
-    <div>
-        <button type="button" id="send">Send</button>
-        <button type="button">Close</button>
-    </div>
-    <!-- Server responses get written here -->
-    <div id="messages"></div>
+
+<c:if test="${!empty sessionScope.loginUser}">
+<input type="hidden" id="sender" value="user/${sessionScope.loginUser.userid }">
+</c:if>
+<c:if test="${!empty sessionScope.loginCons}">
+<input type="hidden" id="sender" value="cons/${sessionScope.loginCons.consid }">
+</c:if>
+<input type="hidden" id="chatno" value="${chatno}">
+
+
+
+		<div id="messages"></div> <br>
+		<input type="text" id="messageinput" onkeyup="enterKey();">
+		<input type="button" value="보내기" onclick="send();">
+
 </body>
 </html>
