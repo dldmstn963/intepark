@@ -58,6 +58,15 @@ function erchk() {
 	$("#frm").submit();
 }
 </script>
+<script type="text/javascript">
+function popup(img){
+    var url = "img2.do?img=" + img;
+    var name = "popup test1";
+    var option = "width = 500, height = 500, top = 100, left = 400, location = no"
+window.open(url, name, option);
+}
+
+</script>
 <style type="text/css">
 </style>
 
@@ -103,13 +112,13 @@ function erchk() {
         <td>${auction.address }</td>
       </tr>
       <tr>
-       <th>첨부파일 : </th>
+       <th>첨부사진 : </th>
   	<c:if test="${rfile[0] ne 'null' }">
-        <td><img src="/intepark/resources/auctionUpFile/${rfile[0] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></td>
+        <td><a href="javascript:popup('${rfile[0]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[0] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
         <c:if test="${not empty rfile[1] }">
-        <td><img src="/intepark/resources/auctionUpFile/${rfile[1] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></td>
+        <td><a href="javascript:popup('${rfile[1]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[1] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
            	<c:if test="${not empty rfile[2] }">
-        <td><img src="/intepark/resources/auctionUpFile/${rfile[2] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></td>
+        <td><a href="javascript:popup('${rfile[2]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[2] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
         </c:if>
         </c:if>
         </c:if>
@@ -127,7 +136,9 @@ function erchk() {
 </div>
 <div style="text-align: center;">
 <form method="post" action="auctionAttend2.do" id="frm">
-<input type="hidden" name="auc" value="${auction.auctionno }">
+<input type="hidden" name="auctionno" value="${auction.auctionno }">
+<input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">
+&nbsp; &nbsp;&nbsp; &nbsp;
 <input type="button" value="경매참여/목록보기" onclick="erchk()" style="background-color: #ffc107;" class="btn">
 </form>
 </div>

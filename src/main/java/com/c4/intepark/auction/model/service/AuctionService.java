@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.common.Pagination;
 import com.c4.intepark.common.Search;
 
@@ -18,13 +19,16 @@ int auctionUpdate(Auction auction);
 Auction auctionDetailView(String auc);
 NonAuction nonAuctionDetailView(String nonauc);
 int deleteAuction(String auction);
-ArrayList<AuctionAttend> auctionAttendList(int auction);
+ArrayList<AuctionAttend> auctionAttendList(CommonPage cpage);
 int auctionAttendEnroll(AuctionAttend att);
 AuctionAttend auctionAttendDetail(AuctionAttend att);
 int auctionAttendDelete(AuctionAttend auction);
 int deleteNonAuction(int auctionno);
 Integer selectAuctionCount(Search search);
 Integer selectNonAuctionCount(Search search);
+int AuctionAttendProgress(AuctionAttend att);
+int AuctionProgress(AuctionAttend att);
+int auctionAttendListCount(CommonPage cpage);
 
 
 }

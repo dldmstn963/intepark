@@ -7,6 +7,7 @@
 		<typeAlias type="com.c4.intepark.common.CommonPage" alias="CommonPage"/>
 		<typeAlias type="com.c4.intepark.common.Pagination" alias="Pagination"/>
 		<typeAlias type="com.c4.intepark.common.Search" alias="Search"/>
+		<typeAlias type="com.c4.intepark.point.model.vo.Point" alias="Point"/>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
 		<typeAlias type="com.c4.intepark.loginInfo.model.vo.LoginInfo" alias="LoginInfo" />
@@ -47,6 +48,7 @@
 		<mapper resource="mappers/portfolio-Mapper.xml" />
 		<mapper resource="mappers/calendar-mapper.xml" />
 		<mapper resource="mappers/auction-mapper.xml" />
+		<mapper resource="mappers/point-mapper.xml" />
 		<mapper resource="mappers/notice-mapper.xml"/>
 		<mapper resource="mappers/goods-mapper.xml"/>
 		<mapper resource="mappers/request-Mapper.xml"/>

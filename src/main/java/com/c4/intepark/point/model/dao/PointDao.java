@@ -13,12 +13,18 @@ public class PointDao {
 	@Autowired
 	private SqlSessionTemplate mybatisSession;
 
-	public int pointInsert() {
-		return 0;
+	public PointDao() {}
+	
+	public int pointInsert(Point point) {
 		
+		return mybatisSession.insert("pointMapper.pointInsert",point);
 	}
 	public ArrayList<Point> pointList() {
 		return null;
 		
+	}
+	public Point pointOne(String consid) {
+		
+		return mybatisSession.selectOne("pointMapper.pointOne",consid );
 	}
 }

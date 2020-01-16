@@ -134,10 +134,10 @@ function refuse(data){
 								<li class="nav-item"><a class="nav-link" href="temple4.do">템플릿 페이지<!--3D디자인 리스트--></a></li>
 								       <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
-                           <ul class="dropdown-menu">
+                           <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
                               <li class="nav-item"><a class="nav-link" href="nonAuction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="auctionEnd2.do">전체 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="pointAdd2.do">전체 견적리스트</a></li>
                            </ul>
                         </li> 
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
@@ -170,7 +170,7 @@ function refuse(data){
 									<li class="nav-item"><a class="nav-link" href="index.jsp">3D디자인 리스트</a></li>
 										      <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
-                           <ul class="dropdown-menu">
+                           <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
                               <li class="nav-item"><a class="nav-link" href="auction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
                            </ul>
@@ -239,7 +239,7 @@ function refuse(data){
 
 							
                         <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-									<li class="nav-item"><a class="nav-link" href="index.jsp">내 입찰내역</a></li>
+									<li class="nav-item"><a class="nav-link" href="pointAdd2.do?consid=${loginCons.consid }">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>

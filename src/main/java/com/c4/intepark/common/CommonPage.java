@@ -23,14 +23,39 @@ public class CommonPage implements java.io.Serializable{
 	private String startdate;
 	private String enddate;
 	private String memberstate;
+	private int auctionno;
 	
 	public CommonPage() {}
 	
 
 
+
+
+
+
+	public int getAuctionno() {
+		return auctionno;
+	}
+
+
+
+
+
+
+
+	public void setAuctionno(int auctionno) {
+		this.auctionno = auctionno;
+	}
+
+
+
+
+
+
+
 	public CommonPage(int listCount, int listSize, int pageSize, int currentPage, int maxPage, int beginPage,
 			int endPage, int startList, int endList, String selectoption, String searchtext, String userid,
-			String username, String startdate, String enddate, String memberstate) {
+			String username, String startdate, String enddate, String memberstate, int auctionno) {
 		super();
 		this.listCount = listCount;
 		this.listSize = listSize;
@@ -48,7 +73,12 @@ public class CommonPage implements java.io.Serializable{
 		this.startdate = startdate;
 		this.enddate = enddate;
 		this.memberstate = memberstate;
+		this.auctionno = auctionno;
 	}
+
+
+
+
 
 
 
@@ -221,14 +251,23 @@ public class CommonPage implements java.io.Serializable{
 	}
 
 
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "CommonPage [listCount=" + listCount + ", listSize=" + listSize + ", pageSize=" + pageSize
 				+ ", currentPage=" + currentPage + ", maxPage=" + maxPage + ", beginPage=" + beginPage + ", endPage="
 				+ endPage + ", startList=" + startList + ", endList=" + endList + ", selectoption=" + selectoption
 				+ ", searchtext=" + searchtext + ", userid=" + userid + ", username=" + username + ", startdate="
-				+ startdate + ", enddate=" + enddate + ", memberState=" + memberstate + "]";
+				+ startdate + ", enddate=" + enddate + ", memberstate=" + memberstate + ", auctionno=" + auctionno
+				+ "]";
 	}
+
+
+
 
 	
 

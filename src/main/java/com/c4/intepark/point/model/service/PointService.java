@@ -7,4 +7,5 @@ import com.c4.intepark.point.model.vo.Point;
 public interface PointService {
 int pointInsert(Point point);
 ArrayList<Point> pointList();
+Point pointOne(String consid);
 }

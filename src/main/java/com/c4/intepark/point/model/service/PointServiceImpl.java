@@ -16,11 +16,15 @@ public class PointServiceImpl implements PointService{
 	private PointDao pointDao;
 	
 	public int pointInsert(Point point) {
-		return 0;
 		
+		return pointDao.pointInsert(point);
 	}
 	public ArrayList<Point> pointList() {
 		return null;
 		
+	}
+	public Point pointOne(String consid) {
+		
+		return pointDao.pointOne(consid);
 	}
 }

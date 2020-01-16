@@ -9,6 +9,7 @@
 
 <%@ include file="../common/jscsspath.jsp" %>   	
      	<style type="text/css">
+     	
 div{
 align:center;
 }

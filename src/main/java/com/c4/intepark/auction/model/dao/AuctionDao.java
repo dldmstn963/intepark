@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.common.Pagination;
 import com.c4.intepark.common.Search;
 
@@ -41,8 +42,8 @@ public ArrayList<NonAuction> NonAuctionList(Pagination pagination) {
 	return (ArrayList<NonAuction>)list2;
 }
 public int auctionUpdate(Auction auction) {
-	return 0;
-
+	
+	return mybatisSession.update("auctionMapper.auctionUpdate", auction);
 }
 
 public NonAuction nonAuctionDetailView(String nonauc) {
@@ -60,8 +61,8 @@ public int deleteAuction(String auction) {
 	return mybatisSession.delete("auctionMapper.deleteAuction", auction);
 }
 
-public ArrayList<AuctionAttend> auctionAttendList(int auction) {
-	List<AuctionAttend> list = mybatisSession.selectList("auctionMapper.selectAttendList", auction);
+public ArrayList<AuctionAttend> auctionAttendList(CommonPage cpage) {
+	List<AuctionAttend> list = mybatisSession.selectList("auctionMapper.selectAttendList", cpage);
 	
 	return (ArrayList<AuctionAttend>)list;
 }
@@ -93,4 +94,17 @@ public Integer selectNonAuctionCount(Search search) {
 	return mybatisSession.selectOne("auctionMapper.selectNonAuctionCount",search);
 }
 
+public int AuctionAttendProgress(AuctionAttend att) {
+	// TODO Auto-generated method stub
+	return mybatisSession.update("auctionMapper.AuctionAttendProgress", att);
+}
+public int AuctionProgress(AuctionAttend att) {
+	// TODO Auto-generated method stub
+	return mybatisSession.update("auctionMapper.AuctionProgress", att);
+}
+
+public int auctionAttendListCount(CommonPage cpage) {
+	// TODO Auto-generated method stub
+return mybatisSession.selectOne("auctionMapper.auctionAttendListCount",cpage);
+}
 }

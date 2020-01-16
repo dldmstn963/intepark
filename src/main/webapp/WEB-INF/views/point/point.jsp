@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+     <!-- 금액표시 포멧 -->
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -362,6 +365,7 @@ $("#check_module").click(function () {
 		return false;
 		}
 var IMP = window.IMP; // 생략가능
+var value = $('input[name=price]:checked').val();
 IMP.init('imp00751002');
 // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 // i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
@@ -394,9 +398,10 @@ https://docs.iamport.kr/implementation/payment
 참고하세요.
 나중에 포스팅 해볼게요.
 */
-name: '주문명:결제테스트',
+name: '인테파크 포인트',
 //결제창에서 보여질 이름
-amount: 1000,
+
+amount: value,
 //가격
 buyer_email: 'iamport@siot.do',
 buyer_name: '구매자이름',
@@ -412,13 +417,19 @@ buyer_postcode: '123-456',
 }, function (rsp) {
 console.log(rsp);
 if ( rsp.success ) {
+	
+	var value = $('input[name=price]:checked').val();
     //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
     jQuery.ajax({
-        url: "auctionList2.do", //cross-domain error가 발생하지 않도록 주의해주세요
+        url: "point2.do", //cross-domain error가 발생하지 않도록 주의해주세요
         type: 'POST',
         dataType: 'json',
         data: {
-            imp_uid : rsp.imp_uid
+            consid : "${point.consid}",
+            chargeamount : value,
+            chargepoint : value,
+            restpoint : "${point.restpoint}"
+            
             //기타 필요한 데이터가 있으면 추가 전달
         }
     }).done(function(data) {
@@ -437,12 +448,12 @@ if ( rsp.success ) {
         }
     });
     //성공시 이동할 페이지
- location.href="auctionList2.do";
+ location.href="main.do";
 } else {
     msg = '결제에 실패하였습니다.';
     msg += '에러내용 : ' + rsp.error_msg;
     //실패시 이동할 페이지
-    location.href="auctionList2.do";
+    location.href="main.do";
     alert(msg);
 }
 });
@@ -472,6 +483,11 @@ $("input[name=tongyi]").on('change', function(){
 		} 
 });
 });
+$(document).on('click', 'input[name="price"]', function(){
+	var value = $('input[name=price]:checked').val();
+	 $('#point').val(value);
+	alert(value);
+});
 //신청하기 버튼 누를때---------------------------------------------------------------------------------------------------
 function requestCheck(){
 	
@@ -499,6 +515,14 @@ function requestCheck(){
             <div class="signup-content">
                 <div class="signup-form">
                     <form method="post" class="register-form" id="register-form" action="auctionAttendEnroll2.do" enctype="multipart/form-data">
+                         <div class="form-row">
+                         <div class="form-group">
+                            <label for="restPoint">잔여포인트 :</label>
+                            <input type="text" name="restPoint" id="restPoint" value="<fmt:formatNumber value="${point.restpoint}" pattern="#,###"/>" readonly />
+                        </div>
+                        </div>
+                        <br><br>
+                        
                <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">충전금액 :</label><br>
                             <div class="form-radio-item">
@@ -526,12 +550,14 @@ function requestCheck(){
                                  <input type="radio" name="price" id="50000" value="50000">
                                 <span class="check"></span>
                             </div>
+                            <br><br>
                                  <div class="form-group">
                             <label for="point">충전포인트 :</label>
-                            <input type="text" name="point" id="point">
+                            <input type="text" name="point" id="point" readonly />
                         </div>
                             
                         </div>
+                        <br><br><br>
     <div class="custom-control custom-checkbox">
 					<input type="checkbox" id="tongyiAll" class="custom-control-input">
 					<label class="custom-control-label" for="tongyiAll"><h4>전체 동의하기</h4></label>
@@ -548,9 +574,9 @@ function requestCheck(){
 				</div>
 				<div class="container">
 				<br>
-                    <button id="check_module" type="button"><img src="resources/img/images/KakaoPay.png" width="200" height="50" style="cursor:pointer"></button>
+                    <button id="check_module" type="button"><img src="resources/img/images/KakaoPay.png" width="200" height="50" style="cursor:pointer;align:center;"></button>
                     </div>
-    
+ <%--    <input type="hidden" value="${ }" id="consid" name="consid"> --%>
                     
                     </form>
                 </div>

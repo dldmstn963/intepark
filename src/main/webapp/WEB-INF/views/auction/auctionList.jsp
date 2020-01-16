@@ -124,10 +124,9 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      	<style type="text/css">
   html, body {
 	width: 100%; height: 100%; 
-}
-
-	
+}	
 	</style>
+	<!-- 클릭시 미니메뉴나옴 -->
 	<script type="text/javascript">
 	function doDisplay(menu){
 	   var con = document.getElementById(menu);
@@ -165,6 +164,13 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      	  return false;
      }
    }
+    function auctionDelete(auctionno){
+    	 var yn = confirm("정말로 삭제하시겠습니까?");
+     	   if(yn==true){
+     		  location.href="auctionDelete2.do?auc="+auctionno;
+         	   }
+     	   return false;
+        }
 /* 	
 	$(function(){
 		$('.content').click(function(){
@@ -189,6 +195,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
+    <br>
    <h4 align="center">회원경매</h4>
     </tr>
     <tr>
@@ -210,14 +217,19 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     <ul id="menu${a.auctionno }" style="display:none;">
     <li><a href="auctionDetailView2.do?auc=${a.auctionno }">상세보기</a></li>
     <c:if test="${a.userid eq sessionScope.loginUser.userid }">
-    <li><a href="#">수정</a></li>
-    <li><a href="auctionDelete2.do?auc=${a.auctionno }">삭제</a></li>
+    <li><a href="auctionChange2.do?auc=${a.auctionno }">수정</a></li>
+  <li><a href="javascript:auctionDelete('${a.auctionno }');">삭제</a></li>
     </c:if>
     </ul>
     </td> 
        <td>${a.address }</td>
         <td>${a.startday }</td>
-         <td class="blinkEle" style="color:red;">${a.progress }</td>
+        <c:if test="${a.progress eq '대기' }">
+         <td class="blinkEle" style="color:red; padding-left:25px;">${a.progress }</td>
+         </c:if>
+          <c:if test="${a.progress eq '진행' }">
+         <td class="blinkEle" style="color:blue; padding-left:25px;">${a.progress }</td>
+         </c:if>
     </tr>
     </c:forEach>
   </tbody>
@@ -292,7 +304,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
 <div class="container">
 <table class="table table-hover">
   <thead class="thead-light">
-    <tr>
+    <tr><br>
   <h4 align="center">비회원경매</h4>
     </tr>
     <tr>
@@ -324,7 +336,12 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     </td> 
        <td>${b.address }</td>
         <td>${b.startday }</td>
-         <td class="blinkEle" style="color:red;">${b.progress }</td>
+            <c:if test="${b.progress eq '대기' }">
+         <td class="blinkEle" style="color:red; padding-left:25px;">${b.progress }</td>
+         </c:if>
+          <c:if test="${b.progress eq '진행' }">
+         <td class="blinkEle" style="color:blue; padding-left:25px;">${b.progress }</td>
+         </c:if>
     </tr>
     </c:forEach>
   </tbody>
