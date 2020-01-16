@@ -9,6 +9,7 @@ import com.c4.intepark.auction.model.dao.AuctionDao;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.common.Pagination;
 import com.c4.intepark.common.Search;
 
@@ -42,8 +43,8 @@ public class AuctionServiceImpl implements AuctionService{
 	}
 	@Override
 	public int auctionUpdate(Auction auction) {
-		return 0;
-		 
+		
+		return auctionDao.auctionUpdate(auction);
 	}
 	@Override
 	public int deleteAuction(String auction){
@@ -63,9 +64,9 @@ public class AuctionServiceImpl implements AuctionService{
 		return  auctionDao.nonAuctionDetailView(nonauc);
 	}
 	@Override
-	public ArrayList<AuctionAttend> auctionAttendList(int auction){
+	public ArrayList<AuctionAttend> auctionAttendList(CommonPage cpage){
 		
-		return (ArrayList<AuctionAttend>)auctionDao.auctionAttendList(auction);
+		return (ArrayList<AuctionAttend>)auctionDao.auctionAttendList(cpage);
 	}
 	@Override
 	public int auctionAttendEnroll(AuctionAttend att) {
@@ -95,5 +96,17 @@ public class AuctionServiceImpl implements AuctionService{
 	@Override
 	public Integer selectNonAuctionCount(Search search) {
 		return auctionDao.selectNonAuctionCount(search);
+	}
+	@Override
+	public int AuctionAttendProgress(AuctionAttend att) {
+		return auctionDao.AuctionAttendProgress(att);
+	}
+	@Override
+	public int AuctionProgress(AuctionAttend att) {
+		return auctionDao.AuctionProgress(att);
+	}
+	@Override
+	public int auctionAttendListCount(CommonPage cpage) {
+		return auctionDao.auctionAttendListCount(cpage);
 	}
 }

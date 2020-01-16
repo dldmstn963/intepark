@@ -26,7 +26,7 @@ import com.c4.intepark.auction.model.service.AuctionService;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
-import com.c4.intepark.common.Pagination;
+import com.c4.intepark.common.CommonPage;
 import com.c4.intepark.common.Search;
 
 @Controller
@@ -38,6 +38,7 @@ public class AuctionController {
 	//@Autowired 애노테이션을 사용하면 get/set 접근 메서드를 더 이상 만들지 않아도  SpringFramework 이 설정 파일을 통해서 알아서 get/set 접근 메서드 대신 실행함.
 public AuctionController() {}
 
+//이중 검색 페이징
 @RequestMapping("auctionList2.do")
 public String auctionList(@RequestParam(value="page", required=false, defaultValue="1") int page,
 		@RequestParam(value="range", required = false, defaultValue = "1") int range,
@@ -86,10 +87,31 @@ public String nonAuctionEnrollPage() {
 	return "auction/nonAuctionEnroll";
 }
 
-@RequestMapping("auctionEnd2.do")
-public String auctionEndList() {
+//수정
+@RequestMapping("auctionChange2.do")
+public String selectAuctionChangePage(HttpServletRequest request, Auction auction, Model model) {
+	String auc = request.getParameter("auc");
+	String nonauc = request.getParameter("nonauc");
 	
-	return "point/point";
+		logger.info("나는a야 : " + auc);
+		logger.info("나는b야 : " + nonauc);
+		if(auc != null) {
+auction = auctionService.auctionDetailView(auc);
+logger.info(auction.toString());
+logger.info("auctionfile : " + auction.getRfile());
+String[] rfile = null;
+if(auction.getRfile() != null) {
+rfile = auction.getRfile().split("/");
+}
+model.addAttribute("auction", auction);
+model.addAttribute("rfile", rfile);
+		}
+		/*
+		 * if(nonauc != null) { NonAuction nonauction =
+		 * auctionService.nonAuctionDetailView(nonauc); request.setAttribute("auction",
+		 * nonauction); }
+		 */
+	return "auction/auctionChangePage";
 }
 
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 
@@ -100,9 +122,8 @@ public String auctionEndList() {
 	String ofile = "";	
 	String rfile = "";	
 	
-
+	int i = 1;
 	for (MultipartFile mf : fileList) {
-	
 		if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
 		String originalFileName = null;
 		String renameFileName = null;
@@ -111,9 +132,11 @@ public String auctionEndList() {
 			originalFileName = mf.getOriginalFilename();
 			if(originalFileName != null) {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-				renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))
+				renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + i
 						+ "." + originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-				
+				i += 1;
+				logger.info(originalFileName);
+				logger.info(renameFileName + "," + "리네임 파일");
 				//파일명을 바꾸려면 File 객체의 renameTo() 사용함
 				File originFile = new File(savePath + "\\" + originalFileName);
 				File renameFile = new File(savePath + "\\" + renameFileName);
@@ -166,7 +189,7 @@ public String auctionEndList() {
 	String ofile = "";	
 	String rfile = "";	
 	
-
+	int i = 1;
 	for (MultipartFile mf : fileList) {
 	
 		if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
@@ -177,9 +200,9 @@ public String auctionEndList() {
 			originalFileName = mf.getOriginalFilename();
 			if(originalFileName != null) {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-				renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))
+				renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + i
 						+ "." + originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-				
+				i += 1;
 				//파일명을 바꾸려면 File 객체의 renameTo() 사용함
 				File originFile = new File(savePath + "\\" + originalFileName);
 				File renameFile = new File(savePath + "\\" + renameFileName);
@@ -251,11 +274,87 @@ public String auctionEndList() {
 			return "auction/auctionDetailView";
 	 }
 	 
-	 public String auctionUpdate(Auction auction, HttpServletRequest request) {
-		
-		 
-		 return null;
-		 
+	 @RequestMapping(value="AuctionUpdate2.do", method=RequestMethod.POST)
+	 public String auctionUpdate(Auction auction, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+		 List<MultipartFile> fileList = mtfRequest.getFiles("upfile");
+		 String savePath = request.getSession().getServletContext().getRealPath("resources/auctionUpFile");
+			String ofile = "";	
+			String rfile = "";	
+			int i = 1;
+		 if(fileList != null) {
+			 //파일이 새로 업로드 될시 파일 삭제
+			 String rfile11 = mtfRequest.getParameter("rfile1");
+			 String rfile2 = mtfRequest.getParameter("rfile2");
+			 String rfile3 = mtfRequest.getParameter("rfile3");
+			 System.out.println(rfile11 + ", " + rfile2 + ", " + rfile3);
+			 if(rfile11 != null) {
+			 File originFile1 = new File(savePath + "\\" + rfile11);
+			 originFile1.delete();
+			 if(rfile2 != null) {
+			 File originFile2 = new File(savePath + "\\" + rfile2);
+			 originFile2.delete();
+			 if(rfile3 != null) {
+				 File originFile3 = new File(savePath + "\\" + rfile3);	 
+				 originFile3.delete();	 
+			 }
+			 }
+			 }
+		 for (MultipartFile mf : fileList) {
+			 if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
+					String originalFileName = null;
+					String renameFileName = null;
+					try {
+						mf.transferTo(new File(savePath + "\\" + mf.getOriginalFilename()));
+						originalFileName = mf.getOriginalFilename();
+						if(originalFileName != null) {
+							SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+							renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + i
+									+ "." + originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+							i += 1;
+							logger.info(originalFileName);
+							logger.info(renameFileName + "," + "리네임 파일");
+							//파일명을 바꾸려면 File 객체의 renameTo() 사용함
+							File originFile = new File(savePath + "\\" + originalFileName);
+							File renameFile = new File(savePath + "\\" + renameFileName);
+							
+							//파일 이름바꾸기 실행함 >> 실패한 경우에는 직접 바꾸기함
+							if(!originFile.renameTo(renameFile)) {
+								//파일 입출력 스트림 생성하고, 원본을 읽어서 바꿀이름 파일에 기록함
+								int read = -1;
+								byte[] buf = new byte[1024];  //한 번에 읽어서 저장할 바이트 배열
+								
+								FileInputStream fin = new FileInputStream(originFile);
+								FileOutputStream fout = new FileOutputStream(renameFile);
+								
+								while((read = fin.read(buf, 0, buf.length)) != -1) {
+									fout.write(buf, 0, read);
+								}
+								
+								fin.close();
+								fout.close();
+								originFile.delete();  //원본 파일 삭제함.
+							}
+						}
+					} catch (IllegalStateException | IOException e) {
+							e.printStackTrace();
+					}	
+				ofile += originalFileName + "/";
+				rfile += renameFileName + "/";
+				
+				 String ofile1 = ofile.substring(0, ofile.length()-1);
+				 String rfile1 = rfile.substring(0, rfile.length()-1);
+				
+
+				auction.setOfile(ofile1);
+				auction.setRfile(rfile1);
+				}
+		 }
+		 }
+		 logger.info("auction수정 : " + auction);
+			int result = auctionService.auctionUpdate(auction); 
+			
+			
+			 return "redirect:main.do";
 	 }
 	 @RequestMapping("auctionDelete2.do")
 	 public String deleteAuction(HttpServletRequest request) {
@@ -293,13 +392,19 @@ public String auctionEndList() {
 	 * return sendJson.toJSONString(); }
 	 */
 	 
-	 @RequestMapping(value="auctionAttend2.do", method=RequestMethod.POST)
-	 public String selectAuctionAttend(HttpServletRequest request, HttpServletResponse response) {
-		 int auction = Integer.parseInt(request.getParameter("auc"));
-		 logger.info("실행됨 : " + auction);
-		 ArrayList<AuctionAttend> list = auctionService.auctionAttendList(auction);
-		 request.setAttribute("list", list);
-		 request.setAttribute("auctionno", auction);
+	 @RequestMapping("auctionAttend2.do")
+	 public String selectAuctionAttend(@RequestParam(value="page", required=false, defaultValue="1") int currentPage,CommonPage cpage, Model model) {
+		 int listCount=0;
+		 logger.info("실행됨 : " + cpage);
+		listCount = auctionService.auctionAttendListCount(cpage);
+		cpage.pageUpdate(6, 10, listCount, currentPage);
+		 ArrayList<AuctionAttend> list = auctionService.auctionAttendList(cpage);
+		 model.addAttribute("commonPage", cpage);
+		 model.addAttribute("list", list);
+		/*
+		 * request.setAttribute("list", list); request.setAttribute("auctionno",
+		 * auction);
+		 */
 		 return "auction/auctionAttendList";
 	 }
 	 
@@ -432,5 +537,17 @@ public String auctionEndList() {
 						logger.info("실행됨" + auctionno);
 						
 						return "redirect:main.do";
+					}
+					
+					@RequestMapping(value="auctionAttendProgess2.do", method=RequestMethod.POST)
+					public void updateAuctionAttendProgress(AuctionAttend att) {
+					logger.info(att.toString());
+					
+					int result = auctionService.AuctionAttendProgress(att); 
+						int result2 = 0;
+					if(result >= 1) {
+						result2 = auctionService.AuctionProgress(att); 
+					}
+						
 					}
 }
