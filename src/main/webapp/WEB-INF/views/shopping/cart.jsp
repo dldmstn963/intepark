@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +77,9 @@
                                             </div>
                                         </td>
                                     </tr> -->
+                                    <c:set var = "total" value = "0" />
                                     <c:forEach var="li" items="${list }" varStatus="status" >
+                                    <c:set var= "total" value="${total + (li.price * li.quantity)}"/>
                                     <tr>
                                         <td class="cart_product_img">
                                             <a href="#"><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product"></a>
@@ -85,7 +88,7 @@
                                             <h5>${li.goodsname }</h5>
                                         </td>
                                         <td class="price">
-                                            <span>${li.price * li.quantity }원</span>
+                                            <span><fmt:formatNumber value="${li.price }" groupingUsed="true"/> 원</span>
                                         </td>
                                         <td class="qty">
                                             <div class="qty-btn d-flex">
@@ -123,7 +126,6 @@
 													</script>
                                         </td>
                                     </tr>
-                                    
                                     </c:forEach>
                                 </tbody>
                             </table>
@@ -134,10 +136,10 @@
                         <div class="cart-summary">
                             <h5>전체 합계</h5>
                             <ul class="summary-table">
-                                <li><span>상품 금액 : </span> <span>24,000원</span></li>
-                                <li><span>배송비 :</span> <span>2,500원</span></li>
+                                <!-- <li><span>상품 금액 : </span> <span>24,000원</span></li>
+                                <li><span>배송비 :</span> <span>2,500원</span></li> -->
                                 
-                                <li><span>전체 주문 금액:</span> <span>26,500원</span></li>
+                                <li><span>전체 주문 금액:</span> <span><fmt:formatNumber value="${total}" groupingUsed="true"/> 원</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
 								<c:url var="url" value="moveshbasketorderinsert4.do">

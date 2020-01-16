@@ -59,7 +59,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "orderinsert4.do", method = RequestMethod.POST)
-	public String orderinsert(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request, Orders orders) {
+	public void orderinsert(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request, Orders orders, HttpServletResponse response) throws IOException {
 		logger.info("결제");
 		logger.info("결제 정보 확인 : " + orders);
 		if (Integer.parseInt(request.getParameter("dlvynum")) != 0) {
@@ -83,8 +83,14 @@ public class OrdersController {
 			int result2 = ordersService.insertRequests(requests);
 		}
 		int result3 = ordersService.insertOrders(orders);
-
-		return "shopping/checkout";
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('결제 완료 되셨습니다');");
+		out.println("window.location = 'moveMyOrderList4.do';");
+		out.println("</script>");
+		//return "redirect:moveMyOrderList4.do";
 	}
 
 	@RequestMapping("shbasketinsert4.do")

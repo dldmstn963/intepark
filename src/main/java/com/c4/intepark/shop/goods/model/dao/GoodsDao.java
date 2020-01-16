@@ -139,4 +139,12 @@ public class GoodsDao {
 		return mybatis.selectOne("goodsMapper.selectreviewscore",goodsnum);
 	}
 
+	public int selectGoodsInquiryNum() {
+		return mybatis.selectOne("goodsMapper.selectGoodsInquiryNum");
+	}
+
+	public int insertInquiryPic(GoodsPic gp) {
+		return mybatis.insert("goodsMapper.insertInquiryPic", gp);
+	}
+
 }
