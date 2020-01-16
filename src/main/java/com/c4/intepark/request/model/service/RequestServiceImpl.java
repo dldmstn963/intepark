@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.request.model.dao.RequestDao;
 import com.c4.intepark.request.model.vo.Request;
+import com.c4.intepark.review.model.vo.RvAvg;
 
 @Service("requestService")
 public class RequestServiceImpl implements RequestService {
@@ -24,7 +25,41 @@ public class RequestServiceImpl implements RequestService {
 	public int insertRequest(Request req) {
 		return requestDao.insertRequest(req);
 	}
+	
+	@Override
+	public Constructors selectOneCons(String consid) {
+		return requestDao.selectOneCons(consid);
+	}
 
+	@Override
+	public RvAvg selectReview(String consid) {
+		return requestDao.selectReview(consid);
+	}
+	
+	@Override
+	public ArrayList<Request> selectRequestList(String consid) {
+		return requestDao.selectRequestList(consid);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public ArrayList<Request> selectReqConsList(String consid) {
 		return requestDao.selectReqConsList(consid);
@@ -39,6 +74,10 @@ public class RequestServiceImpl implements RequestService {
 	public int deleteRequest(String reqnum) {
 		return requestDao.deleteRequest(reqnum);
 	}
+
+	
+
+	
 }
 
 

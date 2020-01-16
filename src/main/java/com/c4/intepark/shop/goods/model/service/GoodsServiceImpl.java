@@ -151,5 +151,47 @@ public class GoodsServiceImpl implements GoodsService{
 	public ArrayList<Goods> selectcategoryGoodsList(GoodsSearch goodsSearch) {
 		return goodsDao.selectcategoryGoodsList(goodsSearch);
 	}
+
+
+	@Override
+	public int insertReviewPic(GoodsPic gp) {
+		return goodsDao.insertReviewPic(gp);
+	}
+
+
+	@Override
+	public int selectGoodsReviewNum() {
+		return goodsDao.selectGoodsReviewNum();
+	}
+
+
+	@Override
+	public GoodsReview selectGoodsReviewDetail(int reviewnum) {
+		return goodsDao.selectGoodsReviewDetail(reviewnum);
+	}
+
+
+	@Override
+	public ArrayList<GoodsReview> selectGoodsReviewDetailPic(int reviewnum) {
+		return goodsDao.selectGoodsReviewDetailPic(reviewnum);
+	}
+
+
+	@Override
+	public float selectreviewscore(int goodsnum) {
+		return goodsDao.selectreviewscore(goodsnum);
+	}
+
+
+	@Override
+	public int selectGoodsInquiryNum() {
+		return goodsDao.selectGoodsInquiryNum();
+	}
+
+
+	@Override
+	public int insertInquiryPic(GoodsPic gp) {
+		return goodsDao.insertInquiryPic(gp);
+	}
 	
 }

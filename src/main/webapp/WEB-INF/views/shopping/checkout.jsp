@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -36,25 +37,7 @@
                             <div class="cart-title">
                                 <h2>주문 결제</h2>
                             </div>
-                            
-
-
-
-
-
-
-
-                           
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            <form action="orderinsert4.do" method="post">
+                            <form action="orderinsert4.do" method="post" id="frm">
                                 <div class="row">
                                   <div class="col-12 mb-3">
                                         <select class="w-100" id="country" name="dlvynum">
@@ -113,8 +96,6 @@
 								<input type="hidden" name="goodsprice" value="${orders.goodsprice }">
 								<input type="hidden" name="orderquantity" value="${orders.orderquantity }">
 								<input type="hidden" name="orderprice" value="${orders.orderquantity * orders.goodsprice }">
-								
-                               <input type="submit">
                             </form>
                         </div>
                     </div>
@@ -123,25 +104,25 @@
                             <h5>전체 합계</h5>
                             <ul class="summary-table">
                                 <li><span>상품 금액:</span> <span>${orders.goodsprice * orders.orderquantity}원 </span></li>
-                                <li><span>배송비:</span> <span>2,500원</span></li>
-                                <li><span>전체 주문 금액:</span> <span>26,500원</span></li>
+                               <!--  <li><span>배송비:</span> <span>2,500원</span></li>
+                                <li><span>전체 주문 금액:</span> <span>26,500원</span></li> -->
                             </ul>
 
-                            <div class="payment-method">
-                                <!-- Cash on delivery -->
+                            <!-- <div class="payment-method">
+                                Cash on delivery
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="cod" checked>
                                     <label class="custom-control-label" for="cod">착불</label>
                                 </div>
-                                <!-- Paypal -->
+                                Paypal
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="paypal">
                                     <label class="custom-control-label" for="paypal">페이팔 <img class="ml-15" src="/intepark/resources/img/core-img/paypal.png" alt=""></label>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="cart-btn mt-100">
-                                <a href="#" class="btn amado-btn w-100">결제하기</a>
+                                <a href="#" onclick="document.getElementById('frm').submit()" class="btn amado-btn w-100">결제하기</a>
                             </div>
                         </div>
                     </div>

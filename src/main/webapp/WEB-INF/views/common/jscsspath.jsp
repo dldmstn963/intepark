@@ -18,8 +18,7 @@
         <!-- main css -->
         <link rel="stylesheet" href="/intepark/resources/css/style.css">
         <link rel="stylesheet" href="/intepark/resources/css/responsive.css">
-        <!-- modal -->
-        <link rel="stylesheet" href="/intepark/resources/css/modao.css">
+
                 <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="/intepark/resources/js/jquery-3.2.1.min.js"></script>

@@ -3,18 +3,40 @@
 "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="auctionMapper">
-
-
-	<select id="selectList" parameterType="Auction" resultType="Auction">
-		select * from auction order by auctionno desc
+<sql id="includeAuction">
+      	<if test="keyword != null and searchType.equals('title')">
+		where title like '%'||#{keyword ,jdbcType=VARCHAR}||'%'
+	</if>
+	<if test="keyword != null and searchType.equals('address')">
+		where address like '%'||#{keyword ,jdbcType=VARCHAR}||'%'
+	</if>           
+    </sql>
+<!-- null을 허용하려면 jdbcType=VARCHAR 추가
+( date 타입일 경우 jdbcType=DATE number 타입일 경우는 jdbcType=INTEGER 설정) -->
+	<select id="selectList" parameterType="Search" resultType="Auction">
+    select * from( select rownum as rnum, a.*
+    from (select * from auction <include refid="includeAuction"/>
+     <![CDATA[
+     order by auctionno desc)
+    a where rownum <= #{startList} + #{listSize}
+  )
+   where rnum > #{startList}
+   ]]>
 	</select>
 	
 	<select id="selectAttendList" parameterType="_int" resultType="AuctionAttend">
 		select * from auctionattend where auctionno = #{auction} order by auctionno desc
 	</select>
 	
-	<select id="NonAuctionList" parameterType="NonAuction" resultType="NonAuction">
-		select * from nonauction order by auctionno desc
+	<select id="NonAuctionList" parameterType="Search" resultType="NonAuction">
+    select * from( select rownum as rnum, a.*
+    from (select * from nonauction <include refid="includeAuction"/>
+     <![CDATA[
+     order by auctionno desc)
+    a where rownum <= #{startList} + #{listSize}
+  )
+   where rnum > #{startList}
+   ]]>
 	</select>
 	<insert id="auctionEnroll" parameterType="Auction" >
 	insert into auction values (AUCTION_SEQ.NEXTVAL, #{interiorsection}, #{title}, #{name}, 
@@ -50,6 +72,14 @@
 	<delete id="deleteNonAuction" parameterType="_int">
 	delete from nonauction where auctionno = #{auctionno}
 	</delete>
+	<select id="selectAuctionCount" resultType="_int" parameterType="Search">
+	 SELECT COUNT(*)
+          FROM auction  <include refid="includeAuction"/>
+	</select>
+	  	<select id="selectNonAuctionCount" resultType="_int" parameterType="Search">
+	 SELECT COUNT(*)
+          FROM nonauction <include refid="includeAuction"/>
+	</select>
 </mapper>
 
 

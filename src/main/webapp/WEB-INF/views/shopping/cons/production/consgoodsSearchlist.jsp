@@ -5,6 +5,7 @@
 <html>
 <head>
 <!-- Bootstrap -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link href="/intepark/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="/intepark/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -65,7 +66,7 @@
 								<br>
 									<table border="1px solid black" align="center">
 										<tr>
-											<td><input type="checkbox"></td>
+											<td><input type="checkbox" id="allCheck"></td>
 											<td>상품 코드</td>
 											<td>썸네일</td>
 											<td>상품명</td>
@@ -112,14 +113,14 @@
 									<div style="display:none;" id="alertbox"></div>
 									
 									<div id="pagebox" align="center">
-									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }">|◁</a>
+									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }"><i class="fas fa-angle-double-left"></i></a>
 									&nbsp;
 									
 									<c:if test="${ (beginPage-10) < 1}">
-									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }">◀◀</a>
+									<a href="consgoodssearch4.do?page=1&goodsname=${goodsname }"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									<c:if test="${ (beginPage-10) > 1}">
-									<a href="consgoodssearch4.do?page=${beginPage-10 }&goodsname=${goodsname }">◀◀</a>
+									<a href="consgoodssearch4.do?page=${beginPage-10 }&goodsname=${goodsname }"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									&nbsp;
 									
@@ -133,14 +134,14 @@
 									</c:forEach>
 									&nbsp;
 									<c:if test="${(endPage+10) > maxPage }">
-									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }">▶▶</a>
+									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									<c:if test="${(endPage+10) < maxPage }">
-									<a href="consgoodssearch4.do?page=${endPage + 10 }&goodsname=${goodsname }">▶▶</a>
+									<a href="consgoodssearch4.do?page=${endPage + 10 }&goodsname=${goodsname }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									&nbsp; 
 									
-									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }">▷|</a>
+									<a href="consgoodssearch4.do?page=${maxPage }&goodsname=${goodsname }"><i class="fas fa-angle-double-right"></i></a>
 									</div>
 									
 								</div>
@@ -154,6 +155,16 @@
 	</div>
 	 <!-- jQuery -->
     <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+										$(function(){ 
+											$("#allCheck").click(function(){ 
+												if($("#allCheck").prop("checked")) {
+												$("input[type=checkbox]").prop("checked",true); 
+												} else { 
+												$("input[type=checkbox]").prop("checked",false); } 
+												}) 
+											})
+											</script>
     <!-- Bootstrap -->
    <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->

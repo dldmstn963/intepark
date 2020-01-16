@@ -6,37 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <!-- 부트스트랩 링크 추가 -->
-<link rel="stylesheet" href="/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
 
  		<!-- ================Header Menu Area ================= -->
        	<jsp:include page="../common/header.jsp" />
         <!--================Header Menu Area =================-->
 <title>인테파크</title>
+<!-- 부트스트랩 및 제이쿼리 css js 파일 모아놓은 장소 -->
 <%@ include file="../common/jscsspath.jsp" %>
 
 
 <script type="text/javascript">
-	/* 검색기능 */
-	$(function(){
-		showDiv();
+function callFunction(){
+	location.href="nwrite3.do";
 
-		$("input[name=item]").on("change", function(){
-				showDiv();
-			});
-		});
-
-	function showDiv(){
-		if($("input[name=item]").eq(0).is(":checked")){
-			$("#titlediv").css("display", "block");
-			$("#writerdiv").css("display", "none");
-			}
-		
-		if($("input[name=item]").eq(1).is(":checked")){
-			$("#titlediv").css("display", "none");
-			$("#writerdiv").css("display", "block");
-			}
-		
-		}
+}
 
 
 
@@ -63,7 +47,7 @@
 <br>
 <div class="container">
     <div class="row"> 
-<table class="table table-striped table-hover">
+<table class="table table-striped">
 
 <tr>
 	<th>번호</th>
@@ -76,8 +60,9 @@
 <c:forEach items="${ list }" var="n">
 <tr>
 	<th>${ n.noticeno }</th>
-	<c:url var="ndt" value="/ndetail.do">
+	<c:url var="ndt" value="ndetail2.do">
 		<c:param name="no" value="${n.noticeno }" />
+		<c:param name="page" value="${currentPage }" />
 	</c:url>
 	<td><a href="${ ndt }">${ n.noticetitle }</a></td>
 	<td>${ n.writername }</td>
@@ -89,7 +74,7 @@
 			&nbsp;
 		</c:if>
 	</td>
-	<td>${ n.noticedate } </td>
+	<td>${ n.noticedate }</td>
 	<td>${n.noticecount }</td>
 </tr>
 </c:forEach>
@@ -104,12 +89,38 @@
 		test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin' }">
 	<!-- 관리자 접속시 글쓰기 추가 -->
 		<div style="float:right; margin-right:150px;">
-		<button onclick="callFunction();" class="btn btn-primary">새 공지사항 등록</button>
+		<button onclick="callFunction();" class="btn btn-primary">글 등록</button>
 		</div>
 </c:if>
-<br> 
+<br><br><br><br><br><br><br><br> 
+
+<div id="pagebox" align="center">
+<a href="/intepark/nlist1.do?page=1"> |◁ </a> &nbsp;
+<c:if test="${ (beginPage - 10) lt 1 }">
+	<a href="/intepark/nlist1.do?page=1">◀◀</a>
+</c:if>
+<c:if test="${ (beginPage - 10) ge 1 }">
+	<a href="/intepark/nlist1.do?page=${ beginPage - 10 }">◀◀</a>
+</c:if> &nbsp;
+<c:forEach var="p" begin="${beginPage }" end="${endPage }">
+	<c:if test="${p eq currentPage }">
+		<a href="/intepark/nlist1.do?page=${p }"><font color="red"><b>[${p }]</b></font></a>
+	</c:if>
+	<c:if test="${p ne currentPage }">
+		<a href="/intepark/nlist1.do?page=${p }">${p }</a>
+	</c:if>
+</c:forEach> &nbsp;
+
+<c:if test="${ (endPage + 10) gt maxPage }">
+	<a href="/intepark/nlist1.do?page=${maxPage }">▶▶</a>
+</c:if>
+<c:if test="${ (endPage + 10) le maxPage }">
+	<a href="/intepark/nlist1.do?page=${endPage + 10 }">▶▶</a>	
+</c:if> &nbsp;
+<a href="/intepark/nlist1.do?page=${maxPage}">▷|</a>
 
 
+</div>
 
 
 
@@ -121,31 +132,6 @@
 
 <br><br><br><br>
 
-<div>
-<form name="form1" method="post" action="list.do">
-
-    <select name="search_option">
-        <option value="user_id"
-<c:if test="${map.search_option == 'user_id'}">selected</c:if>
-   >작성자</option>
-
-        <option value="title" 
-<c:if test="${map.search_option == 'title'}">selected</c:if>
-        >제목</option>
-
-        <option value="content" 
-<c:if test="${map.search_option == 'content'}">selected</c:if>
-        >내용</option>
-
-        <option value="all" 
-<c:if test="${map.search_option == 'all'}">selected</c:if>
-        >작성자+내용+제목</option>
-
-    </select>
-    <input name="keyword" value="${map.keyword}">
-    <input type="submit" value="검색">
-</form>
-</div>
 
 
 

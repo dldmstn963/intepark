@@ -11,15 +11,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -27,6 +26,8 @@ import com.c4.intepark.auction.model.service.AuctionService;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.Pagination;
+import com.c4.intepark.common.Search;
 
 @Controller
 public class AuctionController {
@@ -38,12 +39,38 @@ public class AuctionController {
 public AuctionController() {}
 
 @RequestMapping("auctionList2.do")
-public String auctionList(HttpServletRequest request,HttpServletResponse response) {
+public String auctionList(@RequestParam(value="page", required=false, defaultValue="1") int page,
+		@RequestParam(value="range", required = false, defaultValue = "1") int range,
+		@RequestParam(value="page1", required=false, defaultValue="1") int page1,
+		@RequestParam(value="range1", required = false, defaultValue = "1") int range1,
+		@RequestParam(value="searchType",required = false, defaultValue = "title") String searchType,
+		@RequestParam(value="keyword",required = false) String keyword,
+		@RequestParam(value="searchType1",required = false, defaultValue = "title") String searchType1,
+		@RequestParam(value="keyword1",required = false) String keyword1
+		,Model model) {
+	System.out.println("1" + searchType + ", 2" + keyword + ", 3" + searchType1 + ", 4" + keyword1);
+	Search search = new Search();
+	System.out.println(search.getKeyword());
+	search.setSearchType(searchType);
+	search.setKeyword(keyword);
+	int listCnt = auctionService.selectAuctionCount(search);
+	System.out.println(listCnt);
 	
-	ArrayList<Auction> list = auctionService.auctionList();
-	ArrayList<NonAuction> list2 = auctionService.NonAuctionList();
-	request.setAttribute("list", list);
-	request.setAttribute("list2", list2);
+	search.pageInfo(page, range, listCnt);
+	model.addAttribute("pagination", search);
+	ArrayList<Auction> list = auctionService.auctionList(search);
+	model.addAttribute("list", list);
+	
+	Search search1 = new Search();
+	search1.setSearchType(searchType1);
+	search1.setKeyword(keyword1);
+	int listCnt1 = auctionService.selectNonAuctionCount(search1);
+	System.out.println(listCnt1);
+	search1.pageInfo(page1, range1, listCnt1);
+	model.addAttribute("pagination1", search1);
+	ArrayList<NonAuction> list1 = auctionService.NonAuctionList(search1);
+	model.addAttribute("list1", list1);
+	
 	return "auction/auctionList";
 }
 
@@ -62,7 +89,7 @@ public String nonAuctionEnrollPage() {
 @RequestMapping("auctionEnd2.do")
 public String auctionEndList() {
 	
-	return "auction/auctionEndList";
+	return "point/point";
 }
 
 	 @RequestMapping(value="auctionEnroll2.do", method=RequestMethod.POST) 

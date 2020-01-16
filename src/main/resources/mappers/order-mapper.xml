@@ -59,16 +59,13 @@ NATURAL join goods
 where userid = #{userid}
 </select>
 
-<select id="selectmoveConsOrderList4" resultType="AllOrders" parameterType="String">
-select *
-from orders
-NATURAL join deliverylist
-natural join requests
-natural join goods
-where goodsnum in 
-(select goodsnum
-from goods
-where CONSID=#{consid})
+<select id="selectmoveConsOrderList4" resultType="AllOrders" parameterType="Paging">
+<![CDATA[
+select * from
+(select rownum rnum,ORDERNUM,ORDERDATE,ORDERPRICE,ORDERSTATUS,USERID,DLVYNUM,REQUESTNUM,ORDERQUANTITY,GOODSNUM,GOODSPRICE from
+(select * from orders NATURAL join deliverylist natural join requests natural join goods where goodsnum in (select goodsnum from goods where CONSID=#{memberid}) order by ORDERNUM desc))
+where rnum >= #{startRow} and rnum <= #{endRow}
+]]>
 </select>
 
 <select id="selectRequests" resultType="Requests" parameterType="String">
@@ -97,14 +94,116 @@ select * from Goods
 where goodsnum = #{value}
 </select>
 
+<select id="selectmoveConsReviewList" resultType="GoodsReview" parameterType="Paging">
+<![CDATA[
+select * from
+(select rownum rnum,REVIEWNUM,REVIEWDATE,REVIEWCN,REVIEWSCORE,USERID,GOODSNUM,REVIEWTITLE
+,CATEGORYNUM
+,GOODSNAME
+,PRICE
+,INVENTORY
+,FREEDLVY
+,THUMBNAIL
+,COMMENTS
+,DESCRIPTION
+,MAXIMUM
+,CONSID
+,GOODSDATE from
+(select * from GOODSREVIEW natural join goods where goodsnum in (select goodsnum from goods where CONSID=#{memberid}) order by REVIEWNUM desc))
+where rnum >= #{startRow} and rnum <= #{endRow}
+]]>
+</select>
 
+<select id="selectmoveconsInquiryList" resultType="GoodsInquiry" parameterType="Paging">
+<![CDATA[
+select * from
+(select rownum rnum,INQUIRYNUM,INQUIRYCN,INQUIRYTYPE,INQUIRYTITLE,SECRETAT,INQUIRYDATE,ANSWERSTTUS,USERID,GOODSNUM from
+(select * from GOODSINQUIRY natural join goods where goodsnum in (select goodsnum from goods where CONSID=#{memberid}) order by INQUIRYNUM desc))
+where rnum >= #{startRow} and rnum <= #{endRow}
+]]>
+</select>
 
+<select id="selectConsOrderListAllListCount" resultType="int" parameterType="String">
+select count(*) 
+from ORDERS 
+where goodsnum in 
+(select goodsnum
+from goods
+where CONSID=#{consid})
+</select>
 
+<select id="selectconsReviewListAllListCount" resultType="int" parameterType="String">
+select count(*) 
+from GOODSREVIEW 
+where goodsnum in 
+(select goodsnum
+from goods
+where CONSID=#{consid})
+</select>
 
+<select id="selectConsInquiryListAllListCount" resultType="int" parameterType="String">
+select count(*) 
+from GOODSINQUIRY 
+where goodsnum in 
+(select goodsnum
+from goods
+where CONSID=#{consid})
+</select>
 
+<update id="updateConsOrders4" parameterType="Orders">
+UPDATE ORDERS
+SET ORDERSTATUS = #{orderstatus}
+WHERE ORDERNUM = #{ordernum}
+</update>
 
+<select id="selectordersDetail" resultType="AllOrders" parameterType="int">
+select * from ORDERS
+NATURAL join deliverylist natural join requests natural join goods
+where ORDERNUM = #{value}
+</select>
 
+<select id="selectOrdersUser" resultType="InteUser" parameterType="String">
+select * from INTEUSER
+where USERID = #{userid}
+</select>
 	
+<delete id="deleteInquiry" parameterType="String">
+delete from GOODSINQUIRY 
+where INQUIRYNUM = #{INQUIRYNUM}
+</delete>
+
+<delete id="deleteReviewcheck" parameterType="String">
+delete from GOODSREVIEW 
+where REVIEWNUM = #{REVIEWNUM}
+</delete>
+
+<delete id="deleteGoodscheck" parameterType="String">
+delete from GOODS 
+where GOODSNUM = #{GOODSNUM}
+</delete>
+
+<update id="updateOrderscheck" parameterType="String">
+UPDATE ORDERS
+SET ORDERSTATUS = '주문 취소'
+WHERE ORDERNUM = #{ordernum}
+</update>
+
+<select id="selectInquiry" resultType="GoodsInquiry" parameterType="int">
+select * from GOODSINQUIRY
+where INQUIRYNUM = #{inquirynum}
+</select>
+
+<select id="selectMyOrderAll" resultType="AllOrders" parameterType="String">
+select * from ORDERS
+NATURAL join deliverylist natural join requests natural join goods
+where userid = #{value}
+</select>
+
+
+
+
+
+
 </mapper>
 
 

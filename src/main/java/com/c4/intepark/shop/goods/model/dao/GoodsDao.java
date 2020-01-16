@@ -118,4 +118,33 @@ public class GoodsDao {
 		return (ArrayList<Goods>) list;
 	}
 
+	public int insertReviewPic(GoodsPic gp) {
+		return mybatis.insert("goodsMapper.insertReviewPic", gp);
+	}
+
+	public int selectGoodsReviewNum() {
+		return mybatis.selectOne("goodsMapper.selectGoodsReviewNum");
+	}
+
+	public GoodsReview selectGoodsReviewDetail(int reviewnum) {
+		return mybatis.selectOne("goodsMapper.selectGoodsReviewDetail",reviewnum);
+	}
+
+	public ArrayList selectGoodsReviewDetailPic(int reviewnum) {
+				List list = mybatis.selectList("goodsMapper.selectGoodsReviewDetailPic",reviewnum);
+				return (ArrayList<GoodsReview>) list;
+	}
+
+	public float selectreviewscore(int goodsnum) {
+		return mybatis.selectOne("goodsMapper.selectreviewscore",goodsnum);
+	}
+
+	public int selectGoodsInquiryNum() {
+		return mybatis.selectOne("goodsMapper.selectGoodsInquiryNum");
+	}
+
+	public int insertInquiryPic(GoodsPic gp) {
+		return mybatis.insert("goodsMapper.insertInquiryPic", gp);
+	}
+
 }

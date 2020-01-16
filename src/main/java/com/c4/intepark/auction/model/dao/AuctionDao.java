@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.auction.model.vo.Auction;
 import com.c4.intepark.auction.model.vo.AuctionAttend;
 import com.c4.intepark.auction.model.vo.NonAuction;
+import com.c4.intepark.common.Pagination;
+import com.c4.intepark.common.Search;
 
 @Repository("auctionDao")
 public class AuctionDao {
@@ -18,9 +20,9 @@ public class AuctionDao {
 	
 public AuctionDao() {}
 
-public ArrayList<Auction> selectList(){
+public ArrayList<Auction> selectList(Search search){
 	
-	List<Auction> list = mybatisSession.selectList("auctionMapper.selectList");
+	List<Auction> list = mybatisSession.selectList("auctionMapper.selectList",search);
 	return (ArrayList<Auction>)list;
 }
 
@@ -34,8 +36,8 @@ public int nonAuctionEnroll(NonAuction nonauction) {
 	return mybatisSession.insert("auctionMapper.nonAuctionEnroll", nonauction);
 }
 
-public ArrayList<NonAuction> NonAuctionList() {
-	List<NonAuction> list2 = mybatisSession.selectList("auctionMapper.NonAuctionList");
+public ArrayList<NonAuction> NonAuctionList(Pagination pagination) {
+	List<NonAuction> list2 = mybatisSession.selectList("auctionMapper.NonAuctionList",pagination);
 	return (ArrayList<NonAuction>)list2;
 }
 public int auctionUpdate(Auction auction) {
@@ -81,4 +83,14 @@ public int auctionAttendDelete(AuctionAttend auction) {
 public int deleteNonAuction(int auctionno) {
 	return mybatisSession.delete("auctionMapper.deleteNonAuction", auctionno);
 }
+
+public Integer selectAuctionCount(Search search) {
+
+	return mybatisSession.selectOne("auctionMapper.selectAuctionCount",search);
+}
+
+public Integer selectNonAuctionCount(Search search) {
+	return mybatisSession.selectOne("auctionMapper.selectNonAuctionCount",search);
+}
+
 }

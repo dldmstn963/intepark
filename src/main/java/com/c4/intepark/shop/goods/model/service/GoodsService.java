@@ -56,4 +56,18 @@ public interface GoodsService {
 	public int selectcategoryListCount(int categorynum);
 
 	public ArrayList<Goods> selectcategoryGoodsList(GoodsSearch goodsSearch);
+
+	public int insertReviewPic(GoodsPic gp);
+
+	public int selectGoodsReviewNum();
+
+	public GoodsReview selectGoodsReviewDetail(int reviewnum);
+
+	public ArrayList<GoodsReview>  selectGoodsReviewDetailPic(int reviewnum);
+
+	public float selectreviewscore(int goodsnum);
+
+	public int selectGoodsInquiryNum();
+
+	public int insertInquiryPic(GoodsPic gp);
 }

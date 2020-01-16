@@ -22,7 +22,7 @@ public class Review implements java.io.Serializable {
 	private String rvspacious;	//시공평수
 	private String rvprice2;	//시공가격
 	private String rvcritique;	//총평
-	private java.sql.Date rvdate;	//리뷰작성날짜
+	private String rvdate;	//리뷰작성날짜
 	private String consid;	//시공사 아이디
 	private String userid;	//고객아이디
 	
@@ -30,7 +30,7 @@ public class Review implements java.io.Serializable {
 
 	public Review(int rvnum, int rvkind, int rvprice, int rvquality, int rvprofessional, int rvresponsible,
 			double rvavg, String rvperiod, String rvregion, String rvbuildingtype, String rvarea, String rvspacious,
-			String rvprice2, String rvcritique, Date rvdate, String consid, String userid) {
+			String rvprice2, String rvcritique, String rvdate, String consid, String userid) {
 		super();
 		this.rvnum = rvnum;
 		this.rvkind = rvkind;
@@ -163,11 +163,11 @@ public class Review implements java.io.Serializable {
 		this.rvcritique = rvcritique;
 	}
 
-	public java.sql.Date getRvdate() {
+	public String getRvdate() {
 		return rvdate;
 	}
 
-	public void setRvdate(java.sql.Date rvdate) {
+	public void setRvdate(String rvdate) {
 		this.rvdate = rvdate;
 	}
 
@@ -199,6 +199,8 @@ public class Review implements java.io.Serializable {
 				+ ", rvarea=" + rvarea + ", rvspacious=" + rvspacious + ", rvprice2=" + rvprice2 + ", rvcritique="
 				+ rvcritique + ", rvdate=" + rvdate + ", consid=" + consid + ", userid=" + userid + "]";
 	}
+
+	
 
 	
 	

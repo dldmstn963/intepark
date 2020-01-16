@@ -5,8 +5,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.c4.intepark.common.CommonPage" alias="CommonPage"/>
+		<typeAlias type="com.c4.intepark.common.Pagination" alias="Pagination"/>
+		<typeAlias type="com.c4.intepark.common.Search" alias="Search"/>
 		<typeAlias type="com.c4.intepark.constructors.model.vo.Constructors" alias="Constructors"/>
 		<typeAlias type="com.c4.intepark.inteuser.model.vo.InteUser" alias="InteUser" />
+		<typeAlias type="com.c4.intepark.loginInfo.model.vo.LoginInfo" alias="LoginInfo" />
 		<typeAlias type="com.c4.intepark.album.model.vo.Album" alias="Album" />
 		<typeAlias type="com.c4.intepark.album.model.vo.AlbumReply" alias="AlbumReply" />
 		<typeAlias type="com.c4.intepark.calendar.model.vo.Calendar" alias="Calendar" />
@@ -14,6 +17,7 @@
   		<typeAlias type="com.c4.intepark.auction.model.vo.NonAuction" alias="NonAuction" />
   		<typeAlias type="com.c4.intepark.auction.model.vo.AuctionAttend" alias="AuctionAttend" />
   		<typeAlias type="com.c4.intepark.notice.model.vo.Notice" alias="Notice"/>
+  		<typeAlias type="com.c4.intepark.notice.model.vo.NoticePage" alias="NoticePage"/>
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Goods" alias="Goods"/>
   		<typeAlias type="com.c4.intepark.portfolio.model.vo.Portfolio" alias="Portfolio"/>
   		<typeAlias type="com.c4.intepark.portfolio.model.vo.PortfolioFile" alias="PortfolioFile"/>
@@ -39,6 +43,7 @@
 	<mappers>
 		<mapper resource="mappers/constructors-mapper.xml"/>
 		<mapper resource="mappers/inteUser-mapper.xml" />
+		<mapper resource="mappers/loginInfo-mapper.xml" />
 		<mapper resource="mappers/portfolio-Mapper.xml" />
 		<mapper resource="mappers/calendar-mapper.xml" />
 		<mapper resource="mappers/auction-mapper.xml" />
