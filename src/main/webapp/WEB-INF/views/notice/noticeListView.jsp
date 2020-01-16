@@ -17,7 +17,10 @@
 
 
 <script type="text/javascript">
+function callFunction(){
+	location.href="nwrite3.do";
 
+}
 
 
 
@@ -86,7 +89,7 @@
 		test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin' }">
 	<!-- 관리자 접속시 글쓰기 추가 -->
 		<div style="float:right; margin-right:150px;">
-		<button onclick="callFunction();" class="btn btn-primary">새 공지사항 등록</button>
+		<button onclick="callFunction();" class="btn btn-primary">글 등록</button>
 		</div>
 </c:if>
 <br><br><br><br><br><br><br><br> 
