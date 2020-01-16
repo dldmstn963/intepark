@@ -107,14 +107,17 @@
             reader.readAsDataURL(file);
         }
         
- 
+
+
+        
         //preview 영역에서 삭제 버튼 클릭시 해당 미리보기이미지 영역 삭제
+        
         function deletePreview(obj) {
             var imgNum = obj.attributes['value'].value;
             delete files[imgNum];
-            $("#preview .preview-box[value=" + imgNum + "]").remove();
+            $("#preview .preview-box[value=" + imgNum + "]").remove();   
         }
- 
+
         //client-side validation
         //always server-side validation required
         function validation(fileName) {
@@ -133,32 +136,55 @@
  
        
             //submit 등록. 실제로 submit type은 아니다.
-               function reviewCheck(){                    
-                var form = $('#uploadForm')[0];
-                var formData = new FormData(form);
-    
-				/*  for (var index = 0; index < Object.keys(files).length; index++) {
-                    //formData 공간에 files라는 이름으로 파일을 추가한다.
-                    //동일명으로 계속 추가할 수 있다.
-                    formData.append('files',files[index]);
-                    
-                    console.log("오브젝트 : " + Object.keys(files));
-                    console.log("파일즈 : " + files);
-                    console.log("파일즈 인덱스 : " + files[index]);
-                    console.log(Object.keys(files));
-                    console.log(files);
-                    console.log(files[index]);
-                } */
-                for (var key in files){
+               function reviewCheck(){
+
+            	   var form = $('#uploadForm')[0];
+                   var formData = new FormData(form);
+             	  
+
+                for (var key in files){      
                 	formData.append('files',files[key]);
+                	
                 	console.log("오브젝트 : " + Object.keys(files));
                     console.log("파일즈 : " + files);
                     console.log("파일즈 인덱스 : " + files[key]);
                     console.log(Object.keys(files));
                     console.log(files);
-                    console.log(files[key]);
-                    }
+               }
 
+
+                $.ajax({
+                    type : 'POST',
+                    enctype : 'multipart/form-data',
+                    processData : false,
+                    contentType : false,
+                    cache : false,
+                    timeout : 600000,
+                    url : 'testSubmit5.do',
+                    dataType : 'JSON',
+                    data : formData,
+                    success : function(result) {
+                        //이 부분을 수정해서 다양한 행동을 할 수 있으며,
+                        //여기서는 데이터를 전송받았다면 순수하게 OK 만을 보내기로 하였다.
+                        //-1 = 잘못된 확장자 업로드, -2 = 용량초과, 그외 = 성공(1)
+                        if (result === -1) {
+                            alert('jpg, gif, png, bmp 확장자만 업로드 가능합니다.');
+                            // 이후 동작 ...
+                        } else if (result === -2) {
+                            alert('파일이 20MB를 초과하였습니다.');
+                            // 이후 동작 ...
+                        }else if (result === 3) {
+                            alert('파일이 갯수가 5개를 초과하였습니다.');
+                            // 이후 동작 ...    
+                        } else {
+                            alert('이미지 업로드 성공');
+                            // 이후 동작 ...
+                        }
+                    }
+                    //전송실패에대한 핸들링은 고려하지 않음
+                });
+                
+                return false;
                 
        
             }

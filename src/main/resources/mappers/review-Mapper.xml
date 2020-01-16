@@ -16,6 +16,16 @@
     	#{rvarea}, #{rvspacious}, #{rvprice2}, #{rvcritique}, default, #{consid}, #{userid})
 	</insert>
 	
+	<select id="selectrvnum" parameterType="string" resultType="int">
+		select max (rvnum)
+		from review
+    	where userid = #{userid}
+	</select>
+	
+	<insert id="insertRvfile" parameterType="ReviewFile">
+		insert into reviewfile values (RVPHOTONUM_SEQ.nextval, #{rvoriginalname}, #{rvrename}, #{rvnum})
+	</insert>
+	
 	
 	
 	
