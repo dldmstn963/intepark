@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 
 @Repository("reviewDao")
 public class ReviewDao {
@@ -26,6 +27,15 @@ public class ReviewDao {
 	public int insertReview(Review rv) {
 		return mybatisSession.insert("reviewMapper.insertReview", rv);
 	}
+	
+	public int selectrvnum(String userid) {
+		return mybatisSession.selectOne("reviewMapper.selectrvnum", userid);
+	}
+	
+	public int insertRvfile(ReviewFile rvfile) {
+		return mybatisSession.insert("reviewMapper.insertRvfile", rvfile);
+	}
+	
 	
 	
 	
@@ -61,6 +71,10 @@ public class ReviewDao {
 	public int deleteReview(int rvnum) {
 		return mybatisSession.delete("reviewMapper.deleteReview", rvnum);
 	}
+
+	
+
+	
 
 	
 

@@ -26,14 +26,10 @@ public class NoticeDao {
 	
 	public NoticeDao() {}
 	
-	
-	public ArrayList<Notice> noticeSearch(String search) {
-		List<Notice> list = mybatisSession.selectList("noticeMapper.searchTitle",search);
-		return (ArrayList<Notice>)list;
-	}
+
 
 	public int getListCount() {
-		// TODO Auto-generated method stub
+		
 		return mybatisSession.selectOne("noticeMapper.getListCount");
 	}
 
@@ -41,6 +37,26 @@ public class NoticeDao {
 		
 		List<Notice> list = mybatisSession.selectList("noticeMapper.selectList",noticePage);
 		return (ArrayList<Notice>)list;
+	}
+
+	//조회수 및 페이징
+	public void updateReadCount(int noticeno) {
+		mybatisSession.update("noticeMapper.updateReadCount",noticeno);
+		
+	}
+
+
+	//글 상세보기
+	public Notice selectOne(int noticeno) {
+		
+		return mybatisSession.selectOne("noticeMapper.selectOne",noticeno);
+	}
+
+
+
+	public int insertNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return mybatisSession.insert("noticeMapper.insertNotice",notice);
 	}
 
 

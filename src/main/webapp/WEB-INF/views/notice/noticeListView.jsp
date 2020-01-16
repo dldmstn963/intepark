@@ -17,7 +17,10 @@
 
 
 <script type="text/javascript">
+function callFunction(){
+	location.href="nwrite3.do";
 
+}
 
 
 
@@ -44,7 +47,7 @@
 <br>
 <div class="container">
     <div class="row"> 
-<table class="table table-striped table-hover">
+<table class="table table-striped">
 
 <tr>
 	<th>번호</th>
@@ -58,7 +61,8 @@
 <tr>
 	<th>${ n.noticeno }</th>
 	<c:url var="ndt" value="ndetail2.do">
-		<c:param name="n" value="${n.noticeno }" />
+		<c:param name="no" value="${n.noticeno }" />
+		<c:param name="page" value="${currentPage }" />
 	</c:url>
 	<td><a href="${ ndt }">${ n.noticetitle }</a></td>
 	<td>${ n.writername }</td>
@@ -85,10 +89,10 @@
 		test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin' }">
 	<!-- 관리자 접속시 글쓰기 추가 -->
 		<div style="float:right; margin-right:150px;">
-		<button onclick="callFunction();" class="btn btn-primary">새 공지사항 등록</button>
+		<button onclick="callFunction();" class="btn btn-primary">글 등록</button>
 		</div>
 </c:if>
-<br> 
+<br><br><br><br><br><br><br><br> 
 
 <div id="pagebox" align="center">
 <a href="/intepark/nlist1.do?page=1"> |◁ </a> &nbsp;

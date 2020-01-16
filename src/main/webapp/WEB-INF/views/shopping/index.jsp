@@ -21,7 +21,7 @@
 				<!-- Single Catagory -->
 				<c:forEach var="li" items="${list }">
 				<div class="single-products-catagory clearfix">
-					<a href="shop.html"> <img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="">
+					<a href="moveproduct4.do?goodsnum=${li.goodsnum }"> <img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="">
 						<!-- Hover Content -->
 						<div class="hover-content">
 							<div class="line"></div>

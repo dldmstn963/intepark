@@ -62,11 +62,11 @@ function checkSearch(){
 						<th>이름 : <input type="text" name="username" style="width: 100px"></th>
 						<th>검색 시작 날짜 : <input type="date" id="sdate" name="startdate"></th>
 						<th>검색 끝 날짜 : <input type="date" id="edate" name="enddate"></th>
-						<th colspan="2">현재상태 : <select name="memberState">
+						<th colspan="2">현재상태 : <select name="memberstate">
 								<option value="">전체</option>
-								<option value="Y">정상</option>
-								<option value="S">정지</option>
-								<option value="N">탈퇴</option>
+								<option value="정상">정상</option>
+								<option value="정지">정지</option>
+								<option value="탈퇴">탈퇴</option>
 						</select>
 						</th>
 						<th><input type="submit" value="검색"></th>
@@ -80,13 +80,7 @@ function checkSearch(){
 							<td>${ulist.phone }</td>
 							<td>${ulist.email }</td>
 							<td>${ulist.enrolldate}</td>
-							<td><c:if test="${ulist.memberstate eq 'Y'}">
-						정상
-						</c:if> <c:if test="${ulist.memberstate eq 'S'}">
-						정지
-						</c:if> <c:if test="${ulist.memberstate eq 'N'}">
-						탈퇴
-						</c:if></td>
+							<td>${ulist.memberstate}</td>
 							<td><a href="userDetailView.do?userid=${ulist.userid}">view</a></td>
 						</tr>
 					</c:forEach>

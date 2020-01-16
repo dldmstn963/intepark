@@ -2,15 +2,66 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean
+<!-- 	<bean
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"
 		id="bcryptPasswordEncoder">
+	</bean> -->
+	
+	<bean id="accessDenied"
+		class="com.c4.intepark.common.CustomAccessDeniedHandler">
+	</bean>
+	
+	<security:http pattern="/resources/**" security="none" />
+
+	<security:http>
+		<security:form-login login-page="/login6.do"
+			password-parameter="password" username-parameter="username"
+			default-target-url="/loginSuccess.do" login-processing-url="/login"
+			authentication-failure-handler-ref="loginFailureHandler" />
+		<security:intercept-url pattern="/user/*.do" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/cons/*.do" access="hasRole('ROLE_CONS')" />
+		<security:intercept-url pattern="/admin/*.do" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/**" access="permitAll" />
+		<security:intercept-url pattern="/login6.do" access="isAnonymous()" />
+		<security:access-denied-handler ref="accessDenied" />
+		<security:logout invalidate-session="true" logout-url="/logout"
+			logout-success-url="/main.do" />
+		<security:csrf disabled="true" />
+		<security:session-management>
+			<security:concurrency-control max-sessions="1" expired-url="/doubleLogin.do" />
+		</security:session-management>
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider ref="userAuthProvider"/>
+		<security:authentication-provider user-service-ref="userService" >
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<bean id="userService"
+		class="com.c4.intepark.loginInfo.model.service.LoginInfoServiceImpl">
+	</bean>
+	<bean id="userAuthProvider"
+		 class="com.c4.intepark.common.CustomAuthenticationProvider">
 	</bean>
 	
 	
+
+	<context:component-scan base-package="com.c4.intepark" />
+	
+	
+	<bean id="loginFailureHandler"
+		class="com.c4.intepark.common.LoginFailHandler">
+	<property name="logid" value="username"></property>
+	<property name="logpwd" value="password"></property>
+	<property name="errormessage" value="ERRORMSG"></property>
+	<property name="url" value="login6.do"></property>
+	
+	</bean>
 </beans>
 
 

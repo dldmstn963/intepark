@@ -14,7 +14,7 @@
 <script src="resources/fullcalendar/timegrid/main.min.js"></script>
 <script src='resources/fullcalendar/core/locales/ko.js'></script>
 
-<script src='resources/js/jquery-3.4.1.min.js' ></script>
+<!-- <script src='resources/js/jquery-3.4.1.min.js' ></script> -->
 
 <script>
 	var myMap = new Map();
@@ -123,7 +123,7 @@
 	var c1 = document.getElementById("fcstart").value;
 	var c2 = document.getElementById("fcend");
 	c2.value = c1;
-};	
+	};	
 
 	 /* 일정등록 submit시 끝날짜가 시작날짜보다 작은지 확인 */
 	function check(){
@@ -166,7 +166,8 @@
 #read{
 	display:none;
 } 
- 
+.fc-sun {color:#e31b23}
+  .fc-sat {color:#007dc3}
 </style>
 <title>업체 일정 관리</title>
 <%@ include file="../common/jscsspath.jsp" %>
@@ -176,17 +177,17 @@
 <div class="container" style="margin-top: 60px;">
     <div class="row">
       <div class="col-lg-12">
-      <span> ${sessionScope.loginCons.companyname } / ${sessionScope.loginCons.consid} </span> &nbsp;<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
  	  일정등록
       </button>
-      <div id="read">확인</div>
       <div id='calendar'></div>
       </div>
       </div><!-- row 끝 -->
 </div><!-- container 끝 -->
 
+<jsp:include page="../common/footer.jsp" />
 <!-- 복사 --><!-- fade  -->
-<div class="modal fade" tabindex="-1" id="myModal" role="dialog">
+<div class="modal fade" tabindex="-1" id="myModal" role="dialog" data-backdrop="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -227,7 +228,7 @@
         </div>
 <!-- 끝 -->
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -259,6 +260,5 @@
     </div>
   </div>
 </div>
-<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

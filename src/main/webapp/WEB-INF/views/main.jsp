@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<!DOCTYPE html>
 <html>
 <head>
 <title>인테파크</title>
 <%@ include file="common/jscsspath.jsp" %>
+<script type="text/javascript">
+window.onload=function(){
+	var message = '${log}';
+	if(message !=null && message !='')
+		alert(message);
+}
+</script>
 </head>
 <body>
         <!--================Header Menu Area =================-->

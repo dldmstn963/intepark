@@ -5,8 +5,8 @@
 <mapper namespace="constructorsMapper">
 
 
-	<select id="loginCheck" parameterType="Constructors" resultType="Constructors">
-		select * from constructors where consid = #{ consid } and conspwd = #{conspwd}
+	<select id="selectConsSession" parameterType="String" resultType="Constructors">
+		select * from constructors where consid = #{value}
 	</select>
 	
 </mapper>

@@ -19,7 +19,7 @@
 	} */
 
 	</style>
-		<script type="text/javascript">
+<script type="text/javascript">
 	function doDisplay(menu){
 	   var con = document.getElementById(menu);
 		console.log(con);
@@ -37,10 +37,36 @@
  window.open(url, name, option);
     }
 
-    function invite(data){
-		ws.send("invite/" + data);
-		console.log(data);
-    }
+    var chatno;
+    
+    function invite(data1, data2){
+			console.log(data2);
+        	$.ajax({
+    		url :  "insertChat3.do",
+    		type : "post",
+    		data : {
+				consid : data1,
+    			userid : data2
+    		},
+    		success : function(data){
+    			chatno = data;
+    			console.log(chatno);    			
+    			console.log(data1 + "/" + data2 + "/" + chatno);
+    			ws.send("invite/" + data1 + "/" + data2 + "/" + chatno);
+    			openwindow(chatno);
+    		},
+    		error : function(jqXHR, textStatus, errorThrown){
+    			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
+    		}
+    	});
+
+
+    }	
+
+function openwindow(){
+	window.open("chat3.do?chatno="+chatno, "chat", "width=450, height=700");
+}
+
 	</script>
 <script type="text/javascript">
 	setInterval(function(){
@@ -61,8 +87,11 @@
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
+
  	<div class="container">
-<table class="table table-hover" >
+
+<table class="table table-hover">
+
   <thead class="thead-light">
     <tr>
     <br>
@@ -78,14 +107,16 @@
   </thead>
   <tbody>
   <c:forEach items="${ list }" var="a">
-  <input type="hidden" id="id+${a }" value ="${a.consid }">
     <tr>
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
+
     <button type="button" id="open">Open Modal</button>
     <c:set var="cons" value="${a.consname }" />
-    <li><a href = "javascript:invite('${a.consid }');">채팅</a></li>
+
+    <li><a href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
+
     <li><a href="#">수정</a></li>
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
     </ul>

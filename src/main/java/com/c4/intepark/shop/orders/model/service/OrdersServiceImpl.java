@@ -143,6 +143,16 @@ public class OrdersServiceImpl implements OrdersService{
 		return ordersDao.updateOrderscheck(ordernum);
 	}
 
+	@Override
+	public Inquiry selectInquiry(int inquirynum) {
+		return ordersDao.selectInquiry(inquirynum);
+	}
+
+	@Override
+	public ArrayList<Orders> selectMyOrderAll(String userId) {
+		return ordersDao.selectMyOrderAll(userId);
+	}
+
 	
 	
 	

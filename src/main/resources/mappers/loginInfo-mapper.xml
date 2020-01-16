@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginInfoMapper">
+
+<select id="selectUserById" parameterType="string" resultType="LoginInfo">
+	select logid, logpwd, authority, enabled
+	 from logininfo where logid=#{value}
+</select>
+
+<select id = "selectMemberState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+	select logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
+	from(select rownum, logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
+         from (select *
+			   from logininfo
+			   left outer join loginstop using(logid)
+			   where logid=#{value}
+			   order by stopno desc))
+	where rownum =1
+</select>
+
+</mapper>
+
+
+
+

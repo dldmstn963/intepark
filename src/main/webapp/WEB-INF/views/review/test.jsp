@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>test</title>
+<%@ include file="../common/jscsspath.jsp" %>
+<!-- ---------------------------------------------------------------------------------------------------------- -->
 
 <style>
 #preview img {
@@ -19,41 +21,48 @@
 .preview-box {
     border: 1px solid;
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 5px;
     margin-bottom: 10px;
-    width:200px;
+    margin-right:10px;
+    
     display:inline-block;
 }
+#attach{
+	border-radius: 5px;
+}
+.aa{
+	float:right;
+	color:gray;
+}
 </style>
-
 
 </head>
 <body>
 <h1>첨부파일 테스트 페이지</h1>
-
-
-
+<form id="uploadForm" method="POST" enctype="multipart/form-data" action="testSubmit5.do" onsubmit="return reviewCheck();">
 <div class="wrapper">
-        <div class="body">
-            <!-- 첨부 버튼 -->
-            <div id="attach">
-                <label for="uploadInputBox">사진첨부</label>
-                <input type="file" id="uploadInputBox" name="filedata" multiple style="display: none" />
-            </div>
-            
+        <div class="body" style="display:inline-block;">
+        
             <!-- 미리보기 영역 -->
-            <div id="preview"></div>
+            <div id="preview" style="display:inline-block;"></div>
             
             <!-- multipart 업로드시 영역 -->
-            <form id="uploadForm" style="display: none;" />
+            <!-- <form id="uploadForm" style="display: none;" /> -->
         </div>
+
+        <!-- 첨부 버튼 -->
+        <div id="attach" style="display:inline-block; width:100px; height:100px; border:1px solid;">
+                <label for="uploadInputBox"><i class="fa fa-camera-retro fa-2x" style="padding-left: 33px;padding-top: 28px;"></i><br>&nbsp;&nbsp;&nbsp;사진올리기</label>
+                <input type="file" id="uploadInputBox" name="filedata" multiple style="display: none" />
+        </div>
+        
         <div class="footer">
-            <button class="submit"><a href="#" title="등록" class="btnlink">등록</a></button>
+        <input type="submit" value="등록이다">
+            <!-- <button class="submit"><a href="#" title="등록" >등록</a></button> -->
         </div>
 </div>
-
-
- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</form>
+ <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
     <script>
         //임의의 file object영역
@@ -86,27 +95,29 @@
                 var imgNum = previewIndex++;
                 $("#preview").append(
                         "<div class=\"preview-box\" value=\"" + imgNum +"\">" +
+                        "<a href=\"#\" class=\"aa\" value=\"" + imgNum + "\" onclick=\"deletePreview(this)\">" +
+                        "<i class=\"fa fa-times-circle-o fa-lg\"></i></a>" +
                         "<img class=\"thumbnail\" src=\"" + img.target.result + "\"\/>" +
-                        "<p>" + file.name + "</p>" +
-                        "<a href=\"#\" value=\"" + imgNum + "\" onclick=\"deletePreview(this)\">" +
-                        "삭제" + "</a>"
-                        + "</div>"
+                        /* "<p>" + file.name + "</p>" + */"</div>"
                 );
-                resizeHeight();
+                
                 files[imgNum] = file;            
             };
             
             reader.readAsDataURL(file);
         }
         
- 
+
+
+        
         //preview 영역에서 삭제 버튼 클릭시 해당 미리보기이미지 영역 삭제
+        
         function deletePreview(obj) {
             var imgNum = obj.attributes['value'].value;
             delete files[imgNum];
-            $("#preview .preview-box[value=" + imgNum + "]").remove();
+            $("#preview .preview-box[value=" + imgNum + "]").remove();   
         }
- 
+
         //client-side validation
         //always server-side validation required
         function validation(fileName) {
@@ -123,19 +134,25 @@
             }
         }
  
-        $(document).ready(function() {
+       
             //submit 등록. 실제로 submit type은 아니다.
-            $('.submit a').on('click',function() {                        
-                var form = $('#uploadForm')[0];
-                var formData = new FormData(form);
-    
-                for (var index = 0; index < Object.keys(files).length; index++) {
-                    //formData 공간에 files라는 이름으로 파일을 추가한다.
-                    //동일명으로 계속 추가할 수 있다.
-                    formData.append('files',files[index]);
-                }
- 
-                //ajax 통신으로 multipart form을 전송한다.
+               function reviewCheck(){
+
+            	   var form = $('#uploadForm')[0];
+                   var formData = new FormData(form);
+             	  
+
+                for (var key in files){      
+                	formData.append('files',files[key]);
+                	
+                	console.log("오브젝트 : " + Object.keys(files));
+                    console.log("파일즈 : " + files);
+                    console.log("파일즈 인덱스 : " + files[key]);
+                    console.log(Object.keys(files));
+                    console.log(files);
+               }
+
+
                 $.ajax({
                     type : 'POST',
                     enctype : 'multipart/form-data',
@@ -143,7 +160,7 @@
                     contentType : false,
                     cache : false,
                     timeout : 600000,
-                    url : '/imageupload',
+                    url : 'testSubmit5.do',
                     dataType : 'JSON',
                     data : formData,
                     success : function(result) {
@@ -154,8 +171,11 @@
                             alert('jpg, gif, png, bmp 확장자만 업로드 가능합니다.');
                             // 이후 동작 ...
                         } else if (result === -2) {
-                            alert('파일이 10MB를 초과하였습니다.');
+                            alert('파일이 20MB를 초과하였습니다.');
                             // 이후 동작 ...
+                        }else if (result === 3) {
+                            alert('파일이 갯수가 5개를 초과하였습니다.');
+                            // 이후 동작 ...    
                         } else {
                             alert('이미지 업로드 성공');
                             // 이후 동작 ...
@@ -163,8 +183,14 @@
                     }
                     //전송실패에대한 핸들링은 고려하지 않음
                 });
-            });
+                
+                return false;
+                
+       
+            }
             // <input type=file> 태그 기능 구현
+            
+             $(document).ready(function() {
             $('#attach input[type=file]').change(function() {
                 addPreview($(this)); //preview form 추가하기
             });

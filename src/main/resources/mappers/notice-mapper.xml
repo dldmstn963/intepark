@@ -24,10 +24,29 @@
 		]]>
 	</select>
 	
+	<!-- 게시글 상세보기 -->
 	<select id="selectOne" parameterType="_int" resultType="Notice">
 		select * from notice where noticeno = #{value}
 	</select>
 	
+	<update id="updateReadCount" parameterType="_int">
+		update notice set noticecount = noticecount + 1 where noticeno = #{value}
+	</update>
+	
+	<!-- 게시글 작성하기 -->
+	<insert id="insertNotice" parameterType="Notice" >
+		insert into notice 
+		values ((select max(noticeno) from notice) + 1, 
+				#{noticetitle}, #{noticecontent}, default, default, null, 
+				<if test="noticeoriginalfilename != null">
+				#{noticeoriginalfilename, jdbcType=VARCHAR}, #{noticerenamefilename, jdbcType=VARCHAR}
+				</if>
+				<if test="noticeoriginalfilename == null">
+				null, null
+				</if>
+				,#{writername}
+				)
+	</insert>
 	
 	
 <!-- 	<select id="getlistCount" resultType="_int">

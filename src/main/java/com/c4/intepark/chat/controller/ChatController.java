@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,13 +36,16 @@ public class ChatController {
 	public ChatController() {}
 	
 	@RequestMapping("chat3.do")
-	public String moveChat() {
+	public String moveChat(HttpServletRequest request, Model model) {
+		int chatno = Integer.parseInt(request.getParameter("chatno"));
+		model.addAttribute("chatno", chatno);
 		return "chat/practice";
 	}
 	
 	@RequestMapping(value = "insertChat3.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int insertChat(Chat chat) {
+		System.out.println(chat);
 		int result = chatService.insertChat(chat);
 		if(result > 0)
 		logger.info("생성 성공");
@@ -80,6 +85,7 @@ public class ChatController {
 	  @RequestMapping(value = "insertChatMsg3.do", method = RequestMethod.POST) 
 	  @ResponseBody
 	  public void insertChatMsg(ChatMessage chatmsg, @RequestParam("user") String user) { 
+		  
 		  logger.info(chatmsg.toString());
 		  logger.info(user);
 		  String[] users = user.split("/");

@@ -9,6 +9,7 @@ import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.review.model.dao.ReviewDao;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService{
@@ -25,6 +26,19 @@ public class ReviewServiceImpl implements ReviewService{
 	public int insertReview(Review rv) {
 		return reviewDao.insertReview(rv);
 	}
+	
+	@Override
+	public int selectrvnum(String userid) {
+		return reviewDao.selectrvnum(userid);
+	}
+
+	@Override
+	public void insertRvfile(ReviewFile rvfile) {
+		reviewDao.insertRvfile(rvfile);
+	}
+	
+	
+	
 	
 	
 	
@@ -58,6 +72,9 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.deleteReview(rvnum);
 	}
 
+	
+
+	
 
 
 

@@ -122,6 +122,7 @@ public class InteUser implements java.io.Serializable{
 				+ username + ", phone=" + phone + ", email=" + email + ", address=" + address + ", memberstate="
 				+ memberstate + ", withdrawdate=" + withdrawdate + ", withdrawcause=" + withdrawcause + "]";
 	}
-
 	
+	
+
 }

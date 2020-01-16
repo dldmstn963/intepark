@@ -79,7 +79,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 <![CDATA[
 select * 
 from (select rownum rnum, REVIEWDATE, 
-REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN
+REVIEWSCORE,USERID,REVIEWTITLE,REVIEWCN,refile,REVIEWNUM
 from (select * from GoodsReview 
 where GOODSNUM= #{goodsnum} order by REVIEWDATE desc)) 
 where rnum >= #{startRow} and rnum <= #{endRow}
@@ -129,7 +129,7 @@ description = #{description} and maximum = #{maximum}
 insert into 
 GOODSPIC 
 values (
-#{picnum},
+goodsPICnum.nextval,
 #{orifile},
 #{refile},
 #{goodsnum}
@@ -161,8 +161,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 
 <insert id="insertGoodsInquiry" parameterType="GoodsInquiry">
 insert into GOODSINQUIRY values(
-(select max(INQUIRYNUM)+1 
-from GOODSINQUIRY),
+#{inquirynum},
 #{inquirycn},
 #{inquirytype},
 #{inquirytitle},
@@ -176,14 +175,14 @@ default,
 
 <insert id="insertGoodsReview" parameterType="GoodsReview">
 insert into GoodsReview values(
-(select max(reviewnum)+1 
-from GoodsReview),
+#{reviewnum},
 sysdate,
 #{reviewcn},
 #{reviewscore},
 #{userid},
 #{goodsnum},
-#{reviewtitle}
+#{reviewtitle},
+#{refile}
 )
 </insert>
 
@@ -204,18 +203,53 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 </select>
 
+<insert id="insertReviewPic">
+insert into 
+GOODSREVIEWPIC 
+values (
+goodsreviewPICnum.nextval,
+null,
+#{refile},
+#{goodsnum}
+)
+</insert>
 
+<select id="selectGoodsReviewNum" resultType="int">
+select goodsreviewnum.nextval
+from dual
+</select>
 
+<select id="selectGoodsReviewDetail" resultType="GoodsReview" parameterType="int">
+select * from goodsreview
+where reviewnum = #{reviewnum}
+</select>
 
+<select id="selectGoodsReviewDetailPic" resultType="GoodsReview" parameterType="int">
+select * from goodsreviewpic
+where reviewnum = #{reviewnum}
+</select>
 
+<select id="selectreviewscore" parameterType="int" resultType="float">
+select avg(REVIEWSCORE)
+from goodsreview where goodsnum= #{value}
+</select>
 
+<select id="selectGoodsInquiryNum" resultType="int">
+select GOODSINQUIRYNUM.nextval
+from dual
+</select>
 
-
-
-
-
-
-	
+<insert id="insertInquiryPic">
+insert into 
+GOODSINQUIRYPIC 
+values (
+GOODSINQUIRYPICNUM.nextval,
+null,
+#{refile},
+#{goodsnum},
+null
+)
+</insert>
 </mapper>
 
 

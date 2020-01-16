@@ -21,6 +21,7 @@ public class Goods implements Serializable{
 	private int maximum;
 	private String consid;
 	private Date goodsdate;
+	private int reviewscore;
 	public Goods() {
 		super();
 	}
@@ -112,11 +113,21 @@ public class Goods implements Serializable{
 	public void setGoodsdate(Date goodsdate) {
 		this.goodsdate = goodsdate;
 	}
+	public int getReviewscore() {
+		return reviewscore;
+	}
+	public void setReviewscore(int reviewscore) {
+		this.reviewscore = reviewscore;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public String toString() {
 		return "Goods [goodsnum=" + goodsnum + ", categorynum=" + categorynum + ", goodsname=" + goodsname + ", price="
 				+ price + ", inventory=" + inventory + ", freedlvy=" + freedlvy + ", thumbnail=" + thumbnail
 				+ ", comments=" + comments + ", description=" + description + ", maximum=" + maximum + ", consid="
-				+ consid + ", goodsdate=" + goodsdate + "]";
+				+ consid + ", goodsdate=" + goodsdate + ", reviewscore=" + reviewscore + "]";
 	}
+	
 }

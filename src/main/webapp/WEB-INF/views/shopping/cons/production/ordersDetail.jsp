@@ -59,7 +59,6 @@
                   </div>
                   <div class="x_content">
                   
-                      ${all.addressee}
                    주문자 정보
                   <table border="1px solid black" align="center">
                   <tr><td>주문자 명</td><td>${user.username }</td></tr>
