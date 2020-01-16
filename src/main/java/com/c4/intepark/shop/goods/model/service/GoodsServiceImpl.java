@@ -181,5 +181,17 @@ public class GoodsServiceImpl implements GoodsService{
 	public float selectreviewscore(int goodsnum) {
 		return goodsDao.selectreviewscore(goodsnum);
 	}
+
+
+	@Override
+	public int selectGoodsInquiryNum() {
+		return goodsDao.selectGoodsInquiryNum();
+	}
+
+
+	@Override
+	public int insertInquiryPic(GoodsPic gp) {
+		return goodsDao.insertInquiryPic(gp);
+	}
 	
 }

@@ -953,14 +953,6 @@ REFERENCES inteuser (
    userid
 )ON DELETE CASCADE;
 
-
-ALTER TABLE GOODSINQUIRYPIC ADD CONSTRAINT FK_GOODSINQUIRY_1 FOREIGN KEY (
-   INQUIRYNUM
-)
-REFERENCES GOODSINQUIRY (
-   INQUIRYNUM
-)ON DELETE CASCADE;
-
 ALTER TABLE GOODSPIC ADD CONSTRAINT FK_GOODS_TO_GOODSPIC_1 FOREIGN KEY (
    GOODSNUM
 )
@@ -1530,6 +1522,10 @@ drop sequence goodsreviewPICnum;
 CREATE SEQUENCE goodsreviewPICnum;
 drop sequence goodsPICnum;
 CREATE SEQUENCE goodsPICnum;
+drop sequence goodsinquiryPICnum;
+CREATE SEQUENCE goodsinquiryPICnum;
+drop sequence goodsinquirynum;
+CREATE SEQUENCE goodsinquirynum;
 
 insert into GOODSREVIEWPIC values(99,null,'202001141630556270.jpg',100);
 insert into GOODSREVIEWPIC values(100,null,'202001141630556451.jpg',100);

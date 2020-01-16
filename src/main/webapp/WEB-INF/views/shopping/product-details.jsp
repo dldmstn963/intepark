@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +21,7 @@
 		<div class="container-fluid">
 
 			<div class="row">
-				<div class="col-12">
+				<!-- <div class="col-12">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb mt-50">
 							<li class="breadcrumb-item"><a href="#">카테고리</a></li>
@@ -29,7 +30,7 @@
 							<li class="breadcrumb-item active" aria-current="page">하얀 의자</li>
 						</ol>
 					</nav>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="row">
@@ -85,7 +86,7 @@
 						<!-- Product Meta Data -->
 						<div class="product-meta-data">
 							<div class="line"></div>
-							<p class="product-price">${goods.price }원</p>
+							<p class="product-price"><fmt:formatNumber value="${goods.price }" groupingUsed="true"/> 원</p>
 							<a href="product-details.html">
 								<h6>${goods.goodsname }</h6>
 							</a>
@@ -102,9 +103,9 @@
 								</div> -->
 							</div>
 							<!-- Avaiable -->
-							<p class="avaibility">
+							<!-- <p class="avaibility">
 								<i class="fa fa-circle"></i>구매 가능
-							</p>
+							</p> -->
 						</div>
 
 						<div class="short_overview my-5">
@@ -200,14 +201,27 @@
 
 <table border="1px solid black">
 <tr>
-<td>사진</td>
+<td>답변상태</td>
+<td>문의유형</td>
 <td>제목</td>
 <td>작성자</td>
 <td>등록일</td>
 </tr>
 <c:forEach var="re1" items="${ goodsInquiry}">
 <tr>
-<td></td>
+<td>${re1.answersttus }</td>
+<td>
+<c:if test="${re1.inquirytype == 1}">
+상품
+</c:if>
+<c:if test="${re1.inquirytype == 2}">
+배송
+</c:if>
+<c:if test="${re1.inquirytype == 3}">
+기타
+</c:if>
+
+</td>
 <td>${re1.inquirytitle }</td>
 <td>${re1.userid }</td>
 <td>${re1.inquirydate }</td>

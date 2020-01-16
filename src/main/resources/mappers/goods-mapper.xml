@@ -161,8 +161,7 @@ where rnum >= #{startRow} and rnum <= #{endRow}
 
 <insert id="insertGoodsInquiry" parameterType="GoodsInquiry">
 insert into GOODSINQUIRY values(
-(select max(INQUIRYNUM)+1 
-from GOODSINQUIRY),
+#{inquirynum},
 #{inquirycn},
 #{inquirytype},
 #{inquirytitle},
@@ -235,8 +234,22 @@ select avg(REVIEWSCORE)
 from goodsreview where goodsnum= #{value}
 </select>
 
+<select id="selectGoodsInquiryNum" resultType="int">
+select GOODSINQUIRYNUM.nextval
+from dual
+</select>
 
-	
+<insert id="insertInquiryPic">
+insert into 
+GOODSINQUIRYPIC 
+values (
+GOODSINQUIRYPICNUM.nextval,
+null,
+#{refile},
+#{goodsnum},
+null
+)
+</insert>
 </mapper>
 
 

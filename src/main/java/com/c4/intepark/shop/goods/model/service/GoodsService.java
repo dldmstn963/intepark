@@ -66,4 +66,8 @@ public interface GoodsService {
 	public ArrayList<GoodsReview>  selectGoodsReviewDetailPic(int reviewnum);
 
 	public float selectreviewscore(int goodsnum);
+
+	public int selectGoodsInquiryNum();
+
+	public int insertInquiryPic(GoodsPic gp);
 }

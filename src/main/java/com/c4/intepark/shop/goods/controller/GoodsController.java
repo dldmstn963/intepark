@@ -93,7 +93,7 @@ public class GoodsController {
 		goodsSearch.setEndRow(p1.getEndRow());
 		goodsSearch.setGoodsnum(goodsnum);
 		ArrayList<Inquiry> goodsInquiry = goodsService.selectGoodsInquiry(goodsSearch);
-		float reviewscore = Math.round(goodsService.selectreviewscore(goodsnum));
+		//float reviewscore = Math.round(goodsService.selectreviewscore(goodsnum));
 		
 		request.setAttribute("maxPage1", p1.getMaxPage());
 		request.setAttribute("currentPage1", p1.getCurrentPage());
@@ -108,7 +108,7 @@ public class GoodsController {
 		request.setAttribute("goodsreview", goodsreview);
 		request.setAttribute("goodsInquiry", goodsInquiry);
 		request.setAttribute("list", list);
-		request.setAttribute("reviewscore", reviewscore);
+		//request.setAttribute("reviewscore", reviewscore);
 		return "shopping/product-details";
 	}
 	
@@ -295,15 +295,6 @@ public class GoodsController {
 			return "shopping/inquiryinsert";
 		}
 		
-		@RequestMapping(value="goodsinquiryInsert4.do", method=RequestMethod.POST)
-		public String goodsinquiryInsert (Inquiry goodsinquiry, HttpServletRequest request) {
-			goodsinquiry.setInquirytype(1);
-			goodsinquiry.setSecretat("N");
-			int result = goodsService.insertGoodsInquiry(goodsinquiry);
-			logger.info("리뷰 작성 완료 : " + result);
-			return "redirect:moveproduct4.do?goodsnum="+goodsinquiry.getGoodsnum();
-		}
-		 	
 		@RequestMapping("moveshopcategorysub4.do")
 		public String moveshopcategorysub(HttpServletRequest request,@RequestParam(name = "categorynum", required = false)int categorynum,GoodsSearch goodsSearch) {
 			logger.info("샵 서브 카테고리 접속 ");
@@ -367,6 +358,56 @@ public class GoodsController {
 			// 실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
 			// 특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
 			return 1;
+		}
+		
+		public static int inquiryNum = 0;
+		@ResponseBody
+		@RequestMapping(value = "goodsInquiryimgup4.do", method = RequestMethod.POST)
+		public int goodsInquiryimgup4(@RequestParam("files") List<MultipartFile> images, HttpServletRequest request)
+				throws IllegalStateException, IOException {
+			logger.info("파일 업로드 실행");
+			long sizeSum = 0;
+			int i = 0;
+			inquiryNum = goodsService.selectGoodsInquiryNum();
+			for (MultipartFile image : images) {
+				String originalName = image.getOriginalFilename();
+				// 확장자 검사
+				if (!isValidExtension(originalName)) {
+					return -1;
+				}
+				
+				// 용량 검사
+				sizeSum += image.getSize();
+				if (sizeSum >= 10 * 1024 * 1024) {
+					return -2;
+				}
+				
+				// TODO 저장..
+				MultipartFile files = image;
+				SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS" + i);
+				String reName1 = sdf1.format(new java.sql.Date(System.currentTimeMillis())) + "."
+						+ originalName.substring(originalName.lastIndexOf(".") + 1);
+				files.transferTo(
+						new File(request.getSession().getServletContext().getRealPath("resources/img/goodsinquirypic") + "\\"
+								+ reName1));
+				GoodsPic gp = new GoodsPic();
+				gp.setRefile(reName1);
+				gp.setGoodsnum(inquiryNum);
+				int result = goodsService.insertInquiryPic(gp);
+				++i;
+			}
+			
+			// 실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
+			// 특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
+			return 1;
+		}
+		
+		@RequestMapping(value="goodsinquiryInsert4.do", method=RequestMethod.POST)
+		public String goodsinquiryInsert (Inquiry goodsinquiry, HttpServletRequest request) {
+			goodsinquiry.setInquirynum(inquiryNum);
+			int result = goodsService.insertGoodsInquiry(goodsinquiry);
+			logger.info("리뷰 작성 완료 : " + result);
+			return "redirect:moveproduct4.do?goodsnum="+goodsinquiry.getGoodsnum();
 		}
 
 		// required above jdk 1.7 - switch(String)
