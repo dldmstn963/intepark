@@ -98,10 +98,18 @@
 	</update>
 	
 	<select id="selectUserStopState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
-		select stopcause, stopstartdate, stopfinishdate, stopterm
+		select stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
 		from loginstop
 		where logid = #{value}
 	</select>
+	
+	<insert id="insertUserLetStop" parameterType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+		insert into loginstop values(loginstop_seq.nextval,#{stoptarget}, #{stopcause}, sysdate,
+		<if test="dmy.equals('day')">sysdate+#{sdate},#{sdate}||'일',</if>
+		<if test="dmy.equals('month')">add_months(sysdate,#{sdate}),#{sdate}||'개월',</if>
+		<if test="dmy.equals('year')">add_months(sysdate,#{sdate}*12),#{sdate}||'년',</if>
+		#{logid})
+	</insert>
 	
 </mapper>
 

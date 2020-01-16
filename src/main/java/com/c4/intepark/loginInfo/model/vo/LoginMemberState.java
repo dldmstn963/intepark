@@ -9,24 +9,31 @@ public class LoginMemberState implements java.io.Serializable{
 	private String memberstate;
 	private java.sql.Date withdrawdate;
 	private String withdrawcause;
+	private String stoptarget;
 	private String stopcause;
 	private java.sql.Date stopstartdate;
 	private java.sql.Date stopfinishdate;
 	private String stopterm;
+	private String sdate;
+	private String dmy;
 	
 	public LoginMemberState() {}
 
-	public LoginMemberState(String logid, String memberstate, Date withdrawdate, String withdrawcause, String stopcause,
-			Date stopstartdate, Date stopfinishdate, String stopterm) {
+	public LoginMemberState(String logid, String memberstate, Date withdrawdate, String withdrawcause,
+			String stoptarget, String stopcause, Date stopstartdate, Date stopfinishdate, String stopterm, String sdate,
+			String dmy) {
 		super();
 		this.logid = logid;
 		this.memberstate = memberstate;
 		this.withdrawdate = withdrawdate;
 		this.withdrawcause = withdrawcause;
+		this.stoptarget = stoptarget;
 		this.stopcause = stopcause;
 		this.stopstartdate = stopstartdate;
 		this.stopfinishdate = stopfinishdate;
 		this.stopterm = stopterm;
+		this.sdate = sdate;
+		this.dmy = dmy;
 	}
 
 	public String getLogid() {
@@ -61,6 +68,14 @@ public class LoginMemberState implements java.io.Serializable{
 		this.withdrawcause = withdrawcause;
 	}
 
+	public String getStoptarget() {
+		return stoptarget;
+	}
+
+	public void setStoptarget(String stoptarget) {
+		this.stoptarget = stoptarget;
+	}
+
 	public String getStopcause() {
 		return stopcause;
 	}
@@ -93,12 +108,30 @@ public class LoginMemberState implements java.io.Serializable{
 		this.stopterm = stopterm;
 	}
 
+	public String getSdate() {
+		return sdate;
+	}
+
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+
+	public String getDmy() {
+		return dmy;
+	}
+
+	public void setDmy(String dmy) {
+		this.dmy = dmy;
+	}
+
 	@Override
 	public String toString() {
 		return "LoginMemberState [logid=" + logid + ", memberstate=" + memberstate + ", withdrawdate=" + withdrawdate
-				+ ", withdrawcause=" + withdrawcause + ", stopcause=" + stopcause + ", stopstartdate=" + stopstartdate
-				+ ", stopfinishdate=" + stopfinishdate + ", stopterm=" + stopterm + "]";
+				+ ", withdrawcause=" + withdrawcause + ", stoptarget=" + stoptarget + ", stopcause=" + stopcause
+				+ ", stopstartdate=" + stopstartdate + ", stopfinishdate=" + stopfinishdate + ", stopterm=" + stopterm
+				+ ", sdate=" + sdate + ", dmy=" + dmy + "]";
 	}
 	
 	
+
 }

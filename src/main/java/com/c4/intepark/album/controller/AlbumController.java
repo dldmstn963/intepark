@@ -1,14 +1,22 @@
 package com.c4.intepark.album.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.c4.intepark.album.model.service.AlbumService;
 import com.c4.intepark.album.model.vo.Album;
@@ -89,12 +97,15 @@ public class AlbumController {
 		return "redirect:/albumView.do?anum="+aReply.getAlbumnum()+"&page="+page;
 	}
 	
+	
+	
 	@RequestMapping("albumFileUpload.do")
 	public String albumFileUpload() {
 		
 		return "main";
 	}
 	
+
 	
 }
 

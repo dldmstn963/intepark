@@ -21,4 +21,5 @@ public interface InteuserService {
 	int updateUserPwd(LoginInfo loginfo);
 	int updateDeleteUser(LoginMemberState logms);
 	ArrayList<LoginMemberState> selectUserStopState(String userid);
+	int insertUserLetStop(LoginMemberState userState);
 }

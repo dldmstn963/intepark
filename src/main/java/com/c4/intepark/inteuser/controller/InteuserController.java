@@ -117,6 +117,16 @@ public class InteuserController {
 		model.addAttribute("userStop", userStopState);
 		return "member/adminUserDetail";
 	}
+	
+	//유저 정지시키기
+	@RequestMapping("admin/userLetStop.do")
+	public String adUserLetStop(LoginMemberState userState,@RequestParam(value="etc", required=false) String scause) {
+		System.out.println("뭐지여기안오냐"+userState);
+		if(scause !=null && scause !="")
+			userState.setStopcause(scause);
+		int result = inteUserService.insertUserLetStop(userState);
+		return "redirect:/admin/userDetailView.do?userid="+userState.getLogid();
+	}
 
 	
 	//아이디비번찾기 이동
@@ -189,7 +199,7 @@ public class InteuserController {
 	}
 	//유저 탈퇴
 	@RequestMapping(value="userWithdraw.do", method=RequestMethod.POST)
-	public String deleteUser(LoginMemberState logms, Model model, RedirectAttributes redirect) {
+	public String deleteUser(LoginMemberState logms, Model model) {
 		
 		int result = inteUserService.updateDeleteUser(logms);
 		if(result !=1) {
