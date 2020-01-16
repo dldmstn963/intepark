@@ -45,7 +45,7 @@
 <tr><th>첨부파일</th>
    <td>
    <c:if test="${ !empty notice.noticeoriginalfilename }">  
-   	<c:url var="nfdn" value="/nfdown">
+   	<c:url var="nfdn" value="nfiledown5.do">
    		<c:param name="ofile" value="${ notice.noticeoriginalfilename }" />
    		<c:param name="rfile" value="${ notice.noticerenamefilename }" />
    	</c:url> 

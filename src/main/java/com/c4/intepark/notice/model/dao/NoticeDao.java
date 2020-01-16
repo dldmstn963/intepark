@@ -39,17 +39,24 @@ public class NoticeDao {
 		return (ArrayList<Notice>)list;
 	}
 
-
+	//조회수 및 페이징
 	public void updateReadCount(int noticeno) {
 		mybatisSession.update("noticeMapper.updateReadCount",noticeno);
 		
 	}
 
 
-
+	//글 상세보기
 	public Notice selectOne(int noticeno) {
-		// TODO Auto-generated method stub
+		
 		return mybatisSession.selectOne("noticeMapper.selectOne",noticeno);
+	}
+
+
+
+	public int insertNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return mybatisSession.insert("noticeMapper.insertNotice",notice);
 	}
 
 

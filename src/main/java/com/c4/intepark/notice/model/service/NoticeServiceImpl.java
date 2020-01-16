@@ -46,6 +46,12 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.selectOne(noticeno);
 	}
 
+	@Override
+	public int insertNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return noticeDao.insertNotice(notice);
+	}
+
 	
 
 	

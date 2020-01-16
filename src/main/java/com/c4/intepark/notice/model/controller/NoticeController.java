@@ -5,7 +5,9 @@ import java.util.List;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,7 +29,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import com.c4.intepark.notice.model.service.NoticeService;
 import com.c4.intepark.notice.model.vo.Notice;
@@ -103,7 +108,7 @@ public class NoticeController {
 	  //02. 게시글 상세보기
 	  @RequestMapping(value="ndetail2.do", method=RequestMethod.GET) 
 	  public String noticeDetail(Model model, HttpServletRequest request) {
-		  System.out.println(request.getParameter("no"));
+		  
 		  int noticeno = Integer.parseInt(request.getParameter("no"));
 		  String currentPage = (String)request.getParameter("page");
 		  //리런 후 db정보 보낼 패이지
@@ -126,7 +131,68 @@ public class NoticeController {
 		  return view;
 	  }
 	  
-	  
+	  //03. 게시글 작성화면이동처리 컨트롤러
+	  @RequestMapping(value="nwrite3.do", method=RequestMethod.GET)
+	  public String noticeWriteFrom(){
+			return "notice/noticeWriteForm";	
+		}
+		  
+	  //04. 게시글 작성 db이동 처리 컨트롤러(파일업로드 글작성처리)
+	  @RequestMapping(value="ninsert4.do",  method = RequestMethod.POST)
+	  public String noticeInsert(Model model, Notice notice, HttpServletRequest request,@RequestParam(name="file", required=false) MultipartFile file) {
+		  logger.info("notice옴 : " + notice);
+		  logger.info("file 옴 : " + file.getOriginalFilename());
+		  
+		  
+		  String view = "redirect:/nlist1.do";
+		  //파일을 커멘드 겍체로 직접 보내기
+		  
+		  //파일 저장 폴더 경로 지정하기
+		  String savePath = request.getSession().getServletContext().getRealPath("resources/noticeupfiles");
+		  try {
+				file.transferTo(new File(savePath + "\\" + file.getOriginalFilename()));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		  
+		  notice.setNoticeoriginalfilename(file.getOriginalFilename());
+		  
+		  //글작성 정보 서비스단으로 보내는 객체 생성
+		  int result = noticeService.insertNotice(notice);
+		  
+		  
+		  
+		  
+		  //글 작성 성공 / 실패 화면
+		  if (result >= 0) {
+			model.addAttribute(notice);
+		  }else {
+			  model.addAttribute("message", "공지사항 글 등록 실패!");
+				view = "common/error"; 
+		  }
+		
+			return view;
+	  }
+	
+	 
+	 //파일 다운로드 처리용 메소드 
+	 @RequestMapping("nfiledown5.do") 
+	 public ModelAndView noticeFileDown(HttpServletRequest request,@RequestParam("ofile") String fileName) {
+		 logger.info("fdown.do : " + fileName);
+		 
+		 String savePath = request.getSession().getServletContext().getRealPath("resources/noticeupfiles");
+		 File downFile = new File(savePath + "\\" + fileName);
+		 
+		 return new ModelAndView("filedown", "downFile", downFile); 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	/* 
 	 * //전달할 뷰의 이름 if (notice != null) { mv.addObject("notice", notice);
 	 * mv.setViewName("notice/noticeDetailView"); }else { mv.addObject("message",
