@@ -10,8 +10,8 @@
 </select>
 
 <select id = "selectMemberState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
-	select logid,memberstate, withdrawdate, withdrawcause, stopcause, stopstartdate, stopfinishdate, stopterm
-	from(select rownum, logid,memberstate, withdrawdate, withdrawcause, stopcause, stopstartdate, stopfinishdate, stopterm
+	select logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
+	from(select rownum, logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
          from (select *
 			   from logininfo
 			   left outer join loginstop using(logid)

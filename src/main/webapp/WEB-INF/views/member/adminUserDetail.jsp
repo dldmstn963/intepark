@@ -7,11 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp"%>
-<style type="text/css">
-.modal-body
-</style>
-<script type="text/javascript">
 
+<script type="text/javascript">
+function sochange(sltag,intag){
+	if(sltag.value=="etcs")
+		intag.style.display="";
+	else
+		intag.style.display="none";
+	
+}
 </script>
 </head>
 <body>
@@ -108,50 +112,49 @@
 					</div>
 				</div>
 				<!-- body -->
+				<form action="${pageContext.request.contextPath }/admin/userLetStop.do" method="post">
 				<div class="modal-body" style="height: 300px;">
-					<form action="#">
+						<input type="hidden" name="logid" value="${requestScope.inteUser.userid}">
 						<table style="text-align: center; width: 100%;">
 							<tr>
 								<th><h4>
-										<strong>정지 대상(URL,게시판번호)</strong>
+										<strong>정지 위치(게시판,댓글번호 등)</strong>
 									</h4></th>
 							</tr>
 							<tr>
-								<td><textarea rows="2" cols="27"></textarea></td>
+								<td><textarea rows="2" cols="27" name="stoptarget" required></textarea></td>
 							</tr>
 							<tr>
 								<th><h4><strong>정지 사유</strong></h4></th>
 							</tr>
 							<tr>
-								<td><select style="width:200px;">
-										<option>도배</option>
-										<option>부적적한 글</option>
-										<option>불법 광고</option>
-										<option>기타</option>
+								<td><select name="stopcause" style="width:200px;" onchange="sochange(this,etc)">
+										<option value="글 도배">글 도배</option>
+										<option value="부적절한 글">부적절한 글</option>
+										<option value="불법 광고">불법 광고</option>
+										<option value="기타">기타</option>
 								</select></td>
 							</tr>
+							<tr><td><input type="text" id="etc" name="etc" placeholder="기타 사유를 적어주세요" style="display:none; width:200px; margin:10px;">
+							</td></tr>
 							<tr>
 								<th><h4><strong>정지 기한</strong></h4></th></tr>
 								<tr>
-								<td><select style="width:200px;">
-										<option>7일</option>
-										<option>30일</option>
-										<option>200일</option>
-										<option>365일</option>
-										<option>3년</option>
-										<option>5년</option>
-										<option>10년</option>
-										<option>9999년</option>
+								<td><input type="number" name="sdate" min="1" max="100" value="1" style="height:22px; width:95px;">&nbsp;&nbsp;
+								<select name="dmy" style="height:22px; width:95px;">
+										<option value="day">일</option>
+										<option value="month">개월</option>
+										<option value="year">년</option>
 								</select></td>
 							</tr>
 						</table>
+						</div>
+										
+					<input type="submit"
+						style="width: 100%;" value="확인">
 					</form>
-				</div>
 				<!-- Footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"
-						style="width: 100%;">확인</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -177,14 +180,12 @@
 				</div>
 				<!-- body -->
 				<div class="modal-body" style="height: 300px;">
-					<form action="#">
 						<table style="text-align: center; width: 100%;">
 							<c:forEach var="ustop" items="${userStop}" varStatus="index">
-								<tr><th>${index.count}.</th><td>사유 : ${ustop.stopcause}</td>
+								<tr><th>${index.count}.</th><td>위치 : ${ustop.stoptarget }</td><td>사유 : ${ustop.stopcause}</td>
 								<td style="width:300px;">정지 날짜 : ${ustop.stopstartdate}~${ustop.stopfinishdate}</td><td style="width:150px;">정지 기간: ${ustop.stopterm}</td></tr>
 							</c:forEach>
 						</table>
-					</form>
 				</div>
 				<!-- Footer -->
 				<div class="modal-footer">

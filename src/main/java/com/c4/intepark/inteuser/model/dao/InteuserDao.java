@@ -73,6 +73,10 @@ public class InteuserDao {
 		List<LoginMemberState> list = sqlSession.selectList("inteuserMapper.selectUserStopState", userid);
 		return (ArrayList<LoginMemberState>)list;
 	}
+
+	public int insertUserLetStop(LoginMemberState userState) {
+		return sqlSession.insert("inteuserMapper.insertUserLetStop", userState);
+	}
 	
 
 }

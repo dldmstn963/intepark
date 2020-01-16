@@ -84,4 +84,9 @@ public class InteuserServiceImpl implements InteuserService{
 		return userDao.selectUserStopState(userid);
 	}
 
+	@Override
+	public int insertUserLetStop(LoginMemberState userState) {
+		return userDao.insertUserLetStop(userState);
+	}
+
 }
