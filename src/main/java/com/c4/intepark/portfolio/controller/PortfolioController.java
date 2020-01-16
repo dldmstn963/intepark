@@ -128,7 +128,7 @@ public class PortfolioController {
     
     @ResponseBody
     @RequestMapping(value="testSubmit5.do", method=RequestMethod.POST)
-    public int multiImageUpload(@RequestParam("filedata")List<MultipartFile> images, HttpServletRequest request) throws IllegalStateException, IOException {
+    public int multiImageUpload(@RequestParam("files")List<MultipartFile> images, HttpServletRequest request) throws IllegalStateException, IOException {
         long sizeSum = 0;
         int i = 0;
         
@@ -136,9 +136,6 @@ public class PortfolioController {
         if(count > 5 ) {
         	
         	return 3;
-        }
-        for(MultipartFile image : images ) {
-        	 System.out.println(image + "\n");
         }
        
       //해당 웹 컨테이너의 구동 중인 웹 애플리케이션 안의 파일 저장 폴더 지정
