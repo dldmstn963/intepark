@@ -112,7 +112,6 @@
 													</c:url>
 				<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
 													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
-													<input type="button" value="답변 하기" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');

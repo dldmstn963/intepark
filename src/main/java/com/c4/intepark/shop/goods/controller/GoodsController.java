@@ -458,10 +458,12 @@ public class GoodsController {
 	public String goodsInquiryDetail(@RequestParam("inquirynum") int inquirynum, @RequestParam("goodsnum") int goodsnum,
 			HttpServletRequest request) {
 		Inquiry inquiry = goodsService.selectGoodsInquiryDetail(inquirynum);
+		Inquiry inquiryanswer = goodsService.selectGoodsInquiryAnswer(inquirynum);
 		ArrayList<Inquiry> list = goodsService.selectGoodsInquiryDetailPic(inquirynum);
 		Goods goods = goodsService.selectGoods(goodsnum);
 		request.setAttribute("goods", goods);
 		request.setAttribute("inquiry", inquiry);
+		request.setAttribute("inquiryanswer", inquiryanswer);
 		request.setAttribute("list", list);
 		return "shopping/goodsInquiryDetail";
 	}
@@ -519,5 +521,24 @@ public class GoodsController {
 		request.setAttribute("endPage", p.getEndPage());
 		return "shopping/cons/production/test";
 	}
-
+	
+	@RequestMapping("moveinquiryDetail4.do")
+	public String moveinquiryDetail(@RequestParam("inquirynum") int inquirynum, HttpServletRequest request) {
+		logger.info("상품 문의 상세 조회" + inquirynum);
+		Inquiry inquiry = goodsService.selectGoodsInquiryDetail(inquirynum);
+		ArrayList<Inquiry> list = goodsService.selectGoodsInquiryDetailPic(inquirynum);
+		Goods goods = goodsService.selectGoods(inquiry.getGoodsnum());
+		request.setAttribute("goods", goods);
+		request.setAttribute("inquiry", inquiry);
+		request.setAttribute("list", list);
+		return "shopping/cons/production/inquiryDetail";
+	}
+	
+	@RequestMapping(value = "goodsAnswerInsert4.do", method = RequestMethod.POST)
+	public String goodsReviewInsert(Inquiry inquiry, HttpServletRequest request) {
+		int result = goodsService.insertGoodsAnswer(inquiry);
+		int result1 = goodsService.updateGoodsAnswer(inquiry.getInquirynum());
+		logger.info("문의 답변 완료 : " + result);
+		return "redirect:moveconsInquiryList4.do";
+	}
 }

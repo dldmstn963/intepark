@@ -43,6 +43,7 @@
                                     </div>
                                  &nbsp; 
                                     <div class="col-12 mb-3">
+                                    <h1>Q :</h1>
                                         <textarea class="form-control w-100" id="comment" cols="30" rows="10" name="inquirycn" readonly>${inquiry.inquirycn }
                                         </textarea><br><br>
                                         <c:forEach var="li" items="${list }" >
@@ -56,7 +57,14 @@
                                 <br>
                                 <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsInquiryDelete4.do?inquirynum=${inquiry.inquirynum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
                                </c:if>
+                               
                             </div>
+                            <hr>
+                            <div class="col-12 mb-3">
+                              <h1>A :</h1> 
+                            <textarea class="form-control w-100" id="comment" cols="30" rows="10" name="inquirycn" readonly><c:if test="${inquiryanswer.answercn == null }">답변을 기다려주세요</c:if>${inquiryanswer.answercn }
+                                        </textarea>
+                                        </div>
                                 </div>
                         </div>
                     </div>

@@ -84,4 +84,10 @@ public interface GoodsService {
 	public int deleteReviewPic(int reviewnum);
 
 	public ArrayList<Goods> selectgoodsList(String consid);
+
+	public int insertGoodsAnswer(Inquiry inquiry);
+
+	public int updateGoodsAnswer(int inquirynum);
+
+	public Inquiry selectGoodsInquiryAnswer(int inquirynum);
 }
