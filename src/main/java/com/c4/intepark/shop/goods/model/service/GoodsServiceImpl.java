@@ -231,5 +231,23 @@ public class GoodsServiceImpl implements GoodsService{
 	public ArrayList<Goods> selectgoodsList(String consid) {
 		return goodsDao.selectgoodsList(consid);
 	}
+
+
+	@Override
+	public int insertGoodsAnswer(Inquiry inquiry) {
+		return goodsDao.insertGoodsAnswer(inquiry);
+	}
+
+
+	@Override
+	public int updateGoodsAnswer(int inquirynum) {
+		return goodsDao.updateGoodsAnswer(inquirynum);
+	}
+
+
+	@Override
+	public Inquiry selectGoodsInquiryAnswer(int inquirynum) {
+		return goodsDao.selectGoodsInquiryAnswer(inquirynum);
+	}
 	
 }

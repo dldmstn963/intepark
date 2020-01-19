@@ -373,20 +373,7 @@ public class OrdersController {
 		}
 	}
 
-	@RequestMapping("moveinquiryDetail4.do")
-	public String moveinquiryDetail(@RequestParam("inquirynum") int inquirynum, HttpServletRequest request) {
-		logger.info("상품 상세 조회" + inquirynum);
-		System.out.println("----------------------------");
-		Enumeration params = request.getParameterNames();
-		while (params.hasMoreElements()) {
-			String name = (String) params.nextElement();
-			System.out.println(name + " : " + request.getParameter(name));
-		}
-		System.out.println("----------------------------");
-		Inquiry inquiry = ordersService.selectInquiry(inquirynum);
-		request.setAttribute("inquiry", inquiry);
-		return "shopping/cons/production/inquiryDetail";
-	}
+
 	
 	@RequestMapping("moveMyOrderList4.do")
 	public String moveMyOrderList(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request) throws IOException {
@@ -403,6 +390,10 @@ public class OrdersController {
 		request.setAttribute("list", list);
 		return "shopping/myOrderDetail";
 	}
+	
+	
+	
+	
 	
 
 

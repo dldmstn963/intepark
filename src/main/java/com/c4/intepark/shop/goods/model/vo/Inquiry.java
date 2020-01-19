@@ -19,6 +19,28 @@ public class Inquiry implements Serializable{
 	private String userid; 
 	private int goodsnum;
 	private String refile;
+	private String answercn;
+	private String consid;
+	private Date answerdate;
+	
+	public String getAnswercn() {
+		return answercn;
+	}
+	public void setAnswercn(String answercn) {
+		this.answercn = answercn;
+	}
+	public String getConsid() {
+		return consid;
+	}
+	public void setConsid(String consid) {
+		this.consid = consid;
+	}
+	public Date getAnswerdate() {
+		return answerdate;
+	}
+	public void setAnswerdate(Date answerdate) {
+		this.answerdate = answerdate;
+	}
 	public String getRefile() {
 		return refile;
 	}

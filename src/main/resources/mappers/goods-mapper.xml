@@ -287,6 +287,29 @@ select *
 where consid = #{value}
 </select>
 
+<insert id="insertGoodsAnswer" parameterType="GoodsInquiry" >
+insert into 
+GOODSANSWER 
+values (
+#{inquirynum},
+#{answercn},
+#{consid},
+sysdate
+)
+</insert>
+
+<update id="updateGoodsAnswer" parameterType="GoodsInquiry">
+update GOODSINQUIRY 
+set ANSWERSTTUS = '답변완료'
+where INQUIRYNUM = #{INQUIRYNUM}
+</update>
+
+<select id="selectGoodsInquiryAnswer" parameterType="int" resultType="GoodsInquiry">
+select *
+from goodsanswer
+where inquirynum = #{INQUIRYNUM}
+</select>
+
 </mapper>
 
 

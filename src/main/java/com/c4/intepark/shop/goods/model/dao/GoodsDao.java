@@ -177,4 +177,16 @@ public class GoodsDao {
 		return (ArrayList<Goods>) list;
 	}
 
+	public int insertGoodsAnswer(Inquiry inquiry) {
+		return mybatis.insert("goodsMapper.insertGoodsAnswer", inquiry);
+	}
+
+	public int updateGoodsAnswer(int inquirynum) {
+		return mybatis.update("goodsMapper.updateGoodsAnswer", inquirynum);
+	}
+
+	public Inquiry selectGoodsInquiryAnswer(int inquirynum) {
+		return mybatis.selectOne("goodsMapper.selectGoodsInquiryAnswer", inquirynum);
+	}
+
 }
