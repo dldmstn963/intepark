@@ -18,6 +18,16 @@ public class Inquiry implements Serializable{
 	private String answersttus; 
 	private String userid; 
 	private int goodsnum;
+	private String refile;
+	public String getRefile() {
+		return refile;
+	}
+	public void setRefile(String refile) {
+		this.refile = refile;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public Inquiry() {
 		super();
 	}

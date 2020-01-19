@@ -70,4 +70,18 @@ public interface GoodsService {
 	public int selectGoodsInquiryNum();
 
 	public int insertInquiryPic(GoodsPic gp);
+
+	public Inquiry selectGoodsInquiryDetail(int inquirynum);
+
+	public ArrayList<Inquiry> selectGoodsInquiryDetailPic(int inquirynum);
+
+	public int deleteInquiry(int inquirynum);
+
+	public int deleteInquiryPic(int inquirynum);
+
+	public int deleteReview(int reviewnum);
+
+	public int deleteReviewPic(int reviewnum);
+
+	public ArrayList<Goods> selectgoodsList(String consid);
 }

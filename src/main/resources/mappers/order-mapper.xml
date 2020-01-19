@@ -199,10 +199,38 @@ NATURAL join deliverylist natural join requests natural join goods
 where userid = #{value}
 </select>
 
+<select id="selectOrderDetail" resultType="AllOrders" parameterType="int">
+select * from ORDERS
+NATURAL join deliverylist natural join requests natural join goods
+where ORDERNUM = #{value}
+</select>
 
+<select id="selectmoveConsReviewList2" resultType="GoodsReview" parameterType="String">
+select * 
+from GOODSREVIEW 
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{consid}) order by REVIEWNUM desc
+</select>
 
+<select id="selectmoveconsInquiryList2" resultType="GoodsInquiry" parameterType="String">
+select * 
+from GOODSINQUIRY 
+natural join goods 
+where goodsnum 
+in (select goodsnum from goods where CONSID=#{consid}) 
+order by INQUIRYNUM desc
+</select>
 
-
+<select id="selectmoveConsOrderList42" resultType="AllOrders" parameterType="String">
+select * 
+from orders 
+NATURAL join deliverylist 
+natural join requests 
+natural join goods 
+where goodsnum in 
+(select goodsnum from goods where CONSID=#{consid}) 
+order by ORDERNUM desc
+</select>
 
 </mapper>
 

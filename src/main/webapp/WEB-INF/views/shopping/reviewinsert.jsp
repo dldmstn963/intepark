@@ -57,8 +57,9 @@
 
                             <form action="goodsReviewInsert4.do" method="post">
                                 <div class="row">
+                                <div >
                                     &nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" value="5" name="reviewscore"> 매우 만족 
+                                    <input type="checkbox" value="5" name="reviewscore" id="default-checkbox"> 매우 만족 
                                     &nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" value="4" name="reviewscore"> 만족
                                     &nbsp;&nbsp;&nbsp;
@@ -67,6 +68,7 @@
                                     <input type="checkbox" value="2" name="reviewscore"> 불만족
                                    &nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" value="1" name="reviewscore"> 매우 불만족
+                                </div>
                                     <br><br>
                                     <div class="col-12 mb-3">
                                        <input type="text" class="form-control" id="company" placeholder="제목" name="reviewtitle">

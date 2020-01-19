@@ -127,16 +127,16 @@ public class GoodsDao {
 	}
 
 	public GoodsReview selectGoodsReviewDetail(int reviewnum) {
-		return mybatis.selectOne("goodsMapper.selectGoodsReviewDetail",reviewnum);
+		return mybatis.selectOne("goodsMapper.selectGoodsReviewDetail", reviewnum);
 	}
 
 	public ArrayList selectGoodsReviewDetailPic(int reviewnum) {
-				List list = mybatis.selectList("goodsMapper.selectGoodsReviewDetailPic",reviewnum);
-				return (ArrayList<GoodsReview>) list;
+		List list = mybatis.selectList("goodsMapper.selectGoodsReviewDetailPic", reviewnum);
+		return (ArrayList<GoodsReview>) list;
 	}
 
 	public float selectreviewscore(int goodsnum) {
-		return mybatis.selectOne("goodsMapper.selectreviewscore",goodsnum);
+		return mybatis.selectOne("goodsMapper.selectreviewscore", goodsnum);
 	}
 
 	public int selectGoodsInquiryNum() {
@@ -145,6 +145,36 @@ public class GoodsDao {
 
 	public int insertInquiryPic(GoodsPic gp) {
 		return mybatis.insert("goodsMapper.insertInquiryPic", gp);
+	}
+
+	public Inquiry selectGoodsInquiryDetail(int inquirynum) {
+		return mybatis.selectOne("goodsMapper.selectGoodsInquiryDetail", inquirynum);
+	}
+
+	public ArrayList<Inquiry> selectGoodsInquiryDetailPic(int inquirynum) {
+		List list = mybatis.selectList("goodsMapper.selectGoodsInquiryDetailPic", inquirynum);
+		return (ArrayList<Inquiry>) list;
+	}
+
+	public int deleteInquiry(int inquirynum) {
+		return mybatis.delete("goodsMapper.deleteInquiry", inquirynum);
+	}
+
+	public int deleteInquiryPic(int inquirynum) {
+		return mybatis.delete("goodsMapper.deleteInquiryPic", inquirynum);
+	}
+
+	public int deleteReview(int reviewnum) {
+		return mybatis.delete("goodsMapper.deleteReview", reviewnum);
+	}
+
+	public int deleteReviewPic(int reviewnum) {
+		return mybatis.delete("goodsMapper.deleteReviewPic", reviewnum);
+	}
+
+	public ArrayList<Goods> selectgoodsList(String consid) {
+		List list = mybatis.selectList("goodsMapper.selectgoodsList2", consid);;
+		return (ArrayList<Goods>) list;
 	}
 
 }

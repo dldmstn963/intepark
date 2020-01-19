@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	      <%@ include file="../common/jscsspath.jsp" %>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +10,6 @@
 <%@ include file="common/shopjscss.jsp"%>
 <!-- Title  -->
 <title>인테파크</title>
-
 </head>
 
 <body>
@@ -143,28 +143,39 @@
 	<!-- Product Details Area End -->
 	</div>
 <div align="center">
-<table border="1px solid black">
-<tr>
-<td>사진</td>
-<td>제목</td>
-<td>작성자</td>
-<td>등록일</td>
-</tr>
-<c:forEach var="re" items="${ goodsreview}">
-<tr>
-<td>
-<c:if test="${re.refile != 'null'}">
-<img src="/intepark/resources/img/goodsreviewpic/${re.refile }" width="100px;">
+<div class="col-md-6 col-sm-6  ">
+				<div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">사진</th>
+                            <th class="column-title">제목</th>
+                            <th class="column-title">작성자</th>
+                            <th class="column-title">등록일</th>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+<c:forEach var="re" items="${ goodsreview}" varStatus="status">
+<c:if test="${(status.count%2) == 0}">
+                          <tr class="even pointer">
 </c:if>
-</td>
-<td><a href="goodsReviewDetail4.do?reviewnum=${re.reviewnum }&goodsnum=${goods.goodsnum}">${re.reviewtitle }</a></td>
-<td>${re.userid }</td>
-<td>${re.reviewdate }</td>
-</tr>
+<c:if test="${(status.count%2) == 1}">
+		<tr class="odd pointer">
+</c:if>
+                            <td class=" "><c:if test="${re.refile != 'null'}">
+<img src="/intepark/resources/img/goodsreviewpic/${re.refile }" width="100px;">
+</c:if></td>
+                            <td class=" "><a href="goodsReviewDetail4.do?reviewnum=${re.reviewnum }&goodsnum=${goods.goodsnum}">${re.reviewtitle }</a></td>
+                            <td class=" ">${re.userid }</td>
+                            <td class=" ">${re.reviewdate }</td>
+                          </tr>
 </c:forEach>
-</table>
+                        </tbody>
+                      </table>
+                    </div>
+</div>
 <br>
-<button onclick="location.href='movereviewinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">리뷰 작성</button>
 <br>
 <br>
 
@@ -199,19 +210,29 @@
 
 
 
-<table border="1px solid black">
-<tr>
-<td>답변상태</td>
-<td>문의유형</td>
-<td>제목</td>
-<td>작성자</td>
-<td>등록일</td>
-</tr>
-<c:forEach var="re1" items="${ goodsInquiry}">
-<tr>
-<td>${re1.answersttus }</td>
-<td>
-<c:if test="${re1.inquirytype == 1}">
+<div class="col-md-6 col-sm-6  ">
+				<div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th class="column-title">답변상태</th>
+                            <th class="column-title">문의유형</th>
+                            <th class="column-title">제목</th>
+                            <th class="column-title">작성자</th>
+                            <th class="column-title">등록일</th>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+<c:forEach var="re1" items="${ goodsInquiry}" varStatus="status">
+<c:if test="${(status.count%2) == 0}">
+                          <tr class="even pointer">
+</c:if>
+<c:if test="${(status.count%2) == 1}">
+		<tr class="odd pointer">
+</c:if>
+                            <td class=" ">${re1.answersttus }</td>
+                            <td class=" "><c:if test="${re1.inquirytype == 1}">
 상품
 </c:if>
 <c:if test="${re1.inquirytype == 2}">
@@ -219,23 +240,23 @@
 </c:if>
 <c:if test="${re1.inquirytype == 3}">
 기타
-</c:if>
-
-</td>
-<td>${re1.inquirytitle }</td>
-<td>${re1.userid }</td>
-<td>${re1.inquirydate }</td>
-</tr>
+</c:if></td>
+                            <td class=" "><a href="goodsInquiryDetail4.do?inquirynum=${re1.inquirynum }&goodsnum=${goods.goodsnum}">${re1.inquirytitle }</a></td>
+                            <td class=" ">${re1.userid }</td>
+                            <td class=" ">${re1.inquirydate }</td>
+                          </tr>
 </c:forEach>
-</table>
-
+                        </tbody>
+                      </table>
+                    </div>
+</div>
 
 
 
 <br><br>
 
-<button onclick="location.href='moveinquiryinsert4.do?goodsnum=${goods.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
 
+ 
 
 <div align="center">
 <nav aria-label="navigation">
@@ -282,6 +303,7 @@
 	<script src="/intepark/resources/js/plugins.js"></script>
 	<!-- Active js -->
 	<script src="/intepark/resources/js/active.js"></script>
+	
 
 </body>
 

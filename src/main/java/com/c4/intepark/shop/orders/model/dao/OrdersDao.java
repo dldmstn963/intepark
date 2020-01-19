@@ -137,5 +137,24 @@ public class OrdersDao {
 		return (ArrayList<Orders>) list;
 	}
 
+	public AllOrders selectOrderDetail(int ordernum) {
+		return mybatis.selectOne("orderMapper.selectOrderDetail",ordernum);
+	}
+
+	public ArrayList<GoodsReview> selectmoveConsReviewList(String consid) {
+		List list = mybatis.selectList("orderMapper.selectmoveConsReviewList2",consid);
+		return (ArrayList<GoodsReview>) list;
+	}
+
+	public ArrayList<Inquiry> selectmoveconsInquiryList(String consid) {
+		List list = mybatis.selectList("orderMapper.selectmoveconsInquiryList2",consid);
+		return (ArrayList<Inquiry>) list;
+	}
+
+	public ArrayList<AllOrders> selectmoveConsOrderList4(String consid) {
+		List list = mybatis.selectList("orderMapper.selectmoveConsOrderList42",consid);
+		return (ArrayList<AllOrders>) list;
+	}
+
 	
 }

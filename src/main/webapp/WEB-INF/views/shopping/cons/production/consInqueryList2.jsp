@@ -5,7 +5,6 @@
 <html>
 <head>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <link href="/intepark/resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="/intepark/resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -32,8 +31,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>상품 목록</h3>
-							<a href="ddfdf.do">ddd</a>
+							<h3>문의 목록</h3>
 						</div>
 					</div>
 
@@ -43,7 +41,7 @@
 						<div class="col-md-12 col-sm-12  ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>상품 목록</h2>
+									<h2>문의 목록</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i
 												class="fa fa-chevron-up"></i></a></li>
@@ -61,21 +59,22 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-								<form action="consgoodssearch4.do">
+								<form action="consgoodssearch4.do" align="center">
 								제품명 검색 : <input type="text" name="goodsname"> &nbsp; <input type="submit" value="검색">
 								</form>
 								<br>
 									<table border="1px solid black" align="center">
 										<tr>
-											<td><input type="checkbox" id="allCheck"></td>
-											<td>상품 코드</td>
-											<td>썸네일</td>
-											<td>상품명</td>
-											<td>상품 가격</td>
-											<td>재고</td>
+											<td align="center"><input type="checkbox" id="allCheck"></td>
+											<td>번호</td>
+											<td>분류</td>
+											<td>제목</td>
+											<td>작성자</td>
+											<td>작성일</td>
+											<td>상태</td>
 											<td>기능</td>
 										</tr>
-												<script>
+										<script>
 										function dellist(){
 											var result = confirm('정말 삭제하시겠습니까?');
 											if(result){
@@ -85,7 +84,7 @@
 											  });
 											 var list = lists.join(","); 
 											$.ajax({
-												url:"deleteGoodscheck4.do",
+												url:"inqueryDelete4.do",
 												type : "post",
 												data : {
 													lists : list
@@ -100,18 +99,19 @@
 										</script>
 										<c:forEach var="li" items="${list }">
 											<tr>
-												<td><input type="checkbox" id="checkbox"
-													name="checkbox" value="${li.goodsnum }"></td>
-												<td>${li.goodsnum }</td>
-												<td><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" width="100" height="100"></td>
-												<td>${li.goodsname }</td>
-												<td>${li.price }</td>
-												<td>${li.inventory }</td>
-													<c:url var="moveupdategoods" value="moveupdategoods4.do">
-													<c:param name="goodsnum" value="${li.goodsnum}"/>
+												<td align="center"><input type="checkbox" id="checkbox" name="checkbox" value="${li.inquirynum  }"></td>
+												<td>${li.inquirynum }</td>
+												<td>${li.inquirytype }</td>
+												<td>${li.inquirytitle }</td>
+												<td>${li.userid }</td>
+												<td>${li.inquirydate }</td>
+												<td>${li.answersttus }</td>
+													<c:url var="moveinquiryDetail" value="moveinquiryDetail4.do">
+													<c:param name="inquirynum" value="${li.inquirynum}"/>
 													</c:url>
-												<td><input type="button" value="수정" onclick="location='${moveupdategoods}'"> 
+												<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
 													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
+													<input type="button" value="답변 하기" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');
@@ -134,39 +134,39 @@
 											<tr>
 										</c:forEach>
 									</table>
-															<input type="button" value="삭제" onclick="return dellist();">
+									<input type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									<div id="pagebox" align="center">
-									<a href="movegoodslist4.do?page=1"><i class="fas fa-angle-double-left"></i></a>
+									<a href="moveconsInquiryList4.do?page=1"><i class="fas fa-angle-double-left"></i></a>
 									&nbsp;
 									
 									<c:if test="${ (beginPage-10) < 1}">
-									<a href="movegoodslist4.do?page=1"><i class="fas fa-angle-left"></i></a>
+									<a href="moveconsInquiryList4.do?page=1"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									<c:if test="${ (beginPage-10) > 1}">
-									<a href="movegoodslist4.do?page=${beginPage-10 }"><i class="fas fa-angle-left"></i></a>
+									<a href="moveconsInquiryList4.do?page=${beginPage-10 }"><i class="fas fa-angle-left"></i></a>
 									</c:if>
 									&nbsp;
 									
 									<c:forEach var="p" begin="${beginPage }" end="${endPage }">
 									<c:if test="${p == currentPage }">
-									<a href="movegoodslist4.do?page=${p }"><font color="red"><b>${p }</b></font></a>
+									<a href="moveconsInquiryList4.do?page=${p }"><font color="red"><b>${p }</b></font></a>
 									</c:if >
 									<c:if test="${p != currentPage }">
-									<a href="movegoodslist4.do?page=${p }">${p }</a>
+									<a href="moveconsInquiryList4.do?page=${p }">${p }</a>
 									</c:if>
 									</c:forEach>
 									&nbsp;
 									<c:if test="${(endPage+10) > maxPage }">
-									<a href="movegoodslist4.do?page=${maxPage }"><i class="fas fa-angle-right"></i></a>
+									<a href="moveconsInquiryList4.do?page=${maxPage }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									<c:if test="${(endPage+10) < maxPage }">
-									<a href="movegoodslist4.do?page=${endPage + 10 }"><i class="fas fa-angle-right"></i></a>
+									<a href="moveconsInquiryList4.do?page=${endPage + 10 }"><i class="fas fa-angle-right"></i></a>
 									</c:if>
 									&nbsp; 
 									
-									<a href="movegoodslist4.do?page=${maxPage }"><i class="fas fa-angle-double-right"></i></a>
+									<a href="moveconsInquiryList4.do?page=${maxPage }"><i class="fas fa-angle-double-right"></i></a>
 									</div>
 									
 								</div>
@@ -180,6 +180,7 @@
 	</div>
 	 <!-- jQuery -->
     <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <script type="text/javascript">
 										$(function(){ 
 											$("#allCheck").click(function(){ 
