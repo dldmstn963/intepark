@@ -74,6 +74,7 @@
                                     <div class="col-12 mb-3">
                                         <textarea class="form-control w-100" id="comment" cols="30" rows="10" placeholder="내용" name="inquirycn"></textarea>
                                     </div>
+                                    <div class="cart-btn mt-100">
                                   <div class="wrapper">
         <div class="body">
             <!-- 첨부 버튼 -->
@@ -92,7 +93,7 @@
             <button class="submit" style="display: none" ><a href="#" title="등록" class="btnlink">등록</a></button>
         </div>
 </div>
-								<br><div class="cart-btn mt-100">
+								
                                 <input type="submit" class="btn amado-btn w-100" value="작성하기" onclick="return button1_click();">
                             </div>
                                 </div>

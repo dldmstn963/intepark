@@ -18,10 +18,6 @@ public class GoodsServiceImpl implements GoodsService{
 	
 	@Autowired
 	private GoodsDao goodsDao;
-
-	
-	
-	
 	
 	@Override
 	public int insertGoods(Goods goods) {
@@ -192,6 +188,48 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public int insertInquiryPic(GoodsPic gp) {
 		return goodsDao.insertInquiryPic(gp);
+	}
+
+
+	@Override
+	public Inquiry selectGoodsInquiryDetail(int inquirynum) {
+		return goodsDao.selectGoodsInquiryDetail(inquirynum);
+	}
+
+
+	@Override
+	public ArrayList<Inquiry> selectGoodsInquiryDetailPic(int inquirynum) {
+		return goodsDao.selectGoodsInquiryDetailPic(inquirynum);
+	}
+
+
+	@Override
+	public int deleteInquiry(int inquirynum) {
+		return goodsDao.deleteInquiry(inquirynum);
+	}
+
+
+	@Override
+	public int deleteInquiryPic(int inquirynum) {
+		return goodsDao.deleteInquiryPic(inquirynum);
+	}
+
+
+	@Override
+	public int deleteReview(int reviewnum) {
+		return goodsDao.deleteReview(reviewnum);
+	}
+
+
+	@Override
+	public int deleteReviewPic(int reviewnum) {
+		return goodsDao.deleteReviewPic(reviewnum);
+	}
+
+
+	@Override
+	public ArrayList<Goods> selectgoodsList(String consid) {
+		return goodsDao.selectgoodsList(consid);
 	}
 	
 }

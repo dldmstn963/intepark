@@ -34,32 +34,30 @@
                         <div class="checkout_details_area mt-50 clearfix">
 
                             <div class="cart-title">
-                                <h2>리뷰 조회</h2>
+                                <h2>문의 조회</h2>
                             </div>
 
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                       <input type="text" class="form-control" id="company"  name="inquirytitle" value="${review.reviewtitle }"readonly>
+                                       <input type="text" class="form-control" id="company"  name="inquirytitle" value="${inquiry.inquirytitle }"readonly>
                                     </div>
                                  &nbsp; 
                                     <div class="col-12 mb-3">
-                                        <textarea class="form-control w-100" id="comment" cols="30" rows="10" name="inquirycn" readonly>${review.reviewcn }
+                                        <textarea class="form-control w-100" id="comment" cols="30" rows="10" name="inquirycn" readonly>${inquiry.inquirycn }
                                         </textarea><br><br>
                                         <c:forEach var="li" items="${list }" >
-                                        <img src="/intepark/resources/img/goodsreviewpic/${li.refile }" width="300px;">
+                                        <img src="/intepark/resources/img/goodsinquirypic/${li.refile }" width="300px;">
                                         </c:forEach>
                                     </div>
 								<div class="cart-btn mt-100">
-                               <c:if test="${review.userid == loginUser.userid }">
+                               <c:if test="${inquiry.userid == loginUser.userid }">
                                 <input type="submit" class="btn amado-btn w-100" value="수정하기">
                                 <br>
                                 <br>
-                                 <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsReviewDelete4.do?reviewnum=${review.reviewnum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
+                                <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsInquiryDelete4.do?inquirynum=${inquiry.inquirynum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
                                </c:if>
                             </div>
                                 </div>
-                                <input type="hidden" name="userid" value=${param.userid }>
-                                <input type="hidden" name="goodsnum" value=${param.goodsnum }>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">

@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-     <%@ include file="../common/jscsspath.jsp" %>
+    	      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	      <%@ include file="../common/jscsspath.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <%@ include file="common/shopjscss.jsp" %>
- <%@ include file="../common/jscsspath.jsp" %>
     <!-- Title  -->
     <title>인테파크</title>
 </head>
@@ -37,44 +36,48 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach var="li" items="${list }" varStatus="status" >
                                     <tr>
                                     <td class="cart_product_desc">
-                                    ${li.orderdate }
+                                    ${list.orderdate }
                                     <br>
-                                     ${li.consid }
+                                     ${list.consid }
                                     </td>
                                         <td class="cart_product_img">
-                                            <a href="#"><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product" width="100px;"></a>
+                                            <a href="#"><img src="/intepark/resources/img/goodthumspic/${list.thumbnail }" alt="Product" width="100px;"></a>
                                             <br>
                                             <br>
-                                            ${li.goodsname }
+                                            ${list.goodsname }
                                             <br>
                                             <br>
-                                            ${li.orderquantity} 개
+                                            ${list.orderquantity} 개
                                         </td>
                                         <td class="cart_product_desc">
-                                            <span><fmt:formatNumber value="${li.orderprice }" groupingUsed="true"/></span>
+                                            <span> <fmt:formatNumber value="${list.orderprice }" groupingUsed="true"/></span>
                                         </td>
                                         <td class="price">
-                                            ${li.orderstatus }
+                                            <h5>${list.orderstatus }</h5>
                                             <br>
-                                            <br>
-                                            <button class="genric-btn primary radius" onclick="location.href = 'moveOrderDetail4.do?ordernum=${li.ordernum}'">상세보기</button>
-                                            <br>
-                                            <br>
-                                        <button class="genric-btn primary radius" onclick="location.href='movereviewinsert4.do?goodsnum=${li.goodsnum}&userid=${loginUser.userid }'">리뷰작성</button>
+                                            <button class="genric-btn primary radius" onclick="location.href='movereviewinsert4.do?goodsnum=${list.goodsnum}&userid=${loginUser.userid }'">리뷰 작성</button>
                                             <br>
                                        		<br>
-                                       		<button class="genric-btn primary radius" onclick="location.href='moveinquiryinsert4.do?goodsnum=${li.goodsnum}&userid=${loginUser.userid }'">문의작성</button>
-                                        
+                                       		<button class="genric-btn primary radius" onclick="location.href='moveinquiryinsert4.do?goodsnum=${list.goodsnum}&userid=${loginUser.userid }'">문의사항 작성</button>
                                         </td>
                                     </tr>
                                     
-                                    </c:forEach>
                                 </tbody>
                             </table>
+                            <br>
                         </div>
+                            받는 사람 정보
+                            <hr>
+                            <table >
+                            <tr><td style="width:300px; height:30px;">받는사람</td><td style="width:1200px; height:30px;">${list.addressee }</td></tr>
+                            <tr><td style="width:300px; height:30px;">연락처</td><td style="width:1200px; height:30px;">${list.phone }</td></tr>
+                            <tr><td style="width:300px; height:30px;">받는 주소</td><td style="width:1200px; height:30px;">${list.address }</td></tr>
+                            <tr><td style="width:300px; height:30px;">요청 사항</td><td style="width:1200px; height:30px;">${list.requestcn }</td></tr>
+                            </table>
+                    <hr>
+                    
                     </div>
                     <div style="display:none;" id="alertbox"></div>
                     <div class="col-12 col-lg-4">
