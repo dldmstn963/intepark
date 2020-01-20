@@ -40,6 +40,12 @@ public class RequestDao {
 		return (ArrayList<Request>) reqlist;
 	}
 	
+	public ArrayList<Request> selectMyReqList(String userid) {
+		List<Request> reqlist = mybatisSession.selectList("requestMapper.selectMyReqList", userid);
+		return (ArrayList<Request>) reqlist;
+	}
+	
+	
 	
 	
 	
@@ -70,6 +76,8 @@ public class RequestDao {
 	public int deleteRequest(String reqnum) {
 		return mybatisSession.delete("requestMapper.insertRequest", reqnum);
 	}
+
+	
 
 	
 

@@ -9,7 +9,9 @@ import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.dao.PortfolioDao;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
+import com.c4.intepark.portfolio.model.vo.PortfolioView;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 import com.c4.intepark.review.model.vo.RvAvg;
 
 @Service("portfolioService")
@@ -29,6 +31,11 @@ public class PortfolioServiceImpl implements PortfolioService{
 	}
 	
 	@Override
+	public ArrayList<Portfolio> selectPfPhotoList() {
+		return portfolioDao.selectPfPhotoList();
+	}
+	
+	@Override
 	public Constructors selectOneCons(String consid) {
 		return portfolioDao.selectOneCons(consid);
 	}
@@ -44,9 +51,39 @@ public class PortfolioServiceImpl implements PortfolioService{
 	}
 	
 	@Override
+	public ArrayList<ReviewFile> selectConsRvFileList(String consid) {
+		return portfolioDao.selectConsRvFileList(consid);
+	}
+	
+	@Override
 	public int updateIntroduction(Constructors cons) {
 		return portfolioDao.updateIntroduction(cons);
 	}
+	
+	@Override
+	public ArrayList<PortfolioFile> selectPfOne(String pfnum) {
+		return portfolioDao.selectPfOne(pfnum);
+	}
+	
+	@Override
+	public ArrayList<PortfolioView> selectPfOneList(String consid) {
+		return portfolioDao.selectPfOneList(consid);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -85,6 +122,14 @@ public class PortfolioServiceImpl implements PortfolioService{
 	public int deleteportfolio(String reqnum) {
 		return portfolioDao.deleteportfolio(reqnum);
 	}
+
+	
+
+	
+
+	
+
+	
 
 	
 

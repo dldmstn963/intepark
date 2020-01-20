@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>portfolioDetailView</title>
+<title>portfolioDetailPhoto</title>
 
 <style type="text/css">
 span.star-prototype, span.star-prototype > * {
@@ -58,6 +58,48 @@ span.star-prototype > * {
 	margin-bottom:7px;
 }
 
+</style>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/swiper.min.css">
+
+<style type="text/css">
+  <!-- Demo styles -->
+   /*  html, body {
+      position: relative;
+      height: 100%;
+    } */
+    /* body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    } */
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
 </style>
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
@@ -154,10 +196,10 @@ span.star-prototype > * {
 		        
 		            <ul class="nav nav-tabs">
 		              <li class="nav-item">
-		                <a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
+		                <a class="nav-link" data-toggle="tab" href="#aa">소개글</a>
 		              </li>
 		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+		                <a class="nav-link active" data-toggle="tab" href="#bb">포트폴리오</a>
 		              </li>
 		              <li class="nav-item">
 		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
@@ -169,7 +211,7 @@ span.star-prototype > * {
 		            
 		            
 	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
-		              <div class="tab-pane fade show active" id="aa">
+		              <div class="tab-pane fade" id="aa">
 		              
 		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writeIntroductionForm5.do" method="post" >
@@ -188,40 +230,47 @@ span.star-prototype > * {
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
-		              <div class="tab-pane fade" id="bb">
+		              <div class="tab-pane fade show active" id="bb">
 		              
-		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
+		              	<%-- <c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writePF_Form5.do" method="post" >
       						<input type="hidden" value="${cons.consid}" name="consid">
       						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">작성하기</button>
       					</form>
       					<br>
-      					</c:if>
+      					</c:if> --%>
       					
       					<br>
-      					<c:if test="${!empty pfOneList }">	
-		              		<div class="row">
-		              		
-		              		 	<c:forEach items="${pfOneList }" var="pfOneList">
-		              			<div class="col-lg-4">
-		              			<form action="selectPfOne5.do" method="post" name="hi">
-		              			<input type="hidden" value="${pfOneList.consid }" name="consid">
-		              			<input type="hidden" value="${pfOneList.pfnum }" name="pfnum">
-		              			<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" onclick="document.forms['hi'].submit();"class="pf_img" style="width:250px; height:200px;">
-		              			</form>
-		              			<p style="margin-bottom:0px;">${pfOneList.pftitle }</p>
-		              			</div>
-		              			</c:forEach>
-		              			
-		              		</div><!-- row 끝 -->
-		              	</c:if>	
-		             
-		               <c:if test="${empty pfOneList }">
-	      						<div style="width:100%; padding-top:15px;"><br><br>
-	      						<h3 style="text-align:center;">작성된 포트폴리오가 없습니다.</h3>
-	      						</div>
-	      				</c:if>
-		                
+      					
+      					<!-- Swiper -->
+					  <div class="swiper-container">
+					    <div class="swiper-wrapper">
+					    		    
+						    <c:forEach items="${ pfOne }" var="pfOne">
+						    <div class="swiper-slide">
+						    <img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOne.pfrename}" width="600px" height="400px">
+						    </div>
+						    
+						    <%-- <div>
+						    ${pfOne.pfcoment}
+						    </div> --%>
+						    
+						    </c:forEach>
+
+					    </div>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					    <!-- Add Arrows -->
+					    <div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>
+					  </div>
+					  
+					  <br>
+					  <form action="pfOne5_2.do" method="post" >
+      						<input type="hidden" value="${cons.consid}" name="consid">
+      						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">닫기</button>
+      					</form>
+					  
 		                
 		              </div>
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
@@ -350,6 +399,27 @@ $(document).ready(function (e){
 
 
 </script>
+
+
+<!-- ------------------------------------------------------------------------------------------------------ -->
+<script src="${pageContext.request.contextPath }/resources/js/swiper.min.js"></script>
+<script type="text/javascript">
+<!-- Initialize Swiper -->
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 <script type="text/javascript">
