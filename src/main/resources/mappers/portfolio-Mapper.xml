@@ -16,13 +16,15 @@
 	</select>
 	
 	<select id="selectPfPhotoList" resultType="PortfolioFile">
-		select *
-		from portfoliofile
-		where pfnum in (
-		    select max(pfnum) pfnum 
-		    from portfolio 
-		    group by consid, pfrename
-		    )
+		select a.PFPHOTONUM, a.PFORIGINALNAME, a.PFRENAME, a.PFCOMENT, a.PFNUM, b.CONSID
+		from
+		(select *
+				from portfoliofile
+				where pfnum in (
+				    select max(pfnum) pfnum 
+				    from portfolio 
+				    group by consid, pfrename
+				    )) a  right join CONSTRUCTORS b on a.consid = b.consid
 	</select>
 	
 	<select id="selectOneCons" parameterType="string" resultType="Constructors">
