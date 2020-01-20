@@ -70,6 +70,7 @@ public class WebSocket extends TextWebSocketHandler {
 		System.out.println(session);
 		String invitemsg = message.getPayload().replaceFirst("invite/", "");
 		System.out.println(message.getPayload());
+		String check=message.getPayload();
 		
 		if(msg[0].equals("invite")) {
 			for(WebSocketSession websession : sessionList){ 
@@ -117,7 +118,18 @@ public class WebSocket extends TextWebSocketHandler {
 					websession.sendMessage(new TextMessage(message.getPayload()));
 				}
 			}
+		}else if(msg[0].equals("check")) {
+			for(WebSocketSession websession : mapList.keySet()) {
+				for(int i = 1; i < msg.length; i++) {
+					if(mapList.get(websession).equals(msg[i])) {
+						check = check.replace(msg[i], "");					
+					}
+				}				
+			}		
+			session.sendMessage(new TextMessage(check));
 		}
+		
+		
 		/*
 		 * for(WebSocketSession websession : sessionList) {
 		 * if(!session.getId().equals(websession.getId())) {

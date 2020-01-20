@@ -72,7 +72,7 @@ $(function(){
 	
 	ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
 
-	/* 서버로 메세지 보낼때 */
+	/* 서버열릴때 */
 	ws.onopen = function(){
 		ws.send("room/" + chatno + "," + who[1]);		
 		};
@@ -87,8 +87,7 @@ $(function(){
 			}else if(cut[0] == "chat"){
 				messages.innerHTML+="<br/>"+ "<p class='chat_content other-side'>"
 				 + cut[1] + " : " + cut[2] + "</p><br>";	
-			}
-					
+			}					
 		};
 
 	/* 서버 닫힐때 */
@@ -132,29 +131,34 @@ $(function(){
 
 function send(){
 	var who = document.getElementById("sender").value.split("/");
-	
-	$("#messages").html($("#messages").html() + "<p class='chat_content'>" 
+
+	if($("#messageinput").val() == null){
+		alert("메세지를 입력해주세요!");
+	}else{
+		$("#messages").html($("#messages").html() + "<p class='chat_content'>" 
 				+ who[1] + " : " + $("#messageinput").val() + "</p><br>");
 	
-	$.ajax({
-		url : "insertChatMsg3.do",
-		type : "post",
-		data : {
-					chatno : Number($("#chatno").val()),
-					chatcontent : $("#messageinput").val(),
-					user : $("#sender").val()
-				},
-		success : function(data){
-			console.log("저장성공");
-		},
-		error : function(jqXHR, textStatus, errorThrown){
-			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
-		}
-	});
-
-	ws.send("chat/"+ who[1] +"/"+ $("#messageinput").val());
+		$.ajax({
+			url : "insertChatMsg3.do",
+			type : "post",
+			data : {
+						chatno : Number($("#chatno").val()),
+						chatcontent : $("#messageinput").val(),
+						user : $("#sender").val()
+					},
+			success : function(data){
+				console.log("저장성공");
+			},
+			error : function(jqXHR, textStatus, errorThrown){
+				console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
+			}
+		});
 	
-	$("#messageinput").val("");
+		ws.send("chat/"+ who[1] +"/"+ $("#messageinput").val());
+		
+		$("#messageinput").val("");
+	}
+	
 	
 }
 
