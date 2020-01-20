@@ -69,6 +69,7 @@ public class ReviewController {
 		int rvquality = rv.getRvquality();
 		int rvprofessional = rv.getRvprofessional();
 		int rvresponsible = rv.getRvresponsible();
+		String consid = rv.getConsid();
 		
 		double rvavg = (rvkind+rvprice+rvquality+rvprofessional+rvresponsible)/5.0;
 		rv.setRvavg(rvavg);	//리뷰평균점수
@@ -99,13 +100,11 @@ public class ReviewController {
 				rvfile.setRvoriginalname(oriname[i]);
 				rvfile.setRvrename(rename[i]);
 				rvfile.setRvnum(rvnum);
-				
+				rvfile.setConsid(rv.getConsid());
 				reviewService.insertRvfile(rvfile);
-			}
-			
+			}		
 		}
-
-		return "forward:pfOne5.do";
+		return "redirect:pfOne5.do?consid=" + consid;
 	}
 	
 	
@@ -216,6 +215,28 @@ public class ReviewController {
 	    
 	    
 	    
+	    @RequestMapping(value="deleteReview5.do", method=RequestMethod.POST)
+		public String deleteReview(@RequestParam(value="rvnum", required=true) int rvnum, 
+												@RequestParam(value="consid", required=true) String consid, HttpServletRequest request) {
+			
+			ArrayList<ReviewFile> rvFile = reviewService.selectRvRename(rvnum);
+	    	
+			String path="";
+			
+			for(ReviewFile i : rvFile) {
+				//System.out.println(i.getRvrename() + "\n");
+				path = request.getSession().getServletContext().getRealPath("/resources/review_file/"); // 삭제할 파일의 경로
+				
+					File file = new File(path + "\\" + i.getRvrename());
+					if(file.exists() == true){
+					file.delete();
+				}
+			}
+				
+			int result = reviewService.deleteReview(rvnum);			
+			
+			return "redirect:pfOne5.do?consid=" + consid;
+		}
 	
 	
 	
@@ -233,7 +254,15 @@ public class ReviewController {
 	
 	
 	
-	
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	
 	
 	
@@ -269,11 +298,7 @@ public class ReviewController {
 		 */
 		return null;
 	}
-	
-	
-	
-	
-	
+
 	@RequestMapping(value="updateReview5.do", method=RequestMethod.POST)
 	public String updateReview(Portfolio portfolio, PortfolioFile portfolioFile) {
 		
@@ -286,13 +311,7 @@ public class ReviewController {
 	
 
 	
-	@RequestMapping(value="deleteReview5.do", method=RequestMethod.POST)
-	public String deleteReview(@RequestParam(value="rvnum", required=true) int rvnum) {
-		
-		int result = reviewService.deleteReview(rvnum);
-		
-		return null;
-	}
+	
 	
 	
 }

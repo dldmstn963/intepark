@@ -29,9 +29,27 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-	<div class="row">
+
+<div class="row">
+	
+	<div class="col-lg-9"></div><!-- 9 끝 -->
+	
+	<div class="col-lg-3" style="text-align:right;">
+	<div style="display:inline-block;">
+		<form action="conslist5.do" method="post" >
+			<button class="btn btn-success btn-sm" style="font:small-caption;">목록으로</button>&nbsp;&nbsp;
+		</form>	
+	</div>
+					
+	</div><!-- 3 끝 -->
+	
+	</div><!-- row 끝 -->
+	
+	
+	
+	<div class="row" style="min-height:600px;">
 		
-		<div class="col-lg-3" style="height:650px;">
+		<div class="col-lg-3">
 		
 		<div class="col-lg-12" style="margin-left:10px; margin-top:100px;"><!-- 프로필 이미지 -->
 		<c:if test="${empty cons.profilerenameimg}">
@@ -92,10 +110,8 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->		
 		
 		<div class="col-lg-9">
-			
-			
-			
-			<div class="container">
+		
+			<c:if test="${!empty reqlist }">
 				<table class="table table-hover">
   					<thead class="thead-light">
    						 <tr><h4 align="center">상담신청 내역</h4></tr>
@@ -125,7 +141,13 @@ span.star-prototype > * {
 
 				</thead>
 			</table>
-		</div>		
+		</c:if>	
+			
+			<c:if test="${empty reqlist }">
+	      	<div style="width:100%; padding-top:15px;"><br><br>
+	      		 <h3 style="text-align:center;">상담 신청 내역이 없습니다.</h3>
+	      	</div>
+	    	</c:if>		
 			
 			
 		</div><!-- div 9 끝 -->

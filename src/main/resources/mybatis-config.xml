@@ -22,6 +22,7 @@
   		<typeAlias type="com.c4.intepark.shop.goods.model.vo.Goods" alias="Goods"/>
   		<typeAlias type="com.c4.intepark.portfolio.model.vo.Portfolio" alias="Portfolio"/>
   		<typeAlias type="com.c4.intepark.portfolio.model.vo.PortfolioFile" alias="PortfolioFile"/>
+  		<typeAlias type="com.c4.intepark.portfolio.model.vo.PortfolioView" alias="PortfolioView"/>
   		<typeAlias type="com.c4.intepark.request.model.vo.Request" alias="Request"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.Review" alias="Review"/>
   		<typeAlias type="com.c4.intepark.review.model.vo.ReviewFile" alias="ReviewFile"/>

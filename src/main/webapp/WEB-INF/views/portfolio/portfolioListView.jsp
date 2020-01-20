@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,12 +75,18 @@
 	
 	<div class="col-lg-3" style="text-align:right;">
 	<div style="display:inline-block;">
-		<form action="test5.do" method="post" >
+		<form action="selectMyReqList5.do" method="post" >
+			<c:if test="${!empty sessionScope.loginCons }"><!-- 시공사이면 -->
+				<input type="hidden" value="${sessionScope.loginCons.consid}" name="userid">
+			</c:if>
+			<c:if test="${!empty sessionScope.loginUser }"><!-- 고객이면 -->
+				<input type="hidden" value="${sessionScope.loginUser.userid}" name="userid">
+			</c:if>
 			<button class="btn btn-success btn-sm" style="font:small-caption;">내 상담신청 내역</button>&nbsp;&nbsp;
 		</form>	
 	</div>
 	
-	<c:if test="${!empty sessionScope.loginCons }">
+	<c:if test="${!empty sessionScope.loginCons }"><!-- 시공사로 로그인 했으면 보이기 -->
 		<div style="display:inline-block;">	
 			<form action="pfOne5.do" method="post" >
 		    	<input type="hidden" value="${sessionScope.loginCons.consid}" name="consid">
@@ -106,7 +113,7 @@
 	
 	
 	
-    <div class="row">
+    <div class="row" style="min-height:550px;">
     
       <c:forEach items="${ list }" var="ConsVo">
       	<c:if test="${ConsVo.consid ne sessionScope.loginCons.consid}"><!-- 로그인한 시공사 제외하고 출력 -->
@@ -116,10 +123,20 @@
       <!-- Swiper -->
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
-	    <%-- <c:forEach items="${ list }" var="i"> --%>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" class="img-circle" width="300px" height="200px"></div>
-	      <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-2.jpg" class="img-circle" width="300px" height="200px"></div>
-	     <%--  </c:forEach> --%>
+	    
+		    <c:forEach items="${ pfPhotoList }" var="pfPhotoList">
+		    	<c:if test="${ConsVo.consid eq pfPhotoList.consid }">
+		    <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfPhotoList.pfrename}" width="300px" height="200px"></div>
+		    	</c:if>
+		    	<%-- <c:if test="${empty pfPhotoList.pfrename }">
+		    	<div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/portfolio_Noimage.png" width="300px" height="200px"></div>
+		    	</c:if> --%>
+		    	
+		    </c:forEach>
+		    
+		    
+		    
+	     
 	    </div>
 	    <!-- Add Pagination -->
 	    <div class="swiper-pagination"></div>

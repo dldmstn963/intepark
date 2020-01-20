@@ -41,6 +41,12 @@ public class RequestServiceImpl implements RequestService {
 		return requestDao.selectRequestList(consid);
 	}
 	
+	@Override
+	public ArrayList<Request> selectMyReqList(String userid) {
+		return requestDao.selectMyReqList(userid);
+	}
+	
+	
 	
 	
 	
@@ -74,6 +80,8 @@ public class RequestServiceImpl implements RequestService {
 	public int deleteRequest(String reqnum) {
 		return requestDao.deleteRequest(reqnum);
 	}
+
+	
 
 	
 

@@ -43,9 +43,10 @@ span {
 .preview-box {
     border: 1px solid;
     padding: 5px;
+    padding-right:0px;
     border-radius: 5px;
     margin-bottom: 10px;
-    margin-right:10px;
+    margin-right:5px;
     
     display:inline-block;
 }
@@ -319,10 +320,14 @@ span {
 				<span id="rvcritique_keyup" tabindex="0"></span>
 				<textarea name="rvcritique" id="rvcritique" style="min-height:120px;"placeholder="처음 상담부터 친절하셨고, 작업도 꼼꼼하게 해주셨어요. 주변 사람들과 비교해보니 퀄리티 대비 가격도 합리적인 편이었습니다. 5개월 정도 지났는데 현재까지 하자는 없고, A/S도 약속해 주셔서 걱정 없이 지내고 있습니다. 주변에 엄청 추천하고 있어요!"  class="form-control text-area-input"></textarea>
 				<span style="color:#aaa; float:right;" id="counter">(0 / 최대 300자)</span>
-				<br><br><br>	
+				<br><br>	
 				
 			<!-- -------------------------------------------------------------------------------------------------------------------- -->	
 			
+			
+			
+			<h4><strong style="color:black;">시공 사진</strong>&nbsp;(선택)</h4>
+				<p style="font-weight:bold;">시공 전/후 이미지 혹은 완성 이미지를 공유해주세요! (최대 5장)</p>
 			
 			
 			<div class="wrapper">
@@ -331,8 +336,6 @@ span {
             <!-- 미리보기 영역 -->
             <div id="preview" style="display:inline-block;"></div>
             
-            <!-- multipart 업로드시 영역 -->
-            <!-- <form id="uploadForm" style="display: none;" /> -->
         </div>
 
         <!-- 첨부 버튼 -->
@@ -367,8 +370,6 @@ span {
 
 <script type="text/javascript">
 
-
-//임의의 file object영역
  //임의의 file object영역
         var files = {};
         var previewIndex = 0;
@@ -384,10 +385,9 @@ span {
                     if (validation(file.name))
                         continue;
                     setPreviewForm(file);
-                    
                 }
-            } else
-                alert('invalid file input'); // 첨부클릭 후 취소시의 대응책은 세우지 않았다.
+            } /* else
+                alert('invalid file input'); // 첨부클릭 후 취소시의 대응책은 세우지 않았다. */
         }
 
         function setPreviewForm(file, img){
@@ -404,20 +404,22 @@ span {
                         "<img class=\"thumbnail\" src=\"" + img.target.result + "\"\/>" +
                         /* "<p>" + file.name + "</p>" + */"</div>"
                 );
-                
                 files[imgNum] = file;            
             };
-            
             reader.readAsDataURL(file);
         }
-
-        
+  
         //preview 영역에서 삭제 버튼 클릭시 해당 미리보기이미지 영역 삭제
-        
         function deletePreview(obj) {
             var imgNum = obj.attributes['value'].value;
             delete files[imgNum];
-            $("#preview .preview-box[value=" + imgNum + "]").remove();   
+            $("#preview .preview-box[value=" + imgNum + "]").remove();
+            $("#ok").focus();
+            
+            /* $(window).scroll(function () { 스크롤 다운하던거
+                var scrollValue = $(document).scrollTop(); 
+                console.log(scrollValue); 
+                }); */
         }
 
         //client-side validation
@@ -435,12 +437,10 @@ span {
                 return false;
             }
         }
- 
-       
-            //submit 등록. 실제로 submit type은 아니다.
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
                function imgUpload(){
                    //console.log(Object.keys(files).length);
-                   if(Object.keys(files).length == 0){
+                   if(Object.keys(files).length == 0){		//첨부파일이 없을경우 ajax 실행없이 submit 처리
                 	   $("form").submit();
                 	   return false;
                        }
@@ -449,10 +449,7 @@ span {
                        return false;
                        }
 
-            	   //var form = $('#uploadForm')[0];
-                   //var formData = new FormData(form);
                    var formData = new FormData();
-                   
 
                 for (var key in files){      
                 	formData.append('files',files[key]);
@@ -463,8 +460,7 @@ span {
                     console.log(Object.keys(files));
                     console.log(files); */
                }
-
-                
+    
                 $.ajax({
                     type : 'POST',
                     enctype : 'multipart/form-data',
@@ -476,26 +472,10 @@ span {
                     dataType : 'JSON',
                     data : formData,
                     success : function(jsonData) {
-                        //이 부분을 수정해서 다양한 행동을 할 수 있으며,
-                        //여기서는 데이터를 전송받았다면 순수하게 OK 만을 보내기로 하였다.
-                        //-1 = 잘못된 확장자 업로드, -2 = 용량초과, 그외 = 성공(1)
-                       /*  if (result === -1) {
-                            alert('jpg, gif, png, bmp 확장자만 업로드 가능합니다.');
-                            // 이후 동작 ...
-                        } else if (result === -2) {
-                            alert('파일이 20MB를 초과하였습니다.');
-                            // 이후 동작 ...
-                        }else if (result === 3) {
-                            alert('파일이 갯수가 5개를 초과하였습니다.');
-                            // 이후 동작 ...    
-                        } else { */
-                            alert('이미지 업로드 성공');
-                             
+                            //alert('이미지 업로드 성공');
                             //json 배열을 받았을 때는 object -> string -> parsing : json
                            //json 객체 한 개를 받았을 때는 바로 출력 처리할 수 있음
                            
-                            console.log(jsonData);
-
             				$("#rvoriginalname").val(decodeURIComponent(jsonData.rvoriginalname.replace(/\+/gi, " ")));
             				$("#rvrename").val(jsonData.rvrename);
 
@@ -507,24 +487,16 @@ span {
             						+ "\Message : " + request.responseText
             						+"\Error : " + errorData);
             			}
-                    //전송실패에대한 핸들링은 고려하지 않음
                 });	//ajax 끝
-                
-                //return false;
-                   
-            }
+            } //imgUpload 끝
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+               
             // <input type=file> 태그 기능 구현
-            
              $(document).ready(function() {
             $('#attach input[type=file]').change(function() {
                 addPreview($(this)); //preview form 추가하기
             });
         });
-
-
-
-
-
 
 
 
@@ -1196,12 +1168,9 @@ $('#rvcritique').keyup(function (e){
 			return false;
 			}
 
+		//유효검사 완료되면 첨부파일 ajax 실행
 		imgUpload();
-
-
-}
-
-	
+} //reviewCheck 끝
 
 </script>
 

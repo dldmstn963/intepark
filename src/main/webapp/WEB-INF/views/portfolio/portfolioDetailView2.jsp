@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>portfolioDetailView</title>
+<title>portfolioDetailView2</title>
 
 <style type="text/css">
 span.star-prototype, span.star-prototype > * {
@@ -154,10 +154,10 @@ span.star-prototype > * {
 		        
 		            <ul class="nav nav-tabs">
 		              <li class="nav-item">
-		                <a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
+		                <a class="nav-link" data-toggle="tab" href="#aa">소개글</a>
 		              </li>
 		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+		                <a class="nav-link active" data-toggle="tab" href="#bb">포트폴리오</a>
 		              </li>
 		              <li class="nav-item">
 		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
@@ -169,7 +169,7 @@ span.star-prototype > * {
 		            
 		            
 	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
-		              <div class="tab-pane fade show active" id="aa">
+		              <div class="tab-pane fade" id="aa">
 		              
 		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writeIntroductionForm5.do" method="post" >
@@ -188,7 +188,7 @@ span.star-prototype > * {
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
-		              <div class="tab-pane fade" id="bb">
+		              <div class="tab-pane fade show active" id="bb">
 		              
 		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writePF_Form5.do" method="post" >

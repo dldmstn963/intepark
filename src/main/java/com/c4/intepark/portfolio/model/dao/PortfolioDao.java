@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
+import com.c4.intepark.portfolio.model.vo.PortfolioView;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 import com.c4.intepark.review.model.vo.RvAvg;
 
 @Repository("portfolioDao")
@@ -31,6 +33,11 @@ public class PortfolioDao {
 		return (ArrayList<RvAvg>)list;
 	}
 	
+	public ArrayList<Portfolio> selectPfPhotoList() {
+		List<Portfolio>pfPhotoList = mybatisSession.selectList("portfolioMapper.selectPfPhotoList");
+		return (ArrayList<Portfolio>)pfPhotoList;
+	}
+	
 	public Constructors selectOneCons(String consid) {
 		return mybatisSession.selectOne("portfolioMapper.selectOneCons", consid);
 	}
@@ -44,9 +51,41 @@ public class PortfolioDao {
 		return (ArrayList<Review>)review;
 	}
 	
+	public ArrayList<ReviewFile> selectConsRvFileList(String consid) {
+		List<ReviewFile>rvFile = mybatisSession.selectList("portfolioMapper.selectConsRvFileList", consid);
+		return (ArrayList<ReviewFile>)rvFile;
+	}
+	
 	public int updateIntroduction(Constructors cons) {
 		return mybatisSession.update("portfolioMapper.updateIntroduction", cons);
 	}
+	
+	public ArrayList<PortfolioFile> selectPfOne(String pfnum) {
+		List<PortfolioFile>PfOne = mybatisSession.selectList("portfolioMapper.selectPfOne", pfnum);
+		return (ArrayList<PortfolioFile>)PfOne;
+	}
+	
+	public ArrayList<PortfolioView> selectPfOneList(String consid) {
+		List<PortfolioView>pfOneList = mybatisSession.selectList("portfolioMapper.selectPfOneList", consid);
+		return (ArrayList<PortfolioView>)pfOneList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -80,6 +119,14 @@ public class PortfolioDao {
 	public int deleteportfolio(String reqnum) {
 		return mybatisSession.delete("portfolioMapper.deleteportfolio", reqnum);
 	}
+
+	
+
+	
+
+	
+
+	
 
 	
 

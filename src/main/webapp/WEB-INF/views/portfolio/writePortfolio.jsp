@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>writeIntroduction</title>
+<title>writePortfolio</title>
 
 <style type="text/css">
 span.star-prototype, span.star-prototype > * {
@@ -19,13 +19,14 @@ span.star-prototype > * {
     max-width:80px; 
 }
 </style>
-<script type="text/javascript" src="/intepark/resources/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 </head>
 <body>
 <jsp:include page="../common/header.jsp" />
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 
 <div class="container">
 
@@ -43,9 +44,9 @@ span.star-prototype > * {
 	</div><!-- 3 끝 -->
 	
 	</div><!-- row 끝 -->
-
-
-
+	
+	
+	
 	<div class="row" style="min-height:600px;">
 		
 		<div class="col-lg-3">
@@ -109,18 +110,18 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->		
 		
 		<div class="col-lg-9">
-			<div class="container">
+			<div class="container">	
 		      <div class="row">
 		        <div class="col">
 		        
 		            <ul class="nav nav-tabs">
 		              <li class="nav-item">
-		                <a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
-		              </li>
-		              <!-- <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+		                <a class="nav-link" data-toggle="tab" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 		              </li>
 		              <li class="nav-item">
+		                <a class="nav-link active" data-toggle="tab" href="#bb">포트폴리오</a>
+		              </li>
+		              <!-- <li class="nav-item">
 		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
 		              </li> -->
 		            </ul>
@@ -130,32 +131,66 @@ span.star-prototype > * {
 		            
 		            
 	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
-		              <div class="tab-pane fade show active" id="aa">
-		              
-		              	<form action="updateIntroduction5.do" method="post" >
-      						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button onclick="submitContents(this);" class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">저장하기</button>
-      					
-      						<br><h4 style="color:black;">&nbsp;업체 소개글 작성하기</h4>
-		              
-		                	<textarea name="ir1" id="ir1" rows="18" style="width:100%;">
-		                	${cons.pfintroduction }
-		                	</textarea>
-		                
-		                </form>
-		                
-		              </div>
+		              <!-- <div class="tab-pane fade show active" id="aa">
+
+		              </div> -->
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
-		              <!-- <div class="tab-pane fade" id="bb">
-		                <p>bbb</p>
-		              </div> -->
+		              <div class="tab-pane fade show active" id="bb">
+		              
+		              
+		              <!-- <form action="insertPF5.do" method="post" id="frm" name="frm" enctype="multipart/form-data"> -->
+      						<input type="hidden" value="${cons.consid}" name="consid">
+      						<button onclick="submitContents(this);" class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">저장하기</button>
+      						
+      						<br>
+      						<div class="row">
+      						<div class="col-lg-5">
+      						<h4 style="color:black;">&nbsp;포토폴리오 작성하기 (최대 10장)</h4>
+      						</div><!-- 5 끝 -->
+      						
+      						<div class="col-lg-7">
+      						<input type="text" name="pftitle" class="form-control" placeholder="포트폴리오 제목 (20자 이하)" >
+      						</div><!-- 7 끝 -->
+      						</div><!-- row 끝 -->
+      						
+      						<br>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+      						<div style="border:2px solid lightgray; border-radius: 5px; min-height:430px; padding:10px;">
+      						 								
+      								<div id="fileDiv"> 
+			
+      								<p>
+	      								<input type="file" id="file" name="file_0">
+	      								<input type="text" name="pfcoment" class="form-control" placeholder="포토 설명 (50자 이하) (선택사항 입니다.)" > 
+	      								<a href="#this" class="btn" id="delete" name="delete">삭제</a>
+	      							</p> 
+	      							
+      								</div> 
+      								<br/><br/> 
+      								<a href="#this" class="btn" id="addFile">파일 추가</a> 
+      								<a href="#this" class="btn" id="write">작성하기</a> 
+      								<a href="#this" class="btn" id="list">목록으로</a> 
+      				
+
+      							
+      							
+      							
+      							
+      						</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->      						
+
+		                <!-- </form> -->
+		              
+		              
+		              
+		              </div>
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
 			              
 	<!-- ----------------------------------------------------------------리뷰 탭 구역 시작------------------------------------------------------------------------- -->	              
 		              <!-- <div class="tab-pane fade" id="cc">
-		                <p>ccc</p>              
+		                	작성구역          
 		              </div> -->
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	            
 		            
@@ -169,6 +204,63 @@ span.star-prototype > * {
 		
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
+
+<script type="text/javascript"> 
+
+
+var gfv_count = 1; 
+var pfcoment_count = 1; 
+
+$(document).ready(function(){ 
+	$("#list").on("click", function(e){ //목록으로 버튼 
+		e.preventDefault(); 
+		fn_openBoardList(); 
+		}); 
+	$("#write").on("click", function(e){ //작성하기 버튼 
+		e.preventDefault(); 
+		fn_insertBoard(); 
+		}); 
+	$("#addFile").on("click", function(e){ //파일 추가 버튼 
+		e.preventDefault(); 
+		fn_addFile(); 
+		}); 
+	$("a[name='delete']").on("click", function(e){ //삭제 버튼 
+		e.preventDefault(); 
+		fn_deleteFile($(this)); 
+		}); 
+	}); 
+
+function fn_openBoardList(){ 
+	var comSubmit = new ComSubmit(); 
+	comSubmit.setUrl("<c:url value='/sample/openBoardList.do' />"); 
+	comSubmit.submit(); 
+	} 
+	function fn_insertBoard(){ 
+		var comSubmit = new ComSubmit("frm"); 
+		comSubmit.setUrl("<c:url value='/sample/insertBoard.do' />"); 
+		comSubmit.submit(); 
+		} 
+	function fn_addFile(){ 
+		var str = "<p><input type='file' name='file_"+(gfv_count++)+"'><input type='text' name='pfcoment" +(pfcoment_count++)+"' class='form-control' placeholder='포토 설명 (50자 이하) (선택사항 입니다.)' ><a href='#this' class='btn' name='delete'>삭제</a></p>"; 
+		$("#fileDiv").append(str); 
+		$("a[name='delete']").on("click", function(e){ //삭제 버튼 
+			e.preventDefault(); 
+			fn_deleteFile($(this)); 
+			}); 
+		} 
+	function fn_deleteFile(obj){ 
+		obj.parent().remove(); 
+		} 
+
+</script>
+
+
+
+
+
+
+
+
 
 
 <script type="text/javascript">
@@ -188,87 +280,13 @@ function warning2(){
 			}
 }
 
+
 $.fn.generateStars = function() {
 	return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
 	};
 
 	// 숫자 평점을 별로 변환하도록 호출하는 함수
 	$('.star-prototype').generateStars();
-
-</script>
-
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-<script type="text/javascript">
-//스마트에디터 스크립트
-
-var oEditors = [];
-//추가 글꼴 목록
-//var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
-nhn.husky.EZCreator.createInIFrame({
-oAppRef: oEditors,
-elPlaceHolder:"ir1",
-sSkinURI: "/intepark/resources/se2/SmartEditor2Skin.html", 
-htParams : {
-bUseToolbar : true,    // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-bUseVerticalResizer : true,  // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-bUseModeChanger : true,   // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-//aAdditionalFontList : aAdditionalFontSet,  // 추가 글꼴 목록
-fOnBeforeUnload : function(){
-//alert("완료!");
-}
-}, //boolean
-fOnAppLoad : function(){
-//예제 코드
-//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
-
-
-					  /* //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-  					oEditors.getById["notice_content"].exec("PASTE_HTML", [notice_content.getValue()]); */
-
-},
-fCreator: "createSEditor2"
-});
-
-function pasteHTML() {
-var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-oEditors.getById["ir1"].exec("PASTE_HTML", [sHTML]);
-}
-
-function showHTML() {
-var sHTML = oEditors.getById["ir1"].getIR();
-alert(sHTML);
-}
-
-function submitContents(elClickedObj) {
-
-/* var s = oEditors.getById["ir1"].getIR();
-
-if (this.frm.eaTitle.value == ''){
-alert('제목을 기재해 주세요');
-this.frm.eaTitle.focus();
-return false;
-}
-
-if(!s) {
-alert('내용을 기재해 주세요');
-return true;
-} */
-
-oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
-
-// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-
-/*  try {
-elClickedObj.form.submit();
-} catch(e) {} */
-}
-
-function setDefaultFont() {
-var sDefaultFont = '궁서';
-var nFontSize = 24;
-oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
-}
 
 </script>
 
