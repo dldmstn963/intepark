@@ -9,7 +9,19 @@
 	 from logininfo where logid=#{value}
 </select>
 
-<select id = "selectMemberState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+<select id="selectIdCheck" parameterType="String" resultType="_int">
+	select count(logid) from logininfo where logid = #{value}
+</select>
+	
+<select id="selectEmailCheck" parameterType="String" resultType="_int">
+	select count(email) from logininfo where email = #{value}
+</select>
+
+<insert id="insertLoginId" parameterType="LoginInfo">
+	insert into logininfo values(#{logid},#{logpwd},#{email},#{authority},1,'정상',null,null)
+</insert>
+
+<select id = "selectMemberState" parameterType="string" resultType="LoginMemberState">
 	select logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
 	from(select rownum, logid,memberstate, withdrawdate, withdrawcause, stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
          from (select *
@@ -19,6 +31,43 @@
 			   order by stopno desc))
 	where rownum =1
 </select>
+
+<update id="updateMemberStop">
+	update loginstop set stopremove = '날짜 지남'
+	 <![CDATA[
+	where STOPFINISHDATE < sysdate and stopremove is null
+	]]>
+</update>
+
+<delete id="deleteMember">
+	delete from logininfo 
+ 	<![CDATA[
+ 	where withdrawdate+90< sysdate
+	 ]]>
+</delete>
+
+<select id="selectFindUserId" parameterType="InteUser" resultType="string">
+ 	select nvl(min(userid),'없음')
+    from inteuser
+    where useremail=#{useremail} and username=#{username}
+</select>
+
+<select id="selectFindConsId" parameterType="Constructors" resultType="string">
+ 	select nvl(min(consid),'없음')
+    from constructors
+    where consemail=#{consemail} and consname=#{consname}
+</select>
+
+<select id="selectFindUserPwd" parameterType="LoginInfo" resultType="int">
+	select count(logid)
+	from logininfo
+	where logid=#{logid} and email=#{email}
+</select>
+
+<update id="updateNewLogPwd" parameterType="LoginInfo">
+	update logininfo set logpwd=#{logpwd} where logid = #{logid}
+
+</update>
 
 </mapper>
 

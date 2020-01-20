@@ -78,7 +78,7 @@ function checkSearch(){
 							<td>${ulist.userid}</td>
 							<td>${ulist.username }</td>
 							<td>${ulist.phone }</td>
-							<td>${ulist.email }</td>
+							<td>${ulist.useremail }</td>
 							<td>${ulist.enrolldate}</td>
 							<td>${ulist.memberstate}</td>
 							<td><a href="userDetailView.do?userid=${ulist.userid}">view</a></td>

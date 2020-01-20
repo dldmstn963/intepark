@@ -13,7 +13,7 @@ public class InteUser implements java.io.Serializable{
 	private java.sql.Date enrolldate;
 	private String username;
 	private String phone;
-	private String email;
+	private String useremail;
 	private String address;
 	private String memberstate;
 	private java.sql.Date withdrawdate;
@@ -21,7 +21,7 @@ public class InteUser implements java.io.Serializable{
 	
 	public InteUser() {}
 
-	public InteUser(String userid, String userpwd, Date enrolldate, String username, String phone, String email,
+	public InteUser(String userid, String userpwd, Date enrolldate, String username, String phone, String useremail,
 			String address, String memberstate, Date withdrawdate, String withdrawcause) {
 		super();
 		this.userid = userid;
@@ -29,7 +29,7 @@ public class InteUser implements java.io.Serializable{
 		this.enrolldate = enrolldate;
 		this.username = username;
 		this.phone = phone;
-		this.email = email;
+		this.useremail = useremail;
 		this.address = address;
 		this.memberstate = memberstate;
 		this.withdrawdate = withdrawdate;
@@ -76,12 +76,12 @@ public class InteUser implements java.io.Serializable{
 		this.phone = phone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUseremail() {
+		return useremail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
 
 	public String getAddress() {
@@ -119,10 +119,13 @@ public class InteUser implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "InteUser [userid=" + userid + ", userpwd=" + userpwd + ", enrolldate=" + enrolldate + ", username="
-				+ username + ", phone=" + phone + ", email=" + email + ", address=" + address + ", memberstate="
+				+ username + ", phone=" + phone + ", useremail=" + useremail + ", address=" + address + ", memberstate="
 				+ memberstate + ", withdrawdate=" + withdrawdate + ", withdrawcause=" + withdrawcause + "]";
 	}
 	
 	
 
+
+
+	
 }

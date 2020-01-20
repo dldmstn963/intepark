@@ -63,11 +63,11 @@
 							<img src="/intepark/resources/img/kakaoLogin.png" height="40px" width="100%"/></a>
 							<div style="width: 100%;">
 							<span style="float:left;">
-							<a href="#" onclick="location.href='userenroll6.do'"><font size="2pt" color="gray">고객 회원가입</font></a>
+							<a href="userenroll6.do"><font size="2pt" color="gray">고객 회원가입</font></a>
 							</span>
 							<span style="float: right;">
-							<a href="#" style="margin-bottom: 5px; align:right;"
-								onclick="location.href='userFindIdPwd.do'"><font size=2pt" color="gray">아이디/비밀번호 찾기</font></a>	
+							<a href="userFindIdPwd.do" style="margin-bottom: 5px; align:right;">
+							<font size=2pt color="gray">아이디/비밀번호 찾기</font></a>	
 							</span>
 							</div>
 						</div>
@@ -90,9 +90,15 @@
 									style="margin-top: 5px; margin-bottom: 5px; width: 100%;"
 									type="submit" value="로그인">
 							</form>
-							<button class="btn" style="margin-bottom: 5px; width: 100%;"
-								onclick="location.href='consenroll6.do'">시공사 회원가입</button>
-
+							<div style="width: 100%;">
+							<span style="float:left;">
+							<a href="consenroll6.do"><font size="2pt" color="gray">시공사 회원가입</font></a>
+							</span>
+							<span style="float: right;">
+							<a href="consFindIdPwd.do" style="margin-bottom: 5px; align:right;">
+							<font size=2pt color="gray">아이디/비밀번호 찾기</font></a>	
+							</span>
+							</div>
 						</div>
 					</div>
 				</div>

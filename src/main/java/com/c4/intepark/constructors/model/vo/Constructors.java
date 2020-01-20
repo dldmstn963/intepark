@@ -13,7 +13,7 @@ public class Constructors implements java.io.Serializable{
 	private java.sql.Date enrolldate;
 	private String consname;
 	private String phone;
-	private String email;
+	private String consemail;
 	private String address;
 	private String companyname;
 	private String consarea;
@@ -31,7 +31,7 @@ public class Constructors implements java.io.Serializable{
 	
 	public Constructors() {}
 
-	public Constructors(String consid, String conspwd, Date enrolldate, String consname, String phone, String email,
+	public Constructors(String consid, String conspwd, Date enrolldate, String consname, String phone, String consemail,
 			String address, String companyname, String consarea, String asdate, String career, String consintroduction,
 			String pfintroduction, String profileoriginalimg, String profilerenameimg, String blicenceoriginalimg,
 			String blicencerenameimg, String memberstate, Date withdrawdate, String withdrawcause) {
@@ -41,7 +41,7 @@ public class Constructors implements java.io.Serializable{
 		this.enrolldate = enrolldate;
 		this.consname = consname;
 		this.phone = phone;
-		this.email = email;
+		this.consemail = consemail;
 		this.address = address;
 		this.companyname = companyname;
 		this.consarea = consarea;
@@ -98,12 +98,12 @@ public class Constructors implements java.io.Serializable{
 		this.phone = phone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getConsemail() {
+		return consemail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setConsemail(String consemail) {
+		this.consemail = consemail;
 	}
 
 	public String getAddress() {
@@ -221,7 +221,7 @@ public class Constructors implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "Constructors [consid=" + consid + ", conspwd=" + conspwd + ", enrolldate=" + enrolldate + ", consname="
-				+ consname + ", phone=" + phone + ", email=" + email + ", address=" + address + ", companyname="
+				+ consname + ", phone=" + phone + ", consemail=" + consemail + ", address=" + address + ", companyname="
 				+ companyname + ", consarea=" + consarea + ", asdate=" + asdate + ", career=" + career
 				+ ", consintroduction=" + consintroduction + ", pfintroduction=" + pfintroduction
 				+ ", profileoriginalimg=" + profileoriginalimg + ", profilerenameimg=" + profilerenameimg
@@ -229,6 +229,7 @@ public class Constructors implements java.io.Serializable{
 				+ ", memberstate=" + memberstate + ", withdrawdate=" + withdrawdate + ", withdrawcause=" + withdrawcause
 				+ "]";
 	}
+
 	
 
 }
