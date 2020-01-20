@@ -1,11 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp"%>
+<script type="text/javascript">
+window.onload = function() {
+	var message = '${message}';
+
+	if (message != "" && message != null)
+		alert(message);
+}	
+</script>
 </head>
 <body>
 	<div class="container">
@@ -25,22 +34,22 @@
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
 							href="#bb">시공사 비밀번호 찾기</a></li>
 					</ul>
-
+					<!--아이디 찾기 -->
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="aa">
 							<br>
-							<form action="findUserId.do" method="post">
+							<form action="findConsId.do" method="post">
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-user fa-fw"></i></span> <input class="form-control"
-										type="text" name="username" placeholder="UserName">
+										type="text" name="consname" placeholder="이름을 작성해주세요.">
 								</div>
 								<h6></h6>
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-envelope-o fa-fw"></i></span> <input
-										class="form-control" type="email" name="email"
-										placeholder="Email">
+										class="form-control" type="email" name="consemail"
+										placeholder="이메일을 작성해주세요.">
 								</div>
 								<input class="btn"
 									style="margin-top: 5px; margin-bottom: 5px; width: 100%;"
@@ -55,14 +64,14 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-user fa-fw"></i></span> <input class="form-control"
-										type="text" name="userid" placeholder="UserId">
+										type="text" name="logid" placeholder="아이디를 작성해주세요.">
 								</div>
 								<h6></h6>
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-envelope-o fa-fw"></i></span> <input
 										class="form-control" type="email" name="email"
-										placeholder="Email">
+										placeholder="이메일을 작성해주세요.">
 								</div>
 								<input class="btn"
 									style="margin-top: 5px; margin-bottom: 5px; width: 100%;"

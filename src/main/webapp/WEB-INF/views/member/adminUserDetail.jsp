@@ -10,11 +10,19 @@
 
 <script type="text/javascript">
 function sochange(sltag,intag){
-	if(sltag.value=="etcs")
+	if(sltag.value=="기타"){
 		intag.style.display="";
-	else
+		intag.setAttribute("required",true);
+	}else{
 		intag.style.display="none";
-	
+	intag.removeAttribute("required");
+	}
+	return false;
+}
+
+function adUserList(){
+	location.href='${pageContext.request.contextPath }/admin/userList6.do';
+	return false;
 }
 </script>
 </head>
@@ -38,14 +46,15 @@ function sochange(sltag,intag){
 						&nbsp;
 					</c:if>
 						<c:if test="${inteUser.memberstate eq '정지'}">
-							<button class="btn">정지 해제</button>
+								<button data-target="#layerpop2" data-toggle="modal"
+								data-backdrop="static" class="btn">정지해제</button>
 						&nbsp;
 					</c:if>
-						<button data-target="#layerpop2" data-toggle="modal"
+						<button data-target="#layerpop3" data-toggle="modal"
 								data-backdrop="static" class="btn">정지기록</button>
 
 						&nbsp;
-						<button class="btn">목록</button>
+						<button class="btn" onclick="adUserList();">목록</button>
 					</div>
 					<table class="table" style="text-align: center;">
 						<tr>
@@ -62,7 +71,7 @@ function sochange(sltag,intag){
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td>${inteUser.email}</td>
+							<td>${inteUser.useremail}</td>
 						</tr>
 						<tr>
 							<th>주소</th>
@@ -135,7 +144,7 @@ function sochange(sltag,intag){
 										<option value="기타">기타</option>
 								</select></td>
 							</tr>
-							<tr><td><input type="text" id="etc" name="etc" placeholder="기타 사유를 적어주세요" style="display:none; width:200px; margin:10px;">
+							<tr><td><input type="text" id="etc" name="etc" placeholder="기타 사유를 적어주세요" maxlength="33" style="display:none; width:200px; margin:10px;">
 							</td></tr>
 							<tr>
 								<th><h4><strong>정지 기한</strong></h4></th></tr>
@@ -149,18 +158,71 @@ function sochange(sltag,intag){
 							</tr>
 						</table>
 						</div>
-										
-					<input type="submit"
-						style="width: 100%;" value="확인">
-					</form>
+					<div class="modal-footer">	
+					<input type="submit" 
+						style="width: 50%;" value="확인">&nbsp;
+						</form>
+					<button type="button" data-dismiss="modal"
+						style="display:inline-block; width: 50%;">취소</button>
+					</div>		
+					
 				<!-- Footer -->
 
 			</div>
 		</div>
 	</div>
 <!-- --------------------------------------------------모달 구역1끝---------------------------------------- -->
-<!-- --------------------------------------------------모달 정지내역 구역2---------------------------------------- -->
+<!-- --------------------------------------------------모달 정지해제 구역2---------------------------------------- -->
 	<div class="modal fade" id="layerpop2" style="padding-top: 20px;">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 닫기(x) 버튼 -->
+					<!-- <button type="button" class="close" data-dismiss="modal">×</button> -->
+					<!-- header title -->
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12" style="text-align: center;">
+								<h2 style="margin-bottom: 0;">
+									<strong>정지 해제</strong>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- body -->
+				<form action="${pageContext.request.contextPath }/admin/userStopRemove.do" method="post">
+				<div class="modal-body" style="height: 300px;">
+						<input type="hidden" name="logid" value="${requestScope.inteUser.userid}">
+						<table style="text-align: center; width: 100%;">
+							<tr>
+								<th><h4>
+										<strong>정지 해제 사유</strong>
+									</h4></th>
+							</tr>
+							<tr>
+								<td><textarea rows="2" cols="27" name="stopremove" required></textarea></td>
+							</tr>
+							</table>
+						</div>
+					<div class="modal-footer">	
+					<input type="submit" 
+						style="width: 50%;" value="확인">&nbsp;
+						</form>
+					<button type="button" data-dismiss="modal"
+						style="display:inline-block; width: 50%;">취소</button>
+					</div>		
+					
+				<!-- Footer -->
+
+			</div>
+		</div>
+	</div>
+<!-- --------------------------------------------------모달 구역2끝---------------------------------------- -->
+
+<!-- --------------------------------------------------모달 정지내역 구역2---------------------------------------- -->
+	<div class="modal fade" id="layerpop3" style="padding-top: 20px;">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<!-- header -->
@@ -181,9 +243,14 @@ function sochange(sltag,intag){
 				<!-- body -->
 				<div class="modal-body" style="height: 300px;">
 						<table style="text-align: center; width: 100%;">
+							<tr><th>번호</th><th>정지 위치</th><th>정지 사유</th><th>정지 날짜</th><th>정지 기간</th><th>정지 해제 사유</th></tr>
 							<c:forEach var="ustop" items="${userStop}" varStatus="index">
-								<tr><th>${index.count}.</th><td>위치 : ${ustop.stoptarget }</td><td>사유 : ${ustop.stopcause}</td>
-								<td style="width:300px;">정지 날짜 : ${ustop.stopstartdate}~${ustop.stopfinishdate}</td><td style="width:150px;">정지 기간: ${ustop.stopterm}</td></tr>
+								<tr><td>${index.count}.</td><td>${ustop.stoptarget }</td><td>${ustop.stopcause}</td>
+								<td>${ustop.stopstartdate}~${ustop.stopfinishdate}</td>
+								<td>${ustop.stopterm}</td>
+								<td><c:if test="${!empty ustop.stopremove}">${ustop.stopremove}</c:if>
+								</td>
+								</tr>
 							</c:forEach>
 						</table>
 				</div>

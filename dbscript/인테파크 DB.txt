@@ -40,12 +40,12 @@ SET DEFINE OFF;
 
 --------------------------------------------------------------------------------------------
 -------이영수
---로그인포
 drop table logininfo cascade constraints;
 
 create table logininfo (
   logid varchar2(15) constraint pk_logid primary key,
   logpwd varchar2(60) not null,
+  email VARCHAR2(50) unique,
   authority varchar2(20) not null,
   enabled CHAR(1) DEFAULT '1' CHECK(enabled IN('1','0')),
   memberstate   CHAR(6)   DEFAULT '대기' CHECK(memberstate IN('대기','정상','정지','탈퇴')),
@@ -55,56 +55,78 @@ create table logininfo (
 
 COMMENT ON COLUMN logininfo.logid IS '아이디';
 COMMENT ON COLUMN logininfo.logpwd IS '비밀번호';
+COMMENT ON COLUMN logininfo.email IS '이메일';
 COMMENT ON COLUMN logininfo.authority IS '권한';
 COMMENT ON COLUMN logininfo.enabled IS '접속가능여부';
 COMMENT ON COLUMN logininfo.memberstate IS '회원상태';
 COMMENT ON COLUMN logininfo.withdrawdate IS '탈퇴날짜';
 COMMENT ON COLUMN logininfo.withdrawcause IS '탈퇴사유';
 
-insert into logininfo values('admin','admin','ROLE_ADMIN',1,'정상',null,null);
-insert into logininfo values('user1','user1','ROLE_USER',1,'정상',null,null);
-insert into logininfo values('user2','user2','ROLE_USER',0,'탈퇴',default,'비싸');
-insert into logininfo values('con1','con1','ROLE_CONS',1,'정상',null,null);
-insert into logininfo values('con2','con2','ROLE_CONS',1,'정상',null,null);
-insert into logininfo values('con3','con3','ROLE_CONS',0,'정지',null,null);
+insert into logininfo values('admin','admin','aa@aa','ROLE_ADMIN',1,'정상',null,null);
+insert into logininfo values('user1','user1','dldudtn118@naver.com','ROLE_USER',1,'정상',null,null);
+insert into logininfo values('user2','user2','aa@ac','ROLE_USER',0,'탈퇴','19/12/01','비싸');
+insert into logininfo values('user3','user3','aa@ad','ROLE_USER',1,'정상',null,null);
+insert into logininfo values('con1','con1','dldudtn118@daum.net','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('con2','con2','aa@af','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('con3','con3','aa@ag','ROLE_CONS',1,'정상',null,null);
 ---------------------------------------------------------------------------
 --정지 사유
-
-DROP TABLE constructorstop CASCADE CONSTRAINTS;
-DROP TABLE userstop CASCADE CONSTRAINTS;
 DROP TABLE loginstop CASCADE CONSTRAINTS;
 DROP SEQUENCE LOGINSTOP_SEQ;
 CREATE SEQUENCE "INTEPARK"."LOGINSTOP_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
 
 CREATE TABLE loginstop (
   stopno number primary key,
+   stoptarget varchar2(500) null,
    stopcause VARCHAR2(100) NULL,
    stopstartdate DATE DEFAULT SYSDATE NOT NULL,
    stopfinishdate DATE DEFAULT SYSDATE NOT NULL,
    stopterm varchar2(10) NOT NULL,
+   stopremove varchar2(500) null,
    logid VARCHAR2(15) REFERENCES logininfo(logid) on delete cascade
 );
 
 COMMENT ON COLUMN loginstop.stopno IS '정지번호';
+COMMENT ON COLUMN loginstop.stoptarget IS '정지위치';
 COMMENT ON COLUMN loginstop.stopcause IS '정지사유';
 COMMENT ON COLUMN loginstop.stopstartdate IS '정지시작날짜';
 COMMENT ON COLUMN loginstop.stopfinishdate IS '정지끝날짜';
 COMMENT ON COLUMN loginstop.stopterm IS '정지기한';
+COMMENT ON COLUMN loginstop.stopremove IS '정지해제';
 COMMENT ON COLUMN loginstop.logid IS '아이디';
 
-insert into loginstop values(loginstop_seq.nextval,'나는 빡빡이다', sysdate, add_months(sysdate,1),'1개월','con3');
-insert into loginstop values(loginstop_seq.nextval,'나는 빡빡이다2', sysdate+1, add_months(sysdate+1,1),'1개월','con3');
+drop trigger trigger_logstop;
+CREATE OR REPLACE TRIGGER trigger_logstop
+AFTER INSERT ON loginstop
+FOR EACH ROW
+BEGIN
+  update logininfo set ENABLED=0, MEMBERSTATE='정지' where logid = :NEW.logid;
+END;
+/
+
+insert into loginstop values(loginstop_seq.nextval,'그뭐여','나는 빡빡이다', sysdate, add_months(sysdate,1),'1개월',null,'user1');
+insert into loginstop values(loginstop_seq.nextval,'뭐냐','나는 빡빡이다2', sysdate+1, add_months(sysdate+1,1),'1개월',null,'user1');
+
+drop trigger trigger_stopremove;
+CREATE OR REPLACE TRIGGER trigger_stopremove
+AFTER UPDATE ON loginstop
+FOR EACH ROW
+BEGIN
+  update logininfo set ENABLED=1, MEMBERSTATE='정상' where logid = :NEW.logid;
+END;
+/
+
 -------------------------------------------------------------------------
 
 --시공사
 DROP TABLE constructors CASCADE CONSTRAINTS;
 
 CREATE TABLE constructors (
-   consid   VARCHAR2(15) references logininfo(logid),
+   consid   VARCHAR2(15) references logininfo(logid) on delete cascade,
    enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
    consname   VARCHAR2(30)      NOT NULL,
    phone   VARCHAR2(50)      NULL,
-   email   VARCHAR2(50)      NOT NULL,
+   consemail   VARCHAR2(50) unique,
    address   VARCHAR2(200)      NULL,
    companyname   VARCHAR2(100)      NOT NULL,
    consarea   VARCHAR2(100)      NOT NULL,
@@ -119,7 +141,7 @@ CREATE TABLE constructors (
    constraint pk_consid primary key(consid)
 );
 
-insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
+insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'dldudtn118@daum.net','경기도 수원',
 '인테리아','종합,바닥,천장,목공,샷시','1년','2~5년','"마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 디자인담다입니다',
 '실내건축면허를 보유한 인테리아 입니다.
 인테리어를 시작하시게 된 계기가 있나요?
@@ -145,7 +167,7 @@ COMMENT ON COLUMN constructors.consid IS '아이디';
 COMMENT ON COLUMN constructors.enrolldate IS '가입날짜';
 COMMENT ON COLUMN constructors.consname IS '이름';
 COMMENT ON COLUMN constructors.phone IS '전화번호';
-COMMENT ON COLUMN constructors.email IS '이메일';
+COMMENT ON COLUMN constructors.consemail IS '이메일';
 COMMENT ON COLUMN constructors.address IS '주소';
 COMMENT ON COLUMN constructors.companyname IS '상호명';
 COMMENT ON COLUMN constructors.consarea IS '시공분야';
@@ -164,18 +186,20 @@ COMMENT ON COLUMN constructors.blicencerenameimg IS '사업자등록증 저장�
 DROP TABLE inteuser CASCADE CONSTRAINTS;
 
 CREATE TABLE inteuser (
-   userid   VARCHAR2(15) references logininfo(logid),
+   userid   VARCHAR2(15) references logininfo(logid) on delete cascade,
    enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
    username   VARCHAR2(30)      NOT NULL,
    phone   VARCHAR2(50)      NULL,
-   email   VARCHAR2(50)      NOT NULL,
+   useremail   VARCHAR2(50) unique,
    address   VARCHAR2(200)      NULL,
    constraint pk_userid primary key(userid)
 );
 
-insert into inteuser values('admin',sysdate,'관리자','080-509-4949','d@d', null);
-insert into inteuser values('user1',sysdate,'고객1','010-1343-1441','a@a', null);
-insert into inteuser values('user2',sysdate,'고객2','010-3431-4411','b@b', '서울시 강남구');
+insert into inteuser values('admin',sysdate,'관리자','080-509-4949','aa@aa', null);
+insert into inteuser values('user1',sysdate,'나다','010-1343-1441','dldudtn118@naver.com', null);
+insert into inteuser values('user2',sysdate,'고객2','010-3431-4411','aa@ac', '서울시 강남구');
+insert into inteuser values('user3',sysdate,'고객3','010-3431-4411','aa@ad', '서울시 강남구');
+
 
 --delete from inteuser where userid='user1';
 
@@ -183,7 +207,7 @@ COMMENT ON COLUMN inteuser.userid IS '아이디';
 COMMENT ON COLUMN inteuser.enrolldate IS '가입날짜';
 COMMENT ON COLUMN inteuser.username IS '이름';
 COMMENT ON COLUMN inteuser.phone IS '전화번호';
-COMMENT ON COLUMN inteuser.email IS '이메일';
+COMMENT ON COLUMN inteuser.useremail IS '이메일';
 COMMENT ON COLUMN inteuser.address IS '주소';
 
 ----------------------------------------------------------------------------

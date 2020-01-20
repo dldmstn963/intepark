@@ -10,8 +10,6 @@ import com.c4.intepark.loginInfo.model.vo.LoginMemberState;
 public interface InteuserService {
 	InteUser selectLoginCheck(InteUser inteuser);
 	int insertUser(InteUser inteuser);
-	int selectIdCheck(String userid);
-	int selectEmailCheck(String useremail);
 	int selectAllListCount(CommonPage cpage);
 	ArrayList<InteUser> selectAllList(CommonPage cpage);
 	InteUser selectUserDetail(String userid);
@@ -22,4 +20,6 @@ public interface InteuserService {
 	int updateDeleteUser(LoginMemberState logms);
 	ArrayList<LoginMemberState> selectUserStopState(String userid);
 	int insertUserLetStop(LoginMemberState userState);
+	int updateUserStopRemove(LoginMemberState userState);
+	int selectMaxStopNo(LoginMemberState userState);
 }

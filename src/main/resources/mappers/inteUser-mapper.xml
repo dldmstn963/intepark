@@ -9,23 +9,11 @@
 		select * from inteuser where userid = #{value}
 	</select>
 	
-	<insert id="insertLoginId" parameterType="LoginInfo">
-		insert into logininfo values(#{logid},#{logpwd},#{authority},1,'정상',null,null)
-	</insert>
-	
 	<insert id="insertUser" parameterType="InteUser">
 		insert into inteuser values(#{userid}, sysdate, 
 		#{username}, #{phone, javaType=String, jdbcType=VARCHAR}, 
-		#{email}, #{address, javaType=String, jdbcType=VARCHAR})
+		#{useremail}, #{address, javaType=String, jdbcType=VARCHAR})
 	</insert>
-	
-	<select id="selectIdCheck" parameterType="String" resultType="_int">
-		select count(logid) from logininfo where logid = #{value}
-	</select>
-	
-	<select id="selectEmailCheck" parameterType="String" resultType="_int">
-		select count(email) from inteuser where email = #{value}
-	</select>
 	
 	<select id="selectAllListCount" parameterType="CommonPage" resultType="_int">
 		select count(*) from inteuser
@@ -43,12 +31,13 @@
 		<if test="memberstate != null and memberstate !=''">
 		and memberstate = #{memberstate}
 		</if>
+		and userid != 'admin'
 		</trim>
 	</select>
 	
 	<select id="selectAllList" parameterType="CommonPage" resultType="InteUser">
 				select *
-		from (select rownum rnum, userid, username, phone, email, address, memberstate, enrolldate
+		from (select rownum rnum, userid, username, phone, useremail, address, memberstate, enrolldate
 			  from (select * from inteuser
 			  		join logininfo on(logid=userid)
 			  		<trim prefix="WHERE" prefixOverrides="AND">
@@ -64,6 +53,7 @@
 					<if test="memberstate != null and memberstate !=''">
 					and memberstate = #{memberstate}
 					</if>
+					and userid != 'admin'
 					</trim>
                     order by enrolldate desc))
                     <![CDATA[
@@ -72,14 +62,14 @@
 	</select>
 	
 	<select id="selectUserDetail" parameterType="String" resultType="InteUser">
-	 	select userid, enrolldate, username, phone, email, address, memberstate,withdrawdate,withdrawcause
+	 	select userid, enrolldate, username, phone, useremail, address, memberstate,withdrawdate,withdrawcause
 		from inteuser 
 		join logininfo on(logid=userid)
 		where userid=#{value}
 	</select>
 	
 	<update id="updateUser" parameterType="InteUser">
-		update inteuser set username=#{username}, phone=#{phone}, email=#{email}, address=#{address}
+		update inteuser set username=#{username}, phone=#{phone}, useremail=#{useremail}, address=#{address}
 		where userid=#{userid}
 	</update>
 	
@@ -92,24 +82,35 @@
 		where logid=#{logid}
 	</update>
 	
-	<update id="updateDeleteUser" parameterType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+	<update id="updateDeleteUser" parameterType="LoginMemberState">
 		update logininfo set enabled=0, memberstate='탈퇴', withdrawdate=sysdate, withdrawcause=#{withdrawcause}
 		where logid=#{logid}
 	</update>
 	
-	<select id="selectUserStopState" parameterType="string" resultType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
-		select stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm
+	<select id="selectUserStopState" parameterType="string" resultType="LoginMemberState">
+		select stoptarget, stopcause, stopstartdate, stopfinishdate, stopterm, stopremove
 		from loginstop
 		where logid = #{value}
 	</select>
 	
-	<insert id="insertUserLetStop" parameterType="com.c4.intepark.loginInfo.model.vo.LoginMemberState">
+	<insert id="insertUserLetStop" parameterType="LoginMemberState">
 		insert into loginstop values(loginstop_seq.nextval,#{stoptarget}, #{stopcause}, sysdate,
 		<if test="dmy.equals('day')">sysdate+#{sdate},#{sdate}||'일',</if>
 		<if test="dmy.equals('month')">add_months(sysdate,#{sdate}),#{sdate}||'개월',</if>
 		<if test="dmy.equals('year')">add_months(sysdate,#{sdate}*12),#{sdate}||'년',</if>
-		#{logid})
+		null,#{logid})
 	</insert>
+	
+	<select id="selectMaxStopNo" parameterType="LoginMemberState" resultType="int">
+		select max(stopno)
+		from loginstop
+		where logid = #{logid}
+	</select>
+	
+	<update id="updateUserStopRemove" parameterType="LoginMemberState">
+		update loginstop set stopremove=#{stopremove}
+		where stopno=#{stopno}
+	</update>
 	
 </mapper>
 
