@@ -60,6 +60,20 @@ public class NoticeDao {
 	}
 
 
+
+	public int updateNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return mybatisSession.update("noticeMapper.updateNotice",notice);
+	}
+
+
+	//글 삭제하기
+	public int deleteNotice(int no) {
+		// TODO Auto-generated method stub
+		return mybatisSession.delete("noticeMapper.deleteNotice",no);
+	}
+
+
 	
 
 	
