@@ -32,13 +32,23 @@ ws.onopen = function(){
 
 /* 서버로부터 받은 메세지 보내주기 */
 ws.onmessage = function(message){
-	console.log("성공" + message.data + "님이 상담신청하셨습니다.");
-	console.log(message.data);
-	var msg = message.data.split("/");
-	cons = msg[0];
-	user = msg[1];
-	chatno = msg[2];	
-	test(user,cons,chatno);
+	var cut = message.data.split("/");
+	if(cut[0] == "check"){
+		for(var i=1; i < cut.length-1; i++){
+			var id = "#"+cut[i];
+			console.log(id);
+			$(id).bind("click", false);
+		}
+	}else{
+		console.log("성공" + message.data + "님이 상담신청하셨습니다.");
+		console.log(message.data);
+		var msg = message.data.split("/");
+		cons = msg[0];
+		user = msg[1];
+		chatno = msg[2];	
+		test(user,cons,chatno);
+	}
+	
 	};
 
 /* 서버 닫힐때 */

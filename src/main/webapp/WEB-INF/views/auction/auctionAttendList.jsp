@@ -87,7 +87,6 @@ function openwindow(){
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
-
  	<div class="container">
 
 <table class="table table-hover">
@@ -106,7 +105,9 @@ function openwindow(){
     </tr>
   </thead>
   <tbody>
+  <c:set var="total" value="" />
   <c:forEach items="${ list }" var="a">
+  <c:set var="total" value="${total}${ a.consid }/"/>
     <tr>
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
@@ -115,7 +116,7 @@ function openwindow(){
     <button type="button" id="open">Open Modal</button>
     <c:set var="cons" value="${a.consname }" />
 
-    <li><a href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
+    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
 
     <li><a href="#">수정</a></li>
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
@@ -135,6 +136,7 @@ function openwindow(){
     </c:forEach>        
   </tbody>
 </table>
+<input type="hidden" id="logcheck" value="<c:out value="${total }"/>" >
 </div>
 <form action="auctionAttend2.do" method="get">
 <div class="form-group row justify-content-center">
@@ -190,9 +192,14 @@ function openwindow(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${commonPage.auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
 </c:if>
 </div>
+ 	<script>
+ 	$(function(){
+ 		ws.send("check/"+$("#logcheck").val());
+ 	 });	
+ 	</script>
  <!-- Modal -->
 <div class="ui modal">
  <c:forEach items="${ list }" var="b">
