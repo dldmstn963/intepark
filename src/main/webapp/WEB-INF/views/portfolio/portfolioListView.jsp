@@ -125,12 +125,12 @@
 	    <div class="swiper-wrapper">
 	    
 		    <c:forEach items="${ pfPhotoList }" var="pfPhotoList">
-		    	<c:if test="${ConsVo.consid eq pfPhotoList.consid }">
+		    	<c:if test="${ConsVo.consid eq pfPhotoList.consid && !empty pfPhotoList.pfrename }">
 		    <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfPhotoList.pfrename}" width="300px" height="200px"></div>
 		    	</c:if>
-		    	<%-- <c:if test="${empty pfPhotoList.pfrename }">
+		    	<c:if test="${empty pfPhotoList.pfrename && ConsVo.consid eq pfPhotoList.consid}">
 		    	<div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/portfolio_Noimage.png" width="300px" height="200px"></div>
-		    	</c:if> --%>
+		    	</c:if>
 		    	
 		    </c:forEach>
 		    

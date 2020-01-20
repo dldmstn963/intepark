@@ -122,9 +122,13 @@ public class PortfolioController {
 		  }	
 	}
 	
-	@RequestMapping(value="selectPfOne5.do", method=RequestMethod.POST)
+	@RequestMapping(value="selectPfOne5.do")
 	public String selectPfOne(@RequestParam(value="consid", required=true) String consid,
 										@RequestParam(value="pfnum", required=true) String pfnum, Model model) {
+		
+		System.out.println("확인이다");
+		System.out.println(consid);
+		System.out.println(pfnum);
 		
 		Constructors cons = portfolioService.selectOneCons(consid);
 		RvAvg rv = portfolioService.selectReview(consid);

@@ -204,12 +204,9 @@ span.star-prototype > * {
 		              		
 		              		 	<c:forEach items="${pfOneList }" var="pfOneList">
 		              			<div class="col-lg-4">
-		              			<form action="selectPfOne5.do" method="post" name="hi">
-		              			<input type="hidden" value="${pfOneList.consid }" name="consid">
-		              			<input type="hidden" value="${pfOneList.pfnum }" name="pfnum">
-		              			<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" onclick="document.forms['hi'].submit();"class="pf_img" style="width:250px; height:200px;">
-		              			</form>
-		              			<p style="margin-bottom:0px;">${pfOneList.pftitle }</p>
+		              			<a href="#" onclick="clickimg('${pfOneList.consid}','${pfOneList.pfnum }');">
+		              			<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" class="pf_img" style="width:250px; height:200px;"></a>
+		              			<p style="margin-bottom:0px; text-align:center;">${pfOneList.pftitle }</p>
 		              			</div>
 		              			</c:forEach>
 		              			
@@ -320,6 +317,14 @@ span.star-prototype > * {
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
 <script type="text/javascript">
+function clickimg(consid, pfnum){
+	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
+	return false;
+}
+
+
+
+
 
 $(document).ready(function (e){
 	
