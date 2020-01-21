@@ -64,7 +64,7 @@ span.star-prototype > * {
 
 <style type="text/css">
   <!-- Demo styles -->
-   /*  html, body {
+  	/* html, body {
       position: relative;
       height: 100%;
     } */
@@ -77,7 +77,7 @@ span.star-prototype > * {
       padding: 0;
     } */
     .swiper-container {
-      width: 100%;
+      width: 80%;
       height: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -99,7 +99,14 @@ span.star-prototype > * {
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      padding-bottom:60px;
     }
+   
+.coment{
+	width:100%;
+	position:absolute;
+	top:430px;
+}    
 </style>
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
@@ -248,31 +255,56 @@ span.star-prototype > * {
 					    		    
 						    <c:forEach items="${ pfOne }" var="pfOne">
 						    <div class="swiper-slide">
-						    <img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOne.pfrename}" width="600px" height="400px">
+						    <img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOne.pfrename}" width="80%" height="420px" title="${pfOne.pfcoment}">
+						    <div class="coment">
+						    ${pfOne.pfcoment}
+						    </div>
 						    </div>
 						    
-						    <%-- <div>
-						    ${pfOne.pfcoment}
-						    </div> --%>
+						    
 						    
 						    </c:forEach>
 
 					    </div>
 					    <!-- Add Pagination -->
-					    <div class="swiper-pagination"></div>
+					    <div class="swiper-pagination" style="bottom: 80px;"></div>
 					    <!-- Add Arrows -->
-					    <div class="swiper-button-next"></div>
-					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-button-next" style="margin-right:30px;"></div>
+					    <div class="swiper-button-prev" style="margin-left:30px;"></div>
 					  </div>
 					  
-					  <br>
+					  <div class="row">
+					  
+					  <div class="col-lg-4"></div>
+					  
+					  <div class="col-lg-7" style="padding-left:70px;">
+					  
+					  <div style="display:inline-block;">
 					  <form action="pfOne5_2.do" method="post" >
       						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">닫기</button>
-      					</form>
+      						<button class="btn btn-success btn-sm" style="center; font:small-caption;">수정하기</button>
+      				  </form>
+					  </div>
 					  
+					  <div style="display:inline-block;">
+					  <form action="pfOne5_2.do" method="post" >
+      						<input type="hidden" value="${cons.consid}" name="consid">
+      						<button class="btn btn-danger btn-sm" style="center; font:small-caption;">삭제하기</button>
+      				  </form>
+      				  </div>
+      				  
+      				  </div><!-- 7 끝 -->
+      				  
+      				  <div class="col-lg-1">
+      					<form action="pfOne5_2.do" method="post" >
+      						<input type="hidden" value="${cons.consid}" name="consid">
+      						<button class="btn btn-success btn-sm" style="center; font:small-caption;">닫기</button>
+      					</form>
+      				  </div><!-- 1 끝 -->
+      				  
+      				  </div><!-- row 끝 -->
 		                
-		              </div>
+		              </div><!-- bb탭구역 끝 -->
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
 			              
 	<!-- ----------------------------------------------------------------리뷰 탭 구역 시작------------------------------------------------------------------------- -->	              
