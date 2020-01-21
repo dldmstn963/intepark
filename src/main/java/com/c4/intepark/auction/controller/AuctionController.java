@@ -401,13 +401,10 @@ model.addAttribute("rfile", rfile);
 		 ArrayList<AuctionAttend> list = auctionService.auctionAttendList(cpage);
 		 model.addAttribute("commonPage", cpage);
 		 model.addAttribute("list", list);
-		/*
-		 * request.setAttribute("list", list); request.setAttribute("auctionno",
-		 * auction);
-		 */
+	
 		 return "auction/auctionAttendList";
 	 }
-	 
+	
 	 @RequestMapping("auctionAttend22.do")
 	 public String auctionAttendlink(HttpServletRequest request) {
 		 int auction = Integer.parseInt(request.getParameter("auc"));
@@ -424,7 +421,7 @@ model.addAttribute("rfile", rfile);
 		String ofile = "";	
 		String rfile = "";	
 		
-
+		int i = 1;
 		for (MultipartFile mf : fileList) {
 		
 			if(mf != null) {  //가지고있는 파일크기가 0이아니면 파일이있는 거라 true 가 발생함
@@ -435,9 +432,9 @@ model.addAttribute("rfile", rfile);
 				originalFileName = mf.getOriginalFilename();
 				if(originalFileName != null) {
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-					renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))
+					renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))  + i
 							+ "." + originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-					
+					i += 1;
 					//파일명을 바꾸려면 File 객체의 renameTo() 사용함
 					File originFile = new File(savePath + "\\" + originalFileName);
 					File renameFile = new File(savePath + "\\" + renameFileName);

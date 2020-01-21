@@ -421,9 +421,33 @@ $(document).ready(function (e){
     });//arr.forEach
   }
 });
-
 </script>
-
+<script type="text/javascript">
+function validate() {
+	var interiorsection = document.getElementById("interiorsection");
+	var startday = document.getElementById("startday");
+	var address = document.getElementById("address");
+	var interiorsection = document.getElementById("interiorsection");
+	var interiorsection = document.getElementById("interiorsection");
+	var interiorsection = document.getElementById("interiorsection");
+	
+    if ((interiorsection.value) == ""){
+        alert("인테리어 분류를 선택하지 않았습니다.");
+        interiorsection.focus();
+        return false;
+    }
+    if ((startday.value) == ""){
+        alert("공사 시작일이 선택되지 않았습니다.");
+        startday.focus();
+        return false;
+    }
+    if ((address.value) == ""){
+        alert("시공 주소를 입력해주세요.");
+        address.focus();
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 
@@ -434,8 +458,8 @@ $(document).ready(function (e){
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <form method="post" class="register-form" id="register-form" action="auctionEnroll2.do" enctype="multipart/form-data">
-                                            <div class="form-row">
+                    <form method="post" class="register-form" id="register-form" onsubmit="return validate()" action="auctionEnroll2.do" enctype="multipart/form-data">
+                         <!--                    <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
                                 <label for="nomal">일반견적</label>
@@ -448,7 +472,7 @@ $(document).ready(function (e){
                                 <span class="check"></span>
                             </div>
                             
-                        </div>
+                        </div> -->
                            <div class="form-row">
                             <div class="form-group">
                                 <label for="interiorsection">인테리어 분류 :</label>
