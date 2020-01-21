@@ -8,8 +8,6 @@
 <title>auctionAttendList</title>
 		<!-- Semantic -->
 <%@ include file="../common/jscsspath.jsp" %>
-<link rel="stylesheet" type="text/css" href="/intepark/resources/Semantic/semantic.min.css">
-		<script src="/intepark/resources/Semantic/semantic.min.js"></script>
     	<style type="text/css">
   html, body {
 	width: 100%; height: 100%; 
@@ -33,10 +31,9 @@
     function popup(auctionno,consname){
         var url = "auctionAttendPop2.do?auctionno="+auctionno+"&consname="+consname;
         var name = "popup test";
-        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+        var option = "width = 810, height = 500, top = 100, left = 200, location = no"
  window.open(url, name, option);
     }
-
     var chatno;
     
     function invite(data1, data2){
@@ -73,16 +70,6 @@ function openwindow(){
 		  $(".blinkEle").toggle();
 		}, 500);
 	</script>
-	<script type="text/javascript">
-	$(function(){
-		$("#open").click(function(){
-	$('.ui.modal')
-	  .modal('show');
-		})
-	}); 
-	</script>
-	<style type="text/css">
-	</style>
 
 </head>
 <body>
@@ -111,10 +98,7 @@ function openwindow(){
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
-
-    <button type="button" id="open">Open Modal</button>
-    <c:set var="cons" value="${a.consname }" />
-
+   
     <li><a href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
 
     <li><a href="#">수정</a></li>
@@ -135,6 +119,34 @@ function openwindow(){
     </c:forEach>        
   </tbody>
 </table>
+</div>
+<!-- Modal -->
+<div class="ui modal">
+
+ <c:forEach items="${ list }" var="b">
+ <c:if test="${cons eq b.consid }">
+  <i class="close icon"></i>
+  <div class="header">
+   ${b.auctionno } ${b.consname }
+  </div>
+  <div class="image content" style="width:800px; height:500px;">
+    <div class="ui medium image">
+ <!--      <img src="/images/avatar/large/chris.jpg"> -->
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+  </div>
+ </c:if>
+  </c:forEach>
+  
 </div>
 <form action="auctionAttend2.do" method="get">
 <div class="form-group row justify-content-center">
@@ -190,37 +202,9 @@ function openwindow(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${commonPage.auctionno}'" style="background-color: #ffc107;" class="btn">경매참가</button>
 </c:if>
 </div>
- <!-- Modal -->
-<div class="ui modal">
- <c:forEach items="${ list }" var="b">
-  <c:if test="${cons eq b.consname }">
-  <i class="close icon"></i>
-  <div class="header">
-   ${b.auctionno } ${b.consname }
-  </div>
-  <div class="image content" style="width:800px; height:500px;">
-    <div class="ui medium image">
-      <img src="/images/avatar/large/chris.jpg">
-    </div>
-    <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui black deny button">
-      Nope
-    </div>
-  </div>
-  </c:if>
-  </c:forEach>
-</div>
-<!-- Buttons -->
-<!-- <button type="button" id="open" value="">Open Modal</button> -->
 
 
  	  <jsp:include page="../common/footer.jsp" />
