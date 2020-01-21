@@ -12,7 +12,7 @@ public interface RequestService {
 	Constructors selectOneCons(String consid);
 	RvAvg selectReview(String consid);
 	ArrayList<Request> selectRequestList(String consid);
-	
+	ArrayList<Request> selectMyReqList(String userid);
 	
 	
 	
@@ -26,6 +26,7 @@ public interface RequestService {
 	ArrayList<Request> selectReqConsList(String consid);
 	int updateRequest(Request req);
 	int deleteRequest(String reqnum);
+	
 	
 	
 }

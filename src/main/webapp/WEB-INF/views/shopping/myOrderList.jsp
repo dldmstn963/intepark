@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+     <%@ include file="../common/jscsspath.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <%@ include file="common/shopjscss.jsp" %>
+ <%@ include file="../common/jscsspath.jsp" %>
     <!-- Title  -->
     <title>인테파크</title>
 </head>
@@ -18,7 +21,7 @@
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-12">
                         <div class="cart-title mt-50">
                             <h2>나의 쇼핑 정보</h2>
                         </div>
@@ -42,17 +45,29 @@
                                      ${li.consid }
                                     </td>
                                         <td class="cart_product_img">
-                                            <a href="#"><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product"></a>
+                                            <a href="#"><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product" width="100px;"></a>
+                                            <br>
                                             <br>
                                             ${li.goodsname }
+                                            <br>
                                             <br>
                                             ${li.orderquantity} 개
                                         </td>
                                         <td class="cart_product_desc">
-                                            <span>${li.orderprice }</span>
+                                            <span><fmt:formatNumber value="${li.orderprice }" groupingUsed="true"/></span>
                                         </td>
                                         <td class="price">
-                                            <h5>${li.orderstatus }</h5>
+                                            ${li.orderstatus }
+                                            <br>
+                                            <br>
+                                            <button class="genric-btn primary radius" onclick="location.href = 'moveOrderDetail4.do?ordernum=${li.ordernum}'">상세보기</button>
+                                            <br>
+                                            <br>
+                                        <button class="genric-btn primary radius" onclick="location.href='movereviewinsert4.do?goodsnum=${li.goodsnum}&userid=${loginUser.userid }'">리뷰작성</button>
+                                            <br>
+                                       		<br>
+                                       		<button class="genric-btn primary radius" onclick="location.href='moveinquiryinsert4.do?goodsnum=${li.goodsnum}&userid=${loginUser.userid }'">문의작성</button>
+                                        
                                         </td>
                                     </tr>
                                     

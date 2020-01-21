@@ -10,15 +10,17 @@ public class ReviewFile implements java.io.Serializable {
 	private String rvoriginalname;	//오리지날 파일명
 	private String rvrename;	//리네임 파일명
 	private int rvnum;	//리뷰번호
+	private String consid;
 	
 	public ReviewFile() {}
 
-	public ReviewFile(int rvphotonum, String rvoriginalname, String rvrename, int rvnum) {
+	public ReviewFile(int rvphotonum, String rvoriginalname, String rvrename, int rvnum, String consid) {
 		super();
 		this.rvphotonum = rvphotonum;
 		this.rvoriginalname = rvoriginalname;
 		this.rvrename = rvrename;
 		this.rvnum = rvnum;
+		this.consid = consid;
 	}
 
 	public int getRvphotonum() {
@@ -53,6 +55,14 @@ public class ReviewFile implements java.io.Serializable {
 		this.rvnum = rvnum;
 	}
 
+	public String getConsid() {
+		return consid;
+	}
+
+	public void setConsid(String consid) {
+		this.consid = consid;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -60,8 +70,9 @@ public class ReviewFile implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "ReviewFile [rvphotonum=" + rvphotonum + ", rvoriginalname=" + rvoriginalname + ", rvrename=" + rvrename
-				+ ", rvnum=" + rvnum + "]";
+				+ ", rvnum=" + rvnum + ", consid=" + consid + "]";
 	}
+	
 	
 	
 }

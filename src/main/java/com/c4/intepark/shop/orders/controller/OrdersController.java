@@ -59,7 +59,7 @@ public class OrdersController {
 	}
 
 	@RequestMapping(value = "orderinsert4.do", method = RequestMethod.POST)
-	public void orderinsert(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request, Orders orders, HttpServletResponse response) throws IOException {
+	public String orderinsert(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request, Orders orders, HttpServletResponse response) throws IOException {
 		logger.info("결제");
 		logger.info("결제 정보 확인 : " + orders);
 		if (Integer.parseInt(request.getParameter("dlvynum")) != 0) {
@@ -84,13 +84,17 @@ public class OrdersController {
 		}
 		int result3 = ordersService.insertOrders(orders);
 		
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('결제 완료 되셨습니다');");
-		out.println("window.location = 'moveMyOrderList4.do';");
-		out.println("</script>");
-		//return "redirect:moveMyOrderList4.do";
+		/*
+		 * response.setContentType("text/html; charset=utf-8"); PrintWriter out =
+		 * response.getWriter(); out.println("<script>");
+		 * out.println("alert('결제 완료 되셨습니다');");
+		 * out.println("window.location = 'moveMyOrderList4.do';");
+		 * out.println("</script>");
+		 */
+		request.setAttribute("user", user);
+		request.setAttribute("orders", orders);
+		return "shopping/kginsis";
+				//"redirect:moveMyOrderList4.do";
 	}
 
 	@RequestMapping("shbasketinsert4.do")
@@ -114,29 +118,41 @@ public class OrdersController {
 	}
 
 	@RequestMapping("moveshbasket42.do")
-	public String moveshbasket42(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request) {
+	public String moveshbasket42(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		logger.info("장바구니 목록 조회 : " + user);
 		ArrayList<Shbasket> list = ordersService.selectShbasketList(user.getUserid());
-		logger.info(null, list.get(0));
+		if(list.size() == 0) {
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('장바구니에 담은 상품이 없습니다');");
+			out.println("window.location = document.referrer;");
+			out.println("</script>");
+			return null;	
+		}else {
 		request.setAttribute("list", list);
-		return "shopping/cart";
+			return "shopping/cart";
+		}
 	}
 
 	@RequestMapping("moveConsOrderList4.do")
 	public String moveConsOrderList4(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request) {
 		logger.info("주문 목록 조회 : " + cons);
-		Paging p = new Paging(ordersService.selectConsOrderListAllListCount(cons.getConsid()));
-		if (request.getParameter("page") != null) {
-			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
-		}
-		p.setMemberid(cons.getConsid());
-		ArrayList<AllOrders> list = ordersService.selectmoveConsOrderList4(p);
+		/*
+		 * Paging p = new
+		 * Paging(ordersService.selectConsOrderListAllListCount(cons.getConsid())); if
+		 * (request.getParameter("page") != null) {
+		 * p.setCurrentPage(Integer.parseInt(request.getParameter("page"))); }
+		 * p.setMemberid(cons.getConsid()); ArrayList<AllOrders> list =
+		 * ordersService.selectmoveConsOrderList4(p); request.setAttribute("list",
+		 * list); request.setAttribute("maxPage", p.getMaxPage());
+		 * request.setAttribute("currentPage", p.getCurrentPage());
+		 * request.setAttribute("beginPage", p.getBeginPage());
+		 * request.setAttribute("endPage", p.getEndPage());
+		 */
+		ArrayList<AllOrders> list = ordersService.selectmoveConsOrderList4(cons.getConsid());
 		request.setAttribute("list", list);
-		request.setAttribute("maxPage", p.getMaxPage());
-		request.setAttribute("currentPage", p.getCurrentPage());
-		request.setAttribute("beginPage", p.getBeginPage());
-		request.setAttribute("endPage", p.getEndPage());
-		return "shopping/cons/production/consOrderList4";
+		return "shopping/cons/production/consOrderList42";
 	}
 
 	@RequestMapping(value = "moveinsertDlvylist4.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -222,34 +238,40 @@ public class OrdersController {
 	public String moveconsReviewList4(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request) {
 		logger.info("리뷰 목록 조회 : " + cons);
 
-		Paging p = new Paging(ordersService.selectconsReviewListAllListCount(cons.getConsid()));
-		if (request.getParameter("page") != null) {
-			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
-		}
-		p.setMemberid(cons.getConsid());
-		ArrayList<GoodsReview> list = ordersService.selectmoveConsReviewList(p);
+		/*
+		 * Paging p = new
+		 * Paging(ordersService.selectconsReviewListAllListCount(cons.getConsid())); if
+		 * (request.getParameter("page") != null) {
+		 * p.setCurrentPage(Integer.parseInt(request.getParameter("page"))); }
+		 * p.setMemberid(cons.getConsid()); ArrayList<GoodsReview> list =
+		 * ordersService.selectmoveConsReviewList(p); request.setAttribute("list",
+		 * list); request.setAttribute("maxPage", p.getMaxPage());
+		 * request.setAttribute("currentPage", p.getCurrentPage());
+		 * request.setAttribute("beginPage", p.getBeginPage());
+		 * request.setAttribute("endPage", p.getEndPage());
+		 */
+		ArrayList<GoodsReview> list = ordersService.selectmoveConsReviewList(cons.getConsid());
 		request.setAttribute("list", list);
-		request.setAttribute("maxPage", p.getMaxPage());
-		request.setAttribute("currentPage", p.getCurrentPage());
-		request.setAttribute("beginPage", p.getBeginPage());
-		request.setAttribute("endPage", p.getEndPage());
-		return "shopping/cons/production/consReviewList";
+		return "shopping/cons/production/consReviewList2";
 	}
 
 	@RequestMapping("moveconsInquiryList4.do")
 	public String moveconsInquiryList4(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request) {
 		logger.info("문의 목록 조회 : " + cons);
-		Paging p = new Paging(ordersService.selectConsInquiryListAllListCount(cons.getConsid()));
-		if (request.getParameter("page") != null) {
-			p.setCurrentPage(Integer.parseInt(request.getParameter("page")));
-		}
-		p.setMemberid(cons.getConsid());
-		ArrayList<Inquiry> list = ordersService.selectmoveconsInquiryList(p);
+		/*
+		 * Paging p = new
+		 * Paging(ordersService.selectConsInquiryListAllListCount(cons.getConsid())); if
+		 * (request.getParameter("page") != null) {
+		 * p.setCurrentPage(Integer.parseInt(request.getParameter("page"))); }
+		 * p.setMemberid(cons.getConsid()); ArrayList<Inquiry> list =
+		 * ordersService.selectmoveconsInquiryList(p); request.setAttribute("list",
+		 * list); request.setAttribute("maxPage", p.getMaxPage());
+		 * request.setAttribute("currentPage", p.getCurrentPage());
+		 * request.setAttribute("beginPage", p.getBeginPage());
+		 * request.setAttribute("endPage", p.getEndPage());
+		 */
+		ArrayList<Inquiry> list = ordersService.selectmoveconsInquiryList(cons.getConsid());
 		request.setAttribute("list", list);
-		request.setAttribute("maxPage", p.getMaxPage());
-		request.setAttribute("currentPage", p.getCurrentPage());
-		request.setAttribute("beginPage", p.getBeginPage());
-		request.setAttribute("endPage", p.getEndPage());
 		return "shopping/cons/production/consInqueryList";
 	}
 
@@ -351,84 +373,28 @@ public class OrdersController {
 		}
 	}
 
-	@RequestMapping("moveinquiryDetail4.do")
-	public String moveinquiryDetail(@RequestParam("inquirynum") int inquirynum, HttpServletRequest request) {
-		logger.info("상품 상세 조회" + inquirynum);
-		System.out.println("----------------------------");
-		Enumeration params = request.getParameterNames();
-		while (params.hasMoreElements()) {
-			String name = (String) params.nextElement();
-			System.out.println(name + " : " + request.getParameter(name));
-		}
-		System.out.println("----------------------------");
-		Inquiry inquiry = ordersService.selectInquiry(inquirynum);
-		request.setAttribute("inquiry", inquiry);
-		return "shopping/cons/production/inquiryDetail";
-	}
 
-	@RequestMapping("dfsfsdfsd4.do")
-	public String dfsfsdfsd4() {
-		return "shopping/cons/production/test";
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "fileuptest4.do", method = RequestMethod.POST)
-	public int multiImageUpload(@RequestParam("files") List<MultipartFile> images, HttpServletRequest request)
-			throws IllegalStateException, IOException {
-		logger.info("파일 업로드 실행");
-		long sizeSum = 0;
-		for (MultipartFile image : images) {
-			String originalName = image.getOriginalFilename();
-			// 확장자 검사
-			if (!isValidExtension(originalName)) {
-				return -1;
-			}
-
-			// 용량 검사
-			sizeSum += image.getSize();
-			if (sizeSum >= 10 * 1024 * 1024) {
-				return -2;
-			}
-
-			// TODO 저장..
-			int i = 0;
-			MultipartFile files = image;
-			System.out.println("name     " + originalName);
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS" + i);
-			String reName1 = sdf1.format(new java.sql.Date(System.currentTimeMillis())) + "."
-					+ originalName.substring(originalName.lastIndexOf(".") + 1);
-			files.transferTo(
-					new File(request.getSession().getServletContext().getRealPath("resources/img/goodsreviewpic") + "\\"
-							+ reName1));
-			logger.info("상품 사진 등록 성공 : " + originalName);
-
-			i++;
-		}
-
-		// 실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
-		// 특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
-		return 1;
-	}
-
-	// required above jdk 1.7 - switch(String)
-	private boolean isValidExtension(String originalName) {
-		String originalNameExtension = originalName.substring(originalName.lastIndexOf(".") + 1);
-		switch (originalNameExtension) {
-		case "jpg":
-		case "png":
-		case "gif":
-			return true;
-		}
-		return false;
-	}
 	
 	@RequestMapping("moveMyOrderList4.do")
 	public String moveMyOrderList(@SessionAttribute("loginUser") InteUser user, HttpServletRequest request) throws IOException {
 		logger.info("나의 쇼핑 정보 : " + user);
 		ArrayList<Orders> list = ordersService.selectMyOrderAll(user.getUserid());
-		System.out.println("dddd                   " + list.get(0));
 		request.setAttribute("list", list);
 		return "shopping/myOrderList";
 	}
+	
+	@RequestMapping("moveOrderDetail4.do")
+	public String moveOrderDetail(@RequestParam("ordernum") int ordernum, HttpServletRequest request) throws IOException {
+		logger.info("주문 상세보기 : " + ordernum);
+		AllOrders list = ordersService.selectOrderDetail(ordernum);
+		request.setAttribute("list", list);
+		return "shopping/myOrderDetail";
+	}
+	
+	
+	
+	
+	
+
 
 }

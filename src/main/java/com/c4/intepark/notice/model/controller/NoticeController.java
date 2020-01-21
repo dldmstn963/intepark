@@ -190,7 +190,97 @@ public class NoticeController {
 	 
 	 
 	 
+	 //게시글 수정 페이지 이동처리 컨트롤러
+	 @RequestMapping(value="nupdatemoveview6.do", method=RequestMethod.GET)
+	 public String noticeUpMoveView(Model model, Notice notice, HttpServletRequest request) {
+		 
+		 //받아들일 객체 정보 생성
+		 
+		 int noticeno = Integer.parseInt(request.getParameter("no"));
+		 String currentPage = (String)request.getParameter("page");
+		  //리런 후 db정보 보낼 패이지
+		  String view = "notice/noticeUpdateView";
+		  
+		  notice = noticeService.selectOne(noticeno);
+		  
+		  if (notice != null) {
+			  model.addAttribute("notice", notice);
+			  
+			  model.addAttribute("currentPage", currentPage);
+ 
+		}else {
+			model.addAttribute("message", "공지사항 수정페이지 이동 실패!");
+			view = "common/error";
+		}
+	
+		 return view;
+	 }
 	 
+	 
+	 
+	 
+	 
+	 
+	 //게시글 수정처리 컨트롤러
+	 @RequestMapping(value="nupdate7.do",method = RequestMethod.POST)
+	 public String noticeUpdate(Model model, Notice notice, HttpServletRequest request,
+			 @RequestParam(name="page") int page,@RequestParam(name="file", required=false) MultipartFile file) {
+		  logger.info("notice옴 : " + notice);
+		  logger.info("file 옴 : " + file.getOriginalFilename());
+		  
+		  //저장 경로 설정
+		  String view = "redirect:/nlist1.do";
+		//파일 저장 폴더 경로 지정하기
+		  String savePath = request.getSession().getServletContext().getRealPath("resources/noticeupfiles");
+		  try {
+				file.transferTo(new File(savePath + "\\" + file.getOriginalFilename()));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		  
+		  notice.setNoticeoriginalfilename(file.getOriginalFilename());
+		  
+		  //글작성 정보 서비스단으로 보내는 객체 생성
+		  int result = noticeService.updateNotice(notice);
+		  
+		  
+		//글 작성 성공 / 실패 화면
+		  if (result >= 0) {
+			model.addAttribute(notice);
+			model.addAttribute(page);
+		  }else {
+			  model.addAttribute("message", "공지사항 글 수정 실패!");
+				view = "common/error"; 
+		  }
+		  
+		 
+		  return view;
+	 }
+	 
+	 
+	//개시글 삭제 처리 컨트롤러
+	@RequestMapping(value="ndelete8.do") 
+	 public String noticeDelete(@RequestParam("no") int no, Model model) {
+		
+		//서비스 단으로 보내기
+		int result = noticeService.deleteNotice(no);
+		
+		//삭제 완료 후 나올 경로 설정
+		String view = "redirect:/nlist1.do";
+		//삭제 성공 실패 여부 만들기
+		if (result >= 0) {
+			
+			
+			
+		}else {
+			model.addAttribute("message", "공지사항 글 수정 실패!");
+			view = "common/error";
+		}
+		
+		
+		
+		return view;
+	}
 	 
 	 
 	/* 

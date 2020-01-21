@@ -14,6 +14,7 @@ public class LoginInfo implements UserDetails, java.io.Serializable{
 	private String logid;
 	private String logpwd;
 	private String authority;
+	private String email;
 	private boolean enabled;
 	
 
@@ -55,12 +56,25 @@ public class LoginInfo implements UserDetails, java.io.Serializable{
 	}
 	
 	public LoginInfo() {}
+	
 
-	public LoginInfo(String logid, String logpwd, String authority) {
+	public LoginInfo(String logid, String logpwd, String authority, String email, boolean enabled) {
 		super();
 		this.logid = logid;
 		this.logpwd = logpwd;
 		this.authority = authority;
+		this.email = email;
+		this.enabled = enabled;
+	}
+	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getLogid() {
@@ -93,12 +107,10 @@ public class LoginInfo implements UserDetails, java.io.Serializable{
 
 	@Override
 	public String toString() {
-		return "LoginInfo [logid=" + logid + ", logpwd=" + logpwd + ", authority=" + authority + ", enabled=" + enabled
-				+ "]";
+		return "LoginInfo [logid=" + logid + ", logpwd=" + logpwd + ", authority=" + authority + ", email=" + email
+				+ ", enabled=" + enabled + "]";
 	}
-	
-	
 
-	
-	
+
+		
 }

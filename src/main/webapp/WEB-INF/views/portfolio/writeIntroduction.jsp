@@ -28,9 +28,27 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-	<div class="row">
+
+<div class="row">
+	
+	<div class="col-lg-9"></div><!-- 9 끝 -->
+	
+	<div class="col-lg-3" style="text-align:right;">
+	<div style="display:inline-block;">
+		<form action="conslist5.do" method="post" onsubmit="return warning();">
+			<button class="btn btn-success btn-sm" style="font:small-caption;">목록으로</button>&nbsp;&nbsp;
+		</form>	
+	</div>
+					
+	</div><!-- 3 끝 -->
+	
+	</div><!-- row 끝 -->
+
+
+
+	<div class="row" style="min-height:600px;">
 		
-		<div class="col-lg-3" style="height:650px;">
+		<div class="col-lg-3">
 		
 		<div class="col-lg-12" style="margin-left:10px; margin-top:100px;"><!-- 프로필 이미지 -->
 		<c:if test="${empty cons.profilerenameimg}">
@@ -62,7 +80,7 @@ span.star-prototype > * {
 		<c:if test="${cons.consid eq sessionScope.loginCons.consid }"><!-- 해당 시공사 로그인시 -->
 			<div class='col-lg-12' style="margin-top:7px;">
 				<div class="form-group">
-	      		<form action="selectRequestList5.do" method="post" >
+	      		<form action="selectRequestList5.do" method="post" onsubmit="return warning2();">
 	      		<input type="hidden" value="${cons.consid}" name="consid">
 	      		<input type="submit" value="상담신청 내역조회" class="form-control btn-primary">
 	      		</form>
@@ -152,7 +170,37 @@ span.star-prototype > * {
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
 
+
 <script type="text/javascript">
+
+function warning(){
+	if(confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?")){
+		return true;
+		}else{
+		return false;	
+			}
+}
+function warning2(){
+	if(confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?")){
+		return true;
+		}else{
+		return false;	
+			}
+}
+
+$.fn.generateStars = function() {
+	return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+	};
+
+	// 숫자 평점을 별로 변환하도록 호출하는 함수
+	$('.star-prototype').generateStars();
+
+</script>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<script type="text/javascript">
+//스마트에디터 스크립트
 
 var oEditors = [];
 //추가 글꼴 목록
@@ -224,18 +272,6 @@ oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
 
 </script>
 
-
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
-<script type="text/javascript">
-
-$.fn.generateStars = function() {
-	return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-	};
-
-	// 숫자 평점을 별로 변환하도록 호출하는 함수
-	$('.star-prototype').generateStars();
-
-</script>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 <jsp:include page="../common/footer.jsp" />
 </body>

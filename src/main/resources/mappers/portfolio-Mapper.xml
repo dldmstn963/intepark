@@ -15,6 +15,18 @@
 		group by consid
 	</select>
 	
+	<select id="selectPfPhotoList" resultType="PortfolioFile">
+		select a.PFPHOTONUM, a.PFORIGINALNAME, a.PFRENAME, a.PFCOMENT, a.PFNUM, b.CONSID
+		from
+		(select *
+				from portfoliofile
+				where pfnum in (
+				    select max(pfnum) pfnum 
+				    from portfolio 
+				    group by consid, pfrename
+				    )) a  right join CONSTRUCTORS b on a.consid = b.consid
+	</select>
+	
 	<select id="selectOneCons" parameterType="string" resultType="Constructors">
 		select *
 		from Constructors
@@ -33,11 +45,44 @@
        			to_char(to_date(rvdate,'yyyy/mm/dd'), 'rryy/mm/dd') as rvdate,consid,userid
 		from review
 		where consid = #{consid}
+		order by rvnum desc
+	</select>
+	
+	<select id="selectConsRvFileList" parameterType="string" resultType="ReviewFile">
+		select *
+		from reviewfile
+		where consid = #{consid}
 	</select>
 	
 	<update id="updateIntroduction" parameterType="Constructors">
 		update constructors set pfintroduction = #{pfintroduction} where consid = #{consid}
 	</update>
+	
+	<select id="selectPfOne" parameterType="string" resultType="PortfolioFile">
+		select *
+		from portfoliofile
+		where PFNUM = #{pfnum}
+		order by PFPHOTONUM desc
+	</select>
+	
+	<select id="selectPfOneList" parameterType="string" resultType="PortfolioView">
+		select * from (select a.pfnum, a.consid, max(nvl(a.pfrename, 0)) pfrename, max(nvl(b.pftitle, 0)) pftitle
+		 from portfoliofile a
+		 join portfolio b on a.pfnum = b.pfnum
+		 group by a.pfnum, a.consid)
+		 where consid = #{consid}
+		 order by pfnum desc
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

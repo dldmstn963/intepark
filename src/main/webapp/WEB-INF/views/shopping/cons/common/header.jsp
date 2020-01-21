@@ -31,14 +31,14 @@
                   <li><a><i class="fa fa-edit"></i> 주문 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="moveConsOrderList4.do">주문 목록</a></li>
-                      <li><a href="form_advanced.html">취소 목록</a></li>
+                    <!--   <li><a href="form_advanced.html">취소 목록</a></li> -->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 상품 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="movegoodslist4.do">상품 목록</a></li>
                       <li><a href="movegoodsinsert4.do">상품 등록</a></li>
-                      <li><a href="typography.html">재고 관리</a></li>
+                      <!-- <li><a href="typography.html">재고 관리</a></li> -->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> 리뷰 관리 <span class="fa fa-chevron-down"></span></a>
@@ -46,11 +46,11 @@
                       <li><a href="moveconsReviewList4.do">리뷰 목록</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> 통계 관리 <span class="fa fa-chevron-down"></span></a>
+                 <!--  <li><a><i class="fa fa-bar-chart-o"></i> 통계 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">통계 목록</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li><a><i class="fa fa-clone"></i> 문의 관리 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="moveconsInquiryList4.do">문의 목록</a></li>

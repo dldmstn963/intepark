@@ -11,16 +11,19 @@ public class PortfolioFile implements java.io.Serializable {
 	private String pfrename;	//리네임 파일명
 	private String pfcoment;	//코멘트
 	private int pfnum;	//포트폴리오 글번호
+	private String consid;
 	
 	public PortfolioFile() {}
 
-	public PortfolioFile(int pfphotonum, String pforiginalname, String pfrename, String pfcoment, int pfnum) {
+	public PortfolioFile(int pfphotonum, String pforiginalname, String pfrename, String pfcoment, int pfnum,
+			String consid) {
 		super();
 		this.pfphotonum = pfphotonum;
 		this.pforiginalname = pforiginalname;
 		this.pfrename = pfrename;
 		this.pfcoment = pfcoment;
 		this.pfnum = pfnum;
+		this.consid = consid;
 	}
 
 	public int getPfphotonum() {
@@ -63,6 +66,14 @@ public class PortfolioFile implements java.io.Serializable {
 		this.pfnum = pfnum;
 	}
 
+	public String getConsid() {
+		return consid;
+	}
+
+	public void setConsid(String consid) {
+		this.consid = consid;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -70,8 +81,9 @@ public class PortfolioFile implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "PortfolioFile [pfphotonum=" + pfphotonum + ", pforiginalname=" + pforiginalname + ", pfrename="
-				+ pfrename + ", pfcoment=" + pfcoment + ", pfnum=" + pfnum + "]";
+				+ pfrename + ", pfcoment=" + pfcoment + ", pfnum=" + pfnum + ", consid=" + consid + "]";
 	}
+
 	
 	
 }

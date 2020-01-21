@@ -7,6 +7,7 @@
 
 <head>
 <%@ include file="common/shopjscss.jsp" %>
+ <%@ include file="../common/jscsspath.jsp" %>
     <!-- Title  -->
     <title>인테파크</title>
 </head>
@@ -35,48 +36,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <!--  <tr>
-                                        <td class="cart_product_img">
-                                            <a href="#"><img src="/intepark/resources/img/bg-img/cart1.jpg" alt="Product"></a>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5>에펠 의자</h5>
-                                        </td>
-                                        <td class="price">
-                                            <span>15,000원</span>
-                                        </td>
-                                        <td class="qty">
-                                            <div class="qty-btn d-flex">
-                                                <p>수량</p>
-                                                <div class="quantity">
-                                                    <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                    <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
-                                                    <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart_product_img">
-                                            <a href="#"><img src="/intepark/resources/img/bg-img/cart2.jpg" alt="Product"></a>
-                                        </td>
-                                        <td class="cart_product_desc">
-                                            <h5>귀여운 선인장</h5>
-                                        </td>
-                                        <td class="price">
-                                            <span>10,000원</span>
-                                        </td>
-                                        <td class="qty">
-                                            <div class="qty-btn d-flex">
-                                                <p>수량</p>
-                                                <div class="quantity">
-                                                    <span class="qty-minus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                    <input type="number" class="qty-text" id="qty2" step="1" min="1" max="300" name="quantity" value="1">
-                                                    <span class="qty-plus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr> -->
                                     <c:set var = "total" value = "0" />
                                     <c:forEach var="li" items="${list }" varStatus="status" >
                                     <c:set var= "total" value="${total + (li.price * li.quantity)}"/>
@@ -100,11 +59,16 @@
                                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty${status.count }'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                                 </div>
                                                 <input type="hidden" value="${li.shbasketnum }" name="shbasketnum">
-                                            <input type="submit" value="수정" > 
+                                           <br>
+                                            <div>
+                                            <input type="submit" value="수정" >
+                                            </div>
+                                            
                                                 </form>
                                             </div>
                                             &nbsp;
-                                            <input type="button" value="삭제" onclick="return delete${li.shbasketnum}();"> 
+                                            <br>
+                                            <input type="button" class="genric-btn primary small" value="삭제" onclick="return delete${li.shbasketnum}();"> 
 													<script type="text/javascript">
 														function delete${li.shbasketnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');

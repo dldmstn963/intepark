@@ -28,14 +28,6 @@ public class InteuserDao {
 		return sqlSession.insert("inteuserMapper.insertUser", inteuser);
 	}
 
-	public int selectIdCheck(String userid) {
-		return sqlSession.selectOne("inteuserMapper.selectIdCheck", userid);
-	}
-
-	public int selectEmailCheck(String useremail) {
-		return sqlSession.selectOne("inteuserMapper.selectEmailCheck", useremail);
-	}
-
 	public int selectAllListCount(CommonPage cpage) {
 		return sqlSession.selectOne("inteuserMapper.selectAllListCount", cpage);
 	}
@@ -50,7 +42,7 @@ public class InteuserDao {
 	}
 
 	public int insertLoginId(LoginInfo loginInfo) {
-		return sqlSession.insert("inteuserMapper.insertLoginId", loginInfo);
+		return sqlSession.insert("loginInfoMapper.insertLoginId", loginInfo);
 	}
 
 	public int updateUser(InteUser inteuser) {
@@ -76,6 +68,14 @@ public class InteuserDao {
 
 	public int insertUserLetStop(LoginMemberState userState) {
 		return sqlSession.insert("inteuserMapper.insertUserLetStop", userState);
+	}
+
+	public int updateUserStopRemove(LoginMemberState userState) {
+		return sqlSession.update("inteuserMapper.updateUserStopRemove", userState);
+	}
+
+	public int selectMaxStopNo(LoginMemberState userState) {
+		return sqlSession.selectOne("inteuserMapper.selectMaxStopNo", userState);
 	}
 	
 

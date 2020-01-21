@@ -37,6 +37,20 @@ public class ReviewServiceImpl implements ReviewService{
 		reviewDao.insertRvfile(rvfile);
 	}
 	
+	@Override
+	public int deleteReview(int rvnum) {
+		return reviewDao.deleteReview(rvnum);
+	}
+	
+	@Override
+	public ArrayList<ReviewFile> selectRvRename(int rvnum) {
+		return reviewDao.selectRvRename(rvnum);
+	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -67,10 +81,9 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.updateReview(portfolio);
 	}
 
-	@Override
-	public int deleteReview(int rvnum) {
-		return reviewDao.deleteReview(rvnum);
-	}
+	
+
+	
 
 	
 

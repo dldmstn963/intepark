@@ -30,16 +30,6 @@ public class InteuserServiceImpl implements InteuserService{
 	}
 
 	@Override
-	public int selectIdCheck(String userid) {
-		return userDao.selectIdCheck(userid);
-	}
-
-	@Override
-	public int selectEmailCheck(String useremail) {
-		return userDao.selectEmailCheck(useremail);
-	}
-
-	@Override
 	public int selectAllListCount(CommonPage cpage) {
 		return userDao.selectAllListCount(cpage);
 	}
@@ -87,6 +77,16 @@ public class InteuserServiceImpl implements InteuserService{
 	@Override
 	public int insertUserLetStop(LoginMemberState userState) {
 		return userDao.insertUserLetStop(userState);
+	}
+
+	@Override
+	public int updateUserStopRemove(LoginMemberState userState) {
+		return userDao.updateUserStopRemove(userState);
+	}
+
+	@Override
+	public int selectMaxStopNo(LoginMemberState userState) {
+		return userDao.selectMaxStopNo(userState);
 	}
 
 }

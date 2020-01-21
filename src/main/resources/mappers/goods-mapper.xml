@@ -18,7 +18,7 @@ from goods),
 #{description},
 #{maximum},
 #{consid},
-default
+sysdate
 )
 </insert>
 
@@ -152,7 +152,7 @@ where goodsnum = ${value}
 <![CDATA[
 select * 
 from (select rownum rnum, inquirycn, 
-inquirytype,inquirytitle,secretat,inquirydate,answersttus,userid
+inquirytype,inquirytitle,secretat,inquirydate,answersttus,userid,inquirynum
 from (select * from GoodsInquiry 
 where GOODSNUM= #{goodsnum} order by inquirydate desc)) 
 where rnum >= #{startRow} and rnum <= #{endRow}
@@ -250,6 +250,66 @@ null,
 null
 )
 </insert>
+
+<select id="selectGoodsInquiryDetail" resultType="GoodsInquiry" parameterType="int">
+select * from GOODSINQUIRY
+where INQUIRYNUM = #{INQUIRYNUM}
+</select>
+
+<select id="selectGoodsInquiryDetailPic" resultType="GoodsInquiry" parameterType="int">
+select * from GOODSINQUIRYPIC
+where INQUIRYNUM = #{INQUIRYNUM}
+</select>
+
+<delete id='deleteInquiry' parameterType="int">
+delete from GOODSINQUIRY 
+where inquirynum = #{inquirynum}
+</delete>
+
+<delete id='deleteInquiryPic' parameterType="int">
+delete from GOODSINQUIRYPIC 
+where inquirynum = #{inquirynum}
+</delete>
+
+<delete id='deleteReviewPic' parameterType="int">
+delete from GOODSREVIEWPIC 
+where reviewnum = #{reviewnum}
+</delete>
+
+<delete id='deleteReview' parameterType="int">
+delete from GOODSREVIEW 
+where reviewnum = #{reviewnum}
+</delete>
+
+<select id="selectgoodsList2" parameterType="String" resultType="Goods">
+select *
+ from GOODS
+where consid = #{value}
+</select>
+
+<insert id="insertGoodsAnswer" parameterType="GoodsInquiry" >
+insert into 
+GOODSANSWER 
+values (
+#{inquirynum},
+#{answercn},
+#{consid},
+sysdate
+)
+</insert>
+
+<update id="updateGoodsAnswer" parameterType="GoodsInquiry">
+update GOODSINQUIRY 
+set ANSWERSTTUS = '답변완료'
+where INQUIRYNUM = #{INQUIRYNUM}
+</update>
+
+<select id="selectGoodsInquiryAnswer" parameterType="int" resultType="GoodsInquiry">
+select *
+from goodsanswer
+where inquirynum = #{INQUIRYNUM}
+</select>
+
 </mapper>
 
 

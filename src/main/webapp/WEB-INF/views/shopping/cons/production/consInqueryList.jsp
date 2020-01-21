@@ -14,7 +14,6 @@
     <!-- Custom Theme Style -->
     <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
 <title>인테파크</title>
-
 </head>
 
 <body class="nav-md">
@@ -59,22 +58,23 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-								<form action="consgoodssearch4.do" align="center">
-								제품명 검색 : <input type="text" name="goodsname"> &nbsp; <input type="submit" value="검색">
-								</form>
 								<br>
-									<table border="1px solid black" align="center">
-										<tr>
-											<td align="center"><input type="checkbox" id="allCheck"></td>
-											<td>번호</td>
-											<td>분류</td>
-											<td>제목</td>
-											<td>작성자</td>
-											<td>작성일</td>
-											<td>상태</td>
-											<td>기능</td>
-										</tr>
-										<script>
+								
+								<table id="foo-table" class="table table-bordered">
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="allCheck"></th>
+				<th>번호</th>
+				<th>분류</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>작성일</th>
+				<th>상태</th>
+				<th>기능</th>
+			</tr>
+		</thead>
+		<tbody>
+		<script>
 										function dellist(){
 											var result = confirm('정말 삭제하시겠습니까?');
 											if(result){
@@ -84,7 +84,7 @@
 											  });
 											 var list = lists.join(","); 
 											$.ajax({
-												url:"inqueryDelete4.do",
+												url:"deleteGoodscheck4.do",
 												type : "post",
 												data : {
 													lists : list
@@ -97,21 +97,21 @@
 											return false;
 										}}
 										</script>
-										<c:forEach var="li" items="${list }">
-											<tr>
-												<td align="center"><input type="checkbox" id="checkbox" name="checkbox" value="${li.inquirynum  }"></td>
-												<td>${li.inquirynum }</td>
-												<td>${li.inquirytype }</td>
-												<td>${li.inquirytitle }</td>
+		<c:forEach var="li" items="${list }">
+			<tr>
+				<td><input type="checkbox" id="checkbox"
+													name="checkbox"value="${li.inquirynum}"></td>
+				<td>${li.inquirynum }</td>
+				<td>${li.inquirytype }</td>
+				<td>${li.inquirytitle }</td>
 												<td>${li.userid }</td>
 												<td>${li.inquirydate }</td>
 												<td>${li.answersttus }</td>
-													<c:url var="moveinquiryDetail" value="moveinquiryDetail4.do">
+				<c:url var="moveinquiryDetail" value="moveinquiryDetail4.do">
 													<c:param name="inquirynum" value="${li.inquirynum}"/>
 													</c:url>
-												<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
+				<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
 													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
-													<input type="button" value="답변 하기" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');
@@ -131,43 +131,11 @@
 															}
 														}
 													</script></td>
-											<tr>
-										</c:forEach>
-									</table>
+			</tr>
+			</c:forEach></tbody></table>
 									<input type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
-									<div id="pagebox" align="center">
-									<a href="moveconsInquiryList4.do?page=1"><i class="fas fa-angle-double-left"></i></a>
-									&nbsp;
-									
-									<c:if test="${ (beginPage-10) < 1}">
-									<a href="moveconsInquiryList4.do?page=1"><i class="fas fa-angle-left"></i></a>
-									</c:if>
-									<c:if test="${ (beginPage-10) > 1}">
-									<a href="moveconsInquiryList4.do?page=${beginPage-10 }"><i class="fas fa-angle-left"></i></a>
-									</c:if>
-									&nbsp;
-									
-									<c:forEach var="p" begin="${beginPage }" end="${endPage }">
-									<c:if test="${p == currentPage }">
-									<a href="moveconsInquiryList4.do?page=${p }"><font color="red"><b>${p }</b></font></a>
-									</c:if >
-									<c:if test="${p != currentPage }">
-									<a href="moveconsInquiryList4.do?page=${p }">${p }</a>
-									</c:if>
-									</c:forEach>
-									&nbsp;
-									<c:if test="${(endPage+10) > maxPage }">
-									<a href="moveconsInquiryList4.do?page=${maxPage }"><i class="fas fa-angle-right"></i></a>
-									</c:if>
-									<c:if test="${(endPage+10) < maxPage }">
-									<a href="moveconsInquiryList4.do?page=${endPage + 10 }"><i class="fas fa-angle-right"></i></a>
-									</c:if>
-									&nbsp; 
-									
-									<a href="moveconsInquiryList4.do?page=${maxPage }"><i class="fas fa-angle-double-right"></i></a>
-									</div>
 									
 								</div>
 							</div>
@@ -200,5 +168,15 @@
     
     <!-- Custom Theme Scripts -->
     <script src="/intepark/resources/build/js/custom.min.js"></script>
+    
+    <link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script
+	src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script>
+	$(document).ready( function () {
+	    $('#foo-table').DataTable();
+	} );
+</script>
 </body>
 </html>

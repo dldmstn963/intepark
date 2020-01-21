@@ -74,7 +74,6 @@ function openwindow(){
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
-
  	<div class="container">
 
 <table class="table table-hover">
@@ -93,13 +92,16 @@ function openwindow(){
     </tr>
   </thead>
   <tbody>
+  <c:set var="total" value="" />
   <c:forEach items="${ list }" var="a">
+  <c:set var="total" value="${total}${ a.consid }/"/>
     <tr>
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
-   
-    <li><a href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
+
+    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
+
 
     <li><a href="#">수정</a></li>
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
@@ -119,6 +121,7 @@ function openwindow(){
     </c:forEach>        
   </tbody>
 </table>
+<input type="hidden" id="logcheck" value="<c:out value="${total }"/>" >
 </div>
 <!-- Modal -->
 <div class="ui modal">
@@ -202,9 +205,44 @@ function openwindow(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${commonPage.auctionno}'" style="background-color: #ffc107;" class="btn">경매참가</button>
+
+<button type="button" onclick="location.href='auctionAttend22.do?auc=${commonPage.auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
 </c:if>
 </div>
+ 	<script>
+ 	$(function(){
+ 		ws.send("check/"+$("#logcheck").val());
+ 	 });	
+ 	</script>
+ <!-- Modal -->
+<div class="ui modal">
+ <c:forEach items="${ list }" var="b">
+  <c:if test="${cons eq b.consname }">
+  <i class="close icon"></i>
+  <div class="header">
+   ${b.auctionno } ${b.consname }
+  </div>
+  <div class="image content" style="width:800px; height:500px;">
+    <div class="ui medium image">
+      <img src="/images/avatar/large/chris.jpg">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+  </div>
+  </c:if>
+  </c:forEach>
+</div>
+<!-- Buttons -->
+<!-- <button type="button" id="open" value="">Open Modal</button> -->
+
 
 
  	  <jsp:include page="../common/footer.jsp" />

@@ -25,8 +25,10 @@ import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.service.PortfolioService;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
 import com.c4.intepark.portfolio.model.vo.PortfolioFile;
+import com.c4.intepark.portfolio.model.vo.PortfolioView;
 import com.c4.intepark.request.model.vo.Request;
 import com.c4.intepark.review.model.vo.Review;
+import com.c4.intepark.review.model.vo.ReviewFile;
 import com.c4.intepark.review.model.vo.RvAvg;
 
 @Controller
@@ -45,10 +47,12 @@ public class PortfolioController {
 		  ArrayList<Constructors> list = portfolioService.selectList();
 		  //logger.info(list);
 		  ArrayList<RvAvg> rv = portfolioService.selectAllReview();
+		  ArrayList<Portfolio> pfPhotoList = portfolioService.selectPfPhotoList();
 		  
 		  if (list.size() > 0) {
 			  model.addAttribute("list", list);
 			  model.addAttribute("rv", rv);
+			  model.addAttribute("pfPhotoList", pfPhotoList);
 			  return "portfolio/portfolioListView";
 		  } else { 
 			  model.addAttribute("message", "시공사 리스트 조회 실패!");
@@ -63,11 +67,15 @@ public class PortfolioController {
 		Constructors cons = portfolioService.selectOneCons(consid);
 		RvAvg rv = portfolioService.selectReview(consid);
 		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);
+		ArrayList<ReviewFile> rvFile = portfolioService.selectConsRvFileList(consid);
+		ArrayList<PortfolioView> pfOneList = portfolioService.selectPfOneList(consid);
 	
 		if(cons != null) {
 			mv.addObject("cons", cons);
 			mv.addObject("rv", rv);
 			mv.addObject("review", review);
+			mv.addObject("rvFile", rvFile);
+			mv.addObject("pfOneList", pfOneList);
 			mv.setViewName("portfolio/portfolioDetailView");
 		}else {
 			mv.addObject("message", cons.getCompanyname() + "  시공사 상세 조회 실패!");
@@ -82,12 +90,12 @@ public class PortfolioController {
 		
 		Constructors cons = portfolioService.selectOneCons(consid);
 		RvAvg rv = portfolioService.selectReview(consid);
-		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);	//생략가능
+		//ArrayList<Review> review = portfolioService.selectConsReviewList(consid);	//생략가능
 		
 		 if (cons != null) {
 			 model.addAttribute("cons", cons);
 			 model.addAttribute("rv", rv);
-			 model.addAttribute("review", review);	//생략가능
+			 //model.addAttribute("review", review);	//생략가능
 			 return "portfolio/writeIntroduction";
 		  } else { 
 			 model.addAttribute("message", "소개글 작성페이지 조회 실패!");
@@ -107,93 +115,90 @@ public class PortfolioController {
 		int result = portfolioService.updateIntroduction(cons);
 		
 		if (result > 0) {
-			 return "forward:pfOne5.do";
+			 return "redirect:pfOne5.do?consid=" + consid;
 		  } else { 
 			 model.addAttribute("message", "소개글 작성 실패!");
 			 return "common/error";
 		  }	
 	}
 	
-	@RequestMapping(value="test5.do", method=RequestMethod.POST)
-	public String test5() {
-		return "review/test";
+	@RequestMapping(value="selectPfOne5.do")
+	public String selectPfOne(@RequestParam(value="consid", required=true) String consid,
+										@RequestParam(value="pfnum", required=true) String pfnum, Model model) {
+		
+		System.out.println("확인이다");
+		System.out.println(consid);
+		System.out.println(pfnum);
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		RvAvg rv = portfolioService.selectReview(consid);
+		ArrayList<PortfolioFile> pfOne = portfolioService.selectPfOne(pfnum);
+		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);	//생략가능
+		
+		if (cons != null) {
+			 model.addAttribute("cons", cons);
+			 model.addAttribute("rv", rv);
+			 model.addAttribute("pfOne", pfOne);
+			 model.addAttribute("review", review);	//생략가능
+			 return "portfolio/portfolioDetailPhoto";
+		  } else { 
+			 model.addAttribute("message", "포트폴리오 조회 실패!");
+			 return "common/error";
+		  }
+
+	}
+	
+	@RequestMapping(value="writePF_Form5.do", method=RequestMethod.POST)
+	public String writePF_Form(@RequestParam(value="consid", required=true) String consid, Model model) {
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		RvAvg rv = portfolioService.selectReview(consid);
+		//ArrayList<Review> review = portfolioService.selectConsReviewList(consid);	//생략가능
+		
+		if (cons != null) {
+			 model.addAttribute("cons", cons);
+			 model.addAttribute("rv", rv);
+			 //model.addAttribute("review", review);	//생략가능
+			 return "portfolio/writePortfolio";
+		  } else { 
+			 model.addAttribute("message", "포트폴리오 작성페이지 조회 실패!");
+			 return "common/error";
+		  }
+
+	}
+	
+	@RequestMapping("pfOne5_2.do")
+	public ModelAndView pfOne2(@RequestParam(value="consid", required=true) String consid, ModelAndView mv) {
+		//logger.info(consid);
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		RvAvg rv = portfolioService.selectReview(consid);
+		ArrayList<Review> review = portfolioService.selectConsReviewList(consid);
+		ArrayList<ReviewFile> rvFile = portfolioService.selectConsRvFileList(consid);
+		ArrayList<PortfolioView> pfOneList = portfolioService.selectPfOneList(consid);
+	
+		if(cons != null) {
+			mv.addObject("cons", cons);
+			mv.addObject("rv", rv);
+			mv.addObject("review", review);
+			mv.addObject("rvFile", rvFile);
+			mv.addObject("pfOneList", pfOneList);
+			mv.setViewName("portfolio/portfolioDetailView2");
+		}else {
+			mv.addObject("message", cons.getCompanyname() + "  시공사 상세 조회 실패!");
+			mv.setViewName("common/error");
+		}
+		return mv;
 	}
 	
 	
-	
-	//private static final int RESULT_EXCEED_SIZE = -2;	//용량초과
-    //private static final int RESULT_UNACCEPTED_EXTENSION = -1;	//잘못된 확장자 업로드
-    //private static final int RESULT_SUCCESS = 1;
-    private static final long LIMIT_SIZE = 20 * 1024 * 1024;
-    
-    @ResponseBody
-    @RequestMapping(value="testSubmit5.do", method=RequestMethod.POST)
-    public int multiImageUpload(@RequestParam("files")List<MultipartFile> images, HttpServletRequest request) throws IllegalStateException, IOException {
-        long sizeSum = 0;
-        int i = 0;
-        
-        int count = images.size();
-        if(count > 5 ) {
-        	
-        	return 3;
-        }
-       
-      //해당 웹 컨테이너의 구동 중인 웹 애플리케이션 안의 파일 저장 폴더 지정
-        String savePath = request.getSession().getServletContext().getRealPath("/resources/review_file");
-        
-        for(MultipartFile image : images) {
-            String originalName = image.getOriginalFilename();
-            
-            // 확장자 검사
-            if(!isValidExtension(originalName)){
-                return -1;	//잘못된 확장자 업로드
-            }
-            
-            //용량 검사
-            sizeSum += image.getSize();
-            if(sizeSum >= LIMIT_SIZE) {
-                return -2;	//용량초과
-            }
-            
-            //TODO 저장..  
-            
-          //첨부된 파일이 있다면, 파일명 바꾸기 처리
-    		//"yyyyMMddhhmmss.확장자" 형식으로 바꿈
-    			//바꿀 파일명에 대한 포맷 설정함
-    			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss" + i);
-    			//바꿀 파일명 만들기 : 확장자는 원본과 동일하게 함.
-    			String renameFile = sdf.format(new java.sql.Date(System.currentTimeMillis())) + "." + originalName.substring(originalName.lastIndexOf(".") + 1);
-    			
-    			//현재 지정된 폴더에 저장된 원본파일의 파일명을 바꾸기하기 위해서
-    			//File 객체를 생성함.
-    			//File originFile = new File(savePath + "\\" + originalName);
-    			//File renameFile = new File(savePath + "\\" + renameFileName);  
-            
-    			MultipartFile file = image;
-    			file.transferTo(new File(savePath + "\\" + renameFile));
 
-            System.out.println("확인이다 : " + originalName + "\n");
-            
-            i++;
-            
-        }//for문 끝
-        
-        //실제로는 저장 후 이미지를 불러올 위치를 콜백반환하거나,
-        //특정 행위를 유도하는 값을 주는 것이 옳은 것 같다.
-        return 1;
-    }
-        
-    //required above jdk 1.7 - switch(String)
-    private boolean isValidExtension(String originalName) {
-        String originalNameExtension = originalName.substring(originalName.lastIndexOf(".") + 1);
-        switch(originalNameExtension) {
-        case "jpg":
-        case "png":
-        case "gif":
-            return true;
-        }
-        return false;
-    }
+	
+	
+	
+	
+	
+	
 	
 	
 	

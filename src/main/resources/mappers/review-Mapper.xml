@@ -23,8 +23,21 @@
 	</select>
 	
 	<insert id="insertRvfile" parameterType="ReviewFile">
-		insert into reviewfile values (RVPHOTONUM_SEQ.nextval, #{rvoriginalname}, #{rvrename}, #{rvnum})
+		insert into reviewfile values (RVPHOTONUM_SEQ.nextval, #{rvoriginalname}, #{rvrename}, #{rvnum}, #{consid})
 	</insert>
+	
+	<select id="selectRvRename" parameterType="int" resultType="ReviewFile">
+		select rvrename
+		from reviewfile
+		where rvnum = #{rvnum}
+	</select>
+	
+	<delete id="deleteReview" parameterType="int">
+		delete from review
+		where rvnum = #{rvnum}
+	</delete>
+	
+	
 	
 	
 	

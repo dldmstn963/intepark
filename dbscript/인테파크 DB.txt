@@ -40,12 +40,12 @@ SET DEFINE OFF;
 
 --------------------------------------------------------------------------------------------
 -------이영수
---로그인포
 drop table logininfo cascade constraints;
 
 create table logininfo (
   logid varchar2(15) constraint pk_logid primary key,
   logpwd varchar2(60) not null,
+  email VARCHAR2(50) unique,
   authority varchar2(20) not null,
   enabled CHAR(1) DEFAULT '1' CHECK(enabled IN('1','0')),
   memberstate   CHAR(6)   DEFAULT '대기' CHECK(memberstate IN('대기','정상','정지','탈퇴')),
@@ -55,56 +55,78 @@ create table logininfo (
 
 COMMENT ON COLUMN logininfo.logid IS '아이디';
 COMMENT ON COLUMN logininfo.logpwd IS '비밀번호';
+COMMENT ON COLUMN logininfo.email IS '이메일';
 COMMENT ON COLUMN logininfo.authority IS '권한';
 COMMENT ON COLUMN logininfo.enabled IS '접속가능여부';
 COMMENT ON COLUMN logininfo.memberstate IS '회원상태';
 COMMENT ON COLUMN logininfo.withdrawdate IS '탈퇴날짜';
 COMMENT ON COLUMN logininfo.withdrawcause IS '탈퇴사유';
 
-insert into logininfo values('admin','admin','ROLE_ADMIN',1,'정상',null,null);
-insert into logininfo values('user1','user1','ROLE_USER',1,'정상',null,null);
-insert into logininfo values('user2','user2','ROLE_USER',0,'탈퇴',default,'비싸');
-insert into logininfo values('con1','con1','ROLE_CONS',1,'정상',null,null);
-insert into logininfo values('con2','con2','ROLE_CONS',1,'정상',null,null);
-insert into logininfo values('con3','con3','ROLE_CONS',0,'정지',null,null);
+insert into logininfo values('admin','admin','aa@aa','ROLE_ADMIN',1,'정상',null,null);
+insert into logininfo values('user1','user1','dldudtn118@naver.com','ROLE_USER',1,'정상',null,null);
+insert into logininfo values('user2','user2','aa@ac','ROLE_USER',0,'탈퇴','19/12/01','비싸');
+insert into logininfo values('user3','user3','aa@ad','ROLE_USER',1,'정상',null,null);
+insert into logininfo values('con1','con1','dldudtn118@daum.net','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('con2','con2','aa@af','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('con3','con3','aa@ag','ROLE_CONS',1,'정상',null,null);
 ---------------------------------------------------------------------------
 --정지 사유
-
-DROP TABLE constructorstop CASCADE CONSTRAINTS;
-DROP TABLE userstop CASCADE CONSTRAINTS;
 DROP TABLE loginstop CASCADE CONSTRAINTS;
 DROP SEQUENCE LOGINSTOP_SEQ;
 CREATE SEQUENCE "INTEPARK"."LOGINSTOP_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;
 
 CREATE TABLE loginstop (
   stopno number primary key,
+   stoptarget varchar2(500) null,
    stopcause VARCHAR2(100) NULL,
    stopstartdate DATE DEFAULT SYSDATE NOT NULL,
    stopfinishdate DATE DEFAULT SYSDATE NOT NULL,
    stopterm varchar2(10) NOT NULL,
+   stopremove varchar2(500) null,
    logid VARCHAR2(15) REFERENCES logininfo(logid) on delete cascade
 );
 
 COMMENT ON COLUMN loginstop.stopno IS '정지번호';
+COMMENT ON COLUMN loginstop.stoptarget IS '정지위치';
 COMMENT ON COLUMN loginstop.stopcause IS '정지사유';
 COMMENT ON COLUMN loginstop.stopstartdate IS '정지시작날짜';
 COMMENT ON COLUMN loginstop.stopfinishdate IS '정지끝날짜';
 COMMENT ON COLUMN loginstop.stopterm IS '정지기한';
+COMMENT ON COLUMN loginstop.stopremove IS '정지해제';
 COMMENT ON COLUMN loginstop.logid IS '아이디';
 
-insert into loginstop values(loginstop_seq.nextval,'나는 빡빡이다', sysdate, add_months(sysdate,1),'1개월','con3');
-insert into loginstop values(loginstop_seq.nextval,'나는 빡빡이다2', sysdate+1, add_months(sysdate+1,1),'1개월','con3');
+drop trigger trigger_logstop;
+CREATE OR REPLACE TRIGGER trigger_logstop
+AFTER INSERT ON loginstop
+FOR EACH ROW
+BEGIN
+  update logininfo set ENABLED=0, MEMBERSTATE='정지' where logid = :NEW.logid;
+END;
+/
+
+insert into loginstop values(loginstop_seq.nextval,'그뭐여','나는 빡빡이다', sysdate, add_months(sysdate,1),'1개월',null,'user1');
+insert into loginstop values(loginstop_seq.nextval,'뭐냐','나는 빡빡이다2', sysdate+1, add_months(sysdate+1,1),'1개월',null,'user1');
+
+drop trigger trigger_stopremove;
+CREATE OR REPLACE TRIGGER trigger_stopremove
+AFTER UPDATE ON loginstop
+FOR EACH ROW
+BEGIN
+  update logininfo set ENABLED=1, MEMBERSTATE='정상' where logid = :NEW.logid;
+END;
+/
+
 -------------------------------------------------------------------------
 
 --시공사
 DROP TABLE constructors CASCADE CONSTRAINTS;
 
 CREATE TABLE constructors (
-   consid   VARCHAR2(15) references logininfo(logid),
+   consid   VARCHAR2(15) references logininfo(logid) on delete cascade,
    enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
    consname   VARCHAR2(30)      NOT NULL,
    phone   VARCHAR2(50)      NULL,
-   email   VARCHAR2(50)      NOT NULL,
+   consemail   VARCHAR2(50) unique,
    address   VARCHAR2(200)      NULL,
    companyname   VARCHAR2(100)      NOT NULL,
    consarea   VARCHAR2(100)      NOT NULL,
@@ -119,7 +141,7 @@ CREATE TABLE constructors (
    constraint pk_consid primary key(consid)
 );
 
-insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'd@d.com','경기도 수원',
+insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'dldudtn118@daum.net','경기도 수원',
 '인테리아','종합,바닥,천장,목공,샷시','1년','2~5년','"마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 디자인담다입니다',
 '실내건축면허를 보유한 인테리아 입니다.
 인테리어를 시작하시게 된 계기가 있나요?
@@ -145,7 +167,7 @@ COMMENT ON COLUMN constructors.consid IS '아이디';
 COMMENT ON COLUMN constructors.enrolldate IS '가입날짜';
 COMMENT ON COLUMN constructors.consname IS '이름';
 COMMENT ON COLUMN constructors.phone IS '전화번호';
-COMMENT ON COLUMN constructors.email IS '이메일';
+COMMENT ON COLUMN constructors.consemail IS '이메일';
 COMMENT ON COLUMN constructors.address IS '주소';
 COMMENT ON COLUMN constructors.companyname IS '상호명';
 COMMENT ON COLUMN constructors.consarea IS '시공분야';
@@ -164,18 +186,20 @@ COMMENT ON COLUMN constructors.blicencerenameimg IS '사업자등록증 저장�
 DROP TABLE inteuser CASCADE CONSTRAINTS;
 
 CREATE TABLE inteuser (
-   userid   VARCHAR2(15) references logininfo(logid),
+   userid   VARCHAR2(15) references logininfo(logid) on delete cascade,
    enrolldate   DATE   DEFAULT SYSDATE   NOT NULL,
    username   VARCHAR2(30)      NOT NULL,
    phone   VARCHAR2(50)      NULL,
-   email   VARCHAR2(50)      NOT NULL,
+   useremail   VARCHAR2(50) unique,
    address   VARCHAR2(200)      NULL,
    constraint pk_userid primary key(userid)
 );
 
-insert into inteuser values('admin',sysdate,'관리자','080-509-4949','d@d', null);
-insert into inteuser values('user1',sysdate,'고객1','010-1343-1441','a@a', null);
-insert into inteuser values('user2',sysdate,'고객2','010-3431-4411','b@b', '서울시 강남구');
+insert into inteuser values('admin',sysdate,'관리자','080-509-4949','aa@aa', null);
+insert into inteuser values('user1',sysdate,'나다','010-1343-1441','dldudtn118@naver.com', null);
+insert into inteuser values('user2',sysdate,'고객2','010-3431-4411','aa@ac', '서울시 강남구');
+insert into inteuser values('user3',sysdate,'고객3','010-3431-4411','aa@ad', '서울시 강남구');
+
 
 --delete from inteuser where userid='user1';
 
@@ -183,7 +207,7 @@ COMMENT ON COLUMN inteuser.userid IS '아이디';
 COMMENT ON COLUMN inteuser.enrolldate IS '가입날짜';
 COMMENT ON COLUMN inteuser.username IS '이름';
 COMMENT ON COLUMN inteuser.phone IS '전화번호';
-COMMENT ON COLUMN inteuser.email IS '이메일';
+COMMENT ON COLUMN inteuser.useremail IS '이메일';
 COMMENT ON COLUMN inteuser.address IS '주소';
 
 ----------------------------------------------------------------------------
@@ -1890,6 +1914,7 @@ NOCYCLE;
 INSERT INTO request VALUES (reqnum_seq.nextval, '바닥,천장,샷시', '서울특별시 송파구', '1000~2000만원', '우수', '010-1234-5678', default, 'con1', 'user1');
 INSERT INTO request VALUES (reqnum_seq.nextval, '부엌,욕실,타일', '부산광역시 해운대구', '2000~3000만원', '엘라', '010-1111-2222', default, 'con2', 'user2');
 INSERT INTO request VALUES (reqnum_seq.nextval, '천장,목공', '서울특별시 강남구', '3000만원 이상', '히비', '010-2222-3333', default, 'con1', 'user2');
+INSERT INTO request VALUES (reqnum_seq.nextval, '욕실,타일,조명', '광주광역시 광산구', '2000~3000만원', '셀리나', '010-2222-4444', default, 'con2', 'user1');
 
 --시공사 포트폴리오--------------
 
@@ -1897,8 +1922,9 @@ DROP TABLE portfolio CASCADE CONSTRAINTS;
 
 CREATE TABLE portfolio (
    pfnum   NUMBER      NOT NULL,
-   pftitle   VARCHAR2(30)      NOT NULL,
-   consid   varchar2(15)      NOT NULL
+   pftitle   VARCHAR2(100)      NOT NULL,
+   consid varchar2(15) NOT NULL,
+   CONSTRAINT pf_p_key PRIMARY KEY(pfnum,consid)
 );
 
 COMMENT ON COLUMN portfolio.pfnum IS '포트폴리오 글번호';
@@ -1920,6 +1946,7 @@ NOCYCLE;
 INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목1', 'con1');
 INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목2', 'con1');
 INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목3', 'con1');
+INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 제목4', 'con1');
 INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 입니다~1', 'con2');
 INSERT INTO portfolio VALUES (pfnum_seq.nextval, '포트폴리오 입니다~2', 'con2');
 
@@ -1931,8 +1958,9 @@ CREATE TABLE portfoliofile (
    pfphotonum   NUMBER      NOT NULL,
    pforiginalname   VARCHAR2(100)      NULL,
    pfrename   VARCHAR2(100)      NULL,
-   pfcoment   VARCHAR2(30)      NULL,
-   pfnum   NUMBER      NOT NULL
+   pfcoment   VARCHAR2(100)      NULL,
+   pfnum   NUMBER      NOT NULL,
+   consid varchar2(15) NOT NULL
 );
 
 COMMENT ON COLUMN portfoliofile.pfphotonum IS '포트폴리오 사진번호';
@@ -1945,6 +1973,8 @@ COMMENT ON COLUMN portfoliofile.pfcoment IS '코멘트';
 
 COMMENT ON COLUMN portfoliofile.pfnum IS '포트폴리오 글번호';
 
+COMMENT ON COLUMN portfoliofile.consid IS '시공사 아이디';
+
 -- 포트폴리오 사진 번호 시퀀스---------
 DROP SEQUENCE pfphotonum_seq;
 
@@ -1956,14 +1986,23 @@ NOCYCLE;
 
 --포트폴리오 첨부파일 샘플 데이터---------------------------------------------------------
 
---샘플 데이터 일부러 안넣음--------
 
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_1', '12345', '리모델링사진입니다.', 1);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '시공사진 입니다.', 1);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '45612', '욕실사진 입니다.', 2);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2', '23456', '마루사진 입니다.', 3);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '61221', '욕실사진 입니다.', 4);
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3', '41257', '시공완료 사진 입니다.', 5);
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_1.jpg', '12345.jpg', '리모델링 사진1 입니다.', '1', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2.jpg', '12346.jpg', '리모델링 사진2 입니다.', '1', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3.jpg', '12347.jpg', '리모델링 사진3 입니다.', '1', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-1.jpg', '23456.jpg', '샘플 사진1 입니다.', '2', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-2.jpg', '23457.jpg', '샘플 사진2 입니다.', '2', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-2.jpg', '30001.jpg', '시공샘플 사진1 입니다.', '3', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-5.jpg', '30002.jpg', '시공샘플 사진2 입니다.', '3', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-3.jpg', '34567.jpg', '인테리어 사진1 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-4.jpg', '34568.jpg', '인테리어 사진2 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-5.jpg', '34569.jpg', '인테리어 사진3 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_1.jpg', '45678.jpg', '시공완료 사진1 입니다.', '5', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_2.jpg', '45679.jpg', '시공완료 사진2 입니다.', '5', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_3.jpg', '56788.jpg', '디자인샘플 사진1 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_4.jpg', '56789.jpg', '', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-8.jpg', '56790.jpg', '디자인샘플 사진2 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-9.jpg', '56791.jpg', '디자인샘플 사진4 입니다.', '6', 'con2');
 
 --시공사 리뷰--------------
 
@@ -1986,7 +2025,8 @@ CREATE TABLE review (
    rvcritique   VARCHAR2(1000)      NOT NULL,
    rvdate   DATE   DEFAULT SYSDATE   NOT NULL,
    consid   varchar2(15)      NOT NULL,
-   userid   varchar2(15)      NOT NULL
+   userid   varchar2(15)      NOT NULL,
+   CONSTRAINT review_p_key PRIMARY KEY(rvnum,consid)
 );
 
 COMMENT ON COLUMN review.rvnum IS '리뷰번호';
@@ -2040,13 +2080,17 @@ INSERT INTO review VALUES (rvnum_seq.nextval, 3, 3, 3, 3, 3, 3, '2018년 5월', 
 '상담을 너무 친절하게 해주셔서 어떤 작업을 하는지에 대해서 잘 이해가 되었어요.또 전문가님께서 너무 잘해주셔서 집 분위기가 한층 더 밝아져 기분이 너무 좋아요!',
 default, 'con1', 'user1');
 
+INSERT INTO review VALUES (rvnum_seq.nextval, 4, 4, 4, 4, 4, 4, '2019년 12월', '경기도 동두천시', '단독주택', '마루&바닥', '30평대', '1000만원~2000만원', 
+'여러군데 견적을 받아보고 이곳 인테리아 사장님께 시공을 맡겼는데 일단 너무 친절하게 궁금한점들 설명다해주시고 꼼꼼함까지^^ 믿고 담에도 집수리 맡기고 싶네요~~ 사장님 감사해요~~^^',
+default, 'con1', 'user2');
+
 INSERT INTO review VALUES (rvnum_seq.nextval, 3, 4, 4, 5, 4, 4, '2019년 8월', '서울특별시 종로구', '원룸&오피스텔', '타일&욕실', '30평대', '1000~2000만원', 
 '상담도 너무 친절하시고,작업도 꼼꼼하시고 주변이랑 비교하다보니 퀄리티 대비 가격도 최고에요!',
-default, 'con2', 'user2');
+default, 'con2', 'user1');
 
 INSERT INTO review VALUES (rvnum_seq.nextval, 5, 5, 5, 5, 5, 5, '2019년 11월', '세종특별자치시', '빌라&연립', '전기&조명', '20평대', '500~1000만원', 
-'방산시장 3군데 전화 하였고, 가격이 괜찮아서 방문 하지도 않고 결정 했습니다. 원하는 장판 사진으로 주고 받았고 작업 완료 후 확인해보니 실리콘 처리까지 말끔히 되어 있습니다. 아주 만족합니다.',
-default, 'con2', 'user3');
+'방산시장 3군데 전화 하였고, 가격이 괜찮아서 방문 하지도 않고 결정 했습니다. 원하는 사진으로 주고 받았고 작업 완료 후 확인해보니 실리콘 처리까지 말끔히 되어 있습니다. 아주 만족합니다.',
+default, 'con2', 'user2');
 
 --리뷰 첨부파일--------------
 
@@ -2056,7 +2100,8 @@ CREATE TABLE reviewfile (
    rvphotonum   NUMBER      NOT NULL,
    rvoriginalname   VARCHAR2(100)      NULL,
    rvrename   VARCHAR2(100)      NULL,
-   rvnum   NUMBER      NOT NULL
+   rvnum   NUMBER      NOT NULL,
+   consid VARCHAR2(15) NOT NULL
 );
 
 COMMENT ON COLUMN reviewfile.rvphotonum IS '리뷰사진번호';
@@ -2066,6 +2111,8 @@ COMMENT ON COLUMN reviewfile.rvoriginalname IS '오리지날 파일명';
 COMMENT ON COLUMN reviewfile.rvrename IS '리네임 파일명';
 
 COMMENT ON COLUMN reviewfile.rvnum IS '리뷰번호';
+
+COMMENT ON COLUMN reviewfile.consid IS '시공사 아이디';
 
 -- 리뷰 사진 번호 시퀀스---------
 DROP SEQUENCE rvphotonum_seq;
@@ -2078,19 +2125,21 @@ NOCYCLE;
 
 --리뷰 첨부파일 샘플 데이터---------------------------------------------------------
 
---샘플 데이터 일부러 안넣음--------
-
-INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_1', '1234', '1');
-INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_2', '2345', '1');
-INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_3', '3456', '2');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_1.jpg', '1234.jpg', '1', 'con1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_2.jpg', '1235.jpg', '1', 'con1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'hero_1.jpg', '2001.jpg', '2', 'con1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'hero_2.jpg', '2002.jpg', '2', 'con1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'hero_3.jpg', '2003.jpg', '2', 'con1');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_bg_3.jpg', '3456.jpg', '3', 'con2');
+INSERT INTO reviewfile VALUES (rvphotonum_seq.nextval, 'img_4.jpg', '3457.jpg', '3', 'con2');
 
 ----------------------------------------------------------------------------------------------------
 
 ALTER TABLE request ADD CONSTRAINT PK_REQUEST PRIMARY KEY (reqnum);
 
-ALTER TABLE portfolio ADD CONSTRAINT PK_PORTFOLIO PRIMARY KEY (pfnum);
+--ALTER TABLE portfolio ADD CONSTRAINT PK_PORTFOLIO PRIMARY KEY (pfnum);
 
-ALTER TABLE review ADD CONSTRAINT PK_REVIEW PRIMARY KEY (rvnum);
+--ALTER TABLE review ADD CONSTRAINT PK_REVIEW PRIMARY KEY (rvnum);
 
 ALTER TABLE reviewfile ADD CONSTRAINT PK_REVIEWFILE PRIMARY KEY (rvphotonum);
 
@@ -2105,17 +2154,18 @@ REFERENCES constructors (consid) on delete cascade;
 ALTER TABLE portfolio ADD CONSTRAINT FK_cons_TO_portfolio_1 FOREIGN KEY (consid)
 REFERENCES constructors (consid) on delete cascade;
 
+ALTER TABLE PORTFOLIOFILE ADD CONSTRAINT FK_pf_TO_pffile_1 FOREIGN KEY (pfnum,consid)
+REFERENCES portfolio (pfnum,consid) on delete cascade;
+
 ALTER TABLE review ADD CONSTRAINT FK_cons_TO_review_1 FOREIGN KEY (consid)
 REFERENCES constructors (consid) on delete cascade;
+
+ALTER TABLE reviewfile ADD CONSTRAINT FK_review_TO_reviewfile_1 FOREIGN KEY (rvnum,consid)
+REFERENCES review (rvnum,consid) on delete cascade;
 
 --ALTER TABLE review ADD CONSTRAINT FK_inteuser_TO_review_1 FOREIGN KEY (userid)
 --REFERENCES inteuser (userid) on delete cascade;
 
-ALTER TABLE reviewfile ADD CONSTRAINT FK_review_TO_reviewfile_1 FOREIGN KEY (rvnum)
-REFERENCES review (rvnum) on delete cascade;
-
-ALTER TABLE portfoliofile ADD CONSTRAINT FK_portfolio_TO_pffile_1 FOREIGN KEY (pfnum)
-REFERENCES portfolio (pfnum) on delete cascade;
 
 
 --------------------------------------------소개글 CLOB 설정-------------------------------------

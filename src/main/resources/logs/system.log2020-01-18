@@ -1,0 +1,1409 @@
+[13:15:10][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[13:15:16][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6014 ms
+[13:15:16][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[13:15:18][INFO ][FrameworkServlet.java:546] - Completed initialization in 2572 ms
+[13:15:19][INFO ][HomeController.java:41] - Welcome main!
+[13:22:56][INFO ][HomeController.java:41] - Welcome main!
+[13:23:07][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[13:23:12][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:23:14][INFO ][GoodsController.java:74] - 상품 디테일 : 16
+[13:23:16][INFO ][OrdersController.java:99] - 장바구니 담기
+[13:23:16][INFO ][OrdersController.java:100] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=16, goodsprice=138900]
+[13:23:16][INFO ][GoodsController.java:74] - 상품 디테일 : 16
+[13:23:17][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:23:17][INFO ][OrdersController.java:120] - 
+[13:23:18][INFO ][OrdersController.java:427] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:23:21][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:23:21][INFO ][OrdersController.java:120] - 
+[13:23:24][INFO ][OrdersController.java:151] - 장바구니 삭제 : 21
+[13:23:24][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:23:29][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:25:55][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[13:26:01][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6012 ms
+[13:26:01][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[13:26:03][INFO ][FrameworkServlet.java:546] - Completed initialization in 2397 ms
+[13:26:03][INFO ][HomeController.java:41] - Welcome main!
+[13:26:12][INFO ][HomeController.java:41] - Welcome main!
+[13:26:13][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[13:26:15][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:16][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[13:26:18][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:19][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[13:26:20][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[13:26:21][INFO ][OrdersController.java:99] - 장바구니 담기
+[13:26:21][INFO ][OrdersController.java:100] - Orders [ordernum=0, orderdate=null, orderprice=0, orderstatus=null, userid=user1, dlvynum=0, requestnum=0, orderquantity=1, goodsnum=52, goodsprice=18900]
+[13:26:22][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[13:26:23][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:27][INFO ][OrdersController.java:436] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:31][INFO ][OrdersController.java:118] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:32][INFO ][OrdersController.java:436] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[13:26:37][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[13:27:00][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[13:27:50][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:07:12][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:07:49][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:09:03][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:10:22][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:10:44][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[14:10:51][INFO ][HomeController.java:41] - Welcome main!
+[14:10:54][INFO ][HomeController.java:41] - Welcome main!
+[14:10:59][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[14:11:00][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[14:11:02][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[14:11:14][INFO ][OrdersController.java:63] - 결제
+[14:11:14][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=18900, orderstatus=null, userid=user1, dlvynum=0, requestnum=100, orderquantity=1, goodsnum=52, goodsprice=18900]
+[14:11:15][INFO ][OrdersController.java:436] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[14:11:57][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[14:11:58][INFO ][GoodsController.java:74] - 상품 디테일 : 11
+[14:11:59][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:32:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:32:42][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5292 ms
+[17:32:42][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:32:45][INFO ][FrameworkServlet.java:546] - Completed initialization in 2287 ms
+[17:34:34][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:35:55][INFO ][HomeController.java:41] - Welcome main!
+[17:35:58][INFO ][HomeController.java:41] - Welcome main!
+[17:35:59][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:36:00][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:36:02][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:36:03][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:36:18][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:38:56][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:38:57][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:38:59][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:39:17][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 2 errors
+Field error in object 'orders' on field 'dlvynum': rejected value []; codes [typeMismatch.orders.dlvynum,typeMismatch.dlvynum,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [orders.dlvynum,dlvynum]; arguments []; default message [dlvynum]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'dlvynum'; nested exception is java.lang.NumberFormatException: For input string: ""]
+Field error in object 'orders' on field 'requestnum': rejected value []; codes [typeMismatch.orders.requestnum,typeMismatch.requestnum,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [orders.requestnum,requestnum]; arguments []; default message [requestnum]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'requestnum'; nested exception is java.lang.NumberFormatException: For input string: ""]]
+[17:39:23][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:39:24][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:39:26][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:39:26][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:39:39][INFO ][OrdersController.java:63] - 결제
+[17:39:39][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=0, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:39:40][INFO ][OrdersController.java:436] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[17:39:43][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:39:44][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:42:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:42:11][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5610 ms
+[17:42:11][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:42:13][INFO ][FrameworkServlet.java:546] - Completed initialization in 2426 ms
+[17:42:35][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:42:38][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:42:41][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:42:42][INFO ][HomeController.java:41] - Welcome main!
+[17:42:45][INFO ][HomeController.java:41] - Welcome main!
+[17:42:47][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:42:49][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:42:50][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:42:51][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:42:55][INFO ][OrdersController.java:63] - 결제
+[17:42:55][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:46:47][INFO ][OrdersController.java:63] - 결제
+[17:46:47][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:47:13][INFO ][HomeController.java:41] - Welcome main!
+[17:47:20][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:47:26][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:47:27][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:47:28][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:47:32][INFO ][OrdersController.java:63] - 결제
+[17:47:32][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:51:34][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:51:39][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5419 ms
+[17:51:39][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:51:42][INFO ][FrameworkServlet.java:546] - Completed initialization in 2803 ms
+[17:51:43][INFO ][HomeController.java:41] - Welcome main!
+[17:51:47][INFO ][HomeController.java:41] - Welcome main!
+[17:51:49][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:51:52][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:51:53][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:51:54][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:51:57][INFO ][OrdersController.java:63] - 결제
+[17:51:57][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:52:13][INFO ][OrdersController.java:63] - 결제
+[17:52:13][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:52:16][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:52:20][INFO ][OrdersController.java:63] - 결제
+[17:52:20][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=100, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:52:32][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:52:33][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:52:36][INFO ][OrdersController.java:63] - 결제
+[17:52:36][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=21, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:52:47][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:53:16][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[17:53:22][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5628 ms
+[17:53:22][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[17:53:25][INFO ][FrameworkServlet.java:546] - Completed initialization in 2838 ms
+[17:53:25][INFO ][HomeController.java:41] - Welcome main!
+[17:53:28][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:53:29][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:53:30][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[17:53:33][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:53:34][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:53:37][INFO ][OrdersController.java:63] - 결제
+[17:53:37][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=21, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:54:18][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[17:54:19][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:54:22][INFO ][OrdersController.java:63] - 결제
+[17:54:22][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=22, requestnum=100, orderquantity=1, goodsnum=59, goodsprice=12900]
+[17:54:58][INFO ][HomeController.java:41] - Welcome main!
+[17:55:00][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[17:55:01][INFO ][GoodsController.java:74] - 상품 디테일 : 42
+[17:55:01][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[17:55:05][INFO ][OrdersController.java:63] - 결제
+[17:55:05][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=21, requestnum=100, orderquantity=1, goodsnum=42, goodsprice=12900]
+[19:07:04][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:07:10][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5816 ms
+[19:07:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:07:12][INFO ][FrameworkServlet.java:546] - Completed initialization in 2499 ms
+[19:07:15][INFO ][HomeController.java:41] - Welcome main!
+[19:07:20][INFO ][HomeController.java:41] - Welcome main!
+[19:07:21][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[19:07:23][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[19:07:25][INFO ][GoodsController.java:74] - 상품 디테일 : 51
+[19:07:26][INFO ][OrdersController.java:50] - 결제 창으로 이동
+[19:07:29][INFO ][OrdersController.java:63] - 결제
+[19:07:29][INFO ][OrdersController.java:64] - 결제 정보 확인 : Orders [ordernum=0, orderdate=null, orderprice=12900, orderstatus=null, userid=user1, dlvynum=21, requestnum=100, orderquantity=1, goodsnum=51, goodsprice=12900]
+[19:08:33][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[19:09:04][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[19:09:05][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:09:07][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[19:09:18][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[19:09:18][INFO ][GoodsController.java:409] - 리뷰 작성 완료 : 1
+[19:09:18][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:19:12][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:19:18][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6069 ms
+[19:19:18][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:19:21][INFO ][FrameworkServlet.java:546] - Completed initialization in 2747 ms
+[19:19:21][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:19:29][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:21:24][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:21:31][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6649 ms
+[19:21:31][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:21:34][INFO ][FrameworkServlet.java:546] - Completed initialization in 3063 ms
+[19:21:37][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:21:43][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:21:46][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:21:49][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:21:52][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:29:57][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:31:56][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:32:02][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5201 ms
+[19:32:02][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:32:04][INFO ][FrameworkServlet.java:546] - Completed initialization in 2684 ms
+[19:32:05][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:32:06][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[19:32:07][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:32:12][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[19:32:21][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[19:32:21][ERROR][Slf4jSpyLogDelegator.java:120] - 18. PreparedStatement.execute() insert into GOODSINQUIRY values(
+22,
+'asdfasdf',
+1,
+'sdfas',
+'N',
+sysdate,
+default,
+'',
+59
+)
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSINQUIRY"."USERID")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:32:21][ERROR][Slf4jSpyLogDelegator.java:139] - 18. PreparedStatement.execute() FAILED! insert into GOODSINQUIRY values(
+22,
+'asdfasdf',
+1,
+'sdfas',
+'N',
+sysdate,
+default,
+'',
+59
+) {FAILED after 7 msec}
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSINQUIRY"."USERID")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[19:32:29][INFO ][HomeController.java:41] - Welcome main!
+[19:32:32][INFO ][HomeController.java:41] - Welcome main!
+[19:32:33][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[19:32:35][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[19:32:38][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 52
+[19:32:48][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[19:32:48][INFO ][GoodsController.java:409] - 리뷰 작성 완료 : 1
+[19:32:48][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[19:33:22][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[19:35:09][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:35:15][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5835 ms
+[19:35:15][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:35:18][INFO ][FrameworkServlet.java:546] - Completed initialization in 2602 ms
+[19:35:30][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[19:36:19][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:36:25][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5648 ms
+[19:36:25][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:36:27][INFO ][FrameworkServlet.java:546] - Completed initialization in 2594 ms
+[19:36:34][INFO ][GoodsController.java:74] - 상품 디테일 : 52
+[19:39:30][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:39:36][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5735 ms
+[19:39:36][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:39:39][INFO ][FrameworkServlet.java:546] - Completed initialization in 2681 ms
+[19:39:53][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[19:39:57][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:40:15][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[19:40:36][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[19:40:41][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5101 ms
+[19:40:41][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[19:40:43][INFO ][FrameworkServlet.java:546] - Completed initialization in 2388 ms
+[19:53:56][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:11:26][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:11:29][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[21:11:32][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:13:09][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required int parameter 'inquirynum' is not present]
+[21:19:37][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:19:43][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6253 ms
+[21:19:43][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:19:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 2753 ms
+[21:19:56][INFO ][HomeController.java:41] - Welcome main!
+[21:19:59][INFO ][HomeController.java:41] - Welcome main!
+[21:20:01][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[21:20:03][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:20:05][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:20:12][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:20:17][INFO ][HomeController.java:41] - Welcome main!
+[21:20:18][INFO ][HomeController.java:41] - Welcome main!
+[21:20:33][INFO ][HomeController.java:41] - Welcome main!
+[21:20:38][INFO ][HomeController.java:41] - Welcome main!
+[21:20:40][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[21:20:42][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:20:44][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:21:59][INFO ][GoodsController.java:465] - 문의 삭제 : 21
+[21:23:29][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:23:34][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5233 ms
+[21:23:34][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:23:37][INFO ][FrameworkServlet.java:546] - Completed initialization in 2403 ms
+[21:24:21][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:24:27][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5934 ms
+[21:24:27][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:24:30][INFO ][FrameworkServlet.java:546] - Completed initialization in 2796 ms
+[21:24:39][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: ""]
+[21:24:51][INFO ][HomeController.java:41] - Welcome main!
+[21:24:54][INFO ][HomeController.java:41] - Welcome main!
+[21:24:55][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[21:24:57][INFO ][GoodsController.java:74] - 상품 디테일 : 41
+[21:24:58][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:25:00][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:25:05][INFO ][GoodsController.java:465] - 문의 삭제 : 2
+[21:25:38][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:25:43][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5574 ms
+[21:25:43][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:25:46][INFO ][FrameworkServlet.java:546] - Completed initialization in 2676 ms
+[21:25:46][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:25:54][INFO ][GoodsController.java:465] - 문의 삭제 : 1
+[21:26:02][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:27:48][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:27:53][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5218 ms
+[21:27:53][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:27:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2280 ms
+[21:27:59][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:28:03][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:28:09][INFO ][HomeController.java:41] - Welcome main!
+[21:28:11][INFO ][HomeController.java:41] - Welcome main!
+[21:28:13][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[21:28:14][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:28:15][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:28:18][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[21:28:19][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:28:22][INFO ][GoodsController.java:465] - 문의 삭제 : 100
+[21:28:31][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:28:33][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:29:05][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:29:10][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5448 ms
+[21:29:10][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:29:13][INFO ][FrameworkServlet.java:546] - Completed initialization in 2936 ms
+[21:29:26][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:29:30][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[21:29:34][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[21:29:35][ERROR][Slf4jSpyLogDelegator.java:120] - 9. PreparedStatement.execute() insert into GOODSINQUIRY values(
+24,
+'asd',
+1,
+'asd',
+'N',
+sysdate,
+default,
+'',
+59
+)
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSINQUIRY"."USERID")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[21:29:35][ERROR][Slf4jSpyLogDelegator.java:139] - 9. PreparedStatement.execute() FAILED! insert into GOODSINQUIRY values(
+24,
+'asd',
+1,
+'asd',
+'N',
+sysdate,
+default,
+'',
+59
+) {FAILED after 5 msec}
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSINQUIRY"."USERID")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[21:29:39][INFO ][HomeController.java:41] - Welcome main!
+[21:29:41][INFO ][HomeController.java:41] - Welcome main!
+[21:29:43][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[21:29:44][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[21:29:45][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:29:48][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[21:29:52][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[21:29:52][INFO ][GoodsController.java:409] - 리뷰 작성 완료 : 1
+[21:29:52][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:29:57][INFO ][GoodsController.java:465] - 문의 삭제 : 25
+[21:29:57][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[21:34:48][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[21:34:53][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 5268 ms
+[21:34:54][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[21:34:56][INFO ][FrameworkServlet.java:546] - Completed initialization in 2283 ms
+[22:15:14][ERROR][Slf4jSpyLogDelegator.java:114] - 1. PreparedStatement.setNull(5, 1111)
+java.sql.SQLException: 부적합한 열 유형: 1111
+	at oracle.jdbc.driver.OracleStatement.getInternalType(OracleStatement.java:3963)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNullCritical(OraclePreparedStatement.java:4596)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNull(OraclePreparedStatement.java:4578)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.setNull(OraclePreparedStatementWrapper.java:1285)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at net.sf.log4jdbc.PreparedStatementSpy.setNull(PreparedStatementSpy.java:251)
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:61)
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:94)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[22:15:14][ERROR][Slf4jSpyLogDelegator.java:116] - 1. PreparedStatement.setNull(5, 1111)
+java.sql.SQLException: 부적합한 열 유형: 1111
+	at oracle.jdbc.driver.OracleStatement.getInternalType(OracleStatement.java:3963)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNullCritical(OraclePreparedStatement.java:4596)
+	at oracle.jdbc.driver.OraclePreparedStatement.setNull(OraclePreparedStatement.java:4578)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.setNull(OraclePreparedStatementWrapper.java:1285)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setNull(DelegatingPreparedStatement.java:108)
+	at net.sf.log4jdbc.PreparedStatementSpy.setNull(PreparedStatementSpy.java:251)
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:61)
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:94)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:87)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsInquiry(GoodsDao.java:105)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsInquiry(GoodsServiceImpl.java:136)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsinquiryInsert(GoodsController.java:408)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[22:15:29][INFO ][HomeController.java:41] - Welcome main!
+[22:15:34][INFO ][HomeController.java:41] - Welcome main!
+[22:15:35][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[22:15:37][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[22:15:38][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:15:43][INFO ][GoodsController.java:480] - 문의 삭제 : 100
+[22:15:44][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:38:59][INFO ][HomeController.java:41] - Welcome main!
+[22:39:02][INFO ][HomeController.java:41] - Welcome main!
+[22:39:03][INFO ][HomeController.java:41] - Welcome main!
+[22:39:06][INFO ][HomeController.java:41] - Welcome main!
+[22:41:42][INFO ][HomeController.java:41] - Welcome main!
+[22:41:45][INFO ][HomeController.java:41] - Welcome main!
+[22:41:47][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[22:41:48][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[22:41:49][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:42:44][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:42:54][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:42:54][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:42:57][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:43:08][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:43:11][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:43:26][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:43:27][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:43:28][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:43:29][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:43:30][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:44:35][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:44:38][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:45:14][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:45:15][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:45:41][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:45:52][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:45:53][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:46:06][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:46:15][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:47:10][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:47:12][ERROR][Slf4jSpyLogDelegator.java:120] - 98. PreparedStatement.execute() insert into GoodsReview values(
+0,
+sysdate,
+'',
+0,
+'user1',
+59,
+'',
+'null'
+)
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSREVIEW"."REVIEWTITLE")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsReview(GoodsDao.java:109)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsReview(GoodsServiceImpl.java:130)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsReviewInsert(GoodsController.java:430)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[22:47:12][ERROR][Slf4jSpyLogDelegator.java:139] - 98. PreparedStatement.execute() FAILED! insert into GoodsReview values(
+0,
+sysdate,
+'',
+0,
+'user1',
+59,
+'',
+'null'
+) {FAILED after 8 msec}
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("INTEPARK"."GOODSREVIEW"."REVIEWTITLE")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:447)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:951)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:513)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:208)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1046)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1336)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3613)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1378)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at net.sf.log4jdbc.PreparedStatementSpy.execute(PreparedStatementSpy.java:418)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy16.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.c4.intepark.shop.goods.model.dao.GoodsDao.insertGoodsReview(GoodsDao.java:109)
+	at com.c4.intepark.shop.goods.model.service.GoodsServiceImpl.insertGoodsReview(GoodsServiceImpl.java:130)
+	at com.c4.intepark.shop.goods.controller.GoodsController.goodsReviewInsert(GoodsController.java:430)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:808)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+[22:47:29][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:48:01][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:48:27][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:48:28][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:48:35][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:48:37][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:48:38][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:48:39][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:49:26][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:49:40][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:50:01][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:50:08][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[22:50:10][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:50:12][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[22:50:13][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:55:35][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:56:14][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:56:28][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[22:56:29][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:57:02][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:57:16][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:58:01][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:58:03][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[22:58:35][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:04][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:06][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:13][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:20][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:28][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:31][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:00:32][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:01:03][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:06:14][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:06:22][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[23:06:27][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[23:06:27][INFO ][GoodsController.java:409] - 리뷰 작성 완료 : 1
+[23:06:27][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:06:31][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:09:49][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:09:51][INFO ][GoodsController.java:292] - 상품 문의창으로 이동 : 59
+[23:09:55][INFO ][GoodsController.java:368] - 파일 업로드 실행
+[23:09:55][INFO ][GoodsController.java:409] - 리뷰 작성 완료 : 1
+[23:09:55][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:10:44][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:11:07][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:11:25][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:13:59][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:14:06][INFO ][GoodsController.java:283] - 상품 리뷰창으로 이동 : 59
+[23:14:13][INFO ][GoodsController.java:324] - 파일 업로드 실행
+[23:14:13][INFO ][GoodsController.java:431] - 리뷰 작성 완료 : 1
+[23:14:13][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:14:22][INFO ][GoodsController.java:74] - 상품 디테일 : 59
+[23:15:30][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[23:15:33][INFO ][GoodsController.java:117] - 샵 카테고리 접속 
+[23:16:23][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:17:01][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:18:05][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:18:06][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:18:44][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:18:45][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:19:11][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:19:34][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:19:36][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:19:48][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:20:48][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:20:58][INFO ][OrdersController.java:177] - 장바구니 수정 : 22
+[23:20:59][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:21:38][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:21:39][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:21:41][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:21:47][INFO ][OrdersController.java:177] - 장바구니 수정 : 22
+[23:21:49][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:22:03][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:22:13][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:22:32][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:22:58][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:23:09][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:24:39][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:24:46][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:25:16][INFO ][OrdersController.java:122] - 장바구니 목록 조회 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:25:34][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:26:38][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:26:44][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:26:52][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:00][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:03][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:03][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:04][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:05][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:12][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:14][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:15][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:22][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:27:29][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:28:35][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:28:43][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:16][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:18][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:19][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:21][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:34][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:29:52][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:30:16][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:31:05][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:32:07][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:32:24][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:32:26][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:32:26][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:32:28][INFO ][OrdersController.java:440] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:48:38][INFO ][ContextLoader.java:270] - Root WebApplicationContext: initialization started
+[23:48:44][INFO ][ContextLoader.java:306] - Root WebApplicationContext initialized in 6506 ms
+[23:48:44][INFO ][FrameworkServlet.java:524] - Initializing Servlet 'appServlet'
+[23:48:47][INFO ][FrameworkServlet.java:546] - Completed initialization in 2745 ms
+[23:48:47][WARN ][AbstractHandlerExceptionResolver.java:197] - Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'loginUser' of type InteUser]
+[23:48:50][INFO ][HomeController.java:41] - Welcome main!
+[23:48:54][INFO ][HomeController.java:41] - Welcome main!
+[23:48:55][INFO ][GoodsController.java:58] - 쇼핑몰 메인 페이지 
+[23:48:58][INFO ][OrdersController.java:384] - 나의 쇼핑 정보 : InteUser [userid=user1, userpwd=null, enrolldate=2020-01-16, username=고객1, phone=010-1343-1441, email=a@a, address=null, memberstate=null, withdrawdate=null, withdrawcause=null]
+[23:49:01][INFO ][OrdersController.java:392] - 주문 상세보기 : 48

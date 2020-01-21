@@ -153,6 +153,26 @@ public class OrdersServiceImpl implements OrdersService{
 		return ordersDao.selectMyOrderAll(userId);
 	}
 
+	@Override
+	public AllOrders selectOrderDetail(int ordernum) {
+		return ordersDao.selectOrderDetail(ordernum);
+	}
+
+	@Override
+	public ArrayList<GoodsReview> selectmoveConsReviewList(String consid) {
+		return ordersDao.selectmoveConsReviewList(consid);
+	}
+
+	@Override
+	public ArrayList<Inquiry> selectmoveconsInquiryList(String consid) {
+		return ordersDao.selectmoveconsInquiryList(consid);
+	}
+
+	@Override
+	public ArrayList<AllOrders> selectmoveConsOrderList4(String consid) {
+		return ordersDao.selectmoveConsOrderList4(consid);
+	}
+
 	
 	
 	

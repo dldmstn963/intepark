@@ -37,7 +37,6 @@
                                 <h2>리뷰 조회</h2>
                             </div>
 
-                            <form action="goodsinquiryInsert4.do" method="post">
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                        <input type="text" class="form-control" id="company"  name="inquirytitle" value="${review.reviewtitle }"readonly>
@@ -55,13 +54,12 @@
                                 <input type="submit" class="btn amado-btn w-100" value="수정하기">
                                 <br>
                                 <br>
-                                <input type="submit" class="btn amado-btn w-100" value="삭제하기">
+                                 <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsReviewDelete4.do?reviewnum=${review.reviewnum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
                                </c:if>
                             </div>
                                 </div>
                                 <input type="hidden" name="userid" value=${param.userid }>
                                 <input type="hidden" name="goodsnum" value=${param.goodsnum }>
-                            </form>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">

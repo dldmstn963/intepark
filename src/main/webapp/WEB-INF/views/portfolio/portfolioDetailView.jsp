@@ -29,8 +29,36 @@ span.star-prototype > * {
 	
 }
 
-</style>
 
+.bigPictureWrapper {
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	top:0%;
+	width:100%;
+	height:100%;
+	background-color: gray; 
+	z-index: 100;
+	background:rgba(255,255,255,0.5);
+}
+.bigPicture {
+	position: relative;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.bigPicture img {
+	width:600px;
+}
+
+
+.pf_img{
+	border-radius: 5px;
+	margin-bottom:7px;
+}
+
+</style>
 <%@ include file="../common/jscsspath.jsp" %>
 <!-- ---------------------------------------------------------------------------------------------------------- -->
 </head>
@@ -39,9 +67,27 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
+
 	<div class="row">
+	
+	<div class="col-lg-9"></div><!-- 9 끝 -->
+	
+	<div class="col-lg-3" style="text-align:right;">
+	<div style="display:inline-block;">
+		<form action="conslist5.do" method="post" >
+			<button class="btn btn-success btn-sm" style="font:small-caption;">목록으로</button>&nbsp;&nbsp;
+		</form>	
+	</div>
+					
+	</div><!-- 3 끝 -->
+	
+	</div><!-- row 끝 -->
+	
+	
+	
+	<div class="row" style="min-height:600px;">
 		
-		<div class="col-lg-3" style="height:650px;">
+		<div class="col-lg-3">
 		
 		<div class="col-lg-12" style="margin-left:10px; margin-top:100px;"><!-- 프로필 이미지 -->
 		<c:if test="${empty cons.profilerenameimg}">
@@ -133,25 +179,45 @@ span.star-prototype > * {
       					</c:if>
       					
       					<c:if test="${empty cons.pfintroduction }">
-      					<div style="width:100%; padding-top:15px;"><br><br><h3 style="text-align:center;">작성된 소개글이 없습니다.</h3></div>
+      					<div style="width:100%; padding-top:15px;"><br><br><br>
+      					<h3 style="text-align:center;">작성된 소개글이 없습니다.</h3></div>
       					</c:if>
-		                <br><div style="width:100%; padding-top:15px;">${cons.pfintroduction }</div>
+		                <div style="width:100%; padding-top:20px;">${cons.pfintroduction }</div>
 
 		              </div>
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
 		              <div class="tab-pane fade" id="bb">
-		              <br>
-		                <div class="container">
-		              		<div class="row"> 
-		              			<div class="col-lg-12">safsdafsaf</div>
-		              			<div class="col-lg-12">safsdafsaf</div>
-		              			<div class="col-lg-12">safsdafsaf</div>
-		              		 		<hr>
-		              		 </div>
-		                	</div>
-		               
+		              
+		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
+		              	<form action="writePF_Form5.do" method="post" >
+      						<input type="hidden" value="${cons.consid}" name="consid">
+      						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">작성하기</button>
+      					</form>
+      					<br>
+      					</c:if>
+      					
+      					<br>
+      					<c:if test="${!empty pfOneList }">	
+		              		<div class="row">
+		              		
+		              		 	<c:forEach items="${pfOneList }" var="pfOneList">
+		              			<div class="col-lg-4">
+		              			<a href="#" onclick="clickimg('${pfOneList.consid}','${pfOneList.pfnum }');">
+		              			<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" class="pf_img" style="width:250px; height:200px;"></a>
+		              			<p style="margin-bottom:0px; text-align:center;">${pfOneList.pftitle }</p>
+		              			</div>
+		              			</c:forEach>
+		              			
+		              		</div><!-- row 끝 -->
+		              	</c:if>	
+		             
+		               <c:if test="${empty pfOneList }">
+	      						<div style="width:100%; padding-top:15px;"><br><br>
+	      						<h3 style="text-align:center;">작성된 포트폴리오가 없습니다.</h3>
+	      						</div>
+	      				</c:if>
 		                
 		                
 		              </div>
@@ -161,6 +227,7 @@ span.star-prototype > * {
 		              <div class="tab-pane fade" id="cc">
 		              	<br>
 		              			
+		              	<div class='bigPictureWrapper'><div class='bigPicture'></div>	</div>
 		              			
 		              	<c:forEach items="${review }" var="review">
 		              		<div style="width:100%;">
@@ -183,10 +250,11 @@ span.star-prototype > * {
 						      				<!-- </form> -->
 					      				</div>
 					      				<div style="display:inline-block;">
-					      					<!-- <form action="#" method="post" > -->
-					      					<input type="hidden" value="${cons.consid}" name="consid">
-					      					<button class="btn btn-success btn-sm" style="font:small-caption;">삭제하기</button>
-					      					<!-- </form> -->
+					      					<form action="deleteReview5.do" method="post" >
+					      					<input type="hidden" value="${review.rvnum}" name="rvnum">
+					      					<input type="hidden" value="${review.consid}" name="consid">
+					      					<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="return checkDelete();">삭제하기</button>
+					      					</form>
 					      				</div>
 					      			</c:if>
 								</div><!-- 4 끝 -->
@@ -212,11 +280,23 @@ span.star-prototype > * {
 		              		<div class="col-lg-12" style="margin-top:5px; padding-right:50px;">
 		              		 	<pre style="white-space: pre-wrap; font-family:sans-serif;">${review.rvcritique }</pre>
 		              		 </div>
+		              		 
+		              		<div class="col-lg-12" style="margin-top:5px; padding-right:50px;"> 
+		              		
+		              			
+		              		<c:forEach items="${ rvFile }" var="rvFile">
+	      						<c:if test="${review.rvnum eq rvFile.rvnum}">
+	      								<img src=" ${pageContext.request.contextPath }/resources/review_file/${rvFile.rvrename}" style="width: 100px; height: 100px;">
+	      						</c:if>
+	      					</c:forEach>
+	      					
+		              		</div><!-- 12 이미지 구역 끝 -->
+		              		
 		              		 		
 		              		 <hr size="3">
 		              		</div>
 		              	</c:forEach>
-		              	
+
 			              	<c:if test="${rv.count == 0 }">
 	      						<div style="width:100%; padding-top:15px;"><br><br>
 	      						<h3 style="text-align:center;">아직 리뷰가 없습니다.  첫 번째 리뷰를 작성해 주세요!</h3>
@@ -236,9 +316,57 @@ span.star-prototype > * {
 		
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
+<script type="text/javascript">
+function clickimg(consid, pfnum){
+	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
+	return false;
+}
+
+
+
+
+
+$(document).ready(function (e){
+	
+	$(document).on("click","img",function(){
+		var path = $(this).attr('src')
+		showImage(path);
+		return false;
+	});//end click event
+	
+	function showImage(fileCallPath){
+	    
+	    $(".bigPictureWrapper").css("display","flex").show();
+	    
+	    $(".bigPicture")
+	    .html("<img src='"+fileCallPath+"' >")
+	    .animate({width:'100%', height: '100%'}, 1000);
+	    
+	  }//end fileCallPath
+	  
+	$(".bigPictureWrapper").on("click", function(e){
+	    $(".bigPicture").animate({width:'0%', height: '0%'}, 1000);
+	    setTimeout(function(){
+	      $('.bigPictureWrapper').hide();
+	    }, 0);
+	    return false;
+	  });//end bigWrapperClick event
+});
+
+
+</script>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 <script type="text/javascript">
+//리뷰삭제시 알러트 메세지
+function checkDelete(){
+	if(confirm(" 정말로 리뷰를 삭제하시겠습니까?")){
+		return true;
+		}else{
+		return false;	
+		}
+}
+
 
 $.fn.generateStars = function() {
 	return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});

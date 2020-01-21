@@ -67,5 +67,13 @@ public interface OrdersService {
 
 	ArrayList<Orders> selectMyOrderAll(String userId);
 
+	AllOrders selectOrderDetail(int ordernum);
+
+	ArrayList<GoodsReview> selectmoveConsReviewList(String consid);
+
+	ArrayList<Inquiry> selectmoveconsInquiryList(String consid);
+
+	ArrayList<AllOrders> selectmoveConsOrderList4(String consid);
+
 
 }

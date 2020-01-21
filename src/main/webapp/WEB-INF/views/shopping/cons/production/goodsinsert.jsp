@@ -94,7 +94,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
+        <%--               <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
                       	카테고리 <select name="categorynum">
                       			<option value="1">의자</option>
                       			<option value="2">침구</option>
@@ -122,13 +122,121 @@
                       	<input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
                       	<input type="submit" value="등록">
                       </form>
-                      <br>
+                      <br> --%>
 
                 
                 
                 
                   
-   
+                       <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">카테고리 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <select name="categorynum" class="form-control">
+                      			<option value="1">의자</option>
+                      			<option value="2">침구</option>
+                      			<option value="3">가구</option>
+                      			<option value="4">패브릭</option>
+                      			<option value="5">테이블</option>
+                      			<option value="6">조명</option>
+                      			<option value="7">DIY 셀프 시공</option>
+                      			</select>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">상품명 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                          <input type="text" id="email" name="goodsname" required="required" class="form-control">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">가격<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                          <input type="number" id="email2" name="price" required="required" class="form-control">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">재고 
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                          <input type="number" id="number" name="inventory" data-validate-minmax="10,100" class="form-control">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="website">무료배송 여부 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                        <select name="freedlvy" class="form-control">
+                      				<option value="N">N</option>
+                      				<option value="Y">Y</option>
+                      				</select>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">썸네일 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <input type="file" name="file">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password" class="col-form-label col-md-3 label-align">주석</label>
+                        <div class="col-md-6 col-sm-6">
+                          <input id="password" type="text" name="comments" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label for="password2" class="col-form-label col-md-3 col-sm-3 label-align ">최대 구매 수량</label>
+                        <div class="col-md-6 col-sm-6">
+                          <input id="password2" type="number" name="maximum" class="form-control" >
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea">상품설명 
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                          <textarea id="textarea" name="description" class="form-control"></textarea>
+                        </div>
+                      </div>
+                       <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">파일 상세 사진 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <input type="file" name="file1">
+                        </div>
+                      </div>
+                               <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">파일 상세 사진 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <input type="file" name="file2">
+                        </div>
+                      </div>
+                               <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">파일 상세 사진 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <input type="file" name="file3">
+                        </div>
+                      </div>
+                               <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">파일 상세 사진 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                         <input type="file" name="file4">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 offset-md-3">
+                          <button type="reset" class="btn btn-danger">초기화</button>
+                          <button id="submit" type="submit" class="btn btn-success">등록</button>
+                        </div>
+                      </div>
+                    </form>
     
                   
                   

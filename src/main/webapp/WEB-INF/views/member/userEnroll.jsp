@@ -137,10 +137,10 @@
 			return false;
 		$
 				.ajax({
-					url : "userIdchk6.do",
+					url : "idchk6.do",
 					type : "post",
 					data : {
-						userid : $("#userId").val()
+						logid : $("#userId").val()
 					},
 					success : function(data) {
 						if (data == "ok") {
@@ -170,10 +170,10 @@
 			return false;
 		$
 				.ajax({
-					url : "userEmailChk6.do",
+					url : "emailChk6.do",
 					type : "post",
 					data : {
-						useremail : $('#uemail').val()
+						logemail : $('#uemail').val()
 					},
 					success : function(data) {
 						if (data == "ok") {
@@ -339,7 +339,7 @@
 				<tr>
 					<th>이메일* :</th>
 					<td><input type="email" class="form-control has-feedback-left"
-						id="uemail" name="email" onkeyup="eCheck(this)" required></td>
+						id="uemail" name="useremail" onkeyup="eCheck(this)" required></td>
 					<td>&nbsp;&nbsp;<input type="button" class="btn btn-primary"
 						onclick="dcheckEmail()" value="이메일 중복체크"></td>
 				</tr>

@@ -32,13 +32,23 @@ ws.onopen = function(){
 
 /* 서버로부터 받은 메세지 보내주기 */
 ws.onmessage = function(message){
-	console.log("성공" + message.data + "님이 상담신청하셨습니다.");
-	console.log(message.data);
-	var msg = message.data.split("/");
-	cons = msg[0];
-	user = msg[1];
-	chatno = msg[2];	
-	test(user,cons,chatno);
+	var cut = message.data.split("/");
+	if(cut[0] == "check"){
+		for(var i=1; i < cut.length-1; i++){
+			var id = "#"+cut[i];
+			console.log(id);
+			$(id).bind("click", false);
+		}
+	}else{
+		console.log("성공" + message.data + "님이 상담신청하셨습니다.");
+		console.log(message.data);
+		var msg = message.data.split("/");
+		cons = msg[0];
+		user = msg[1];
+		chatno = msg[2];	
+		test(user,cons,chatno);
+	}
+	
 	};
 
 /* 서버 닫힐때 */
@@ -118,7 +128,7 @@ function refuse(data){
 				<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620" style="margin: 300">
 						<!--  Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="index.jsp"><img
+						<a class="navbar-brand logo_h" href="${pageContext.request.contextPath }/main.do"><img
 							src="/intepark/resources/img/logo.png" alt=""></a>
 						<button class="navbar-toggler" type="button"
 							data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -154,7 +164,7 @@ function refuse(data){
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container box_1620" style="margin: 300">
 							<!--  Brand and toggle get grouped for better mobile display -->
-							<a class="navbar-brand logo_h" href="index.jsp"><img
+							<a class="navbar-brand logo_h" href="${pageContext.request.contextPath }/main.do"><img
 								src="/intepark/resources/img/logo.png" alt=""></a>
 							<button class="navbar-toggler" type="button"
 								data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -167,7 +177,7 @@ function refuse(data){
 							<div class="collapse navbar-collapse offset"
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
-									<li class="nav-item"><a class="nav-link" href="index.jsp">3D디자인 리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/main.do">3D디자인 리스트</a></li>
 										      <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
@@ -223,7 +233,7 @@ function refuse(data){
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container box_1620" style="margin: 300">
 							<!--  Brand and toggle get grouped for better mobile display -->
-							<a class="navbar-brand logo_h" href="index.jsp"><img
+							<a class="navbar-brand logo_h" href="${pageContext.request.contextPath }/main.do"><img
 								src="/intepark/resources/img/logo.png" alt=""></a>
 							<button class="navbar-toggler" type="button"
 								data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -257,7 +267,7 @@ function refuse(data){
 				<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620" style="margin: 300">
 						<!--  Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="index.jsp"><img
+						<a class="navbar-brand logo_h" href="${pageContext.request.contextPath }/main.do"><img
 							src="/intepark/resources/img/logo.png" alt=""></a>
 						<button class="navbar-toggler" type="button"
 							data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -271,8 +281,8 @@ function refuse(data){
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
-								<li class="nav-item"><a class="nav-link" href="admin/userList6.do">고객 관리</a></li>
-								<li class="nav-item"><a class="nav-link" href="consList6.do">시공사 관리</a></li>
+								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/userList6.do">고객 관리</a></li>
+								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/consList6.do">시공사 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="nlist1.do">고객센터</a></li>
 			</c:if>
 			</ul>

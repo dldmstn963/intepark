@@ -16,6 +16,19 @@
 <%@ include file="../common/jscsspath.jsp" %>
 
 <script type="text/javascript">
+/* 수정 스크립트 */
+function callFunction(){
+	location.href="nupdatemoveview6.do?no=${notice.noticeno}&page=${currentPage}";
+}
+
+/* 삭제 스크립트 */
+ function deleteFunction(){
+		location.href="ndelete8.do?no=${notice.noticeno}";
+		
+	 }
+
+
+
 
 
 </script>
@@ -64,6 +77,17 @@
 		<c:param name="page" value="${ currentPage }" />
 	</c:url>
 	<a href="${ nl }">목록이동</a> &nbsp;
+	
+	<!-- 관리자 페이지 시에 추가 -->
+<c:if
+		test="${!empty sessionScope.loginUser and loginUser.userid eq 'admin' }">
+	<!-- 관리자 접속시 글쓰기 추가 -->
+		<div style="float:right; margin-right:150px;">
+		<button onclick="callFunction();" class="btn btn-primary">수정</button>
+		<button onclick="deleteFunction();" class="btn btn-primary">삭제</button>
+		</div>
+</c:if>
+	
 	
 </th>
 

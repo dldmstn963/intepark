@@ -9,28 +9,32 @@ public class LoginMemberState implements java.io.Serializable{
 	private String memberstate;
 	private java.sql.Date withdrawdate;
 	private String withdrawcause;
+	private int stopno;
 	private String stoptarget;
 	private String stopcause;
 	private java.sql.Date stopstartdate;
 	private java.sql.Date stopfinishdate;
+	private String stopremove;
 	private String stopterm;
 	private String sdate;
 	private String dmy;
 	
 	public LoginMemberState() {}
 
-	public LoginMemberState(String logid, String memberstate, Date withdrawdate, String withdrawcause,
-			String stoptarget, String stopcause, Date stopstartdate, Date stopfinishdate, String stopterm, String sdate,
-			String dmy) {
+	public LoginMemberState(String logid, String memberstate, Date withdrawdate, String withdrawcause, int stopno,
+			String stoptarget, String stopcause, Date stopstartdate, Date stopfinishdate, String stopremove,
+			String stopterm, String sdate, String dmy) {
 		super();
 		this.logid = logid;
 		this.memberstate = memberstate;
 		this.withdrawdate = withdrawdate;
 		this.withdrawcause = withdrawcause;
+		this.stopno = stopno;
 		this.stoptarget = stoptarget;
 		this.stopcause = stopcause;
 		this.stopstartdate = stopstartdate;
 		this.stopfinishdate = stopfinishdate;
+		this.stopremove = stopremove;
 		this.stopterm = stopterm;
 		this.sdate = sdate;
 		this.dmy = dmy;
@@ -68,6 +72,14 @@ public class LoginMemberState implements java.io.Serializable{
 		this.withdrawcause = withdrawcause;
 	}
 
+	public int getStopno() {
+		return stopno;
+	}
+
+	public void setStopno(int stopno) {
+		this.stopno = stopno;
+	}
+
 	public String getStoptarget() {
 		return stoptarget;
 	}
@@ -100,6 +112,14 @@ public class LoginMemberState implements java.io.Serializable{
 		this.stopfinishdate = stopfinishdate;
 	}
 
+	public String getStopremove() {
+		return stopremove;
+	}
+
+	public void setStopremove(String stopremove) {
+		this.stopremove = stopremove;
+	}
+
 	public String getStopterm() {
 		return stopterm;
 	}
@@ -127,11 +147,14 @@ public class LoginMemberState implements java.io.Serializable{
 	@Override
 	public String toString() {
 		return "LoginMemberState [logid=" + logid + ", memberstate=" + memberstate + ", withdrawdate=" + withdrawdate
-				+ ", withdrawcause=" + withdrawcause + ", stoptarget=" + stoptarget + ", stopcause=" + stopcause
-				+ ", stopstartdate=" + stopstartdate + ", stopfinishdate=" + stopfinishdate + ", stopterm=" + stopterm
-				+ ", sdate=" + sdate + ", dmy=" + dmy + "]";
+				+ ", withdrawcause=" + withdrawcause + ", stopno=" + stopno + ", stoptarget=" + stoptarget
+				+ ", stopcause=" + stopcause + ", stopstartdate=" + stopstartdate + ", stopfinishdate=" + stopfinishdate
+				+ ", stopremove=" + stopremove + ", stopterm=" + stopterm + ", sdate=" + sdate + ", dmy=" + dmy + "]";
 	}
 	
+	
+
+
 	
 
 }

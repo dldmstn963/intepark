@@ -88,10 +88,10 @@
 			return false;
 		$
 				.ajax({
-					url : "userEmailChk6.do",
+					url : "emailChk6.do",
 					type : "post",
 					data : {
-						useremail : $('#uemail').val()
+						logemail : $('#uemail').val()
 					},
 					success : function(data) {
 						if (data == "ok") {
@@ -345,7 +345,7 @@ function usingPwdCheck(oripwd,tdpwdc){
 									</tr>
 									<tr>
 										<th>이메일</th>
-										<td>${requestScope.inteUser.email}</td>
+										<td>${requestScope.inteUser.useremail}</td>
 									</tr>
 									<tr>
 										<th>주소</th>
@@ -390,9 +390,9 @@ function usingPwdCheck(oripwd,tdpwdc){
 									<tr style="height: 50px;">
 										<th>이메일* :</th>
 										<td><input type="email"
-											value="${requestScope.inteUser.email}"
+											value="${requestScope.inteUser.useremail}"
 											class="form-control has-feedback-left" id="uemail"
-											name="email" onkeyup="eCheck(this)" required></td>
+											name="useremail" onkeyup="eCheck(this)" required></td>
 										<td>&nbsp;&nbsp;<input type="button"
 											class="btn btn-primary" onclick="dcheckEmail()"
 											value="이메일 중복체크"></td>

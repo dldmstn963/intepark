@@ -48,6 +48,31 @@
 				)
 	</insert>
 	
+	<!-- 게시글 수정하기 -->
+	<update id="updateNotice" parameterType="Notice">
+		update notice set noticetitle = #{noticetitle},
+						 noticecontent = #{noticecontent},
+						 noticeoriginalfilename= #{noticeoriginalfilename, jdbcType=VARCHAR}
+						 where noticeno = ${noticeno}
+		
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	<!-- 게시글 삭제하기 -->
+	<delete id="deleteNotice" parameterType="_int">
+		delete from notice where noticeno = #{value}
+	</delete>
+	
+	
+	
+	
+	
+	
 	
 <!-- 	<select id="getlistCount" resultType="_int">
 		select noticecount(*) from notice

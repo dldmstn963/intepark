@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.portfolio.model.vo.Portfolio;
+import com.c4.intepark.request.model.vo.Request;
 import com.c4.intepark.review.model.vo.Review;
 import com.c4.intepark.review.model.vo.ReviewFile;
 
@@ -35,6 +36,16 @@ public class ReviewDao {
 	public int insertRvfile(ReviewFile rvfile) {
 		return mybatisSession.insert("reviewMapper.insertRvfile", rvfile);
 	}
+	
+	public int deleteReview(int rvnum) {
+		return mybatisSession.delete("reviewMapper.deleteReview", rvnum);
+	}
+	
+	public ArrayList<ReviewFile> selectRvRename(int rvnum) {
+		List<ReviewFile> rvRename = mybatisSession.selectList("reviewMapper.selectRvRename", rvnum);
+		return (ArrayList<ReviewFile>) rvRename;
+	}
+	
 	
 	
 	
@@ -68,9 +79,9 @@ public class ReviewDao {
 		return mybatisSession.update("reviewMapper.updateReview", portfolio);
 	}
 
-	public int deleteReview(int rvnum) {
-		return mybatisSession.delete("reviewMapper.deleteReview", rvnum);
-	}
+	
+
+	
 
 	
 

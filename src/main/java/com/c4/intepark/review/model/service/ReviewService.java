@@ -13,6 +13,15 @@ public interface ReviewService {
 	int insertReview(Review rv);
 	int selectrvnum(String userid);
 	void insertRvfile(ReviewFile rvfile);
+	int deleteReview(int rvnum);
+	ArrayList<ReviewFile> selectRvRename(int rvnum);
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -22,7 +31,8 @@ public interface ReviewService {
 	ArrayList<Review> selectrvList();
 	Review selectrvOne(int rvnum);
 	int updateReview(Portfolio portfolio);
-	int deleteReview(int rvnum);
+	
+	
 	
 	
 	

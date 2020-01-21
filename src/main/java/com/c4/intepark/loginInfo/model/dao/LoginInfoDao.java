@@ -31,4 +31,37 @@ public class LoginInfoDao {
 		return sqlSession.selectOne("loginInfoMapper.selectMemberState", logid);
 	}
 
+	public int updateMemberStop() {
+		return sqlSession.update("loginInfoMapper.updateMemberStop");		
+	}
+
+	public int deleteMember() {
+		return sqlSession.delete("loginInfoMapper.deleteMember");
+	}
+
+	public int selectIdCheck(String logid) {
+		return sqlSession.selectOne("loginInfoMapper.selectIdCheck", logid);
+	}
+
+	public int selectEmailCheck(String logemail) {
+		return sqlSession.selectOne("loginInfoMapper.selectEmailCheck", logemail);
+	}
+
+	public String selectFindUserId(InteUser inteuser) {
+		return sqlSession.selectOne("loginInfoMapper.selectFindUserId", inteuser);
+	}
+
+	public int selectFindUserPwd(LoginInfo loginfo) {
+		return sqlSession.selectOne("loginInfoMapper.selectFindUserPwd", loginfo);
+	}
+
+	public int updateNewLogPwd(LoginInfo loginfo) {
+		return sqlSession.update("loginInfoMapper.updateNewLogPwd",loginfo);		
+	}
+
+	public String selectFindConsId(Constructors cons) {
+		return sqlSession.selectOne("loginInfoMapper.selectFindConsId", cons);
+	}
+	
+
 }

@@ -66,7 +66,7 @@ public class RequestController {
 		
 		int result = requestService.insertRequest(req); 
 		
-		return "redirect:conslist5.do";
+		return "forward:pfOne5.do";
 	}
 	
 	@RequestMapping(value="selectRequestList5.do", method=RequestMethod.POST)
@@ -93,7 +93,23 @@ public class RequestController {
 		}
 	}
 	
-	
+	@RequestMapping(value="selectMyReqList5.do", method=RequestMethod.POST)
+	public String selectMyReqList(@RequestParam(value="userid", required=false) String userid, Model model) {
+		
+		logger.info(userid);
+		logger.info("-----------------");
+		
+		ArrayList<Request> reqlist = requestService.selectMyReqList(userid);
+		
+		if(reqlist != null) {
+			model.addAttribute("reqlist", reqlist);
+			return "request/RequestMyReqListView";
+		}else {
+			model.addAttribute("message", "내 상담신청 내역 조회 실패!");
+			return("common/error");
+		}
+		
+	}
 	
 	
 	
