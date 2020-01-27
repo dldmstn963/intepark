@@ -249,5 +249,41 @@ public class GoodsServiceImpl implements GoodsService{
 	public Inquiry selectGoodsInquiryAnswer(int inquirynum) {
 		return goodsDao.selectGoodsInquiryAnswer(inquirynum);
 	}
+
+
+	@Override
+	public int updateGoodsInquiryAnswer4(Inquiry in) {
+		return goodsDao.updateGoodsInquiryAnswer4(in);
+	}
+
+
+	@Override
+	public int selectcountInquiry(String consid) {
+		return goodsDao.selectcountInquiry(consid);
+	}
+
+
+	@Override
+	public int selectcountOrders(String consid) {
+		return goodsDao.selectcountOrders(consid);
+	}
+
+
+	@Override
+	public int selectcountallOrders(String consid) {
+		return goodsDao.selectcountallOrders(consid);
+	}
+
+
+	@Override
+	public int selectcountallOrdersPrice(String consid) {
+		return goodsDao.selectcountallOrdersPrice(consid);
+	}
+
+
+	@Override
+	public ArrayList<Inquiry> selectNoanswerInquiryList(String consid) {
+		return goodsDao.selectNoanswerInquiryList(consid);
+	}
 	
 }

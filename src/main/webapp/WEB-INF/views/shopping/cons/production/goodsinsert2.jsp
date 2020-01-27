@@ -67,7 +67,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>상품 등록</h3>
+                <h3>상품 수정</h3>
               </div>
             </div>
 
@@ -77,7 +77,7 @@
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>상품 등록</h2>
+                    <h2>상품 수정</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -94,19 +94,47 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                       <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
+                       <form action="goodsupdate4.do" method="post" enctype="multipart/form-data">
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">카테고리 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
                          <select name="categorynum" class="form-control">
-                      			<option value="1">의자</option>
-                      			<option value="2">침구</option>
-                      			<option value="3">가구</option>
-                      			<option value="4">패브릭</option>
-                      			<option value="5">테이블</option>
-                      			<option value="6">조명</option>
-                      			<option value="7">DIY 셀프 시공</option>
+                      			<option value="1" 
+                      			<c:if test="${goods.categorynum == 1 }">
+                      			selected
+                      			</c:if>
+                      				>의자</option>
+                      			<option value="2"
+                      			<c:if test="${goods.categorynum == 2 }">
+                      			selected
+                      			</c:if>
+                      			>침구</option>
+                      			<option value="3"
+                      			<c:if test="${goods.categorynum == 3 }">
+                      			selected
+                      			</c:if>
+                      			>가구</option>
+                      			<option value="4"
+                      			<c:if test="${goods.categorynum == 4 }">
+                      			selected
+                      			</c:if>
+                      			>패브릭</option>
+                      			<option value="5"
+                      			<c:if test="${goods.categorynum == 5 }">
+                      			selected
+                      			</c:if>
+                      			>테이블</option>
+                      			<option value="6"
+                      			<c:if test="${goods.categorynum == 6 }">
+                      			selected
+                      			</c:if>
+                      			>조명</option>
+                      			<option value="7"
+                      			<c:if test="${goods.categorynum == 7 }">
+                      			selected
+                      			</c:if>
+                      			>DIY 셀프 시공</option>
                       			</select>
                         </div>
                       </div>
@@ -114,21 +142,21 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">상품명 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <input type="text" id="email" name="goodsname" required="required" class="form-control">
+                          <input type="text" id="email" name="goodsname" required="required" class="form-control" value="${goods.goodsname }">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="email">가격<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <input type="number" id="email2" name="price" required="required" class="form-control">
+                          <input type="number" id="email2" name="price" required="required" class="form-control" value="${goods.price }">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">재고 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <input type="number" id="number" name="inventory" data-validate-minmax="10,100" class="form-control">
+                          <input type="number" id="number" name="inventory" data-validate-minmax="10,100" class="form-control" value="${goods.inventory }">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -136,8 +164,16 @@
                         </label>
                         <div class="col-md-6 col-sm-6">
                         <select name="freedlvy" class="form-control">
-                      				<option value="N">N</option>
-                      				<option value="Y">Y</option>
+                      				<option value="N"
+                      				<c:if test="${goods.freedlvy == 'N' }">
+                      				selected
+                      				</c:if>
+                      				>N</option>
+                      				<option value="Y" 
+                      				<c:if test="${goods.freedlvy == 'Y' }">
+                      				selected
+                      				</c:if>
+                      				>Y</option>
                       				</select>
                         </div>
                       </div>
@@ -151,23 +187,23 @@
                       <div class="item form-group">
                         <label for="password" class="col-form-label col-md-3 label-align">주석<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                          <input id="password" type="text" name="comments" class="form-control" >
+                          <input id="password" type="text" name="comments" class="form-control" value="${goods.comments }">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label for="password2" class="col-form-label col-md-3 col-sm-3 label-align ">최대 구매 수량<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                          <input id="password2" type="number" name="maximum" class="form-control" >
+                          <input id="password2" type="number" name="maximum" class="form-control" value="${goods.maximum }">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea">상품설명 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <textarea id="textarea" name="description" class="form-control"></textarea>
+                          <textarea id="textarea" name="description" class="form-control">${goods.description }</textarea>
                         </div>
                       </div>
-                       <div class="item form-group">
+<!--                        <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">파일 상세 사진 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
@@ -194,7 +230,7 @@
                         <div class="col-md-6 col-sm-6">
                          <input type="file" name="file4">
                         </div>
-                      </div>
+                      </div> -->
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 offset-md-3">
@@ -202,6 +238,9 @@
                           <button id="submit" type="submit" class="btn btn-success">등록</button>
                         </div>
                       </div>
+                      <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
+                      	<input type="hidden" name="goodsnum" value="${goods.goodsnum}">
+                      	<input type="hidden" name="thumbnail" value="${goods.thumbnail}">
                     </form>
     
                   

@@ -75,5 +75,11 @@ public interface OrdersService {
 
 	ArrayList<AllOrders> selectmoveConsOrderList4(String consid);
 
+	int updateOrderscheck2(String ordernum);
+	
+	int updateOrderscheck3(String ordernum);
+
+	int deleteReviewcheck4(String reviewnum);
+
 
 }

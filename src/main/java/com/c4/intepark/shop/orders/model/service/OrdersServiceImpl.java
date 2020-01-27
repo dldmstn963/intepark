@@ -173,6 +173,21 @@ public class OrdersServiceImpl implements OrdersService{
 		return ordersDao.selectmoveConsOrderList4(consid);
 	}
 
+	@Override
+	public int updateOrderscheck2(String ordernum) {
+		return ordersDao.updateOrderscheck2(ordernum);
+	}
+
+	@Override
+	public int updateOrderscheck3(String ordernum) {
+		return ordersDao.updateOrderscheck3(ordernum);
+	}
+
+	@Override
+	public int deleteReviewcheck4(String reviewnum) {
+		return ordersDao.deleteReviewcheck4(reviewnum);
+	}
+
 	
 	
 	

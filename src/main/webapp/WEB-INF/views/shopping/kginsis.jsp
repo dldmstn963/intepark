@@ -21,7 +21,7 @@
 	            merchant_uid : 'merchant_' + new Date().getTime(),
 	            name : '인테파크 결제',
 	            amount : 1000,
-	            buyer_email : '${user.email }',
+	            buyer_email : '${user.useremail }',
 	            buyer_name :'${user.username }',
 	            buyer_tel : '${user.phone }',
 	            buyer_addr : '${user.address }',

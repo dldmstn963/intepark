@@ -90,4 +90,17 @@ public interface GoodsService {
 	public int updateGoodsAnswer(int inquirynum);
 
 	public Inquiry selectGoodsInquiryAnswer(int inquirynum);
+
+	public int updateGoodsInquiryAnswer4(Inquiry in);
+
+	public int selectcountInquiry(String consid);
+
+	public int selectcountOrders(String consid);
+
+	public int selectcountallOrders(String consid);
+
+	public int selectcountallOrdersPrice(String consid);
+
+	public ArrayList<Inquiry> selectNoanswerInquiryList(String consid);
+
 }
