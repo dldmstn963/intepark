@@ -19,7 +19,7 @@
 		if (error2 != "" && error2 != null)
 			alert(error2);
 		if (error3 != "" && error3 != null)
-			alert(error3+'\n'+error4+'\n'+error5);
+			alert(error3+'\n'+error4+'\n'+error5+'\n'+'관리자에게 문의하세요 010-1234-5678');
 	};
 </script>
 </head>
@@ -44,6 +44,7 @@
 						<div class="tab-pane fade show active" id="aa">
 							<br>
 							<form name="f" action="/intepark/login" method="post">
+								<input type="hidden" name="memberCheck" value="USER">
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-user fa-fw"></i></span> <input class="form-control"
@@ -59,7 +60,7 @@
 									style="margin-top: 5px; margin-bottom: 5px; width: 100%;"
 									type="submit" value="로그인">
 							</form>
-							<a href="https://kauth.kakao.com/oauth/authorize?client_id=b85c92c001cadbd03510bbc4f0a84ff5&redirect_uri=http://localhost:8280/intepark/login6.do&response_type=code">
+							<a href="https://kauth.kakao.com/oauth/authorize?client_id=b85c92c001cadbd03510bbc4f0a84ff5&redirect_uri=http://localhost:8280/intepark/kakaoLogin.do&response_type=code">
 							<img src="/intepark/resources/img/kakaoLogin.png" height="40px" width="100%"/></a>
 							<div style="width: 100%;">
 							<span style="float:left;">
@@ -75,6 +76,7 @@
 						<div class="tab-pane fade" id="bb">
 							<br>
 							<form name="f" action="/intepark/login" method="post">
+							<input type="hidden" name="memberCheck" value="CONS">
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="fa fa-user fa-fw"></i></span> <input class="form-control"

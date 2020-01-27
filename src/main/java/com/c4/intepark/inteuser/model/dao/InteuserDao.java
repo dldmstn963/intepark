@@ -42,41 +42,23 @@ public class InteuserDao {
 	}
 
 	public int insertLoginId(LoginInfo loginInfo) {
-		return sqlSession.insert("loginInfoMapper.insertLoginId", loginInfo);
+		return sqlSession.insert("loginInfoMapper.insertLoginUserId", loginInfo);
 	}
 
 	public int updateUser(InteUser inteuser) {
 		return sqlSession.update("inteuserMapper.updateUser", inteuser);
 	}
 
-	public int selectUserPwdCheck(LoginInfo loginfo) {
-		return sqlSession.selectOne("inteuserMapper.selectUserPwdCheck", loginfo);
-	}
-
-	public int updateUserPwd(LoginInfo loginfo) {
-		return sqlSession.update("inteuserMapper.updateUserPwd", loginfo);
-	}
-
-	public int updateDeleteUser(LoginMemberState logms) {
-		return sqlSession.update("inteuserMapper.updateDeleteUser", logms);
-	}
-
 	public ArrayList<LoginMemberState> selectUserStopState(String userid) {
-		List<LoginMemberState> list = sqlSession.selectList("inteuserMapper.selectUserStopState", userid);
+		List<LoginMemberState> list = sqlSession.selectList("loginInfoMapper.selectStopState", userid);
 		return (ArrayList<LoginMemberState>)list;
 	}
 
-	public int insertUserLetStop(LoginMemberState userState) {
-		return sqlSession.insert("inteuserMapper.insertUserLetStop", userState);
+	public int selectIdCheck(String logid) {
+		return sqlSession.selectOne("loginInfoMapper.selectIdCheck", logid);
 	}
 
-	public int updateUserStopRemove(LoginMemberState userState) {
-		return sqlSession.update("inteuserMapper.updateUserStopRemove", userState);
+	public InteUser selectUserSession(String logid) {
+		return sqlSession.selectOne("inteuserMapper.selectUserSession", logid);
 	}
-
-	public int selectMaxStopNo(LoginMemberState userState) {
-		return sqlSession.selectOne("inteuserMapper.selectMaxStopNo", userState);
-	}
-	
-
 }

@@ -29,4 +29,16 @@ public interface LoginInfoService {
 
 	String selectFindConsId(Constructors cons);
 
+	int insertMemberLetStop(LoginMemberState memberState);
+
+	int selectMaxStopNo(LoginMemberState memberState);
+
+	int updateMemberStopRemove(LoginMemberState memberState);
+
+	int updateMemberPwd(LoginInfo loginfo);
+
+	int updateDeleteMember(LoginMemberState logms);
+
+	int selectMemberPwdCheck(LoginInfo loginfo);
+
 }

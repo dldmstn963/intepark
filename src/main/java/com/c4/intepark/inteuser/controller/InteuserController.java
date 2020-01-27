@@ -3,9 +3,12 @@ package com.c4.intepark.inteuser.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.c4.intepark.common.CommonPage;
+import com.c4.intepark.common.KakaoLogin;
 import com.c4.intepark.inteuser.model.service.InteuserService;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 import com.c4.intepark.loginInfo.model.vo.LoginInfo;
@@ -35,7 +39,7 @@ public class InteuserController {
 	public String userEnroll() {
 		return "member/userEnroll";
 	}
-
+	//회원가입
 	@PostMapping("insertUser6.do")
 	public String insertUser(InteUser inteuser, @RequestParam(value = "address1", required = false) String address1,
 			@RequestParam(value = "address2", required = false) String address2,
@@ -64,6 +68,44 @@ public class InteuserController {
 		view = "common.error";
 		return view;
 	}
+	
+	//카카오로 로그인
+	@RequestMapping(value = "/kakaoLogin.do", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
+	public String kakaoLogin(@RequestParam("code") String code,HttpServletRequest request,RedirectAttributes redirect) {
+		System.out.println(code);
+		KakaoLogin kl = new KakaoLogin();
+		String accessToken = kl.getAccessToken(code);
+		HashMap<String, Object> userInfo = kl.getUserInfo(accessToken);
+		String logid = userInfo.get("userid").toString();
+		String username = userInfo.get("nickname").toString();
+		String useremail = userInfo.get("email").toString();
+		
+
+		int idcheck = inteUserService.selectIdCheck(logid);
+		if(idcheck!=1) {//비회원 회원가입함.
+			LoginInfo loginInfo = new LoginInfo();
+			loginInfo.setLogid(logid);
+			String userpwd = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10); // -를 제거해 주었다.
+			loginInfo.setLogpwd(userpwd);
+			loginInfo.setAuthority("ROLE_USER");
+			loginInfo.setEmail(useremail);
+			
+			int result1 = inteUserService.insertLoginId(loginInfo);
+			if (result1 == 1) {//유저정보입력함
+				InteUser inteuser = new InteUser();
+				inteuser.setUserid(logid);
+				inteuser.setUseremail(useremail);
+				inteuser.setUsername(username);
+				
+				inteUserService.insertUser(inteuser);
+			}
+		}//회원가입후 바로 로그인으로 ..
+		HttpSession session = request.getSession(false);
+		InteUser loginUser = inteUserService.selectUserSession(logid);
+		session.setAttribute("loginUser", loginUser);
+		
+		return "main";
+	}
 
 	// 관리자 유저관리리스트.
 	@RequestMapping("admin/userList6.do")
@@ -72,7 +114,7 @@ public class InteuserController {
 		// 전체페이지 수찾기(검색포함)
 		int listCount = 0;
 		listCount = inteUserService.selectAllListCount(cpage);
-		cpage.pageUpdate(6, 10, listCount, currentPage);
+		cpage.pageUpdate(10, 10, listCount, currentPage);
 		ArrayList<InteUser> userList = inteUserService.selectAllList(cpage);
 		model.addAttribute("commonPage", cpage);
 		model.addAttribute("uesrAllList", userList);
@@ -89,26 +131,6 @@ public class InteuserController {
 		model.addAttribute("userStop", userStopState);
 		return "member/adminUserDetail";
 	}
-
-	// 유저 정지시키기
-	@RequestMapping("admin/userLetStop.do")
-	public String adUserLetStop(LoginMemberState userState,
-			@RequestParam(value = "etc", required = false) String scause) {
-		if (scause != null && scause != "")
-			userState.setStopcause(scause);
-		int result = inteUserService.insertUserLetStop(userState);
-		return "redirect:/admin/userDetailView.do?userid=" + userState.getLogid();
-	}
-
-	// 유저 정지해제
-	@RequestMapping("admin/userStopRemove.do")
-	public String adUserStopRemove(LoginMemberState userState){
-		int stopno = inteUserService.selectMaxStopNo(userState);
-		userState.setStopno(stopno);
-		int result = inteUserService.updateUserStopRemove(userState);
-		return "redirect:/admin/userDetailView.do?userid=" + userState.getLogid();
-	}
-
 	// 유저 마이페이지
 	@RequestMapping("userMypage.do")
 	public String userMypage(HttpServletRequest request, Model model) {
@@ -138,49 +160,6 @@ public class InteuserController {
 		}
 		redirect.addFlashAttribute("message", "회원정보 수정에 성공하였습니다.");
 		return "redirect:/userMypage.do";
-
-	}
-
-	// 유저 비밀번호 변경체크
-	@RequestMapping(value = "userUpPwdCheck.do", method = RequestMethod.POST)
-	public void userUpPwdCheck(LoginInfo loginfo, HttpServletResponse response) throws IOException {
-
-		int result = inteUserService.selectUserPwdCheck(loginfo);
-
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		if (result == 1)
-			out.append("ok");
-		else
-			out.append("no");
-		out.flush();
-		out.close();
-
-	}
-
-	// 유저 비밀번호 변경
-	@RequestMapping(value = "userUpdatePwd.do", method = RequestMethod.POST)
-	public String userUpdatePwd(LoginInfo loginfo, Model model, RedirectAttributes redirect) {
-
-		int result = inteUserService.updateUserPwd(loginfo);
-		redirect.addFlashAttribute("message", "비밀번호 변경에 성공하였습니다.");
-		if (result != 1) {
-			model.addAttribute("message", "비밀번호 변경에 실패하였습니다.");
-			return "common/error";
-		}
-		return "redirect:/userMypage.do";
-	}
-
-	// 유저 탈퇴
-	@RequestMapping(value = "userWithdraw.do", method = RequestMethod.POST)
-	public String deleteUser(LoginMemberState logms, Model model) {
-
-		int result = inteUserService.updateDeleteUser(logms);
-		if (result != 1) {
-			model.addAttribute("message", "탈퇴에 실패하였습니다.");
-			return "common/error";
-		}
-		return "redirect:/logout";
 
 	}
 }

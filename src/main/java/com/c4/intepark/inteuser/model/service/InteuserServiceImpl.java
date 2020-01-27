@@ -55,38 +55,17 @@ public class InteuserServiceImpl implements InteuserService{
 	}
 
 	@Override
-	public int selectUserPwdCheck(LoginInfo loginfo) {
-		return userDao.selectUserPwdCheck(loginfo);
-	}
-
-	@Override
-	public int updateUserPwd(LoginInfo loginfo) {
-		return userDao.updateUserPwd(loginfo);
-	}
-
-	@Override
-	public int updateDeleteUser(LoginMemberState logms) {
-		return userDao.updateDeleteUser(logms);
-	}
-
-	@Override
 	public ArrayList<LoginMemberState> selectUserStopState(String userid) {
 		return userDao.selectUserStopState(userid);
 	}
 
 	@Override
-	public int insertUserLetStop(LoginMemberState userState) {
-		return userDao.insertUserLetStop(userState);
+	public int selectIdCheck(String logid) {
+		return userDao.selectIdCheck(logid);
 	}
 
 	@Override
-	public int updateUserStopRemove(LoginMemberState userState) {
-		return userDao.updateUserStopRemove(userState);
+	public InteUser selectUserSession(String logid) {
+		return userDao.selectUserSession(logid);
 	}
-
-	@Override
-	public int selectMaxStopNo(LoginMemberState userState) {
-		return userDao.selectMaxStopNo(userState);
-	}
-
 }

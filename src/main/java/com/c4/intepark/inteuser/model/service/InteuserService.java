@@ -15,11 +15,7 @@ public interface InteuserService {
 	InteUser selectUserDetail(String userid);
 	int insertLoginId(LoginInfo loginInfo);
 	int updateUser(InteUser inteuser);
-	int selectUserPwdCheck(LoginInfo loginfo);
-	int updateUserPwd(LoginInfo loginfo);
-	int updateDeleteUser(LoginMemberState logms);
 	ArrayList<LoginMemberState> selectUserStopState(String userid);
-	int insertUserLetStop(LoginMemberState userState);
-	int updateUserStopRemove(LoginMemberState userState);
-	int selectMaxStopNo(LoginMemberState userState);
+	int selectIdCheck(String logid);
+	InteUser selectUserSession(String logid);
 }

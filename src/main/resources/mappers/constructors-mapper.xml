@@ -9,6 +9,79 @@
 		select * from constructors where consid = #{value}
 	</select>
 	
+	<insert id="insertCons" parameterType="Constructors">
+		insert into constructors values(#{consid},sysdate, #{consname},#{phone, javaType=String, jdbcType=VARCHAR},
+		#{consemail},#{address, javaType=String, jdbcType=VARCHAR},#{companyname},#{consarea},#{asdate},#{career},
+		#{consintroduction},#{profileoriginalimg},#{profilerenameimg},null)
+	</insert>
+	
+	<select id="selectConsDetail" parameterType="String" resultType="Constructors">
+    select consid, nvl(max(restpoint),0) as restpoint, enrolldate, consname, phone, consemail, address, companyname, consarea, asdate, career, consintroduction, profileoriginalimg, profilerenameimg, memberstate,withdrawdate,withdrawcause
+		from constructors 
+		join logininfo on(logid=consid)
+    left join setpoint using(consid)
+		where consid=#{value}
+    group by consid, enrolldate, consname, phone, consemail, address, companyname, consarea, asdate, career, consintroduction, profileoriginalimg, profilerenameimg, memberstate,withdrawdate,withdrawcause
+	</select>
+	
+	<select id="selectAllListCount" parameterType="CommonPage" resultType="_int">
+		select count(*) from constructors
+		join logininfo on(logid=consid) 
+		<trim prefix="WHERE" prefixOverrides="AND">
+		<if test="consid != null and consid !=''">
+		consid like '%'||#{consid}||'%'
+		</if>
+		<if test="companyname != null and companyname !=''">
+		and companyname like '%'||#{companyname}||'%'
+		</if>
+		<if test="consarea != null and consarea !=''">
+		and consarea like '%'||#{consarea}||'%'
+		</if>
+		<if test="address != null and address !=''">
+		and address like '%'||#{address}||'%'
+		</if>
+		<if test="memberstate != null and memberstate !=''">
+		and memberstate = #{memberstate}
+		</if>
+		</trim>
+	</select>
+	
+	<select id="selectAllList" parameterType="CommonPage" resultType="Constructors">
+				select *
+		from (select rownum rnum, consid, companyname, consarea, substr(address,1,instr(address,' ',1,2)-1) as address, career, memberstate
+			  from (select * from constructors
+			  		join logininfo on(logid=consid)
+			  		<trim prefix="WHERE" prefixOverrides="AND">
+					<if test="consid != null and consid !=''">
+					consid like '%'||#{consid}||'%'
+					</if>
+					<if test="companyname != null and companyname !=''">
+					and companyname like '%'||#{companyname}||'%'
+					</if>
+					<if test="consarea != null and consarea !=''">
+					and consarea like '%'||#{consarea}||'%'
+					</if>
+					<if test="address != null and address !=''">
+					and address like '%'||#{address}||'%'
+					</if>
+					<if test="memberstate != null and memberstate !=''">
+					and memberstate = #{memberstate}
+					</if>
+					</trim>
+                    order by enrolldate desc))
+                    <![CDATA[
+        where rnum >= #{startList} and rnum <= #{endList}
+					]]>
+	</select>
+	
+	<update id="updateCons" parameterType="Constructors">
+		update constructors set consname=#{consname}, phone=#{phone}, consemail=#{consemail}, address=#{address},
+		companyname=#{companyname},asdate=#{asdate},career=#{career},consarea=#{consarea},consintroduction=#{consintroduction},
+		profileoriginalimg=#{profileoriginalimg},profilerenameimg=#{profilerenameimg}
+		where consid=#{consid}
+	</update>
+	
+	
 </mapper>
 
 

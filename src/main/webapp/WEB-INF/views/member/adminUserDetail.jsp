@@ -121,9 +121,10 @@ function adUserList(){
 					</div>
 				</div>
 				<!-- body -->
-				<form action="${pageContext.request.contextPath }/admin/userLetStop.do" method="post">
+				<form action="${pageContext.request.contextPath }/admin/memberLetStop.do" method="post">
 				<div class="modal-body" style="height: 300px;">
 						<input type="hidden" name="logid" value="${requestScope.inteUser.userid}">
+						<input type="hidden" name="memberCheck" value="inteuser">
 						<table style="text-align: center; width: 100%;">
 							<tr>
 								<th><h4>
@@ -192,9 +193,10 @@ function adUserList(){
 					</div>
 				</div>
 				<!-- body -->
-				<form action="${pageContext.request.contextPath }/admin/userStopRemove.do" method="post">
+				<form action="${pageContext.request.contextPath }/admin/memberStopRemove.do" method="post">
 				<div class="modal-body" style="height: 300px;">
 						<input type="hidden" name="logid" value="${requestScope.inteUser.userid}">
+						<input type="hidden" name="memberCheck" value="inteuser">
 						<table style="text-align: center; width: 100%;">
 							<tr>
 								<th><h4>
