@@ -7,76 +7,72 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp"%>
-<!-- <script type="text/javascript">
-$(function(){
-$("#test2").on("click", function(){
-	$.ajax({
-		url: "auctionAttend2.do?auc=${auction.auctionno}",
-		type: "post",  //json 을 받을 때는 post 로 지정해야 함
-		/* data: {name: "신사임당", age: 45}, */
-		dataType: "json", //받는 값의 종류 지정
-		success: function(obj){
-			//json 배열을 받았을 때는 object -> string -> parsing : json
-			console.log(obj);
-			
-			//리턴된 객체를 문자열로 변환 처리
-			var objStr = JSON.stringify(obj);
-			//객체문자열을 json 으로 바꿈
-			var jsonObj = JSON.parse(objStr);
-			
-			//출력용 문자열 준비
-		var outValues = $("#d3").html(); 
-	
-			outValues += '<tr><th>부서번호</th><th>이름</th><th>부서</th></tr>';
-
-			//출력할 문자열 만들기
-			for(var i in jsonObj.list){
-				outValues += jsonObj.list[i].auctionno 
-						+ ", " + jsonObj.list[i].consid
-						+ ", " + decodeURIComponent(jsonObj.list[i].title.replace(/\+/gi, " "))
-						+ ", " + jsonObj.list[i].possibledate
-						+ ", " + jsonObj.list[i].price
-						+ ", " + jsonObj.list[i].ofile
-						+ ", " + jsonObj.list[i].rfile
-						+ ", " + decodeURIComponent(jsonObj.list[i].etc.replace(/\+/gi, " "))
-						+ ", " + decodeURIComponent(jsonObj.list[i].progress.replace(/\+/gi, " "))
-						+ "<br>";
-			}
-			$("#d3").html(outValues);
-		},
-		error: function(request, status, errorData){
-			console.log("error code : " + request.status
-					+ "\nMessage : " + request.responseText
-					+ "\nError : " + errorData);
-		}
-	});
-});
-});
-</script> -->
+<link rel="stylesheet" type="text/css" href="/intepark/resources/Semantic/semantic.min.css">
+<script src="/intepark/resources/Semantic/semantic.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/swiper.min.css">
+<link rel="stylesheet" href="/intepark/resources/lightbox/colorbox.css">
+<script src="/intepark/resources/lightbox/jquery.colorbox.js"></script>
 <script type="text/javascript">
 function erchk() {
 	$("#frm").submit();
 }
 </script>
-<script type="text/javascript">
-function popup(img){
-    var url = "img2.do?img=" + img;
-    var name = "popup test1";
-    var option = "width = 500, height = 500, top = 100, left = 400, location = no"
-window.open(url, name, option);
-}
-
-</script>
 <style type="text/css">
+.swiper-container {
+      width: 100%;
+      height: 100%;
+    
+    }
+     .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
 </style>
-
 
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
 <div class="container">
-         
-  <table class="table">
+     <div class="col-lg-4" style="width:500px; height:300px; position: absolute;">
+      <!-- Swiper -->
+	  <div class="swiper-container">
+	    <div class="swiper-wrapper">
+	     <%--  <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/img-1.jpg" class="img-circle" width="300px" height="200px"></div> --%>
+	     <c:if test="${rfile[0] eq 'null' }">
+	     <div class="swiper-slide"><img src="${pageContext.request.contextPath }/resources/img/woosoo/portfolio_Noimage.png" class="img-circle" width="300px" height="200px"></div>
+	     </c:if>
+	     <c:if test="${rfile[0] ne 'null' }">
+        <div class="swiper-slide"><a class="light" href="/intepark/resources/auctionUpFile/${rfile[0] }"><img src="/intepark/resources/auctionUpFile/${rfile[0] }" class="img-circle" width="400px" height="300px"></a></div>
+        <c:if test="${not empty rfile[1] }">
+        <div class="swiper-slide"><a class="light" href="/intepark/resources/auctionUpFile/${rfile[1] }"><img src="/intepark/resources/auctionUpFile/${rfile[1] }" class="img-circle"  width="400px" height="300px"></a></div>
+           	<c:if test="${not empty rfile[2] }">
+       <div class="swiper-slide"><a class="light" href="/intepark/resources/auctionUpFile/${rfile[2] }"><img src="/intepark/resources/auctionUpFile/${rfile[2] }" class="img-circle"  width="400px" height="300px"></a></div>
+        </c:if>
+        </c:if>
+        </c:if>
+	    </div>
+	    <!-- Add Pagination -->
+	    <div class="swiper-pagination"></div>
+	    <!-- Add Arrows -->
+	    <div class="swiper-button-next"></div>
+	    <div class="swiper-button-prev"></div>
+	  </div>
+      </div><!-- col-lg-4 끝 -->      
+  <table class="table" style="width:600px; margin-left:600px;">
     <tbody>
       <tr>
   <th style="width: 174px;">제목 : </th>
@@ -111,14 +107,14 @@ window.open(url, name, option);
        <th>주소 : </th>
         <td>${auction.address }</td>
       </tr>
-      <tr>
+  <%--     <tr>
        <th>첨부사진 : </th>
   	<c:if test="${rfile[0] ne 'null' }">
-        <td><a href="javascript:popup('${rfile[0]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[0] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
+        <td><img src="/intepark/resources/auctionUpFile/${rfile[0] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px" onclick="doImgPop('/intepark/resources/auctionUpFile/${rfile[0] }')"></td>
         <c:if test="${not empty rfile[1] }">
-        <td><a href="javascript:popup('${rfile[1]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[1] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
+        <td><img src="/intepark/resources/auctionUpFile/${rfile[1] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px" onclick="doImgPop('/intepark/resources/auctionUpFile/${rfile[1] }')"></td>
            	<c:if test="${not empty rfile[2] }">
-        <td><a href="javascript:popup('${rfile[2]}');" target = "_self"><img src="/intepark/resources/auctionUpFile/${rfile[2] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px"></a></td>
+        <td><img src="/intepark/resources/auctionUpFile/${rfile[2] }" class="img-thumbnail" alt="Cinque Terre" width="150px" height="150px" onclick="doImgPop('/intepark/resources/auctionUpFile/${rfile[2] }')"></td>
         </c:if>
         </c:if>
         </c:if>
@@ -126,7 +122,7 @@ window.open(url, name, option);
       
 
      
-      </tr>
+      </tr> --%>
       <tr>
        <th>기타 상세정보 : </th>
         <td>${auction.etc }</td>
@@ -139,9 +135,35 @@ window.open(url, name, option);
 <input type="hidden" name="auctionno" value="${auction.auctionno }">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">
 &nbsp; &nbsp;&nbsp; &nbsp;
+<c:if test="${not empty auction.userid}">
 <input type="button" value="경매참여/목록보기" onclick="erchk()" style="background-color: #ffc107;" class="btn">
+</c:if>
 </form>
 </div>
+<script src="${pageContext.request.contextPath }/resources/js/swiper.min.js"></script>
+<script type="text/javascript">
+<!-- Initialize Swiper -->
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$( '.light' ).colorbox();
+
+	});
+</script>
 	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

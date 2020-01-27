@@ -145,6 +145,14 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
 		    	con.style.display = 'none';
 		    }
 		}
+	function doDisplay3(pass){
+		 var con = document.getElementById(pass);
+		    if(con.style.display=='none'){
+		    	con.style.display = 'block';
+		    }else{
+		    	con.style.display = 'none';
+		    }
+		}
 
     function passCheck(password,passno){
   		var con = document.getElementById(passno).value;
@@ -163,6 +171,18 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      	 document.getElementById(passno).focus();
      	  return false;
      }
+   }
+    function passCheck1(password,passno){
+  		var con = document.getElementById(passno).value;
+  		console.log(passno);
+    	console.log(password);
+    	console.log(con);
+    	if(password != con){
+     	  alert("비밀번호가 틀렸습니다.");
+     	 document.getElementById(passno).focus();
+     	  return false;
+     }
+    	document.getElementById('frmm').submit();
    }
     function auctionDelete(auctionno){
     	 var yn = confirm("정말로 삭제하시겠습니까?");
@@ -313,7 +333,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
       <th style="width:300px">제목</th>
        <th style="width:300px">지역</th>
         <th style="width:100px">시공일자</th>
-         <th style="width:100px">현재현황</th>
+       <!--   <th style="width:100px">현재현황</th> -->
     </tr>
   </thead>
 <!--  <th colspan="6" style="text-align:center;"> -->
@@ -325,9 +345,14 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      <td><a href="javascript:doDisplay('menu${b.auctionno }');">${b.title}</a>
     <ul id="menu${b.auctionno }" style="display:none;">
     <li><a href="auctionDetailView2.do?nonauc=${b.auctionno }">상세보기</a></li>
-    <li><a href="#">수정</a></li>
+    <li><a href="javascript:doDisplay3('passss${b.auctionno }');">수정</a><br>
+    <div id="passss${b.auctionno }" style="display:none;">
+    <form action="auctionChange2.do" method="get" id="frmm">
+    비밀번호 : <input type="password" id="passsss${b.auctionno}"> &nbsp; <input type="button" style="position:absolute;" value="확인" class="content" onclick="passCheck1('${b.password}','passsss${b.auctionno}');">
+    <input type="hidden" value="${b.auctionno}" name="nonauc">
+    </form></div></li>
     <li><a href = "javascript:doDisplay2('pass${b.auctionno }');">삭제</a><br>
-    <div id="pass${b.auctionno }" style="display:none; position: absolute;" >
+    <div id="pass${b.auctionno }" style="display:none; position: absolute;">
     <form action="nonAuctionDelete2.do" method="post" id="frm">
     비밀번호 : <input type="password" id="passs${b.auctionno}"> &nbsp; <input type="button" value="확인" class="content" onclick="passCheck('${b.password}','passs${b.auctionno}');">
     <input type="hidden" value="${b.auctionno}" name="nonauc">
@@ -336,12 +361,12 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     </td> 
        <td>${b.address }</td>
         <td>${b.startday }</td>
-            <c:if test="${b.progress eq '대기' }">
+         <%--    <c:if test="${b.progress eq '대기' }">
          <td class="blinkEle" style="color:red; padding-left:25px;">${b.progress }</td>
          </c:if>
           <c:if test="${b.progress eq '진행' }">
          <td class="blinkEle" style="color:blue; padding-left:25px;">${b.progress }</td>
-         </c:if>
+         </c:if> --%>
     </tr>
     </c:forEach>
   </tbody>
