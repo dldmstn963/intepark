@@ -189,4 +189,29 @@ public class GoodsDao {
 		return mybatis.selectOne("goodsMapper.selectGoodsInquiryAnswer", inquirynum);
 	}
 
+	public int updateGoodsInquiryAnswer4(Inquiry in) {
+		return mybatis.update("goodsMapper.updateGoodsInquiryAnswer4",  in);
+	}
+
+	public int selectcountInquiry(String consid) {
+		return mybatis.selectOne("goodsMapper.selectcountInquiry", consid);
+	}
+
+	public int selectcountOrders(String consid) {
+		return mybatis.selectOne("goodsMapper.selectcountOrders", consid);
+	}
+
+	public int selectcountallOrders(String consid) {
+		return mybatis.selectOne("goodsMapper.selectcountallOrders", consid);
+	}
+
+	public int selectcountallOrdersPrice(String consid) {
+		return mybatis.selectOne("goodsMapper.selectcountallOrdersPrice", consid);
+	}
+
+	public ArrayList<Inquiry> selectNoanswerInquiryList(String consid) {
+		List list = mybatis.selectList("goodsMapper.selectNoanswerInquiryList", consid);;
+		return (ArrayList<Inquiry>) list;
+	}
+
 }

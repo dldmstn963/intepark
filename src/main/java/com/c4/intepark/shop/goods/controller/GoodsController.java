@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -49,7 +53,27 @@ public class GoodsController {
 	}
 
 	@RequestMapping("moveconsshop4.do")
-	public String cons() {
+	public String cons(@SessionAttribute("loginCons") Constructors cons, HttpServletRequest request) {
+		int countInquiry = goodsService.selectcountInquiry(cons.getConsid());
+		int countOrders = goodsService.selectcountOrders(cons.getConsid());
+		int countallOrders = goodsService.selectcountallOrders(cons.getConsid());
+		int countallOrdersPrice = goodsService.selectcountallOrdersPrice(cons.getConsid());
+		ArrayList<Inquiry> list = goodsService.selectNoanswerInquiryList(cons.getConsid());
+		/*
+		 * ArrayList<Integer> list2 = null; java.util.Date date= new Date(); Calendar
+		 * cal = Calendar.getInstance(); for (int i = 0; i < 5; i++) { int month =
+		 * cal.get(Calendar.MONTH); int year = cal.get(Calendar.YEAR); int day = 1;
+		 * cal.set(year,month-1,day);
+		 * 
+		 * int last = cal.getActualMaximum(Calendar.DAY_OF_MONTH); String year2 =
+		 * ((String.valueOf(year)).substring(2))+(cal.get(Calendar.MONTH)+1)+last;//
+		 * 200131 System.out.println("dddddddd       " + year2); }
+		 */
+		request.setAttribute("countInquiry", countInquiry);
+		request.setAttribute("countOrders", countOrders);
+		request.setAttribute("countallOrders", countallOrders);
+		request.setAttribute("countallOrdersPrice", countallOrdersPrice);
+		request.setAttribute("list", list);
 		return "shopping/cons/production/index";
 	}
 
@@ -135,7 +159,8 @@ public class GoodsController {
 	// 상품 등록
 	@RequestMapping(value = "goodsinsert4.do", method = RequestMethod.POST)
 	public void goodsinsert(Model model, Goods goods, @SessionAttribute("loginCons") Constructors cons,
-			MultipartHttpServletRequest request, HttpServletResponse response) throws IllegalStateException, IOException {
+			MultipartHttpServletRequest request, HttpServletResponse response)
+			throws IllegalStateException, IOException {
 		MultipartFile file = request.getFile("file");
 		String oriName = file.getOriginalFilename();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
@@ -148,7 +173,7 @@ public class GoodsController {
 			int result = goodsService.insertGoods(goods);
 			if (result <= 0) {
 				model.addAttribute("message", "상품 등록에 실패하였습니다.");
-				//return "common/error";
+				// return "common/error";
 			}
 			file.transferTo(new File(request.getSession().getServletContext().getRealPath("resources/img/goodthumspic")
 					+ "\\" + reName));
@@ -173,14 +198,15 @@ public class GoodsController {
 							+ reName1));
 			logger.info("상품 사진 등록 성공 : " + oriName1);
 		}
-		
-		  response.setContentType("text/html; charset=utf-8"); PrintWriter out =
-		  response.getWriter(); out.println("<script>");
-		  out.println("alert('상품 등록 성공!');");
-		 out.println("window.location = 'movegoodslist4.do';");
-		  out.println("</script>");
-		 
-		//return "shopping/cons/production/goodsinsert";
+
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('상품 등록 성공!');");
+		out.println("window.location = 'movegoodslist4.do';");
+		out.println("</script>");
+
+		// return "shopping/cons/production/goodsinsert";
 	}
 
 	@RequestMapping(value = "goodsinsert41.do", method = RequestMethod.POST)
@@ -235,7 +261,7 @@ public class GoodsController {
 		logger.info("상품 수정 페이지 이동: " + goodsnum);
 		Goods goods = goodsService.selectGoods(goodsnum);
 		request.setAttribute("goods", goods);
-		return "shopping/cons/production/goodsupdate";
+		return "shopping/cons/production/goodsinsert2";
 	}
 
 	// 상품 수정
@@ -521,24 +547,52 @@ public class GoodsController {
 		request.setAttribute("endPage", p.getEndPage());
 		return "shopping/cons/production/test";
 	}
-	
+
 	@RequestMapping("moveinquiryDetail4.do")
 	public String moveinquiryDetail(@RequestParam("inquirynum") int inquirynum, HttpServletRequest request) {
 		logger.info("상품 문의 상세 조회" + inquirynum);
 		Inquiry inquiry = goodsService.selectGoodsInquiryDetail(inquirynum);
 		ArrayList<Inquiry> list = goodsService.selectGoodsInquiryDetailPic(inquirynum);
 		Goods goods = goodsService.selectGoods(inquiry.getGoodsnum());
+		Inquiry answer = goodsService.selectGoodsInquiryAnswer(inquirynum);
+		request.setAttribute("answer", answer);
 		request.setAttribute("goods", goods);
 		request.setAttribute("inquiry", inquiry);
 		request.setAttribute("list", list);
 		return "shopping/cons/production/inquiryDetail";
 	}
-	
+
 	@RequestMapping(value = "goodsAnswerInsert4.do", method = RequestMethod.POST)
 	public String goodsReviewInsert(Inquiry inquiry, HttpServletRequest request) {
 		int result = goodsService.insertGoodsAnswer(inquiry);
 		int result1 = goodsService.updateGoodsAnswer(inquiry.getInquirynum());
 		logger.info("문의 답변 완료 : " + result);
 		return "redirect:moveconsInquiryList4.do";
+	}
+
+	@RequestMapping("moveReviewDetail4.do")
+	public String moveReviewDetail4(@RequestParam("reviewnum") int reviewnum, HttpServletRequest request) {
+		GoodsReview review = goodsService.selectGoodsReviewDetail(reviewnum);
+		ArrayList<GoodsReview> list = goodsService.selectGoodsReviewDetailPic(reviewnum);
+		request.setAttribute("review", review);
+		request.setAttribute("list", list);
+		return "shopping/cons/production/reviewDetail";
+	}
+
+	@RequestMapping(value = "updateGoodsInquiryAnswer4.do", method = RequestMethod.POST)
+	public void updateGoodsInquiryAnswer4(@RequestParam("inquirynum") int inquirynum, @RequestParam("cn") String cn,
+			HttpServletRequest request, HttpServletResponse response) throws IOException {
+		Inquiry in = new Inquiry();
+		in.setAnswercn(cn);
+		in.setInquirynum(inquirynum);
+		int result = goodsService.updateGoodsInquiryAnswer4(in);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result > 0) {
+			out.println("<script>alert('수정 성공!');");
+			out.println("window.location = document.referrer;</script>");
+		} else {
+			out.println("<script>alert('수정 실패!');</script>");
+		}
 	}
 }

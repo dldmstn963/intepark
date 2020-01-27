@@ -110,8 +110,8 @@
 				<c:url var="moveinquiryDetail" value="moveinquiryDetail4.do">
 													<c:param name="inquirynum" value="${li.inquirynum}"/>
 													</c:url>
-				<td><input type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
-													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
+				<td><input class="btn btn-success" type="button" value="상세보기" onclick="location='${moveinquiryDetail}'"> 
+													<input class="btn btn-danger" type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');
@@ -133,7 +133,7 @@
 													</script></td>
 			</tr>
 			</c:forEach></tbody></table>
-									<input type="button" value="삭제" onclick="return dellist();">
+									<input class="btn btn-danger" type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									

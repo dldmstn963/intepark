@@ -108,7 +108,7 @@
                         <div class="cart-summary">
                             <h5>전체 합계</h5>
                             <ul class="summary-table">
-                                <li><span>상품 금액:</span> <span>${orders.goodsprice * orders.orderquantity}원 </span></li>
+                                <li><span>상품 금액:</span> <span><fmt:formatNumber value="${orders.goodsprice * orders.orderquantity}" groupingUsed="true"/>원 </span></li>
                                <!--  <li><span>배송비:</span> <span>2,500원</span></li>
                                 <li><span>전체 주문 금액:</span> <span>26,500원</span></li> -->
                             </ul>

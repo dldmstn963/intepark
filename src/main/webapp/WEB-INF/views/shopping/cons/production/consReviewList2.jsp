@@ -66,7 +66,7 @@
 				<th>번호</th>
 				<th>상품</th>
 				<th>상품평</th>
-				<th>선호도</th>
+				<th>평점</th>
 				<th>글쓴이</th>
 				<th>작성일</th>
 				<th>기능</th>
@@ -101,7 +101,7 @@
 				<td><input type="checkbox" id="checkbox"
 													name="checkbox" value="${li.reviewnum }"></td>
 				<td>${li.reviewnum }</td>
-				<td><img width="100px" src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product"></td>
+				<td><a href="moveproduct4.do?goodsnum=${li.goodsnum }"><img width="100px" src="/intepark/resources/img/goodthumspic/${li.thumbnail }" alt="Product"></a></td>
 				<td>${li.reviewtitle }</td>
 												<td>${li.reviewscore }</td>
 												<td>${li.userid }</td>
@@ -109,17 +109,17 @@
 				<c:url var="moveupdategoods" value="moveupdategoods4.do">
 													<c:param name="goodsnum" value="${li.goodsnum}"/>
 													</c:url>
-				<td><input type="button" value="수정" onclick="location='${moveupdategoods}'"> 
-													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
+				<td><input type="button" class="btn btn-success" value="상세보기" onclick="location.href='moveReviewDetail4.do?reviewnum=${li.reviewnum}'"> 
+													<input class="btn btn-danger" type="button" value="삭제" onclick="return delete${li.reviewnum}();"> 
 													<script type="text/javascript">
-														function delete${li.goodsnum}() {
+														function delete${li.reviewnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');
 															if (result) {
 																		$.ajax({
-																			url : "goodsdelete4.do",
+																			url : "deleteReviewcheck42.do",
 																			type : "post",
 																			data : {
-																				goodsnum : ${li.goodsnum}
+																				goodsnum : ${li.reviewnum}
 																			},
 																			success : function(data){
 																				location.reload();
@@ -132,7 +132,7 @@
 													</script></td>
 			</tr>
 			</c:forEach></tbody></table>
-															<input type="button" value="삭제" onclick="return dellist();">
+															<input class="btn btn-danger" type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									
@@ -156,6 +156,27 @@
 												$("input[type=checkbox]").prop("checked",false); } 
 												}) 
 											})
+											function dellist(){
+											var result = confirm('정말 삭제 하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"deleteReviewcheck4.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
 											</script>
     <!-- Bootstrap -->
    <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
