@@ -15,9 +15,37 @@ private String ofile;
 private String rfile;
 private String etc;
 private String progress;
+private String panorama;
 private String userid;
+
+public AuctionAttend() {}
+public String getUserid() {
+	return userid;
+}
+public void setUserid(String userid) {
+	this.userid = userid;
+}
+
+
+public String getPanorama() {
+	return panorama;
+}
+public void setPanorama(String panorama) {
+	this.panorama = panorama;
+}
+@Override
+public String toString() {
+	return "AuctionAttend [auctionno=" + auctionno + ", consid=" + consid + ", consname=" + consname + ", title="
+			+ title + ", phone=" + phone + ", possibledate=" + possibledate + ", price=" + price + ", ofile=" + ofile
+			+ ", rfile=" + rfile + ", etc=" + etc + ", progress=" + progress + ", panorama=" + panorama + ", userid="
+			+ userid + ", getUserid()=" + getUserid() + ", getAuctionno()=" + getAuctionno() + ", getConsid()="
+			+ getConsid() + ", getConsname()=" + getConsname() + ", getTitle()=" + getTitle() + ", getPhone()="
+			+ getPhone() + ", getPossibledate()=" + getPossibledate() + ", getPrice()=" + getPrice() + ", getOfile()="
+			+ getOfile() + ", getRfile()=" + getRfile() + ", getEtc()=" + getEtc() + ", getProgress()=" + getProgress()
+			+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+}
 public AuctionAttend(int auctionno, String consid, String consname, String title, String phone, Date possibledate,
-		String price, String ofile, String rfile, String etc, String progress, String userid) {
+		String price, String ofile, String rfile, String etc, String progress, String panorama, String userid) {
 	super();
 	this.auctionno = auctionno;
 	this.consid = consid;
@@ -30,21 +58,8 @@ public AuctionAttend(int auctionno, String consid, String consname, String title
 	this.rfile = rfile;
 	this.etc = etc;
 	this.progress = progress;
+	this.panorama = panorama;
 	this.userid = userid;
-}
-public AuctionAttend() {}
-public String getUserid() {
-	return userid;
-}
-public void setUserid(String userid) {
-	this.userid = userid;
-}
-
-@Override
-public String toString() {
-	return "AuctionAttend [auctionno=" + auctionno + ", consid=" + consid + ", consname=" + consname + ", title="
-			+ title + ", phone=" + phone + ", possibledate=" + possibledate + ", price=" + price + ", ofile=" + ofile
-			+ ", rfile=" + rfile + ", etc=" + etc + ", progress=" + progress + ", userid=" + userid + "]";
 }
 public int getAuctionno() {
 	return auctionno;

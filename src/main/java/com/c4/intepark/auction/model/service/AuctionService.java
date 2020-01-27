@@ -29,6 +29,8 @@ Integer selectNonAuctionCount(Search search);
 int AuctionAttendProgress(AuctionAttend att);
 int AuctionProgress(AuctionAttend att);
 int auctionAttendListCount(CommonPage cpage);
+Auction AuctionProgress2(int auctionno);
+int NonAuctionUpdate(NonAuction nonauction);
 
 
 }

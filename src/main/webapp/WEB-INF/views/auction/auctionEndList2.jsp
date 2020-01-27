@@ -8,6 +8,8 @@
    <%@ include file="../common/jscsspath.jsp" %> 
 <link rel="stylesheet" type="text/css" href="/intepark/resources/gu-upload/css/guupload.css"/> 
 <script type="text/javascript" src="/intepark/resources/gu-upload/guuploadManager.js"></script>
+<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css"/>
+ <script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function (e){
@@ -82,7 +84,8 @@ $(document).ready(function (e){
 });
 
 </script>
-
+  <style> #panorama { width: 600px; height: 400px; position: relative; z-index: 1000; display: table; -moz-transform-origin: top left; -webkit-transform-origin: top left; -ms-transform-origin: top left; transform-origin: top left; }
+   </style>
 
 </head>
 <body>
@@ -103,5 +106,19 @@ $(document).ready(function (e){
    <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
                             <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
   </form>
+
+<script type="text/javascript">
+
+
+
+function initScale(){ var ress = navigator.userAgent; if (ress.indexOf("Android 1.", 0) > -1 ){ //안드로이드2. 이하만 설정 if (ress.indexOf("480", 0) > -1 ) { // 480x800 var per = 0.5226824457593688; } else if(ress.indexOf("600", 0) > -1 ) { // 600 x 1024 var per = 0.681 } else if(ress.indexOf("1280", 0) > -1 ) { // 800 x 1280 var per = 0.631 } } else { var dh = window.innerHeight; var dw = window.innerWidth; var cw = parseInt( $('#panorama').css('width') ); var ch = parseInt( $('#panorama').css('height') ); var per = dw/cw; var per2 =dh/ch; if(per > per2 ){ per = per2; } var gapH = ( dh - (ch*per) )/2; var gapW = ( dw - (cw*per) )/2 } $("#panorama").css('transform', 'scale('+per+','+per+')'); $('body').css('margin-top', gapH ); $('body').css('margin-left', gapW ); curScale = per; } window.onresize = function(){ initScale(); } window.onload = function() { initScale(); } </script>
+ </head>
+
+<div id="panorama"></div>
+ <script>
+
+// 아래 코드의 01.jpg 만 원하는 이미지로 교체한 후 URL 을 적어주면 됩니다
+
+var sImageFileName = "/intepark/resources/auctionUpFile/15.jpg"; pannellum.viewer('panorama', { "type": "equirectangular", "panorama": sImageFileName }); </script>
 </body>
 </html>

@@ -109,4 +109,13 @@ public class AuctionServiceImpl implements AuctionService{
 	public int auctionAttendListCount(CommonPage cpage) {
 		return auctionDao.auctionAttendListCount(cpage);
 	}
+	@Override
+	public Auction AuctionProgress2(int auctionno) {
+		return auctionDao.AuctionProgress2(auctionno);
+	}
+	@Override
+	public int NonAuctionUpdate(NonAuction nonauction) {
+		
+		return auctionDao.NonAuctionUpdate(nonauction);
+	}
 }

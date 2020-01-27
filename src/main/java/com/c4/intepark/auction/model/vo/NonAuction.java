@@ -23,10 +23,12 @@ import org.springframework.stereotype.Component;
 	private String etc;
 	private String progress;
 	private String password;
+	private String userid;
 	public NonAuction() {}
+
 	public NonAuction(int auctionno, String interiorsection, String title, String name, String price, String email,
 			String phone, Date startday, String address, String ofile, String rfile, String etc, String progress,
-			String password) {
+			String password, String userid) {
 		super();
 		this.auctionno = auctionno;
 		this.interiorsection = interiorsection;
@@ -42,14 +44,26 @@ import org.springframework.stereotype.Component;
 		this.etc = etc;
 		this.progress = progress;
 		this.password = password;
+		this.userid = userid;
 	}
+
+	
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 	@Override
 	public String toString() {
 		return "NonAuction [auctionno=" + auctionno + ", interiorsection=" + interiorsection + ", title=" + title
 				+ ", name=" + name + ", price=" + price + ", email=" + email + ", phone=" + phone + ", startday="
 				+ startday + ", address=" + address + ", ofile=" + ofile + ", rfile=" + rfile + ", etc=" + etc
-				+ ", progress=" + progress + ", password=" + password + "]";
+				+ ", progress=" + progress + ", password=" + password + ", userid=" + userid + "]";
 	}
+
 	public int getAuctionno() {
 		return auctionno;
 	}
