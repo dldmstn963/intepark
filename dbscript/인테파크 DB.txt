@@ -40,6 +40,7 @@ SET DEFINE OFF;
 
 --------------------------------------------------------------------------------------------
 -------이영수
+--로그인포
 drop table logininfo cascade constraints;
 
 create table logininfo (
@@ -66,9 +67,11 @@ insert into logininfo values('admin','admin','aa@aa','ROLE_ADMIN',1,'정상',nul
 insert into logininfo values('user1','user1','dldudtn118@naver.com','ROLE_USER',1,'정상',null,null);
 insert into logininfo values('user2','user2','aa@ac','ROLE_USER',0,'탈퇴','19/12/01','비싸');
 insert into logininfo values('user3','user3','aa@ad','ROLE_USER',1,'정상',null,null);
-insert into logininfo values('con1','con1','dldudtn118@daum.net','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('con1','con1','dldudtn118@daum.n','ROLE_CONS',1,'정상',null,null);
 insert into logininfo values('con2','con2','aa@af','ROLE_CONS',1,'정상',null,null);
 insert into logininfo values('con3','con3','aa@ag','ROLE_CONS',1,'정상',null,null);
+insert into logininfo values('ccccccc','ccccccc','cc@cc','ROLE_CONS',1,'정상',null,null);
+commit;
 ---------------------------------------------------------------------------
 --정지 사유
 DROP TABLE loginstop CASCADE CONSTRAINTS;
@@ -136,12 +139,10 @@ CREATE TABLE constructors (
    pfintroduction   VARCHAR2(4000)      NULL,
    profileoriginalimg   VARCHAR2(100)      NULL,
    profilerenameimg   VARCHAR2(100)      NULL,
-   blicenceoriginalimg   VARCHAR2(100)      NULL,
-   blicencerenameimg   VARCHAR2(100)      NULL,
    constraint pk_consid primary key(consid)
 );
 
-insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'dldudtn118@daum.net','경기도 수원',
+insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444', 'dldudtn118@daum.n','경기도 수원 권선',
 '인테리아','종합,바닥,천장,목공,샷시','1년','2~5년','"마음과 정성을 담다  사람이 우선인 공간 구성과 당신을 위한 준비된 디자인 기본, 끝까지 책임지는 믿음가는 디자인담다입니다',
 '실내건축면허를 보유한 인테리아 입니다.
 인테리어를 시작하시게 된 계기가 있나요?
@@ -153,13 +154,13 @@ insert into constructors values ('con1', sysdate, '시공사1', '010-3333-4444',
 향후 계획이나 목표가 있나요?
 다양한 아이디어와 디자인은 결국 다양한 경험에서 나온다고 생각합니다. 경험을 통해서만 조금 더 심도있는 접근과 장, 단점을 파악할 수 있게 되지요. 시간이 지날수록 기존에 해왔던 방식의 디자인을 고수하는 모습을 제게서 봅니다. 도전과 더 많은 경험이 필요할 때인 것 같습니다. 바쁘다는 핑계로 미뤄왔던 워크샵이나, 킨텍스의 다양한 행사에 참석하여 좀 더 자극을 받아야 할 것 같습니다.
 오늘의집 고객에게 한마디 해주신다면?
-저희는 실내건축면허를 보유한 업체입니다. 모델하우스와 아파트 현장에서 10년 이상 경험한 전문성 있는 인원으로 이루어진 곳이죠. 고객과의 미팅으로 니즈를 파악하고, 설계과정을 통한 계획을 세워 착오 없는 합리적인 예산의 공사를 진행하고 있습니다.',null,'cons_profile_Img.jpg',null,null);
-insert into constructors values ('con2', sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구',
+저희는 실내건축면허를 보유한 업체입니다. 모델하우스와 아파트 현장에서 10년 이상 경험한 전문성 있는 인원으로 이루어진 곳이죠. 고객과의 미팅으로 니즈를 파악하고, 설계과정을 통한 계획을 세워 착오 없는 합리적인 예산의 공사를 진행하고 있습니다.',null,'cons_profile_Img.jpg');
+insert into constructors values ('con2',sysdate, '시공사2', '010-4444-6666', 'abd@adb.com','서울시 강남구 구남강',
 '인테킹','부엌,욕실,벽지,타일,조명', '6개월','10년이상','카멜레온디자인은 유행에 따라가지 않고 오랜 시간 동안 사랑 받을 수 있는 디자인을 선호 합니다.
-작은 것 하나까지 소중하게 생각합니다.',null,null,'cons_profile_Img2.png',null,null);
+작은 것 하나까지 소중하게 생각합니다.',null,null,'cons_profile_Img2.png');
 
-insert into constructors values('con3',  sysdate, '시공사3',   '010-4444-7777', 'abcd@adb.com', '서울시 송파구',   '인테월드',   '종합,욕실,마루,장판,주방', '1년', '10년이상',   '건축자재도매유통 인테리어 풀하우스 입니다.
-자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null, null, null);   
+insert into constructors values('con3',sysdate, '시공사3',   '010-4444-7777', 'abcd@adb.com', '서울시 송파구 구파송',   '인테월드',   '종합,욕실,마루,장판,주방', '1년', '10년이상',   '건축자재도매유통 인테리어 풀하우스 입니다.
+자재는 온라인 최저가로, 공사는 A/S 까지 확실하게 책임져 드립니다.', null, null, null);   
 
 --delete from constructors where consid='con1';
 
@@ -177,8 +178,6 @@ COMMENT ON COLUMN constructors.consintroduction IS '업체 소개';
 COMMENT ON COLUMN constructors.pfintroduction IS '소개글';
 COMMENT ON COLUMN constructors.profileoriginalimg IS '프로필사진 원본 이름';
 COMMENT ON COLUMN constructors.profilerenameimg IS '프로필사진 저장된  이름';
-COMMENT ON COLUMN constructors.blicenceoriginalimg IS '사업자등록증 원본 이미지 이름';
-COMMENT ON COLUMN constructors.blicencerenameimg IS '사업자등록증 저장된 이미지이름';
 
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -210,34 +209,8 @@ COMMENT ON COLUMN inteuser.phone IS '전화번호';
 COMMENT ON COLUMN inteuser.useremail IS '이메일';
 COMMENT ON COLUMN inteuser.address IS '주소';
 
-----------------------------------------------------------------------------
--------------------------------------------------------------------------------
---로그
 DROP TABLE constructorlog CASCADE CONSTRAINTS;
-
-CREATE TABLE constructorlog (
-   clogdate   DATE   DEFAULT SYSDATE   NOT NULL,
-   cipaddress   VARCHAR2(40)      NOT NULL,
-   consid   VARCHAR2(15) REFERENCES constructors(consid) on delete cascade
-);
-
-COMMENT ON COLUMN constructorlog.clogdate IS '로그날짜';
-COMMENT ON COLUMN constructorlog.cipaddress IS 'ip';
-COMMENT ON COLUMN constructorlog.consid IS '아이디';
-
 DROP TABLE userlog CASCADE CONSTRAINTS;
-
-CREATE TABLE userlog (
-   ulogdate   DATE   DEFAULT SYSDATE   NULL,
-   uipaddress   VARCHAR2(40) NULL,
-   userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
-);
-
-COMMENT ON COLUMN userlog.ulogdate IS '로그날짜';
-COMMENT ON COLUMN userlog.uipaddress IS 'ip';
-COMMENT ON COLUMN userlog.userid IS '아이디';
-
-------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 --album
 DROP TABLE album CASCADE CONSTRAINTS;
@@ -255,10 +228,8 @@ CREATE TABLE album (
    albumdate   DATE   DEFAULT SYSDATE   NOT NULL,
    albumcontents   VARCHAR(4000)      NOT NULL,
    albumreadcount   NUMBER   DEFAULT 0   NULL,
-   userid   VARCHAR2(15)   REFERENCES inteuser(userid)  on delete cascade
+   userid   VARCHAR2(15)  not null REFERENCES inteuser(userid)  on delete cascade
 );
-
-INSERT INTO album VALUES(ALBUM_SEQ.NEXTVAL,'여길봐',SYSDATE,'ㅋㅋㅋ',DEFAULT,'user1');
 
 COMMENT ON COLUMN album.albumnum IS '글번호';
 COMMENT ON COLUMN album.albumtitle IS '제목';
@@ -267,6 +238,18 @@ COMMENT ON COLUMN album.albumcontents IS '내용';
 COMMENT ON COLUMN album.albumreadcount IS '조회수';
 COMMENT ON COLUMN album.userid IS '고객아이디';
 
+-- 1. 시공사 테이블에 새로운 CLOB 컬럼을 추가
+-- ALTER TABLE [테이블명] ADD ([임시컬럼명] CLOB);
+ALTER TABLE ALBUM ADD (ALBUM_INTRO_CLOB CLOB);
+-- 2. 기존의 컬럼을 새로운 CLOB 컬럼에 복사한다.
+-- UPDATE [테이블명] SET [임시컬럼명] = [기존컬럼명];
+-- [임시컬럼] 에 [기존컬럼]에 있던 값을 복사
+UPDATE ALBUM SET ALBUM_INTRO_CLOB = ALBUMCONTENTS;
+-- 3. [기존컬럼]을 삭제
+--ALTER TABLE [테이블명] DROP COLUMN [기존컬럼명];
+ALTER TABLE ALBUM DROP COLUMN ALBUMCONTENTS;
+-- 4. [임시컬럼명]을 [기존컬럼명]으로 바꾼다.
+ALTER TABLE ALBUM RENAME COLUMN ALBUM_INTRO_CLOB TO ALBUMCONTENTS;
 
 DROP TABLE albumreply CASCADE CONSTRAINTS;
 
@@ -297,21 +280,17 @@ DROP TABLE albumimgs CASCADE CONSTRAINTS;
 
 CREATE TABLE albumimgs (
    albumimgnum   NUMBER    PRIMARY KEY,
-   albumoriginalimgname   VARCHAR2(100)      NULL,
-   albumrenameimgname   VARCHAR2(100)      NULL,
+   albumoriginalimgname   VARCHAR2(100),
+   albumrenameimgname   VARCHAR2(100),
+   albumimgroot varchar2(30),
    albumnum NUMBER REFERENCES album(albumnum) on delete cascade
 );
 
 COMMENT ON COLUMN albumimgs.albumimgnum IS '이미지번호';
 COMMENT ON COLUMN albumimgs.albumoriginalimgname IS '원본이미지이름';
 COMMENT ON COLUMN albumimgs.albumrenameimgname IS '서버에저장할이미지이름';
+COMMENT ON COLUMN albumimgs.albumimgroot IS '이미지경로';
 COMMENT ON COLUMN albumimgs.albumnum IS '글번호';
-
-
-
-
-
-
 
 ----------------------------------------------------------------------------------------------------
 -------김봉수

@@ -69,10 +69,12 @@ public class LoginInfoController {
 		HttpSession session = request.getSession(false);
 
 		String memberCheck = request.getParameter("memberCheck");
-		String aucheck = log.getAuthority().trim().substring(5, 9);
+		String aucheck = log.getAuthority().trim().substring(5, log.getAuthority().trim().length());
 		if(!memberCheck.equals(aucheck)) {
+			if(!(memberCheck.equals("USER") && aucheck.equals("ADMIN"))) {
 			model.addAttribute("error2", "아이디/비밀번호를 확인해주세요");
 			return "member/login";
+			}
 		}
 		if (log.getAuthority().trim().equals("ROLE_CONS")) {
 			Constructors loginCons = logService.selectConsSession(request.getUserPrincipal().getName());
