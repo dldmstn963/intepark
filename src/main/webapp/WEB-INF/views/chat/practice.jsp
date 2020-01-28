@@ -92,7 +92,7 @@ $(function(){
 
 	/* 서버 닫힐때 */
 	ws.onclose = function(event){
-
+			ws.send("exit/" + chatno + "," + who[1]);
 		};
 
 	$.ajax({
