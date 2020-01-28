@@ -147,7 +147,7 @@ function refuse(data){
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
                               <li class="nav-item"><a class="nav-link" href="nonAuction2.do">경매신청</a></li>
                               <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-                              <li class="nav-item"><a class="nav-link" href="pointAdd2.do">전체 견적리스트</a></li>
+                              <li class="nav-item"><a class="nav-link" href="auctionEndList2.do">전체 견적리스트</a></li>
                            </ul>
                         </li> 
 								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>

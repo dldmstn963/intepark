@@ -156,5 +156,17 @@ public class OrdersDao {
 		return (ArrayList<AllOrders>) list;
 	}
 
+	public int updateOrderscheck2(String ordernum) {
+		return mybatis.update("orderMapper.updateOrderscheck2",ordernum);
+	}
+	
+	public int updateOrderscheck3(String ordernum) {
+		return mybatis.update("orderMapper.updateOrderscheck3",ordernum);
+	}
+
+	public int deleteReviewcheck4(String reviewnum) {
+		return mybatis.delete("orderMapper.deleteReviewcheck4",reviewnum);
+	}
+	
 	
 }

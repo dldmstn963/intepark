@@ -74,29 +74,6 @@
 			</tr>
 		</thead>
 		<tbody>
-		<script>
-										function dellist(){
-											var result = confirm('정말 삭제하시겠습니까?');
-											if(result){
-											var lists = [];
-											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
-											   lists.push($(this).val());
-											  });
-											 var list = lists.join(","); 
-											$.ajax({
-												url:"deleteGoodscheck4.do",
-												type : "post",
-												data : {
-													lists : list
-												},
-												success : function(data){
-													location.reload();
-													$("#alertbox").html(data);
-												}
-											})
-											return false;
-										}}
-										</script>
 		<c:forEach var="li" items="${list }">
 			<tr>
 				<td><input type="checkbox" id="checkbox"
@@ -109,8 +86,8 @@
 				<c:url var="moveupdategoods" value="moveupdategoods4.do">
 													<c:param name="goodsnum" value="${li.goodsnum}"/>
 													</c:url>
-				<td><input type="button" value="수정" onclick="location='${moveupdategoods}'"> 
-													<input type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
+				<td><input class="btn btn-success" type="button" value="수정" onclick="location='${moveupdategoods}'"> 
+													<input class="btn btn-danger" type="button" value="삭제" onclick="return delete${li.goodsnum}();"> 
 													<script type="text/javascript">
 														function delete${li.goodsnum}() {
 															var result = confirm('정말 삭제하시겠습니까?');
@@ -132,7 +109,7 @@
 													</script></td>
 			</tr>
 			</c:forEach></tbody></table>
-															<input type="button" value="삭제" onclick="return dellist();">
+															<input class="btn btn-danger" type="button" value="삭제" onclick="return dellist();">
 									<div style="display:none;" id="alertbox"></div>
 									
 									
@@ -156,6 +133,27 @@
 												$("input[type=checkbox]").prop("checked",false); } 
 												}) 
 											})
+											function dellist(){
+											var result = confirm('정말 삭제하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"deleteGoodscheck4.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
 											</script>
     <!-- Bootstrap -->
    <script src="/intepark/resources/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

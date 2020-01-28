@@ -474,9 +474,13 @@ function fileReset()
       
                     <div class="form-group">
                             <label for="upfile">참고사진 :</label>
-                                 <input type="file" name="upfile" id="upfile" multiple >
+                                 <input type="file" name="upfile" id="upfile" multiple />
         						<div id="preview"></div>
                         </div> 
+                 <div class="form-group">
+                            <label for="panorama">360도 사진첨부 :</label>
+                                	<input type="file" name="upfile1">파일
+                        </div>
                         <div class="form-group">
                             <label for="etc">기타 상세정보 :</label>
                             <textarea rows="10" cols="80" name="etc"></textarea>

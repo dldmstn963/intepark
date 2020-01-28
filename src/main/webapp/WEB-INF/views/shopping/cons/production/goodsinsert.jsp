@@ -94,40 +94,6 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-        <%--               <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
-                      	카테고리 <select name="categorynum">
-                      			<option value="1">의자</option>
-                      			<option value="2">침구</option>
-                      			<option value="3">가구</option>
-                      			<option value="4">패브릭</option>
-                      			<option value="5">테이블</option>
-                      			<option value="6">조명</option>
-                      			<option value="7">DIY 셀프 시공</option>
-                      			</select><br>
-                      	상품명 <input type="text" name="goodsname"><br>
-                      	가격 <input type="number" name="price"><br>
-                      	재고 <input type="number" name="inventory"><br>
-                      	무료 배송 여부 <select name="freedlvy">
-                      				<option value="N">N</option>
-                      				<option value="Y">Y</option>
-                      				</select><br>
-                      	썸네일 <input type="file" name="file"><br>
-                      	주석<input type="text" name="comments"><br>
-                      	상품 설명<input type="text" name="description"><br>
-                      	최대 구매 수량<input type="number" name="maximum"><br><br>
-                      	파일 상세 사진 : <input type="file" name="file1"><br>
-                      	파일 상세 사진 : <input type="file" name="file2"><br>
-                      	파일 상세 사진 : <input type="file" name="file3"><br>
-                      	파일 상세 사진 : <input type="file" name="file4"><br>
-                      	<input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
-                      	<input type="submit" value="등록">
-                      </form>
-                      <br> --%>
-
-                
-                
-                
-                  
                        <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">카테고리 <span class="required">*</span>
@@ -159,7 +125,7 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">재고 
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">재고 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
                           <input type="number" id="number" name="inventory" data-validate-minmax="10,100" class="form-control">
@@ -183,19 +149,19 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label for="password" class="col-form-label col-md-3 label-align">주석</label>
+                        <label for="password" class="col-form-label col-md-3 label-align">주석<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
                           <input id="password" type="text" name="comments" class="form-control" >
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label for="password2" class="col-form-label col-md-3 col-sm-3 label-align ">최대 구매 수량</label>
+                        <label for="password2" class="col-form-label col-md-3 col-sm-3 label-align ">최대 구매 수량<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
                           <input id="password2" type="number" name="maximum" class="form-control" >
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea">상품설명 
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea">상품설명 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
                           <textarea id="textarea" name="description" class="form-control"></textarea>

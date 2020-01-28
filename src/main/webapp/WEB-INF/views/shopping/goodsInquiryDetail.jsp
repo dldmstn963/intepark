@@ -49,14 +49,11 @@
                                         <c:forEach var="li" items="${list }" >
                                         <img src="/intepark/resources/img/goodsinquirypic/${li.refile }" width="300px;">
                                         </c:forEach>
-                                    </div>
-								<div class="cart-btn mt-100">
                                <c:if test="${inquiry.userid == loginUser.userid }">
-                                <input type="submit" class="btn amado-btn w-100" value="수정하기">
-                                <br>
-                                <br>
                                 <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsInquiryDelete4.do?inquirynum=${inquiry.inquirynum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
                                </c:if>
+                                    </div>
+								<div class="cart-btn mt-100">
                                
                             </div>
                             <hr>

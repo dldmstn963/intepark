@@ -103,6 +103,9 @@
 											src="/intepark/resources/img/goodsinquirypic/${li.refile }"
 											width="300px;">
 									</c:forEach>
+									<table align="center" class="table table-bordered">
+									<tr><td width="100">답변 내용</td><td height="200">${answer.answercn }</td></tr>
+									</table>
 
 <form action="goodsAnswerInsert4.do" method="post">
 <br>
@@ -111,13 +114,18 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea"> 답변 내용
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <textarea id="textarea" name="answercn" class="form-control"></textarea>
+                          <textarea id="textarea" name="answercn" class="form-control">${answer.answercn }</textarea>
                         </div>
                       </div>
                       <input type="hidden" name="consid" value="${sessionScope.loginCons.consid}">
                       <input type="hidden" name="inquirynum" value="${inquiry.inquirynum}">
                         <button id="submit" type="submit" class="btn btn-success">등록</button>
+                        <button  type="button" class="btn btn-success" onclick="updateGoodsInquiryAnswer();">수정</button>
 </form>
+                        <br>
+                        <p align="center">
+                        <button class="btn btn-info" onclick="location.href='moveconsInquiryList4.do'">목록</button>
+								</p>
 								</div>
 							</div>
 						</div>
@@ -127,7 +135,22 @@
 			<!-- /page content -->
 		</div>
 	</div>
-
+<script type="text/javascript">
+function updateGoodsInquiryAnswer() {
+	$.ajax({
+		url:"updateGoodsInquiryAnswer4.do",
+		type : "post",
+		data : {
+			cn : $("#textarea").val(),
+			inquirynum : ${inquiry.inquirynum}
+		},
+		success : function(data){
+			location.reload();
+			$("#alertbox").html(data);
+		}
+	})
+}
+</script>
 	<!-- jQuery -->
 	<script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap -->

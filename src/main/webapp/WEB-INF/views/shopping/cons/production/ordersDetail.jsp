@@ -59,25 +59,25 @@
                   </div>
                   <div class="x_content">
                   
-                   주문자 정보
-                  <table border="1px solid black" align="center">
-                  <tr><td>주문자 명</td><td>${user.username }</td></tr>
+                   <h4>주문자 정보</h4>
+                  <table  align="center" class="table table-bordered">
+                  <tr><td td width="100">주문자 명</td><td>${user.username }</td></tr>
                   <tr><td>휴대폰</td><td>${user.phone }</td></tr>
-                  <tr><td>이메일</td><td>${user.email }</td></tr>
+                  <tr><td>이메일</td><td>${user.useremail }</td></tr>
                   <tr><td>주소</td><td>${user.address }</td></tr>
                   </table>
                 
-                수취인 정보
-                <table>
-                <table border="1px solid black" align="center">
-                  <tr><td>수취인명</td><td>${all.addressee }</td></tr>
+    <h4>수취인 정보</h4>
+                <table class="table table-bordered">
+                  <tr><td td width="100">수취인명</td><td>${all.addressee }</td></tr>
                   <tr><td>휴대폰</td><td>${all.phone }</td></tr>
                   <tr><td>주소</td><td>${all.address }</td></tr>
-                  <tr><td>요청사항</td><td>${all.requestcn }</td></tr>
+                  <tr><td  height="200">요청사항</td><td>${all.requestcn }</td></tr>
                   </table>
                 </table>
-                
-                
+                <p align="center">
+                <button class="btn btn-info" onclick="location.href='moveConsOrderList4.do'">목록</button>
+                </p>
                   </div>
                 </div>
               </div>

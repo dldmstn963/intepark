@@ -421,9 +421,86 @@ $(document).ready(function (e){
     });//arr.forEach
   }
 });
-
 </script>
+<script type="text/javascript">
+function validate() {
+	
 
+	var interiorsection = document.getElementById("interiorsection");
+	var startday = document.getElementById("startday");
+	var address = document.getElementById("address");
+	var name = document.getElementById("name");
+	var phone = document.getElementById("phone");
+	var email = document.getElementById("email");
+	var price = document.getElementById("price");
+
+
+
+	/* price 정규식 */
+	var price1 = /^[0-9]+$/;
+
+	/* email 정규식 */
+	var email1 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+
+	/* 날짜 정규식 */
+	var startday1 = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
+
+    if ((interiorsection.value) == ""){
+    	$("#interiorsection_keyup").html('<font color="red">&nbsp; 인테리어 분류를 선택하여 주십시요.</font><br>');
+        interiorsection.focus();
+        return false;
+    }
+    
+    if ((startday.value) == ""){
+    	$("#startday_keyup").html('<font color="red">&nbsp; 시공날짜를 입력하여 주십시요.</font><br>');
+        startday.focus();
+        return false;
+    }
+    
+    if ((address.value) == ""){
+    	$("#address_keyup").html('<font color="red">&nbsp; 시공 주소를 입력하여 주십시요.</font><br>');
+        address.focus();
+        return false;
+    }
+    if ((name.value) == ""){
+    	$("#name_keyup").html('<font color="red">&nbsp; 이름을 입력하여 주십시요.</font><br>');
+        name.focus();
+        return false;
+    }
+    if ((phone.value) == ""){
+    	$("#phone_keyup").html('<font color="red">&nbsp; 전화번호를 입력하여 주십시요.</font><br>');
+        phone.focus();
+        return false;
+    }
+    if ((email.value) == ""){
+    	$("#email_keyup").html('<font color="red">&nbsp; 이메일을 입력하여 주십시요.</font><br>');
+    	email.focus();
+        return false;
+    }
+    if ((price.value) == ""){
+    	$("#price_keyup").html('<font color="red">&nbsp; 희망금액을 입력하여 주십시요.</font><br>');
+    	price.focus();
+        return false;
+    }
+    
+    if(!email1.test($('#email').val())){
+    	$("#email_keyup").html('<font color="red">&nbsp; 이메일을 형식에 맞게 입력하여 주십시요.</font><br>');
+  	  return false;
+    }
+    
+    if(!price1.test(price.value)){
+    	$("#price_keyup").html('<font color="red">&nbsp; 숫자만 입력가능합니다.</font><br>');
+  	  return false;
+    }
+    
+    if(!startday1.test(startday.value)){
+    	$("#startday_keyup").html('<font color="red">&nbsp; 시공날짜를 입력하여 주십시요.</font><br>');
+  	  return false;
+    }
+    return true;
+}
+</script>
 </head>
 <body>
 
@@ -434,8 +511,8 @@ $(document).ready(function (e){
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <form method="post" class="register-form" id="register-form" action="auctionEnroll2.do" enctype="multipart/form-data">
-                                            <div class="form-row">
+                    <form method="post" class="register-form" id="register-form" onsubmit="return validate()" action="auctionEnroll2.do" enctype="multipart/form-data">
+                         <!--                    <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
                                 <label for="nomal">일반견적</label>
@@ -448,7 +525,7 @@ $(document).ready(function (e){
                                 <span class="check"></span>
                             </div>
                             
-                        </div>
+                        </div> -->
                            <div class="form-row">
                             <div class="form-group">
                                 <label for="interiorsection">인테리어 분류 :</label>
@@ -471,41 +548,49 @@ $(document).ready(function (e){
                                                     <option value="기타">기타</option>
                                     </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                     <span id="interiorsection_keyup" tabindex="0"></span>
                                 </div>
                             </div>
                              <div class="form-group">
                                 <label for="startday">공사시작일 :</label>
-                                <input type="date" name="startday" id="startday" required/>
+                                <input type="date" name="startday" id="startday" />
+                                <span id="startday_keyup" tabindex="0"></span>
                             </div>
                         </div>
                          <div class="form-group">
                             <label for="title">주소 :</label>
-                            <input type="text" name="address" id="address">
+                            <input type="text" name="address" id="address" value="${loginUser.address }" >
+                            <span id="address_keyup" tabindex="0"></span>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">이름 :</label>
-                                <input type="text" name="name" id="name" required/>
+                                <input type="text" name="name" id="name" value="${loginUser.username }" />
+                                  <span id="name_keyup" tabindex="0"></span>
                             </div>
                             <div class="form-group">
                                 <label for="phone">휴대전화번호 :</label>
-                                <input type="tel" name="phone" id="phone" required/>
+                                <input type="tel" name="phone" id="phone" value="${loginUser.phone }" />
+                                 <span id="phone_keyup" tabindex="0"></span>
                             </div>
                         </div>
                             <div class="form-row">
                             <div class="form-group">
                                 <label for="email">이메일 :</label>
-                                <input type="email" name="email" id="email" required/>
+                                <input type="email" name="email" id="email" value="${loginUser.useremail }" />
+                                  <span id="email_keyup" tabindex="0"></span>
                             </div>
                             <div class="form-group">
                                 <label for="price">희망금액 :</label>
-                                <input type="text" name="price" id="price" required/>
+                                <input type="text" name="price" id="price" />
+                                   <span id="price_keyup" tabindex="0"></span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="title">제목 :</label>
                             <input type="text" name="title" id="title">
+                             <span id="title_keyup" tabindex="0"></span>
                         </div>
                     <div class="form-group">
                             <label for="upfile">참고사진 :</label>
@@ -520,7 +605,6 @@ $(document).ready(function (e){
                     
                         <input type="hidden" value="${loginUser.userid}"  name="userid" id="userid">
                     
-                       
                             <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
                             <input type="submit" value="경매등록" class="submit" name="submit" id="submit" />
                         </div>

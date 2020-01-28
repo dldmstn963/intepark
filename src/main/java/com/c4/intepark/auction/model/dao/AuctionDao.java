@@ -107,4 +107,14 @@ public int auctionAttendListCount(CommonPage cpage) {
 	// TODO Auto-generated method stub
 return mybatisSession.selectOne("auctionMapper.auctionAttendListCount",cpage);
 }
+
+public Auction AuctionProgress2(int auctionno) {
+	// TODO Auto-generated method stub
+	return mybatisSession.selectOne("auctionMapper.AuctionProgress2",auctionno);
+}
+
+public int NonAuctionUpdate(NonAuction nonauction) {
+	
+	return mybatisSession.update("auctionMapper.NonAuctionUpdate", nonauction);
+}
 }

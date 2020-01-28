@@ -165,7 +165,7 @@ insert into GOODSINQUIRY values(
 #{inquirycn},
 #{inquirytype},
 #{inquirytitle},
-#{secretat},
+'N',
 sysdate,
 default,
 #{userid},
@@ -298,16 +298,60 @@ sysdate
 )
 </insert>
 
-<update id="updateGoodsAnswer" parameterType="GoodsInquiry">
+<update id="updateGoodsAnswer">
 update GOODSINQUIRY 
 set ANSWERSTTUS = '답변완료'
-where INQUIRYNUM = #{INQUIRYNUM}
+where INQUIRYNUM = #{inquirynum}
+</update>
+
+<update id="updateGoodsInquiryAnswer4" parameterType="GoodsInquiry">
+update GOODSANSWER 
+set ANSWERCN = #{answercn}
+where INQUIRYNUM = #{inquirynum}
 </update>
 
 <select id="selectGoodsInquiryAnswer" parameterType="int" resultType="GoodsInquiry">
 select *
 from goodsanswer
 where inquirynum = #{INQUIRYNUM}
+</select>
+
+<select id="selectcountInquiry" parameterType="String" resultType="int">
+select count(*) from 
+(select * from GOODSINQUIRY
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{value}))
+where ANSWERSTTUS='답변접수'
+</select>
+
+<select id="selectcountOrders" parameterType="String" resultType="int">
+select count(*) from 
+(select * from ORDERS
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{value}))
+where ORDERSTATUS='주문 접수'
+</select>
+
+<select id="selectcountallOrders" parameterType="String" resultType="int">
+select count(*) from 
+(select * from ORDERS
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{value}))
+</select>
+
+<select id="selectcountallOrdersPrice" parameterType="String" resultType="int">
+select sum(orderprice) from 
+(select * from ORDERS
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{value}))
+</select>
+
+<select id="selectNoanswerInquiryList" parameterType="String" resultType="GoodsInquiry">
+select * from 
+(select * from GOODSINQUIRY
+natural join goods 
+where goodsnum in (select goodsnum from goods where CONSID=#{value}))
+where ANSWERSTTUS='답변접수'
 </select>
 
 </mapper>

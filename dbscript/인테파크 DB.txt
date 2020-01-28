@@ -1585,8 +1585,8 @@ email varchar2(50) NOT NULL,
 phone varchar2(20) NOT NULL,
 startday date,
 address varchar2(100) NOT NULL,
-ofile varchar2(200),
-rfile varchar2(200),
+ofile varchar2(500),
+rfile varchar2(500),
 etc varchar2(500),
 progress varchar2(30) DEFAULT '대기' NOT NULL,
 userid VARCHAR2(30)   REFERENCES inteuser(userid) ON DELETE CASCADE
@@ -1608,7 +1608,17 @@ COMMENT ON COLUMN auction.progress IS '진행현황';
 COMMENT ON COLUMN auction.userid IS '등록자';
 
 insert into auction values (AUCTION_SEQ.NEXTVAL,'샷시','간지작살','양호성','5,000','yhsto00@naver.com','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용',DEFAULT,'user1');
-insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','대리석으로 하고 싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','깔끔한 디자인을 원합니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','싸고 질좋게 하고싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','싸게하고 싶습니다','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','비싸도 이쁘게하고 싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','사진첨부했습니다 보러오세요','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','저렴한 가격원합니다','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','500평 견적원합니다','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user2');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user1');
+insert into auction values (AUCTION_SEQ.NEXTVAL,'종합','서울대학교 동아리실 견적원합니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용',DEFAULT,'user1');
 
 ------------------------------------------------------------
 -------비회원 경매
@@ -1625,8 +1635,8 @@ email varchar2(50) NOT NULL,
 phone varchar2(20) NOT NULL,
 startday date,
 address varchar2(100) NOT NULL,
-ofile varchar2(200),
-rfile varchar2(200),
+ofile varchar2(500),
+rfile varchar2(500),
 etc varchar2(500),
 password varchar2(50)  NOT NULL,
 progress varchar2(30) DEFAULT '대기' NOT NULL
@@ -1647,8 +1657,18 @@ COMMENT ON COLUMN nonauction.etc IS '상세정보';
 COMMENT ON COLUMN nonauction.password IS '비밀번호';
 COMMENT ON COLUMN nonauction.progress IS '진행현황';
 
-insert into nonauction values (AUCTION_SEQ.NEXTVAL,'샷시','간지작살','양호성','5,000','yhsto00@naver.com','010-9534-0729',sysdate,'경기도 오남리','ori.jpg','2019.123123','간지나게해주세용','789456',DEFAULT);
-insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','ori.jpg','2019.1231234','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'샷시','간지작살','양호성','5,000','yhsto00@naver.com','010-9534-0729',sysdate,'경기도 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','대리석으로 하고 싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','깔끔한 디자인을 원합니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','싸고 질좋게 하고싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','싸게하고 싶습니다','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','비싸도 이쁘게하고 싶습니다.','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','서울대학교동아리실','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','중앙대학교 학과장실','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','서울대학교 총장실','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','경복대학교 과대표실','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
+insert into nonauction values (AUCTION_SEQ.NEXTVAL,'종합','종합인테리어','허용순 ','500,000','yhsto001@naver.com','010-9534-0729',sysdate,'경기도 남양주시 오남읍 오남리','12.jfif/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','간지나게해주세용','789456',DEFAULT);
 
 -- 견적 참여
 DROP TABLE auctionattend CASCADE CONSTRAINTS;
@@ -1664,7 +1684,8 @@ price varchar2(15) NOT NULL,
 ofile varchar2(500),
 rfile varchar2(500),
 etc varchar2(500),
-progress varchar2(30) DEFAULT '대기' NOT NULL
+progress varchar2(30) DEFAULT '대기' NOT NULL,
+panorama varchar2(500)
 );
 
 COMMENT ON COLUMN auctionattend.auctionno IS '경매번호';
@@ -1678,9 +1699,37 @@ COMMENT ON COLUMN auctionattend.ofile IS '참고사진원본';
 COMMENT ON COLUMN auctionattend.rfile IS '참고사진사본';
 COMMENT ON COLUMN auctionattend.etc IS '상세정보';
 COMMENT ON COLUMN auctionattend.progress IS '진행현황';
-
-insert into auctionattend values (1, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','진행');
-insert into auctionattend values (2, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','ofile.png','2019','50년 경력의 장인입니다','대기');
+COMMENT ON COLUMN auctionattend.panorama IS '파노라마';
+insert into auctionattend values (11, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'2.jpg');
+insert into auctionattend values (11, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (12, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (12, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (13, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (13, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (14, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (14, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (10, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (10, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (9, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT),'1.jpg';
+insert into auctionattend values (9, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (8, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (8, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (7, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (7, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (6, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (6, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (5, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (5, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (4, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (4, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (3, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (3, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (2, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (2, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (1, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (1, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (17, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (17, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
 
 --포인트
 drop sequence SETPOINT_SEQ;
@@ -1703,9 +1752,10 @@ COMMENT ON COLUMN setpoint.chargeamount IS '충전금액';
 COMMENT ON COLUMN setpoint.chargepoint IS '충전포인트';
 COMMENT ON COLUMN setpoint.restpoint IS '잔여포인트';
 
-insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'500,000','50,000','50,000', 'con1');
-insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'400,000','40,000','90,000', 'con1');
-insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'1,000,000','100,000','100,000', 'con2');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'50000','50000','50000', 'con1');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'40000','40000','90000', 'con1');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'100000','100000','100000', 'con2');
+insert into setpoint values (SETPOINT_SEQ.NEXTVAL,'40000','40000','130000', 'con1');
 
 
 

@@ -72,10 +72,10 @@
 	</delete>
 	<insert id="auctionAttendEnroll" parameterType="AuctionAttend" >
 	insert into auctionattend values (#{auctionno},#{consid},#{consname},#{title},#{phone},
-	#{possibledate},#{price},#{ofile},#{rfile},#{etc},default)
+	#{possibledate},#{price},#{ofile},#{rfile},#{etc},default ,#{panorama})
 	</insert>
 	<select id="auctionAttendDetail" parameterType="AuctionAttend" resultType="AuctionAttend">
-select auctionno, consid, consname, title, phone, possibledate, price, ofile, rfile,etc, userid  from auctionattend
+select auctionno, consid, consname, title, phone, possibledate, price, ofile, rfile,etc, userid ,panorama  from auctionattend
 join (select auctionno, userid from auction) using(auctionno) where auctionno = #{auctionno} and consname = #{consname}
 	</select>
 	<delete id="auctionAttendDelete" parameterType="AuctionAttend">
@@ -113,6 +113,13 @@ join (select auctionno, userid from auction) using(auctionno) where auctionno = 
 		and title like '%'||#{searchtext ,jdbcType=VARCHAR}||'%'
 	</if> 
 	</select>
+	<select id="AuctionProgress2" parameterType="int" resultType="Auction">
+	select progress from auction where auctionno = #{auctionno}
+	</select>
+	<update id="NonAuctionUpdate" parameterType="NonAuction">
+	update nonauction set interiorsection = #{interiorsection}, title = #{title}, name = #{name}, price = #{price},  email = #{email}, 
+	phone = #{phone}, startday = #{startday}, address = #{address}, ofile = #{ofile}, rfile = #{rfile}, etc = #{etc} where auctionno = #{auctionno}
+	</update>
 	
 </mapper>
 

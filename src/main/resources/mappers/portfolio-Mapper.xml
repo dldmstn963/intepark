@@ -62,6 +62,7 @@
 		select *
 		from portfoliofile
 		where PFNUM = #{pfnum}
+		order by PFPHOTONUM desc
 	</select>
 	
 	<select id="selectPfOneList" parameterType="string" resultType="PortfolioView">

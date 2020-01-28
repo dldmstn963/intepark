@@ -546,8 +546,12 @@ $(document).ready(function (e){
                         </div>
                         <div class="form-submit">
                   
-                    
+                    	<c:if test="${not empty auction.userid}">
                        	<input type="hidden" value="${auction.auctionno }" name="auctionno">
+                       	</c:if>
+                       	<c:if test="${empty auction.userid}">
+                       	<input type="hidden" value="${auction.auctionno }" name="nonauctionno">
+                       	</c:if>
                             <input type="reset" value="작성취소" class="submit" name="reset" id="reset" />
                             <input type="submit" value="수정" class="submit" name="submit" id="submit" />
                         </div>

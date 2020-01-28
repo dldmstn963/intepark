@@ -64,9 +64,9 @@
                                     </select> 
                                   
                                     </div>
-                                    &nbsp;&nbsp;&nbsp; 비밀 여부 : 
+                                    <!-- &nbsp;&nbsp;&nbsp; 비밀 여부 : 
                                    &nbsp;&nbsp;&nbsp; <input type="checkbox" name="secretat" value="Y" />  &nbsp;&nbsp;&nbsp;예 
-                                    &nbsp;&nbsp;&nbsp;<input type="checkbox" name="secretat" value="N" />&nbsp;&nbsp;&nbsp; 아니오
+                                    &nbsp;&nbsp;&nbsp;<input type="checkbox" name="secretat" value="N" />&nbsp;&nbsp;&nbsp; 아니오 -->
                                     <div class="col-12 mb-3">
                                        <input type="text" class="form-control" id="company" placeholder="제목" name="inquirytitle">
                                     </div>
