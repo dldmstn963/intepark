@@ -15,7 +15,7 @@
 </style>
 
 
-<script >
+<script>
 var ws;
 var text;
 var user;

@@ -1716,7 +1716,7 @@ CREATE TABLE calendar (
    cstart date      NOT NULL,
    cend   date      NULL,
    ccolor   varchar2(15)      NOT NULL,
-   consid varchar2(15) REFERENCES constructors(consid)    NOT NULL
+   consid varchar2(15) REFERENCES constructors(consid) on delete cascade   NOT NULL
 );
 
 COMMENT ON COLUMN calendar.cno IS '일정번호';
@@ -1740,8 +1740,8 @@ DROP TABLE chat CASCADE CONSTRAINTS;
 
 CREATE TABLE chat (
    chatno   number NOT NULL,
-   consid   varchar2(15) REFERENCES constructors(consid) NOT NULL,
-  userid   varchar2(15) REFERENCES inteuser(userid) NOT NULL,
+   consid   varchar2(15) REFERENCES constructors(consid) on delete cascade NOT NULL,
+  userid   varchar2(15) REFERENCES inteuser(userid) on delete cascade NOT NULL,
   constraint a primary key (chatno, consid, userid)
 );
 
@@ -1759,9 +1759,9 @@ DROP TABLE chatmessage CASCADE CONSTRAINTS;
 CREATE TABLE chatmessage (
    chatcontent   varchar2(4000)      NOT NULL,
    chattime   date   DEFAULT sysdate   NOT NULL,
-   chatno   number NOT NULL,
-   consid    varchar2(15) NULL,
-   userid   varchar2(15) NULL,
+   chatno   number on delete cascade NOT NULL,
+   consid    varchar2(15) on delete cascade NULL,
+   userid   varchar2(15) on delete cascade NULL,
   constraint chatmessage_fk foreign key(chatno, consid, userid) REFERENCES chat
 );
 
