@@ -83,29 +83,6 @@
 											</tr>
 										</thead>
 										<tbody>
-											<script>
-										function dellist(){
-											var result = confirm('정말 삭제하시겠습니까?');
-											if(result){
-											var lists = [];
-											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
-											   lists.push($(this).val());
-											  });
-											 var list = lists.join(","); 
-											$.ajax({
-												url:"deleteGoodscheck4.do",
-												type : "post",
-												data : {
-													lists : list
-												},
-												success : function(data){
-													location.reload();
-													$("#alertbox").html(data);
-												}
-											})
-											return false;
-										}}
-										</script>
 											<c:forEach var="li" items="${list }">
 												<tr>
 													<td><input type="checkbox" id="checkbox"
@@ -119,16 +96,24 @@
 												
 												<select id="statu${li.ordernum }">
 												<option selected="selected">${li.orderstatus }</option>
+												
+												<c:if test="${li.orderstatus != '주문 취소' }">
 												<option value="주문 취소">주문 취소</option>
+												</c:if>
+												<c:if test="${li.orderstatus != '배송 시작' }">
 												<option value="배송 시작">배송 시작</option>
+												</c:if>
+												<c:if test="${li.orderstatus != '배송 완료' }">
 												<option value="배송 완료">배송 완료</option>
+												</c:if>
+												
 												</select></td>
 													<c:url var="ordersDetail" value="ordersDetail4.do">
 													<c:param name="ordernum" value="${li.ordernum}"/>
 													</c:url>
 												<td>
-													<input type="button" value="적용" onclick="return update${li.ordernum}();"> 
-												<input type="button" value="상세보기" onclick="location='${ordersDetail}'"> 
+													<input style="WIDTH: 60pt;" class="btn btn-success" type="button" value="적용" onclick="return update${li.ordernum}();" > 
+												<input style="WIDTH: 60pt;" class="btn btn-info" type="button" value="상세보기" onclick="location='${ordersDetail}'"> 
 													<script type="text/javascript">
 														function update${li.ordernum}() {
 															var result = confirm('정말 수정하시겠습니까?');
@@ -153,7 +138,9 @@
 										</c:forEach>
 										</tbody>
 									</table>
-									<input type="button" value="주문 취소" onclick="return dellist();">
+									<input style="WIDTH: 60pt;" class="btn btn-danger" type="button" value="주문 취소" onclick="return dellist();">
+									<input style="WIDTH: 60pt;" class="btn btn-success" type="button" value="배송 시작" onclick="return dellist2();">
+									<input style="WIDTH: 60pt;" class="btn btn-info" type="button" value="배송 완료" onclick="return dellist3();">
 									<div style="display: none;" id="alertbox"></div>
 
 
@@ -188,6 +175,48 @@
 											 var list = lists.join(","); 
 											$.ajax({
 												url:"updateOrderscheck4.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
+										function dellist2(){
+											var result = confirm('배송 시작으로 변경 하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"updateOrderscheck42.do",
+												type : "post",
+												data : {
+													lists : list
+												},
+												success : function(data){
+													location.reload();
+													$("#alertbox").html(data);
+												}
+											})
+											return false;
+										}}
+										function dellist3(){
+											var result = confirm('배송 완료로 변경 하시겠습니까?');
+											if(result){
+											var lists = [];
+											  $("#checkbox:checked").each(function(i){   //jQuery로 for문 돌면서 check 된값 배열에 담는다
+											   lists.push($(this).val());
+											  });
+											 var list = lists.join(","); 
+											$.ajax({
+												url:"updateOrderscheck43.do",
 												type : "post",
 												data : {
 													lists : list

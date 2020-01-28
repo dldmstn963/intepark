@@ -17,13 +17,15 @@
 <select id="selectList" resultType="Album" parameterType="CommonPage">
 	
 		select *
-		from (select rownum rnum, albumnum, albumtitle, albumdate, albumcontents, albumreadcount, userid
+		from (select rownum rnum, albumnum, albumtitle,to_char(albumdate,'yyyy-mm-dd hh24:mi') as albumdate, albumcontents, albumreadcount, userid,albumrenameimgname,albumimgroot
 			  from (select * from album
+			        left join albumimgs using (albumnum)
+			        where albumimgnum in (select min(albumimgnum) from albumimgs group by albumnum)
 			  			<if test="selectoption != null and selectoption.equals('title')">
-						where albumtitle like '%'||#{searchtext}||'%'
+						and albumtitle like '%'||#{searchtext}||'%'
 						</if>
 						<if test="selectoption != null and selectoption.equals('uname')">
-						where userid like '%'||#{searchtext}||'%'
+						and userid like '%'||#{searchtext}||'%'
 						</if>
                     order by albumnum desc))
                     <![CDATA[
@@ -32,11 +34,60 @@
 </select>
 
 <select id="selectOneAlbum" resultType="Album" parameterType="int">
-	select albumnum, albumtitle, albumdate, albumcontents, albumreadcount,userid
+	select albumnum, albumtitle, to_char(albumdate,'yyyy-mm-dd hh24:mi') as albumdate, albumcontents, albumreadcount,userid
 	from album
 	where albumnum= #{value}
 </select>
 
+<insert id="insertAlbum" parameterType="Album">
+	insert into album values(album_seq.nextval,#{albumtitle},sysdate,0,#{userid},#{albumcontents})
+</insert>
+
+<select id="selectMaxAlbumNum" resultType="int" parameterType="string">
+	select max(albumnum)
+	from album
+	where userid =#{value}
+</select>
+
+<insert id="insertAlbumImg" parameterType="com.c4.intepark.album.model.vo.AlbumImgs">
+	insert into albumImgs values(albumimgs_seq.nextval,#{albumoriginalimgname},#{albumrenameimgname},#{albumimgroot},#{albumnum})
+</insert>
+
+<select id="selectImgList" parameterType="int" resultType="com.c4.intepark.album.model.vo.AlbumImgs">
+	select albumoriginalimgname, albumrenameimgname, albumimgroot
+	from albumimgs
+	where albumnum =#{value}
+	order by albumimgnum asc
+</select>
+
+<delete id="deleteAlbum" parameterType="int">
+	delete from album where albumnum=#{value} 
+</delete>
+
+<delete id="deleteAlbumImg" parameterType="com.c4.intepark.album.model.vo.AlbumImgs">
+	delete from albumimgs where albumnum=#{albumnum} and albumrenameimgname=#{albumrenameimgname}
+</delete>
+
+<update id="updateAlbum" parameterType="Album">
+	update album set albumtitle=#{albumtitle}, albumcontents=#{albumcontents} where albumnum=#{albumnum}
+</update>
+
+<update id="updateReadCount" parameterType="int">
+	update album set albumreadcount=albumreadcount+1 where albumnum=#{albumnum}
+</update>
+
+<select id="selectAlbumTop4" resultType="Album">
+	select *
+	from (select rownum rnum, albumnum,albumreadcount, userid,albumrenameimgname,albumimgroot
+		  from (select * from album
+			    left join albumimgs using (albumnum)
+			    where albumimgnum in (select min(albumimgnum) from albumimgs group by albumnum) and
+                albumdate between sysdate-7 and sysdate 
+                order by albumreadcount desc))
+                  <![CDATA[
+    where rnum >=1 and rnum <= 4
+    				]]>
+</select>
 
 </mapper>
 

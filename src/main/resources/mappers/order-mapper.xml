@@ -232,6 +232,23 @@ where goodsnum in
 order by ORDERNUM desc
 </select>
 
+<update id="updateOrderscheck2" parameterType="String">
+UPDATE ORDERS
+SET ORDERSTATUS = '배송 시작'
+WHERE ORDERNUM = #{ordernum}
+</update>
+
+<update id="updateOrderscheck3" parameterType="String">
+UPDATE ORDERS
+SET ORDERSTATUS = '배송 완료'
+WHERE ORDERNUM = #{ordernum}
+</update>
+
+<delete id="deleteReviewcheck4" parameterType="String">
+delete from GOODSREVIEW 
+where REVIEWNUM = #{REVIEWNUM}
+</delete>
+
 </mapper>
 
 

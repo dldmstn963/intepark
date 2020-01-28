@@ -31,7 +31,6 @@
 					</a>
 				</div>
 				</c:forEach>
-
 			</div>
 		</div>
 		<!-- Product Catagories Area End -->

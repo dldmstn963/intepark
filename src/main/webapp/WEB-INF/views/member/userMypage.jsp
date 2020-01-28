@@ -61,6 +61,8 @@
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						document.getElementById('sample6_postcode').value = data.zonecode;
 						document.getElementById("sample6_address").value = addr;
+
+						document.getElementById("sample6_detailAddress").readOnly =false;
 						// 커서를 상세주소 필드로 이동한다.
 						document.getElementById("sample6_detailAddress")
 								.focus();
@@ -207,6 +209,7 @@
 		} else {
 			tdpwd.innerHTML = "<p style='color:green; margin:0;'>사용 가능한 비밀번호입니다.</p>";
 		}
+		pwd2dCheck(pwd,document.getElementById("newPwd2"));
 		return false;
 	}
 
@@ -232,7 +235,7 @@ function usingPwdCheck(oripwd,tdpwdc){
 		var tdpwds = tdpwdc;
 
 		$.ajax({
-			 url : "userUpPwdCheck.do",
+			 url : "memberUpPwdCheck.do",
 			 type : "post",
 			 data : {logid:logId, logpwd:logPwd},
 			 success : function(data){			
@@ -425,7 +428,7 @@ function usingPwdCheck(oripwd,tdpwdc){
 										<td></td>
 										<td><input type="text"
 											class="form-control has-feedback-left"
-											id="sample6_detailAddress" placeholder="상세주소" name="address3"></td>
+											id="sample6_detailAddress" placeholder="상세주소" name="address3" readonly></td>
 										<td><input type="text"
 											class="form-control has-feedback-left"
 											id="sample6_extraAddress" placeholder="참고항목" name="address4"
@@ -445,10 +448,11 @@ function usingPwdCheck(oripwd,tdpwdc){
 						<!-- 비밀번호변경 -->
 						<div class="tab-pane fade" id="cc">
 							<br>
-							<form action="userUpdatePwd.do" method="post"
+							<form action="memberUpdatePwd.do" method="post"
 								onsubmit="return upPwdCheck();">
 								<input type="hidden" name="logid"
 									value="${requestScope.inteUser.userid}">
+									<input type="hidden" name="memberCheck" value="inteuser">
 								<table style="margin-left: 20px;">
 									<tr style="height: 40px;">
 										<th>사용중인 비밀번호* :</th>
@@ -492,7 +496,7 @@ function usingPwdCheck(oripwd,tdpwdc){
 						<!-- 탈퇴하기 -->
 						<div class="tab-pane fade" id="dd">
 							<br>
-							<form action="userWithdraw.do" method="post" onsubmit="return deleteUserCheck();">
+							<form action="memberWithdraw.do" method="post" onsubmit="return deleteUserCheck();">
 							<input type="hidden" name="logid"
 									value="${requestScope.inteUser.userid}">
 								<table style="margin-left: 50px;">

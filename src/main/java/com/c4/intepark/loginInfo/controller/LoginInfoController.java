@@ -2,6 +2,7 @@ package com.c4.intepark.loginInfo.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.c4.intepark.common.CommonMailSending;
+import com.c4.intepark.common.KakaoLogin;
 import com.c4.intepark.constructors.model.vo.Constructors;
 import com.c4.intepark.inteuser.model.vo.InteUser;
 import com.c4.intepark.loginInfo.model.service.LoginInfoService;
@@ -44,11 +45,12 @@ public class LoginInfoController {
 		if (request.getAttribute("error") != null) {
 			String error = (String) request.getAttribute("error");
 			if (error.equals("정지")) {
-				System.out.println((String) request.getAttribute("logid"));
 				LoginMemberState logState = logService.selectMemberState((String) request.getAttribute("logid"));
 				if (logState.getMemberstate().equals("탈퇴")) {
 					model.addAttribute("error2", "탈퇴된 회원입니다.");
-				} else {
+				}else if(logState.getMemberstate().equals("대기")){
+					model.addAttribute("error2", "가입 승인 대기중입니다.");
+				}else {
 					model.addAttribute("error3", "정지된 회원입니다.");
 					model.addAttribute("error4", "사유 :" + logState.getStopcause());
 					model.addAttribute("error5",
@@ -65,7 +67,13 @@ public class LoginInfoController {
 	public String loginSuccess(HttpServletRequest request, Model model) {
 		LoginInfo log = (LoginInfo)SecurityContextHolder.getContext().getAuthentication().getDetails();
 		HttpSession session = request.getSession(false);
-		
+
+		String memberCheck = request.getParameter("memberCheck");
+		String aucheck = log.getAuthority().trim().substring(5, 9);
+		if(!memberCheck.equals(aucheck)) {
+			model.addAttribute("error2", "아이디/비밀번호를 확인해주세요");
+			return "member/login";
+		}
 		if (log.getAuthority().trim().equals("ROLE_CONS")) {
 			Constructors loginCons = logService.selectConsSession(request.getUserPrincipal().getName());
 			session.setAttribute("loginCons", loginCons);
@@ -178,11 +186,7 @@ public class LoginInfoController {
 		if (result != 1) {
 			redirect.addFlashAttribute("message", "아이디/이메일이 일치하지 않습니다");
 		} else {
-			String uuid = "";
-			for (int i = 0; i < 5; i++) {
-				uuid = UUID.randomUUID().toString().replaceAll("-", ""); // -를 제거해 주었다.
-				uuid = uuid.substring(0, 10); // uuid를 앞에서부터 10자리 잘라줌.
-			}
+			String uuid = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10); // -를 제거해 주었다.
 			loginfo.setLogpwd(uuid);
 			logService.updateNewLogPwd(loginfo);
 			CommonMailSending cms = new CommonMailSending();
@@ -194,6 +198,86 @@ public class LoginInfoController {
 			redirect.addFlashAttribute("message", "임시비밀번호 발행에 성공하였습니다. 이메일을 확인해주세요");
 		}
 		return "redirect:/userFindIdPwd.do";
+	}
+	
+	// 유저 정지시키기
+	@RequestMapping("admin/memberLetStop.do")
+	public String adUserLetStop(LoginMemberState memberState, @RequestParam("memberCheck") String mcheck,
+			@RequestParam(value = "etc", required = false) String scause, Model model) {
+		if (scause != null && scause != "")
+			memberState.setStopcause(scause);
+		int result = logService.insertMemberLetStop(memberState);
+		if(result !=1) {
+			model.addAttribute("message", "유저 정지에 실패하였습니다.");
+			return "common/error";
+		}
+		if(mcheck.equals("cons"))
+			return "redirect:/admin/consDetailView.do?consid=" + memberState.getLogid();
+		else
+			return "redirect:/admin/userDetailView.do?userid=" + memberState.getLogid();
+	}
+
+	// 유저 정지해제
+	@RequestMapping("admin/memberStopRemove.do")
+	public String adUserStopRemove(LoginMemberState memberState, @RequestParam("memberCheck") String mcheck, Model model){
+		int stopno = logService.selectMaxStopNo(memberState);
+		memberState.setStopno(stopno);
+		int result = logService.updateMemberStopRemove(memberState);
+		if(result !=1) {
+			model.addAttribute("message", "유저 정지해제에 실패하였습니다.");
+			return "common/error";
+		}
+		if(mcheck.equals("cons"))
+			return "redirect:/admin/consDetailView.do?consid=" + memberState.getLogid();
+		else
+			return "redirect:/admin/userDetailView.do?userid=" + memberState.getLogid();
+	}
+	
+	// 유저 비밀번호 변경체크
+	@RequestMapping(value = "memberUpPwdCheck.do", method = RequestMethod.POST)
+	public void memberUpPwdCheck(LoginInfo loginfo, HttpServletResponse response) throws IOException {
+
+		int result = logService.selectMemberPwdCheck(loginfo);
+
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result == 1)
+			out.append("ok");
+		else
+			out.append("no");
+		out.flush();
+		out.close();
+
+	}
+	
+	// 유저 비밀번호 변경
+	@RequestMapping(value = "memberUpdatePwd.do", method = RequestMethod.POST)
+	public String memberUpdatePwd(LoginInfo loginfo, @RequestParam("memberCheck") String mcheck, 
+			Model model, RedirectAttributes redirect) {
+
+		int result = logService.updateMemberPwd(loginfo);
+		redirect.addFlashAttribute("message", "비밀번호 변경에 성공하였습니다.");
+		if (result != 1) {
+			model.addAttribute("message", "비밀번호 변경에 실패하였습니다.");
+			return "common/error";
+		}
+		if(mcheck.equals("cons"))
+			return "redirect:/consMypage.do";
+		else
+			return "redirect:/userMypage.do";
+	}
+
+	// 유저 탈퇴
+	@RequestMapping(value = "memberWithdraw.do", method = RequestMethod.POST)
+	public String deleteMember(LoginMemberState logms, Model model) {
+
+		int result = logService.updateDeleteMember(logms);
+		if (result != 1) {
+			model.addAttribute("message", "탈퇴에 실패하였습니다.");
+			return "common/error";
+		}
+		return "redirect:/logout";
+
 	}
 
 }

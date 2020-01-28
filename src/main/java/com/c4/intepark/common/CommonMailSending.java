@@ -19,7 +19,7 @@ public class CommonMailSending {
 	    mailSender.setPort(587);
 	      
 	    mailSender.setUsername("dldudtn118@gmail.com");
-	    mailSender.setPassword("비번적으셈");
+	    mailSender.setPassword("");
 	      
 	    Properties props = mailSender.getJavaMailProperties();
 	    props.put("mail.transport.protocol", "smtp");

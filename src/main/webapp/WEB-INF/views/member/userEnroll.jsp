@@ -55,6 +55,8 @@
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						document.getElementById('sample6_postcode').value = data.zonecode;
 						document.getElementById("sample6_address").value = addr;
+
+						document.getElementById("sample6_detailAddress").readOnly =false;
 						// 커서를 상세주소 필드로 이동한다.
 						document.getElementById("sample6_detailAddress")
 								.focus();
@@ -100,6 +102,8 @@
 		} else {
 			tdpwd.innerHTML = "<p style='color:green; margin:0;'>사용 가능한 비밀번호입니다.</p>";
 		}
+
+		pwd2dCheck(pwd,document.getElementById("userPwd2"));
 		return false;
 	}
 
@@ -200,6 +204,7 @@
 		var code = event.keyCode;
 		var pattern = /^[\d\-]{12,13}$/;
 		if (code == 8 || code == 46) {
+			telcheck.innerHTML = "<p style='color:red; margin:0;'>11자리의 숫자만 가능합니다</p>";
 			return false;
 		}
 
@@ -272,7 +277,9 @@
 		document.getElementById("pwdcheck").innerHTML = "";
 		document.getElementById("pwdcheck2").innerHTML = "";
 		document.getElementById("nameCheck").innerHTML = "";
+		document.getElementById("telcheck").innerHTML = "";
 		document.getElementById("emailcheck").innerHTML = "";
+		document.getElementById("sample6_detailAddress").readOnly =true;
 	}
 </script>
 </head>
@@ -294,7 +301,7 @@
 					<td><input type="text" class="form-control has-feedback-left"
 						id="userId" name="userid" onkeyup="idCheck(this)" maxlength="12"
 						required></td>
-					<td>&nbsp;&nbsp;<input class="btn btn-primary" type="button"
+					<td>&nbsp;&nbsp;<input class="btn" type="button"
 						onclick="dcheckId()" value="아이디 중복체크"></td>
 				</tr>
 				<tr>
@@ -340,7 +347,7 @@
 					<th>이메일* :</th>
 					<td><input type="email" class="form-control has-feedback-left"
 						id="uemail" name="useremail" onkeyup="eCheck(this)" required></td>
-					<td>&nbsp;&nbsp;<input type="button" class="btn btn-primary"
+					<td>&nbsp;&nbsp;<input type="button" class="btn"
 						onclick="dcheckEmail()" value="이메일 중복체크"></td>
 				</tr>
 				<tr>
@@ -361,7 +368,8 @@
 				<tr>
 					<td></td>
 					<td><input type="text" class="form-control has-feedback-left"
-						id="sample6_detailAddress" placeholder="상세주소" name="address3"></td>
+						id="sample6_detailAddress" placeholder="상세주소" name="address3"
+						readonly></td>
 					<td><input type="text" class="form-control has-feedback-left"
 						id="sample6_extraAddress" placeholder="참고항목" name="address4"
 						readonly></td>

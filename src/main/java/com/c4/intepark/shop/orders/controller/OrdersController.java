@@ -319,23 +319,18 @@ public class OrdersController {
 		}
 	}
 
-	@RequestMapping(value = "deleteReviewcheck4.do", method = RequestMethod.POST)
-	public void deleteReviewcheck(HttpServletRequest request, @RequestParam("lists") String checkBox,
-			HttpServletResponse response) throws IOException {
-		logger.info("리뷰 삭제 : " + checkBox);
-		String check[] = checkBox.split(",");
-		int result = 0;
-		for (int i = 0; i < check.length; i++) {
-			result = ordersService.deleteReviewcheck(check[i]);
-		}
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		if (result > 0) {
-			out.println("<script>alert('삭제 성공!');</script>");
-		} else {
-			out.println("<script>alert('삭제 실패!');</script>");
-		}
-	}
+	/*
+	 * @RequestMapping(value = "deleteReviewcheck4.do", method = RequestMethod.POST)
+	 * public void deleteReviewcheck(HttpServletRequest
+	 * request, @RequestParam("lists") String checkBox, HttpServletResponse
+	 * response) throws IOException { logger.info("리뷰 삭제 : " + checkBox); String
+	 * check[] = checkBox.split(","); int result = 0; for (int i = 0; i <
+	 * check.length; i++) { result = ordersService.deleteReviewcheck(check[i]); }
+	 * response.setContentType("text/html; charset=utf-8"); PrintWriter out =
+	 * response.getWriter(); if (result > 0) {
+	 * out.println("<script>alert('삭제 성공!');</script>"); } else {
+	 * out.println("<script>alert('삭제 실패!');</script>"); } }
+	 */
 
 	@RequestMapping(value = "deleteGoodscheck4.do", method = RequestMethod.POST)
 	public void deleteGoodscheck(HttpServletRequest request, @RequestParam("lists") String checkBox,
@@ -358,7 +353,7 @@ public class OrdersController {
 	@RequestMapping(value = "updateOrderscheck4.do", method = RequestMethod.POST)
 	public void updateOrderscheck4(HttpServletRequest request, @RequestParam("lists") String checkBox,
 			HttpServletResponse response) throws IOException {
-		logger.info("상품 삭제 : " + checkBox);
+		logger.info("주문 수정 : " + checkBox);
 		String check[] = checkBox.split(",");
 		int result = 0;
 		for (int i = 0; i < check.length; i++) {
@@ -367,9 +362,63 @@ public class OrdersController {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		if (result > 0) {
-			out.println("<script>alert('주문 취소 성공!');</script>");
+			out.println("<script>alert('변경 성공!');</script>");
 		} else {
-			out.println("<script>alert('주문 취소 실패!');</script>");
+			out.println("<script>alert('변경 실패!');</script>");
+		}
+	}
+	
+	@RequestMapping(value = "updateOrderscheck42.do", method = RequestMethod.POST)
+	public void updateOrderscheck42(HttpServletRequest request, @RequestParam("lists") String checkBox,
+			HttpServletResponse response) throws IOException {
+		logger.info("주문 수정 : " + checkBox);
+		String check[] = checkBox.split(",");
+		int result = 0;
+		for (int i = 0; i < check.length; i++) {
+			result = ordersService.updateOrderscheck2(check[i]);
+		}
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result > 0) {
+			out.println("<script>alert('변경 성공!');</script>");
+		} else {
+			out.println("<script>alert('변경 실패!');</script>");
+		}
+	}
+	
+	@RequestMapping(value = "updateOrderscheck43.do", method = RequestMethod.POST)
+	public void updateOrderscheck43(HttpServletRequest request, @RequestParam("lists") String checkBox,
+			HttpServletResponse response) throws IOException {
+		logger.info("주문 수정 : " + checkBox);
+		String check[] = checkBox.split(",");
+		int result = 0;
+		for (int i = 0; i < check.length; i++) {
+			result = ordersService.updateOrderscheck3(check[i]);
+		}
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result > 0) {
+			out.println("<script>alert('변경 성공!');</script>");
+		} else {
+			out.println("<script>alert('변경 실패!');</script>");
+		}
+	}
+	
+	@RequestMapping(value = "deleteReviewcheck4.do", method = RequestMethod.POST)
+	public void deleteReviewcheck4(HttpServletRequest request, @RequestParam("lists") String checkBox,
+			HttpServletResponse response) throws IOException {
+		logger.info("리뷰 삭제 : " + checkBox);
+		String check[] = checkBox.split(",");
+		int result = 0;
+		for (int i = 0; i < check.length; i++) {
+			result = ordersService.deleteReviewcheck4(check[i]);
+		}
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result > 0) {
+			out.println("<script>alert('삭제 성공!');</script>");
+		} else {
+			out.println("<script>alert('삭제 실패!');</script>");
 		}
 	}
 
@@ -391,7 +440,21 @@ public class OrdersController {
 		return "shopping/myOrderDetail";
 	}
 	
-	
+	@RequestMapping(value = "deleteReviewcheck42.do", method = RequestMethod.POST)
+	public void deleteReviewcheck42(HttpServletResponse response,@RequestParam("goodsnum")String goodsnum) throws IOException {
+		logger.info("주문 수정 : " + goodsnum);
+
+		int result = ordersService.deleteReviewcheck4(goodsnum);
+
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (result > 0) {
+			out.println("<script>alert('삭제 성공!');</script>");
+		} else {
+			out.println("<script>alert('삭제 실패!');</script>");
+		}
+
+	}
 	
 	
 	

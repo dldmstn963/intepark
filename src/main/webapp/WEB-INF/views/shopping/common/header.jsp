@@ -63,7 +63,6 @@
 		</nav>
 		<!-- Button Group -->
 		<div class="amado-btn-group mt-30 mb-100">
-			<a href="#" class="btn amado-btn mb-15">베스트</a> 
 			<c:if test="${!empty sessionScope.loginCons }">
 			<a href="moveconsshop4.do" class="btn amado-btn mb-15">내 물품 관리</a>
 			</c:if>
@@ -74,8 +73,7 @@
 				src="/intepark/resources/img/core-img/cart.png" alt=""> 장바구니 <span>(0)</span></a>
 			<a href="moveMyOrderList4.do" class="fav-nav"><img
 				src="/intepark/resources/img/core-img/favorites.png" alt="">
-				나의 쇼핑 정보 </a> <a href="#" class="search-nav"><img
-				src="/intepark/resources/img/core-img/search.png" alt=""> 검색</a>
+				나의 쇼핑 정보 </a> 
 		</div>
 		<!-- Social Button -->
 		<div class="social-info d-flex justify-content-between">

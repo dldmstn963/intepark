@@ -10,6 +10,7 @@ public class Constructors implements java.io.Serializable{
 	
 	private String consid;
 	private String conspwd;
+	private String restpoint;
 	private java.sql.Date enrolldate;
 	private String consname;
 	private String phone;
@@ -23,21 +24,20 @@ public class Constructors implements java.io.Serializable{
 	private String pfintroduction;
 	private String profileoriginalimg;
 	private String profilerenameimg;
-	private String blicenceoriginalimg;
-	private String blicencerenameimg;
 	private String memberstate;
 	private java.sql.Date withdrawdate;
 	private String withdrawcause;
 	
 	public Constructors() {}
 
-	public Constructors(String consid, String conspwd, Date enrolldate, String consname, String phone, String consemail,
-			String address, String companyname, String consarea, String asdate, String career, String consintroduction,
-			String pfintroduction, String profileoriginalimg, String profilerenameimg, String blicenceoriginalimg,
-			String blicencerenameimg, String memberstate, Date withdrawdate, String withdrawcause) {
+	public Constructors(String consid, String conspwd, String restpoint, Date enrolldate, String consname, String phone,
+			String consemail, String address, String companyname, String consarea, String asdate, String career,
+			String consintroduction, String pfintroduction, String profileoriginalimg, String profilerenameimg,
+			String memberstate, Date withdrawdate, String withdrawcause) {
 		super();
 		this.consid = consid;
 		this.conspwd = conspwd;
+		this.restpoint = restpoint;
 		this.enrolldate = enrolldate;
 		this.consname = consname;
 		this.phone = phone;
@@ -51,8 +51,6 @@ public class Constructors implements java.io.Serializable{
 		this.pfintroduction = pfintroduction;
 		this.profileoriginalimg = profileoriginalimg;
 		this.profilerenameimg = profilerenameimg;
-		this.blicenceoriginalimg = blicenceoriginalimg;
-		this.blicencerenameimg = blicencerenameimg;
 		this.memberstate = memberstate;
 		this.withdrawdate = withdrawdate;
 		this.withdrawcause = withdrawcause;
@@ -72,6 +70,14 @@ public class Constructors implements java.io.Serializable{
 
 	public void setConspwd(String conspwd) {
 		this.conspwd = conspwd;
+	}
+
+	public String getRestpoint() {
+		return restpoint;
+	}
+
+	public void setRestpoint(String restpoint) {
+		this.restpoint = restpoint;
 	}
 
 	public java.sql.Date getEnrolldate() {
@@ -178,22 +184,6 @@ public class Constructors implements java.io.Serializable{
 		this.profilerenameimg = profilerenameimg;
 	}
 
-	public String getBlicenceoriginalimg() {
-		return blicenceoriginalimg;
-	}
-
-	public void setBlicenceoriginalimg(String blicenceoriginalimg) {
-		this.blicenceoriginalimg = blicenceoriginalimg;
-	}
-
-	public String getBlicencerenameimg() {
-		return blicencerenameimg;
-	}
-
-	public void setBlicencerenameimg(String blicencerenameimg) {
-		this.blicencerenameimg = blicencerenameimg;
-	}
-
 	public String getMemberstate() {
 		return memberstate;
 	}
@@ -220,16 +210,15 @@ public class Constructors implements java.io.Serializable{
 
 	@Override
 	public String toString() {
-		return "Constructors [consid=" + consid + ", conspwd=" + conspwd + ", enrolldate=" + enrolldate + ", consname="
-				+ consname + ", phone=" + phone + ", consemail=" + consemail + ", address=" + address + ", companyname="
-				+ companyname + ", consarea=" + consarea + ", asdate=" + asdate + ", career=" + career
-				+ ", consintroduction=" + consintroduction + ", pfintroduction=" + pfintroduction
+		return "Constructors [consid=" + consid + ", conspwd=" + conspwd + ", restpoint=" + restpoint + ", enrolldate="
+				+ enrolldate + ", consname=" + consname + ", phone=" + phone + ", consemail=" + consemail + ", address="
+				+ address + ", companyname=" + companyname + ", consarea=" + consarea + ", asdate=" + asdate
+				+ ", career=" + career + ", consintroduction=" + consintroduction + ", pfintroduction=" + pfintroduction
 				+ ", profileoriginalimg=" + profileoriginalimg + ", profilerenameimg=" + profilerenameimg
-				+ ", blicenceoriginalimg=" + blicenceoriginalimg + ", blicencerenameimg=" + blicencerenameimg
 				+ ", memberstate=" + memberstate + ", withdrawdate=" + withdrawdate + ", withdrawcause=" + withdrawcause
 				+ "]";
 	}
 
-	
+
 
 }

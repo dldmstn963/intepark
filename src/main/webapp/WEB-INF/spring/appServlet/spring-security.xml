@@ -22,7 +22,8 @@
 		<security:form-login login-page="/login6.do"
 			password-parameter="password" username-parameter="username"
 			default-target-url="/loginSuccess.do" login-processing-url="/login"
-			authentication-failure-handler-ref="loginFailureHandler" />
+			authentication-failure-handler-ref="loginFailureHandler"
+			authentication-success-handler-ref="loginSuccessHandler" />
 		<security:intercept-url pattern="/user/*.do" access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/cons/*.do" access="hasRole('ROLE_CONS')" />
 		<security:intercept-url pattern="/admin/*.do" access="hasRole('ROLE_ADMIN')" />
@@ -60,8 +61,13 @@
 	<property name="logpwd" value="password"></property>
 	<property name="errormessage" value="ERRORMSG"></property>
 	<property name="url" value="login6.do"></property>
-	
 	</bean>
+	
+	<bean id="loginSuccessHandler"
+		class="com.c4.intepark.common.LoginSuccessHandler">
+    <property name="loginidname" value="username"/>
+    <property name="defaultUrl" value="/"/>
+</bean>
 </beans>
 
 

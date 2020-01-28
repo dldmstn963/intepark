@@ -5,83 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css" />
-<script
-	src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
-<script>
-	jQuery(function($) {
-		$("#foo-table").DataTable();
-	});
-</script>
-<title></title>
 </head>
 <body>
-	<table id="foo-table" class="table table-bordered">
-		<thead>
-			<tr>
-				<th><input type="checkbox" id="allCheck"></th>
-				<th>상품 코드</th>
-				<th>썸네일</th>
-				<th>상품명</th>
-				<th>상품 가격</th>
-				<th>재고</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="li" items="${list }">
-			<tr>
-				<td><input type="checkbox" id="checkbox"
-													name="checkbox" value="${li.goodsnum }"></td>
-				<td>${li.goodsnum }</td>
-				<td><img src="/intepark/resources/img/goodthumspic/${li.thumbnail }" width="100" height="100"></td>
-				<td>${li.goodsname }</td>
-				<td>${li.price }</td>
-				<td>${li.inventory }</td>
-			</tr>
-			</c:forEach>
-			<!-- <tr>
-				<td>2</td>
-				<td>경기도</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>충청남도</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>충청북도</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>전라남도</td>
-			</tr>
-			<tr>
-				<td>6</td>
-				<td>전라북도</td>
-			</tr>
-			<tr>
-				<td>7</td>
-				<td>경상남도</td>
-			</tr>
-			<tr>
-				<td>8</td>
-				<td>경상북도</td>
-			</tr>
-			<tr>
-				<td>9</td>
-				<td>강원도</td>
-			</tr>
-			<tr>
-				<td>10</td>
-				<td>제주도</td>
-			</tr>
-			<tr>
-				<td>99</td>
-				<td>해외</td>
-			</tr> -->
-		</tbody>
-	</table>
+<iframe frameborder="0" src="https://roomtodo.com/designer?site_key=6a204bd89f3c8348afd5c77c717a097a" width="1300" height="700"></iframe>
 </body>
 </html>
 
