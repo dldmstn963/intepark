@@ -54,55 +54,7 @@ public class ReviewDao {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public ArrayList<Review> selectrvList() {
-		List<Review> list = mybatisSession.selectList("reviewMapper.selectrvList");
-		return (ArrayList<Review>)list;
-	}
-
-	public Review selectrvOne(int rvnum) {
-		return mybatisSession.selectOne("reviewMapper.selectrvOne", rvnum);
-	}
-
-
-	public int updateReview(Portfolio portfolio) {
-		// TODO Auto-generated method stub
-		return mybatisSession.update("reviewMapper.updateReview", portfolio);
-	}
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

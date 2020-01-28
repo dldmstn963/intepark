@@ -60,7 +60,7 @@ public class PortfolioDao {
 		return mybatisSession.update("portfolioMapper.updateIntroduction", cons);
 	}
 	
-	public ArrayList<PortfolioFile> selectPfOne(String pfnum) {
+	public ArrayList<PortfolioFile> selectPfOne(int pfnum) {
 		List<PortfolioFile>PfOne = mybatisSession.selectList("portfolioMapper.selectPfOne", pfnum);
 		return (ArrayList<PortfolioFile>)PfOne;
 	}
@@ -70,91 +70,32 @@ public class PortfolioDao {
 		return (ArrayList<PortfolioView>)pfOneList;
 	}
 	
+	public ArrayList<PortfolioFile> selectPfRename(int pfnum) {
+		List<PortfolioFile>pfFile = mybatisSession.selectList("portfolioMapper.selectPfRename", pfnum);
+		return (ArrayList<PortfolioFile>)pfFile;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public int insertportfolio(Portfolio portfolio) {
-		return mybatisSession.insert("portfolioMapper.insertportfolio", portfolio);
+	public int deletePortfolio(int pfnum) {
+		return mybatisSession.delete("portfolioMapper.deletePortfolio", pfnum);
 	}
 
-	public int selectpfnum() {
-		return mybatisSession.selectOne("portfolioMapper.selectpfnum");
+	public int insertPF(Portfolio pf) {
+		return mybatisSession.insert("portfolioMapper.insertPF", pf);
 	}
 
-	public int insertportfolioFile(PortfolioFile portfolioFile) {
-		return mybatisSession.insert("portfolioMapper.insertportfolioFile", portfolioFile);
+	public int selectpfnum(String consid) {
+		return mybatisSession.selectOne("portfolioMapper.selectpfnum", consid);
 	}
 
-	public int updateportfolio(Portfolio portfolio) {
-		return mybatisSession.update("portfolioMapper.updateportfolio", portfolio);
+	public int insertPfFile(PortfolioFile p) {
+		return mybatisSession.insert("portfolioMapper.insertPfFile", p);
 	}
-
-	public int deleteportfolio(String reqnum) {
-		return mybatisSession.delete("portfolioMapper.deleteportfolio", reqnum);
-	}
-
+	
+	
 	
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	
-	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

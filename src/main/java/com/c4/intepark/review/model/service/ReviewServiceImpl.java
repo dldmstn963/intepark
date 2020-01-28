@@ -56,50 +56,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public ArrayList<Review> selectrvList() {
-		return reviewDao.selectrvList();
-	}
-
-	@Override
-	public Review selectrvOne(int rvnum) {
-		return reviewDao.selectrvOne(rvnum);
-	}
-
-
-	@Override
-	public int updateReview(Portfolio portfolio) {
-		return reviewDao.updateReview(portfolio);
-	}
-
-	
-
-	
-
-	
-
-	
-
-
-
-
-
-
-	
-
-	
-
-	
-	
-
-	
 }
+
+
+

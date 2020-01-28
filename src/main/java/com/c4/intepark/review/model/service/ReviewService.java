@@ -23,18 +23,7 @@ public interface ReviewService {
 	
 	
 	
-	
-	
-	
-	
-	
-	ArrayList<Review> selectrvList();
-	Review selectrvOne(int rvnum);
-	int updateReview(Portfolio portfolio);
-	
-	
-	
-	
-	
-	
 }
+
+
+
