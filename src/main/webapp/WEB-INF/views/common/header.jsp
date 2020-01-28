@@ -141,7 +141,7 @@ function refuse(data){
 						<div class="collapse navbar-collapse offset"
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item"><a class="nav-link" href="temple4.do">템플릿 페이지<!--3D디자인 리스트--></a></li>
+								<li class="nav-item"><a class="nav-link" href="moveTdMake.do">3D디자인 만들기</a></li>
 								       <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
@@ -177,7 +177,7 @@ function refuse(data){
 							<div class="collapse navbar-collapse offset"
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
-									<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/main.do">3D디자인 리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="moveTdMake.do">3D디자인 만들기</a></li>
 										      <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
