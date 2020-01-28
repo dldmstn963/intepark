@@ -64,8 +64,8 @@ function test(user){
 	console.log("작동확인");
 	
 	text = "<div>"+user+"님이 상담신청 하셨습니다. <br> 수락하시겠습니까?<br>" +
-		"<button class='sel' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
-		"&nbsp;&nbsp;&nbsp;&nbsp;<button class='sel' onclick='refuse(" + chatno + ")'>취소</button></div>" +
+		"<button class='select' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
+		"&nbsp;&nbsp;&nbsp;&nbsp;<button class='select' onclick='refuse(" + chatno + ")'>취소</button></div>" +
 		"<input type='hidden' id='"+chatno+"' value='"+chatno+"'>";
 	$("#alarm").html($("#alarm").html() + text);
 	alarm();
@@ -94,7 +94,7 @@ function refuse(data){
 }
 
 	$(function(){
-	$(document).on("click", ".sel", function(){
+	$(document).on("click", ".select", function(){
 		$(this).closest("div").remove();
 		console.log("성공");
 		alarm();

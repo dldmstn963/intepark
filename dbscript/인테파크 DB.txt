@@ -1806,10 +1806,10 @@ DROP TABLE chatmessage CASCADE CONSTRAINTS;
 CREATE TABLE chatmessage (
    chatcontent   varchar2(4000)      NOT NULL,
    chattime   date   DEFAULT sysdate   NOT NULL,
-   chatno   number on delete cascade NOT NULL,
-   consid    varchar2(15) on delete cascade NULL,
-   userid   varchar2(15) on delete cascade NULL,
-  constraint chatmessage_fk foreign key(chatno, consid, userid) REFERENCES chat
+   chatno   number NOT NULL,
+   consid    varchar2(15) NULL,
+   userid   varchar2(15) NULL,
+  constraint chatmessage_fk foreign key(chatno, consid, userid) REFERENCES chat on delete cascade 
 );
 
 INSERT INTO chatmessage VALUES('상담하고 싶습니다.', default, 1, 'con1', 'user1');

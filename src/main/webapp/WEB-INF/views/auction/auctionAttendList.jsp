@@ -110,7 +110,7 @@ function check1(){
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
     <c:if test="${empty sessionScope.loginCons and !empty sessionScope.loginUser}">
-    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
+    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');openwindow();">채팅</a></li>
     </c:if>
     <c:if test="${loginCons.consid eq a.consid}">
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
