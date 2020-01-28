@@ -253,17 +253,13 @@ span.star-prototype > * {
 					  <div class="col-lg-7" style="padding-left:70px;">
 					  <c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 					  <div style="display:inline-block;">
-					  <form action="pfOne5_2.do" method="post" >
       						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="font:small-caption;">수정하기</button>
-      				  </form>
+      						<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="location.href='updatePFView5.do?consid=${cons.consid}&pfnum=${pfnum}'">수정하기</button>
 					  </div>
 					  <div style="display:inline-block;">
-					  <!-- <form action="deletePfOne5.do" method="post" > -->
       						<input type="hidden" value="${cons.consid}" name="consid">
       						<input type="hidden" value="${pfnum}" name="pfnum">
       						<button class="btn btn-danger btn-sm" style="font:small-caption;" onclick="pfdelete('${cons.consid}','${pfnum}');">삭제하기</button>
-      				  <!-- </form> -->
       				  </div>
       				  </c:if>
       				  </div><!-- 7 끝 -->

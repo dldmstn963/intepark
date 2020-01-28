@@ -2019,19 +2019,19 @@ NOCYCLE;
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_1.jpg', '12345.jpg', '리모델링 사진1 입니다.', '1', 'con1');
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_2.jpg', '12346.jpg', '리모델링 사진2 입니다.', '1', 'con1');
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_bg_3.jpg', '12347.jpg', '리모델링 사진3 입니다.', '1', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-1.jpg', '23456.jpg', '샘플 사진1 입니다.', '2', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-2.jpg', '23457.jpg', '샘플 사진2 입니다.', '2', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-2.jpg', '30001.jpg', '시공샘플 사진1 입니다.', '3', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-5.jpg', '30002.jpg', '시공샘플 사진2 입니다.', '3', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-3.jpg', '34567.jpg', '인테리어 사진1 입니다.', '4', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-4.jpg', '34568.jpg', '인테리어 사진2 입니다.', '4', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-5.jpg', '34569.jpg', '인테리어 사진3 입니다.', '4', 'con1');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_1.jpg', '45678.jpg', '시공완료 사진1 입니다.', '5', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_2.jpg', '45679.jpg', '시공완료 사진2 입니다.', '5', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_3.jpg', '56788.jpg', '디자인샘플 사진1 입니다.', '6', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_4.jpg', '56789.jpg', '', '6', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-8.jpg', '56790.jpg', '디자인샘플 사진3 입니다.', '6', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-9.jpg', '56791.jpg', '디자인샘플 사진4 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-1.jpg', '13456.jpg', '샘플 사진1 입니다.', '2', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-2.jpg', '13457.jpg', '샘플 사진2 입니다.', '2', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-2.jpg', '14567.jpg', '시공샘플 사진1 입니다.', '3', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'services-5.jpg', '14568.jpg', '시공샘플 사진2 입니다.', '3', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-3.jpg', '15678.jpg', '인테리어 사진1 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-4.jpg', '15679.jpg', '인테리어 사진2 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-5.jpg', '15680.jpg', '인테리어 사진3 입니다.', '4', 'con1');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_1.jpg', '16123.jpg', '시공완료 사진1 입니다.', '5', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_2.jpg', '16124.jpg', '시공완료 사진2 입니다.', '5', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_3.jpg', '17123.jpg', '디자인샘플 사진1 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_4.jpg', '17124.jpg', '', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-8.jpg', '17125.jpg', '디자인샘플 사진3 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-9.jpg', '17126.jpg', '디자인샘플 사진4 입니다.', '6', 'con2');
 
 --시공사 리뷰--------------
 

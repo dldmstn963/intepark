@@ -203,7 +203,8 @@ public class PortfolioController {
 	}
 
 	@RequestMapping(value="insertPF5.do", method=RequestMethod.POST)
-	public String insertPF(Portfolio pf, PortfolioFile pfFile, @RequestParam("files")List<MultipartFile> images, @RequestParam("pfcoment2")List<String> pfcoment2, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String insertPF(Portfolio pf, PortfolioFile pfFile, @RequestParam("files")List<MultipartFile> images, 
+										@RequestParam("pfcoment2")List<String> pfcoment2, HttpServletRequest request) throws IllegalStateException, IOException {
 		
 		System.out.println(pfcoment2.toString());
 	
@@ -245,6 +246,133 @@ public class PortfolioController {
         
 		return "redirect:pfOne5.do?consid=" + consid + "&message=portfolio";
 	}
+	
+	@RequestMapping(value="updatePFView5.do")
+	public String updatePFView(@RequestParam(value="consid", required=true) String consid, 
+											@RequestParam(value="pfnum", required=true) int pfnum, Model model) {
+		
+		Constructors cons = portfolioService.selectOneCons(consid);
+		RvAvg rv = portfolioService.selectReview(consid);
+		ArrayList<PortfolioFile> pfOne = portfolioService.selectPfOne(pfnum);
+		Portfolio pfTitle = portfolioService.selectpfTitle(pfnum);
+		
+		int count = pfOne.size();
+		
+		if (cons != null) {
+			 model.addAttribute("cons", cons);
+			 model.addAttribute("rv", rv);
+			 model.addAttribute("pfOne", pfOne);
+			 model.addAttribute("pfTitle", pfTitle);
+			 model.addAttribute("count", count);
+			 return "portfolio/updatePortfolio";
+		  } else { 
+			 model.addAttribute("message", "포트폴리오 업데이트 조회 실패!");
+			 return "common/error";
+		  }
+
+	}
+	
+	@RequestMapping(value="updatePF5.do", method=RequestMethod.POST)
+	public String updatePF(Portfolio pf, PortfolioFile pfFile, @RequestParam(value="files", required=false, defaultValue="")List<MultipartFile> images, 
+											@RequestParam(value="pfcoment1", required=false, defaultValue="")List<String> pfcoment1,
+											@RequestParam(value="pfcoment2",	required=false, defaultValue="")List<String> pfcoment2, HttpServletRequest request,
+											@RequestParam(value="originalRename", required=false, defaultValue="")List<String> originalRename) throws IllegalStateException, IOException {
+		
+		String consid = pf.getConsid();
+		int pfnum = pf.getPfnum();
+		
+		//System.out.println(pf.toString());
+		portfolioService.updatePfTitle(pf);
+		System.out.println(pfcoment2.toString());
+		System.out.println("===============================================");
+		
+		//기존에 디비 파일
+		ArrayList<PortfolioFile> pfOne = portfolioService.selectPfOne(pfnum);
+		
+		PortfolioFile pff = new PortfolioFile();
+		pff.setPfnum(pfnum);
+
+		if(originalRename.size() == pfOne.size()) {	 //만약 길이가같으면 (삭제안했을때)
+			
+			for(int i=0; i < pfOne.size(); i++){
+				pff.setPfphotonum(pfOne.get(i).getPfphotonum());
+			     pff.setPfcoment(pfcoment1.get(i));
+			     portfolioService.updatePfComent(pff);	//기존 정보 코멘트만 업뎃ok    
+			}//포		
+	//삭제안했을때 if 끝		
+		}else{	 //길이 다를때 (삭제했을때)
+			for(String ori : originalRename){ 
+				for(int i = 0; i <  pfOne.size(); i++) {
+					if(ori.equals(pfOne.get(i).getPfrename())) {
+						pfOne.remove(i);
+					} //이프 	
+				} //포  	
+			}	//포
+			
+				//ArrayList<PortfolioFile> pfFile1 = portfolioService.selectPfRename(pfnum);
+			    	
+					String path="";
+					
+					for(PortfolioFile i : pfOne) {	//삭제포문
+						//System.out.println(i.getRvrename() + "\n");
+						path = request.getSession().getServletContext().getRealPath("/resources/portfolio_file/"); // 삭제할 파일의 경로
+						
+							File file = new File(path + "\\" + i.getPfrename());
+							if(file.exists() == true){
+							file.delete();
+						}
+							int pfphotonum = i.getPfphotonum();
+							portfolioService.deletePfFile(pfphotonum);
+					}	//삭제포문 끝
+				
+					 ArrayList<PortfolioFile> pfOne1 = portfolioService.selectPfOne(pfnum);
+					  for(int i=0; i<pfOne1.size(); i++){
+						  pff.setPfphotonum(pfOne1.get(i).getPfphotonum());
+						  pff.setPfcoment(pfcoment1.get(i));
+					      portfolioService.updatePfComent(pff);
+					  }
+			
+		}	//삭제했을때 else 끝
+		
+		
+		
+		if(images.size() != 0) { //새로추가한 사진이 있다면
+	    	 
+	    	 pfFile.setPfnum(pfnum);
+		     pfFile.setConsid(consid);
+		      int i = 0;
+	    	 
+	    	 String savePath = request.getSession().getServletContext().getRealPath("/resources/portfolio_file");
+	         
+	         for(MultipartFile image : images) {
+
+	             String originalName = image.getOriginalFilename();
+	           //첨부된 파일이 있다면, 파일명 바꾸기 처리
+	     		//"yyyyMMddhhmmss.확장자" 형식으로 바꿈
+	     			//바꿀 파일명에 대한 포맷 설정함
+	     			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss" + i);
+	     			//바꿀 파일명 만들기 : 확장자는 원본과 동일하게 함.
+	     			String renameFile = sdf.format(new java.sql.Date(System.currentTimeMillis())) + "." + originalName.substring(originalName.lastIndexOf(".") + 1);
+	     			
+	     			MultipartFile file = image;
+	     			file.transferTo(new File(savePath + "\\" + renameFile));
+	     			
+	     			pfFile.setPforiginalname(originalName);
+	     			pfFile.setPfrename(renameFile);
+	     			pfFile.setPfcoment(pfcoment2.get(i));
+	     			
+	     			portfolioService.insertPfFile(pfFile);
+	     			
+	             i++;
+	         }//for문 끝
+	    	 
+	     }	//새로추가한 파일 if문 끝
+		
+		return "redirect:selectPfOne5.do?consid=" + consid + "&pfnum=" + pfnum;
+	}
+	
+	
+	
 	
 	
 	
