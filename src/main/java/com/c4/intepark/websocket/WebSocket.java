@@ -45,7 +45,7 @@ public class WebSocket extends TextWebSocketHandler {
 			  String userId = user.getUserid();
 		  System.out.println(userId); 
 		  mapList.put(session, userId); 
-		  }else {
+		  }else if(map.get("loginCons") != null){
 		  Constructors cons = (Constructors)map.get("loginCons"); 
 		  String consId =  cons.getConsid();
 		  System.out.println(consId);
