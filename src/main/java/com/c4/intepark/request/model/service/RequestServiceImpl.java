@@ -53,53 +53,7 @@ public class RequestServiceImpl implements RequestService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public ArrayList<Request> selectReqConsList(String consid) {
-		return requestDao.selectReqConsList(consid);
-	}
-
-	@Override
-	public int updateRequest(Request req) {
-		return requestDao.updateRequest(req);
-	}
-
-	@Override
-	public int deleteRequest(String reqnum) {
-		return requestDao.deleteRequest(reqnum);
-	}
-
-	
-
-	
-
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

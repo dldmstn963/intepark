@@ -28,7 +28,7 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-
+<br>
 <div class="row">
 	
 	<div class="col-lg-9"></div><!-- 9 끝 -->
@@ -66,15 +66,6 @@ span.star-prototype > * {
 		
 			<span class="star-prototype">${rv.rvavg }</span>&nbsp; <c:if test="${rv.count != 0 }">${rv.count }개&nbsp;</c:if>
 			
-				<c:if test="${rv.count != 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 있으면서 해당시공사가 아닐경우 -->
-						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
-							<h6 style="color:#01A9DB; display:inline"><strong>리뷰쓰기</strong></h6></a>
-				</c:if>
-			
-				<c:if test="${rv.count == 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 없으면서 해당시공사가 아닐경우 -->
-						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
-							<h6 style="color:#01A9DB; display:inline"><strong>첫리뷰쓰기</strong></h6></a>
-				</c:if>
 		</div>
 		
 		<c:if test="${cons.consid eq sessionScope.loginCons.consid }"><!-- 해당 시공사 로그인시 -->
@@ -83,17 +74,6 @@ span.star-prototype > * {
 	      		<form action="selectRequestList5.do" method="post" onsubmit="return warning2();">
 	      		<input type="hidden" value="${cons.consid}" name="consid">
 	      		<input type="submit" value="상담신청 내역조회" class="form-control btn-primary">
-	      		</form>
-	      		</div>
-			</div>
-		</c:if>
-		
-		<c:if test="${cons.consid ne sessionScope.loginCons.consid }"><!-- 해당 시공사가 아닐경우 -->
-			<div class='col-lg-12' style="margin-top:7px;">
-				<div class="form-group">
-	      		<form action="selectRequestForm5.do" method="post" >
-	      		<input type="hidden" value="${cons.consid}" name="consid">
-	      		<input type="submit" value="상담신청" class="form-control btn-primary">
 	      		</form>
 	      		</div>
 			</div>
@@ -117,12 +97,12 @@ span.star-prototype > * {
 		              <li class="nav-item">
 		                <a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
 		              </li>
-		              <!-- <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+		              <li class="nav-item">
+		                <a class="nav-link" data-toggle="tab" onclick="po('${consid}');">포트폴리오</a>
 		              </li>
 		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
-		              </li> -->
+		                <a class="nav-link" data-toggle="tab" onclick="re('${consid}');">리뷰</a>
+		              </li>
 		            </ul>
 		            
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -149,13 +129,11 @@ span.star-prototype > * {
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
 		              <!-- <div class="tab-pane fade" id="bb">
-		                <p>bbb</p>
 		              </div> -->
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
 			              
 	<!-- ----------------------------------------------------------------리뷰 탭 구역 시작------------------------------------------------------------------------- -->	              
-		              <!-- <div class="tab-pane fade" id="cc">
-		                <p>ccc</p>              
+		              <!-- <div class="tab-pane fade" id="cc"> 
 		              </div> -->
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	            
 		            
@@ -172,7 +150,21 @@ span.star-prototype > * {
 
 
 <script type="text/javascript">
+//포트폴리오 클릭시
+function po(consid){
+	if(!confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?"))
+		return false;
+	location.href = "pfOne5.do?consid="+consid+"&message="+'portfolio';
+}
 
+//리뷰클릭시
+function re(consid){
+	if(!confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?"))
+		return false;
+	location.href = "pfOne5.do?consid="+consid+"&message="+'review';
+}
+
+//목록으로 클릭시
 function warning(){
 	if(confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?")){
 		return true;
@@ -180,6 +172,8 @@ function warning(){
 		return false;	
 			}
 }
+
+//상담신청 내역조회 클릭시
 function warning2(){
 	if(confirm(" 저장하기를 버튼을 누르지 않으면 \n 변경된 내용이 저장되지 않습니다. \n 이대로 작성페이지를 나가시겠습니까?")){
 		return true;

@@ -117,55 +117,7 @@ public class RequestController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@RequestMapping(value="selectReqConsList5.do", method=RequestMethod.POST)
-	public String selectReqConsList(@RequestParam(value="consid", required=true) String consid, HttpServletRequest request) {
-		
-		ArrayList<Request> list = requestService.selectReqConsList(consid);
-		
-		request.setAttribute("list", list);
-		return "aa";
-	}
-	
-	@RequestMapping(value="updateRequest5.do", method=RequestMethod.POST)
-	public String updateRequest(Request req, HttpServletRequest request) {
-		
-		int result = requestService.updateRequest(req);
-		
-		return "aa";
-	}
-	
-	@RequestMapping(value="deleteRequest5.do", method=RequestMethod.POST)
-	public String deleteRequest(@RequestParam(value="reqnum", required=true) String reqnum) {
-		
-		int result = requestService.deleteRequest(reqnum);
-		
-		return "aa";
-	}
 }
-
-
-
-
-
-
-
-
 
 
 

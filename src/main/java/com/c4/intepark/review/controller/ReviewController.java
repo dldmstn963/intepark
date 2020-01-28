@@ -235,25 +235,8 @@ public class ReviewController {
 				
 			int result = reviewService.deleteReview(rvnum);			
 			
-			return "redirect:pfOne5.do?consid=" + consid;
+			return "redirect:pfOne5.do?consid=" + consid + "&message=review";
 		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	    
 	    
 	    
@@ -263,55 +246,12 @@ public class ReviewController {
 	    
 	    
 	    
-	
-	
-	
-	
-	
-	
-	
-	@RequestMapping("selectrvList5.do")
-	public String selectrvList(Model model) {
-		
-		  ArrayList<Review> list = reviewService.selectrvList();
-		  //logger.info(list);
-		
-		/*
-		 * if (list.size() > 0) { model.addAttribute("list", list); return
-		 * "portfolio/portfolioListView"; } else { model.addAttribute("message",
-		 * "업체 리스트 조회 실패!"); return "common/error"; }
-		 */
-		  return null;
-	}
-	
-	@RequestMapping("selectrvOne5.do")
-	public ModelAndView selectrvOne(@RequestParam(value="rvnum", required=true) int rvnum, ModelAndView mv) {
-		//logger.info(consid);
-		
-		Review review = reviewService.selectrvOne(rvnum);
-		
-		/*
-		 * if(cons != null) { mv.addObject("cons", cons);
-		 * mv.setViewName("portfolio/portfolioDetailView"); }else {
-		 * mv.addObject("message", cons.getCompanyname() + "  업체 상세 조회 실패!");
-		 * mv.setViewName("common/error"); } return mv;
-		 */
-		return null;
-	}
-
-	@RequestMapping(value="updateReview5.do", method=RequestMethod.POST)
-	public String updateReview(Portfolio portfolio, PortfolioFile portfolioFile) {
-		
-		int result = reviewService.updateReview(portfolio);
-		//int pfnum = portfolio.getPfnum();
-		//int result2 = portfolioService.updateportfolioFile(pfnum);
-		
-		return null;
-	}
-	
-
-	
-	
-	
-	
+	    
+	    
+	    
+	    
+	    
 }
+
+
+

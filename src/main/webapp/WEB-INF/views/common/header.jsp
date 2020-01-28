@@ -9,13 +9,13 @@
 
 <style type="text/css">
 .header_area{
-	background:#FFFFFF;
+	background:#FFFFee;
 	position:fixed;
 }
 </style>
 
 
-<script >
+<script>
 var ws;
 var text;
 var user;
@@ -150,7 +150,7 @@ function refuse(data){
                               <li class="nav-item"><a class="nav-link" href="auctionEndList2.do">전체 견적리스트</a></li>
                            </ul>
                         </li> 
-								<li class="nav-item"><a class="nav-link" href="properties.jsp">시공사 리스트</a></li>
+								<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 								<li class="nav-item"><a class="nav-link" href="albumlist6.do">인테리어 게시판</a></li>
 								<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 								<li class="nav-item"><a class="nav-link" href="nlist1.do">고객센터</a></li>
@@ -246,7 +246,7 @@ function refuse(data){
 
 							
                         <li class="nav-item"><a class="nav-link" href="auctionList2.do">전체 견적리스트</a></li>
-									<li class="nav-item"><a class="nav-link" href="pointAdd2.do?consid=${loginCons.consid }">내 입찰내역</a></li>
+									<li class="nav-item"><a class="nav-link" href="MyAuctionAttendList2.do?consid=${loginCons.consid }">내 입찰내역</a></li>
 									<li class="nav-item"><a class="nav-link" href="conslist5.do">시공사 리스트</a></li>
 									<li class="nav-item"><a class="nav-link" href="moveshop4.do">쇼핑몰</a></li>
 									<li class="nav-item"><a class="nav-link" href="calendar3.do">일정관리</a></li>

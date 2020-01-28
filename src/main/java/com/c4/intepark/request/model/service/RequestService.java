@@ -19,14 +19,7 @@ public interface RequestService {
 	
 	
 	
-	
-	
-	
-	
-	ArrayList<Request> selectReqConsList(String consid);
-	int updateRequest(Request req);
-	int deleteRequest(String reqnum);
-	
-	
-	
 }
+
+
+

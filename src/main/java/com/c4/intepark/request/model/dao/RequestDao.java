@@ -51,51 +51,7 @@ public class RequestDao {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public ArrayList<Request> selectReqConsList(String consid) {
-		List<Request> list = mybatisSession.selectList("requestMapper.selectReqConsList", consid);
-		return (ArrayList<Request>)list;
-	}
-
-	public int updateRequest(Request req) {
-		return mybatisSession.update("requestMapper.insertRequest", req);
-	}
-
-	public int deleteRequest(String reqnum) {
-		return mybatisSession.delete("requestMapper.insertRequest", reqnum);
-	}
-
-	
-
-	
-
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
