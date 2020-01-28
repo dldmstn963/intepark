@@ -117,4 +117,15 @@ public int NonAuctionUpdate(NonAuction nonauction) {
 	
 	return mybatisSession.update("auctionMapper.NonAuctionUpdate", nonauction);
 }
+
+public int MyAuctionAttendListCount(CommonPage cpage) {
+	// TODO Auto-generated method stub
+	return mybatisSession.selectOne("auctionMapper.MyAuctionAttendListCount",cpage);
+}
+
+public ArrayList<AuctionAttend> MyAuctionAttendList(CommonPage cpage) {
+	List<AuctionAttend> list = mybatisSession.selectList("auctionMapper.MyAuctionAttendList", cpage);
+	
+	return (ArrayList<AuctionAttend>)list;
+}
 }
