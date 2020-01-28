@@ -132,12 +132,12 @@ join (select auctionno, userid from auction) using(auctionno) where auctionno = 
 	<select id="MyAuctionAttendList" parameterType="CommonPage" resultType="AuctionAttend">
 		select *
 		from (select rownum rnum, auctionno, consid, consname, title, phone, possibledate, price, progress
-			  from (select * from auctionattend where consid = #{consid} 
+			  from (select * from auctionattend where consid = #{consid} order by auctionno desc
 			  
 	<if test="searchtext != null and selectoption.equals('title')">
 		and title like '%'||#{searchtext ,jdbcType=VARCHAR}||'%'
 	</if> 
-                    )order by rnum desc)
+                    )order by rnum asc)
                     <![CDATA[
         where rnum >= #{startList} and rnum <= #{endList}
 					]]>

@@ -1578,18 +1578,18 @@ DROP TABLE auction CASCADE CONSTRAINTS;
 CREATE TABLE auction (
 auctionno number NOT NULL PRIMARY KEY,
 interiorsection varchar2(20) NOT NULL,
-title varchar2(50) NOT NULL,
-name varchar2(30) NOT NULL,
-price varchar2(15) NOT NULL,
-email varchar2(50) NOT NULL,
-phone varchar2(20) NOT NULL,
+title varchar2(500) NOT NULL,
+name varchar2(200) NOT NULL,
+price varchar2(50) NOT NULL,
+email varchar2(100) NOT NULL,
+phone varchar2(30) NOT NULL,
 startday date,
-address varchar2(100) NOT NULL,
+address varchar2(500) NOT NULL,
 ofile varchar2(500),
 rfile varchar2(500),
 etc varchar2(500),
 progress varchar2(30) DEFAULT '대기' NOT NULL,
-userid VARCHAR2(30)   REFERENCES inteuser(userid) ON DELETE CASCADE
+userid VARCHAR2(50)   REFERENCES inteuser(userid) ON DELETE CASCADE
 );
 
 COMMENT ON COLUMN auction.auctionno IS '경매번호';
@@ -1628,17 +1628,17 @@ DROP TABLE nonauction CASCADE CONSTRAINTS;
 CREATE TABLE nonauction (
 auctionno number NOT NULL PRIMARY KEY,
 interiorsection varchar2(20) NOT NULL,
-title varchar2(50) NOT NULL,
-name varchar2(30) NOT NULL,
-price varchar2(15) NOT NULL,
-email varchar2(50) NOT NULL,
+title varchar2(500) NOT NULL,
+name varchar2(200) NOT NULL,
+price varchar2(30) NOT NULL,
+email varchar2(200) NOT NULL,
 phone varchar2(20) NOT NULL,
 startday date,
-address varchar2(100) NOT NULL,
+address varchar2(500) NOT NULL,
 ofile varchar2(500),
 rfile varchar2(500),
 etc varchar2(500),
-password varchar2(50)  NOT NULL,
+password varchar2(100)  NOT NULL,
 progress varchar2(30) DEFAULT '대기' NOT NULL
 );
 
@@ -1675,12 +1675,12 @@ DROP TABLE auctionattend CASCADE CONSTRAINTS;
 
 CREATE TABLE auctionattend (
 auctionno number	REFERENCES auction(auctionno) ON DELETE CASCADE,
-consid VARCHAR2(15)	REFERENCES constructors(consid) ON DELETE CASCADE,
-consname varchar2(100),
-title varchar2(50) NOT NULL,
+consid VARCHAR2(50)	REFERENCES constructors(consid) ON DELETE CASCADE,
+consname varchar2(200),
+title varchar2(500) NOT NULL,
 phone varchar2(50),
 possibledate date NOT NULL,
-price varchar2(15) NOT NULL,
+price varchar2(30) NOT NULL,
 ofile varchar2(500),
 rfile varchar2(500),
 etc varchar2(500),
@@ -1700,18 +1700,14 @@ COMMENT ON COLUMN auctionattend.rfile IS '참고사진사본';
 COMMENT ON COLUMN auctionattend.etc IS '상세정보';
 COMMENT ON COLUMN auctionattend.progress IS '진행현황';
 COMMENT ON COLUMN auctionattend.panorama IS '파노라마';
-insert into auctionattend values (11, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'2.jpg');
-insert into auctionattend values (11, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (12, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (12, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (13, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (13, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (14, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (14, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (10, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (10, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (9, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (9, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (11, 'con1','시공사1','멋있게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'2.jpg');
+insert into auctionattend values (11, 'con2','시공사2','사진보시고 결정하세요.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (12, 'con2','시공사2','믿고보는 intepark','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (12, 'con1','시공사1','일단한번 믿어봐~','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (10, 'con2','시공사2','간지폭풍','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (10, 'con1','시공사1','70년 장인입니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
+insert into auctionattend values (9, 'con2','시공사2','우리시공사샘플한번보세요 멋있습니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
+insert into auctionattend values (9, 'con1','시공사1','핵간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
 insert into auctionattend values (8, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
 insert into auctionattend values (8, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
 insert into auctionattend values (7, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
@@ -1728,8 +1724,6 @@ insert into auctionattend values (2, 'con2','시공사2','간지나고 싸게 �
 insert into auctionattend values (2, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
 insert into auctionattend values (1, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
 insert into auctionattend values (1, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
-insert into auctionattend values (17, 'con2','시공사2','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'1.jpg');
-insert into auctionattend values (17, 'con1','시공사1','간지나고 싸게 해드립니다.','010-1234-1234',sysdate,'4,000 ','12.jpg/2013-07-17_10;05;32.jpg/mug_obj_201702040949279638.jpg','202001231655301.jpg/202001231655302.jpg/202001231655303.jpg','50년 경력의 장인입니다',DEFAULT,'');
 
 --포인트
 drop sequence SETPOINT_SEQ;
@@ -1740,10 +1734,10 @@ DROP TABLE setpoint CASCADE CONSTRAINTS;
 
 CREATE TABLE setpoint (
 pointno number NOT NULL PRIMARY KEY ,
-chargeamount varchar2(15) NOT NULL,
-chargepoint varchar2(15) NOT NULL,
-restpoint varchar2(15) NOT NULL,
-consid VARCHAR2(15)   REFERENCES constructors(consid) ON DELETE CASCADE NOT NULL
+chargeamount varchar2(50) NOT NULL,
+chargepoint varchar2(50) NOT NULL,
+restpoint varchar2(50) NOT NULL,
+consid VARCHAR2(50)   REFERENCES constructors(consid) ON DELETE CASCADE NOT NULL
 );
 
 COMMENT ON COLUMN setpoint.pointno IS '충전번호';
