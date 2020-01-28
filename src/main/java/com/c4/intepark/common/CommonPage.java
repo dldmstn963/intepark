@@ -24,6 +24,7 @@ public class CommonPage implements java.io.Serializable{
 	private String enddate;
 	private String memberstate;
 	private int auctionno;
+	private String consid;
 	
 	public CommonPage() {}
 	
@@ -53,28 +54,7 @@ public class CommonPage implements java.io.Serializable{
 
 
 
-	public CommonPage(int listCount, int listSize, int pageSize, int currentPage, int maxPage, int beginPage,
-			int endPage, int startList, int endList, String selectoption, String searchtext, String userid,
-			String username, String startdate, String enddate, String memberstate, int auctionno) {
-		super();
-		this.listCount = listCount;
-		this.listSize = listSize;
-		this.pageSize = pageSize;
-		this.currentPage = currentPage;
-		this.maxPage = maxPage;
-		this.beginPage = beginPage;
-		this.endPage = endPage;
-		this.startList = startList;
-		this.endList = endList;
-		this.selectoption = selectoption;
-		this.searchtext = searchtext;
-		this.userid = userid;
-		this.username = username;
-		this.startdate = startdate;
-		this.enddate = enddate;
-		this.memberstate = memberstate;
-		this.auctionno = auctionno;
-	}
+	
 
 
 
@@ -256,6 +236,36 @@ public class CommonPage implements java.io.Serializable{
 
 
 
+	public CommonPage(int listCount, int listSize, int pageSize, int currentPage, int maxPage, int beginPage,
+			int endPage, int startList, int endList, String selectoption, String searchtext, String userid,
+			String username, String startdate, String enddate, String memberstate, int auctionno, String consid) {
+		super();
+		this.listCount = listCount;
+		this.listSize = listSize;
+		this.pageSize = pageSize;
+		this.currentPage = currentPage;
+		this.maxPage = maxPage;
+		this.beginPage = beginPage;
+		this.endPage = endPage;
+		this.startList = startList;
+		this.endList = endList;
+		this.selectoption = selectoption;
+		this.searchtext = searchtext;
+		this.userid = userid;
+		this.username = username;
+		this.startdate = startdate;
+		this.enddate = enddate;
+		this.memberstate = memberstate;
+		this.auctionno = auctionno;
+		this.consid = consid;
+	}
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "CommonPage [listCount=" + listCount + ", listSize=" + listSize + ", pageSize=" + pageSize
@@ -263,8 +273,36 @@ public class CommonPage implements java.io.Serializable{
 				+ endPage + ", startList=" + startList + ", endList=" + endList + ", selectoption=" + selectoption
 				+ ", searchtext=" + searchtext + ", userid=" + userid + ", username=" + username + ", startdate="
 				+ startdate + ", enddate=" + enddate + ", memberstate=" + memberstate + ", auctionno=" + auctionno
-				+ "]";
+				+ ", consid=" + consid + "]";
 	}
+
+
+
+
+
+
+
+	public String getConsid() {
+		return consid;
+	}
+
+
+
+
+
+
+
+	public void setConsid(String consid) {
+		this.consid = consid;
+	}
+
+
+
+
+
+
+
+
 
 
 

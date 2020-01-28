@@ -31,7 +31,7 @@
     function popup(auctionno,consname){
         var url = "auctionAttendPop2.do?auctionno="+auctionno+"&consname="+consname;
         var name = "popup test";
-        var option = "width = 810, height = 500, top = 100, left = 200, location = no"
+        var option = "width = 970, height = 560, top = 100, left = 200, location = no"
  window.open(url, name, option);
     }
     var chatno;
@@ -63,14 +63,23 @@
 function openwindow(){
 	window.open("chat3.do?chatno="+chatno, "chat", "width=450, height=700");
 }
-
+function check1(){
+	 <c:forEach items="${ list }" var="b">
+	 <c:if test="${loginCons.consid eq b.consid}">
+			alert("존재함");
+			return false;
+	 </c:if>
+	 </c:forEach>
+	 
+	 location.href='auctionAttend22.do?auc=${commonPage.auctionno}';
+	 
+}
 	</script>
 <script type="text/javascript">
 	setInterval(function(){
 		  $(".blinkEle").toggle();
 		}, 500);
 	</script>
-
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
@@ -99,12 +108,12 @@ function openwindow(){
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
-
+    <c:if test="${empty sessionScope.loginCons and !empty sessionScope.loginUser}">
     <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
-
-
-    <li><a href="#">수정</a></li>
+    </c:if>
+    <c:if test="${loginCons.consid eq a.consid}">
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>
+    </c:if>
     </ul>
     </th>
       <td>${a.title }</td>
@@ -116,7 +125,6 @@ function openwindow(){
           <c:if test="${a.progress eq '진행' }">
          <td class="blinkEle" style="color:blue; padding-left:25px;">${a.progress }</td>
          </c:if>
-        
     </tr>
     </c:forEach>        
   </tbody>
@@ -205,8 +213,7 @@ function openwindow(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
-
-<button type="button" onclick="location.href='auctionAttend22.do?auc=${commonPage.auctionno}' " style="background-color: #ffc107;" class="btn">경매참가</button>
+<button type="button" onclick="check1()" style="background-color: #ffc107;" class="btn">경매참가</button>
 </c:if>
 </div>
  	<script>
