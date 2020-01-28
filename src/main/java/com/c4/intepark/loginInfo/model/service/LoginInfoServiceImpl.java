@@ -81,5 +81,35 @@ public class LoginInfoServiceImpl implements UserDetailsService,LoginInfoService
 	public String selectFindConsId(Constructors cons) {
 		return logDao.selectFindConsId(cons);
 	}
+
+	@Override
+	public int insertMemberLetStop(LoginMemberState memberState) {
+		return logDao.insertMemberLetStop(memberState);
+	}
+
+	@Override
+	public int selectMaxStopNo(LoginMemberState memberState) {
+		return logDao.selectMaxStopNo(memberState);
+	}
+
+	@Override
+	public int updateMemberStopRemove(LoginMemberState memberState) {
+		return logDao.updateMemberStopRemove(memberState);
+	}
+
+	@Override
+	public int updateMemberPwd(LoginInfo loginfo) {
+		return logDao.updateMemberPwd(loginfo);
+	}
+
+	@Override
+	public int updateDeleteMember(LoginMemberState logms) {
+		return logDao.updateDeleteMember(logms);
+	}
+
+	@Override
+	public int selectMemberPwdCheck(LoginInfo loginfo) {
+		return logDao.selectMemberPwdCheck(loginfo);
+	}
 }
 

@@ -210,7 +210,7 @@ function refuse(data){
 						</a> 
 						<!-- Dropdown - Alerts -->
 							<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-								<h6 class="dropdown-header">알림</h6>
+								<h6 style="display:inline-block;"class="dropdown-header">알림</h6> <a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 								
 								<!-- <div id="aa">
 								</div> -->
@@ -224,10 +224,7 @@ function refuse(data){
 					</ul>
 
 				</nav>
-                	
-					
 
-					<a href="${pageContext.request.contextPath }/logout"><b style="color: blue;">로그아웃</b></a>
 
 				</div>	
 					<nav class="navbar navbar-expand-lg navbar-light">
@@ -281,6 +278,7 @@ function refuse(data){
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
+								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/albumlist6.do">인테리어 게시판관리</a></li>								
 								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/userList6.do">고객 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/consList6.do">시공사 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="nlist1.do">고객센터</a></li>

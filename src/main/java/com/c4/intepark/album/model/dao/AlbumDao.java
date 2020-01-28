@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.c4.intepark.album.model.vo.Album;
+import com.c4.intepark.album.model.vo.AlbumImgs;
 import com.c4.intepark.album.model.vo.AlbumReply;
 import com.c4.intepark.common.CommonPage;
 
@@ -66,6 +67,44 @@ public class AlbumDao {
 
 	public int updateReplyContents(AlbumReply aReply) {
 		return sqlSession.update("albumReplyMapper.updateReplyContents", aReply);
+	}
+
+	public int insertAlbum(Album album) {
+		return sqlSession.insert("albumMapper.insertAlbum", album);
+	}
+
+	public int selectMaxAlbumNum(String userid) {
+		return sqlSession.selectOne("albumMapper.selectMaxAlbumNum", userid);
+	}
+
+	public int insertAlbumImg(AlbumImgs aImg) {
+		return sqlSession.insert("albumMapper.insertAlbumImg", aImg);
+	}
+
+	public ArrayList<AlbumImgs> selectImgList(int anum) {
+		List<AlbumImgs> list = sqlSession.selectList("albumMapper.selectImgList", anum);
+		return (ArrayList<AlbumImgs>) list;
+	}
+
+	public int deleteAlbum(int anum) {
+		return sqlSession.delete("albumMapper.deleteAlbum", anum);
+	}
+
+	public int deleteAlbumImg(AlbumImgs aimg) {
+		return sqlSession.delete("albumMapper.deleteAlbumImg", aimg);
+	}
+
+	public int updateAlbum(Album album) {
+		return sqlSession.update("albumMapper.updateAlbum", album);
+	}
+
+	public int updateReadCount(int anum) {
+		return sqlSession.update("albumMapper.updateReadCount", anum);
+	}
+
+	public ArrayList<Album> selectAlbumTop4() {
+		List<Album> list = sqlSession.selectList("albumMapper.selectAlbumTop4"); 
+		return (ArrayList<Album>) list;
 	}
 
 

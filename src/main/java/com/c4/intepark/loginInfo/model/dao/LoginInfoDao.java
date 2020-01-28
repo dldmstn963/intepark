@@ -62,6 +62,29 @@ public class LoginInfoDao {
 	public String selectFindConsId(Constructors cons) {
 		return sqlSession.selectOne("loginInfoMapper.selectFindConsId", cons);
 	}
+
+	public int insertMemberLetStop(LoginMemberState memberState) {
+		return sqlSession.insert("loginInfoMapper.insertLetStop", memberState);
+	}
+
+	public int selectMaxStopNo(LoginMemberState memberState) {
+		return sqlSession.selectOne("loginInfoMapper.selectMaxStopNo", memberState);
+	}
+
+	public int updateMemberStopRemove(LoginMemberState memberState) {
+		return sqlSession.update("loginInfoMapper.updateStopRemove", memberState);
+	}
 	
+	public int selectMemberPwdCheck(LoginInfo loginfo) {
+		return sqlSession.selectOne("loginInfoMapper.selectMemberPwdCheck", loginfo);
+	}
+
+	public int updateMemberPwd(LoginInfo loginfo) {
+		return sqlSession.update("loginInfoMapper.updateMemberPwd", loginfo);
+	}
+
+	public int updateDeleteMember(LoginMemberState logms) {
+			return sqlSession.update("loginInfoMapper.updateDeleteMember", logms);
+	}
 
 }

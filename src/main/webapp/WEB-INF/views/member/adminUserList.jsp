@@ -7,6 +7,17 @@
 <meta charset="UTF-8">
 <%@ include file="../common/jscsspath.jsp"%>
 <script type="text/javascript">
+window.onload=function(){
+	var searchmstate = '${commonPage.memberstate}';
+	var selectm = document.getElementById('smemberstate');
+
+ 	for(var i=0; i<selectm.options.length; i++){
+ 		if(selectm.options[i].value==searchmstate){
+			selectm.options[i].selected =true;
+			return false;
+			}
+		} 
+}
 function serchDetail(){
 	var searchD=document.getElementById("serarchD");
 	if(searchD.style.display=="none")
@@ -58,11 +69,11 @@ function checkSearch(){
 						<th>상세보기&nbsp;&nbsp;&nbsp;</th>
 					</tr>
 					<tr id="serarchD" style="display: none; text-align: center;">
-						<th>아이디 : <input type="text" name="userid" style="width: 100px"></th>
-						<th>이름 : <input type="text" name="username" style="width: 100px"></th>
-						<th>검색 시작 날짜 : <input type="date" id="sdate" name="startdate"></th>
-						<th>검색 끝 날짜 : <input type="date" id="edate" name="enddate"></th>
-						<th colspan="2">현재상태 : <select name="memberstate">
+						<th>아이디 : <input type="text" name="userid" style="width: 100px" value="${commonPage.userid}"></th>
+						<th>이름 : <input type="text" name="username" style="width: 100px" value="${commonPage.username}"></th>
+						<th>검색 시작 날짜 : <input type="date" id="sdate" name="startdate" value="${commonPage.startdate}"></th>
+						<th>검색 끝 날짜 : <input type="date" id="edate" name="enddate" value="${commonPage.enddate}"></th>
+						<th colspan="2">현재상태 : <select id="smemberstate" name="memberstate">
 								<option value="">전체</option>
 								<option value="정상">정상</option>
 								<option value="정지">정지</option>
@@ -92,42 +103,42 @@ function checkSearch(){
 	<nav aria-label="..." style="text-align: center">
 		<ul class="pagination justify-content-center">
 			<li class="page-item"><a class="page-link"
-				href="userlist6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">|◁</a></li>
+				href="userList6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">|◁</a></li>
 			<c:if test="${(commonPage.beginPage-commonPage.pageSize)<= 1}">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="userList6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-backward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:if test="${ (commonPage.beginPage-commonPage.pageSize) > 1}">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.beginPage-commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="userList6.do?page=${commonPage.beginPage-commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-backward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:forEach var="p" begin="${commonPage.beginPage }"
 				end="${commonPage.endPage }">
 				<c:if test="${p == commonPage.currentPage }">
 					<li class="page-item active"><a class="page-link"
-						href="userlist6.do?page=${p}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
+						href="userList6.do?page=${p}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
 				</c:if>
 				<c:if test="${p != commonPage.currentPage }">
 					<li class="page-item"><a class="page-link"
-						href="userlist6.do?page=${p }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
+						href="userList6.do?page=${p }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
 				</c:if>
 			</c:forEach>
 			<c:if
 				test="${(commonPage.endPage+commonPage.pageSize) > commonPage.maxPage }">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.maxPage}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="userList6.do?page=${commonPage.maxPage}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-forward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:if
 				test="${(commonPage.endPage+commonPage.pageSize) <= commonPage.maxPage }">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.beginPage + commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="userList6.do?page=${commonPage.beginPage + commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-forward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<li class="page-item"><a class="page-link"
-				href="userlist6.do?page=${commonPage.maxPage }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">▷|</a></li>
+				href="userList6.do?page=${commonPage.maxPage }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">▷|</a></li>
 		</ul>
 	</nav>
 	<!--================ start footer Area  =================-->

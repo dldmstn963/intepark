@@ -13,16 +13,28 @@
  a:hover { color: black; text-decoration: underline;}
 </style>
 <script type="text/javascript">
+
+function deleteAlbum(){
+	if(confirm("정말로 삭제하시겠습니까?"))
+	location.href="albumDelete.do?anum="+${album.albumnum};
+	return false;
+}
+
+function updateAlbum(){
+	location.href="albumUpdatePage.do?anum="+${album.albumnum};
+	return false;
+}
+
 function deleteReply(replyNo){
-	var yn = confirm("정말로 삭제하시겠습니까?");
-	if(yn==true)
-	window.location.href="albumReplyDelete.do?page="+${page}+"&anum="+${album.albumnum}+"&replyno="+replyNo;
+	if(confirm("정말로 삭제하시겠습니까?"))
+	location.href="albumReplyDelete.do?page="+${page}+"&anum="+${album.albumnum}+"&replyno="+replyNo;
 	return false;
 }
 
 function viewrreply(rreply,rrInput){
 	if(rreply.style.display=="none"){
 		rreply.style.display="";
+		rrInput.focus();
 	}else{
 		rreply.style.display="none";
 		rrInput.value="";
@@ -55,15 +67,22 @@ function replySubmit(text){
        	<jsp:include page="../common/header.jsp" />
        	<div class="container">
        	<div class="x_content">
+       		<!-- 본문내용 -->
        		<table class="table">
        			<tr><th>사진첩 <c:out value="${album.albumnum}" /></th>
        				<th style="text-align:center"><c:out value="${album.albumtitle}" /></th>
        				<th style="width:400px; text-align:right"><c:out value="${album.userid}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        				<c:out value="${album.albumdate}" /></th>
        			</tr>
-       			<tr><td colspan="3"><c:out value="${album.albumcontents}" /></td></tr>
+       			<tr><td colspan="3">
+       			<c:forEach var="imglist" items="${requestScope.imglist}">
+       			<img style="height:250px; width:250px;" src="${pageContext.request.contextPath }/resources/albumImgs/${imglist.albumimgroot}/${imglist.albumrenameimgname}">
+       			</c:forEach>
+       			</td></tr>
        		</table>
-       		<!-- 댓글시작 -->
+       		${album.albumcontents}
+       		
+       		<!-- 댓글시작 --><!-- 댓글시작 --><!-- 댓글시작 --><!-- 댓글시작 --><!-- 댓글시작 -->
        		<div id="breply" style="border: 1px solid rgb(221,221,221); background-color:rgb(240,240,240);">
        			<h4 style="margin:5px"> &nbsp;&nbsp;댓글 ${requestScope.aReplyCount}개</h4>
        				<hr style="border-style:dotted;margin:5px">
@@ -81,11 +100,12 @@ function replySubmit(text){
        					  <p style="display:inline; font-size:10px"><c:out value="${areply.albumreplydate}"/></p>&nbsp;
        					<c:set var="orino" value="${areply.albumreplyoriginalno}"/>
        					<c:if test="${areply.userid eq loginUser.userid}">
-       						<a href="#" onclick="updateReply(rupdate${orino});"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-       						<a href="#" onclick="deleteReply(${orino});"><i class="fa fa-times" aria-hidden="true"></i></a>
+       						<a href="#" onclick="updateReply(rupdate${orino}); return false;"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+       						<a href="#" onclick="deleteReply(${orino}); return false;"><i class="fa fa-times" aria-hidden="true"></i></a>
        					</c:if>
-						
-						<a href="#" onclick="viewrreply(rrspan${orino},rr${orino});"><i class="fa fa-reply fa-rotate-180"></i></a>&nbsp;&nbsp;
+						<c:if test="${!empty sessionScope.loginUser}">
+						<a href="#" onclick="viewrreply(rrspan${orino},rr${orino}); return false;"><i class="fa fa-reply fa-rotate-180"></i></a>&nbsp;&nbsp;
+						</c:if>
 						<br>
 						<c:forEach var="i" begin="1" end="${areply.albumreplygrouplayer }">
        						<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -116,7 +136,7 @@ function replySubmit(text){
        						<input type="hidden" name="page" value="${page}">							
 							<input type="hidden" name="albumreplyoriginalno" value="${orino}">
   							&nbsp;&nbsp;<input type="text" id="ru${orino}" style="width:500px;" name="albumreplycontents" value="${areply.albumreplycontents }" maxlength="151">
-  							<input type="submit" value="등록">	
+  							<input type="submit" value="수정">	
   							<hr style="border-style:dotted;margin:5px">
        						</div>
 						</form>
@@ -126,9 +146,24 @@ function replySubmit(text){
        				<input type="hidden" name="albumnum" value="${album.albumnum }">
        				<input type="hidden" name="page" value="${page}">
        				<input type="hidden" name="userid" value="${sessionScope.loginUser.userid}">
+       				<c:if test="${!empty sessionScope.loginUser}">
        				&nbsp;&nbsp;<input type="text" name="albumreplycontents" id="oriReply" placeholder="150자 이하의 댓글만 작성해주세요" style="width:500px" maxlength="151">
        				<input type="submit" value="등록">
+       				</c:if>
        			</form>
+       		</div>
+       		<!-- 댓글끝 -->
+       		<div style="margin: 7px; text-align: right;">
+       		<c:if test="${sessionScope.loginUser.userid eq album.userid}">
+       		<button class="btn" onclick="updateAlbum();">수정하기</button>&nbsp;&nbsp;&nbsp;
+       		<button class="btn" onclick="deleteAlbum();">삭제하기</button>&nbsp;&nbsp;&nbsp;
+       		</c:if>
+       		
+       		<c:if test="${sessionScope.loginUser.userid eq 'admin'}">
+       		<button class="btn" onclick="deleteAlbum();">삭제하기</button>&nbsp;&nbsp;&nbsp;
+       		</c:if>
+     
+       		<button class="btn" onclick="location.href='albumlist6.do';">목록으로</button>
        		</div>
 
 		</div>

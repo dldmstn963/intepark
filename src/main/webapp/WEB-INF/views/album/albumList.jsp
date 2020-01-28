@@ -7,6 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp" %>
+<style type="text/css">
+.feature_item {
+		width:315px;
+		padding: 20px 20px 20px 20px;
+}
+.feature_item h4{
+		font-size:22px;
+		margin-bottom:0px;
+}
+</style>
 <script type="text/javascript">
 
 function albumWrite(){
@@ -24,7 +34,7 @@ function albumWrite(){
       	<h1 align="center"> 인테리어 사진첩 </h1>
     	<div style="margin-right: 100px;"align="right">
 			<form action="albumlist6.do" method="get">
-				<select name="selectoption">
+				<select style="height:30px;"name="selectoption">
 					<option value="title">제목</option>
 					<option value="uname">작성자</option>
 				</select>
@@ -37,11 +47,17 @@ function albumWrite(){
           	 		<c:forEach var="alist" items="${albumList}">
         				<div class="col-lg-4 col-md-6">
         					<div class="feature_item">
-        					<p align="right"><c:out value="${alist.albumnum }"/></p>
-        						<a href="albumView.do?anum=${alist.albumnum }&page=${commonPage.currentPage}"><img style="align:center; margin-left:15px; margin-bottom:10px; height:250px; width:250px;" alt="" src="${pageContext.request.contextPath }/resources/img/banner/banner.jpg">
+        					<p style="display:inline-block;align:left;">&nbsp;&nbsp;&nbsp;&nbsp;NO : <c:out value="${alist.albumnum }"/>
+        					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        					조회수 : <c:out value="${alist.albumreadcount }"/></p>
+        						<a href="albumView.do?anum=${alist.albumnum }&page=${commonPage.currentPage}">
+        						<img style="align:center; margin-left:15px; margin-bottom:10px; height:250px; width:250px;"
+        						src="${pageContext.request.contextPath }/resources/albumImgs/${alist.albumimgroot}/${alist.albumrenameimgname}">
         						<h4 align="center"><c:out value="${alist.albumtitle}" /></h4></a>
-        						<p align="right"><c:out value="${alist.albumdate}" />&nbsp;&nbsp;&nbsp;&nbsp;
-        						<c:out value="${alist.userid}" /></p>
+        						<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${alist.albumdate}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        						&nbsp;&nbsp;&nbsp;&nbsp;
+        						작성자 : <c:out value="${alist.userid}" /></p>
         					</div>
         				</div>
         			</c:forEach>
@@ -78,7 +94,10 @@ function albumWrite(){
 								<li class="page-item"><a class="page-link" href="albumlist6.do?page=${commonPage.maxPage }&selectoption=${commonPage.selectoption}&searchtext=${commonPage.searchtext}">▷|</a></li>
 					</ul>
 				</nav>
-				<div style="margin-right:100px;"align="right"> <button onclick="albumWrite();">작성하기</button></div><br>
+				<c:if test="${!empty sessionScope.loginUser and (sessionScope.loginUser.userid ne 'admin')}">
+				<div style="margin-right:100px;"align="right"> <button class="btn" onclick="albumWrite();">작성하기</button></div>
+				</c:if>
+				<br>
         </section>
         <!-- footer -->
                 <jsp:include page="../common/footer.jsp" />

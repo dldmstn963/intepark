@@ -7,6 +7,18 @@
 <meta charset="UTF-8">
 <%@ include file="../common/jscsspath.jsp"%>
 <script type="text/javascript">
+window.onload=function(){
+	var searchmstate = '${commonPage.memberstate}';
+	var selectm = document.getElementById('smemberstate');
+
+ 	for(var i=0; i<selectm.options.length; i++){
+ 		if(selectm.options[i].value==searchmstate){
+			selectm.options[i].selected =true;
+			return false;
+			}
+		} 
+}
+
 function serchDetail(){
 	var searchD=document.getElementById("serarchD");
 	if(searchD.style.display=="none")
@@ -14,22 +26,6 @@ function serchDetail(){
 		else
 			searchD.style.display="none";
 		
-}
-
-function checkSearch(){
-	var sdate=document.getElementById("sdate").value;
-	var edate=document.getElementById("edate").value;
-	if(sdate == "" && edate != ""){
-		alert("검색 시작 날짜를 입력해주세요");
-		return false;
-	}
-
-	if(sdate != "" && edate == ""){
-		alert("검색 끝 날짜를 입력해주세요");
-		return false;
-	}
-
-	return true;
 }
 </script>
 </head>
@@ -50,44 +46,39 @@ function checkSearch(){
 				<thead class="thead-light">
 					<tr style="text-align: center;">
 						<th>아이디</th>
-						<th>이름</th>
-						<th>전화번호</th>
-						<th>이메일</th>
-						<th>가입날짜</th>
+						<th>상호명</th>
+						<th>주소</th>
+						<th>시공분야</th>
+						<th>경력</th>
 						<th>현재상태</th>
 						<th>상세보기&nbsp;&nbsp;&nbsp;</th>
 					</tr>
 					<tr id="serarchD" style="display: none; text-align: center;">
-						<th>아이디 : <input type="text" name="userid" style="width: 100px"></th>
-						<th>이름 : <input type="text" name="username" style="width: 100px"></th>
-						<th>검색 시작 날짜 : <input type="date" id="sdate" name="startdate"></th>
-						<th>검색 끝 날짜 : <input type="date" id="edate" name="enddate"></th>
-						<th colspan="2">현재상태 : <select name="memberState">
+						<th>아이디 : <input type="text" name="consid" value="${commonPage.consid}" style="width: 100px"></th>
+						<th>상호명 : <input type="text" name="companyname" value="${commonPage.companyname}" style="width: 100px"></th>
+						<th>주소 : <input type="text" name="address" value="${commonPage.address}" style="width: 100px"></th>
+						<th>시공분야 : <input type="text" name="consarea" value="${commonPage.consarea}" style="width: 100px"></th>
+						<th colspan="2">현재상태 : <select id="smemberstate" name="memberstate">
 								<option value="">전체</option>
-								<option value="Y">정상</option>
-								<option value="S">정지</option>
-								<option value="N">탈퇴</option>
+								<option value="대기">가입 대기</option>
+								<option value="정상">정상</option>
+								<option value="정지">정지</option>
+								<option value="탈퇴">탈퇴</option>
 						</select>
 						</th>
 						<th><input type="submit" value="검색"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="ulist" items="${uesrAllList}">
+					<c:forEach var="clist" items="${consAllList}">
 						<tr style="text-align: center;">
-							<td>${ulist.userid}</td>
-							<td>${ulist.username }</td>
-							<td>${ulist.phone }</td>
-							<td>${ulist.useremail }</td>
-							<td>${ulist.enrolldate}</td>
-							<td><c:if test="${ulist.memberstate eq 'Y'}">
-						정상
-						</c:if> <c:if test="${ulist.memberstate eq 'S'}">
-						정지
-						</c:if> <c:if test="${ulist.memberstate eq 'N'}">
-						탈퇴
-						</c:if></td>
-							<td><a href="userDetailView.do?userid=${ulist.userid}">view</a></td>
+							<td>${clist.consid}</td>
+							<td>${clist.companyname }</td>
+							<td>${clist.address}</td>
+							<td>${clist.consarea}</td>
+							<td>${clist.career}</td>
+							<td>${clist.memberstate}</td>
+							<td><a href="consDetailView.do?consid=${clist.consid}">view</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -98,42 +89,42 @@ function checkSearch(){
 	<nav aria-label="..." style="text-align: center">
 		<ul class="pagination justify-content-center">
 			<li class="page-item"><a class="page-link"
-				href="userlist6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">|◁</a></li>
+				href="consList6.do?page=1&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}">|◁</a></li>
 			<c:if test="${(commonPage.beginPage-commonPage.pageSize)<= 1}">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=1&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="consList6.do?page=1&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-backward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:if test="${ (commonPage.beginPage-commonPage.pageSize) > 1}">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.beginPage-commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="consList6.do?page=${commonPage.beginPage-commonPage.pageSize}&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-backward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:forEach var="p" begin="${commonPage.beginPage }"
 				end="${commonPage.endPage }">
 				<c:if test="${p == commonPage.currentPage }">
 					<li class="page-item active"><a class="page-link"
-						href="userlist6.do?page=${p}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
+						href="consList6.do?page=${p}&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}">${p}</a></li>
 				</c:if>
 				<c:if test="${p != commonPage.currentPage }">
 					<li class="page-item"><a class="page-link"
-						href="userlist6.do?page=${p }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">${p}</a></li>
+						href="consList6.do?page=${p }&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}">${p}</a></li>
 				</c:if>
 			</c:forEach>
 			<c:if
 				test="${(commonPage.endPage+commonPage.pageSize) > commonPage.maxPage }">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.maxPage}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="consList6.do?page=${commonPage.maxPage}&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-forward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:if
 				test="${(commonPage.endPage+commonPage.pageSize) <= commonPage.maxPage }">
 				<li class="page-item"><a class="page-link"
-					href="userlist6.do?page=${commonPage.beginPage + commonPage.pageSize}&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}"><i
+					href="consList6.do?page=${commonPage.beginPage + commonPage.pageSize}&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}"><i
 						class="fa fa-forward" aria-hidden="true"></i></a></li>
 			</c:if>
 			<li class="page-item"><a class="page-link"
-				href="userlist6.do?page=${commonPage.maxPage }&userid=${commonPage.userid}&username=${commonPage.username}&startdate=${commonPage.startdate}&enddate=${commonPage.enddate}&memberstate=${commonPage.memberstate}">▷|</a></li>
+				href="consList6.do?page=${commonPage.maxPage }&consid=${commonPage.consid}&companyname=${commonPage.companyname}&address=${commonPage.address}&consarea=${commonPage.consarea}&memberstate=${commonPage.memberstate}">▷|</a></li>
 		</ul>
 	</nav>
 	<!--================ start footer Area  =================-->
