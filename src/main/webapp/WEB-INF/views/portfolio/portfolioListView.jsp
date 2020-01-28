@@ -58,15 +58,17 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-
+<br>
 	<div class="row">
 	
 	
-	<div class="col-lg-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  
+	<div class="col-lg-4">
+	
+		<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  	<button type="submit" class="btn">지역</button>
 		&nbsp;&nbsp;
-	<button>시공유형이야</button>
+	<button class="btn">시공유형이야</button> -->
+	
 	</div><!-- 4 끝 -->
 	
 
@@ -75,6 +77,8 @@
 	
 	<div class="col-lg-3" style="text-align:right;">
 	<div style="display:inline-block;">
+		
+	<c:if test="${!empty sessionScope.loginCons || !empty sessionScope.loginUser }">
 		<form action="selectMyReqList5.do" method="post" >
 			<c:if test="${!empty sessionScope.loginCons }"><!-- 시공사이면 -->
 				<input type="hidden" value="${sessionScope.loginCons.consid}" name="userid">
@@ -84,6 +88,7 @@
 			</c:if>
 			<button class="btn btn-success btn-sm" style="font:small-caption;">내 상담신청 내역</button>&nbsp;&nbsp;
 		</form>	
+	</c:if>	
 	</div>
 	
 	<c:if test="${!empty sessionScope.loginCons }"><!-- 시공사로 로그인 했으면 보이기 -->
@@ -178,12 +183,22 @@
 	
       </div><!-- 9 끝 (시공사 프로필사진, 업체명, 분야, 리뷰, 상담신청 버튼) -->
       
+      <c:if test="${!empty sessionScope.loginCons || !empty sessionScope.loginUser }"><!-- 비회원이 아닐때 -->
       <div class="col-lg-3" style="padding-top:13px;">
 	      <form action="selectRequestForm5.do" method="post" >
 	      <input type="hidden" value="${ConsVo.consid}" name="consid">
 	      <input type="submit" value="상담신청" class="btn">
 	      </form>
       </div>
+      </c:if>
+      
+      <c:if test="${empty sessionScope.loginCons and empty sessionScope.loginUser }"><!-- 비회원일때 -->
+      <div class="col-lg-3" style="padding-top:13px;">
+	      <input type="button" value="상담신청" class="btn" onclick="return noneUser();">
+      </div>
+      </c:if>
+      
+      
       
       </div><!-- row 끝 -->
       
@@ -205,7 +220,13 @@
 </div><!-- container 끝 -->
 
 
-
+<script type="text/javascript">
+//비회원 로그인시
+function noneUser(){
+	alert(" 회원가입후 이용하실수 있습니다. \n    회원가입을 먼저 진행해 주세요!!");
+	return false;
+}
+</script>
 
 
 <!-- ------------------------------------------------------------------------------------------------------ -->

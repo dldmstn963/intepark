@@ -2008,7 +2008,7 @@ CREATE TABLE portfoliofile (
    pfphotonum   NUMBER      NOT NULL,
    pforiginalname   VARCHAR2(100)      NULL,
    pfrename   VARCHAR2(100)      NULL,
-   pfcoment   VARCHAR2(100)      NULL,
+   pfcoment   VARCHAR2(500)      NULL,
    pfnum   NUMBER      NOT NULL,
    consid varchar2(15) NOT NULL
 );
@@ -2051,7 +2051,7 @@ INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_1.jpg', '45678.jp
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_2.jpg', '45679.jpg', '시공완료 사진2 입니다.', '5', 'con2');
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_3.jpg', '56788.jpg', '디자인샘플 사진1 입니다.', '6', 'con2');
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img_4.jpg', '56789.jpg', '', '6', 'con2');
-INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-8.jpg', '56790.jpg', '디자인샘플 사진2 입니다.', '6', 'con2');
+INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-8.jpg', '56790.jpg', '디자인샘플 사진3 입니다.', '6', 'con2');
 INSERT INTO portfoliofile VALUES (pfphotonum_seq.nextval, 'img-9.jpg', '56791.jpg', '디자인샘플 사진4 입니다.', '6', 'con2');
 
 --시공사 리뷰--------------

@@ -116,7 +116,7 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-
+<br>
 	<div class="row">
 	
 	<div class="col-lg-9"></div><!-- 9 끝 -->
@@ -203,13 +203,13 @@ span.star-prototype > * {
 		        
 		            <ul class="nav nav-tabs">
 		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#aa">소개글</a>
+		                <a class="nav-link" data-toggle="tab" onclick="so('${consid}');">소개글</a>
 		              </li>
 		              <li class="nav-item">
 		                <a class="nav-link active" data-toggle="tab" href="#bb">포트폴리오</a>
 		              </li>
 		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
+		                <a class="nav-link" data-toggle="tab" onclick="re('${consid}');">리뷰</a>
 		              </li>
 		            </ul>
 		            
@@ -218,35 +218,12 @@ span.star-prototype > * {
 		            
 		            
 	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
-		              <div class="tab-pane fade" id="aa">
-		              
-		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
-		              	<form action="writeIntroductionForm5.do" method="post" >
-      						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">수정하기</button>
-      					</form>
-      					</c:if>
-      					
-      					<c:if test="${empty cons.pfintroduction }">
-      					<div style="width:100%; padding-top:15px;"><br><br><br>
-      					<h3 style="text-align:center;">작성된 소개글이 없습니다.</h3></div>
-      					</c:if>
-		                <div style="width:100%; padding-top:20px;">${cons.pfintroduction }</div>
-
-		              </div>
+		              <%-- <div class="tab-pane fade" id="aa">
+		              </div> --%>
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
 		              <div class="tab-pane fade show active" id="bb">
-		              
-		              	<%-- <c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
-		              	<form action="writePF_Form5.do" method="post" >
-      						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="float:right; margin-top:5px; font:small-caption;">작성하기</button>
-      					</form>
-      					<br>
-      					</c:if> --%>
-      					
       					<br>
       					
       					<!-- Swiper -->
@@ -260,9 +237,6 @@ span.star-prototype > * {
 						    ${pfOne.pfcoment}
 						    </div>
 						    </div>
-						    
-						    
-						    
 						    </c:forEach>
 
 					    </div>
@@ -274,120 +248,37 @@ span.star-prototype > * {
 					  </div>
 					  
 					  <div class="row">
-					  
 					  <div class="col-lg-4"></div>
 					  
 					  <div class="col-lg-7" style="padding-left:70px;">
-					  
+					  <c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 					  <div style="display:inline-block;">
 					  <form action="pfOne5_2.do" method="post" >
       						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="center; font:small-caption;">수정하기</button>
+      						<button class="btn btn-success btn-sm" style="font:small-caption;">수정하기</button>
       				  </form>
 					  </div>
-					  
 					  <div style="display:inline-block;">
-					  <form action="pfOne5_2.do" method="post" >
+					  <!-- <form action="deletePfOne5.do" method="post" > -->
       						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-danger btn-sm" style="center; font:small-caption;">삭제하기</button>
-      				  </form>
+      						<input type="hidden" value="${pfnum}" name="pfnum">
+      						<button class="btn btn-danger btn-sm" style="font:small-caption;" onclick="pfdelete('${cons.consid}','${pfnum}');">삭제하기</button>
+      				  <!-- </form> -->
       				  </div>
-      				  
+      				  </c:if>
       				  </div><!-- 7 끝 -->
       				  
       				  <div class="col-lg-1">
-      					<form action="pfOne5_2.do" method="post" >
-      						<input type="hidden" value="${cons.consid}" name="consid">
-      						<button class="btn btn-success btn-sm" style="center; font:small-caption;">닫기</button>
-      					</form>
+      						<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="pfclose('${cons.consid}');">닫기</button>
       				  </div><!-- 1 끝 -->
-      				  
       				  </div><!-- row 끝 -->
 		                
 		              </div><!-- bb탭구역 끝 -->
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
 			              
 	<!-- ----------------------------------------------------------------리뷰 탭 구역 시작------------------------------------------------------------------------- -->	              
-		              <div class="tab-pane fade" id="cc">
-		              	<br>
-		              			
-		              	<div class='bigPictureWrapper'><div class='bigPicture'></div>	</div>
-		              			
-		              	<c:forEach items="${review }" var="review">
-		              		<div style="width:100%;">
-		              		 		
-		              		 <div class="row">
-								<div class="col-lg-8" style="margin-bottom:10px; padding-left:30px;">
-									<img src="${pageContext.request.contextPath }/resources/img/woosoo/reviewUser_img.png" style="float:left; width:60px; height:60px;">
-									<div style="display:inline-block; margin-left:10px; margin-top:8px;">
-										<h4 style="color:black;">${review.userid }</h4>
-										<strong>평점 [ </strong><span class="star-prototype">${review.rvavg }</span><strong> ]</strong>&nbsp;&nbsp;작성일 : ${review.rvdate }
-									</div>
-								</div><!-- 8 끝 -->
-									
-								<div class="col-lg-4" style="padding-top:5px;">
-									<c:if test="${review.userid eq sessionScope.loginCons.consid || review.userid eq sessionScope.loginUser.userid}">
-									    <div style="display:inline-block;">
-								            <!-- <form action="#" method="post" > -->
-						      				<input type="hidden" value="${cons.consid}" name="consid">
-						      				<button class="btn btn-success btn-sm" style="font:small-caption;">수정하기</button>&nbsp;
-						      				<!-- </form> -->
-					      				</div>
-					      				<div style="display:inline-block;">
-					      					<form action="deleteReview5.do" method="post" >
-					      					<input type="hidden" value="${review.rvnum}" name="rvnum">
-					      					<input type="hidden" value="${review.consid}" name="consid">
-					      					<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="return checkDelete();">삭제하기</button>
-					      					</form>
-					      				</div>
-					      			</c:if>
-								</div><!-- 4 끝 -->
-							</div><!-- row 끝 -->
-									
-		              		<div class="col-lg-12">
-		              		 	<span class="span1"><strong>${review.rvperiod } 작업</strong></span>&nbsp;
-		              		 	<span class="span1"><strong>${review.rvregion }</strong></span>&nbsp;
-		              		 	<span class="span1"><strong>${review.rvbuildingtype }</strong></span>&nbsp;
-		              		 	<span class="span1"><strong>${review.rvarea }</strong></span>&nbsp;
-		              		 	<span class="span1"><strong>${review.rvspacious }</strong></span>&nbsp;
-		              		 	<span class="span1"><strong>${review.rvprice2 }</strong></span>
-		              		</div>
-		              		 		
-		              		<div class="col-lg-12" style="margin-top:5px;">
-		              		 	<strong>친절도</strong>&nbsp;<span class="star-prototype">${review.rvkind }</span>&nbsp;&nbsp;
-		              		 	<strong>가격</strong>&nbsp;<span class="star-prototype">${review.rvprice }</span>&nbsp;&nbsp;
-		              		 	<strong>퀄리티</strong>&nbsp;<span class="star-prototype">${review.rvquality }</span>&nbsp;&nbsp;
-		              		 	<strong>전문성</strong>&nbsp;<span class="star-prototype">${review.rvprofessional }</span>&nbsp;&nbsp;
-		              		 	<strong>책임감</strong>&nbsp;<span class="star-prototype">${review.rvresponsible }</span>
-		              		</div>
-		              		 		
-		              		<div class="col-lg-12" style="margin-top:5px; padding-right:50px;">
-		              		 	<pre style="white-space: pre-wrap; font-family:sans-serif;">${review.rvcritique }</pre>
-		              		 </div>
-		              		 
-		              		<div class="col-lg-12" style="margin-top:5px; padding-right:50px;"> 
-		              		
-		              			
-		              		<c:forEach items="${ rvFile }" var="rvFile">
-	      						<c:if test="${review.rvnum eq rvFile.rvnum}">
-	      								<img src=" ${pageContext.request.contextPath }/resources/review_file/${rvFile.rvrename}" style="width: 100px; height: 100px;">
-	      						</c:if>
-	      					</c:forEach>
-	      					
-		              		</div><!-- 12 이미지 구역 끝 -->
-		              		
-		              		 		
-		              		 <hr size="3">
-		              		</div>
-		              	</c:forEach>
-
-			              	<c:if test="${rv.count == 0 }">
-	      						<div style="width:100%; padding-top:15px;"><br><br>
-	      						<h3 style="text-align:center;">아직 리뷰가 없습니다.  첫 번째 리뷰를 작성해 주세요!</h3>
-	      						</div>
-	      					</c:if>
-      							
-		              </div>
+		              <%-- <div class="tab-pane fade" id="cc">
+		              </div> --%>
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	            
 		            
  
@@ -400,38 +291,6 @@ span.star-prototype > * {
 		
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
-<script type="text/javascript">
-
-$(document).ready(function (e){
-	
-	$(document).on("click","img",function(){
-		var path = $(this).attr('src')
-		showImage(path);
-		return false;
-	});//end click event
-	
-	function showImage(fileCallPath){
-	    
-	    $(".bigPictureWrapper").css("display","flex").show();
-	    
-	    $(".bigPicture")
-	    .html("<img src='"+fileCallPath+"' >")
-	    .animate({width:'100%', height: '100%'}, 1000);
-	    
-	  }//end fileCallPath
-	  
-	$(".bigPictureWrapper").on("click", function(e){
-	    $(".bigPicture").animate({width:'0%', height: '0%'}, 1000);
-	    setTimeout(function(){
-	      $('.bigPictureWrapper').hide();
-	    }, 0);
-	    return false;
-	  });//end bigWrapperClick event
-});
-
-
-</script>
-
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
 <script src="${pageContext.request.contextPath }/resources/js/swiper.min.js"></script>
@@ -455,14 +314,29 @@ $(document).ready(function (e){
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 <script type="text/javascript">
-//리뷰삭제시 알러트 메세지
-function checkDelete(){
-	if(confirm(" 정말로 리뷰를 삭제하시겠습니까?")){
-		return true;
-		}else{
-		return false;	
-		}
+//소개글 클릭시
+function so(consid){
+	location.href = "pfOne5.do?consid="+consid;
 }
+
+//리뷰 클릭시
+function re(consid){
+	location.href = "pfOne5.do?consid="+consid+"&message="+'review';
+}
+
+//포트폴리오 삭제시 알러트 메세지
+function pfdelete(consid, pfnum){
+	if(!confirm(" 포트폴리오를 정말로 삭제하시겠습니까?"))
+		return false;	
+	location.href = "deletePfOne5.do?consid="+consid+"&pfnum="+pfnum;
+}
+
+//포트폴리오 닫기시
+function pfclose(consid){	
+	location.href = "pfOne5.do?consid="+consid+"&message="+'portfolio';
+}
+
+
 
 
 $.fn.generateStars = function() {

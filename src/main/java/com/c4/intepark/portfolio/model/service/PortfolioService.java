@@ -19,34 +19,18 @@ public interface PortfolioService {
 	ArrayList<Review> selectConsReviewList(String consid);
 	ArrayList<ReviewFile> selectConsRvFileList(String consid);
 	int updateIntroduction(Constructors cons);
-	ArrayList<PortfolioFile> selectPfOne(String pfnum);
+	ArrayList<PortfolioFile> selectPfOne(int pfnum);
 	ArrayList<PortfolioView> selectPfOneList(String consid);
+	ArrayList<PortfolioFile> selectPfRename(int pfnum);
+	int deletePortfolio(int pfnum);
+	int insertPF(Portfolio pf);
+	int selectpfnum(String consid);
+	void insertPfFile(PortfolioFile p);
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	int insertportfolio(Portfolio portfolio);
-	int selectpfnum();
-	int insertportfolioFile(PortfolioFile portfolioFile);
-	int updateportfolio(Portfolio portfolio);
-	int deleteportfolio(String reqnum);
-	
-	
-	
-	
-	
-	
-	
+
 }
+
+
+

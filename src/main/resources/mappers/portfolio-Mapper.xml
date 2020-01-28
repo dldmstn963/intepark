@@ -58,15 +58,15 @@
 		update constructors set pfintroduction = #{pfintroduction} where consid = #{consid}
 	</update>
 	
-	<select id="selectPfOne" parameterType="string" resultType="PortfolioFile">
+	<select id="selectPfOne" parameterType="int" resultType="PortfolioFile">
 		select *
 		from portfoliofile
 		where PFNUM = #{pfnum}
-		order by PFPHOTONUM desc
+		order by PFPHOTONUM asc
 	</select>
 	
 	<select id="selectPfOneList" parameterType="string" resultType="PortfolioView">
-		select * from (select a.pfnum, a.consid, max(nvl(a.pfrename, 0)) pfrename, max(nvl(b.pftitle, 0)) pftitle
+		select * from (select a.pfnum, a.consid, min(nvl(a.pfrename, 0)) pfrename, min(nvl(b.pftitle, 0)) pftitle
 		 from portfoliofile a
 		 join portfolio b on a.pfnum = b.pfnum
 		 group by a.pfnum, a.consid)
@@ -74,53 +74,37 @@
 		 order by pfnum desc
 	</select>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- select pfnum_seq.CURRVAL from dual; resultType="int" -->
-
-	<!-- <select id="loginCheck" parameterType="Member" resultType="Member">
-		select * from member where userid = #{ userid } and userpwd = #{userpwd}
+	<select id="selectPfRename" parameterType="int" resultType="PortfolioFile">
+		select pfrename
+		from portfoliofile
+		where pfnum = #{pfnum}
 	</select>
 	
-	<select id="selectOne" parameterType="string" resultType="Member">
-		select * from member where userid = #{value}
-	</select>
+	<delete id="deletePortfolio" parameterType="int">
+		delete from portfolio
+		where pfnum = #{pfnum}
+	</delete>
 	
-	<insert id="insertMember" parameterType="Member">
-		insert into member values (#{userid}, #{userpwd}, #{username}, #{gender}, 
-		#{age}, #{phone}, #{email}, #{hobby}, #{etc}, default, sysdate)
+	<insert id="insertPF" parameterType="Portfolio">
+		insert into portfolio values (PFNUM_SEQ.nextval, #{pftitle}, #{consid})
 	</insert>
 	
-	<update id="updateMember" parameterType="Member">
-		update member 
-		set userpwd = #{userpwd}, email = #{email}, phone = #{phone},
-			etc = #{etc}, hobby = #{hobby}, lastmodified = sysdate 
-		where userid = #{userid}
-	</update>
-	
-	<delete id="deleteMember" parameterType="string">
-		delete from member where userid = #{value}
-	</delete>
-
-	<select id="selectCheckId" parameterType="String" resultType="_int">
-		select count(userid) from member where userid = #{value}
+	<select id="selectpfnum" parameterType="string" resultType="int">
+		select max (pfnum)
+		from portfolio
+    	where consid = #{consid}
 	</select>
 	
-	<select id="selectDupId" parameterType="String" resultType="_int">
-		select count(userid) from member where userid = #{value}
-	</select> -->
+	<insert id="insertPfFile" parameterType="PortfolioFile">
+		insert into portfoliofile values (PFPHOTONUM_SEQ.nextval, #{pforiginalname}, #{pfrename}, #{pfcoment}, #{pfnum}, #{consid})
+	</insert>
 	
+	
+	
+	
+	
+	
+		
 </mapper>
 
 

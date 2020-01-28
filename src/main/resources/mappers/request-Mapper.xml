@@ -31,40 +31,9 @@
 	</select>
 	
 	
-	<!-- <select id="selectOne" parameterType="string" resultType="Member">
-		select * from member where userid = #{value}
-	</select>
 	
-	<insert id="insertMember" parameterType="Member">
-		insert into member values (#{userid}, #{userpwd}, #{username}, #{gender}, 
-		#{age}, #{phone}, #{email}, #{hobby}, #{etc}, default, sysdate)
-	</insert>
 	
-	<update id="updateMember" parameterType="Member">
-		update member 
-		set userpwd = #{userpwd}, email = #{email}, phone = #{phone},
-			etc = #{etc}, hobby = #{hobby}, lastmodified = sysdate 
-		where userid = #{userid}
-	</update>
-	
-	<delete id="deleteMember" parameterType="string">
-		delete from member where userid = #{value}
-	</delete>
-
-	<select id="selectCheckId" parameterType="String" resultType="_int">
-		select count(userid) from member where userid = #{value}
-	</select>
-	
-	<select id="selectDupId" parameterType="String" resultType="_int">
-		select count(userid) from member where userid = #{value}
-	</select> -->
 	
 </mapper>
-
-
-
-
-
-
 
 

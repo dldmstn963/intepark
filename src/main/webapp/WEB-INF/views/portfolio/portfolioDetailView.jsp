@@ -67,7 +67,7 @@ span.star-prototype > * {
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <div class="container">
-
+<br>
 	<div class="row">
 	
 	<div class="col-lg-9"></div><!-- 9 끝 -->
@@ -105,15 +105,21 @@ span.star-prototype > * {
 		
 			<span class="star-prototype">${rv.rvavg }</span>&nbsp; <c:if test="${rv.count != 0 }">${rv.count }개&nbsp;</c:if>
 			
-				<c:if test="${rv.count != 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 있으면서 해당시공사가 아닐경우 -->
+				<c:if test="${rv.count != 0 && cons.consid ne sessionScope.loginCons.consid && !empty sessionScope}"><!-- 별점이 있으면서 해당시공사가 아닐때 -->
 						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
 							<h6 style="color:#01A9DB; display:inline"><strong>리뷰쓰기</strong></h6></a>
 				</c:if>
 			
-				<c:if test="${rv.count == 0 && cons.consid ne sessionScope.loginCons.consid}"><!-- 별점이 없으면서 해당시공사가 아닐경우 -->
+				<c:if test="${rv.count == 0 && cons.consid ne sessionScope.loginCons.consid && !empty sessionScope}"><!-- 별점이 없으면서 해당시공사가 아닐때 -->
 						<a href="<c:url value='/selectReviewForm5.do?consid=${cons.consid }'/>" style="color:black;">
 							<h6 style="color:#01A9DB; display:inline"><strong>첫리뷰쓰기</strong></h6></a>
 				</c:if>
+				
+				<c:if test="${empty sessionScope}"><!-- 비회원일때 -->
+				<a href="#" onclick="return noneUser();" style="color:black;">
+							<h6 style="color:#01A9DB; display:inline"><strong>리뷰쓰기</strong></h6></a>
+				</c:if>
+			
 		</div>
 		
 		<c:if test="${cons.consid eq sessionScope.loginCons.consid }"><!-- 해당 시공사 로그인시 -->
@@ -127,13 +133,21 @@ span.star-prototype > * {
 			</div>
 		</c:if>
 		
-		<c:if test="${cons.consid ne sessionScope.loginCons.consid }"><!-- 해당 시공사가 아닐경우 -->
+		<c:if test="${cons.consid ne sessionScope.loginCons.consid && !empty sessionScope}"><!-- 해당 시공사가 아니면서 회원일경우 -->
 			<div class='col-lg-12' style="margin-top:7px;">
 				<div class="form-group">
 	      		<form action="selectRequestForm5.do" method="post" >
 	      		<input type="hidden" value="${cons.consid}" name="consid">
 	      		<input type="submit" value="상담신청" class="form-control btn-primary">
 	      		</form>
+	      		</div>
+			</div>
+		</c:if>
+		
+		<c:if test="${empty sessionScope}"><!-- 비회원일 경우 -->
+			<div class='col-lg-12' style="margin-top:7px;">
+				<div class="form-group">
+	      		<input type="button" value="상담신청" class="form-control btn-primary" onclick="return noneUser();">
 	      		</div>
 			</div>
 		</c:if>
@@ -152,25 +166,59 @@ span.star-prototype > * {
 		      <div class="row">
 		        <div class="col">
 		        
-		            <ul class="nav nav-tabs">
-		              <li class="nav-item">
-		                <a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
-		              </li>
-		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
-		              </li>
-		              <li class="nav-item">
-		                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
-		              </li>
-		            </ul>
 		            
-	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-		            <div class="tab-content"><!-- 탭 컨테이너 시작 -->
-		            
-		            
-	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
-		              <div class="tab-pane fade show active" id="aa">
 		              
+		              <c:if test="${message eq '소개글'}">
+			              <ul class="nav nav-tabs">
+				              <li class="nav-item">
+				              	<a class="nav-link active" data-toggle="tab" href="#aa">소개글</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
+				              </li>
+			              </ul>
+		              </c:if>
+		              <c:if test="${message eq 'portfolio'}">
+		              	<ul class="nav nav-tabs">
+				              <li class="nav-item">
+				              	<a class="nav-link" data-toggle="tab" href="#aa">소개글</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link active" data-toggle="tab" href="#bb">포트폴리오</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link" data-toggle="tab" href="#cc">리뷰</a>
+				              </li>
+			              </ul>
+		              </c:if>
+		              <c:if test="${message eq 'review'}">
+		              	<ul class="nav nav-tabs">
+				              <li class="nav-item">
+				              	<a class="nav-link" data-toggle="tab" href="#aa">소개글</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link" data-toggle="tab" href="#bb">포트폴리오</a>
+				              </li>
+				              <li class="nav-item">
+				                <a class="nav-link active" data-toggle="tab" href="#cc">리뷰</a>
+				              </li>
+			              </ul>
+		              </c:if>
+            
+	<!-- ----message 소개글일때--------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+		            
+		            <div class="tab-content"><!-- 탭 컨테이너 시작 -->
+	<!-- --------------------------------------------------------------소개글 탭 구역 시작---------------------------------------------------------------------- -->
+					<c:if test="${message eq '소개글'}">
+		              <div class="tab-pane fade show active" id="aa">
+		            </c:if>
+		            <c:if test="${message ne '소개글'}">
+		              <div class="tab-pane fade" id="aa">
+		            </c:if>    
+		            
 		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writeIntroductionForm5.do" method="post" >
       						<input type="hidden" value="${cons.consid}" name="consid">
@@ -188,7 +236,12 @@ span.star-prototype > * {
 	<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
   
 	<!-- ------------------------------------------------------------포트폴리오 탭 구역 시작---------------------------------------------------------------------- -->	              
+		              <c:if test="${message eq 'portfolio'}">
+		              <div class="tab-pane fade show active" id="bb">
+		              </c:if>
+		              <c:if test="${message ne 'portfolio'}">
 		              <div class="tab-pane fade" id="bb">
+		              </c:if>
 		              
 		              	<c:if test="${cons.consid eq sessionScope.loginCons.consid }"> 
 		              	<form action="writePF_Form5.do" method="post" >
@@ -202,13 +255,14 @@ span.star-prototype > * {
       					<c:if test="${!empty pfOneList }">	
 		              		<div class="row">
 		              		
-		              		 	<c:forEach items="${pfOneList }" var="pfOneList">
-		              			<div class="col-lg-4">
-		              			<a href="#" onclick="clickimg('${pfOneList.consid}','${pfOneList.pfnum }');">
-		              			<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" class="pf_img" style="width:250px; height:200px;"></a>
-		              			<p style="margin-bottom:0px; text-align:center;">${pfOneList.pftitle }</p>
-		              			</div>
-		              			</c:forEach>
+		              	<c:forEach items="${pfOneList }" var="pfOneList">
+		              	<div class="col-lg-4">
+		              	<a href="#" onclick="clickimg('${pfOneList.consid}','${pfOneList.pfnum }');">
+		              	<img src="${pageContext.request.contextPath }/resources/portfolio_file/${pfOneList.pfrename}" class="pf_img" style="width:250px; height:200px;">
+		              	</a>
+		              	<p style="margin-bottom:0px; text-align:center;">${pfOneList.pftitle }</p>
+		              	</div>
+		              	</c:forEach>
 		              			
 		              		</div><!-- row 끝 -->
 		              	</c:if>	
@@ -224,7 +278,12 @@ span.star-prototype > * {
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	              
 			              
 	<!-- ----------------------------------------------------------------리뷰 탭 구역 시작------------------------------------------------------------------------- -->	              
+		              <c:if test="${message eq 'review'}">
+		              <div class="tab-pane fade show active" id="cc">
+		              </c:if>
+		              <c:if test="${message ne 'review'}">
 		              <div class="tab-pane fade" id="cc">
+		              </c:if>
 		              	<br>
 		              			
 		              	<div class='bigPictureWrapper'><div class='bigPicture'></div>	</div>
@@ -253,7 +312,7 @@ span.star-prototype > * {
 					      					<form action="deleteReview5.do" method="post" >
 					      					<input type="hidden" value="${review.rvnum}" name="rvnum">
 					      					<input type="hidden" value="${review.consid}" name="consid">
-					      					<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="return checkDelete();">삭제하기</button>
+					      					<button class="btn btn-danger btn-sm" style="font:small-caption;" onclick="return checkDelete();">삭제하기</button>
 					      					</form>
 					      				</div>
 					      			</c:if>
@@ -305,10 +364,9 @@ span.star-prototype > * {
       							
 		              </div>
 	<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------- -->	            
-		            
- 
 		            </div><!-- 탭 컨테이너 끝 -->
-		            		            
+		            
+	            		            
 		        </div><!-- 메인 col 끝 -->
 		      </div><!-- 메인 row 끝 -->
 		    </div><!-- 메인 컨테이너 끝 -->
@@ -316,14 +374,22 @@ span.star-prototype > * {
 		
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
+
+
+<script type="text/javascript">
+//비회원 로그인시
+function noneUser(){
+	alert(" 회원가입후 이용하실수 있습니다. \n    회원가입을 먼저 진행해 주세요!!");
+	return false;
+}
+</script>
+
+
 <script type="text/javascript">
 function clickimg(consid, pfnum){
 	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
 	return false;
 }
-
-
-
 
 
 $(document).ready(function (e){
@@ -360,11 +426,13 @@ $(document).ready(function (e){
 <script type="text/javascript">
 //리뷰삭제시 알러트 메세지
 function checkDelete(){
-	if(confirm(" 정말로 리뷰를 삭제하시겠습니까?")){
+	/* if(confirm(" 정말로 리뷰를 삭제하시겠습니까?")){
 		return true;
 		}else{
 		return false;	
-		}
+		} */
+	if(!confirm(" 정말로 리뷰를 삭제하시겠습니까?"))
+		return false;
 }
 
 
