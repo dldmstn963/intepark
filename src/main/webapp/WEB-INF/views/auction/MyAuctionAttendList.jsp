@@ -93,7 +93,7 @@ function check1(){
     <h4 align="center">견적 참여리스트</h4>
     </tr>
     <tr>
-      <th>시공사</th>
+      <th>경매번호</th>
       <th>제목</th>
       <th>전화번호</th>
        <th>시공가능일</th>
@@ -105,7 +105,7 @@ function check1(){
   <c:forEach items="${ list }" var="a">
   <c:set var="total" value="${total}${ a.consid }/"/>
     <tr>
-      <th scope="row"><a href="javascript:doDisplay('menu${a.auctionno }');">${ a.consname }</a>
+      <th scope="row"><a href="javascript:doDisplay('menu${a.auctionno }');">${ a.auctionno }</a>
         <ul id="menu${a.auctionno }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
     <li><a href = "auctionDetailView2.do?auc=${a.auctionno}">견적보기</a></li>

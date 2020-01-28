@@ -423,6 +423,12 @@ $(document).ready(function (e){
 });
 </script>
 <script type="text/javascript">
+function numberWithCommas(x) {
+	  x = x.replace(/[^0-9]/g,'');   // 입력값이 숫자가 아니면 공백
+	  x = x.replace(/,/g,'');          // ,값 공백처리
+	  $("#price").val(x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")); // 정규식을 이용해서 3자리 마다 , 추가 
+	}
+
 function validate() {
 	
 
@@ -433,11 +439,8 @@ function validate() {
 	var phone = document.getElementById("phone");
 	var email = document.getElementById("email");
 	var price = document.getElementById("price");
+	var title = document.getElementById("title");
 
-
-
-	/* price 정규식 */
-	var price1 = /^[0-9]+$/;
 
 	/* email 정규식 */
 	var email1 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
@@ -483,16 +486,17 @@ function validate() {
     	price.focus();
         return false;
     }
+    if ((title.value) == ""){
+    	$("#title_keyup").html('<font color="red">&nbsp; 제목을 입력하여 주십시요.</font><br>');
+    	title.focus();
+        return false;
+    }
     
     if(!email1.test($('#email').val())){
     	$("#email_keyup").html('<font color="red">&nbsp; 이메일을 형식에 맞게 입력하여 주십시요.</font><br>');
   	  return false;
     }
     
-    if(!price1.test(price.value)){
-    	$("#price_keyup").html('<font color="red">&nbsp; 숫자만 입력가능합니다.</font><br>');
-  	  return false;
-    }
     
     if(!startday1.test(startday.value)){
     	$("#startday_keyup").html('<font color="red">&nbsp; 시공날짜를 입력하여 주십시요.</font><br>');
@@ -582,7 +586,7 @@ function validate() {
                             </div>
                             <div class="form-group">
                                 <label for="price">희망금액 :</label>
-                                <input type="text" name="price" id="price" />
+                                <input type="text" name="price" id="price" onkeyup="numberWithCommas(this.value)"/>
                                    <span id="price_keyup" tabindex="0"></span>
                             </div>
                         </div>

@@ -66,7 +66,7 @@ function openwindow(){
 function check1(){
 	 <c:forEach items="${ list }" var="b">
 	 <c:if test="${loginCons.consid eq b.consid}">
-			alert("존재함");
+			alert("이미 경매에 참가하였습니다.");
 			return false;
 	 </c:if>
 	 </c:forEach>
