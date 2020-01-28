@@ -61,7 +61,7 @@ public class PortfolioServiceImpl implements PortfolioService{
 	}
 	
 	@Override
-	public ArrayList<PortfolioFile> selectPfOne(String pfnum) {
+	public ArrayList<PortfolioFile> selectPfOne(int pfnum) {
 		return portfolioDao.selectPfOne(pfnum);
 	}
 	
@@ -70,95 +70,37 @@ public class PortfolioServiceImpl implements PortfolioService{
 		return portfolioDao.selectPfOneList(consid);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public ArrayList<PortfolioFile> selectPfRename(int pfnum) {
+		return portfolioDao.selectPfRename(pfnum);
+	}
 	
 	@Override
-	public int insertportfolio(Portfolio portfolio) {
-		return portfolioDao.insertportfolio(portfolio);
+	public int deletePortfolio(int pfnum) {
+		return portfolioDao.deletePortfolio(pfnum);
 	}
 
 	@Override
-	public int selectpfnum() {
-		return portfolioDao.selectpfnum();
+	public int insertPF(Portfolio pf) {
+		return portfolioDao.insertPF(pf);
 	}
 
 	@Override
-	public int insertportfolioFile(PortfolioFile portfolioFile) {
-		return portfolioDao.insertportfolioFile(portfolioFile);
+	public int selectpfnum(String consid) {
+		return portfolioDao.selectpfnum(consid);
 	}
 
 	@Override
-	public int updateportfolio(Portfolio portfolio) {
-		return portfolioDao.updateportfolio(portfolio);
+	public void insertPfFile(PortfolioFile p) {
+		portfolioDao.insertPfFile(p);
+		
 	}
-
-	@Override
-	public int deleteportfolio(String reqnum) {
-		return portfolioDao.deleteportfolio(reqnum);
-	}
-
 	
-
 	
-
-	
-
-	
-
-	
-
-	
-
 	
 
 
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

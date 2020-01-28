@@ -28,6 +28,7 @@ public class CommonPage implements java.io.Serializable{
 	private String consarea;
 	private String memberstate;
 	private int auctionno;
+
 	
 	public CommonPage() {}
 	
@@ -60,6 +61,7 @@ public class CommonPage implements java.io.Serializable{
 		this.memberstate = memberstate;
 		this.auctionno = auctionno;
 	}
+
 
 
 
@@ -295,12 +297,14 @@ public class CommonPage implements java.io.Serializable{
 
 
 
+
 	@Override
 	public String toString() {
 		return "CommonPage [listCount=" + listCount + ", listSize=" + listSize + ", pageSize=" + pageSize
 				+ ", currentPage=" + currentPage + ", maxPage=" + maxPage + ", beginPage=" + beginPage + ", endPage="
 				+ endPage + ", startList=" + startList + ", endList=" + endList + ", selectoption=" + selectoption
 				+ ", searchtext=" + searchtext + ", userid=" + userid + ", username=" + username + ", startdate="
+
 				+ startdate + ", enddate=" + enddate + ", consid=" + consid + ", companyname=" + companyname
 				+ ", address=" + address + ", consarea=" + consarea + ", memberstate=" + memberstate + ", auctionno="
 				+ auctionno + "]";
