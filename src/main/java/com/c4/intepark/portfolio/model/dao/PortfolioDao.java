@@ -90,7 +90,25 @@ public class PortfolioDao {
 	public int insertPfFile(PortfolioFile p) {
 		return mybatisSession.insert("portfolioMapper.insertPfFile", p);
 	}
-	
+
+	public Portfolio selectpfTitle(int pfnum) {
+		return mybatisSession.selectOne("portfolioMapper.selectpfTitle", pfnum);
+	}
+
+	public int updatePfTitle(Portfolio pf) {
+		return mybatisSession.update("portfolioMapper.updatePfTitle", pf);
+	}
+
+	public void updatePfComent(PortfolioFile pff) {
+		mybatisSession.update("portfolioMapper.updatePfComent", pff);
+	}
+
+	public void deletePfFile(int pfphotonum) {
+		mybatisSession.delete("portfolioMapper.deletePfFile", pfphotonum);
+		
+	}
+
+
 	
 	
 

@@ -99,8 +99,28 @@
 		insert into portfoliofile values (PFPHOTONUM_SEQ.nextval, #{pforiginalname}, #{pfrename}, #{pfcoment}, #{pfnum}, #{consid})
 	</insert>
 	
+	<select id="selectpfTitle" parameterType="int" resultType="Portfolio">
+		select *
+		 from portfolio
+		 where pfnum = #{pfnum}
+	</select>
 	
+	<update id="updatePfTitle" parameterType="Portfolio">
+		UPDATE portfolio
+		SET pftitle = #{pftitle}
+		WHERE pfnum = #{pfnum}
+	</update>
 	
+	<update id="updatePfComent" parameterType="PortfolioFile">
+		UPDATE portfoliofile
+		SET pfcoment = #{pfcoment}
+		WHERE pfphotonum = #{pfphotonum}
+	</update>
+	
+	<delete id="deletePfFile" parameterType="int">
+		delete from portfoliofile
+		where pfphotonum = #{pfphotonum}
+	</delete>
 	
 	
 	

@@ -26,6 +26,10 @@ public interface PortfolioService {
 	int insertPF(Portfolio pf);
 	int selectpfnum(String consid);
 	void insertPfFile(PortfolioFile p);
+	Portfolio selectpfTitle(int pfnum);
+	int updatePfTitle(Portfolio pf);
+	void updatePfComent(PortfolioFile pff);
+	void deletePfFile(int pfphotonum);
 	
 	
 	

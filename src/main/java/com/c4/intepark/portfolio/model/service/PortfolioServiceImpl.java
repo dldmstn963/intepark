@@ -95,6 +95,28 @@ public class PortfolioServiceImpl implements PortfolioService{
 		portfolioDao.insertPfFile(p);
 		
 	}
+
+	@Override
+	public Portfolio selectpfTitle(int pfnum) {
+		return portfolioDao.selectpfTitle(pfnum);
+	}
+
+	@Override
+	public int updatePfTitle(Portfolio pf) {
+		return portfolioDao.updatePfTitle(pf);
+	}
+
+	@Override
+	public void updatePfComent(PortfolioFile pff) {
+		portfolioDao.updatePfComent(pff);
+		
+	}
+
+	@Override
+	public void deletePfFile(int pfphotonum) {
+		portfolioDao.deletePfFile(pfphotonum);
+		
+	}
 	
 	
 	
