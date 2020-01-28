@@ -89,7 +89,7 @@ public class AuctionController {
 		return "auction/nonAuctionEnroll";
 	}
 
-//수정
+
 	@RequestMapping("auctionChange2.do")
 	public String selectAuctionChangePage(HttpServletRequest request, Auction auction, Model model,
 			NonAuction nonauction) {
@@ -120,6 +120,16 @@ public class AuctionController {
 			model.addAttribute("auction", nonauction);
 			model.addAttribute("rfile", rfile);
 		}
+		if(nonauc != null) {
+			nonauction = auctionService.nonAuctionDetailView(nonauc);
+			logger.info(nonauction.toString());
+			String[] rfile = null;
+			if(nonauction.getRfile() != null) {
+			rfile = nonauction.getRfile().split("/");
+			}
+			model.addAttribute("auction", nonauction);
+			model.addAttribute("rfile", rfile);
+					}
 		/*
 		 * if(nonauc != null) { NonAuction nonauction =
 		 * auctionService.nonAuctionDetailView(nonauc); request.setAttribute("auction",

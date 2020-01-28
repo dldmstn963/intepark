@@ -80,6 +80,7 @@ function check1(){
 		  $(".blinkEle").toggle();
 		}, 500);
 	</script>
+
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
@@ -213,7 +214,9 @@ function check1(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
+
 <button type="button" onclick="check1()" style="background-color: #ffc107;" class="btn">경매참가</button>
+
 </c:if>
 </div>
  	<script>

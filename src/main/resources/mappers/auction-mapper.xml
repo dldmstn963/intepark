@@ -120,6 +120,7 @@ join (select auctionno, userid from auction) using(auctionno) where auctionno = 
 	update nonauction set interiorsection = #{interiorsection}, title = #{title}, name = #{name}, price = #{price},  email = #{email}, 
 	phone = #{phone}, startday = #{startday}, address = #{address}, ofile = #{ofile}, rfile = #{rfile}, etc = #{etc} where auctionno = #{auctionno}
 	</update>
+
 	
 	<select id="MyAuctionAttendListCount" resultType="_int" parameterType="CommonPage">
 	 SELECT COUNT(*)
@@ -128,6 +129,7 @@ join (select auctionno, userid from auction) using(auctionno) where auctionno = 
 		and title like '%'||#{searchtext ,jdbcType=VARCHAR}||'%'
 	</if> 
 	</select>
+
 	
 	<select id="MyAuctionAttendList" parameterType="CommonPage" resultType="AuctionAttend">
 		select *
