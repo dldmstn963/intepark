@@ -289,7 +289,20 @@ $(function(){
         	</div>
         </section>
         <!--================End Testimonials Area =================-->
-        
+            <!--================Cities Area =================-->
+        <section class="cities_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>인테리어 경매 BEST</h2>
+        			<p>경매참여 경쟁이 가장 치열한 인테리어 경매를 지금 확인해보세요.</p>
+        		</div>
+        		<div class="row cities_inner" id="auction2">
+        	
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Cities Area =================-->
         <!--================Cities Area =================-->
         <section class="cities_area p_120">
         	<div class="container">
