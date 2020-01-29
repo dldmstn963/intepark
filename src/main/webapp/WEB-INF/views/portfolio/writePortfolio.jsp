@@ -341,7 +341,7 @@ function Check(){
 	var a = $("input[name=files]").length;
 	//console.log(a);
 		if(a<2){
-			alert("사진은 최소 2장 첨부하셔야 합니다.")
+			alert("사진은 최소 2장이상 첨부하셔야 합니다.")
 			return false;
 		}
 	return true;

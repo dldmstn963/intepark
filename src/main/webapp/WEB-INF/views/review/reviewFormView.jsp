@@ -399,7 +399,7 @@ span {
                 var imgNum = previewIndex++;
                 $("#preview").append(
                         "<div class=\"preview-box\" value=\"" + imgNum +"\">" +
-                        "<a href=\"#\" class=\"aa\" value=\"" + imgNum + "\" onclick=\"deletePreview(this)\">" +
+                        "<a href=\"#\" class=\"aa\" value=\"" + imgNum + "\" onclick=\"deletePreview(this); return false;\">" +
                         "<i class=\"fa fa-times-circle-o fa-lg\"></i></a>" +
                         "<img class=\"thumbnail\" src=\"" + img.target.result + "\"\/>" +
                         /* "<p>" + file.name + "</p>" + */"</div>"

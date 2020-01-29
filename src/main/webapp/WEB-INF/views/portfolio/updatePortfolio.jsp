@@ -369,7 +369,7 @@ function qu(consid,pfnum){
 	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
 }
 
-//저장하기 클릭시
+//작성완료 클릭시
 function Check(){
 	//제목이 null 이면
 	var pftitle = $("#pftitle").val();
@@ -379,13 +379,13 @@ function Check(){
 		return false;
 		}
 
-	var hrename = $(".finput").length;
+	//var hrename = $(".finput").length;
 	//console.log(hrename);
 	
 	var a = $("input[name=files]").length;
 	//console.log(a);
-		if(hrename+a<2){
-			alert("사진은 최소 2장 첨부하셔야 합니다.")
+		if(/* hrename+ */a<2){
+			alert("신규사진은 최소 2장이상 첨부하셔야 합니다.")
 			return false;
 		}
 	return true;

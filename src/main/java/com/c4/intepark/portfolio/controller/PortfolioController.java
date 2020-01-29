@@ -283,8 +283,8 @@ public class PortfolioController {
 		
 		//System.out.println(pf.toString());
 		portfolioService.updatePfTitle(pf);
-		System.out.println(pfcoment2.toString());
-		System.out.println("===============================================");
+		//System.out.println(pfcoment2.toString());
+		//System.out.println("===============================================");
 		
 		//기존에 디비 파일
 		ArrayList<PortfolioFile> pfOne = portfolioService.selectPfOne(pfnum);
