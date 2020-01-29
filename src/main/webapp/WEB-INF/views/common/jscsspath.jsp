@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/intepark/resources/img/favicon.ico">
+        <link rel="stylesheet" href="/intepark/resources/css/font.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/intepark/resources/css/bootstrap.css">
         <link rel="stylesheet" href="/intepark/resources/css/bootstrap.min.css">
