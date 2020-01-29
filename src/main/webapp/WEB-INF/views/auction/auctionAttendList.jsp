@@ -103,7 +103,7 @@ function check1(){
   <tbody>
   <c:set var="total" value="" />
   <c:forEach items="${ list }" var="a">
-  <c:set var="total" value="${total}${ a.consid }/"/>
+  <c:set var="total" value="${total}/${ a.consid }"/>
     <tr>
       <th scope="row"><a href="javascript:doDisplay('menu${a.consname }');">${ a.consname }</a>
         <ul id="menu${a.consname }" style="display:none;">
@@ -220,8 +220,10 @@ function check1(){
 </div>
  	<script>
  	$(function(){
- 		ws.send("check/"+$("#logcheck").val());
- 	 });	
+ 	 		ws.onopen = function(){
+ 	 			ws.send("check"+$("#logcheck").val());
+ 	 		};		
+ 	 });
  	</script>
  <!-- Modal -->
 <div class="ui modal">

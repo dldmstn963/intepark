@@ -9,13 +9,13 @@
 <style type="text/css">
 	
 	#messages {
-		background: LightSkyBlue;
+		background: rgb(153,255,255);
 		height: 640px;
 		overflow: auto;
 	}
 	
 	.chat_content {
-		background: rgb(255, 255, 102);
+		background: white;
 		padding: 10px;
 		border-radius: 10px;
 		display: inline-block;
@@ -33,7 +33,7 @@
 		width: 0;
 		height: 0;
 		border: 20px solid transparent;
-		border-left-color: rgb(255, 255, 102);
+		border-left-color: white;
 		border-right: 0;
 		border-top: 0;
 		margin-top: -3.5px;
@@ -81,13 +81,13 @@ $(function(){
 	ws.onmessage = function(message){
 			var cut = message.data.split("/");
 			if(cut[0] == "accept"){
-				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 입장하셨습니다.</p><br>";	
+				messages.innerHTML+="<br><p style='align:center;width:100%;'>" + cut[1] + "님이 입장하셨습니다.</p><br>";	
 			}else if(cut[0] == "refuse"){
-				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 거절하셨습니다.</p><br>";	
+				messages.innerHTML+="<br><p style='align:center;width:100%;'>" + cut[1] + "님이 거절하셨습니다.</p><br>";	
 			}else if(cut[0] == "exit"){
-				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 퇴장하셨습니다.</p><br>";	
+				messages.innerHTML+="<br><p style='align:center;width:100%;'>" + cut[1] + "님이 퇴장하셨습니다.</p><br>";	
 			}else if(cut[0] == "chat"){
-				messages.innerHTML+="<br/>"+ "<p class='chat_content other-side'>"
+				messages.innerHTML+="<br><p class='chat_content other-side'>"
 				 + cut[1] + " : " + cut[2] + "</p><br>";	
 			}					
 		};
@@ -109,16 +109,20 @@ $(function(){
 			var values = "";
 			for(var i in json.list){
 			if(json.list[i].userid == null && json.list[i].consid != null){
-				if(json.list[i].consid.equals(who[1])){
-					values += json.list[i].consid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				if(json.list[i].consid == who[1]){
+					values +="<p class='chat_content'>" + json.list[i].consid 
+					+ " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "</p><br>"
 				}else{
-					values += json.list[i].consid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+					values +="<p class='chat_content other-side'>" + json.list[i].consid + " : " 
+					+ decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "</p><br>"
 				}				
 			}else if(json.list[i].userid != null && json.list[i].consid == null){
-				if(json.list[i].userid.equals(who[1])){
-					values += json.list[i].userid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+				if(json.list[i].userid == who[1]){
+					values +="<p class='chat_content'>" + json.list[i].userid + " : " 
+					+ decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "</p><br>"
 				}else{
-					values += json.list[i].userid + " : " + decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "<br>"
+					values +="<p class='chat_content other-side'>" + json.list[i].userid + " : " 
+					+ decodeURIComponent(json.list[i].chatcontent).replace(/\+/gi, " ") + "</p><br>"
 				}
 							
 			}
@@ -184,8 +188,7 @@ function enterKey(){
 
 
 		<div id="messages"></div> <br>
-		<input type="text" id="messageinput" onkeyup="enterKey();">
+		<input type="text" id="messageinput" style="width:350px;" onkeyup="enterKey();">
 		<input type="button" value="보내기" onclick="send();">
-
 </body>
 </html>
