@@ -486,7 +486,6 @@ $("input[name=tongyi]").on('change', function(){
 $(document).on('click', 'input[name="price"]', function(){
 	var value = $('input[name=price]:checked').val();
 	 $('#point').val(value);
-	alert(value);
 });
 //신청하기 버튼 누를때---------------------------------------------------------------------------------------------------
 function requestCheck(){

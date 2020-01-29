@@ -154,15 +154,16 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
 		    }
 		}
 
-    function passCheck(password,passno){
+    function passCheck(password,passno,auctionno){
   		var con = document.getElementById(passno).value;
   		console.log(passno);
     	console.log(password);
     	console.log(con);
+    	console.log(auctionno);
     	if(password == con){
     	   var yn = confirm("정말로 삭제하시겠습니까?");
        	   if(yn==true){
-       		document.getElementById('frm').submit();
+       		location.href="nonAuctionDelete2.do?nonauc="+auctionno;
            	   }
        	   return false;
   	  }
@@ -172,7 +173,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      	  return false;
      }
    }
-    function passCheck1(password,passno){
+    function passCheck1(password,passno,auctionno){
   		var con = document.getElementById(passno).value;
   		console.log(passno);
     	console.log(password);
@@ -182,7 +183,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      	 document.getElementById(passno).focus();
      	  return false;
      }
-    	document.getElementById('frmm').submit();
+    	location.href="auctionChange2.do?nonauc="+auctionno;
    }
     function auctionDelete(auctionno){
     	 var yn = confirm("정말로 삭제하시겠습니까?");
@@ -348,17 +349,13 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     <c:if test="${empty sessionScope.loginCons and empty sessionScope.loginUser }">
     <li><a href="javascript:doDisplay3('passss${b.auctionno }');">수정</a><br>
     <div id="passss${b.auctionno }" style="display:none;">
-    <form action="auctionChange2.do" method="get" id="frmm">
-    비밀번호 : <input type="password" id="passsss${b.auctionno}"> &nbsp; <input type="button" style="position:absolute;" value="확인" class="content" onclick="passCheck1('${b.password}','passsss${b.auctionno}');">
-    <input type="hidden" value="${b.auctionno}" name="nonauc">
-    </form></div></li>
+   비밀번호 : <input type="password" id="passsss${b.auctionno}"> &nbsp; <input type="button" style="position:absolute;" value="확인" class="content" onclick="passCheck1('${b.password}','passsss${b.auctionno}','${b.auctionno }');">
+  </div></li>
     <li><a href = "javascript:doDisplay2('pass${b.auctionno }');">삭제</a><br>
-    </c:if>
     <div id="pass${b.auctionno }" style="display:none; position: absolute;">
-    <form action="nonAuctionDelete2.do" method="post" id="frm">
-    비밀번호 : <input type="password" id="passs${b.auctionno}"> &nbsp; <input type="button" value="확인" class="content" onclick="passCheck('${b.password}','passs${b.auctionno}');">
-    <input type="hidden" value="${b.auctionno}" name="nonauc">
-    </form></div></li>
+    비밀번호 : <input type="password" id="passs${b.auctionno}"> &nbsp; <input type="button" value="확인" class="content" onclick="passCheck('${b.password}','passs${b.auctionno}','${b.auctionno }');">
+  </div></li>
+     </c:if>
     </ul>
     </td> 
        <td>${b.address }</td>
