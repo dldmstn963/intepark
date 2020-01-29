@@ -126,4 +126,12 @@ public class AuctionServiceImpl implements AuctionService{
 	public ArrayList<AuctionAttend> MyAuctionAttendList(CommonPage cpage){
 		return (ArrayList<AuctionAttend>)auctionDao.MyAuctionAttendList(cpage);
 	}
+	@Override
+	public ArrayList<AuctionAttend> selectAttendTop4(){
+		return (ArrayList<AuctionAttend>)auctionDao.selectAttendTop4();
+	}
+	@Override
+	public Auction selectAuctionTop4(int auctionno1) {
+		return auctionDao.selectAuctionTop4(auctionno1);
+	}
 }

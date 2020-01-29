@@ -39,6 +39,31 @@ $(function(){
 	});//아이작스
 });//펑션
 </script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"auctiontop2.do",
+		type : "get",
+		dataType :"json",
+		success : function(data){
+			var jsonStr = JSON.stringify(data);
+			var json = JSON.parse(jsonStr);
+			
+			var values="";
+			for(var i in json.list){
+				values += "<div class='col-lg-3 col-md-6'><div class='cities_item'>"+
+					"<img class='img-fluid' style='width:263px; height:270px;'src='${pageContext.request.contextPath }/resources/auctionUpFile/"+json.list[i].rfile+"'alt=''>"+
+					"<a class='main_btn2' href='${pageContext.request.contextPath }/auctionDetailView2.do?auc="+json.list[i].auctionno+"'>View Now</a>"+
+					"</div></div>"
+			} 
+			$("#auction2").html(values);
+		},
+		error : function(jqXHR, textStatus, errorThrown){
+			console.log("error : "+jqXHR+", "+textStatus+", "+errorThrown);
+		}
+	});//아이작스
+});//펑션
+</script>
 </head>
 <body>
         <!--================Header Menu Area =================-->
