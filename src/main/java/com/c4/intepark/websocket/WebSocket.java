@@ -122,10 +122,11 @@ public class WebSocket extends TextWebSocketHandler {
 			for(WebSocketSession websession : mapList.keySet()) {
 				for(int i = 1; i < msg.length; i++) {
 					if(mapList.get(websession).equals(msg[i])) {
-						check = check.replace(msg[i], "");					
+						check = check.replace("/"+msg[i], "");					
 					}
 				}				
-			}		
+			}	
+			logger.info(check);
 			session.sendMessage(new TextMessage(check));
 		}else if(msg[0].equals("exit")) {
 			int chatNo = Integer.parseInt(msg[2]);

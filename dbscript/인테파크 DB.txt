@@ -1791,8 +1791,11 @@ COMMENT ON COLUMN calendar.ccolor IS '색상';
 
 COMMENT ON COLUMN calendar.consid IS '시공사';
 
-INSERT INTO calendar VALUES(calendar_seq.nextval, '상담', '상담예정', '19/12/01', '19/12/02', 'red', 'con1');
-INSERT INTO calendar VALUES(calendar_seq.nextval, '문의', '문의예정', '19/12/11', '19/12/12', 'green', 'con2');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '상담', '상담예정', '20/01/01', '20/01/02', 'red', 'con1');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '문의', '문의예정', '20/01/11', '19/01/11', 'green', 'con2');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '문의1', '서울특별시 송파구-바닥', '20/01/11', '19/01/11', 'blue', 'con1');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '문의2', '인천광역시 부평구-천장', '20/01/11', '19/01/11', 'red', 'con1');
+INSERT INTO calendar VALUES(calendar_seq.nextval, '문의3', '충청남도 금산군-샷시', '20/01/11', '19/01/11', 'red', 'con1');
 
 DROP TABLE chat CASCADE CONSTRAINTS;
 
