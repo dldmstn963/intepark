@@ -298,24 +298,6 @@ $(function(){
         			<p>한주동안 가장 많은 조회수의 인테리어를 직접 감상해보세요.</p>
         		</div>
         		<div class="row cities_inner" id="albumtop4">
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-2.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-3.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-4.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
-        			</div>
         		</div>
         	</div>
         </section>

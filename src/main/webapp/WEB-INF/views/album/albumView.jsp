@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="../common/jscsspath.jsp" %>
+<link rel="stylesheet" href="/intepark/resources/lightbox/colorbox.css">
+<script src="/intepark/resources/lightbox/jquery.colorbox.js"></script>
 <style type="text/css">
  a:link { color: gray; text-decoration: none;}
  a:visited { color: gray; text-decoration: none;}
@@ -76,7 +78,9 @@ function replySubmit(text){
        			</tr>
        			<tr><td colspan="3">
        			<c:forEach var="imglist" items="${requestScope.imglist}">
+       			<a class="light" href="${pageContext.request.contextPath }/resources/albumImgs/${imglist.albumimgroot}/${imglist.albumrenameimgname}">
        			<img style="height:250px; width:250px;" src="${pageContext.request.contextPath }/resources/albumImgs/${imglist.albumimgroot}/${imglist.albumrenameimgname}">
+       			</a>
        			</c:forEach>
        			</td></tr>
        		</table>
@@ -174,6 +178,13 @@ function replySubmit(text){
        	
        	
     <!-- footer -->
-        <jsp:include page="../common/footer.jsp" />      	
+        <jsp:include page="../common/footer.jsp" />
+        <script type="text/javascript">
+$(document).ready(function(){
+
+	$( '.light' ).colorbox();
+
+	});
+</script>
 </body>
 </html>
