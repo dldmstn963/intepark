@@ -39,6 +39,6 @@ public interface LoginInfoService {
 
 	int updateDeleteMember(LoginMemberState logms);
 
-	int selectMemberPwdCheck(LoginInfo loginfo);
+	String selectMemberPwdCheck(LoginInfo loginfo);
 
 }

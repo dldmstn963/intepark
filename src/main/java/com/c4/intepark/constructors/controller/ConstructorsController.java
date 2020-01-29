@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,9 @@ public class ConstructorsController {
 
 	@Autowired
 	private ConstructorsService consService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	@RequestMapping("consenroll6.do")
 	public String userEnroll() {
@@ -121,7 +125,7 @@ public class ConstructorsController {
 		}
 		LoginInfo loginInfo = new LoginInfo();
 		loginInfo.setLogid(cons.getConsid());
-		loginInfo.setLogpwd(cons.getConspwd());
+		loginInfo.setLogpwd(bcryptPasswordEncoder.encode(cons.getConspwd()));
 		loginInfo.setAuthority("ROLE_CONS");
 		loginInfo.setEmail(cons.getConsemail());
 		String view = "member/welcome";

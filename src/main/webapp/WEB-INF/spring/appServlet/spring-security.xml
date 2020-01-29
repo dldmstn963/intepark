@@ -67,7 +67,11 @@
 		class="com.c4.intepark.common.LoginSuccessHandler">
     <property name="loginidname" value="username"/>
     <property name="defaultUrl" value="/"/>
-</bean>
+	</bean>
+	
+	<bean id="bcryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</bean>
 </beans>
 
 

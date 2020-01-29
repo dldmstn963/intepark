@@ -107,8 +107,8 @@
 		delete from logininfo where logid=#{value}
 	</delete>
 	
-	<select id="selectMemberPwdCheck" parameterType="LoginInfo" resultType="int">
-		select count(*) from logininfo where logid=#{logid} and logpwd=#{logpwd}
+	<select id="selectMemberPwdCheck" parameterType="LoginInfo" resultType="String">
+		select logpwd from logininfo where logid=#{logid}
 	</select>
 	
 	<update id="updateMemberPwd" parameterType="LoginInfo">
