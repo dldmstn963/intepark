@@ -84,6 +84,8 @@ $(function(){
 				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 입장하셨습니다.</p><br>";	
 			}else if(cut[0] == "refuse"){
 				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 거절하셨습니다.</p><br>";	
+			}else if(cut[0] == "exit"){
+				messages.innerHTML+="<br/>"+ "<p style='align:center;'>" + cut[1] + "님이 퇴장하셨습니다.</p><br>";	
 			}else if(cut[0] == "chat"){
 				messages.innerHTML+="<br/>"+ "<p class='chat_content other-side'>"
 				 + cut[1] + " : " + cut[2] + "</p><br>";	
@@ -92,7 +94,7 @@ $(function(){
 
 	/* 서버 닫힐때 */
 	ws.onclose = function(event){
-			ws.send("exit/" + chatno + "," + who[1]);
+			ws.send("exit/" + who[1] + "/" + chatno);
 		};
 
 	$.ajax({
@@ -132,7 +134,7 @@ $(function(){
 function send(){
 	var who = document.getElementById("sender").value.split("/");
 
-	if($("#messageinput").val() == null){
+	if($("#messageinput").val() == ""){
 		alert("메세지를 입력해주세요!");
 	}else{
 		$("#messages").html($("#messages").html() + "<p class='chat_content'>" 

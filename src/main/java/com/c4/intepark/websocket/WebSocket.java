@@ -127,15 +127,21 @@ public class WebSocket extends TextWebSocketHandler {
 				}				
 			}		
 			session.sendMessage(new TextMessage(check));
+		}else if(msg[0].equals("exit")) {
+			int chatNo = Integer.parseInt(msg[2]);
+			for(WebSocketSession websession : roomList.keySet()) {
+				String chn = roomList.get(websession);
+				String[] chnn = chn.split(",");
+				int chatn = Integer.parseInt(chnn[0]);
+				if(chatNo==chatn) {
+					websession.sendMessage(new TextMessage(message.getPayload()));
+				}
+			}
 		}
-		
-		
 		/*
 		 * for(WebSocketSession websession : sessionList) {
 		 * if(!session.getId().equals(websession.getId())) {
 		 * websession.sendMessage(message); } }
 		 */
-
-	}
-
+}
 }
