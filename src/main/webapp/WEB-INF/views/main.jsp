@@ -289,7 +289,20 @@ $(function(){
         	</div>
         </section>
         <!--================End Testimonials Area =================-->
-        
+            <!--================Cities Area =================-->
+        <section class="cities_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>인테리어 경매 BEST</h2>
+        			<p>경매참여 경쟁이 가장 치열한 인테리어 경매를 지금 확인해보세요.</p>
+        		</div>
+        		<div class="row cities_inner" id="auction2">
+        	
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Cities Area =================-->
         <!--================Cities Area =================-->
         <section class="cities_area p_120">
         	<div class="container">
@@ -298,23 +311,7 @@ $(function(){
         			<p>한주동안 가장 많은 조회수의 인테리어를 직접 감상해보세요.</p>
         		</div>
         		<div class="row cities_inner" id="albumtop4">
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-2.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-3.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="cities_item">
-        					<img class="img-fluid" src="/intepark/resources/img/cities/cities-4.jpg" alt="">
-        					<a class="main_btn2" href="#">Book Now</a>
-        				</div>
+        	
         			</div>
         		</div>
         	</div>
