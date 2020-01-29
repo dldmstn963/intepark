@@ -217,8 +217,9 @@ attachFile = {
 
         var a = $("input[name=files]").length;	//사진갯수담기
         //console.log(a);
+        var hrename = $(".finput").length;
 
-        if(a > 8){	//사진이 10개 이상이면 사진넣기 버튼 안보이기
+        if(hrename+a > 8){	//사진이 10개 이상이면 사진넣기 버튼 안보이기
             $("#plus").css("display","none");
             }
 
@@ -369,7 +370,7 @@ function qu(consid,pfnum){
 	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
 }
 
-//작성완료 클릭시
+//저장하기 클릭시
 function Check(){
 	//제목이 null 이면
 	var pftitle = $("#pftitle").val();
@@ -379,15 +380,23 @@ function Check(){
 		return false;
 		}
 
-	//var hrename = $(".finput").length;
+	var hrename = $(".finput").length;
 	//console.log(hrename);
 	
 	var a = $("input[name=files]").length;
 	//console.log(a);
-		if(/* hrename+ */a<2){
-			alert("신규사진은 최소 2장이상 첨부하셔야 합니다.")
+		if(hrename+a<2){
+			alert("사진은 최소 2장 첨부하셔야 합니다.");
 			return false;
+			
 		}
+
+	var b = $("input[name=pfcoment2]").length;
+		if(b != 0 && b < 2){
+			alert("신규사진은 최소 2장이상 첨부하셔야 합니다.");
+			return false;
+			}
+		
 	return true;
 }
 

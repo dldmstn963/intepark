@@ -46,7 +46,7 @@ span {
 			<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" class="img-circle" width="100px" height="100px">
 			</c:if>
 			<c:if test="${!empty cons.profilerenameimg }">
-			<img src="${pageContext.request.contextPath }/resources/img/woosoo/${cons.profilerenameimg}" class="img-circle" width="100px" height="100px">
+			<img src="${pageContext.request.contextPath }/resources/consProfileImgs/${cons.profilerenameimg}" class="img-circle" width="100px" height="100px">
 			</c:if>
 			
 			<span style="font-size:2em;">&nbsp; ${cons.companyname}</span>
