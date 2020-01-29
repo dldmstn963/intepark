@@ -94,7 +94,7 @@ span.star-prototype > * {
 		<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" width="100px" height="100px">
 		</c:if>
 		<c:if test="${!empty cons.profilerenameimg }">
-		<img src="${pageContext.request.contextPath }/resources/img/woosoo/${cons.profilerenameimg}" width="100px" height="100px">
+		<img src="${pageContext.request.contextPath }/resources/consProfileImgs/${cons.profilerenameimg}" width="100px" height="100px">
 		</c:if>
 		</div>
 		
