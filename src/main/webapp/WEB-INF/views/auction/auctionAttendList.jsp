@@ -18,6 +18,8 @@
 
 	</style>
 <script type="text/javascript">
+var chatno;
+
 	function doDisplay(menu){
 	   var con = document.getElementById(menu);
 		console.log(con);
@@ -34,7 +36,6 @@
         var option = "width = 970, height = 560, top = 100, left = 200, location = no"
  window.open(url, name, option);
     }
-    var chatno;
     
     function invite(data1, data2){
 			console.log(data2);
@@ -50,15 +51,13 @@
     			console.log(chatno);    			
     			console.log(data1 + "/" + data2 + "/" + chatno);
     			ws.send("invite/" + data1 + "/" + data2 + "/" + chatno);
-    			openwindow(chatno);
+    			openwindow();
     		},
     		error : function(jqXHR, textStatus, errorThrown){
     			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
     		}
     	});
-
-
-    }	
+	}	
 
 function openwindow(){
 	window.open("chat3.do?chatno="+chatno, "chat", "width=450, height=700");
@@ -110,7 +109,7 @@ function check1(){
         <ul id="menu${a.consname }" style="display:none;">
     <li><a href = "javascript:popup('${a.auctionno }','${a.consname }');" target = "_self">상세보기</a></li>
     <c:if test="${empty sessionScope.loginCons and !empty sessionScope.loginUser}">
-    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');openwindow();">채팅</a></li>
+    <li><a id="${a.consid}" href = "javascript:invite('${a.consid }', '${sessionScope.loginUser.userid }');">채팅</a></li>
     </c:if>
     <c:if test="${loginCons.consid eq a.consid}">
     <li><a href="auctionAttendDelete2.do?auctionno=${a.auctionno}&consname=${a.consname}">삭제</a></li>

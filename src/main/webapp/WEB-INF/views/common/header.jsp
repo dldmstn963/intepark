@@ -65,7 +65,7 @@ function test(user){
 	
 	text = "<div>"+user+"님이 상담신청 하셨습니다. <br> 수락하시겠습니까?<br>" +
 		"<button class='select' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
-		"&nbsp;&nbsp;&nbsp;&nbsp;<button class='select' onclick='refuse(" + chatno + ")'>취소</button></div>" +
+		"&nbsp;&nbsp;<button class='select' onclick='refuse(" + chatno + ")'>취소</button></div>" +
 		"<input type='hidden' id='"+chatno+"' value='"+chatno+"'>";
 	$("#alarm").html($("#alarm").html() + text);
 	alarm();
@@ -74,7 +74,7 @@ function test(user){
 function alarm(){
 	var size = $("#alarm").children().length;
 	console.log(size);
-	if(size > 0){
+	if(size > 1){
 		$("#alarm").children("span").remove();
 		console.log(1);
 	}else{
