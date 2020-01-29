@@ -6,6 +6,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.c4.intepark.loginInfo.model.service.LoginInfoServiceImpl;
 import com.c4.intepark.loginInfo.model.vo.LoginInfo;
@@ -15,6 +16,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	@Autowired
 	private LoginInfoServiceImpl logService;
 	
+	@Autowired
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -23,9 +27,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	        
 	        LoginInfo user = (LoginInfo) logService.loadUserByUsername(username);
 	        
-	        if(!matchPassword(password, user.getPassword())) {
-	            throw new BadCredentialsException(username);
+	        if(password.equals(user.getPassword())) {//같다면 암호화안된것. 암호화시켜줌
+	        	LoginInfo loginfo = new LoginInfo();
+	        	loginfo.setLogid(username);
+	        	loginfo.setLogpwd(bcryptPasswordEncoder.encode(user.getPassword()));   	
+	        	logService.updateMemberPwd(loginfo);
+	        }else {
+	        	boolean pcheck = bcryptPasswordEncoder.matches(password, user.getPassword());
+	        	if(!pcheck) {
+	        		throw new BadCredentialsException("아이디/암호를 확인해주세요.");
+	        	}
 	        }
+	        
 	 
 	        if(!user.isEnabled()) {
 	            throw new BadCredentialsException(username);
@@ -40,9 +53,5 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	public boolean supports(Class<?> authentication) {
 		return true;
 	}
-	
-    private boolean matchPassword(String loginPwd, String password) {
-        return loginPwd.equals(password);
-    }
 	
 }

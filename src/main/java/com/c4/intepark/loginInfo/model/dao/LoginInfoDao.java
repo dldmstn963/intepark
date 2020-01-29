@@ -75,7 +75,7 @@ public class LoginInfoDao {
 		return sqlSession.update("loginInfoMapper.updateStopRemove", memberState);
 	}
 	
-	public int selectMemberPwdCheck(LoginInfo loginfo) {
+	public String selectMemberPwdCheck(LoginInfo loginfo) {
 		return sqlSession.selectOne("loginInfoMapper.selectMemberPwdCheck", loginfo);
 	}
 

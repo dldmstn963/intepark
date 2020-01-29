@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,9 @@ public class InteuserController {
 
 	@Autowired
 	private InteuserService inteUserService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	public InteuserController() {
 	}
@@ -52,7 +56,7 @@ public class InteuserController {
 		}
 		LoginInfo loginInfo = new LoginInfo();
 		loginInfo.setLogid(inteuser.getUserid());
-		loginInfo.setLogpwd(inteuser.getUserpwd());
+		loginInfo.setLogpwd(bcryptPasswordEncoder.encode(inteuser.getUserpwd()));
 		loginInfo.setAuthority("ROLE_USER");
 		loginInfo.setEmail(inteuser.getUseremail());
 		String view = "member/welcome";

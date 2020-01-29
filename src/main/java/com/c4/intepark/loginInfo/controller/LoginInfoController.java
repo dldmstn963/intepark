@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,9 @@ public class LoginInfoController {
 
 	@Autowired
 	private LoginInfoService logService;
+	
+	@Autowired
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
 	@RequestMapping("/accessError.do")
 	public String errorPage(Authentication auth, Model model) {
@@ -238,12 +242,12 @@ public class LoginInfoController {
 	// 유저 비밀번호 변경체크
 	@RequestMapping(value = "memberUpPwdCheck.do", method = RequestMethod.POST)
 	public void memberUpPwdCheck(LoginInfo loginfo, HttpServletResponse response) throws IOException {
-
-		int result = logService.selectMemberPwdCheck(loginfo);
-
+		
+		String dbpwd = logService.selectMemberPwdCheck(loginfo);
+		boolean pwdCheck = bcryptPasswordEncoder.matches(loginfo.getLogpwd(),dbpwd);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		if (result == 1)
+		if (pwdCheck)
 			out.append("ok");
 		else
 			out.append("no");
@@ -256,7 +260,7 @@ public class LoginInfoController {
 	@RequestMapping(value = "memberUpdatePwd.do", method = RequestMethod.POST)
 	public String memberUpdatePwd(LoginInfo loginfo, @RequestParam("memberCheck") String mcheck, 
 			Model model, RedirectAttributes redirect) {
-
+		loginfo.setLogpwd(bcryptPasswordEncoder.encode(loginfo.getLogpwd()));
 		int result = logService.updateMemberPwd(loginfo);
 		redirect.addFlashAttribute("message", "비밀번호 변경에 성공하였습니다.");
 		if (result != 1) {
@@ -272,7 +276,6 @@ public class LoginInfoController {
 	// 유저 탈퇴
 	@RequestMapping(value = "memberWithdraw.do", method = RequestMethod.POST)
 	public String deleteMember(LoginMemberState logms, Model model) {
-
 		int result = logService.updateDeleteMember(logms);
 		if (result != 1) {
 			model.addAttribute("message", "탈퇴에 실패하였습니다.");

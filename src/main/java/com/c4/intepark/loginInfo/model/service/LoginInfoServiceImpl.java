@@ -108,7 +108,7 @@ public class LoginInfoServiceImpl implements UserDetailsService,LoginInfoService
 	}
 
 	@Override
-	public int selectMemberPwdCheck(LoginInfo loginfo) {
+	public String selectMemberPwdCheck(LoginInfo loginfo) {
 		return logDao.selectMemberPwdCheck(loginfo);
 	}
 }
