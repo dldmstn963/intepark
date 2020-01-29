@@ -12,30 +12,6 @@ padding:10px;
 </style>
 </head>
 <body> 
-<!-- ##### Newsletter Area Start ##### -->
-   <!--  <section class="newsletter-area section-padding-100-0">
-        <div class="container">
-            <div class="row align-items-center">
-                Newsletter Text
-                <div class="col-12 col-lg-6 col-xl-7">
-                    <div class="newsletter-text mb-100">
-                        <h2>Subscribe for a <span>25% Discount</span></h2>
-                        <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
-                    </div>
-                </div>
-                Newsletter Form
-                <div class="col-12 col-lg-6 col-xl-5">
-                    <div class="newsletter-form mb-100">
-                        <form action="#" method="post">
-                            <input type="email" name="email" class="nl-email" placeholder="Your E-mail">
-                            <input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- ##### Newsletter Area End ##### -->
  <!-- ##### Footer Area Start ##### -->
     <footer class="footer_area clearfix" id="padding10">
         <div class="container">
@@ -63,19 +39,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 <div class="collapse navbar-collapse" id="footerNavContent">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">인테파크 홈</a>
+                                            <a class="nav-link" href="index.jsp">인테파크 홈</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="shop.html">쇼핑몰 홈</a>
+                                            <a class="nav-link" href="moveshop4.do">쇼핑몰 홈</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="product-details.html">카테고리</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cart.html">베스트</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">특가</a>
+                                            <a class="nav-link" href="moveshopcategory4.do">카테고리</a>
                                         </li>
                                     </ul>
                                 </div>
