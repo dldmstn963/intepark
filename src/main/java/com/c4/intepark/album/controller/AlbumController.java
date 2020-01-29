@@ -131,7 +131,7 @@ public class AlbumController {
 		}
 
 		String originalName = image.getOriginalFilename();
-
+		//uuid로 rename생성
 		String renameFile = UUID.randomUUID().toString()+originalName.substring(originalName.lastIndexOf("."));
 
 		image.transferTo(new File(path + "\\" + renameFile));

@@ -311,8 +311,6 @@ $(function(){
         			<p>한주동안 가장 많은 조회수의 인테리어를 직접 감상해보세요.</p>
         		</div>
         		<div class="row cities_inner" id="albumtop4">
-        	
-        			</div>
         		</div>
         	</div>
         </section>
