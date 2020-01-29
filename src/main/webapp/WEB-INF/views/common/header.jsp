@@ -9,7 +9,7 @@
 
 <style type="text/css">
 .header_area{
-	background:#FFFFee;
+	background:#FFFFFF;
 	position:fixed;
 }
 </style>

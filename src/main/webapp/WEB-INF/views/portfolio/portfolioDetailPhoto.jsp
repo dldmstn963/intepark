@@ -10,7 +10,8 @@
 <style type="text/css">
 span.star-prototype, span.star-prototype > * {
     height: 16px; 
-    background: url("${pageContext.request.contextPath }/resources/img/woosoo/starAvg.img.png") 0 -16px repeat-x;
+    background: url("${pageContext.request.contextPath }/resources/img/woosoo/starAvg.img.png") 0 -16px repeat-x;    
+    					/*별 그림이 안뜨면 url 주소를 한번 방문해 주세요 (http://i.imgur.com/YsyS5y8.png) */
     width: 80px;
     display: inline-block;
 }

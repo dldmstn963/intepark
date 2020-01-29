@@ -304,11 +304,11 @@ span.star-prototype > * {
 									<c:if test="${review.userid eq sessionScope.loginCons.consid || review.userid eq sessionScope.loginUser.userid}">
 									    <div style="display:inline-block;">
 								            <!-- <form action="#" method="post" > -->
-						      				<input type="hidden" value="${cons.consid}" name="consid">
-						      				<button class="btn btn-success btn-sm" style="font:small-caption;">수정하기</button>&nbsp;
+						      				<%-- <input type="hidden" value="${cons.consid}" name="consid">
+						      				<button class="btn btn-success btn-sm" style="font:small-caption;" onclick="return nono();">수정하기</button>&nbsp; --%>
 						      				<!-- </form> -->
 					      				</div>
-					      				<div style="display:inline-block;">
+					      				<div style="display:inline-block; float:right;">
 					      					<form action="deleteReview5.do" method="post" >
 					      					<input type="hidden" value="${review.rvnum}" name="rvnum">
 					      					<input type="hidden" value="${review.consid}" name="consid">
@@ -375,17 +375,13 @@ span.star-prototype > * {
 	</div><!-- row 끝 -->
 </div><!-- 컨테이너 끝 -->
 
-
 <script type="text/javascript">
 //비회원 로그인시
 function noneUser(){
 	alert(" 회원가입후 이용하실수 있습니다. \n    회원가입을 먼저 진행해 주세요!!");
 	return false;
 }
-</script>
 
-
-<script type="text/javascript">
 function clickimg(consid, pfnum){
 	location.href = "selectPfOne5.do?consid="+consid+"&pfnum="+pfnum;
 	return false;
