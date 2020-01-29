@@ -161,6 +161,7 @@ public class GoodsController {
 	public void goodsinsert(Model model, Goods goods, @SessionAttribute("loginCons") Constructors cons,
 			MultipartHttpServletRequest request, HttpServletResponse response)
 			throws IllegalStateException, IOException {
+		goods.setFreedlvy("N");
 		MultipartFile file = request.getFile("file");
 		String oriName = file.getOriginalFilename();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");

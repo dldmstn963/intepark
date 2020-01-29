@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>인테파크</title>
-
+<link rel="stylesheet" href="/intepark/resources/css/font.css">
 <style type="text/css">
 .header_area{
 	background:#FFFFFF;

@@ -15,42 +15,6 @@
     <link href="/intepark/resources/build/css/custom.min.css" rel="stylesheet">
     <title>인테파크</title>
 
-	 <style>
-        .upload-btn-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-        
-        .upload-btn {
-            border: 2px solid gray;
-            color: gray;
-            background-color: white;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .upload-btn-wrapper input[type=file] {
-            font-size: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-        }
-        
-        #fileDragDesc {
-            width: 100%; 
-            height: 100%; 
-            margin-left: auto; 
-            margin-right: auto; 
-            padding: 5px; 
-            text-align: center; 
-            line-height: 300px; 
-            vertical-align:middle;
-        }
-    </style>
     
   </head>
   <body class="nav-md">
@@ -94,7 +58,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                       <form action="goodsinsert4.do" method="post" enctype="multipart/form-data">
+                       <form action="goodsinsert4.do" name="join" method="post" enctype="multipart/form-data">
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">카테고리 <span class="required">*</span>
                         </label>
@@ -128,43 +92,33 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="number">재고 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <input type="number" id="number" name="inventory" data-validate-minmax="10,100" class="form-control">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="website">무료배송 여부 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6">
-                        <select name="freedlvy" class="form-control">
-                      				<option value="N">N</option>
-                      				<option value="Y">Y</option>
-                      				</select>
+                          <input type="number" id="number" required="required" name="inventory" data-validate-minmax="10,100" class="form-control">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="occupation">썸네일 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                         <input type="file" name="file">
+                         <input type="file" name="file" required="required">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label for="password" class="col-form-label col-md-3 label-align">주석<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                          <input id="password" type="text" name="comments" class="form-control" >
+                          <input id="password" type="text" name="comments" required="required" class="form-control" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label for="password2" class="col-form-label col-md-3 col-sm-3 label-align ">최대 구매 수량<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6">
-                          <input id="password2" type="number" name="maximum" class="form-control" >
+                          <input id="password2" type="number" name="maximum" required="required" class="form-control" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="textarea">상품설명 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6">
-                          <textarea id="textarea" name="description" class="form-control"></textarea>
+                          <textarea id="textarea" name="description" class="form-control" required="required"></textarea>
                         </div>
                       </div>
                        <div class="item form-group">
@@ -203,34 +157,6 @@
                         </div>
                       </div>
                     </form>
-    
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                
                   </div>
                 </div>
               </div>
@@ -240,7 +166,6 @@
         <!-- /page content -->
       </div>
     </div>
-	
 	 <!-- jQuery -->
     <script src="/intepark/resources/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

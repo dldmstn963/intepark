@@ -48,26 +48,28 @@
                                         <c:forEach var="li" items="${list }">
                                         <option value="${li.dlvynum }">
                                         ${li.dlvyname }/
-                                        ${li.addressee }/
-                                        ${li.address }/
-                                        ${li.phone }
+                                      <%--   ${li.addressee }/ --%>
+                                        ${li.address }
+                                        <%-- /
+                                        ${li.phone } --%>
                                         </option>
                                         </c:forEach>
                                     </select>
                                     </div>
                                     <div id="divylist" class="col-12 mb-3">
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control" id="company" placeholder="배송지 이름" value="" name="dlvyname">
+                                        <input type="text" required class="form-control" id="dd1" placeholder="배송지 이름"  name="dlvyname">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control" id="company" placeholder="받으시는 분" value="" name="addressee">
+                                        <input type="text" required class="form-control" id="dd2" placeholder="받으시는 분"  name="addressee">
+                                        
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control" id="email" placeholder="핸드폰 번호" value="" name="phone">
+                                        <input type="number" required class="form-control" id="email" placeholder="핸드폰 번호"  name="phone">
                                     </div>
                                   
                                     <div class="col-12 mb-3">
-                                        <input type="text" class="form-control mb-3" id="sample2_address" placeholder="주소" value="" name="address">
+                                        <input type="text" class="form-control mb-3" id="sample2_address" placeholder="주소"  required name="address">
                                         <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
                                         <input type="hidden" id="sample2_postcode" placeholder="우편번호">
 										<input type="hidden" id="sample2_address" placeholder="주소"><br>
@@ -75,11 +77,9 @@
 										<input type="hidden" id="sample2_extraAddress" placeholder="참고항목">
                                     </div>
                                     </div>
-                               
-                                    
                                     <div class="col-12 mb-3">
                                         <select class="w-100" id="country2" name="requestnum">
-                                        <option value="">배송시 요청사항 목록</option>
+                                        <option value="">배송시 요청사항 목록 *</option>
                                        <option value="0">직접 입력</option>
                                         <c:forEach var="li" items="${list2 }">
                                         <option value="${li.requestnum }">
@@ -88,13 +88,7 @@
                                         </c:forEach>
                                     </select>
                                     </div>
-                                    <div class="col-12 mb-3" id="requests"><input type="text" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항 입력" value="" name="requestcn"></div>
-                                    
-                                    
-                                   <!--  <div class="col-12 mb-3">
-                                        <input type="text" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항" value="" name="requestcn">
-                                    </div> -->
-
+                                    <div class="col-12 mb-3" id="requests"><input type="text" required="required" class="form-control mb-3" id="street_address" placeholder="배송시 요청사항 입력" name="requestcn"></div>
                                 </div>
                                <input type="hidden" name="userid" value="${loginUser.userid }">
                                <input type="hidden" name="goodsnum" value="${orders.goodsnum }">
@@ -109,25 +103,9 @@
                             <h5>전체 합계</h5>
                             <ul class="summary-table">
                                 <li><span>상품 금액:</span> <span><fmt:formatNumber value="${orders.goodsprice * orders.orderquantity}" groupingUsed="true"/>원 </span></li>
-                               <!--  <li><span>배송비:</span> <span>2,500원</span></li>
-                                <li><span>전체 주문 금액:</span> <span>26,500원</span></li> -->
                             </ul>
-
-                            <!-- <div class="payment-method">
-                                Cash on delivery
-                                <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" id="cod" checked>
-                                    <label class="custom-control-label" for="cod">착불</label>
-                                </div>
-                                Paypal
-                                <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" id="paypal">
-                                    <label class="custom-control-label" for="paypal">페이팔 <img class="ml-15" src="/intepark/resources/img/core-img/paypal.png" alt=""></label>
-                                </div>
-                            </div> -->
-
                             <div class="cart-btn mt-100">
-                                <a href="#" onclick="document.getElementById('frm').submit()" class="btn amado-btn w-100">결제하기</a>
+                                <a href="#" onclick="checkout()" class="btn amado-btn w-100">결제하기</a>
                             </div>
                         </div>
                     </div>
@@ -251,6 +229,33 @@
 	
 	
 	 <script type="text/javascript">
+	 function checkout(){
+	if($('#country').val() == 0){
+		if($('#dd1').val() == ""){
+			alert("배송지 이름을 입력하세요");
+			return false;
+			}
+		if($('#dd2').val() == ""){
+			alert("받으시는 분을 입력하세요");
+			return false;
+			}
+		if($('#email').val() == ""){
+			alert("핸드폰 번호를 입력하세요");
+			return false;
+			}
+		if($('#sample2_address').val() == ""){
+			alert("주소를 입력하세요");
+			return false;
+			}
+		}
+	if($('#country2').val() == 0){
+		if($('#street_address').val() == ""){
+			alert("배송시 요청사항을 입력하세요");
+			return false;
+			}
+	}
+		 document.getElementById('frm').submit();
+		 }
 $(function(){
 	if(${!empty list}){
 		$('#divylist').hide();
