@@ -25,17 +25,51 @@
                 <!--  Catagories  -->
                 <div class="catagories-menu">
                     <ul>
-                        <li class="active"><a href="moveshopcategory4.do">전체</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=1">가구</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=2">침구</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=3">패브릭</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=4">홈데코/조명</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=5">가전</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=6">수납/정리</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=7">생활 용품</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=8">주방</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=9">DIY 셀프시공</a></li>
-                        <li><a href="moveshopcategorysub4.do?categorynum=10">시공/서비스</a></li>
+                        <li                         <c:if test="${categorynum !=1 and categorynum !=2 and categorynum !=3 and categorynum !=4
+                        and categorynum !=5 and categorynum !=6 and categorynum !=7 and categorynum !=8 and categorynum !=9 and categorynum !=10}">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategory4.do">전체</a></li>
+                        <li                         <c:if test="${categorynum ==1 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=1">가구</a></li>
+                        <li                         <c:if test="${categorynum ==2 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=2">침구</a></li>
+                        <li                         <c:if test="${categorynum ==3 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=3">패브릭</a></li>
+                        <li                         <c:if test="${categorynum ==4 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=4">홈데코/조명</a></li>
+                        <li                         <c:if test="${categorynum ==5 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=5">가전</a></li>
+                        <li                         <c:if test="${categorynum ==6 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=6">수납/정리</a></li>
+                        <li                         <c:if test="${categorynum ==7 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=7">생활 용품</a></li>
+                        <li                         <c:if test="${categorynum ==8 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=8">주방</a></li>
+                        <li                         <c:if test="${categorynum ==9 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=9">DIY 셀프시공</a></li>
+                        <li                         <c:if test="${categorynum ==10 }">
+                        class="active"
+                        </c:if>
+                        ><a href="moveshopcategorysub4.do?categorynum=10">시공/서비스</a></li>
                     </ul>
                 </div>
             </div>
