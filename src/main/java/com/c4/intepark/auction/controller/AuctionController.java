@@ -88,7 +88,6 @@ public class AuctionController {
 		return "auction/nonAuctionEnroll";
 	}
 
-
 	@RequestMapping("auctionChange2.do")
 	public String selectAuctionChangePage(HttpServletRequest request, Auction auction, Model model,
 			NonAuction nonauction) {
@@ -119,16 +118,7 @@ public class AuctionController {
 			model.addAttribute("auction", nonauction);
 			model.addAttribute("rfile", rfile);
 		}
-		if(nonauc != null) {
-			nonauction = auctionService.nonAuctionDetailView(nonauc);
-			logger.info(nonauction.toString());
-			String[] rfile = null;
-			if(nonauction.getRfile() != null) {
-			rfile = nonauction.getRfile().split("/");
-			}
-			model.addAttribute("auction", nonauction);
-			model.addAttribute("rfile", rfile);
-					}
+
 		/*
 		 * if(nonauc != null) { NonAuction nonauction =
 		 * auctionService.nonAuctionDetailView(nonauc); request.setAttribute("auction",
@@ -158,8 +148,6 @@ public class AuctionController {
 						renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + i + "."
 								+ originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
 						i += 1;
-						logger.info(originalFileName);
-						logger.info(renameFileName + "," + "리네임 파일");
 						// 파일명을 바꾸려면 File 객체의 renameTo() 사용함
 						File originFile = new File(savePath + "\\" + originalFileName);
 						File renameFile = new File(savePath + "\\" + renameFileName);
@@ -316,8 +304,13 @@ public class AuctionController {
 			String savePath = request.getSession().getServletContext().getRealPath("resources/auctionUpFile");
 			String ofile = "";
 			String rfile = "";
+			String check = "";
 			int i = 1;
-			if (fileList != null) {
+			for (MultipartFile mf1 : fileList) {
+		
+				check = mf1.getOriginalFilename();
+			}
+			if (!check.equals("")) {
 				// 파일이 새로 업로드 될시 파일 삭제
 				String rfile11 = mtfRequest.getParameter("rfile1");
 				String rfile2 = mtfRequest.getParameter("rfile2");
@@ -386,7 +379,13 @@ public class AuctionController {
 					}
 				}
 			}
-			logger.info("auction수정 : " + auction);
+			 if(check.equals("")) {
+				 Auction auction1 = auctionService.auctionDetailView(auc);
+			 auction.setOfile(auction1.getOfile());
+			 auction.setRfile(auction1.getRfile()); 
+			 
+			 }
+			 
 			int result = auctionService.auctionUpdate(auction);
 
 		}
@@ -396,8 +395,14 @@ public class AuctionController {
 			String savePath = request.getSession().getServletContext().getRealPath("resources/auctionUpFile");
 			String ofile = "";
 			String rfile = "";
+			String check = "";
 			int i = 1;
-			if (fileList != null) {
+			for (MultipartFile mf1 : fileList) {
+			
+				check = mf1.getOriginalFilename();
+			}
+			if (!check.equals("")) {
+			
 				// 파일이 새로 업로드 될시 파일 삭제
 				String rfile11 = mtfRequest.getParameter("rfile1");
 				String rfile2 = mtfRequest.getParameter("rfile2");
@@ -466,8 +471,14 @@ public class AuctionController {
 					}
 				}
 			}
-			logger.info("auction수정 : " + auction);
-
+			
+			 if(check.equals("")) {
+				 NonAuction nonauction1 = auctionService.nonAuctionDetailView(nonauc);
+			 nonauction.setOfile(nonauction1.getOfile());
+			 nonauction.setRfile(nonauction1.getRfile()); 
+			 
+			 }
+			
 			int result = auctionService.NonAuctionUpdate(nonauction);
 
 		}
@@ -650,7 +661,7 @@ public class AuctionController {
 		return  "redirect:auctionAttend2.do?auctionno="+ auctionno;
 	}
 
-	@RequestMapping(value = "nonAuctionDelete2.do", method = RequestMethod.POST)
+	@RequestMapping("nonAuctionDelete2.do")
 	public String deleteNonAuction(HttpServletRequest request) {
 		int auctionno = Integer.parseInt(request.getParameter("nonauc"));
 		int result = auctionService.deleteNonAuction(auctionno);
