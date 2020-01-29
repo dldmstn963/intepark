@@ -166,7 +166,7 @@
 	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/cons_profile_noimage.jpg" class="img-circle" style="float:left; width:100px; height:100px;">
 	      </c:if>
 	      <c:if test="${!empty ConsVo.profilerenameimg }">
-	      	<img src="${pageContext.request.contextPath }/resources/img/woosoo/${ConsVo.profilerenameimg}" class="img-circle" style="float:left; width:100px; height:100px;">
+	      	<img src="${pageContext.request.contextPath }/resources/consProfileImgs/${ConsVo.profilerenameimg}" class="img-circle" style="float:left; width:100px; height:100px;">
 	      </c:if>
 	      
 	      <div style="display:inline-block; height:80px; margin-left:13px; margin-top:15px;">
