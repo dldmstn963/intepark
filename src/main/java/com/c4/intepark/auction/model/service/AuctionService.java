@@ -31,6 +31,7 @@ int AuctionProgress(AuctionAttend att);
 int auctionAttendListCount(CommonPage cpage);
 Auction AuctionProgress2(int auctionno);
 int NonAuctionUpdate(NonAuction nonauction);
+
 int MyAuctionAttendListCount(CommonPage cpage);
 ArrayList<AuctionAttend> MyAuctionAttendList(CommonPage cpage);
 

@@ -64,8 +64,8 @@ function test(user){
 	console.log("작동확인");
 	
 	text = "<div>"+user+"님이 상담신청 하셨습니다. <br> 수락하시겠습니까?<br>" +
-		"<button class='sel' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
-		"&nbsp;&nbsp;&nbsp;&nbsp;<button class='sel' onclick='refuse(" + chatno + ")'>취소</button></div>" +
+		"<button class='select' onclick='accept(" + chatno + ");chatopen(" + chatno + ")'>확인</button>" +
+		"&nbsp;&nbsp;<button class='select' onclick='refuse(" + chatno + ")'>취소</button></div>" +
 		"<input type='hidden' id='"+chatno+"' value='"+chatno+"'>";
 	$("#alarm").html($("#alarm").html() + text);
 	alarm();
@@ -74,7 +74,7 @@ function test(user){
 function alarm(){
 	var size = $("#alarm").children().length;
 	console.log(size);
-	if(size > 0){
+	if(size > 1){
 		$("#alarm").children("span").remove();
 		console.log(1);
 	}else{
@@ -94,7 +94,7 @@ function refuse(data){
 }
 
 	$(function(){
-	$(document).on("click", ".sel", function(){
+	$(document).on("click", ".select", function(){
 		$(this).closest("div").remove();
 		console.log("성공");
 		alarm();
@@ -141,7 +141,7 @@ function refuse(data){
 						<div class="collapse navbar-collapse offset"
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item"><a class="nav-link" href="temple4.do">템플릿 페이지<!--3D디자인 리스트--></a></li>
+								<li class="nav-item"><a class="nav-link" href="moveTdMake.do">3D디자인 만들기</a></li>
 								       <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">
@@ -177,7 +177,7 @@ function refuse(data){
 							<div class="collapse navbar-collapse offset"
 								id="navbarSupportedContent">
 								<ul class="nav navbar-nav menu_nav ml-auto">
-									<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/main.do">3D디자인 리스트</a></li>
+									<li class="nav-item"><a class="nav-link" href="moveTdMake.do">3D디자인 만들기</a></li>
 										      <li class="nav-item submenu dropdown">
                            <a class="nav-link" href="auctionList2.do" role="button" aria-haspopup="true">견적리스트</a> <!-- data-toggle="dropdown" 메뉴네비게이션 클릭안되게 막기 -->
                            <ul class="dropdown-menu" style="margin:-30px -30px -30px -10px;">

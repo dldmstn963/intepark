@@ -18,6 +18,8 @@
 
 	</style>
 <script type="text/javascript">
+var chatno;
+
 	function doDisplay(menu){
 	   var con = document.getElementById(menu);
 		console.log(con);
@@ -34,7 +36,6 @@
         var option = "width = 970, height = 560, top = 100, left = 200, location = no"
  window.open(url, name, option);
     }
-    var chatno;
     
     function invite(data1, data2){
 			console.log(data2);
@@ -50,15 +51,13 @@
     			console.log(chatno);    			
     			console.log(data1 + "/" + data2 + "/" + chatno);
     			ws.send("invite/" + data1 + "/" + data2 + "/" + chatno);
-    			openwindow(chatno);
+    			openwindow();
     		},
     		error : function(jqXHR, textStatus, errorThrown){
     			console.log("error : " + jqXHR + ", " + textStatus + ", " + errorThrown);
     		}
     	});
-
-
-    }	
+	}	
 
 function openwindow(){
 	window.open("chat3.do?chatno="+chatno, "chat", "width=450, height=700");
@@ -66,7 +65,7 @@ function openwindow(){
 function check1(){
 	 <c:forEach items="${ list }" var="b">
 	 <c:if test="${loginCons.consid eq b.consid}">
-			alert("존재함");
+			alert("이미 경매에 참가하였습니다.");
 			return false;
 	 </c:if>
 	 </c:forEach>
@@ -80,6 +79,7 @@ function check1(){
 		  $(".blinkEle").toggle();
 		}, 500);
 	</script>
+
 </head>
 <body>
  	<jsp:include page="../common/header.jsp" />
@@ -213,7 +213,9 @@ function check1(){
 <div style="text-align: center;">
 <input type="button" value="이전화면" onclick="javascript:history.back()" style="background-color: #ffc107;" class="btn">&nbsp;&nbsp;
 <c:if test="${!empty sessionScope.loginCons }">
+
 <button type="button" onclick="check1()" style="background-color: #ffc107;" class="btn">경매참가</button>
+
 </c:if>
 </div>
  	<script>

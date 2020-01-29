@@ -345,7 +345,7 @@ select {
 <script type="text/javascript">
 
 $(document).ready(function (e){
-  $("input[type='file']").change(function(e){
+  $("#upfile").change(function(e){
 
     //div 내용 비워주기
     $('#preview').empty();
@@ -354,7 +354,7 @@ $(document).ready(function (e){
     var arr =Array.prototype.slice.call(files);
 
 	if(arr.length >= 4){
-			alert("안되요 많아요");
+			alert("파일첨부는 3개이하만 가능합니다.");
 			  $("#upfile").val("");
 			  return false;
 		}
@@ -370,6 +370,8 @@ $(document).ready(function (e){
     
     
   });//file change
+
+
   
   function checkExtension(fileName,fileSize){
 
@@ -423,6 +425,55 @@ $(document).ready(function (e){
 
 </script>
 <script type="text/javascript">
+function numberWithCommas(x) {
+	  x = x.replace(/[^0-9]/g,'');   // 입력값이 숫자가 아니면 공백
+	  x = x.replace(/,/g,'');          // ,값 공백처리
+	  $("#price").val(x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")); // 정규식을 이용해서 3자리 마다 , 추가 
+	}
+function validate() {
+	
+
+
+	var possibledate = document.getElementById("possibledate");
+
+	var price = document.getElementById("price");
+	var title = document.getElementById("title");
+
+
+
+	/* 날짜 정규식 */
+	var possibledate1 = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
+    
+    if ((possibledate.value) == ""){
+    	$("#possibledate_keyup").html('<font color="red">&nbsp; 시공가능날짜를 입력하여 주십시요.</font><br>');
+    	possibledate.focus();
+        return false;
+    }
+    
+
+    if ((price.value) == ""){
+    	$("#price_keyup").html('<font color="red">&nbsp; 희망금액을 입력하여 주십시요.</font><br>');
+    	price.focus();
+        return false;
+    }
+    
+    if ((title.value) == ""){
+    	$("#title_keyup").html('<font color="red">&nbsp; 제목을 입력하여 주십시요.</font><br>');
+    	title.focus();
+        return false;
+    }
+    
+
+    
+    if(!possibledate1.test(possibledate.value)){
+    	$("#possibledate_keyup").html('<font color="red">&nbsp; 올바른 시공가능날짜를 입력하여 주십시요.</font><br>');
+  	  return false;
+    }
+    
+    return true;
+}
+</script>
+<script type="text/javascript">
 function fileReset()
 {
 	 $('#preview').empty();
@@ -438,7 +489,7 @@ function fileReset()
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <form method="post" class="register-form" id="register-form" action="auctionAttendEnroll2.do" enctype="multipart/form-data">
+                    <form method="post" class="register-form" id="register-form" onsubmit="return validate()" action="auctionAttendEnroll2.do" enctype="multipart/form-data">
                      <!--                        <div class="form-row">
                             <label for="auctionsection" class="radio-label" style="margin-left: 15px; margin-bottom: 20px; padding-right: 30px;">견적분류 :</label><br>
                             <div class="form-radio-item">
@@ -456,16 +507,19 @@ function fileReset()
                           <div class="form-group">
                             <label for="title">제목 :</label>
                             <input type="text" name="title" id="title">
+                             <span id="title_keyup" tabindex="0"></span>
                         </div>
                         
                            <div class="form-row">
                              <div class="form-group">
                                 <label for="startday">시공가능일 :</label>
-                                <input type="date" name="possibledate" id="possibledate" required/>
+                                <input type="date" name="possibledate" id="possibledate"/>
+                                 <span id="possibledate_keyup" tabindex="0"></span>
                             </div>
                                 <div class="form-group">
                                 <label for="startday">예상 금액 :</label>
-                                <input type="text" name="price" id="price" required/>
+                                <input type="text" name="price" id="price" onkeyup="numberWithCommas(this.value)"/>
+                                 <span id="price_keyup" tabindex="0"></span>
                             </div>
                         </div>
                       
@@ -479,7 +533,7 @@ function fileReset()
                         </div> 
                  <div class="form-group">
                             <label for="panorama">360도 사진첨부 :</label>
-                                	<input type="file" name="upfile1">파일
+                                	<input type="file" name="upfile1">
                         </div>
                         <div class="form-group">
                             <label for="etc">기타 상세정보 :</label>

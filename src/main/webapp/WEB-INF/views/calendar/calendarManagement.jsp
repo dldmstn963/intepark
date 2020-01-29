@@ -174,7 +174,7 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp" /><br>
-<div class="container" style="margin-top: 60px;">
+<div class="container" style="margin-top: 80px;">
     <div class="row">
       <div class="col-lg-12">
 	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -196,9 +196,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
                     </div>
-                    
-                    <div class="modal-body">
-
       <form action="updateCalendar3.do" method="post">
       <div class="modal-body">
       제목 : &nbsp;<input type="text" id="fctitle" name="ctitle" style="margin-bottom: 10px;" required><br>
@@ -207,7 +204,6 @@
       내용 : &nbsp;<textarea rows="10" cols="50" id="fccontent" name="ccontent" style="margin-bottom: 10px;"></textarea><br>
       색상 : &nbsp;
       <select name="ccolor" id="fccolor" class="sel" onchange="backgroundCh1();" style="width:100px;">
-      		<option value="white">없음</option>
       		<option value="red" style="background:red; width:100pt;" />
       		<option value="green" style="background:green;" />
       		<option value="blue" style="background:blue;" />
@@ -222,7 +218,6 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
       </form>
-                </div>
             </div>
         </div>
         </div>
