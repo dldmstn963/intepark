@@ -345,6 +345,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
      <td><a href="javascript:doDisplay('menu${b.auctionno }');">${b.title}</a>
     <ul id="menu${b.auctionno }" style="display:none;">
     <li><a href="auctionDetailView2.do?nonauc=${b.auctionno }">상세보기</a></li>
+    <c:if test="${empty sessionScope.loginCons and empty sessionScope.loginUser }">
     <li><a href="javascript:doDisplay3('passss${b.auctionno }');">수정</a><br>
     <div id="passss${b.auctionno }" style="display:none;">
     <form action="auctionChange2.do" method="get" id="frmm">
@@ -352,6 +353,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     <input type="hidden" value="${b.auctionno}" name="nonauc">
     </form></div></li>
     <li><a href = "javascript:doDisplay2('pass${b.auctionno }');">삭제</a><br>
+    </c:if>
     <div id="pass${b.auctionno }" style="display:none; position: absolute;">
     <form action="nonAuctionDelete2.do" method="post" id="frm">
     비밀번호 : <input type="password" id="passs${b.auctionno}"> &nbsp; <input type="button" value="확인" class="content" onclick="passCheck('${b.password}','passs${b.auctionno}');">

@@ -128,4 +128,14 @@ public ArrayList<AuctionAttend> MyAuctionAttendList(CommonPage cpage) {
 	
 	return (ArrayList<AuctionAttend>)list;
 }
+
+public ArrayList<AuctionAttend> selectAttendTop4() {
+List<AuctionAttend> list = mybatisSession.selectList("auctionMapper.selectAttendTop4");
+	
+	return (ArrayList<AuctionAttend>)list;
+}
+
+public Auction selectAuctionTop4(int auctionno1) {
+	return mybatisSession.selectOne("auctionMapper.selectAuctionTop4",auctionno1);
+}
 }

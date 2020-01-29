@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,29 +54,25 @@ public class AuctionController {
 			@RequestParam(value = "keyword", required = false) String keyword,
 			@RequestParam(value = "searchType1", required = false, defaultValue = "title") String searchType1,
 			@RequestParam(value = "keyword1", required = false) String keyword1, Model model) {
-		System.out.println("1" + searchType + ", 2" + keyword + ", 3" + searchType1 + ", 4" + keyword1);
+		//첫번째 검색,페이징
 		Search search = new Search();
-		System.out.println(search.getKeyword());
 		search.setSearchType(searchType);
 		search.setKeyword(keyword);
 		int listCnt = auctionService.selectAuctionCount(search);
-		System.out.println(listCnt);
-
 		search.pageInfo(page, range, listCnt);
 		model.addAttribute("pagination", search);
 		ArrayList<Auction> list = auctionService.auctionList(search);
 		model.addAttribute("list", list);
-
+		//두번째 검색,페이징
 		Search search1 = new Search();
 		search1.setSearchType(searchType1);
 		search1.setKeyword(keyword1);
 		int listCnt1 = auctionService.selectNonAuctionCount(search1);
-		System.out.println(listCnt1);
 		search1.pageInfo(page1, range1, listCnt1);
 		model.addAttribute("pagination1", search1);
 		ArrayList<NonAuction> list1 = auctionService.NonAuctionList(search1);
 		model.addAttribute("list1", list1);
-
+		
 		return "auction/auctionList";
 	}
 
@@ -472,7 +471,7 @@ public class AuctionController {
 			int result = auctionService.NonAuctionUpdate(nonauction);
 
 		}
-		return "redirect:main.do";
+		return "redirect:auctionList2.do";
 	}
 
 	@RequestMapping("auctionDelete2.do")
@@ -482,7 +481,7 @@ public class AuctionController {
 
 		int result = auctionService.deleteAuction(auction);
 
-		return "redirect:main.do";
+		return "redirect:auctionList2.do";
 	}
 	/*
 	 * @RequestMapping(value="auctionAttend2.do", method=RequestMethod.POST,
@@ -511,6 +510,8 @@ public class AuctionController {
 	 * return sendJson.toJSONString(); }
 	 */
 
+	
+	//연습용
 	@RequestMapping("auctionEndList2.do")
 	public String auctionEndList() {
 
@@ -609,10 +610,10 @@ public class AuctionController {
 		}
 
 		int result = auctionService.auctionAttendEnroll(att);
-
+		int a = att.getAuctionno();
 		logger.info("auctionAttend : " + att);
 
-		return "redirect:main.do";
+		return "redirect:auctionAttend2.do?auctionno="+ a;
 	}
 
 	@RequestMapping("auctionAttendPop2.do")
@@ -646,7 +647,7 @@ public class AuctionController {
 		logger.info(auctionno + " ," + consname);
 		int result = auctionService.auctionAttendDelete(auction);
 
-		return "redirect:main.do";
+		return  "redirect:auctionAttend2.do?auctionno="+ auctionno;
 	}
 
 	@RequestMapping(value = "nonAuctionDelete2.do", method = RequestMethod.POST)
@@ -655,7 +656,7 @@ public class AuctionController {
 		int result = auctionService.deleteNonAuction(auctionno);
 		logger.info("실행됨" + auctionno);
 
-		return "redirect:main.do";
+		return "redirect:auctionList2.do";
 	}
 
 	@RequestMapping(value = "auctionAttendProgess2.do", method = RequestMethod.POST)
@@ -693,5 +694,37 @@ public class AuctionController {
 		model.addAttribute("list", list);
 
 		return "auction/MyAuctionAttendList";
+	}
+	@RequestMapping("auctiontop2.do")
+	public void auctiontop2(HttpServletResponse response) throws IOException{
+		
+		//전송용 json 객체 생성
+		JSONObject sendJson = new JSONObject();
+		//list에 옮겨 저정할 json 배열 객체 생성
+		JSONArray jarr = new JSONArray();
+		ArrayList<AuctionAttend> attendList = auctionService.selectAttendTop4();
+		for(AuctionAttend auctionno : attendList) {
+		int auctionno1 = auctionno.getAuctionno();
+		Auction auction = auctionService.selectAuctionTop4(auctionno1);
+
+		String[] rfile = null;
+		if (auction.getRfile() != null) {
+			rfile = auction.getRfile().split("/");
+		}
+		logger.info(rfile[0]);
+		JSONObject job = new JSONObject();
+		job.put("auctionno",auction.getAuctionno());
+		job.put("userid", auction.getUserid());
+		job.put("rfile", rfile[0]);
+		
+		jarr.add(job);
+		}
+		sendJson.put("list", jarr);
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out =response.getWriter();
+		out.write(sendJson.toJSONString());
+		out.flush();
+		out.close();
 	}
 }

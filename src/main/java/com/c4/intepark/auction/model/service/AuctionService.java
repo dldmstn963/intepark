@@ -34,6 +34,8 @@ int NonAuctionUpdate(NonAuction nonauction);
 
 int MyAuctionAttendListCount(CommonPage cpage);
 ArrayList<AuctionAttend> MyAuctionAttendList(CommonPage cpage);
+ArrayList<AuctionAttend> selectAttendTop4();
+Auction selectAuctionTop4(int auctionno1);
 
 
 }
