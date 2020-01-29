@@ -378,6 +378,11 @@ span {
         // input = file object[]
         function addPreview(input) {
             if (input[0].files) {
+                var aa = $(".preview-box").length;
+                if(aa+input[0].files.length > 5){
+                    alert("사진은 최대 5장까지 첨부 가능합니다.");
+                    return false;
+                    }
                 //파일 선택이 여러개였을 시의 대응
                 for (var fileIndex = 0; fileIndex < input[0].files.length; fileIndex++) {
                     var file = input[0].files[fileIndex];
