@@ -277,7 +277,6 @@ function refuse(data){
 						<div class="collapse navbar-collapse offset"
 							id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item"><a class="nav-link" href="index.jsp">관리자</a></li>
 								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/albumlist6.do">인테리어 게시판관리</a></li>								
 								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/userList6.do">고객 관리</a></li>
 								<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/admin/consList6.do">시공사 관리</a></li>
