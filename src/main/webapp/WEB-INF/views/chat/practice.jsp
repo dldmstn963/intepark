@@ -138,6 +138,7 @@ $(function(){
 function send(){
 	var who = document.getElementById("sender").value.split("/");
 
+	console.log($("#messageinput").val());
 	if($("#messageinput").val() == ""){
 		alert("메세지를 입력해주세요!");
 	}else{
