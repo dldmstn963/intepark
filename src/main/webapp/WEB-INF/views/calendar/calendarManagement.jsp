@@ -240,7 +240,6 @@
       내용 : &nbsp;<textarea rows="10" cols="50" name="ccontent" style="margin-bottom: 10px;"></textarea><br>
       색상 : &nbsp;
       <select name="ccolor" id="sel" onchange="backgroundCh();" style="width:100px;">
-      		<option selected value="white">없음</option>
       		<option value="red" style="background:red; width:100pt;" />
       		<option value="green" style="background:green;" />
       		<option value="blue" style="background:blue;" />
