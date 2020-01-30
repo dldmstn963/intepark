@@ -78,10 +78,10 @@
                                   <div class="wrapper">
         <div class="body">
             <!-- 첨부 버튼 -->
-            <div id="attach">
+           <!--  <div id="attach">
                 <label for="uploadInputBox">사진첨부</label>
                 <input type="file" id="uploadInputBox" name="filedata" multiple style="display: none" />
-            </div>
+            </div> -->
             
             <!-- 미리보기 영역 -->
             <div id="preview"></div>

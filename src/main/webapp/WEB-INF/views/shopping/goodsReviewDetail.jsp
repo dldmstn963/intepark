@@ -51,9 +51,6 @@
                                     </div>
 								<div class="cart-btn mt-100">
                                <c:if test="${review.userid == loginUser.userid }">
-                                <input type="submit" class="btn amado-btn w-100" value="수정하기">
-                                <br>
-                                <br>
                                  <input type="button" class="btn amado-btn w-100" onclick="location.href='goodsReviewDelete4.do?reviewnum=${review.reviewnum}&goodsnum=${goods.goodsnum }'" value="삭제하기">
                                </c:if>
                             </div>
