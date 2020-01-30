@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -27,14 +28,17 @@ function callFunction(){
 </script>
 
 <style type="text/css">
-	table {
+	#table {
 			margin-top : 5px;
 			margin-right : 5px;
 			margin-bottom : 5px;
 			margin-lwft : 5px;
 		}
 		
-			
+	#pagebox{
+		width: 100%;
+		text-align: center;
+	}		
 </style>
 
 
@@ -92,7 +96,7 @@ function callFunction(){
 		<button onclick="callFunction();" class="btn btn-primary">글 등록</button>
 		</div>
 </c:if>
-<br><br><br><br><br><br><br><br> 
+
 
 <div id="pagebox" align="center">
 <a href="/intepark/nlist1.do?page=1"> |◁ </a> &nbsp;
