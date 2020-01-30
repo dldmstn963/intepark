@@ -32,13 +32,23 @@ function movelist(){
 
 </style>
 
+<!-- jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+
+<!-- Bootstrap CSS -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 
 
 </head>
 <body>
 <br><br><br><br><br><br><br><br><br><br>
 
-<h2 align="center">${ notice.noticeno }번 공지사항 게시글 수정하기</h2>
+<h4 align="center">${ notice.noticeno }번 공지사항 게시글 수정페이지</h4>
 <br>
 <br> 
 
@@ -47,10 +57,10 @@ function movelist(){
 <input type="hidden" name="page" value=" ${ currentPage }">
 <input type="hidden" name="noticeno" value="${ notice.noticeno }">
 
-<table>
+<table align="center">
 
-<tr><th>제목</th><td><input type="text" name="noticetitle" size="50"  value="${notice.noticetitle }"></td></tr>
-<tr><th>작성자</th><td><input type="text" name="writername" value="${loginUser.username }" readonly="readonly" ></td></tr>
+<tr><th>제목</th><td><input type="text" class="form-control" name="noticetitle" size="50"  value="${notice.noticetitle }"></td></tr>
+<tr><th>작성자</th><td><input type="text"  class="form-control" name="writername" value="${loginUser.username }" readonly="readonly" ></td></tr>
 <tr><th>파일첨부</th><td><input type="file" name="file" value="${notice.noticeoriginalfilename }"></td>
 
 <td>
@@ -68,7 +78,7 @@ function movelist(){
    </td>
 
 </tr>				   
-<tr><th>내용</th><td><textarea name="noticecontent" rows="5" cols="50" >${ notice.noticecontent }</textarea></td></tr>
+<tr><th>내용</th><td><textarea name="noticecontent" class="form-control" rows="5" cols="50" >${ notice.noticecontent }</textarea></td></tr>
 <tr><th colspan="2">
 	<input type="submit" value="수정하기"> &nbsp;
 	<input type="reset" value="초기화"> &nbsp;

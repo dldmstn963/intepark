@@ -47,7 +47,7 @@ function callFunction(){
 
 <br><br><br><br><br><br><br><br><br><br>
 
-<h4 align="center">공지 사항 <%= ((java.util.ArrayList<com.c4.intepark.notice.model.vo.Notice>)request.getAttribute("list")).size() %> 개</h4>
+<h4 align="center">안녕하세요 인테파크 공지 사항 입니다.</h4>
 <br>
 <div class="container">
     <div class="row"> 
