@@ -345,7 +345,7 @@ span.star-prototype > * {
 		              			
 		              		<c:forEach items="${ rvFile }" var="rvFile">
 	      						<c:if test="${review.rvnum eq rvFile.rvnum}">
-	      								<img src=" ${pageContext.request.contextPath }/resources/review_file/${rvFile.rvrename}" style="width: 100px; height: 100px;">
+	      								<img class="img" src=" ${pageContext.request.contextPath }/resources/review_file/${rvFile.rvrename}" style="width: 100px; height: 100px;">
 	      						</c:if>
 	      					</c:forEach>
 	      					
@@ -390,7 +390,7 @@ function clickimg(consid, pfnum){
 
 $(document).ready(function (e){
 	
-	$(document).on("click","img",function(){
+	$(document).on("click",".img",function(){
 		var path = $(this).attr('src')
 		showImage(path);
 		return false;
