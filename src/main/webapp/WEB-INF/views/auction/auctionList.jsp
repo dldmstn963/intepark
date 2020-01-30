@@ -101,8 +101,6 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     			var url = "auctionList2.do";
     			url = url + "?searchType=" + $('#searchType').val();
     			url = url + "&keyword=" + $('#keyword').val();
-    			url = url + "&searchType1=" + $('#searchType1').val();
-    			url = url + "&keyword1=" + $('#keyword1').val();
     			url = url + "&page1=" + $('#page1').val();
     			url = url + "&range1=" + $('#range1').val();
     			location.href = url;
@@ -111,9 +109,7 @@ function fn_prev1(page, range, rangeSize,page1,range1,rangeSize1,searchType,keyw
     	$(document).on('click', '#btnSearch1', function(e){
 			e.preventDefault();
 			var url = "auctionList2.do";
-			url = url + "?searchType=" + $('#searchType').val();
-			url = url + "&keyword=" + $('#keyword').val();
-			url = url + "&searchType1=" + $('#searchType1').val();
+			url = url + "?searchType1=" + $('#searchType1').val();
 			url = url + "&keyword1=" + $('#keyword1').val();
 			url = url + "&page=" + $('#page').val();
 			url = url + "&range=" + $('#range').val();
