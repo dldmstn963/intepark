@@ -23,7 +23,7 @@ var cons;
 var chatno;
 
 if(ws == undefined && sessionStorage){
-	ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
+	ws = new WebSocket("ws://192.168.20.29:8333/intepark/echo.do");
 }
 /* 서버로 메세지 보낼때 */
 ws.onopen = function(){

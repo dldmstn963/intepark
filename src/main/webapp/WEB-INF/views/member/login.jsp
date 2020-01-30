@@ -60,7 +60,7 @@
 									style="margin-top: 5px; margin-bottom: 5px; width: 100%;"
 									type="submit" value="로그인">
 							</form>
-							<a href="https://kauth.kakao.com/oauth/authorize?client_id=b85c92c001cadbd03510bbc4f0a84ff5&redirect_uri=http://localhost:8333/intepark/kakaoLogin.do&response_type=code">
+							<a href="https://kauth.kakao.com/oauth/authorize?client_id=b85c92c001cadbd03510bbc4f0a84ff5&redirect_uri=http://192.168.20.29:8333/intepark/kakaoLogin.do&response_type=code">
 							<img src="/intepark/resources/img/kakaoLogin.png" height="40px" width="100%"/></a>
 							<div style="width: 100%;">
 							<span style="float:left;">
