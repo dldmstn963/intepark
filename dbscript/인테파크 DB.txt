@@ -1529,7 +1529,8 @@ drop sequence goodsinquiryPICnum;
 CREATE SEQUENCE goodsinquiryPICnum;
 drop sequence goodsinquirynum;
 CREATE SEQUENCE goodsinquirynum;
-
+drop sequence DELIVERYLIST_SEQ;
+CREATE SEQUENCE DELIVERYLIST_SEQ;
 drop sequence ORDERS_SEQ;
 CREATE SEQUENCE ORDERS_SEQ;
 drop sequence REQUESTS_SEQ;
