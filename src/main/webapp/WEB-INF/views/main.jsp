@@ -37,7 +37,7 @@ $(function(){
 				values += "<div class='col-lg-3 col-md-6'><div class='cities_item'>"+
 					"<img class='img-fluid' style='width:263px; height:270px;'src='${pageContext.request.contextPath }/resources/albumImgs/"+json.list[i].albumimgroot+"/"+json.list[i].albumrenameimgname+"'alt=''>"+
 					"<a class='main_btn2' href='${pageContext.request.contextPath }/albumView.do?anum="+json.list[i].albumnum+"'>View Now</a>"+
-					"</div><p>"+json.list[i].userid+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+					"</div><p>"+json.list[i].userid+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 					"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회수:"+json.list[i].albumreadcount+"</p></div>"
 			}
 			$("#albumtop4").html(values);
