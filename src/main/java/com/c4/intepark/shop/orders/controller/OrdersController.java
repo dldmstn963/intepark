@@ -208,8 +208,8 @@ public class OrdersController {
 		request.setAttribute("list", list);
 		request.setAttribute("list2", list2);
 		request.setAttribute("orderprice", orderprice);
-		request.setAttribute("goodsnum", goodsnum);
-		request.setAttribute("quantity", quantity);
+		request.setAttribute("goodsnum", goodsnum[0]);
+		request.setAttribute("quantity", quantity[0]);
 		request.setAttribute("goodsprice", goodsprice);
 
 		return "shopping/shbasketcheckout";
