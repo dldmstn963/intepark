@@ -70,7 +70,7 @@ $(function(){
 	var sender = document.getElementById("sender").value;
 	var who = sender.split("/");
 	
-	ws = new WebSocket("ws://localhost:8333/intepark/echo.do");
+	ws = new WebSocket("ws://192.168.20.29:8333/intepark/echo.do");
 
 	/* 서버열릴때 */
 	ws.onopen = function(){

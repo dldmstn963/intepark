@@ -1,0 +1,253 @@
+# JUnit 테스트
+- JUnit 는 단위테스트 framework임. 
+- 오픈 소스임. jar 파일 1개임.
+- 플러그 인 형태로 이클립스에 포함되어 있음.
+- 사용법도 간단함
+- 테스트 결과를 확인하는 것 외에 최적화된 코드를 유추해내는 기능도 제공함.
+- 테스트 결과를 텍스트로 남기는 것이 아니라 Test 클래스로 남김
+- 콘솔에 출력된 결과를 눈으로 확인해야 하는 테스트 검증에 주로 사용 (gui, cli 제공)
+- main 메소드를 통해 직접 객체를 만들어 실행하는 테스트.
+
+JUnit 프레임워크를 이용하면 개발자가 만든 클래스에 대한 제어권을 넘겨받아 
+주도적으로 애플리케이션의 흐름을 제어한다.
+main 메소드, 객체를 직접 만들 필요가 없어진다.
+
+* 테스트할 메소드의 접근제한자는 public이어야함.
+* 테스타할 메소드에 @Test 어노테이션을 붙여준다.
+
+
+@pom.xml
+스프링 프로젝트 생성시 자동으로 dependency가 생성됨.
+
+    <!-- Test -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+
+
+@src/main/java/com.kh.first.test.junit.Calculator
+
+    public class Calculator {
+        
+        public int sum(int a, int b){
+            return a+b;
+        }
+
+        public int multiply(int a, int b) {
+            return a*b;
+        }
+    }
+
+@src/test/java/com.kh.first.test.junit.CalculatorTest
+src/test/java디렉토리에 동일한 패키지에 test하고자하는 클래스명+Test의 테스트클래스를 작성한다.
+
+해당클래스 선택후, 우클릭 - New - JUnit Test Case - source폴더 - src/test/java선택
+(기본값은 해당클래스와 동일한 경로에 `클래스명+Test`이름으로 테스트클래스를 생성함.)
+- next - 사용할 Calculator 클래스 체크함 - finish
+
+ 아래의 테스트용 코드 작성함 - save
+
+`Run As(Ctrl+F11) - JUnit Test`로 테스트실행(Alt+Shift+X, T)
+- JUnit view에서 성공/실패 여부 확인 (성공 : 초록색, 실패 : 빨간색)
+
+    private Calculator calc = new Calculator();
+	
+	@Test//단위테스트 메소드
+	public void sumTest(){
+		
+		int result = calc.sum(10, 20);
+		assertEquals(30, result);
+		//void org.junit.Assert.assertEquals(double expected, double actual, double delta)
+		//delta : 오차범위
+		assertEquals(30, result, 0);
+	}
+
+* `assertArrayEquals(a, b);`	배열 A와 B가 일치함을 확인한다.
+* `assertEquals(a, b);`	객체 A와 B가 일치함을 확인한다.
+* `assertEquals(expected, actual, delta);` assertEquals(예상값, 실제값, 허용오차)
+* `assertSame(a, b);`	객체 A와 B가 같은 객체임을 확인한다. 
+  assertEquals 메서드는 두 객체의 값이 같은가를 검사는데 반해 
+  assertSame메서드는 두 객체가 동일한가를 확인한다.(== 연산자)
+* `assertTrue(a);`	조건 A가 참인가를 확인한다.
+* `assertNotNull(a);`
+
+[Assert클래스 api](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
+
+메소드 추가
+
+    @Test//단위테스트 메소드
+	public void multiplyTest(){
+		System.out.println(calc);
+		
+		int result = calc.multiply(10, 20);
+		assertEquals(200, result);
+	}
+
+### 테스트객체 확인  -----------------------------------------------------
+
+@src/test/java/com.kh.spring.test.junit.CalculatorTest
+@sumTest
+
+    //[[2]]:테스트객체확인
+    System.out.println("calc@sumTest="+calc.hashCode());
+    System.out.println("CalculatorTest@sumTest="+this.hashCode());
+
+@multiplyTest
+
+    //[[2]]:테스트객체확인
+    System.out.println("calc@multiplyTest="+calc.hashCode());
+    System.out.println("CalculatorTest@multiplyTest="+this.hashCode());
+
+결과:매번 메소드마다 다른 객체를 생성해서 처리함. ------------------------
+- Console 뷰에서 확인
+
+    calc@sumTest=1637506559
+    CalculatorTest@sumTest=517380410
+
+    calc@multiplyTest=1232367853
+    CalculatorTest@multiplyTest=1673605040
+
+
+## 스프링테스트  ---------------------------------------------------------------------
+스프링에서 테스트는 싱글톤으로 사용되는 bean을 전제로 함. 
+같은 컨텍스트를 사용하겠음.
+
+@pom.xml
+의존 추가. 스프링프레임워크버젼(5.1.5.RELEASE)과 호환성때문에 
+junit도 버젼을 4.7로 설정한다.
+
+    <!-- Test -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.7</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- test관련 의존 설정 -->  
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${org.springframework-version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-library</artifactId>
+        <version>1.3</version>
+        <scope>test</scope>
+    </dependency>
+
+
+//------------------------------------------------------------------------------
+@src/test/java/com.kh.first.test.junit.SpringCalculatorTest1
+
+ContextConfiguration 어노테이션
+* XML 설정인 경우: value나 locations 속성 사용
+    * classpath 에서 context 설정파일 찾기
+    * /WEB-INF/spring/appServlet에서 설정파일 찾기
+* 자바 설정인 경우: classes 속성 사용
+
+RunWith 어노테이션
+* 스프링이 제공하는 JUnitRunner를 이용해서 테스트 실행
+* @ContextConfiguration의 설정 정보 이용해서 스프링 컨텍스트 생성
+* 테스트 클래스의 @Autowired, @Resource 등의 필드에 자동 주입 처리
+* 테스트 메서드 마다 컨텍스트를 생성하지 않도록 컨텍스트를 캐싱
+[주의 : library 는 spring-test 5.0.6 으로 지정할 것]
+
+이제 두 테스트메소드는 같은 context를 공유한다.
+
+    @RunWith(SpringJUnit4ClassRunner.class)
+    @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/appServlet/test-context.xml"})
+    //@ContextConfiguration("classpath:test-context.xml")
+    public class SpringCalculatorTest1 {
+        @Autowired
+        private Calculator calc;
+        
+        @Test//단위테스트 메소드
+        public void sumTest(){
+            
+            int result = calc.sum(10, 20);
+            assertEquals(30, result);
+            //void org.junit.Assert.assertEquals(double expected, double actual, double delta)
+            //delta : 오차범위
+            assertEquals(30, result, 0);
+            
+            //[[2]]:테스트객체확인
+            System.out.println("calc@sumTest="+calc.hashCode());
+            System.out.println("CalculatorTest@sumTest="+this.hashCode());
+        }
+        
+        @Test//단위테스트 메소드
+        public void multiplyTest(){
+            
+            int result = calc.multiply(10, 20);
+            assertEquals(200, result);
+            
+            //[[2]]:테스트객체확인
+            System.out.println("calc@multiplyTest="+calc.hashCode());
+            System.out.println("CalculatorTest@multiplyTest="+this.hashCode());
+        }
+    }
+
+결과 : 테스트성공. 같은 calc객체, 같은 context, 다른 CalculatorTest객체
+
+    calc@sumTest=1831477404
+    CalculatorTest@sumTest=1966250569
+    calc@multiplyTest=1831477404
+    CalculatorTest@multiplyTest=6750210
+
+
+## (참고)@ContextConfiguration어노테이션을 사용하지 않고, @BeforeClass를 이용한 초기화 방식
+@src/test/java/com.kh.first.test.junit.SpringCalculatorTest2
+RunWith, ContextConfiguration어노테이션 없이 구현한 예
+
+@src/test/java/com.kh.first.test.junit.SpringCalculatorTest2
+
+    public class SpringCalculatorTest2 {
+        private static AbstractApplicationContext context;
+        
+        @BeforeClass
+        public static void init(){
+            //설정파일경로 다음3가지 모두가능
+            context = new GenericXmlApplicationContext("test-context.xml");//classpath:test-context.xml
+    //		context = new GenericXmlApplicationContext("/test-context.xml");//classpath:test-context.xml
+    //		context = new GenericXmlApplicationContext("file:src/main/webapp/WEB-INF/spring/appServlet/test-context.xml");
+        }
+        
+        @AfterClass
+        public static void close(){
+            context.close();
+        }
+        
+        @Test//단위테스트 메소드
+        public void sumTest(){
+            Calculator calc = context.getBean(Calculator.class);
+            
+            int result = calc.sum(10, 20);
+            assertEquals(30, result);
+            //void org.junit.Assert.assertEquals(double expected, double actual, double delta)
+            //delta : 오차범위
+            assertEquals(30, result, 0);
+            
+            //[[2]]:테스트객체확인
+            System.out.println("calc@sumTest="+calc.hashCode());
+            System.out.println("CalculatorTest@sumTest="+this.hashCode());
+        }
+        
+        @Test//단위테스트 메소드
+        public void multiplyTest(){
+            Calculator calc = context.getBean(Calculator.class);
+            
+            int result = calc.multiply(10, 20);
+            assertEquals(200, result);
+            
+            //[[2]]:테스트객체확인
+            System.out.println("calc@multiplyTest="+calc.hashCode());
+            System.out.println("CalculatorTest@multiplyTest="+this.hashCode());
+        }
+    }
+
